@@ -1,0 +1,316 @@
+﻿using System;
+using ModIO;
+using TMPro;
+using UnityEngine;
+using UnityEngine.Events;
+
+// Token: 0x02000675 RID: 1653
+public class ModIOAccountLinkingTerminal : MonoBehaviour
+{
+	// Token: 0x060028F6 RID: 10486 RVA: 0x000C92E4 File Offset: 0x000C74E4
+	public void Start()
+	{
+		this.modioUsernameLabelText.gameObject.SetActive(false);
+		this.modioUsernameText.gameObject.SetActive(false);
+		this.loggingInText.gameObject.SetActive(false);
+		this.linkAccountPromptText.gameObject.SetActive(true);
+		this.linkAccountLabelText.gameObject.SetActive(false);
+		this.linkAccountURLLabelText.gameObject.SetActive(false);
+		this.linkAccountURLText.gameObject.SetActive(false);
+		this.linkAccountCodeLabelText.gameObject.SetActive(false);
+		this.linkAccountCodeText.gameObject.SetActive(false);
+		this.alreadyLinkedAccountText.gameObject.SetActive(false);
+		this.errorText.gameObject.SetActive(false);
+		GameEvents.OnModIOKeyboardButtonPressedEvent.AddListener(new UnityAction<ModIOKeyboardButton.ModIOKeyboardBindings>(ModIOAccountLinkingTerminal.PressButton));
+		GameEvents.OnModIOLoggedIn.AddListener(new UnityAction(this.OnModIOLoggedIn));
+		ModIOAccountLinkingTerminal.OnButtonPress.AddListener(new UnityAction(this.ResetScreen));
+	}
+
+	// Token: 0x060028F7 RID: 10487 RVA: 0x000C93F0 File Offset: 0x000C75F0
+	public void OnDestroy()
+	{
+		GameEvents.OnModIOKeyboardButtonPressedEvent.RemoveListener(new UnityAction<ModIOKeyboardButton.ModIOKeyboardBindings>(ModIOAccountLinkingTerminal.PressButton));
+		GameEvents.OnModIOLoggedIn.RemoveListener(new UnityAction(this.OnModIOLoggedIn));
+		ModIOAccountLinkingTerminal.OnButtonPress.RemoveListener(new UnityAction(this.ResetScreen));
+	}
+
+	// Token: 0x060028F8 RID: 10488 RVA: 0x000C943F File Offset: 0x000C763F
+	public void OnModIOLoggedIn()
+	{
+		if (!this.isLoggedIn)
+		{
+			ModIOUnity.GetCurrentUser(delegate(ResultAnd<UserProfile> result)
+			{
+				if (!result.result.Succeeded())
+				{
+					return;
+				}
+				this.isLoggedIn = true;
+				this.errorText.gameObject.SetActive(false);
+				this.loggingInText.gameObject.SetActive(false);
+				this.linkAccountLabelText.gameObject.SetActive(false);
+				this.linkAccountURLLabelText.gameObject.SetActive(false);
+				this.linkAccountURLText.gameObject.SetActive(false);
+				this.linkAccountCodeLabelText.gameObject.SetActive(false);
+				this.linkAccountCodeText.gameObject.SetActive(false);
+				this.linkAccountPromptText.gameObject.SetActive(false);
+				this.alreadyLinkedAccountText.gameObject.SetActive(false);
+				this.linkAccountCodeText.text = "";
+				this.linkAccountURLText.text = "";
+				this.errorText.text = "";
+				this.modioUsernameText.text = result.value.username;
+				this.modioUsernameLabelText.gameObject.SetActive(true);
+				this.modioUsernameText.gameObject.SetActive(true);
+				if (ModIODataStore.GetLastAuthMethod() != ModIODataStore.ModIOAuthMethod.LinkedAccount)
+				{
+					this.linkAccountPromptText.gameObject.SetActive(true);
+				}
+				else
+				{
+					this.alreadyLinkedAccountText.gameObject.SetActive(true);
+				}
+				GameEvents.OnModIOLoggedOut.AddListener(new UnityAction(this.OnModIOLoggedOut));
+				this.processingAccountLink = false;
+			}, false);
+		}
+	}
+
+	// Token: 0x060028F9 RID: 10489 RVA: 0x000C945C File Offset: 0x000C765C
+	private void OnModIOLoggedOut()
+	{
+		if (this.isLoggedIn)
+		{
+			this.isLoggedIn = false;
+			this.processingAccountLink = false;
+			ModIODataStore.CancelExternalAuthentication();
+			this.modioUsernameLabelText.gameObject.SetActive(false);
+			this.modioUsernameText.gameObject.SetActive(false);
+			this.modioUsernameText.text = "";
+			this.loggingInText.gameObject.SetActive(false);
+			this.errorText.gameObject.SetActive(false);
+			this.linkAccountLabelText.gameObject.SetActive(false);
+			this.linkAccountURLLabelText.gameObject.SetActive(false);
+			this.linkAccountURLText.gameObject.SetActive(false);
+			this.linkAccountCodeLabelText.gameObject.SetActive(false);
+			this.linkAccountCodeText.gameObject.SetActive(false);
+			this.linkAccountPromptText.gameObject.SetActive(false);
+			this.alreadyLinkedAccountText.gameObject.SetActive(false);
+			this.linkAccountPromptText.gameObject.SetActive(true);
+		}
+	}
+
+	// Token: 0x060028FA RID: 10490 RVA: 0x000C9564 File Offset: 0x000C7764
+	private static void PressButton(ModIOKeyboardButton.ModIOKeyboardBindings pressedButton)
+	{
+		if (pressedButton == ModIOKeyboardButton.ModIOKeyboardBindings.option2)
+		{
+			if (ModIODataStore.IsLoggedIn())
+			{
+				ModIODataStore.LogoutFromModIO();
+			}
+			else
+			{
+				UnityEvent onButtonPress = ModIOAccountLinkingTerminal.OnButtonPress;
+				if (onButtonPress != null)
+				{
+					onButtonPress.Invoke();
+				}
+			}
+		}
+		if (pressedButton == ModIOKeyboardButton.ModIOKeyboardBindings.option4)
+		{
+			if (!ModIODataStore.IsLoggedIn())
+			{
+				ModIODataStore.CancelExternalAuthentication();
+				ModIODataStore.RequestPlatformLogin(null);
+				return;
+			}
+			UnityEvent onButtonPress2 = ModIOAccountLinkingTerminal.OnButtonPress;
+			if (onButtonPress2 == null)
+			{
+				return;
+			}
+			onButtonPress2.Invoke();
+		}
+	}
+
+	// Token: 0x060028FB RID: 10491 RVA: 0x000C95BB File Offset: 0x000C77BB
+	public void LinkButtonPressed()
+	{
+		if (!this.processingAccountLink)
+		{
+			this.processingAccountLink = true;
+			ModIODataStore.IsAuthenticated(delegate(Result result)
+			{
+				if (result.Succeeded())
+				{
+					if (ModIODataStore.GetLastAuthMethod() == ModIODataStore.ModIOAuthMethod.LinkedAccount)
+					{
+						this.processingAccountLink = false;
+						this.alreadyLinkedAccountText.gameObject.SetActive(true);
+						this.linkAccountPromptText.gameObject.SetActive(false);
+						return;
+					}
+					GameEvents.OnModIOLoggedOut.RemoveListener(new UnityAction(this.OnModIOLoggedOut));
+					ModIODataStore.LogoutFromModIO();
+					this.isLoggedIn = false;
+				}
+				this.errorText.gameObject.SetActive(false);
+				this.errorText.text = "";
+				this.modioUsernameLabelText.gameObject.SetActive(false);
+				this.modioUsernameText.gameObject.SetActive(false);
+				this.modioUsernameText.text = "";
+				ModIODataStore.RequestAccountLinkCode(delegate(ModIORequestResult result, string linkURL, string linkCode)
+				{
+					this.linkAccountPromptText.gameObject.SetActive(false);
+					this.linkAccountLabelText.gameObject.SetActive(true);
+					this.linkAccountURLLabelText.gameObject.SetActive(true);
+					this.linkAccountURLText.text = linkURL;
+					this.linkAccountURLText.gameObject.SetActive(true);
+					this.linkAccountCodeLabelText.gameObject.SetActive(true);
+					this.linkAccountCodeText.text = linkCode;
+					this.linkAccountCodeText.gameObject.SetActive(true);
+				}, delegate(ModIORequestResult result)
+				{
+					if (!result.success)
+					{
+						this.linkAccountLabelText.gameObject.SetActive(false);
+						this.linkAccountURLLabelText.gameObject.SetActive(false);
+						this.linkAccountURLText.gameObject.SetActive(false);
+						this.linkAccountCodeLabelText.gameObject.SetActive(false);
+						this.linkAccountCodeText.gameObject.SetActive(false);
+						this.linkAccountCodeText.text = "";
+						this.linkAccountURLText.text = "";
+						this.errorText.text = "Failed to authorize with Mod.io. Error:\n " + result.message + "\n\n Press the LINK button to try again.";
+						this.errorText.gameObject.SetActive(true);
+						this.processingAccountLink = false;
+					}
+				});
+			});
+			return;
+		}
+		this.ResetScreen();
+	}
+
+	// Token: 0x060028FC RID: 10492 RVA: 0x000C95E4 File Offset: 0x000C77E4
+	public void NotifyLoggingIn()
+	{
+		ModIODataStore.CancelExternalAuthentication();
+		this.modioUsernameLabelText.gameObject.SetActive(false);
+		this.modioUsernameText.gameObject.SetActive(false);
+		this.linkAccountPromptText.gameObject.SetActive(false);
+		this.linkAccountLabelText.gameObject.SetActive(false);
+		this.linkAccountURLLabelText.gameObject.SetActive(false);
+		this.linkAccountURLText.gameObject.SetActive(false);
+		this.linkAccountCodeLabelText.gameObject.SetActive(false);
+		this.linkAccountCodeText.gameObject.SetActive(false);
+		this.alreadyLinkedAccountText.gameObject.SetActive(false);
+		this.errorText.text = "";
+		this.errorText.gameObject.SetActive(false);
+		this.loggingInText.gameObject.SetActive(true);
+	}
+
+	// Token: 0x060028FD RID: 10493 RVA: 0x000C96C4 File Offset: 0x000C78C4
+	public void DisplayLoginError(string errorMessage)
+	{
+		ModIODataStore.CancelExternalAuthentication();
+		this.modioUsernameLabelText.gameObject.SetActive(false);
+		this.modioUsernameText.gameObject.SetActive(false);
+		this.loggingInText.gameObject.SetActive(false);
+		this.linkAccountPromptText.gameObject.SetActive(false);
+		this.linkAccountLabelText.gameObject.SetActive(false);
+		this.linkAccountURLLabelText.gameObject.SetActive(false);
+		this.linkAccountURLText.gameObject.SetActive(false);
+		this.linkAccountCodeLabelText.gameObject.SetActive(false);
+		this.linkAccountCodeText.gameObject.SetActive(false);
+		this.alreadyLinkedAccountText.gameObject.SetActive(false);
+		this.errorText.text = errorMessage;
+		this.errorText.gameObject.SetActive(true);
+	}
+
+	// Token: 0x060028FE RID: 10494 RVA: 0x000C97A0 File Offset: 0x000C79A0
+	private void ResetScreen()
+	{
+		this.processingAccountLink = false;
+		ModIODataStore.CancelExternalAuthentication();
+		if (this.isLoggedIn)
+		{
+			this.modioUsernameLabelText.gameObject.SetActive(true);
+			this.modioUsernameText.gameObject.SetActive(true);
+		}
+		else
+		{
+			this.modioUsernameLabelText.gameObject.SetActive(false);
+			this.modioUsernameText.gameObject.SetActive(false);
+			this.modioUsernameText.text = "";
+		}
+		this.loggingInText.gameObject.SetActive(false);
+		this.errorText.gameObject.SetActive(false);
+		this.linkAccountLabelText.gameObject.SetActive(false);
+		this.linkAccountURLLabelText.gameObject.SetActive(false);
+		this.linkAccountURLText.gameObject.SetActive(false);
+		this.linkAccountCodeLabelText.gameObject.SetActive(false);
+		this.linkAccountCodeText.gameObject.SetActive(false);
+		this.linkAccountPromptText.gameObject.SetActive(false);
+		this.alreadyLinkedAccountText.gameObject.SetActive(false);
+		if (ModIODataStore.GetLastAuthMethod() != ModIODataStore.ModIOAuthMethod.LinkedAccount)
+		{
+			this.linkAccountPromptText.gameObject.SetActive(true);
+			return;
+		}
+		this.alreadyLinkedAccountText.gameObject.SetActive(true);
+	}
+
+	// Token: 0x04002E01 RID: 11777
+	[SerializeField]
+	private TMP_Text modioUsernameLabelText;
+
+	// Token: 0x04002E02 RID: 11778
+	[SerializeField]
+	private TMP_Text modioUsernameText;
+
+	// Token: 0x04002E03 RID: 11779
+	[SerializeField]
+	private TMP_Text linkAccountPromptText;
+
+	// Token: 0x04002E04 RID: 11780
+	[SerializeField]
+	private TMP_Text alreadyLinkedAccountText;
+
+	// Token: 0x04002E05 RID: 11781
+	[SerializeField]
+	private TMP_Text linkAccountLabelText;
+
+	// Token: 0x04002E06 RID: 11782
+	[SerializeField]
+	private TMP_Text linkAccountURLLabelText;
+
+	// Token: 0x04002E07 RID: 11783
+	[SerializeField]
+	private TMP_Text linkAccountURLText;
+
+	// Token: 0x04002E08 RID: 11784
+	[SerializeField]
+	private TMP_Text linkAccountCodeLabelText;
+
+	// Token: 0x04002E09 RID: 11785
+	[SerializeField]
+	private TMP_Text linkAccountCodeText;
+
+	// Token: 0x04002E0A RID: 11786
+	[SerializeField]
+	private TMP_Text loggingInText;
+
+	// Token: 0x04002E0B RID: 11787
+	[SerializeField]
+	private TMP_Text errorText;
+
+	// Token: 0x04002E0C RID: 11788
+	private bool processingAccountLink;
+
+	// Token: 0x04002E0D RID: 11789
+	private bool isLoggedIn;
+
+	// Token: 0x04002E0E RID: 11790
+	private static UnityEvent OnButtonPress = new UnityEvent();
+}

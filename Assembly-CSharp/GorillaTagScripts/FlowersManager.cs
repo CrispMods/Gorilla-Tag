@@ -1,0 +1,300 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Fusion;
+using Photon.Pun;
+using UnityEngine;
+
+namespace GorillaTagScripts
+{
+	// Token: 0x020009B3 RID: 2483
+	[NetworkBehaviourWeaved(13)]
+	public class FlowersManager : NetworkComponent
+	{
+		// Token: 0x17000639 RID: 1593
+		// (get) Token: 0x06003D87 RID: 15751 RVA: 0x001229D1 File Offset: 0x00120BD1
+		// (set) Token: 0x06003D88 RID: 15752 RVA: 0x001229D8 File Offset: 0x00120BD8
+		public static FlowersManager Instance { get; private set; }
+
+		// Token: 0x06003D89 RID: 15753 RVA: 0x001229E0 File Offset: 0x00120BE0
+		protected override void Awake()
+		{
+			base.Awake();
+			FlowersManager.Instance = this;
+			this.hitNotifiers = base.GetComponentsInChildren<SlingshotProjectileHitNotifier>();
+			foreach (SlingshotProjectileHitNotifier slingshotProjectileHitNotifier in this.hitNotifiers)
+			{
+				if (slingshotProjectileHitNotifier != null)
+				{
+					slingshotProjectileHitNotifier.OnProjectileTriggerEnter += this.ProjectileHitReceiver;
+				}
+				else
+				{
+					Debug.LogError("Needs SlingshotProjectileHitNotifier added to this GameObject children");
+				}
+			}
+			foreach (FlowersManager.FlowersInZone flowersInZone in this.sections)
+			{
+				foreach (GameObject gameObject in flowersInZone.sections)
+				{
+					this.sectionToZonesDict[gameObject] = flowersInZone.zone;
+					Flower[] componentsInChildren = gameObject.GetComponentsInChildren<Flower>();
+					this.allFlowers.AddRange(componentsInChildren);
+					this.sectionToFlowersDict[gameObject] = componentsInChildren.ToList<Flower>();
+				}
+			}
+		}
+
+		// Token: 0x06003D8A RID: 15754 RVA: 0x00122B04 File Offset: 0x00120D04
+		private new void Start()
+		{
+			NetworkSystem.Instance.RegisterSceneNetworkItem(base.gameObject);
+			ZoneManagement instance = ZoneManagement.instance;
+			instance.onZoneChanged = (Action)Delegate.Combine(instance.onZoneChanged, new Action(this.HandleOnZoneChanged));
+			if (base.IsMine)
+			{
+				foreach (Flower flower in this.allFlowers)
+				{
+					flower.UpdateFlowerState(Flower.FlowerState.Healthy, false, false);
+				}
+			}
+		}
+
+		// Token: 0x06003D8B RID: 15755 RVA: 0x00122B98 File Offset: 0x00120D98
+		private void OnDestroy()
+		{
+			NetworkBehaviourUtils.InternalOnDestroy(this);
+			foreach (SlingshotProjectileHitNotifier slingshotProjectileHitNotifier in this.hitNotifiers)
+			{
+				if (slingshotProjectileHitNotifier != null)
+				{
+					slingshotProjectileHitNotifier.OnProjectileTriggerEnter -= this.ProjectileHitReceiver;
+				}
+			}
+			FlowersManager.Instance = null;
+			ZoneManagement instance = ZoneManagement.instance;
+			instance.onZoneChanged = (Action)Delegate.Remove(instance.onZoneChanged, new Action(this.HandleOnZoneChanged));
+		}
+
+		// Token: 0x06003D8C RID: 15756 RVA: 0x00122C0B File Offset: 0x00120E0B
+		private void ProjectileHitReceiver(SlingshotProjectile projectile, Collider collider)
+		{
+			if (!projectile.CompareTag("WaterBalloonProjectile"))
+			{
+				return;
+			}
+			this.WaterFlowers(collider);
+		}
+
+		// Token: 0x06003D8D RID: 15757 RVA: 0x00122C24 File Offset: 0x00120E24
+		private void WaterFlowers(Collider collider)
+		{
+			if (!base.IsMine)
+			{
+				return;
+			}
+			GameObject gameObject = collider.gameObject;
+			if (gameObject == null)
+			{
+				Debug.LogError("Could not find any flowers section");
+				return;
+			}
+			foreach (Flower flower in this.sectionToFlowersDict[gameObject])
+			{
+				flower.WaterFlower(true);
+			}
+		}
+
+		// Token: 0x06003D8E RID: 15758 RVA: 0x00122CA0 File Offset: 0x00120EA0
+		private void HandleOnZoneChanged()
+		{
+			foreach (KeyValuePair<GameObject, GTZone> keyValuePair in this.sectionToZonesDict)
+			{
+				bool enable = ZoneManagement.instance.IsZoneActive(keyValuePair.Value);
+				foreach (Flower flower in this.sectionToFlowersDict[keyValuePair.Key])
+				{
+					flower.UpdateVisuals(enable);
+				}
+			}
+		}
+
+		// Token: 0x06003D8F RID: 15759 RVA: 0x00122D4C File Offset: 0x00120F4C
+		public int GetHealthyFlowersInZoneCount(GTZone zone)
+		{
+			int num = 0;
+			foreach (KeyValuePair<GameObject, GTZone> keyValuePair in this.sectionToZonesDict)
+			{
+				if (keyValuePair.Value == zone)
+				{
+					using (List<Flower>.Enumerator enumerator2 = this.sectionToFlowersDict[keyValuePair.Key].GetEnumerator())
+					{
+						while (enumerator2.MoveNext())
+						{
+							if (enumerator2.Current.GetCurrentState() == Flower.FlowerState.Healthy)
+							{
+								num++;
+							}
+						}
+					}
+				}
+			}
+			return num;
+		}
+
+		// Token: 0x06003D90 RID: 15760 RVA: 0x00122DF8 File Offset: 0x00120FF8
+		protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
+		{
+			if (info.Sender != PhotonNetwork.MasterClient)
+			{
+				return;
+			}
+			stream.SendNext(this.allFlowers.Count);
+			for (int i = 0; i < this.allFlowers.Count; i++)
+			{
+				stream.SendNext(this.allFlowers[i].IsWatered);
+				stream.SendNext(this.allFlowers[i].GetCurrentState());
+			}
+		}
+
+		// Token: 0x06003D91 RID: 15761 RVA: 0x00122E78 File Offset: 0x00121078
+		protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
+		{
+			if (info.Sender != PhotonNetwork.MasterClient)
+			{
+				return;
+			}
+			int num = (int)stream.ReceiveNext();
+			for (int i = 0; i < num; i++)
+			{
+				bool isWatered = (bool)stream.ReceiveNext();
+				Flower.FlowerState currentState = this.allFlowers[i].GetCurrentState();
+				Flower.FlowerState flowerState = (Flower.FlowerState)stream.ReceiveNext();
+				if (currentState != flowerState)
+				{
+					this.allFlowers[i].UpdateFlowerState(flowerState, isWatered, true);
+				}
+			}
+		}
+
+		// Token: 0x1700063A RID: 1594
+		// (get) Token: 0x06003D92 RID: 15762 RVA: 0x00122EEB File Offset: 0x001210EB
+		// (set) Token: 0x06003D93 RID: 15763 RVA: 0x00122F15 File Offset: 0x00121115
+		[Networked]
+		[NetworkedWeaved(0, 13)]
+		private unsafe FlowersDataStruct Data
+		{
+			get
+			{
+				if (this.Ptr == null)
+				{
+					throw new InvalidOperationException("Error when accessing FlowersManager.Data. Networked properties can only be accessed when Spawned() has been called.");
+				}
+				return *(FlowersDataStruct*)(this.Ptr + 0);
+			}
+			set
+			{
+				if (this.Ptr == null)
+				{
+					throw new InvalidOperationException("Error when accessing FlowersManager.Data. Networked properties can only be accessed when Spawned() has been called.");
+				}
+				*(FlowersDataStruct*)(this.Ptr + 0) = value;
+			}
+		}
+
+		// Token: 0x06003D94 RID: 15764 RVA: 0x00122F40 File Offset: 0x00121140
+		public override void WriteDataFusion()
+		{
+			if (base.HasStateAuthority)
+			{
+				this.Data = new FlowersDataStruct(this.allFlowers);
+			}
+		}
+
+		// Token: 0x06003D95 RID: 15765 RVA: 0x00122F5C File Offset: 0x0012115C
+		public override void ReadDataFusion()
+		{
+			if (this.Data.FlowerCount > 0)
+			{
+				for (int i = 0; i < this.Data.FlowerCount; i++)
+				{
+					bool isWatered = this.Data.FlowerWateredData[i] == 1;
+					Flower.FlowerState currentState = this.allFlowers[i].GetCurrentState();
+					Flower.FlowerState flowerState = (Flower.FlowerState)this.Data.FlowerStateData[i];
+					if (currentState != flowerState)
+					{
+						this.allFlowers[i].UpdateFlowerState(flowerState, isWatered, true);
+					}
+				}
+			}
+		}
+
+		// Token: 0x06003D96 RID: 15766 RVA: 0x00122FF4 File Offset: 0x001211F4
+		private void Update()
+		{
+			int num = this.flowerCheckIndex + 1;
+			while (num < this.allFlowers.Count && num < this.flowerCheckIndex + this.flowersToCheck)
+			{
+				this.allFlowers[num].AnimCatch();
+				num++;
+			}
+			this.flowerCheckIndex = ((this.flowerCheckIndex + this.flowersToCheck >= this.allFlowers.Count) ? 0 : (this.flowerCheckIndex + this.flowersToCheck));
+		}
+
+		// Token: 0x06003D98 RID: 15768 RVA: 0x0012309F File Offset: 0x0012129F
+		[WeaverGenerated]
+		public override void CopyBackingFieldsToState(bool A_1)
+		{
+			base.CopyBackingFieldsToState(A_1);
+			this.Data = this._Data;
+		}
+
+		// Token: 0x06003D99 RID: 15769 RVA: 0x001230B7 File Offset: 0x001212B7
+		[WeaverGenerated]
+		public override void CopyStateToBackingFields()
+		{
+			base.CopyStateToBackingFields();
+			this._Data = this.Data;
+		}
+
+		// Token: 0x04003EEA RID: 16106
+		public List<FlowersManager.FlowersInZone> sections;
+
+		// Token: 0x04003EEB RID: 16107
+		public int flowersToCheck = 1;
+
+		// Token: 0x04003EEC RID: 16108
+		public int flowerCheckIndex;
+
+		// Token: 0x04003EED RID: 16109
+		private readonly List<Flower> allFlowers = new List<Flower>();
+
+		// Token: 0x04003EEE RID: 16110
+		private SlingshotProjectileHitNotifier[] hitNotifiers;
+
+		// Token: 0x04003EEF RID: 16111
+		private readonly Dictionary<GameObject, List<Flower>> sectionToFlowersDict = new Dictionary<GameObject, List<Flower>>();
+
+		// Token: 0x04003EF0 RID: 16112
+		private readonly Dictionary<GameObject, GTZone> sectionToZonesDict = new Dictionary<GameObject, GTZone>();
+
+		// Token: 0x04003EF1 RID: 16113
+		private bool hasBeenSerialized;
+
+		// Token: 0x04003EF2 RID: 16114
+		[WeaverGenerated]
+		[DefaultForProperty("Data", 0, 13)]
+		[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
+		private FlowersDataStruct _Data;
+
+		// Token: 0x020009B4 RID: 2484
+		[Serializable]
+		public class FlowersInZone
+		{
+			// Token: 0x04003EF3 RID: 16115
+			public GTZone zone;
+
+			// Token: 0x04003EF4 RID: 16116
+			public List<GameObject> sections;
+		}
+	}
+}
