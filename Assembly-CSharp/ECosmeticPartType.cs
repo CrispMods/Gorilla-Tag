@@ -1,16 +1,16 @@
 ﻿using System;
 
-// Token: 0x02000186 RID: 390
+// Token: 0x02000191 RID: 401
 public enum ECosmeticPartType
 {
-	// Token: 0x04000BD3 RID: 3027
+	// Token: 0x04000C19 RID: 3097
 	Holdable,
-	// Token: 0x04000BD4 RID: 3028
+	// Token: 0x04000C1A RID: 3098
 	Functional,
-	// Token: 0x04000BD5 RID: 3029
+	// Token: 0x04000C1B RID: 3099
 	Wardrobe,
-	// Token: 0x04000BD6 RID: 3030
+	// Token: 0x04000C1C RID: 3100
 	Store,
-	// Token: 0x04000BD7 RID: 3031
+	// Token: 0x04000C1D RID: 3101
 	FirstPerson
 }

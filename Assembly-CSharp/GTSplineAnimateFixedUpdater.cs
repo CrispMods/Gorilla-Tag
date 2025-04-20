@@ -4,11 +4,11 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Splines;
 
-// Token: 0x020001BD RID: 445
+// Token: 0x020001C8 RID: 456
 [NetworkBehaviourWeaved(1)]
 public class GTSplineAnimateFixedUpdater : NetworkComponent
 {
-	// Token: 0x06000A78 RID: 2680 RVA: 0x0003924B File Offset: 0x0003744B
+	// Token: 0x06000AC4 RID: 2756 RVA: 0x00037878 File Offset: 0x00035A78
 	protected override void Awake()
 	{
 		base.Awake();
@@ -16,7 +16,7 @@ public class GTSplineAnimateFixedUpdater : NetworkComponent
 		this.splineAnimateRef.AddCallbackOnUnload(new Action(this.ClearSplineAnimate));
 	}
 
-	// Token: 0x06000A79 RID: 2681 RVA: 0x00039281 File Offset: 0x00037481
+	// Token: 0x06000AC5 RID: 2757 RVA: 0x000378AE File Offset: 0x00035AAE
 	private void InitSplineAnimate()
 	{
 		this.isSplineLoaded = this.splineAnimateRef.TryResolve<SplineAnimate>(out this.splineAnimate);
@@ -26,14 +26,14 @@ public class GTSplineAnimateFixedUpdater : NetworkComponent
 		}
 	}
 
-	// Token: 0x06000A7A RID: 2682 RVA: 0x000392AE File Offset: 0x000374AE
+	// Token: 0x06000AC6 RID: 2758 RVA: 0x000378DB File Offset: 0x00035ADB
 	private void ClearSplineAnimate()
 	{
 		this.splineAnimate = null;
 		this.isSplineLoaded = false;
 	}
 
-	// Token: 0x06000A7B RID: 2683 RVA: 0x000392C0 File Offset: 0x000374C0
+	// Token: 0x06000AC7 RID: 2759 RVA: 0x00098BA0 File Offset: 0x00096DA0
 	private void FixedUpdate()
 	{
 		if (!base.IsMine && this.progressLerpStartTime + 1f > Time.time)
@@ -55,9 +55,9 @@ public class GTSplineAnimateFixedUpdater : NetworkComponent
 		}
 	}
 
-	// Token: 0x1700010E RID: 270
-	// (get) Token: 0x06000A7C RID: 2684 RVA: 0x00039375 File Offset: 0x00037575
-	// (set) Token: 0x06000A7D RID: 2685 RVA: 0x0003939B File Offset: 0x0003759B
+	// Token: 0x17000115 RID: 277
+	// (get) Token: 0x06000AC8 RID: 2760 RVA: 0x000378EB File Offset: 0x00035AEB
+	// (set) Token: 0x06000AC9 RID: 2761 RVA: 0x00037911 File Offset: 0x00035B11
 	[Networked]
 	[NetworkedWeaved(0, 1)]
 	public unsafe float Netdata
@@ -80,19 +80,19 @@ public class GTSplineAnimateFixedUpdater : NetworkComponent
 		}
 	}
 
-	// Token: 0x06000A7E RID: 2686 RVA: 0x000393C2 File Offset: 0x000375C2
+	// Token: 0x06000ACA RID: 2762 RVA: 0x00037938 File Offset: 0x00035B38
 	public override void WriteDataFusion()
 	{
 		this.Netdata = this.progress + 1f;
 	}
 
-	// Token: 0x06000A7F RID: 2687 RVA: 0x000393D6 File Offset: 0x000375D6
+	// Token: 0x06000ACB RID: 2763 RVA: 0x0003794C File Offset: 0x00035B4C
 	public override void ReadDataFusion()
 	{
 		this.SharedReadData(this.Netdata);
 	}
 
-	// Token: 0x06000A80 RID: 2688 RVA: 0x000393E4 File Offset: 0x000375E4
+	// Token: 0x06000ACC RID: 2764 RVA: 0x0003795A File Offset: 0x00035B5A
 	protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (!info.Sender.IsMasterClient)
@@ -102,7 +102,7 @@ public class GTSplineAnimateFixedUpdater : NetworkComponent
 		stream.SendNext(this.progress + 1f);
 	}
 
-	// Token: 0x06000A81 RID: 2689 RVA: 0x0003940C File Offset: 0x0003760C
+	// Token: 0x06000ACD RID: 2765 RVA: 0x00098C58 File Offset: 0x00096E58
 	protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (!info.Sender.IsMasterClient)
@@ -113,7 +113,7 @@ public class GTSplineAnimateFixedUpdater : NetworkComponent
 		this.SharedReadData(incomingValue);
 	}
 
-	// Token: 0x06000A82 RID: 2690 RVA: 0x0003943C File Offset: 0x0003763C
+	// Token: 0x06000ACE RID: 2766 RVA: 0x00098C88 File Offset: 0x00096E88
 	private void SharedReadData(float incomingValue)
 	{
 		if (float.IsNaN(incomingValue) || incomingValue > this.Duration + 1f || incomingValue < 0f)
@@ -136,7 +136,7 @@ public class GTSplineAnimateFixedUpdater : NetworkComponent
 		this.progressLerpStartTime = Time.time;
 	}
 
-	// Token: 0x06000A84 RID: 2692 RVA: 0x000394CB File Offset: 0x000376CB
+	// Token: 0x06000AD0 RID: 2768 RVA: 0x00037981 File Offset: 0x00035B81
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -144,7 +144,7 @@ public class GTSplineAnimateFixedUpdater : NetworkComponent
 		this.Netdata = this._Netdata;
 	}
 
-	// Token: 0x06000A85 RID: 2693 RVA: 0x000394E3 File Offset: 0x000376E3
+	// Token: 0x06000AD1 RID: 2769 RVA: 0x00037999 File Offset: 0x00035B99
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -152,36 +152,36 @@ public class GTSplineAnimateFixedUpdater : NetworkComponent
 		this._Netdata = this.Netdata;
 	}
 
-	// Token: 0x04000CC9 RID: 3273
+	// Token: 0x04000D0F RID: 3343
 	[SerializeField]
 	private XSceneRef splineAnimateRef;
 
-	// Token: 0x04000CCA RID: 3274
+	// Token: 0x04000D10 RID: 3344
 	[SerializeField]
 	private float Duration;
 
-	// Token: 0x04000CCB RID: 3275
+	// Token: 0x04000D11 RID: 3345
 	private SplineAnimate splineAnimate;
 
-	// Token: 0x04000CCC RID: 3276
+	// Token: 0x04000D12 RID: 3346
 	private bool isSplineLoaded;
 
-	// Token: 0x04000CCD RID: 3277
+	// Token: 0x04000D13 RID: 3347
 	private float progress;
 
-	// Token: 0x04000CCE RID: 3278
+	// Token: 0x04000D14 RID: 3348
 	private float progressLerpStart;
 
-	// Token: 0x04000CCF RID: 3279
+	// Token: 0x04000D15 RID: 3349
 	private float progressLerpEnd;
 
-	// Token: 0x04000CD0 RID: 3280
+	// Token: 0x04000D16 RID: 3350
 	private const float progressLerpDuration = 1f;
 
-	// Token: 0x04000CD1 RID: 3281
+	// Token: 0x04000D17 RID: 3351
 	private float progressLerpStartTime;
 
-	// Token: 0x04000CD2 RID: 3282
+	// Token: 0x04000D18 RID: 3352
 	[WeaverGenerated]
 	[SerializeField]
 	[DefaultForProperty("Netdata", 0, 1)]

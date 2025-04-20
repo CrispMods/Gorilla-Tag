@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A3F RID: 2623
+	// Token: 0x02000A6C RID: 2668
 	[RequireComponent(typeof(Rigidbody))]
 	public class DistanceGrabber : OVRGrabber
 	{
-		// Token: 0x17000690 RID: 1680
-		// (get) Token: 0x06004161 RID: 16737 RVA: 0x00135CE6 File Offset: 0x00133EE6
-		// (set) Token: 0x06004162 RID: 16738 RVA: 0x00135CEE File Offset: 0x00133EEE
+		// Token: 0x170006AC RID: 1708
+		// (get) Token: 0x060042A6 RID: 17062 RVA: 0x0005B8A9 File Offset: 0x00059AA9
+		// (set) Token: 0x060042A7 RID: 17063 RVA: 0x0005B8B1 File Offset: 0x00059AB1
 		public bool UseSpherecast
 		{
 			get
@@ -23,7 +23,7 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x06004163 RID: 16739 RVA: 0x00135D08 File Offset: 0x00133F08
+		// Token: 0x060042A8 RID: 17064 RVA: 0x00175C88 File Offset: 0x00173E88
 		protected override void Start()
 		{
 			base.Start();
@@ -41,7 +41,7 @@ namespace OculusSampleFramework
 				Debug.LogError("m_parentHeldObject incompatible with DistanceGrabber. Setting to false.");
 				this.m_parentHeldObject = false;
 			}
-			DistanceGrabber[] array = Object.FindObjectsOfType<DistanceGrabber>();
+			DistanceGrabber[] array = UnityEngine.Object.FindObjectsOfType<DistanceGrabber>();
 			for (int i = 0; i < array.Length; i++)
 			{
 				if (array[i] != this)
@@ -51,7 +51,7 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x06004164 RID: 16740 RVA: 0x00135DA4 File Offset: 0x00133FA4
+		// Token: 0x060042A9 RID: 17065 RVA: 0x00175D24 File Offset: 0x00173F24
 		public override void Update()
 		{
 			base.Update();
@@ -74,7 +74,7 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x06004165 RID: 16741 RVA: 0x00135E4C File Offset: 0x0013404C
+		// Token: 0x060042AA RID: 17066 RVA: 0x00175DCC File Offset: 0x00173FCC
 		protected override void GrabBegin()
 		{
 			DistanceGrabbable target = this.m_target;
@@ -121,7 +121,7 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x06004166 RID: 16742 RVA: 0x00136064 File Offset: 0x00134264
+		// Token: 0x060042AB RID: 17067 RVA: 0x00175FE4 File Offset: 0x001741E4
 		protected override void MoveGrabbedObject(Vector3 pos, Quaternion rot, bool forceTeleport = false)
 		{
 			if (this.m_grabbedObj == null)
@@ -150,7 +150,7 @@ namespace OculusSampleFramework
 			grabbedRigidbody.MoveRotation(quaternion);
 		}
 
-		// Token: 0x06004167 RID: 16743 RVA: 0x0013614C File Offset: 0x0013434C
+		// Token: 0x060042AC RID: 17068 RVA: 0x001760CC File Offset: 0x001742CC
 		private static DistanceGrabbable HitInfoToGrabbable(RaycastHit hitInfo)
 		{
 			if (hitInfo.collider != null)
@@ -161,7 +161,7 @@ namespace OculusSampleFramework
 			return null;
 		}
 
-		// Token: 0x06004168 RID: 16744 RVA: 0x00136188 File Offset: 0x00134388
+		// Token: 0x060042AD RID: 17069 RVA: 0x00176108 File Offset: 0x00174308
 		protected bool FindTarget(out DistanceGrabbable dgOut, out Collider collOut)
 		{
 			dgOut = null;
@@ -214,7 +214,7 @@ namespace OculusSampleFramework
 			return dgOut != null;
 		}
 
-		// Token: 0x06004169 RID: 16745 RVA: 0x001363A4 File Offset: 0x001345A4
+		// Token: 0x060042AE RID: 17070 RVA: 0x00176324 File Offset: 0x00174524
 		protected bool FindTargetWithSpherecast(out DistanceGrabbable dgOut, out Collider collOut)
 		{
 			dgOut = null;
@@ -260,7 +260,7 @@ namespace OculusSampleFramework
 			return dgOut != null;
 		}
 
-		// Token: 0x0600416A RID: 16746 RVA: 0x001364F5 File Offset: 0x001346F5
+		// Token: 0x060042AF RID: 17071 RVA: 0x0005B8C9 File Offset: 0x00059AC9
 		protected override void GrabVolumeEnable(bool enabled)
 		{
 			if (this.m_useSpherecast)
@@ -270,57 +270,57 @@ namespace OculusSampleFramework
 			base.GrabVolumeEnable(enabled);
 		}
 
-		// Token: 0x0600416B RID: 16747 RVA: 0x00136509 File Offset: 0x00134709
+		// Token: 0x060042B0 RID: 17072 RVA: 0x0005B8DD File Offset: 0x00059ADD
 		protected override void OffhandGrabbed(OVRGrabbable grabbable)
 		{
 			base.OffhandGrabbed(grabbable);
 		}
 
-		// Token: 0x04004280 RID: 17024
+		// Token: 0x0400437A RID: 17274
 		[SerializeField]
 		private float m_spherecastRadius;
 
-		// Token: 0x04004281 RID: 17025
+		// Token: 0x0400437B RID: 17275
 		[SerializeField]
 		private float m_noSnapThreshhold = 0.05f;
 
-		// Token: 0x04004282 RID: 17026
+		// Token: 0x0400437C RID: 17276
 		[SerializeField]
 		private bool m_useSpherecast;
 
-		// Token: 0x04004283 RID: 17027
+		// Token: 0x0400437D RID: 17277
 		[SerializeField]
 		public bool m_preventGrabThroughWalls;
 
-		// Token: 0x04004284 RID: 17028
+		// Token: 0x0400437E RID: 17278
 		[SerializeField]
 		private float m_objectPullVelocity = 10f;
 
-		// Token: 0x04004285 RID: 17029
+		// Token: 0x0400437F RID: 17279
 		private float m_objectPullMaxRotationRate = 360f;
 
-		// Token: 0x04004286 RID: 17030
+		// Token: 0x04004380 RID: 17280
 		private bool m_movingObjectToHand;
 
-		// Token: 0x04004287 RID: 17031
+		// Token: 0x04004381 RID: 17281
 		[SerializeField]
 		private float m_maxGrabDistance;
 
-		// Token: 0x04004288 RID: 17032
+		// Token: 0x04004382 RID: 17282
 		[SerializeField]
 		private int m_grabObjectsInLayer;
 
-		// Token: 0x04004289 RID: 17033
+		// Token: 0x04004383 RID: 17283
 		[SerializeField]
 		private int m_obstructionLayer;
 
-		// Token: 0x0400428A RID: 17034
+		// Token: 0x04004384 RID: 17284
 		private DistanceGrabber m_otherHand;
 
-		// Token: 0x0400428B RID: 17035
+		// Token: 0x04004385 RID: 17285
 		protected DistanceGrabbable m_target;
 
-		// Token: 0x0400428C RID: 17036
+		// Token: 0x04004386 RID: 17286
 		protected Collider m_targetCollider;
 	}
 }

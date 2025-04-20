@@ -8,12 +8,12 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.XR;
 
-// Token: 0x020000ED RID: 237
+// Token: 0x020000F7 RID: 247
 public class RCHoverboard : RCVehicle
 {
-	// Token: 0x1700008D RID: 141
-	// (get) Token: 0x06000637 RID: 1591 RVA: 0x00023D9B File Offset: 0x00021F9B
-	// (set) Token: 0x06000638 RID: 1592 RVA: 0x00023DA3 File Offset: 0x00021FA3
+	// Token: 0x17000092 RID: 146
+	// (get) Token: 0x06000678 RID: 1656 RVA: 0x00034C14 File Offset: 0x00032E14
+	// (set) Token: 0x06000679 RID: 1657 RVA: 0x00034C1C File Offset: 0x00032E1C
 	private float _MaxForwardSpeed
 	{
 		get
@@ -27,9 +27,9 @@ public class RCHoverboard : RCVehicle
 		}
 	}
 
-	// Token: 0x1700008E RID: 142
-	// (get) Token: 0x06000639 RID: 1593 RVA: 0x00023DC4 File Offset: 0x00021FC4
-	// (set) Token: 0x0600063A RID: 1594 RVA: 0x00023DCC File Offset: 0x00021FCC
+	// Token: 0x17000093 RID: 147
+	// (get) Token: 0x0600067A RID: 1658 RVA: 0x00034C3D File Offset: 0x00032E3D
+	// (set) Token: 0x0600067B RID: 1659 RVA: 0x00034C45 File Offset: 0x00032E45
 	private float _MaxTurnRate
 	{
 		get
@@ -43,9 +43,9 @@ public class RCHoverboard : RCVehicle
 		}
 	}
 
-	// Token: 0x1700008F RID: 143
-	// (get) Token: 0x0600063B RID: 1595 RVA: 0x00023DED File Offset: 0x00021FED
-	// (set) Token: 0x0600063C RID: 1596 RVA: 0x00023DF5 File Offset: 0x00021FF5
+	// Token: 0x17000094 RID: 148
+	// (get) Token: 0x0600067C RID: 1660 RVA: 0x00034C66 File Offset: 0x00032E66
+	// (set) Token: 0x0600067D RID: 1661 RVA: 0x00034C6E File Offset: 0x00032E6E
 	private float _MaxTiltAngle
 	{
 		get
@@ -59,7 +59,7 @@ public class RCHoverboard : RCVehicle
 		}
 	}
 
-	// Token: 0x0600063D RID: 1597 RVA: 0x00023E18 File Offset: 0x00022018
+	// Token: 0x0600067E RID: 1662 RVA: 0x0008631C File Offset: 0x0008451C
 	protected override void Awake()
 	{
 		base.Awake();
@@ -70,7 +70,7 @@ public class RCHoverboard : RCVehicle
 		this._MaxTiltAngle = this.m_maxTiltAngle;
 	}
 
-	// Token: 0x0600063E RID: 1598 RVA: 0x00023E74 File Offset: 0x00022074
+	// Token: 0x0600067F RID: 1663 RVA: 0x00086378 File Offset: 0x00084578
 	protected override void AuthorityBeginDocked()
 	{
 		base.AuthorityBeginDocked();
@@ -86,7 +86,7 @@ public class RCHoverboard : RCVehicle
 		}
 	}
 
-	// Token: 0x0600063F RID: 1599 RVA: 0x00023F1C File Offset: 0x0002211C
+	// Token: 0x06000680 RID: 1664 RVA: 0x00086420 File Offset: 0x00084620
 	protected override void AuthorityUpdate(float dt)
 	{
 		base.AuthorityUpdate(dt);
@@ -106,7 +106,7 @@ public class RCHoverboard : RCVehicle
 		}
 	}
 
-	// Token: 0x06000640 RID: 1600 RVA: 0x00023F90 File Offset: 0x00022190
+	// Token: 0x06000681 RID: 1665 RVA: 0x00086494 File Offset: 0x00084694
 	protected override void RemoteUpdate(float dt)
 	{
 		base.RemoteUpdate(dt);
@@ -118,7 +118,7 @@ public class RCHoverboard : RCVehicle
 		this._motorLevel = 0f;
 	}
 
-	// Token: 0x06000641 RID: 1601 RVA: 0x00023FE0 File Offset: 0x000221E0
+	// Token: 0x06000682 RID: 1666 RVA: 0x000864E4 File Offset: 0x000846E4
 	protected override void SharedUpdate(float dt)
 	{
 		base.SharedUpdate(dt);
@@ -150,7 +150,7 @@ public class RCHoverboard : RCVehicle
 		}
 	}
 
-	// Token: 0x06000642 RID: 1602 RVA: 0x000240C4 File Offset: 0x000222C4
+	// Token: 0x06000683 RID: 1667 RVA: 0x000865C8 File Offset: 0x000847C8
 	protected void FixedUpdate()
 	{
 		if (!base.HasLocalAuthority || this.localState != RCVehicle.State.Mobilized)
@@ -193,7 +193,7 @@ public class RCHoverboard : RCVehicle
 		}
 	}
 
-	// Token: 0x06000643 RID: 1603 RVA: 0x00024370 File Offset: 0x00022570
+	// Token: 0x06000684 RID: 1668 RVA: 0x00086874 File Offset: 0x00084A74
 	protected void OnCollisionEnter(Collision collision)
 	{
 		GameObject gameObject = collision.collider.gameObject;
@@ -233,7 +233,7 @@ public class RCHoverboard : RCVehicle
 		}
 	}
 
-	// Token: 0x06000644 RID: 1604 RVA: 0x00024471 File Offset: 0x00022671
+	// Token: 0x06000685 RID: 1669 RVA: 0x00034C8F File Offset: 0x00032E8F
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private float _MoveTowards(float current, float target, float maxDelta)
 	{
@@ -244,7 +244,7 @@ public class RCHoverboard : RCVehicle
 		return target;
 	}
 
-	// Token: 0x06000645 RID: 1605 RVA: 0x0002448C File Offset: 0x0002268C
+	// Token: 0x06000686 RID: 1670 RVA: 0x00086978 File Offset: 0x00084B78
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private float _SignedAngle(float3 from, float3 to, float3 axis)
 	{
@@ -255,14 +255,14 @@ public class RCHoverboard : RCVehicle
 		return math.degrees(x2) * num;
 	}
 
-	// Token: 0x06000646 RID: 1606 RVA: 0x000244CD File Offset: 0x000226CD
+	// Token: 0x06000687 RID: 1671 RVA: 0x00034CAA File Offset: 0x00032EAA
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private float3 _ProjectOnPlane(float3 vector, float3 planeNormal)
 	{
 		return vector - math.dot(vector, planeNormal) * planeNormal;
 	}
 
-	// Token: 0x04000752 RID: 1874
+	// Token: 0x04000793 RID: 1939
 	[SerializeField]
 	private RCHoverboard._SingleInputOption m_inputTurn = new RCHoverboard._SingleInputOption(RCHoverboard._EInputSource.StickX, new AnimationCurve(new Keyframe[]
 	{
@@ -272,11 +272,11 @@ public class RCHoverboard : RCVehicle
 		new Keyframe(1f, 1f, 0f, 0f, 0f, 0f)
 	}));
 
-	// Token: 0x04000753 RID: 1875
+	// Token: 0x04000794 RID: 1940
 	[SerializeField]
 	private RCHoverboard._SingleInputOption m_inputThrustForward = new RCHoverboard._SingleInputOption(RCHoverboard._EInputSource.Trigger, AnimationCurves.EaseInCirc);
 
-	// Token: 0x04000754 RID: 1876
+	// Token: 0x04000795 RID: 1941
 	[SerializeField]
 	private RCHoverboard._SingleInputOption m_inputThrustBack = new RCHoverboard._SingleInputOption(RCHoverboard._EInputSource.StickBack, new AnimationCurve(new Keyframe[]
 	{
@@ -285,139 +285,139 @@ public class RCHoverboard : RCVehicle
 		new Keyframe(1f, 1f, 9.9999f, 1f, 0f, 0f)
 	}));
 
-	// Token: 0x04000755 RID: 1877
+	// Token: 0x04000796 RID: 1942
 	[SerializeField]
 	private RCHoverboard._SingleInputOption m_inputJump = new RCHoverboard._SingleInputOption(RCHoverboard._EInputSource.PrimaryFaceButton, AnimationCurves.Linear);
 
-	// Token: 0x04000756 RID: 1878
+	// Token: 0x04000797 RID: 1943
 	[Tooltip("Desired hover height above ground from this transform's position.")]
 	[SerializeField]
 	private float m_hoverHeight = 0.2f;
 
-	// Token: 0x04000757 RID: 1879
+	// Token: 0x04000798 RID: 1944
 	[Tooltip("Upward force to maintain hover when below hoverHeight.")]
 	[SerializeField]
 	private float m_hoverForce = 200f;
 
-	// Token: 0x04000758 RID: 1880
+	// Token: 0x04000799 RID: 1945
 	[Tooltip("Damping factor to smooth out vertical movement.")]
 	[SerializeField]
 	private float m_hoverDamp = 5f;
 
-	// Token: 0x04000759 RID: 1881
+	// Token: 0x0400079A RID: 1946
 	[Tooltip("Upward impulse force for jump.")]
 	[SerializeField]
 	private float m_jumpForce = 3.5f;
 
-	// Token: 0x0400075A RID: 1882
+	// Token: 0x0400079B RID: 1947
 	private bool _hasJumped;
 
-	// Token: 0x0400075B RID: 1883
+	// Token: 0x0400079C RID: 1948
 	[SerializeField]
 	[HideInInspector]
 	private float m_maxForwardSpeed = 6f;
 
-	// Token: 0x0400075C RID: 1884
+	// Token: 0x0400079D RID: 1949
 	[SerializeField]
 	[Tooltip("Time (seconds) to reach max forward speed from zero.")]
 	private float m_forwardAccelTime = 2f;
 
-	// Token: 0x0400075D RID: 1885
+	// Token: 0x0400079E RID: 1950
 	[SerializeField]
 	[HideInInspector]
 	private float m_maxTurnRate = 720f;
 
-	// Token: 0x0400075E RID: 1886
+	// Token: 0x0400079F RID: 1951
 	[Tooltip("Time (seconds) to reach max turning rate.")]
 	[SerializeField]
 	private float m_turnAccelTime = 0.75f;
 
-	// Token: 0x0400075F RID: 1887
+	// Token: 0x040007A0 RID: 1952
 	[SerializeField]
 	[HideInInspector]
 	private float m_maxTiltAngle = 30f;
 
-	// Token: 0x04000760 RID: 1888
+	// Token: 0x040007A1 RID: 1953
 	[Tooltip("Time (seconds) to reach max tilt angle.")]
 	[SerializeField]
 	private float m_tiltTime = 0.1f;
 
-	// Token: 0x04000761 RID: 1889
+	// Token: 0x040007A2 RID: 1954
 	[Tooltip("Audio source for any motor or hover sound.")]
 	[SerializeField]
 	private AudioSource m_audioSource;
 
-	// Token: 0x04000762 RID: 1890
+	// Token: 0x040007A3 RID: 1955
 	[Tooltip("Looping motor/hover sound clip.")]
 	[SerializeField]
 	private AudioClip m_hoverSound;
 
-	// Token: 0x04000763 RID: 1891
+	// Token: 0x040007A4 RID: 1956
 	[Tooltip("Volume range for the hover sound (x = min, y = max).")]
 	[SerializeField]
 	private float2 m_hoverSoundVolumeMinMax = new float2(0.1f, 0.5f);
 
-	// Token: 0x04000764 RID: 1892
+	// Token: 0x040007A5 RID: 1957
 	[Tooltip("Time it takes for the volume to reach max value.")]
 	[SerializeField]
 	private float m_hoverSoundVolumeRampTime = 1f;
 
-	// Token: 0x04000765 RID: 1893
+	// Token: 0x040007A6 RID: 1958
 	private bool _hasAudioSource;
 
-	// Token: 0x04000766 RID: 1894
+	// Token: 0x040007A7 RID: 1959
 	private bool _hasHoverSound;
 
-	// Token: 0x04000767 RID: 1895
+	// Token: 0x040007A8 RID: 1960
 	private float _forwardAccel;
 
-	// Token: 0x04000768 RID: 1896
+	// Token: 0x040007A9 RID: 1961
 	private float _turnAccel;
 
-	// Token: 0x04000769 RID: 1897
+	// Token: 0x040007AA RID: 1962
 	private float _tiltAccel;
 
-	// Token: 0x0400076A RID: 1898
+	// Token: 0x040007AB RID: 1963
 	private float _currentTurnRate;
 
-	// Token: 0x0400076B RID: 1899
+	// Token: 0x040007AC RID: 1964
 	private float _currentTurnAngle;
 
-	// Token: 0x0400076C RID: 1900
+	// Token: 0x040007AD RID: 1965
 	private float _currentTiltAngle;
 
-	// Token: 0x0400076D RID: 1901
+	// Token: 0x040007AE RID: 1966
 	private float _motorLevel;
 
-	// Token: 0x020000EE RID: 238
+	// Token: 0x020000F8 RID: 248
 	private enum _EInputSource
 	{
-		// Token: 0x0400076F RID: 1903
+		// Token: 0x040007B0 RID: 1968
 		None,
-		// Token: 0x04000770 RID: 1904
+		// Token: 0x040007B1 RID: 1969
 		StickX,
-		// Token: 0x04000771 RID: 1905
+		// Token: 0x040007B2 RID: 1970
 		StickForward,
-		// Token: 0x04000772 RID: 1906
+		// Token: 0x040007B3 RID: 1971
 		StickBack,
-		// Token: 0x04000773 RID: 1907
+		// Token: 0x040007B4 RID: 1972
 		Trigger,
-		// Token: 0x04000774 RID: 1908
+		// Token: 0x040007B5 RID: 1973
 		PrimaryFaceButton
 	}
 
-	// Token: 0x020000EF RID: 239
+	// Token: 0x020000F9 RID: 249
 	[Serializable]
 	private struct _SingleInputOption
 	{
-		// Token: 0x06000648 RID: 1608 RVA: 0x000246FB File Offset: 0x000228FB
+		// Token: 0x06000689 RID: 1673 RVA: 0x00034CBF File Offset: 0x00032EBF
 		public _SingleInputOption(RCHoverboard._EInputSource source, AnimationCurve remapCurve)
 		{
 			this.source = new GTOption<StringEnum<RCHoverboard._EInputSource>>(source);
 			this.remapCurve = new GTOption<AnimationCurve>(remapCurve);
 		}
 
-		// Token: 0x06000649 RID: 1609 RVA: 0x0002471C File Offset: 0x0002291C
+		// Token: 0x0600068A RID: 1674 RVA: 0x00086BD4 File Offset: 0x00084DD4
 		public float Get(RCRemoteHoldable.RCInput input)
 		{
 			float num;
@@ -449,10 +449,10 @@ public class RCHoverboard : RCVehicle
 			return this.remapCurve.ResolvedValue.Evaluate(math.abs(x)) * math.sign(x);
 		}
 
-		// Token: 0x04000775 RID: 1909
+		// Token: 0x040007B6 RID: 1974
 		public GTOption<StringEnum<RCHoverboard._EInputSource>> source;
 
-		// Token: 0x04000776 RID: 1910
+		// Token: 0x040007B7 RID: 1975
 		public GTOption<AnimationCurve> remapCurve;
 	}
 }

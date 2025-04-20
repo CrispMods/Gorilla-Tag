@@ -1,12 +1,12 @@
 ﻿using System;
 
-// Token: 0x02000565 RID: 1381
+// Token: 0x02000573 RID: 1395
 public enum HandSocketConstraint : uint
 {
-	// Token: 0x04002593 RID: 9619
+	// Token: 0x040025EB RID: 9707
 	None,
-	// Token: 0x04002594 RID: 9620
+	// Token: 0x040025EC RID: 9708
 	LeftHandOnly,
-	// Token: 0x04002595 RID: 9621
+	// Token: 0x040025ED RID: 9709
 	RightHandOnly
 }

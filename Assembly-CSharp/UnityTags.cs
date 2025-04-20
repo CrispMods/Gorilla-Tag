@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x02000209 RID: 521
+// Token: 0x02000214 RID: 532
 public static class UnityTags
 {
-	// Token: 0x06000C20 RID: 3104 RVA: 0x0004009C File Offset: 0x0003E29C
+	// Token: 0x06000C6B RID: 3179 RVA: 0x0009E708 File Offset: 0x0009C908
 	// Note: this type is marked as 'beforefieldinit'.
 	static UnityTags()
 	{
@@ -170,7 +170,7 @@ public static class UnityTags
 		UnityTags.StringToTag = dictionary;
 	}
 
-	// Token: 0x04000F65 RID: 3941
+	// Token: 0x04000FAB RID: 4011
 	public static readonly string[] StringValues = new string[]
 	{
 		"Untagged",
@@ -333,6 +333,6 @@ public static class UnityTags
 		"GorillaMouth"
 	};
 
-	// Token: 0x04000F66 RID: 3942
+	// Token: 0x04000FAC RID: 4012
 	public static readonly Dictionary<string, UnityTag> StringToTag;
 }

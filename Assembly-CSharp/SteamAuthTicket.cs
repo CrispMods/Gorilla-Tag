@@ -2,28 +2,28 @@
 using Steamworks;
 using UnityEngine;
 
-// Token: 0x020007B2 RID: 1970
+// Token: 0x020007CA RID: 1994
 public class SteamAuthTicket : IDisposable
 {
-	// Token: 0x06003087 RID: 12423 RVA: 0x000E9AB1 File Offset: 0x000E7CB1
+	// Token: 0x06003139 RID: 12601 RVA: 0x00050955 File Offset: 0x0004EB55
 	private SteamAuthTicket(HAuthTicket hAuthTicket)
 	{
 		this.m_hAuthTicket = hAuthTicket;
 	}
 
-	// Token: 0x06003088 RID: 12424 RVA: 0x000E9AC0 File Offset: 0x000E7CC0
+	// Token: 0x0600313A RID: 12602 RVA: 0x00050964 File Offset: 0x0004EB64
 	public static implicit operator SteamAuthTicket(HAuthTicket hAuthTicket)
 	{
 		return new SteamAuthTicket(hAuthTicket);
 	}
 
-	// Token: 0x06003089 RID: 12425 RVA: 0x000E9AC8 File Offset: 0x000E7CC8
+	// Token: 0x0600313B RID: 12603 RVA: 0x00132C14 File Offset: 0x00130E14
 	~SteamAuthTicket()
 	{
 		this.Dispose();
 	}
 
-	// Token: 0x0600308A RID: 12426 RVA: 0x000E9AF4 File Offset: 0x000E7CF4
+	// Token: 0x0600313C RID: 12604 RVA: 0x00132C40 File Offset: 0x00130E40
 	public void Dispose()
 	{
 		GC.SuppressFinalize(this);
@@ -41,6 +41,6 @@ public class SteamAuthTicket : IDisposable
 		}
 	}
 
-	// Token: 0x04003478 RID: 13432
+	// Token: 0x04003522 RID: 13602
 	private HAuthTicket m_hAuthTicket;
 }

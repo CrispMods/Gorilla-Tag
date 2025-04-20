@@ -3,10 +3,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x020004A3 RID: 1187
+// Token: 0x020004AF RID: 1199
 public class MonkeBallResetGame : MonoBehaviour
 {
-	// Token: 0x06001CD9 RID: 7385 RVA: 0x0008CC78 File Offset: 0x0008AE78
+	// Token: 0x06001D2D RID: 7469 RVA: 0x000E01D4 File Offset: 0x000DE3D4
 	private void Awake()
 	{
 		this._resetButton.onPressButton.AddListener(new UnityAction(this.OnSelect));
@@ -16,7 +16,7 @@ public class MonkeBallResetGame : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001CDA RID: 7386 RVA: 0x0008CCC5 File Offset: 0x0008AEC5
+	// Token: 0x06001D2E RID: 7470 RVA: 0x00043F40 File Offset: 0x00042140
 	private void Update()
 	{
 		if (this._cooldown)
@@ -30,7 +30,7 @@ public class MonkeBallResetGame : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001CDB RID: 7387 RVA: 0x0008CD00 File Offset: 0x0008AF00
+	// Token: 0x06001D2F RID: 7471 RVA: 0x000E0224 File Offset: 0x000DE424
 	public void ToggleReset(bool toggle, int teamId, bool force = false)
 	{
 		if (teamId < -1 || teamId >= this.teamMaterials.Length)
@@ -52,7 +52,7 @@ public class MonkeBallResetGame : MonoBehaviour
 		this._cooldownTimer = 3f;
 	}
 
-	// Token: 0x06001CDC RID: 7388 RVA: 0x0008CD50 File Offset: 0x0008AF50
+	// Token: 0x06001D30 RID: 7472 RVA: 0x000E0274 File Offset: 0x000DE474
 	private void ToggleButton(bool toggle, int teamId)
 	{
 		this._resetButton.enabled = toggle;
@@ -65,42 +65,42 @@ public class MonkeBallResetGame : MonoBehaviour
 		this.button.sharedMaterial = this.teamMaterials[teamId];
 	}
 
-	// Token: 0x06001CDD RID: 7389 RVA: 0x0008CD9C File Offset: 0x0008AF9C
+	// Token: 0x06001D31 RID: 7473 RVA: 0x00043F78 File Offset: 0x00042178
 	private void OnSelect()
 	{
 		MonkeBallGame.Instance.RequestResetGame();
 	}
 
-	// Token: 0x04001FC2 RID: 8130
+	// Token: 0x04002011 RID: 8209
 	[SerializeField]
 	private GorillaPressableButton _resetButton;
 
-	// Token: 0x04001FC3 RID: 8131
+	// Token: 0x04002012 RID: 8210
 	public Renderer button;
 
-	// Token: 0x04001FC4 RID: 8132
+	// Token: 0x04002013 RID: 8211
 	public Vector3 buttonPressOffset;
 
-	// Token: 0x04001FC5 RID: 8133
+	// Token: 0x04002014 RID: 8212
 	private Vector3 _buttonOrigin = Vector3.zero;
 
-	// Token: 0x04001FC6 RID: 8134
+	// Token: 0x04002015 RID: 8213
 	[Space]
 	public Material[] teamMaterials;
 
-	// Token: 0x04001FC7 RID: 8135
+	// Token: 0x04002016 RID: 8214
 	public Material neutralMaterial;
 
-	// Token: 0x04001FC8 RID: 8136
+	// Token: 0x04002017 RID: 8215
 	public int allowedTeamId = -1;
 
-	// Token: 0x04001FC9 RID: 8137
+	// Token: 0x04002018 RID: 8216
 	[SerializeField]
 	private TextMeshPro _resetLabel;
 
-	// Token: 0x04001FCA RID: 8138
+	// Token: 0x04002019 RID: 8217
 	private bool _cooldown;
 
-	// Token: 0x04001FCB RID: 8139
+	// Token: 0x0400201A RID: 8218
 	private float _cooldownTimer;
 }

@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts.AI.Entities
 {
-	// Token: 0x02000A17 RID: 2583
+	// Token: 0x02000A44 RID: 2628
 	public class TestShark : AIEntity
 	{
-		// Token: 0x060040A7 RID: 16551 RVA: 0x00133678 File Offset: 0x00131878
+		// Token: 0x060041EC RID: 16876 RVA: 0x00173CB0 File Offset: 0x00171EB0
 		private new void Awake()
 		{
 			base.Awake();
@@ -23,7 +23,7 @@ namespace GorillaTagScripts.AI.Entities
 			this._stateMachine.SetState(this.patrol);
 		}
 
-		// Token: 0x060040A8 RID: 16552 RVA: 0x00133710 File Offset: 0x00131910
+		// Token: 0x060041ED RID: 16877 RVA: 0x00173D48 File Offset: 0x00171F48
 		private void Update()
 		{
 			this._stateMachine.Tick();
@@ -41,39 +41,39 @@ namespace GorillaTagScripts.AI.Entities
 			}
 		}
 
-		// Token: 0x060040AA RID: 16554 RVA: 0x00133799 File Offset: 0x00131999
+		// Token: 0x060041EF RID: 16879 RVA: 0x0005B21E File Offset: 0x0005941E
 		[CompilerGenerated]
 		private Func<bool> <Awake>g__ShouldChase|7_0()
 		{
 			return () => this.shouldChase && PhotonNetwork.InRoom;
 		}
 
-		// Token: 0x060040AC RID: 16556 RVA: 0x001337B8 File Offset: 0x001319B8
+		// Token: 0x060041F1 RID: 16881 RVA: 0x0005B23D File Offset: 0x0005943D
 		[CompilerGenerated]
 		private Func<bool> <Awake>g__ShouldPatrol|7_1()
 		{
 			return () => this.chase.chaseOver;
 		}
 
-		// Token: 0x040041DB RID: 16859
+		// Token: 0x040042D5 RID: 17109
 		public float nextTimeToChasePlayer = 30f;
 
-		// Token: 0x040041DC RID: 16860
+		// Token: 0x040042D6 RID: 17110
 		private float chasingTimer;
 
-		// Token: 0x040041DD RID: 16861
+		// Token: 0x040042D7 RID: 17111
 		private bool shouldChase;
 
-		// Token: 0x040041DE RID: 16862
+		// Token: 0x040042D8 RID: 17112
 		private StateMachine _stateMachine;
 
-		// Token: 0x040041DF RID: 16863
+		// Token: 0x040042D9 RID: 17113
 		private CircularPatrol_State circularPatrol;
 
-		// Token: 0x040041E0 RID: 16864
+		// Token: 0x040042DA RID: 17114
 		private Patrol_State patrol;
 
-		// Token: 0x040041E1 RID: 16865
+		// Token: 0x040042DB RID: 17115
 		private Chase_State chase;
 	}
 }

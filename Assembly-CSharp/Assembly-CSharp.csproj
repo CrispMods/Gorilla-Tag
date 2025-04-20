@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C90A94B0-056B-4D21-95BD-6277C6576EF9}</ProjectGuid>
+    <ProjectGuid>{6CB76E3A-EFF8-45BD-B019-73F8CC42B80A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Assembly-CSharp</RootNamespace>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -34,235 +34,229 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AA.Mothership">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\AA.Mothership.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\AA.Mothership.dll</HintPath>
     </Reference>
     <Reference Include="ALINE">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\ALINE.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\ALINE.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="AstarPathfindingProject">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\AstarPathfindingProject.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\AstarPathfindingProject.dll</HintPath>
     </Reference>
     <Reference Include="Backtrace.Unity">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Backtrace.Unity.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Backtrace.Unity.dll</HintPath>
     </Reference>
     <Reference Include="BakeryRuntimeAssembly">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\BakeryRuntimeAssembly.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\BakeryRuntimeAssembly.dll</HintPath>
     </Reference>
     <Reference Include="Cinemachine">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Cinemachine.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="com.rlabrecque.steamworks.net">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\com.rlabrecque.steamworks.net.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\com.rlabrecque.steamworks.net.dll</HintPath>
     </Reference>
     <Reference Include="Fusion.Common">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Fusion.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Fusion.Common.dll</HintPath>
     </Reference>
     <Reference Include="Fusion.Realtime">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Fusion.Realtime.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Fusion.Realtime.dll</HintPath>
     </Reference>
     <Reference Include="Fusion.Runtime">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Fusion.Runtime.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Fusion.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Fusion.Sockets">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Fusion.Sockets.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Fusion.Sockets.dll</HintPath>
     </Reference>
     <Reference Include="Fusion.Unity">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Fusion.Unity.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Fusion.Unity.dll</HintPath>
     </Reference>
     <Reference Include="GT_CustomMapSupportRuntime">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\GT_CustomMapSupportRuntime.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\GT_CustomMapSupportRuntime.dll</HintPath>
     </Reference>
     <Reference Include="KID">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\KID.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\KID.dll</HintPath>
     </Reference>
     <Reference Include="LIV.LCK">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\LIV.LCK.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\LIV.LCK.dll</HintPath>
     </Reference>
     <Reference Include="LIV.LCK_GorillaTag">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\LIV.LCK_GorillaTag.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\LIV.LCK_GorillaTag.dll</HintPath>
     </Reference>
     <Reference Include="modio.UnityPlugin">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\modio.UnityPlugin.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\modio.UnityPlugin.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\netstandard.dll</HintPath>
-    </Reference>
-    <Reference Include="netstandard">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\netstandard.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\netstandard.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nexus.nexussdk.Runtime">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\nexus.nexussdk.Runtime.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\nexus.nexussdk.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Oculus.Platform">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Oculus.Platform.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Oculus.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Oculus.VR">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Oculus.VR.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Oculus.VR.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Photon3Unity3D.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="PhotonRealtime">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\PhotonRealtime.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\PhotonRealtime.dll</HintPath>
     </Reference>
     <Reference Include="PhotonUnityNetworking">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\PhotonUnityNetworking.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\PhotonUnityNetworking.dll</HintPath>
     </Reference>
     <Reference Include="PhotonVoice">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\PhotonVoice.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\PhotonVoice.dll</HintPath>
     </Reference>
     <Reference Include="PhotonVoice.API">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\PhotonVoice.API.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\PhotonVoice.API.dll</HintPath>
     </Reference>
     <Reference Include="PhotonVoice.Fusion">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\PhotonVoice.Fusion.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\PhotonVoice.Fusion.dll</HintPath>
     </Reference>
     <Reference Include="PhotonVoice.PUN">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\PhotonVoice.PUN.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\PhotonVoice.PUN.dll</HintPath>
     </Reference>
     <Reference Include="PlayFab">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\PlayFab.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\PlayFab.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.OdinInspector.Attributes">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Sirenix.OdinInspector.Attributes.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Sirenix.OdinInspector.Attributes.dll</HintPath>
     </Reference>
     <Reference Include="SteamVR">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\SteamVR.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\SteamVR.dll</HintPath>
     </Reference>
     <Reference Include="SteamVR_Actions">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\SteamVR_Actions.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\SteamVR_Actions.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Addressables">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.Addressables.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.Addressables.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Animation.Rigging">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.Animation.Rigging.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.Animation.Rigging.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.Burst.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.Burst.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.Collections.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.InputSystem.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.InputSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.Mathematics.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.ProBuilder.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.ProBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ResourceManager">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.ResourceManager.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.ResourceManager.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Splines">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.Splines.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.Splines.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.CoreUtils">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.XR.CoreUtils.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.XR.CoreUtils.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.Interaction.Toolkit">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\Unity.XR.Interaction.Toolkit.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\Unity.XR.Interaction.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.AIModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.AIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AndroidJNIModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.AndroidJNIModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.AndroidJNIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.DirectorModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.DirectorModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.DirectorModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Physics2DModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SubsystemsModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.SubsystemsModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.SubsystemsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TerrainModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.TerrainModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.TerrainModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TilemapModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.TilemapModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.UIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestTextureModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VideoModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VRModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.VRModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.VRModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XRModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\UnityEngine.XRModule.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="VoiceSDK.Runtime">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\VoiceSDK.Runtime.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\VoiceSDK.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="ZString">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\content\app_1533390\depot_1533391\Gorilla Tag_Data\Managed\ZString.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Gorilla Tag\Gorilla Tag_Data\Managed\ZString.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -417,6 +411,7 @@
     <Compile Include="BuilderPieceLod.cs" />
     <Compile Include="BuilderPiecePrivatePlot.cs" />
     <Compile Include="BuilderPieceSet.cs" />
+    <Compile Include="BuilderPortraitEyes.cs" />
     <Compile Include="BuilderRenderer.cs" />
     <Compile Include="BuilderRendererPreRender.cs" />
     <Compile Include="BuilderResizeWatch.cs" />
@@ -505,6 +500,7 @@
     <Compile Include="ClackerCosmetic.cs" />
     <Compile Include="ClockController.cs" />
     <Compile Include="CloudUmbrellaCloud.cs" />
+    <Compile Include="CMSZoneShaderSettingsTrigger.cs" />
     <Compile Include="CoconutMystic.cs" />
     <Compile Include="CodeRedemption.cs" />
     <Compile Include="CollectibleCoin.cs" />
@@ -534,6 +530,7 @@
     <Compile Include="ControllerInputPoller.cs" />
     <Compile Include="CooldownType.cs" />
     <Compile Include="CopyMaterialScript.cs" />
+    <Compile Include="CopySpawnerData.cs" />
     <Compile Include="CornOnCobCosmetic.cs" />
     <Compile Include="CosmeticAnchorManager.cs" />
     <Compile Include="CosmeticAnchors.cs" />
@@ -541,10 +538,13 @@
     <Compile Include="CosmeticButton.cs" />
     <Compile Include="CosmeticCategoryButton.cs" />
     <Compile Include="CosmeticCritter.cs" />
+    <Compile Include="CosmeticCritterButterfly.cs" />
     <Compile Include="CosmeticCritterCatcher.cs" />
+    <Compile Include="CosmeticCritterCatcherButterflyNet.cs" />
     <Compile Include="CosmeticCritterHoldable.cs" />
     <Compile Include="CosmeticCritterManager.cs" />
     <Compile Include="CosmeticCritterSpawner.cs" />
+    <Compile Include="CosmeticCritterSpawnerButterflyNet.cs" />
     <Compile Include="CosmeticFan.cs" />
     <Compile Include="CosmeticIDUtils.cs" />
     <Compile Include="CosmeticPlaySoundOnColision.cs" />
@@ -563,6 +563,7 @@
     <Compile Include="CreatorCodeSmallDisplay.cs" />
     <Compile Include="CritterAppearance.cs" />
     <Compile Include="CritterConfiguration.cs" />
+    <Compile Include="CritterDespawner.cs" />
     <Compile Include="CritterFood.cs" />
     <Compile Include="CritterIndex.cs" />
     <Compile Include="CrittersActor.cs" />
@@ -570,6 +571,7 @@
     <Compile Include="CrittersActorGrabber.cs" />
     <Compile Include="CrittersActorSettings.cs" />
     <Compile Include="CrittersActorSpawnerPoint.cs" />
+    <Compile Include="CrittersActorSpawnerShim.cs" />
     <Compile Include="CrittersAnim.cs" />
     <Compile Include="CrittersAttachPoint.cs" />
     <Compile Include="CrittersAttachPointSettings.cs" />
@@ -580,6 +582,7 @@
     <Compile Include="CrittersBiomeExtensions.cs" />
     <Compile Include="CrittersCage.cs" />
     <Compile Include="CrittersCageDeposit.cs" />
+    <Compile Include="CrittersCageDepositShim.cs" />
     <Compile Include="CrittersCageSettings.cs" />
     <Compile Include="CrittersEventEffects.cs" />
     <Compile Include="CrittersFood.cs" />
@@ -593,6 +596,7 @@
     <Compile Include="CrittersNoiseMaker.cs" />
     <Compile Include="CrittersPawn.cs" />
     <Compile Include="CritterSpawnCriteria.cs" />
+    <Compile Include="CritterSpawnTrigger.cs" />
     <Compile Include="CrittersPool.cs" />
     <Compile Include="CrittersRegion.cs" />
     <Compile Include="CrittersRigActorSetup.cs" />
@@ -617,6 +621,21 @@
     <Compile Include="CurveBall.cs" />
     <Compile Include="CustomDebugUI.cs" />
     <Compile Include="CustomGameMode.cs" />
+    <Compile Include="CustomMapAccessDoor.cs" />
+    <Compile Include="CustomMapLoader.cs" />
+    <Compile Include="CustomMapsAccessScreen.cs" />
+    <Compile Include="CustomMapsBrowseScreen.cs" />
+    <Compile Include="CustomMapsDetailsScreen.cs" />
+    <Compile Include="CustomMapsListScreen.cs" />
+    <Compile Include="CustomMapsLoadRoomMapButton.cs" />
+    <Compile Include="CustomMapsTerminal.cs" />
+    <Compile Include="CustomMapsTerminalButton.cs" />
+    <Compile Include="CustomMapsTerminalControlButton.cs" />
+    <Compile Include="CustomMapsTerminalScreen.cs" />
+    <Compile Include="CustomMapsTerminalTagButton.cs" />
+    <Compile Include="CustomMapsTerminalToggleButton.cs" />
+    <Compile Include="CustomMapTelemetry.cs" />
+    <Compile Include="CustomMapTelemetryTrigger.cs" />
     <Compile Include="CustomObjectProvider.cs" />
     <Compile Include="CustomSerializer.cs" />
     <Compile Include="D20_ShaderManager.cs" />
@@ -752,6 +771,7 @@
     <Compile Include="FlockingData.cs" />
     <Compile Include="FlockingManager.cs" />
     <Compile Include="FlockingUpdateManager.cs" />
+    <Compile Include="ForceDisableHoverboardTrigger.cs" />
     <Compile Include="ForceVolume.cs" />
     <Compile Include="FortuneResults.cs" />
     <Compile Include="FortuneTeller.cs" />
@@ -903,6 +923,7 @@
     <Compile Include="GorillaExtensions\GTTextMeshProExtensions.cs" />
     <Compile Include="GorillaExtensions\GTTryFindByExactPath.cs" />
     <Compile Include="GorillaEyeExpressions.cs" />
+    <Compile Include="GorillaFaceTextureReplacement.cs" />
     <Compile Include="GorillaFireball.cs" />
     <Compile Include="GorillaFireballControllerManager.cs" />
     <Compile Include="GorillaFlagSpawn.cs" />
@@ -990,6 +1011,7 @@
     <Compile Include="GorillaNetworking\CosmeticsController.cs" />
     <Compile Include="GorillaNetworking\CreditsSection.cs" />
     <Compile Include="GorillaNetworking\CreditsView.cs" />
+    <Compile Include="GorillaNetworking\CustomMapNetworkJoinTrigger.cs" />
     <Compile Include="GorillaNetworking\ExtensionMethods.cs" />
     <Compile Include="GorillaNetworking\FeatureFlagData.cs" />
     <Compile Include="GorillaNetworking\FeatureFlagListData.cs" />
@@ -1007,7 +1029,6 @@
     <Compile Include="GorillaNetworking\GorillaServer.cs" />
     <Compile Include="GorillaNetworking\GorillaText.cs" />
     <Compile Include="GorillaNetworking\JoinType.cs" />
-    <Compile Include="GorillaNetworking\ModIONetworkJoinTrigger.cs" />
     <Compile Include="GorillaNetworking\PhotonNetworkController.cs" />
     <Compile Include="GorillaNetworking\PlayFabAuthenticator.cs" />
     <Compile Include="GorillaNetworking\PlayFabTitleDataCache.cs" />
@@ -1133,13 +1154,13 @@
     <Compile Include="GorillaTagScripts\Builder\RecyclerForceVolume.cs" />
     <Compile Include="GorillaTagScripts\ChristmasTree.cs" />
     <Compile Include="GorillaTagScripts\CrystalVisualsPreset.cs" />
-    <Compile Include="GorillaTagScripts\CustomMapSupport\CustomMapLoadingZone.cs" />
-    <Compile Include="GorillaTagScripts\CustomMapSupport\CustomMapSerializer.cs" />
-    <Compile Include="GorillaTagScripts\CustomMapSupport\CustomMapTrigger.cs" />
-    <Compile Include="GorillaTagScripts\CustomMapSupport\MapBoundary.cs" />
-    <Compile Include="GorillaTagScripts\CustomMapSupport\ObjectActivationTrigger.cs" />
-    <Compile Include="GorillaTagScripts\CustomMapSupport\TagZone.cs" />
-    <Compile Include="GorillaTagScripts\CustomMapSupport\Teleporter.cs" />
+    <Compile Include="GorillaTagScripts\CustomMapSupport\CMSLoadingZone.cs" />
+    <Compile Include="GorillaTagScripts\CustomMapSupport\CMSMapBoundary.cs" />
+    <Compile Include="GorillaTagScripts\CustomMapSupport\CMSObjectActivationTrigger.cs" />
+    <Compile Include="GorillaTagScripts\CustomMapSupport\CMSSerializer.cs" />
+    <Compile Include="GorillaTagScripts\CustomMapSupport\CMSTagZone.cs" />
+    <Compile Include="GorillaTagScripts\CustomMapSupport\CMSTeleporter.cs" />
+    <Compile Include="GorillaTagScripts\CustomMapSupport\CMSTrigger.cs" />
     <Compile Include="GorillaTagScripts\DecorativeItem.cs" />
     <Compile Include="GorillaTagScripts\DecorativeItemReliableState.cs" />
     <Compile Include="GorillaTagScripts\DecorativeItemsManager.cs" />
@@ -1161,9 +1182,10 @@
     <Compile Include="GorillaTagScripts\LayerChanger.cs" />
     <Compile Include="GorillaTagScripts\LurkerGhost.cs" />
     <Compile Include="GorillaTagScripts\MenorahCandle.cs" />
+    <Compile Include="GorillaTagScripts\ModIO\CustomMapEjectButton.cs" />
     <Compile Include="GorillaTagScripts\ModIO\CustomMapManager.cs" />
     <Compile Include="GorillaTagScripts\ModIO\MapLoadStatus.cs" />
-    <Compile Include="GorillaTagScripts\ModIO\ModIOEjectButton.cs" />
+    <Compile Include="GorillaTagScripts\ModIO\ZoneEjectLocations.cs" />
     <Compile Include="GorillaTagScripts\Mole.cs" />
     <Compile Include="GorillaTagScripts\MoleTypes.cs" />
     <Compile Include="GorillaTagScripts\MovingSurface.cs" />
@@ -1181,8 +1203,10 @@
     <Compile Include="GorillaTagScripts\SceneBasedObject.cs" />
     <Compile Include="GorillaTagScripts\SnapOverlap.cs" />
     <Compile Include="GorillaTagScripts\SurfaceMover.cs" />
-    <Compile Include="GorillaTagScripts\UI\ModIO\ModIORoomMapDisplay.cs" />
+    <Compile Include="GorillaTagScripts\UI\ModIO\CustomMapsRoomMapDisplay.cs" />
     <Compile Include="GorillaTagScripts\UI\ModIO\VirtualStumpTeleportingHUD.cs" />
+    <Compile Include="GorillaTagScripts\VirtualStumpCustomMaps\VirtualStumpReturnWatch.cs" />
+    <Compile Include="GorillaTagScripts\VirtualStumpCustomMaps\VirtualStumpReturnWatchTrigger.cs" />
     <Compile Include="GorillaTagScripts\WhackAMole.cs" />
     <Compile Include="GorillaTagScripts\WhackAMoleButton.cs" />
     <Compile Include="GorillaTagScripts\WhackAMoleLevelSO.cs" />
@@ -1234,6 +1258,8 @@
     <Compile Include="GorillaTag\Cosmetics\NearbyCosmeticsManager.cs" />
     <Compile Include="GorillaTag\Cosmetics\OnCollisionEventsCosmetic.cs" />
     <Compile Include="GorillaTag\Cosmetics\OnTriggerEventsCosmetic.cs" />
+    <Compile Include="GorillaTag\Cosmetics\PickupableBanner.cs" />
+    <Compile Include="GorillaTag\Cosmetics\PickupableVariant.cs" />
     <Compile Include="GorillaTag\Cosmetics\PlayHapticsCosmetic.cs" />
     <Compile Include="GorillaTag\Cosmetics\ProjectileChargeShader.cs" />
     <Compile Include="GorillaTag\Cosmetics\ProjectileShooterCosmetic.cs" />
@@ -1254,10 +1280,12 @@
     <Compile Include="GorillaTag\Cosmetics\StickyCosmetic.cs" />
     <Compile Include="GorillaTag\Cosmetics\Summer\Projectile.cs" />
     <Compile Include="GorillaTag\Cosmetics\ThrowableHoldableCosmetic.cs" />
+    <Compile Include="GorillaTag\Cosmetics\ThrowablePickupableCosmetic.cs" />
     <Compile Include="GorillaTag\Cosmetics\UpdateBlendShapeCosmetic.cs" />
     <Compile Include="GorillaTag\Cosmetics\VenusFlyTrapHoldable.cs" />
     <Compile Include="GorillaTag\Cosmetics\WormInApple.cs" />
     <Compile Include="GorillaTag\CosmeticTryOnNotifier.cs" />
+    <Compile Include="GorillaTag\CustomMapTestingScript.cs" />
     <Compile Include="GorillaTag\DayNightWatchWearable.cs" />
     <Compile Include="GorillaTag\DeactivateOnAwake.cs" />
     <Compile Include="GorillaTag\DebugOptionAttribute.cs" />
@@ -1304,7 +1332,6 @@
     <Compile Include="GorillaTag\IResettableItem.cs" />
     <Compile Include="GorillaTag\ISpawnable.cs" />
     <Compile Include="GorillaTag\MaterialDatasSO.cs" />
-    <Compile Include="GorillaTag\ModIONetworkTest.cs" />
     <Compile Include="GorillaTag\MonkeFX\MonkeFX.cs" />
     <Compile Include="GorillaTag\MonkeFX\MonkeFXMono.cs" />
     <Compile Include="GorillaTag\MonkeFX\MonkeFXSettingsSO.cs" />
@@ -1617,11 +1644,13 @@
     <Compile Include="LongScarfSim.cs" />
     <Compile Include="LookAtTransform.cs" />
     <Compile Include="LookDirectionStabilizer.cs" />
+    <Compile Include="LoopingArray.cs" />
     <Compile Include="LowEffortZone.cs" />
     <Compile Include="LuaCam.cs" />
     <Compile Include="LuaHashing.cs" />
     <Compile Include="Luau.cs" />
     <Compile Include="LuauClassBuilder.cs" />
+    <Compile Include="LuauHud.cs" />
     <Compile Include="LuauScriptRunner.cs" />
     <Compile Include="LuauVm.cs" />
     <Compile Include="lua_CFunction.cs" />
@@ -1665,28 +1694,11 @@
     <Compile Include="MockFriendServer.cs" />
     <Compile Include="ModeSelectButton.cs" />
     <Compile Include="ModeSelectButtonInfoData.cs" />
-    <Compile Include="ModIOAccessScreen.cs" />
     <Compile Include="ModIOAccountLinkingTerminal.cs" />
-    <Compile Include="ModIOBrowseModsScreen.cs" />
-    <Compile Include="ModIOCustomMapAccessDoor.cs" />
-    <Compile Include="ModIODataStore.cs" />
-    <Compile Include="ModIOKeyboardButton.cs" />
     <Compile Include="ModIOLinkButton.cs" />
-    <Compile Include="ModIOLoadRoomMapButton.cs" />
-    <Compile Include="ModIOLoginTeleporter.cs" />
-    <Compile Include="ModIOMainScreen.cs" />
-    <Compile Include="ModIOMapLoader.cs" />
-    <Compile Include="ModIOMapsTerminal.cs" />
-    <Compile Include="ModIOMapTelemetryTrigger.cs" />
-    <Compile Include="ModIOModDetailsScreen.cs" />
-    <Compile Include="ModIOModListScreen.cs" />
-    <Compile Include="ModIONetworkTestButton.cs" />
+    <Compile Include="ModIOManager.cs" />
     <Compile Include="ModIORequestResult.cs" />
     <Compile Include="ModIORequestResultAnd.cs" />
-    <Compile Include="ModIOScreen.cs" />
-    <Compile Include="ModIOSerializer.cs" />
-    <Compile Include="ModIOTelemetry.cs" />
-    <Compile Include="ModIOTerminalControlButton.cs" />
     <Compile Include="ModIOTermsOfUse.cs" />
     <Compile Include="MonitorOutputController.cs" />
     <Compile Include="MonkeBall.cs" />
@@ -1912,6 +1924,7 @@
     <Compile Include="PhotonSignalInfo.cs" />
     <Compile Include="PhotonUserCache.cs" />
     <Compile Include="PhotonUtils.cs" />
+    <Compile Include="PhotonViewCache.cs" />
     <Compile Include="PhotonViewIDAllocator.cs" />
     <Compile Include="PhotonViewIDAllocatorManager.cs" />
     <Compile Include="PhotonViewXSceneRef.cs" />
@@ -1989,6 +2002,7 @@
     <Compile Include="RandomTimedSeedManager.cs" />
     <Compile Include="RangedFloat.cs" />
     <Compile Include="RCHoverboard.cs" />
+    <Compile Include="RealWorldDateTimeWindow.cs" />
     <Compile Include="Ref.cs" />
     <Compile Include="ReflectionMetaNames.cs" />
     <Compile Include="ReleaseCageWhenUpsideDown.cs" />
@@ -2281,6 +2295,13 @@
     <Compile Include="UiSceneMenu.cs" />
     <Compile Include="UiVectorInspector.cs" />
     <Compile Include="UmbrellaItem.cs" />
+    <Compile Include="UniLabs\Time\TimeSpanDrawerSettingsAttribute.cs" />
+    <Compile Include="UniLabs\Time\TimeSpanRangeAttribute.cs" />
+    <Compile Include="UniLabs\Time\TimeUnit.cs" />
+    <Compile Include="UniLabs\Time\TimeUnitExtensions.cs" />
+    <Compile Include="UniLabs\Time\UDateTime.cs" />
+    <Compile Include="UniLabs\Time\UTimeSpan.cs" />
+    <Compile Include="UniLabs\Time\UTimeSpanRange.cs" />
     <Compile Include="UniqueQueue.cs" />
     <Compile Include="UnityChan\AutoBlink.cs" />
     <Compile Include="UnityChan\IdleChanger.cs" />
@@ -2317,6 +2338,9 @@
     <Compile Include="VerletLine.cs" />
     <Compile Include="ViewsAndAllocator.cs" />
     <Compile Include="VirtualStumpBarrierSFX.cs" />
+    <Compile Include="VirtualStumpSerializer.cs" />
+    <Compile Include="VirtualStumpTeleporter.cs" />
+    <Compile Include="VirtualStumpTeleporterSerializer.cs" />
     <Compile Include="Viveport\Api.cs" />
     <Compile Include="Viveport\ArcadeLeaderboard.cs" />
     <Compile Include="Viveport\Arcade\Session.cs" />
@@ -2386,7 +2410,6 @@
     <Compile Include="VrrigReliableSerializer.cs" />
     <Compile Include="VRRigReliableState.cs" />
     <Compile Include="VRRigSerializer.cs" />
-    <Compile Include="VRTeleporterSerializer.cs" />
     <Compile Include="WanderingGhost.cs" />
     <Compile Include="WardrobeFunctionButton.cs" />
     <Compile Include="WardrobeInstance.cs" />
@@ -2428,7 +2451,7 @@
     <Compile Include="ZoneManagement.cs" />
     <Compile Include="ZoneNode.cs" />
     <Compile Include="ZoneRootRegister.cs" />
-    <Compile Include="__JobReflectionRegistrationOutput__2161734409.cs" />
+    <Compile Include="__JobReflectionRegistrationOutput__2483391320.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

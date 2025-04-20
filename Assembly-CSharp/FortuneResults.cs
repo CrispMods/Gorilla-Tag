@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000525 RID: 1317
+// Token: 0x02000532 RID: 1330
 public class FortuneResults : ScriptableObject
 {
-	// Token: 0x06001FED RID: 8173 RVA: 0x000A114C File Offset: 0x0009F34C
+	// Token: 0x06002046 RID: 8262 RVA: 0x000F2784 File Offset: 0x000F0984
 	private void OnValidate()
 	{
 		this.totalChance = 0f;
@@ -14,10 +14,10 @@ public class FortuneResults : ScriptableObject
 		}
 	}
 
-	// Token: 0x06001FEE RID: 8174 RVA: 0x000A1198 File Offset: 0x0009F398
+	// Token: 0x06002047 RID: 8263 RVA: 0x000F27D0 File Offset: 0x000F09D0
 	public FortuneResults.FortuneResult GetResult()
 	{
-		float num = Random.Range(0f, this.totalChance);
+		float num = UnityEngine.Random.Range(0f, this.totalChance);
 		int i = 0;
 		while (i < this.fortuneResults.Length)
 		{
@@ -28,7 +28,7 @@ public class FortuneResults : ScriptableObject
 				{
 					return new FortuneResults.FortuneResult(FortuneResults.FortuneCategoryType.Invalid, -1);
 				}
-				int resultIndex = Random.Range(0, fortuneCategory.textResults.Length);
+				int resultIndex = UnityEngine.Random.Range(0, fortuneCategory.textResults.Length);
 				return new FortuneResults.FortuneResult(fortuneCategory.fortuneType, resultIndex);
 			}
 			else
@@ -40,7 +40,7 @@ public class FortuneResults : ScriptableObject
 		return new FortuneResults.FortuneResult(FortuneResults.FortuneCategoryType.Invalid, -1);
 	}
 
-	// Token: 0x06001FEF RID: 8175 RVA: 0x000A121C File Offset: 0x0009F41C
+	// Token: 0x06002048 RID: 8264 RVA: 0x000F2854 File Offset: 0x000F0A54
 	public string GetResultText(FortuneResults.FortuneResult result)
 	{
 		for (int i = 0; i < this.fortuneResults.Length; i++)
@@ -53,57 +53,57 @@ public class FortuneResults : ScriptableObject
 		return "!! Invalid Fortune !!";
 	}
 
-	// Token: 0x040023F5 RID: 9205
+	// Token: 0x04002448 RID: 9288
 	[SerializeField]
 	private FortuneResults.FortuneCategory[] fortuneResults;
 
-	// Token: 0x040023F6 RID: 9206
+	// Token: 0x04002449 RID: 9289
 	[SerializeField]
 	private float totalChance;
 
-	// Token: 0x02000526 RID: 1318
+	// Token: 0x02000533 RID: 1331
 	public enum FortuneCategoryType
 	{
-		// Token: 0x040023F8 RID: 9208
+		// Token: 0x0400244B RID: 9291
 		Invalid,
-		// Token: 0x040023F9 RID: 9209
+		// Token: 0x0400244C RID: 9292
 		Positive,
-		// Token: 0x040023FA RID: 9210
+		// Token: 0x0400244D RID: 9293
 		Neutral,
-		// Token: 0x040023FB RID: 9211
+		// Token: 0x0400244E RID: 9294
 		Negative,
-		// Token: 0x040023FC RID: 9212
+		// Token: 0x0400244F RID: 9295
 		Seasonal
 	}
 
-	// Token: 0x02000527 RID: 1319
+	// Token: 0x02000534 RID: 1332
 	[Serializable]
 	public struct FortuneCategory
 	{
-		// Token: 0x040023FD RID: 9213
+		// Token: 0x04002450 RID: 9296
 		public FortuneResults.FortuneCategoryType fortuneType;
 
-		// Token: 0x040023FE RID: 9214
+		// Token: 0x04002451 RID: 9297
 		public float weightedChance;
 
-		// Token: 0x040023FF RID: 9215
+		// Token: 0x04002452 RID: 9298
 		public string[] textResults;
 	}
 
-	// Token: 0x02000528 RID: 1320
+	// Token: 0x02000535 RID: 1333
 	public struct FortuneResult
 	{
-		// Token: 0x06001FF1 RID: 8177 RVA: 0x000A1297 File Offset: 0x0009F497
+		// Token: 0x0600204A RID: 8266 RVA: 0x00045F51 File Offset: 0x00044151
 		public FortuneResult(FortuneResults.FortuneCategoryType fortuneType, int resultIndex)
 		{
 			this.fortuneType = fortuneType;
 			this.resultIndex = resultIndex;
 		}
 
-		// Token: 0x04002400 RID: 9216
+		// Token: 0x04002453 RID: 9299
 		public FortuneResults.FortuneCategoryType fortuneType;
 
-		// Token: 0x04002401 RID: 9217
+		// Token: 0x04002454 RID: 9300
 		public int resultIndex;
 	}
 }

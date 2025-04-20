@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200089D RID: 2205
+// Token: 0x020008B9 RID: 2233
 public class SpawnPoint : MonoBehaviour
 {
-	// Token: 0x040037BA RID: 14266
+	// Token: 0x0400387B RID: 14459
 	public GTZone startZone;
 
-	// Token: 0x040037BB RID: 14267
+	// Token: 0x0400387C RID: 14460
 	public float startSize = 1f;
 }

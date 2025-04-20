@@ -5,10 +5,10 @@ using GorillaLocomotion;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000790 RID: 1936
+// Token: 0x020007A8 RID: 1960
 public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSliceableSimple
 {
-	// Token: 0x06002FCB RID: 12235 RVA: 0x000E5E49 File Offset: 0x000E4049
+	// Token: 0x0600307D RID: 12413 RVA: 0x00050328 File Offset: 0x0004E528
 	private void Awake()
 	{
 		if (FriendingManager.Instance == null)
@@ -17,10 +17,10 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 			PhotonNetwork.AddCallbackTarget(this);
 			return;
 		}
-		Object.Destroy(this);
+		UnityEngine.Object.Destroy(this);
 	}
 
-	// Token: 0x06002FCC RID: 12236 RVA: 0x000E5E74 File Offset: 0x000E4074
+	// Token: 0x0600307E RID: 12414 RVA: 0x0012F5E4 File Offset: 0x0012D7E4
 	private void Start()
 	{
 		NetworkSystem.Instance.OnPlayerLeft += this.OnPlayerLeftRoom;
@@ -28,7 +28,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		NetworkSystem.Instance.OnReturnedToSinglePlayer += this.ValidateState;
 	}
 
-	// Token: 0x06002FCD RID: 12237 RVA: 0x000E5EC4 File Offset: 0x000E40C4
+	// Token: 0x0600307F RID: 12415 RVA: 0x0012F634 File Offset: 0x0012D834
 	private void OnDestroy()
 	{
 		if (NetworkSystem.Instance != null)
@@ -39,25 +39,25 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		}
 	}
 
-	// Token: 0x06002FCE RID: 12238 RVA: 0x000158F9 File Offset: 0x00013AF9
+	// Token: 0x06003080 RID: 12416 RVA: 0x00032C89 File Offset: 0x00030E89
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x06002FCF RID: 12239 RVA: 0x00015902 File Offset: 0x00013B02
+	// Token: 0x06003081 RID: 12417 RVA: 0x00032C92 File Offset: 0x00030E92
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x06002FD0 RID: 12240 RVA: 0x000E5F20 File Offset: 0x000E4120
+	// Token: 0x06003082 RID: 12418 RVA: 0x00050350 File Offset: 0x0004E550
 	public void SliceUpdate()
 	{
 		this.AuthorityUpdate();
 	}
 
-	// Token: 0x06002FD1 RID: 12241 RVA: 0x000E5F28 File Offset: 0x000E4128
+	// Token: 0x06003083 RID: 12419 RVA: 0x0012F690 File Offset: 0x0012D890
 	private void AuthorityUpdate()
 	{
 		if (PhotonNetwork.InRoom && base.photonView.IsMine)
@@ -88,13 +88,13 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		}
 	}
 
-	// Token: 0x06002FD2 RID: 12242 RVA: 0x000E6015 File Offset: 0x000E4215
+	// Token: 0x06003084 RID: 12420 RVA: 0x00050358 File Offset: 0x0004E558
 	private void OnPlayerLeftRoom(NetPlayer player)
 	{
 		this.ValidateState();
 	}
 
-	// Token: 0x06002FD3 RID: 12243 RVA: 0x000E6020 File Offset: 0x000E4220
+	// Token: 0x06003085 RID: 12421 RVA: 0x0012F780 File Offset: 0x0012D980
 	private void ValidateState()
 	{
 		for (int i = 0; i < this.activeFriendStationData.Count; i++)
@@ -117,7 +117,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		this.UpdateFriendingStations();
 	}
 
-	// Token: 0x06002FD4 RID: 12244 RVA: 0x000E60C8 File Offset: 0x000E42C8
+	// Token: 0x06003086 RID: 12422 RVA: 0x0012F828 File Offset: 0x0012DA28
 	private void UpdateFriendingStations()
 	{
 		for (int i = 0; i < this.activeFriendStationData.Count; i++)
@@ -130,7 +130,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		}
 	}
 
-	// Token: 0x06002FD5 RID: 12245 RVA: 0x000E611D File Offset: 0x000E431D
+	// Token: 0x06003087 RID: 12423 RVA: 0x00050360 File Offset: 0x0004E560
 	public void RegisterFriendingStation(FriendingStation friendingStation)
 	{
 		if (!this.friendingStations.ContainsKey(friendingStation.Zone))
@@ -139,13 +139,13 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		}
 	}
 
-	// Token: 0x06002FD6 RID: 12246 RVA: 0x000E6144 File Offset: 0x000E4344
+	// Token: 0x06003088 RID: 12424 RVA: 0x00050387 File Offset: 0x0004E587
 	public void UnregisterFriendingStation(FriendingStation friendingStation)
 	{
 		this.friendingStations.Remove(friendingStation.Zone);
 	}
 
-	// Token: 0x06002FD7 RID: 12247 RVA: 0x000E6158 File Offset: 0x000E4358
+	// Token: 0x06003089 RID: 12425 RVA: 0x0012F880 File Offset: 0x0012DA80
 	private void DebugLogFriendingStations()
 	{
 		string text = string.Format("Friending Stations: Count: {0} ", this.friendingStations.Count);
@@ -156,7 +156,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		Debug.Log(text);
 	}
 
-	// Token: 0x06002FD8 RID: 12248 RVA: 0x000E61E4 File Offset: 0x000E43E4
+	// Token: 0x0600308A RID: 12426 RVA: 0x0012F90C File Offset: 0x0012DB0C
 	public void PlayerEnteredStation(GTZone zone, NetPlayer netPlayer)
 	{
 		if (netPlayer != null && netPlayer.ActorNumber == NetworkSystem.Instance.LocalPlayer.ActorNumber)
@@ -231,7 +231,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		}
 	}
 
-	// Token: 0x06002FD9 RID: 12249 RVA: 0x000E6428 File Offset: 0x000E4628
+	// Token: 0x0600308B RID: 12427 RVA: 0x0012FB50 File Offset: 0x0012DD50
 	public void PlayerExitedStation(GTZone zone, NetPlayer netPlayer)
 	{
 		if (netPlayer != null && netPlayer.ActorNumber == NetworkSystem.Instance.LocalPlayer.ActorNumber)
@@ -291,7 +291,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		}
 	}
 
-	// Token: 0x06002FDA RID: 12250 RVA: 0x000E6668 File Offset: 0x000E4868
+	// Token: 0x0600308C RID: 12428 RVA: 0x0012FD90 File Offset: 0x0012DF90
 	private void PlayerPressedButton(GTZone zone, int playerId)
 	{
 		if (PhotonNetwork.InRoom && base.photonView.IsMine)
@@ -337,7 +337,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		}
 	}
 
-	// Token: 0x06002FDB RID: 12251 RVA: 0x000E6808 File Offset: 0x000E4A08
+	// Token: 0x0600308D RID: 12429 RVA: 0x0012FF30 File Offset: 0x0012E130
 	private void PlayerUnpressedButton(GTZone zone, int playerId)
 	{
 		if (PhotonNetwork.InRoom && base.photonView.IsMine)
@@ -383,7 +383,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		}
 	}
 
-	// Token: 0x06002FDC RID: 12252 RVA: 0x000E69A9 File Offset: 0x000E4BA9
+	// Token: 0x0600308E RID: 12430 RVA: 0x0005039B File Offset: 0x0004E59B
 	private void CheckFriendStatusRequest(GTZone zone, int actorNumberA, int actorNumberB)
 	{
 		FriendSystem.Instance.OnFriendListRefresh -= this.CheckFriendStatusOnFriendListRefresh;
@@ -391,7 +391,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		FriendSystem.Instance.RefreshFriendsList();
 	}
 
-	// Token: 0x06002FDD RID: 12253 RVA: 0x000E69E8 File Offset: 0x000E4BE8
+	// Token: 0x0600308F RID: 12431 RVA: 0x001300D4 File Offset: 0x0012E2D4
 	private void CheckFriendStatusOnFriendListRefresh(List<FriendBackendController.Friend> friendList)
 	{
 		FriendSystem.Instance.OnFriendListRefresh -= this.CheckFriendStatusOnFriendListRefresh;
@@ -435,7 +435,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		}
 	}
 
-	// Token: 0x06002FDE RID: 12254 RVA: 0x000E6B28 File Offset: 0x000E4D28
+	// Token: 0x06003090 RID: 12432 RVA: 0x00130214 File Offset: 0x0012E414
 	private void CheckFriendStatusResponse(GTZone zone, int responderActorNumber, int friendTargetActorNumber, bool friends)
 	{
 		if (PhotonNetwork.InRoom && base.photonView.IsMine)
@@ -501,7 +501,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		}
 	}
 
-	// Token: 0x06002FDF RID: 12255 RVA: 0x000E6CE4 File Offset: 0x000E4EE4
+	// Token: 0x06003091 RID: 12433 RVA: 0x001303D0 File Offset: 0x0012E5D0
 	private void SendFriendRequestIfApplicable(GTZone zone)
 	{
 		int i = 0;
@@ -538,7 +538,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		}
 	}
 
-	// Token: 0x06002FE0 RID: 12256 RVA: 0x000E6DE0 File Offset: 0x000E4FE0
+	// Token: 0x06003092 RID: 12434 RVA: 0x001304CC File Offset: 0x0012E6CC
 	private void FriendRequestCompletedAuthority(GTZone zone, int playerId, bool succeeded)
 	{
 		if (PhotonNetwork.InRoom && base.photonView.IsMine)
@@ -586,7 +586,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		}
 	}
 
-	// Token: 0x06002FE1 RID: 12257 RVA: 0x000E6F78 File Offset: 0x000E5178
+	// Token: 0x06003093 RID: 12435 RVA: 0x00130664 File Offset: 0x0012E864
 	private void FriendRequestCallback(GTZone zone, int localId, int friendId, bool success)
 	{
 		if (base.photonView.IsMine)
@@ -601,7 +601,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		});
 	}
 
-	// Token: 0x06002FE2 RID: 12258 RVA: 0x000E6FD0 File Offset: 0x000E51D0
+	// Token: 0x06003094 RID: 12436 RVA: 0x001306BC File Offset: 0x0012E8BC
 	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.IsWriting)
@@ -627,7 +627,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		this.UpdateFriendingStations();
 	}
 
-	// Token: 0x06002FE3 RID: 12259 RVA: 0x000E7080 File Offset: 0x000E5280
+	// Token: 0x06003095 RID: 12437 RVA: 0x0013076C File Offset: 0x0012E96C
 	[PunRPC]
 	public void CheckFriendStatusRequestRPC(GTZone zone, int actorNumberA, int actorNumberB, PhotonMessageInfo info)
 	{
@@ -640,7 +640,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		this.CheckFriendStatusRequest(zone, actorNumberA, actorNumberB);
 	}
 
-	// Token: 0x06002FE4 RID: 12260 RVA: 0x000E70E8 File Offset: 0x000E52E8
+	// Token: 0x06003096 RID: 12438 RVA: 0x001307D4 File Offset: 0x0012E9D4
 	[PunRPC]
 	public void CheckFriendStatusResponseRPC(GTZone zone, int friendTargetActorNumber, bool friends, PhotonMessageInfo info)
 	{
@@ -653,7 +653,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		this.CheckFriendStatusResponse(zone, info.Sender.ActorNumber, friendTargetActorNumber, friends);
 	}
 
-	// Token: 0x06002FE5 RID: 12261 RVA: 0x000E715C File Offset: 0x000E535C
+	// Token: 0x06003097 RID: 12439 RVA: 0x00130848 File Offset: 0x0012EA48
 	[PunRPC]
 	public void FriendButtonPressedRPC(GTZone zone, PhotonMessageInfo info)
 	{
@@ -666,7 +666,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		this.PlayerPressedButton(zone, info.Sender.ActorNumber);
 	}
 
-	// Token: 0x06002FE6 RID: 12262 RVA: 0x000E71CC File Offset: 0x000E53CC
+	// Token: 0x06003098 RID: 12440 RVA: 0x001308B8 File Offset: 0x0012EAB8
 	[PunRPC]
 	public void FriendButtonUnpressedRPC(GTZone zone, PhotonMessageInfo info)
 	{
@@ -679,7 +679,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		this.PlayerUnpressedButton(zone, info.Sender.ActorNumber);
 	}
 
-	// Token: 0x06002FE7 RID: 12263 RVA: 0x000E723C File Offset: 0x000E543C
+	// Token: 0x06003099 RID: 12441 RVA: 0x00130928 File Offset: 0x0012EB28
 	[PunRPC]
 	public void StationNoLongerActiveRPC(GTZone zone, PhotonMessageInfo info)
 	{
@@ -702,7 +702,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		}
 	}
 
-	// Token: 0x06002FE8 RID: 12264 RVA: 0x000E72E4 File Offset: 0x000E54E4
+	// Token: 0x0600309A RID: 12442 RVA: 0x001309D0 File Offset: 0x0012EBD0
 	[PunRPC]
 	public void NotifyClientsFriendRequestReadyRPC(GTZone zone, PhotonMessageInfo info)
 	{
@@ -715,7 +715,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		this.SendFriendRequestIfApplicable(zone);
 	}
 
-	// Token: 0x06002FE9 RID: 12265 RVA: 0x000E7348 File Offset: 0x000E5548
+	// Token: 0x0600309B RID: 12443 RVA: 0x00130A34 File Offset: 0x0012EC34
 	[PunRPC]
 	public void FriendRequestCompletedRPC(GTZone zone, bool succeeded, PhotonMessageInfo info)
 	{
@@ -728,13 +728,13 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		this.FriendRequestCompletedAuthority(zone, info.Sender.ActorNumber, succeeded);
 	}
 
-	// Token: 0x06002FEB RID: 12267 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x0600309D RID: 12445 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x06002FEC RID: 12268 RVA: 0x000E73F4 File Offset: 0x000E55F4
+	// Token: 0x0600309E RID: 12446 RVA: 0x00130AA4 File Offset: 0x0012ECA4
 	[CompilerGenerated]
 	internal static void <OnPhotonSerializeView>g__SendFriendStationData|31_0(PhotonStream stream, FriendingManager.FriendStationData data)
 	{
@@ -744,7 +744,7 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		stream.SendNext((int)data.state);
 	}
 
-	// Token: 0x06002FED RID: 12269 RVA: 0x000E7448 File Offset: 0x000E5648
+	// Token: 0x0600309F RID: 12447 RVA: 0x00130AF8 File Offset: 0x0012ECF8
 	[CompilerGenerated]
 	internal static FriendingManager.FriendStationData <OnPhotonSerializeView>g__ReceiveFriendStationData|31_1(PhotonStream stream)
 	{
@@ -757,86 +757,86 @@ public class FriendingManager : MonoBehaviourPun, IPunObservable, IGorillaSlicea
 		};
 	}
 
-	// Token: 0x040033CC RID: 13260
+	// Token: 0x04003476 RID: 13430
 	[OnEnterPlay_SetNull]
 	public static volatile FriendingManager Instance;
 
-	// Token: 0x040033CD RID: 13261
+	// Token: 0x04003477 RID: 13431
 	[SerializeField]
 	private float progressBarDuration = 3f;
 
-	// Token: 0x040033CE RID: 13262
+	// Token: 0x04003478 RID: 13432
 	[SerializeField]
 	private float requiredProximityToStation = 3f;
 
-	// Token: 0x040033CF RID: 13263
+	// Token: 0x04003479 RID: 13433
 	private List<FriendingManager.FriendStationData> activeFriendStationData = new List<FriendingManager.FriendStationData>(10);
 
-	// Token: 0x040033D0 RID: 13264
+	// Token: 0x0400347A RID: 13434
 	private Dictionary<GTZone, FriendingStation> friendingStations = new Dictionary<GTZone, FriendingStation>();
 
-	// Token: 0x040033D1 RID: 13265
+	// Token: 0x0400347B RID: 13435
 	private GTZone localPlayerZone = GTZone.none;
 
-	// Token: 0x02000791 RID: 1937
+	// Token: 0x020007A9 RID: 1961
 	public enum FriendStationState
 	{
-		// Token: 0x040033D3 RID: 13267
+		// Token: 0x0400347D RID: 13437
 		NotInRoom,
-		// Token: 0x040033D4 RID: 13268
+		// Token: 0x0400347E RID: 13438
 		WaitingForPlayers,
-		// Token: 0x040033D5 RID: 13269
+		// Token: 0x0400347F RID: 13439
 		WaitingOnFriendStatusBoth,
-		// Token: 0x040033D6 RID: 13270
+		// Token: 0x04003480 RID: 13440
 		WaitingOnFriendStatusPlayerA,
-		// Token: 0x040033D7 RID: 13271
+		// Token: 0x04003481 RID: 13441
 		WaitingOnFriendStatusPlayerB,
-		// Token: 0x040033D8 RID: 13272
+		// Token: 0x04003482 RID: 13442
 		WaitingOnButtonBoth,
-		// Token: 0x040033D9 RID: 13273
+		// Token: 0x04003483 RID: 13443
 		WaitingOnButtonPlayerA,
-		// Token: 0x040033DA RID: 13274
+		// Token: 0x04003484 RID: 13444
 		WaitingOnButtonPlayerB,
-		// Token: 0x040033DB RID: 13275
+		// Token: 0x04003485 RID: 13445
 		ButtonConfirmationTimer0,
-		// Token: 0x040033DC RID: 13276
+		// Token: 0x04003486 RID: 13446
 		ButtonConfirmationTimer1,
-		// Token: 0x040033DD RID: 13277
+		// Token: 0x04003487 RID: 13447
 		ButtonConfirmationTimer2,
-		// Token: 0x040033DE RID: 13278
+		// Token: 0x04003488 RID: 13448
 		ButtonConfirmationTimer3,
-		// Token: 0x040033DF RID: 13279
+		// Token: 0x04003489 RID: 13449
 		ButtonConfirmationTimer4,
-		// Token: 0x040033E0 RID: 13280
+		// Token: 0x0400348A RID: 13450
 		WaitingOnRequestBoth,
-		// Token: 0x040033E1 RID: 13281
+		// Token: 0x0400348B RID: 13451
 		WaitingOnRequestPlayerA,
-		// Token: 0x040033E2 RID: 13282
+		// Token: 0x0400348C RID: 13452
 		WaitingOnRequestPlayerB,
-		// Token: 0x040033E3 RID: 13283
+		// Token: 0x0400348D RID: 13453
 		RequestFailed,
-		// Token: 0x040033E4 RID: 13284
+		// Token: 0x0400348E RID: 13454
 		Friends,
-		// Token: 0x040033E5 RID: 13285
+		// Token: 0x0400348F RID: 13455
 		AlreadyFriends
 	}
 
-	// Token: 0x02000792 RID: 1938
+	// Token: 0x020007AA RID: 1962
 	public struct FriendStationData
 	{
-		// Token: 0x040033E6 RID: 13286
+		// Token: 0x04003490 RID: 13456
 		public GTZone zone;
 
-		// Token: 0x040033E7 RID: 13287
+		// Token: 0x04003491 RID: 13457
 		public int actorNumberA;
 
-		// Token: 0x040033E8 RID: 13288
+		// Token: 0x04003492 RID: 13458
 		public int actorNumberB;
 
-		// Token: 0x040033E9 RID: 13289
+		// Token: 0x04003493 RID: 13459
 		public FriendingManager.FriendStationState state;
 
-		// Token: 0x040033EA RID: 13290
+		// Token: 0x04003494 RID: 13460
 		public float progressBarStartTime;
 	}
 }

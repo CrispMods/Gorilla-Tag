@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000449 RID: 1097
+// Token: 0x02000455 RID: 1109
 public class KinematicWhenTargetInactive : MonoBehaviour
 {
-	// Token: 0x06001B03 RID: 6915 RVA: 0x00085104 File Offset: 0x00083304
+	// Token: 0x06001B57 RID: 6999 RVA: 0x000D9C8C File Offset: 0x000D7E8C
 	private void LateUpdate()
 	{
 		if (!this.target.activeSelf)
@@ -27,9 +27,9 @@ public class KinematicWhenTargetInactive : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001DEE RID: 7662
+	// Token: 0x04001E3D RID: 7741
 	public Rigidbody[] rigidBodies;
 
-	// Token: 0x04001DEF RID: 7663
+	// Token: 0x04001E3E RID: 7742
 	public GameObject target;
 }

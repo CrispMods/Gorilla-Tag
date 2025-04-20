@@ -5,15 +5,15 @@ using UnityEngine;
 
 namespace GorillaLocomotion.Gameplay
 {
-	// Token: 0x02000B56 RID: 2902
+	// Token: 0x02000B83 RID: 2947
 	public class GorillaZipline : MonoBehaviour
 	{
-		// Token: 0x170007A3 RID: 1955
-		// (get) Token: 0x06004894 RID: 18580 RVA: 0x0015FDEE File Offset: 0x0015DFEE
-		// (set) Token: 0x06004895 RID: 18581 RVA: 0x0015FDF6 File Offset: 0x0015DFF6
+		// Token: 0x170007BF RID: 1983
+		// (get) Token: 0x060049DF RID: 18911 RVA: 0x00060109 File Offset: 0x0005E309
+		// (set) Token: 0x060049E0 RID: 18912 RVA: 0x00060111 File Offset: 0x0005E311
 		public float currentSpeed { get; private set; }
 
-		// Token: 0x06004896 RID: 18582 RVA: 0x0015FE00 File Offset: 0x0015E000
+		// Token: 0x060049E1 RID: 18913 RVA: 0x0019B5A8 File Offset: 0x001997A8
 		private void FindTFromDistance(ref float t, float distance, int steps = 1000)
 		{
 			float num = distance / (float)steps;
@@ -36,7 +36,7 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x06004897 RID: 18583 RVA: 0x0015FE74 File Offset: 0x0015E074
+		// Token: 0x060049E2 RID: 18914 RVA: 0x0019B61C File Offset: 0x0019981C
 		private float FindSlideHelperSpot(Vector3 grabPoint)
 		{
 			int i = 0;
@@ -60,7 +60,7 @@ namespace GorillaLocomotion.Gameplay
 			return result;
 		}
 
-		// Token: 0x06004898 RID: 18584 RVA: 0x0015FEF0 File Offset: 0x0015E0F0
+		// Token: 0x060049E3 RID: 18915 RVA: 0x0006011A File Offset: 0x0005E31A
 		private void Start()
 		{
 			this.spline = base.GetComponent<BezierSpline>();
@@ -68,20 +68,20 @@ namespace GorillaLocomotion.Gameplay
 			gorillaClimbable.onBeforeClimb = (Action<GorillaHandClimber, GorillaClimbableRef>)Delegate.Combine(gorillaClimbable.onBeforeClimb, new Action<GorillaHandClimber, GorillaClimbableRef>(this.OnBeforeClimb));
 		}
 
-		// Token: 0x06004899 RID: 18585 RVA: 0x0015FF25 File Offset: 0x0015E125
+		// Token: 0x060049E4 RID: 18916 RVA: 0x0006014F File Offset: 0x0005E34F
 		private void OnDestroy()
 		{
 			GorillaClimbable gorillaClimbable = this.slideHelper;
 			gorillaClimbable.onBeforeClimb = (Action<GorillaHandClimber, GorillaClimbableRef>)Delegate.Remove(gorillaClimbable.onBeforeClimb, new Action<GorillaHandClimber, GorillaClimbableRef>(this.OnBeforeClimb));
 		}
 
-		// Token: 0x0600489A RID: 18586 RVA: 0x0015FF4E File Offset: 0x0015E14E
+		// Token: 0x060049E5 RID: 18917 RVA: 0x00060178 File Offset: 0x0005E378
 		public Vector3 GetCurrentDirection()
 		{
 			return this.spline.GetDirection(this.currentT);
 		}
 
-		// Token: 0x0600489B RID: 18587 RVA: 0x0015FF64 File Offset: 0x0015E164
+		// Token: 0x060049E6 RID: 18918 RVA: 0x0019B698 File Offset: 0x00199898
 		private void OnBeforeClimb(GorillaHandClimber hand, GorillaClimbableRef climbRef)
 		{
 			bool flag = this.currentClimber == null;
@@ -102,7 +102,7 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x0600489C RID: 18588 RVA: 0x00160058 File Offset: 0x0015E258
+		// Token: 0x060049E7 RID: 18919 RVA: 0x0019B78C File Offset: 0x0019998C
 		private void Update()
 		{
 			if (this.currentClimber)
@@ -159,7 +159,7 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x0600489D RID: 18589 RVA: 0x00160346 File Offset: 0x0015E546
+		// Token: 0x060049E8 RID: 18920 RVA: 0x0006018B File Offset: 0x0005E38B
 		private void Stop()
 		{
 			this.currentClimber = null;
@@ -169,54 +169,54 @@ namespace GorillaLocomotion.Gameplay
 			this.currentSpeed = 0f;
 		}
 
-		// Token: 0x04004B32 RID: 19250
+		// Token: 0x04004C28 RID: 19496
 		[SerializeField]
 		private Transform segmentsRoot;
 
-		// Token: 0x04004B33 RID: 19251
+		// Token: 0x04004C29 RID: 19497
 		[SerializeField]
 		private GameObject segmentPrefab;
 
-		// Token: 0x04004B34 RID: 19252
+		// Token: 0x04004C2A RID: 19498
 		[SerializeField]
 		private GorillaClimbable slideHelper;
 
-		// Token: 0x04004B35 RID: 19253
+		// Token: 0x04004C2B RID: 19499
 		[SerializeField]
 		private AudioSource audioSlide;
 
-		// Token: 0x04004B36 RID: 19254
+		// Token: 0x04004C2C RID: 19500
 		private BezierSpline spline;
 
-		// Token: 0x04004B37 RID: 19255
+		// Token: 0x04004C2D RID: 19501
 		[SerializeField]
 		private Transform climbOffsetHelper;
 
-		// Token: 0x04004B38 RID: 19256
+		// Token: 0x04004C2E RID: 19502
 		[SerializeField]
 		private GorillaZiplineSettings settings;
 
-		// Token: 0x04004B3A RID: 19258
+		// Token: 0x04004C30 RID: 19504
 		[SerializeField]
 		private float ziplineDistance = 15f;
 
-		// Token: 0x04004B3B RID: 19259
+		// Token: 0x04004C31 RID: 19505
 		[SerializeField]
 		private float segmentDistance = 0.9f;
 
-		// Token: 0x04004B3C RID: 19260
+		// Token: 0x04004C32 RID: 19506
 		private GorillaHandClimber currentClimber;
 
-		// Token: 0x04004B3D RID: 19261
+		// Token: 0x04004C33 RID: 19507
 		private float currentT;
 
-		// Token: 0x04004B3E RID: 19262
+		// Token: 0x04004C34 RID: 19508
 		private const float inheritVelocityRechargeRate = 0.2f;
 
-		// Token: 0x04004B3F RID: 19263
+		// Token: 0x04004C35 RID: 19509
 		private const float inheritVelocityValueOnRelease = 0.55f;
 
-		// Token: 0x04004B40 RID: 19264
+		// Token: 0x04004C36 RID: 19510
 		private float currentInheritVelocityMulti = 1f;
 	}
 }

@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000485 RID: 1157
+// Token: 0x02000491 RID: 1169
 public class SetStateConditional : StateMachineBehaviour
 {
-	// Token: 0x06001BFA RID: 7162 RVA: 0x00088363 File Offset: 0x00086563
+	// Token: 0x06001C4E RID: 7246 RVA: 0x000437E9 File Offset: 0x000419E9
 	private void OnValidate()
 	{
 		this._setToID = this.setToState;
 	}
 
-	// Token: 0x06001BFB RID: 7163 RVA: 0x00088376 File Offset: 0x00086576
+	// Token: 0x06001C4F RID: 7247 RVA: 0x000437FC File Offset: 0x000419FC
 	public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 		if (!this._didSetup)
@@ -22,7 +22,7 @@ public class SetStateConditional : StateMachineBehaviour
 		this._sinceEnter = TimeSince.Now();
 	}
 
-	// Token: 0x06001BFC RID: 7164 RVA: 0x000883A4 File Offset: 0x000865A4
+	// Token: 0x06001C50 RID: 7248 RVA: 0x000DC014 File Offset: 0x000DA214
 	public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 		if (this.delay > 0f && !this._sinceEnter.HasElapsed(this.delay, true))
@@ -36,34 +36,34 @@ public class SetStateConditional : StateMachineBehaviour
 		animator.Play(this._setToID);
 	}
 
-	// Token: 0x06001BFD RID: 7165 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001C51 RID: 7249 RVA: 0x00030607 File Offset: 0x0002E807
 	protected virtual void Setup(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 	}
 
-	// Token: 0x06001BFE RID: 7166 RVA: 0x000444E2 File Offset: 0x000426E2
+	// Token: 0x06001C52 RID: 7250 RVA: 0x00039846 File Offset: 0x00037A46
 	protected virtual bool CanSetState(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 		return true;
 	}
 
-	// Token: 0x04001F08 RID: 7944
+	// Token: 0x04001F57 RID: 8023
 	public Animator parentAnimator;
 
-	// Token: 0x04001F09 RID: 7945
+	// Token: 0x04001F58 RID: 8024
 	public string setToState;
 
-	// Token: 0x04001F0A RID: 7946
+	// Token: 0x04001F59 RID: 8025
 	[SerializeField]
 	private AnimStateHash _setToID;
 
-	// Token: 0x04001F0B RID: 7947
+	// Token: 0x04001F5A RID: 8026
 	public float delay = 1f;
 
-	// Token: 0x04001F0C RID: 7948
+	// Token: 0x04001F5B RID: 8027
 	protected TimeSince _sinceEnter;
 
-	// Token: 0x04001F0D RID: 7949
+	// Token: 0x04001F5C RID: 8028
 	[NonSerialized]
 	private bool _didSetup;
 }

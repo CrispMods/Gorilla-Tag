@@ -4,20 +4,20 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x02000971 RID: 2417
+	// Token: 0x02000997 RID: 2455
 	public class Mole : Tappable
 	{
-		// Token: 0x1400006E RID: 110
-		// (add) Token: 0x06003AF7 RID: 15095 RVA: 0x0010F4A0 File Offset: 0x0010D6A0
-		// (remove) Token: 0x06003AF8 RID: 15096 RVA: 0x0010F4D8 File Offset: 0x0010D6D8
+		// Token: 0x14000072 RID: 114
+		// (add) Token: 0x06003C0F RID: 15375 RVA: 0x00152C14 File Offset: 0x00150E14
+		// (remove) Token: 0x06003C10 RID: 15376 RVA: 0x00152C4C File Offset: 0x00150E4C
 		public event Mole.MoleTapEvent OnTapped;
 
-		// Token: 0x1700061F RID: 1567
-		// (get) Token: 0x06003AF9 RID: 15097 RVA: 0x0010F50D File Offset: 0x0010D70D
-		// (set) Token: 0x06003AFA RID: 15098 RVA: 0x0010F515 File Offset: 0x0010D715
+		// Token: 0x17000637 RID: 1591
+		// (get) Token: 0x06003C11 RID: 15377 RVA: 0x00057332 File Offset: 0x00055532
+		// (set) Token: 0x06003C12 RID: 15378 RVA: 0x0005733A File Offset: 0x0005553A
 		public bool IsLeftSideMole { get; set; }
 
-		// Token: 0x06003AFB RID: 15099 RVA: 0x0010F520 File Offset: 0x0010D720
+		// Token: 0x06003C13 RID: 15379 RVA: 0x00152C84 File Offset: 0x00150E84
 		private void Awake()
 		{
 			this.currentState = Mole.MoleState.Hidden;
@@ -42,7 +42,7 @@ namespace GorillaTagScripts
 			this.randomMolePickedIndex = -1;
 		}
 
-		// Token: 0x06003AFC RID: 15100 RVA: 0x0010F608 File Offset: 0x0010D808
+		// Token: 0x06003C14 RID: 15380 RVA: 0x00152D6C File Offset: 0x00150F6C
 		public void InvokeUpdate()
 		{
 			if (this.currentState == Mole.MoleState.Ready)
@@ -73,13 +73,13 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003AFD RID: 15101 RVA: 0x0010F6D3 File Offset: 0x0010D8D3
+		// Token: 0x06003C15 RID: 15381 RVA: 0x00057343 File Offset: 0x00055543
 		public bool CanPickMole()
 		{
 			return this.currentState == Mole.MoleState.Ready;
 		}
 
-		// Token: 0x06003AFE RID: 15102 RVA: 0x0010F6E0 File Offset: 0x0010D8E0
+		// Token: 0x06003C16 RID: 15382 RVA: 0x00152E38 File Offset: 0x00151038
 		public void ShowMole(float _showMoleDuration, int randomMoleTypeIndex)
 		{
 			if (randomMoleTypeIndex >= this.moleTypes.Length || randomMoleTypeIndex < 0)
@@ -104,7 +104,7 @@ namespace GorillaTagScripts
 			this.travelTime = this.normalTravelTime;
 		}
 
-		// Token: 0x06003AFF RID: 15103 RVA: 0x0010F7B8 File Offset: 0x0010D9B8
+		// Token: 0x06003C17 RID: 15383 RVA: 0x00152F10 File Offset: 0x00151110
 		public void HideMole(bool isHit = false)
 		{
 			if (this.currentState < Mole.MoleState.TransitionToVisible || this.currentState > Mole.MoleState.Visible)
@@ -119,20 +119,20 @@ namespace GorillaTagScripts
 			this.currentState = Mole.MoleState.TransitionToHidden;
 		}
 
-		// Token: 0x06003B00 RID: 15104 RVA: 0x0010F838 File Offset: 0x0010DA38
+		// Token: 0x06003C18 RID: 15384 RVA: 0x00152F90 File Offset: 0x00151190
 		public bool CanTap()
 		{
 			Mole.MoleState moleState = this.currentState;
 			return moleState == Mole.MoleState.TransitionToVisible || moleState == Mole.MoleState.Visible;
 		}
 
-		// Token: 0x06003B01 RID: 15105 RVA: 0x0010F85D File Offset: 0x0010DA5D
+		// Token: 0x06003C19 RID: 15385 RVA: 0x0005734E File Offset: 0x0005554E
 		public override bool CanTap(bool isLeftHand)
 		{
 			return this.CanTap();
 		}
 
-		// Token: 0x06003B02 RID: 15106 RVA: 0x0010F868 File Offset: 0x0010DA68
+		// Token: 0x06003C1A RID: 15386 RVA: 0x00152FB8 File Offset: 0x001511B8
 		public override void OnTapLocal(float tapStrength, float tapTime, PhotonMessageInfoWrapped info)
 		{
 			if (!this.CanTap())
@@ -157,104 +157,104 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003B03 RID: 15107 RVA: 0x0010F907 File Offset: 0x0010DB07
+		// Token: 0x06003C1B RID: 15387 RVA: 0x00057356 File Offset: 0x00055556
 		public void ResetPosition()
 		{
 			base.transform.position = this.hiddenPosition;
 			this.currentState = Mole.MoleState.Reset;
 		}
 
-		// Token: 0x06003B04 RID: 15108 RVA: 0x0010F921 File Offset: 0x0010DB21
+		// Token: 0x06003C1C RID: 15388 RVA: 0x00057370 File Offset: 0x00055570
 		public int GetMoleTypeIndex(bool useHazardMole)
 		{
 			if (!useHazardMole)
 			{
-				return this.safeMoles[Random.Range(0, this.safeMoles.Count)];
+				return this.safeMoles[UnityEngine.Random.Range(0, this.safeMoles.Count)];
 			}
-			return this.hazardMoles[Random.Range(0, this.hazardMoles.Count)];
+			return this.hazardMoles[UnityEngine.Random.Range(0, this.hazardMoles.Count)];
 		}
 
-		// Token: 0x04003BFC RID: 15356
+		// Token: 0x04003CD6 RID: 15574
 		public float positionOffset = 0.2f;
 
-		// Token: 0x04003BFD RID: 15357
+		// Token: 0x04003CD7 RID: 15575
 		public MoleTypes[] moleTypes;
 
-		// Token: 0x04003BFE RID: 15358
+		// Token: 0x04003CD8 RID: 15576
 		private float showMoleDuration;
 
-		// Token: 0x04003BFF RID: 15359
+		// Token: 0x04003CD9 RID: 15577
 		private Vector3 visiblePosition;
 
-		// Token: 0x04003C00 RID: 15360
+		// Token: 0x04003CDA RID: 15578
 		private Vector3 hiddenPosition;
 
-		// Token: 0x04003C01 RID: 15361
+		// Token: 0x04003CDB RID: 15579
 		private float currentTime;
 
-		// Token: 0x04003C02 RID: 15362
+		// Token: 0x04003CDC RID: 15580
 		private float animStartTime;
 
-		// Token: 0x04003C03 RID: 15363
+		// Token: 0x04003CDD RID: 15581
 		private float travelTime;
 
-		// Token: 0x04003C04 RID: 15364
+		// Token: 0x04003CDE RID: 15582
 		private float normalTravelTime = 0.3f;
 
-		// Token: 0x04003C05 RID: 15365
+		// Token: 0x04003CDF RID: 15583
 		private float hitTravelTime = 0.2f;
 
-		// Token: 0x04003C06 RID: 15366
+		// Token: 0x04003CE0 RID: 15584
 		private AnimationCurve animCurve;
 
-		// Token: 0x04003C07 RID: 15367
+		// Token: 0x04003CE1 RID: 15585
 		private AnimationCurve normalAnimCurve;
 
-		// Token: 0x04003C08 RID: 15368
+		// Token: 0x04003CE2 RID: 15586
 		private AnimationCurve hitAnimCurve;
 
-		// Token: 0x04003C09 RID: 15369
+		// Token: 0x04003CE3 RID: 15587
 		private Mole.MoleState currentState;
 
-		// Token: 0x04003C0A RID: 15370
+		// Token: 0x04003CE4 RID: 15588
 		private Vector3 origin;
 
-		// Token: 0x04003C0B RID: 15371
+		// Token: 0x04003CE5 RID: 15589
 		private Vector3 target;
 
-		// Token: 0x04003C0C RID: 15372
+		// Token: 0x04003CE6 RID: 15590
 		private int randomMolePickedIndex;
 
-		// Token: 0x04003C0E RID: 15374
+		// Token: 0x04003CE8 RID: 15592
 		public CallLimiter rpcCooldown;
 
-		// Token: 0x04003C0F RID: 15375
+		// Token: 0x04003CE9 RID: 15593
 		private int moleScore;
 
-		// Token: 0x04003C10 RID: 15376
+		// Token: 0x04003CEA RID: 15594
 		private List<int> safeMoles = new List<int>();
 
-		// Token: 0x04003C11 RID: 15377
+		// Token: 0x04003CEB RID: 15595
 		private List<int> hazardMoles = new List<int>();
 
-		// Token: 0x02000972 RID: 2418
-		// (Invoke) Token: 0x06003B07 RID: 15111
+		// Token: 0x02000998 RID: 2456
+		// (Invoke) Token: 0x06003C1F RID: 15391
 		public delegate void MoleTapEvent(MoleTypes moleType, Vector3 position, bool isLocalTap, bool isLeft);
 
-		// Token: 0x02000973 RID: 2419
+		// Token: 0x02000999 RID: 2457
 		public enum MoleState
 		{
-			// Token: 0x04003C14 RID: 15380
+			// Token: 0x04003CEE RID: 15598
 			Reset,
-			// Token: 0x04003C15 RID: 15381
+			// Token: 0x04003CEF RID: 15599
 			Ready,
-			// Token: 0x04003C16 RID: 15382
+			// Token: 0x04003CF0 RID: 15600
 			TransitionToVisible,
-			// Token: 0x04003C17 RID: 15383
+			// Token: 0x04003CF1 RID: 15601
 			Visible,
-			// Token: 0x04003C18 RID: 15384
+			// Token: 0x04003CF2 RID: 15602
 			TransitionToHidden,
-			// Token: 0x04003C19 RID: 15385
+			// Token: 0x04003CF3 RID: 15603
 			Hidden
 		}
 	}

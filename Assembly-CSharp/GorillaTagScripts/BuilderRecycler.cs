@@ -4,17 +4,17 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x0200098E RID: 2446
+	// Token: 0x020009B4 RID: 2484
 	public class BuilderRecycler : MonoBehaviour
 	{
-		// Token: 0x06003BF0 RID: 15344 RVA: 0x00114470 File Offset: 0x00112670
+		// Token: 0x06003D08 RID: 15624 RVA: 0x001571D0 File Offset: 0x001553D0
 		private void Awake()
 		{
 			this.hasFans = (this.effectBehaviors.Count > 0 && this.bladeSoundPlayer != null && this.recycleParticles != null);
 			this.hasPipes = (this.outputPipes.Count > 0);
 		}
 
-		// Token: 0x06003BF1 RID: 15345 RVA: 0x001144C4 File Offset: 0x001126C4
+		// Token: 0x06003D09 RID: 15625 RVA: 0x00157224 File Offset: 0x00155424
 		private void Start()
 		{
 			if (this.hasPipes)
@@ -52,7 +52,7 @@ namespace GorillaTagScripts
 			this.OnZoneChanged();
 		}
 
-		// Token: 0x06003BF2 RID: 15346 RVA: 0x001145F8 File Offset: 0x001127F8
+		// Token: 0x06003D0A RID: 15626 RVA: 0x00057D35 File Offset: 0x00055F35
 		private void OnDestroy()
 		{
 			if (ZoneManagement.instance != null)
@@ -62,7 +62,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003BF3 RID: 15347 RVA: 0x00114630 File Offset: 0x00112830
+		// Token: 0x06003D0B RID: 15627 RVA: 0x00157358 File Offset: 0x00155558
 		private void OnZoneChanged()
 		{
 			bool flag = ZoneManagement.instance.IsZoneActive(GTZone.monkeBlocks);
@@ -89,7 +89,7 @@ namespace GorillaTagScripts
 			this.inBuilderZone = flag;
 		}
 
-		// Token: 0x06003BF4 RID: 15348 RVA: 0x001146EC File Offset: 0x001128EC
+		// Token: 0x06003D0C RID: 15628 RVA: 0x00157414 File Offset: 0x00155614
 		private void OnTriggerEnter(Collider other)
 		{
 			BuilderPiece builderPieceFromCollider = BuilderPiece.GetBuilderPieceFromCollider(other);
@@ -103,7 +103,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003BF5 RID: 15349 RVA: 0x0011472C File Offset: 0x0011292C
+		// Token: 0x06003D0D RID: 15629 RVA: 0x00157454 File Offset: 0x00155654
 		public void OnRecycleRequestedAtRecycler(BuilderPiece piece)
 		{
 			if (this.hasPipes)
@@ -123,7 +123,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003BF6 RID: 15350 RVA: 0x001147CC File Offset: 0x001129CC
+		// Token: 0x06003D0E RID: 15630 RVA: 0x001574F4 File Offset: 0x001556F4
 		private void AddPieceCost(BuilderResources cost)
 		{
 			foreach (BuilderResourceQuantity builderResourceQuantity in cost.quantities)
@@ -139,7 +139,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003BF7 RID: 15351 RVA: 0x00114854 File Offset: 0x00112A54
+		// Token: 0x06003D0F RID: 15631 RVA: 0x0015757C File Offset: 0x0015577C
 		private Vector2 GetUVShiftOffset()
 		{
 			float y = Shader.GetGlobalVector("_Time").y;
@@ -148,7 +148,7 @@ namespace GorillaTagScripts
 			return new Vector2(-1f * (Mathf.Floor(y * vector2.x) * 1f / vector.x % 1f) * vector.x - vector.x + 165f, 0f);
 		}
 
-		// Token: 0x06003BF8 RID: 15352 RVA: 0x001148E0 File Offset: 0x00112AE0
+		// Token: 0x06003D10 RID: 15632 RVA: 0x00157608 File Offset: 0x00155808
 		private void UpdatePipeLoop()
 		{
 			bool flag = false;
@@ -182,7 +182,7 @@ namespace GorillaTagScripts
 			this.playingPipeEffect = false;
 		}
 
-		// Token: 0x06003BF9 RID: 15353 RVA: 0x00114A44 File Offset: 0x00112C44
+		// Token: 0x06003D11 RID: 15633 RVA: 0x0015776C File Offset: 0x0015596C
 		private void ResetOutputPipes()
 		{
 			foreach (MeshRenderer meshRenderer in this.outputPipes)
@@ -193,7 +193,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003BFA RID: 15354 RVA: 0x00114AC0 File Offset: 0x00112CC0
+		// Token: 0x06003D12 RID: 15634 RVA: 0x001577E8 File Offset: 0x001559E8
 		public void UpdateRecycler()
 		{
 			if (this.playingBladeEffect && (double)Time.time > this.timeToStopBlades)
@@ -214,61 +214,61 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x04003D14 RID: 15636
+		// Token: 0x04003DEE RID: 15854
 		public float recycleEffectDuration = 0.25f;
 
-		// Token: 0x04003D15 RID: 15637
+		// Token: 0x04003DEF RID: 15855
 		private double timeToStopBlades = double.MinValue;
 
-		// Token: 0x04003D16 RID: 15638
+		// Token: 0x04003DF0 RID: 15856
 		private bool playingBladeEffect;
 
-		// Token: 0x04003D17 RID: 15639
+		// Token: 0x04003DF1 RID: 15857
 		private bool playingPipeEffect;
 
-		// Token: 0x04003D18 RID: 15640
+		// Token: 0x04003DF2 RID: 15858
 		private double timeToCheckPipes = double.MinValue;
 
-		// Token: 0x04003D19 RID: 15641
+		// Token: 0x04003DF3 RID: 15859
 		public List<MonoBehaviour> effectBehaviors;
 
-		// Token: 0x04003D1A RID: 15642
+		// Token: 0x04003DF4 RID: 15860
 		public GameObject recycleParticles;
 
-		// Token: 0x04003D1B RID: 15643
+		// Token: 0x04003DF5 RID: 15861
 		public SoundBankPlayer bladeSoundPlayer;
 
-		// Token: 0x04003D1C RID: 15644
+		// Token: 0x04003DF6 RID: 15862
 		public List<MeshRenderer> outputPipes;
 
-		// Token: 0x04003D1D RID: 15645
+		// Token: 0x04003DF7 RID: 15863
 		public BuilderResourceColors builderResourceColors;
 
-		// Token: 0x04003D1E RID: 15646
+		// Token: 0x04003DF8 RID: 15864
 		private bool hasFans;
 
-		// Token: 0x04003D1F RID: 15647
+		// Token: 0x04003DF9 RID: 15865
 		private bool hasPipes;
 
-		// Token: 0x04003D20 RID: 15648
+		// Token: 0x04003DFA RID: 15866
 		private MaterialPropertyBlock props;
 
-		// Token: 0x04003D21 RID: 15649
+		// Token: 0x04003DFB RID: 15867
 		private int[] totalRecycledCost;
 
-		// Token: 0x04003D22 RID: 15650
+		// Token: 0x04003DFC RID: 15868
 		private int[] currentChainCost;
 
-		// Token: 0x04003D23 RID: 15651
+		// Token: 0x04003DFD RID: 15869
 		private int numPipes;
 
-		// Token: 0x04003D24 RID: 15652
+		// Token: 0x04003DFE RID: 15870
 		internal int recyclerID = -1;
 
-		// Token: 0x04003D25 RID: 15653
+		// Token: 0x04003DFF RID: 15871
 		private List<Renderer> zoneRenderers = new List<Renderer>(10);
 
-		// Token: 0x04003D26 RID: 15654
+		// Token: 0x04003E00 RID: 15872
 		private bool inBuilderZone;
 	}
 }

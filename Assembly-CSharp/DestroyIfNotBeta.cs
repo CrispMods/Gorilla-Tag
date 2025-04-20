@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000456 RID: 1110
+// Token: 0x02000462 RID: 1122
 public class DestroyIfNotBeta : MonoBehaviour
 {
-	// Token: 0x06001B4F RID: 6991 RVA: 0x00037273 File Offset: 0x00035473
+	// Token: 0x06001BA3 RID: 7075 RVA: 0x000372C6 File Offset: 0x000354C6
 	private void Awake()
 	{
-		Object.Destroy(base.gameObject);
+		UnityEngine.Object.Destroy(base.gameObject);
 	}
 }

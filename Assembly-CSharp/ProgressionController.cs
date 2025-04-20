@@ -10,26 +10,26 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 
-// Token: 0x02000115 RID: 277
+// Token: 0x0200011F RID: 287
 public class ProgressionController : MonoBehaviour
 {
-	// Token: 0x1400001F RID: 31
-	// (add) Token: 0x06000781 RID: 1921 RVA: 0x00029E44 File Offset: 0x00028044
-	// (remove) Token: 0x06000782 RID: 1922 RVA: 0x00029E78 File Offset: 0x00028078
+	// Token: 0x14000020 RID: 32
+	// (add) Token: 0x060007C5 RID: 1989 RVA: 0x0008B874 File Offset: 0x00089A74
+	// (remove) Token: 0x060007C6 RID: 1990 RVA: 0x0008B8A8 File Offset: 0x00089AA8
 	public static event Action OnQuestSelectionChanged;
 
-	// Token: 0x14000020 RID: 32
-	// (add) Token: 0x06000783 RID: 1923 RVA: 0x00029EAC File Offset: 0x000280AC
-	// (remove) Token: 0x06000784 RID: 1924 RVA: 0x00029EE0 File Offset: 0x000280E0
+	// Token: 0x14000021 RID: 33
+	// (add) Token: 0x060007C7 RID: 1991 RVA: 0x0008B8DC File Offset: 0x00089ADC
+	// (remove) Token: 0x060007C8 RID: 1992 RVA: 0x0008B910 File Offset: 0x00089B10
 	public static event Action OnProgressEvent;
 
-	// Token: 0x170000B5 RID: 181
-	// (get) Token: 0x06000785 RID: 1925 RVA: 0x00029F13 File Offset: 0x00028113
-	// (set) Token: 0x06000786 RID: 1926 RVA: 0x00029F1A File Offset: 0x0002811A
+	// Token: 0x170000BA RID: 186
+	// (get) Token: 0x060007C9 RID: 1993 RVA: 0x000357EA File Offset: 0x000339EA
+	// (set) Token: 0x060007CA RID: 1994 RVA: 0x000357F1 File Offset: 0x000339F1
 	public static int WeeklyCap { get; private set; } = 25;
 
-	// Token: 0x170000B6 RID: 182
-	// (get) Token: 0x06000787 RID: 1927 RVA: 0x00029F22 File Offset: 0x00028122
+	// Token: 0x170000BB RID: 187
+	// (get) Token: 0x060007CB RID: 1995 RVA: 0x000357F9 File Offset: 0x000339F9
 	public static int TotalPoints
 	{
 		get
@@ -38,13 +38,13 @@ public class ProgressionController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000788 RID: 1928 RVA: 0x00029F39 File Offset: 0x00028139
+	// Token: 0x060007CC RID: 1996 RVA: 0x00035810 File Offset: 0x00033A10
 	public static void ReportQuestChanged(bool initialLoad)
 	{
 		ProgressionController._gInstance.OnQuestProgressChanged(initialLoad);
 	}
 
-	// Token: 0x06000789 RID: 1929 RVA: 0x00029F46 File Offset: 0x00028146
+	// Token: 0x060007CD RID: 1997 RVA: 0x0003581D File Offset: 0x00033A1D
 	public static void ReportQuestSelectionChanged()
 	{
 		ProgressionController._gInstance.LoadCompletedQuestQueue();
@@ -56,19 +56,19 @@ public class ProgressionController : MonoBehaviour
 		onQuestSelectionChanged();
 	}
 
-	// Token: 0x0600078A RID: 1930 RVA: 0x00029F61 File Offset: 0x00028161
+	// Token: 0x060007CE RID: 1998 RVA: 0x00035838 File Offset: 0x00033A38
 	public static void ReportQuestComplete(int questId, bool isDaily)
 	{
 		ProgressionController._gInstance.OnQuestComplete(questId, isDaily);
 	}
 
-	// Token: 0x0600078B RID: 1931 RVA: 0x00029F6F File Offset: 0x0002816F
+	// Token: 0x060007CF RID: 1999 RVA: 0x00035846 File Offset: 0x00033A46
 	public static void RedeemProgress()
 	{
 		ProgressionController._gInstance.RequestProgressRedemption(new Action(ProgressionController._gInstance.OnProgressRedeemed));
 	}
 
-	// Token: 0x0600078C RID: 1932 RVA: 0x00029F8B File Offset: 0x0002818B
+	// Token: 0x060007D0 RID: 2000 RVA: 0x00035862 File Offset: 0x00033A62
 	[return: TupleElementNames(new string[]
 	{
 		"weekly",
@@ -80,7 +80,7 @@ public class ProgressionController : MonoBehaviour
 		return ProgressionController._gInstance.GetProgress();
 	}
 
-	// Token: 0x0600078D RID: 1933 RVA: 0x00029F97 File Offset: 0x00028197
+	// Token: 0x060007D1 RID: 2001 RVA: 0x0003586E File Offset: 0x00033A6E
 	public static void RequestProgressUpdate()
 	{
 		ProgressionController gInstance = ProgressionController._gInstance;
@@ -91,13 +91,13 @@ public class ProgressionController : MonoBehaviour
 		gInstance.ReportProgress();
 	}
 
-	// Token: 0x0600078E RID: 1934 RVA: 0x00029FA8 File Offset: 0x000281A8
+	// Token: 0x060007D2 RID: 2002 RVA: 0x0008B944 File Offset: 0x00089B44
 	private void Awake()
 	{
 		if (ProgressionController._gInstance)
 		{
 			Debug.LogError("Duplicate ProgressionController detected. Destroying self.", base.gameObject);
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 			return;
 		}
 		ProgressionController._gInstance = this;
@@ -106,7 +106,7 @@ public class ProgressionController : MonoBehaviour
 		this.LoadCompletedQuestQueue();
 	}
 
-	// Token: 0x0600078F RID: 1935 RVA: 0x00029FFC File Offset: 0x000281FC
+	// Token: 0x060007D3 RID: 2003 RVA: 0x0008B998 File Offset: 0x00089B98
 	private void RequestStatus()
 	{
 		ProgressionController.<RequestStatus>d__36 <RequestStatus>d__;
@@ -116,7 +116,7 @@ public class ProgressionController : MonoBehaviour
 		<RequestStatus>d__.<>t__builder.Start<ProgressionController.<RequestStatus>d__36>(ref <RequestStatus>d__);
 	}
 
-	// Token: 0x06000790 RID: 1936 RVA: 0x0002A034 File Offset: 0x00028234
+	// Token: 0x060007D4 RID: 2004 RVA: 0x0008B9D0 File Offset: 0x00089BD0
 	private Task WaitForSessionToken()
 	{
 		ProgressionController.<WaitForSessionToken>d__37 <WaitForSessionToken>d__;
@@ -126,7 +126,7 @@ public class ProgressionController : MonoBehaviour
 		return <WaitForSessionToken>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000791 RID: 1937 RVA: 0x0002A070 File Offset: 0x00028270
+	// Token: 0x060007D5 RID: 2005 RVA: 0x0008BA0C File Offset: 0x00089C0C
 	private void FetchStatus()
 	{
 		base.StartCoroutine(this.DoFetchStatus(new ProgressionController.GetQuestsStatusRequest
@@ -138,7 +138,7 @@ public class ProgressionController : MonoBehaviour
 		}, new Action<ProgressionController.GetQuestStatusResponse>(this.OnFetchStatusResponse)));
 	}
 
-	// Token: 0x06000792 RID: 1938 RVA: 0x0002A0D5 File Offset: 0x000282D5
+	// Token: 0x060007D6 RID: 2006 RVA: 0x0003587F File Offset: 0x00033A7F
 	private IEnumerator DoFetchStatus(ProgressionController.GetQuestsStatusRequest data, Action<ProgressionController.GetQuestStatusResponse> callback)
 	{
 		UnityWebRequest request = new UnityWebRequest(PlayFabAuthenticatorSettings.ProgressionApiBaseUrl + "/api/GetQuestStatus", "POST");
@@ -184,7 +184,7 @@ public class ProgressionController : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000793 RID: 1939 RVA: 0x0002A0F4 File Offset: 0x000282F4
+	// Token: 0x060007D7 RID: 2007 RVA: 0x0008BA74 File Offset: 0x00089C74
 	private void OnFetchStatusResponse([CanBeNull] ProgressionController.GetQuestStatusResponse response)
 	{
 		this._isFetchingStatus = false;
@@ -198,7 +198,7 @@ public class ProgressionController : MonoBehaviour
 		GTDev.LogError<string>("Error: Could not fetch status!", null);
 	}
 
-	// Token: 0x06000794 RID: 1940 RVA: 0x0002A146 File Offset: 0x00028346
+	// Token: 0x060007D8 RID: 2008 RVA: 0x0003589C File Offset: 0x00033A9C
 	private void SendQuestCompleted(int questId)
 	{
 		if (this._isSendingQuestComplete)
@@ -209,7 +209,7 @@ public class ProgressionController : MonoBehaviour
 		this.StartSendQuestComplete(questId);
 	}
 
-	// Token: 0x06000795 RID: 1941 RVA: 0x0002A160 File Offset: 0x00028360
+	// Token: 0x060007D9 RID: 2009 RVA: 0x0008BAC8 File Offset: 0x00089CC8
 	private void StartSendQuestComplete(int questId)
 	{
 		base.StartCoroutine(this.DoSendQuestComplete(new ProgressionController.SetQuestCompleteRequest
@@ -223,7 +223,7 @@ public class ProgressionController : MonoBehaviour
 		}, new Action<ProgressionController.SetQuestCompleteResponse>(this.OnSendQuestCompleteSuccess)));
 	}
 
-	// Token: 0x06000796 RID: 1942 RVA: 0x0002A1D7 File Offset: 0x000283D7
+	// Token: 0x060007DA RID: 2010 RVA: 0x000358B5 File Offset: 0x00033AB5
 	private IEnumerator DoSendQuestComplete(ProgressionController.SetQuestCompleteRequest data, Action<ProgressionController.SetQuestCompleteResponse> callback)
 	{
 		UnityWebRequest request = new UnityWebRequest(PlayFabAuthenticatorSettings.ProgressionApiBaseUrl + "/api/SetQuestComplete", "POST");
@@ -281,7 +281,7 @@ public class ProgressionController : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000797 RID: 1943 RVA: 0x0002A1F4 File Offset: 0x000283F4
+	// Token: 0x060007DB RID: 2011 RVA: 0x000358D2 File Offset: 0x00033AD2
 	private void OnSendQuestCompleteSuccess([CanBeNull] ProgressionController.SetQuestCompleteResponse response)
 	{
 		this._isSendingQuestComplete = false;
@@ -292,19 +292,19 @@ public class ProgressionController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000798 RID: 1944 RVA: 0x0002A222 File Offset: 0x00028422
+	// Token: 0x060007DC RID: 2012 RVA: 0x00035900 File Offset: 0x00033B00
 	private void OnQuestProgressChanged(bool initialLoad)
 	{
 		this.ReportProgress();
 	}
 
-	// Token: 0x06000799 RID: 1945 RVA: 0x0002A22A File Offset: 0x0002842A
+	// Token: 0x060007DD RID: 2013 RVA: 0x00035908 File Offset: 0x00033B08
 	private void OnQuestComplete(int questId, bool isDaily)
 	{
 		this.QueueQuestCompletion(questId, isDaily);
 	}
 
-	// Token: 0x0600079A RID: 1946 RVA: 0x0002A234 File Offset: 0x00028434
+	// Token: 0x060007DE RID: 2014 RVA: 0x00035912 File Offset: 0x00033B12
 	private void QueueQuestCompletion(int questId, bool isDaily)
 	{
 		if (isDaily)
@@ -319,7 +319,7 @@ public class ProgressionController : MonoBehaviour
 		this.SubmitNextQuestInQueue();
 	}
 
-	// Token: 0x0600079B RID: 1947 RVA: 0x0002A260 File Offset: 0x00028460
+	// Token: 0x060007DF RID: 2015 RVA: 0x0008BB40 File Offset: 0x00089D40
 	private void SubmitNextQuestInQueue()
 	{
 		if (this._currentlyProcessingQuest == -1 && this.AreCompletedQuestsQueued())
@@ -338,7 +338,7 @@ public class ProgressionController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600079C RID: 1948 RVA: 0x0002A2C6 File Offset: 0x000284C6
+	// Token: 0x060007E0 RID: 2016 RVA: 0x0003593D File Offset: 0x00033B3D
 	private void ClearQuestQueue()
 	{
 		this._currentlyProcessingQuest = -1;
@@ -347,7 +347,7 @@ public class ProgressionController : MonoBehaviour
 		this.SaveCompletedQuestQueue();
 	}
 
-	// Token: 0x0600079D RID: 1949 RVA: 0x0002A2EC File Offset: 0x000284EC
+	// Token: 0x060007E1 RID: 2017 RVA: 0x0008BBA8 File Offset: 0x00089DA8
 	private void ProcessQuestSubmittedSuccess()
 	{
 		if (this._currentlyProcessingQuest != -1)
@@ -368,19 +368,19 @@ public class ProgressionController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600079E RID: 1950 RVA: 0x0002A34B File Offset: 0x0002854B
+	// Token: 0x060007E2 RID: 2018 RVA: 0x00035962 File Offset: 0x00033B62
 	private void ProcessQuestSubmittedFail()
 	{
 		this._currentlyProcessingQuest = -1;
 	}
 
-	// Token: 0x0600079F RID: 1951 RVA: 0x0002A354 File Offset: 0x00028554
+	// Token: 0x060007E3 RID: 2019 RVA: 0x0003596B File Offset: 0x00033B6B
 	private bool AreCompletedQuestsQueued()
 	{
 		return this._queuedDailyCompletedQuests.Count > 0 || this._queuedWeeklyCompletedQuests.Count > 0;
 	}
 
-	// Token: 0x060007A0 RID: 1952 RVA: 0x0002A374 File Offset: 0x00028574
+	// Token: 0x060007E4 RID: 2020 RVA: 0x0008BC08 File Offset: 0x00089E08
 	private void SaveCompletedQuestQueue()
 	{
 		int num = 0;
@@ -403,7 +403,7 @@ public class ProgressionController : MonoBehaviour
 		PlayerPrefs.SetInt("Queued_Quest_Weekly_SaveCount_Key", num2);
 	}
 
-	// Token: 0x060007A1 RID: 1953 RVA: 0x0002A454 File Offset: 0x00028654
+	// Token: 0x060007E5 RID: 2021 RVA: 0x0008BCE8 File Offset: 0x00089EE8
 	private void LoadCompletedQuestQueue()
 	{
 		this._queuedDailyCompletedQuests.Clear();
@@ -439,7 +439,7 @@ public class ProgressionController : MonoBehaviour
 		this.SubmitNextQuestInQueue();
 	}
 
-	// Token: 0x060007A2 RID: 1954 RVA: 0x0002A54C File Offset: 0x0002874C
+	// Token: 0x060007E6 RID: 2022 RVA: 0x0008BDE0 File Offset: 0x00089FE0
 	private void RequestProgressRedemption(Action onComplete)
 	{
 		ProgressionController.<RequestProgressRedemption>d__66 <RequestProgressRedemption>d__;
@@ -449,7 +449,7 @@ public class ProgressionController : MonoBehaviour
 		<RequestProgressRedemption>d__.<>t__builder.Start<ProgressionController.<RequestProgressRedemption>d__66>(ref <RequestProgressRedemption>d__);
 	}
 
-	// Token: 0x060007A3 RID: 1955 RVA: 0x0002A583 File Offset: 0x00028783
+	// Token: 0x060007E7 RID: 2023 RVA: 0x0003598B File Offset: 0x00033B8B
 	private void OnProgressRedeemed()
 	{
 		this.unclaimedPoints = 0;
@@ -457,7 +457,7 @@ public class ProgressionController : MonoBehaviour
 		this.ReportProgress();
 	}
 
-	// Token: 0x060007A4 RID: 1956 RVA: 0x0002A5A4 File Offset: 0x000287A4
+	// Token: 0x060007E8 RID: 2024 RVA: 0x0008BE18 File Offset: 0x0008A018
 	private void AddPoints(int points)
 	{
 		if (this.weeklyPoints >= ProgressionController.WeeklyCap)
@@ -468,7 +468,7 @@ public class ProgressionController : MonoBehaviour
 		this.SetProgressionValues(this.weeklyPoints + num, this.unclaimedPoints + num, this.totalPointsRaw + num);
 	}
 
-	// Token: 0x060007A5 RID: 1957 RVA: 0x0002A5F4 File Offset: 0x000287F4
+	// Token: 0x060007E9 RID: 2025 RVA: 0x0008BE68 File Offset: 0x0008A068
 	private void UpdateProgressionValues(int weekly, int totalRaw)
 	{
 		int num = totalRaw - this.totalPointsRaw;
@@ -476,7 +476,7 @@ public class ProgressionController : MonoBehaviour
 		this.SetProgressionValues(weekly, this.unclaimedPoints, totalRaw);
 	}
 
-	// Token: 0x060007A6 RID: 1958 RVA: 0x0002A626 File Offset: 0x00028826
+	// Token: 0x060007EA RID: 2026 RVA: 0x000359AA File Offset: 0x00033BAA
 	private void SetProgressionValues(int weekly, int unclaimed, int totalRaw)
 	{
 		this.weeklyPoints = weekly;
@@ -486,7 +486,7 @@ public class ProgressionController : MonoBehaviour
 		PlayerPrefs.SetInt("Claimed_Points_Key", unclaimed);
 	}
 
-	// Token: 0x060007A7 RID: 1959 RVA: 0x0002A650 File Offset: 0x00028850
+	// Token: 0x060007EB RID: 2027 RVA: 0x0008BE9C File Offset: 0x0008A09C
 	private void ReportProgress()
 	{
 		ProgressionController.<ReportProgress>d__71 <ReportProgress>d__;
@@ -496,7 +496,7 @@ public class ProgressionController : MonoBehaviour
 		<ReportProgress>d__.<>t__builder.Start<ProgressionController.<ReportProgress>d__71>(ref <ReportProgress>d__);
 	}
 
-	// Token: 0x060007A8 RID: 1960 RVA: 0x0002A688 File Offset: 0x00028888
+	// Token: 0x060007EC RID: 2028 RVA: 0x0008BED4 File Offset: 0x0008A0D4
 	private void ReportScoreChange()
 	{
 		ValueTuple<int, int, int> valueTuple = new ValueTuple<int, int, int>(this.weeklyPoints, this.unclaimedPoints, this.totalPointsRaw);
@@ -513,7 +513,7 @@ public class ProgressionController : MonoBehaviour
 		this._lastProgressReport = valueTuple;
 	}
 
-	// Token: 0x060007A9 RID: 1961 RVA: 0x0002A704 File Offset: 0x00028904
+	// Token: 0x060007ED RID: 2029 RVA: 0x000359D2 File Offset: 0x00033BD2
 	[return: TupleElementNames(new string[]
 	{
 		"weekly",
@@ -525,33 +525,33 @@ public class ProgressionController : MonoBehaviour
 		return new ValueTuple<int, int, int>(this.weeklyPoints, this.unclaimedPoints, this.totalPointsRaw - this.unclaimedPoints);
 	}
 
-	// Token: 0x060007AC RID: 1964 RVA: 0x0002A759 File Offset: 0x00028959
+	// Token: 0x060007F0 RID: 2032 RVA: 0x00035A27 File Offset: 0x00033C27
 	[CompilerGenerated]
 	private bool <RequestStatus>g__ShouldFetchStatus|36_0()
 	{
 		return !this._isFetchingStatus && !this._statusReceived;
 	}
 
-	// Token: 0x040008D3 RID: 2259
+	// Token: 0x04000915 RID: 2325
 	private static ProgressionController _gInstance;
 
-	// Token: 0x040008D6 RID: 2262
+	// Token: 0x04000918 RID: 2328
 	[SerializeField]
 	private RotatingQuestsManager _questManager;
 
-	// Token: 0x040008D7 RID: 2263
+	// Token: 0x04000919 RID: 2329
 	private int weeklyPoints;
 
-	// Token: 0x040008D8 RID: 2264
+	// Token: 0x0400091A RID: 2330
 	private int totalPointsRaw;
 
-	// Token: 0x040008D9 RID: 2265
+	// Token: 0x0400091B RID: 2331
 	private int unclaimedPoints;
 
-	// Token: 0x040008DA RID: 2266
+	// Token: 0x0400091C RID: 2332
 	private bool _progressReportPending;
 
-	// Token: 0x040008DB RID: 2267
+	// Token: 0x0400091D RID: 2333
 	[TupleElementNames(new string[]
 	{
 		"weeklyPoints",
@@ -560,83 +560,83 @@ public class ProgressionController : MonoBehaviour
 	})]
 	private ValueTuple<int, int, int> _lastProgressReport;
 
-	// Token: 0x040008DC RID: 2268
+	// Token: 0x0400091E RID: 2334
 	private bool _isFetchingStatus;
 
-	// Token: 0x040008DD RID: 2269
+	// Token: 0x0400091F RID: 2335
 	private bool _statusReceived;
 
-	// Token: 0x040008DE RID: 2270
+	// Token: 0x04000920 RID: 2336
 	private bool _isSendingQuestComplete;
 
-	// Token: 0x040008DF RID: 2271
+	// Token: 0x04000921 RID: 2337
 	private int _fetchStatusRetryCount;
 
-	// Token: 0x040008E0 RID: 2272
+	// Token: 0x04000922 RID: 2338
 	private int _sendQuestCompleteRetryCount;
 
-	// Token: 0x040008E1 RID: 2273
+	// Token: 0x04000923 RID: 2339
 	private int _maxRetriesOnFail = 3;
 
-	// Token: 0x040008E2 RID: 2274
+	// Token: 0x04000924 RID: 2340
 	private List<int> _queuedDailyCompletedQuests = new List<int>();
 
-	// Token: 0x040008E3 RID: 2275
+	// Token: 0x04000925 RID: 2341
 	private List<int> _queuedWeeklyCompletedQuests = new List<int>();
 
-	// Token: 0x040008E4 RID: 2276
+	// Token: 0x04000926 RID: 2342
 	private int _currentlyProcessingQuest = -1;
 
-	// Token: 0x040008E5 RID: 2277
+	// Token: 0x04000927 RID: 2343
 	private const string kUnclaimedPointKey = "Claimed_Points_Key";
 
-	// Token: 0x040008E7 RID: 2279
+	// Token: 0x04000929 RID: 2345
 	private const string kQueuedDailyQuestSetIDKey = "Queued_Quest_Daily_SetID_Key";
 
-	// Token: 0x040008E8 RID: 2280
+	// Token: 0x0400092A RID: 2346
 	private const string kQueuedDailyQuestSaveCountKey = "Queued_Quest_Daily_SaveCount_Key";
 
-	// Token: 0x040008E9 RID: 2281
+	// Token: 0x0400092B RID: 2347
 	private const string kQueuedDailyQuestIDKey = "Queued_Quest_Daily_ID_Key";
 
-	// Token: 0x040008EA RID: 2282
+	// Token: 0x0400092C RID: 2348
 	private const string kQueuedWeeklyQuestSetIDKey = "Queued_Quest_Weekly_SetID_Key";
 
-	// Token: 0x040008EB RID: 2283
+	// Token: 0x0400092D RID: 2349
 	private const string kQueuedWeeklyQuestSaveCountKey = "Queued_Quest_Weekly_SaveCount_Key";
 
-	// Token: 0x040008EC RID: 2284
+	// Token: 0x0400092E RID: 2350
 	private const string kQueuedWeeklyQuestIDKey = "Queued_Quest_Weekly_ID_Key";
 
-	// Token: 0x02000116 RID: 278
+	// Token: 0x02000120 RID: 288
 	[Serializable]
 	private class GetQuestsStatusRequest
 	{
-		// Token: 0x040008ED RID: 2285
+		// Token: 0x0400092F RID: 2351
 		public string PlayFabId;
 
-		// Token: 0x040008EE RID: 2286
+		// Token: 0x04000930 RID: 2352
 		public string PlayFabTicket;
 
-		// Token: 0x040008EF RID: 2287
+		// Token: 0x04000931 RID: 2353
 		public string MothershipId;
 
-		// Token: 0x040008F0 RID: 2288
+		// Token: 0x04000932 RID: 2354
 		public string MothershipToken;
 	}
 
-	// Token: 0x02000117 RID: 279
+	// Token: 0x02000121 RID: 289
 	[Serializable]
 	public class GetQuestStatusResponse
 	{
-		// Token: 0x040008F1 RID: 2289
+		// Token: 0x04000933 RID: 2355
 		public ProgressionController.UserQuestsStatus result;
 	}
 
-	// Token: 0x02000118 RID: 280
+	// Token: 0x02000122 RID: 290
 	public class UserQuestsStatus
 	{
-		// Token: 0x060007AF RID: 1967 RVA: 0x0002A770 File Offset: 0x00028970
+		// Token: 0x060007F3 RID: 2035 RVA: 0x0008BF50 File Offset: 0x0008A150
 		public int GetWeeklyPoints()
 		{
 			int num = 0;
@@ -657,44 +657,44 @@ public class ProgressionController : MonoBehaviour
 			return Mathf.Min(num, ProgressionController.WeeklyCap);
 		}
 
-		// Token: 0x040008F2 RID: 2290
+		// Token: 0x04000934 RID: 2356
 		public Dictionary<string, int> dailyPoints;
 
-		// Token: 0x040008F3 RID: 2291
+		// Token: 0x04000935 RID: 2357
 		public Dictionary<int, int> weeklyPoints;
 
-		// Token: 0x040008F4 RID: 2292
+		// Token: 0x04000936 RID: 2358
 		public int userPointsTotal;
 	}
 
-	// Token: 0x02000119 RID: 281
+	// Token: 0x02000123 RID: 291
 	[Serializable]
 	private class SetQuestCompleteRequest
 	{
-		// Token: 0x040008F5 RID: 2293
+		// Token: 0x04000937 RID: 2359
 		public string PlayFabId;
 
-		// Token: 0x040008F6 RID: 2294
+		// Token: 0x04000938 RID: 2360
 		public string PlayFabTicket;
 
-		// Token: 0x040008F7 RID: 2295
+		// Token: 0x04000939 RID: 2361
 		public string MothershipId;
 
-		// Token: 0x040008F8 RID: 2296
+		// Token: 0x0400093A RID: 2362
 		public string MothershipToken;
 
-		// Token: 0x040008F9 RID: 2297
+		// Token: 0x0400093B RID: 2363
 		public int QuestId;
 
-		// Token: 0x040008FA RID: 2298
+		// Token: 0x0400093C RID: 2364
 		public string ClientVersion;
 	}
 
-	// Token: 0x0200011A RID: 282
+	// Token: 0x02000124 RID: 292
 	[Serializable]
 	public class SetQuestCompleteResponse
 	{
-		// Token: 0x040008FB RID: 2299
+		// Token: 0x0400093D RID: 2365
 		public ProgressionController.UserQuestsStatus result;
 	}
 }

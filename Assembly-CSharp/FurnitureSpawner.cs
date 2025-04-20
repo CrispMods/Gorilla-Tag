@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000349 RID: 841
+// Token: 0x02000354 RID: 852
 [RequireComponent(typeof(OVRSceneAnchor))]
 [DefaultExecutionOrder(30)]
 public class FurnitureSpawner : MonoBehaviour
 {
-	// Token: 0x06001399 RID: 5017 RVA: 0x0006046F File Offset: 0x0005E66F
+	// Token: 0x060013E5 RID: 5093 RVA: 0x0003D699 File Offset: 0x0003B899
 	private void Start()
 	{
 		this._sceneAnchor = base.GetComponent<OVRSceneAnchor>();
@@ -16,7 +16,7 @@ public class FurnitureSpawner : MonoBehaviour
 		this.SpawnSpawnable();
 	}
 
-	// Token: 0x0600139A RID: 5018 RVA: 0x00060498 File Offset: 0x0005E698
+	// Token: 0x060013E6 RID: 5094 RVA: 0x000B9ED4 File Offset: 0x000B80D4
 	private void SpawnSpawnable()
 	{
 		SimpleResizable sourcePrefab;
@@ -51,7 +51,7 @@ public class FurnitureSpawner : MonoBehaviour
 		new SimpleResizer().CreateResizedObject(newSize, gameObject, sourcePrefab);
 	}
 
-	// Token: 0x0600139B RID: 5019 RVA: 0x00060624 File Offset: 0x0005E824
+	// Token: 0x060013E7 RID: 5095 RVA: 0x000BA060 File Offset: 0x000B8260
 	private bool FindValidSpawnable(out SimpleResizable currentSpawnable)
 	{
 		currentSpawnable = null;
@@ -59,7 +59,7 @@ public class FurnitureSpawner : MonoBehaviour
 		{
 			return false;
 		}
-		if (!Object.FindObjectOfType<OVRSceneManager>())
+		if (!UnityEngine.Object.FindObjectOfType<OVRSceneManager>())
 		{
 			return false;
 		}
@@ -79,7 +79,7 @@ public class FurnitureSpawner : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x0600139C RID: 5020 RVA: 0x000606CC File Offset: 0x0005E8CC
+	// Token: 0x060013E8 RID: 5096 RVA: 0x000BA108 File Offset: 0x000B8308
 	private void AddRoomLight()
 	{
 		if (!this.RoomLightPrefab)
@@ -88,11 +88,11 @@ public class FurnitureSpawner : MonoBehaviour
 		}
 		if (this._classification && this._classification.Contains("CEILING") && !FurnitureSpawner._roomLightRef)
 		{
-			FurnitureSpawner._roomLightRef = Object.Instantiate<GameObject>(this.RoomLightPrefab, this._sceneAnchor.transform);
+			FurnitureSpawner._roomLightRef = UnityEngine.Object.Instantiate<GameObject>(this.RoomLightPrefab, this._sceneAnchor.transform);
 		}
 	}
 
-	// Token: 0x0600139D RID: 5021 RVA: 0x00060730 File Offset: 0x0005E930
+	// Token: 0x060013E9 RID: 5097 RVA: 0x000BA16C File Offset: 0x000B836C
 	private void GetVolumeFromTopPlane(Transform plane, Vector2 dimensions, float height, out Vector3 position, out Quaternion rotation, out Vector3 localScale)
 	{
 		float num = height / 2f;
@@ -101,26 +101,26 @@ public class FurnitureSpawner : MonoBehaviour
 		localScale = new Vector3(dimensions.x, num * 2f, dimensions.y);
 	}
 
-	// Token: 0x040015CB RID: 5579
+	// Token: 0x04001613 RID: 5651
 	[Tooltip("Add a point at ceiling.")]
 	public GameObject RoomLightPrefab;
 
-	// Token: 0x040015CC RID: 5580
+	// Token: 0x04001614 RID: 5652
 	[Tooltip("This prefab will be used if the label is not in the SpawnablesPrefabs")]
 	public SimpleResizable FallbackPrefab;
 
-	// Token: 0x040015CD RID: 5581
+	// Token: 0x04001615 RID: 5653
 	public List<Spawnable> SpawnablePrefabs;
 
-	// Token: 0x040015CE RID: 5582
+	// Token: 0x04001616 RID: 5654
 	private OVRSceneAnchor _sceneAnchor;
 
-	// Token: 0x040015CF RID: 5583
+	// Token: 0x04001617 RID: 5655
 	private OVRSemanticClassification _classification;
 
-	// Token: 0x040015D0 RID: 5584
+	// Token: 0x04001618 RID: 5656
 	private static GameObject _roomLightRef;
 
-	// Token: 0x040015D1 RID: 5585
+	// Token: 0x04001619 RID: 5657
 	private int _frameCounter;
 }

@@ -2,29 +2,29 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x020008CC RID: 2252
+// Token: 0x020008E8 RID: 2280
 [RequireComponent(typeof(NetworkView))]
 public class ThrowableSetDressing : TransferrableObject
 {
-	// Token: 0x1700058B RID: 1419
-	// (get) Token: 0x0600366A RID: 13930 RVA: 0x0010146C File Offset: 0x000FF66C
-	// (set) Token: 0x0600366B RID: 13931 RVA: 0x00101474 File Offset: 0x000FF674
+	// Token: 0x1700059C RID: 1436
+	// (get) Token: 0x06003732 RID: 14130 RVA: 0x00054702 File Offset: 0x00052902
+	// (set) Token: 0x06003733 RID: 14131 RVA: 0x0005470A File Offset: 0x0005290A
 	public bool inInitialPose { get; private set; } = true;
 
-	// Token: 0x0600366C RID: 13932 RVA: 0x0010147D File Offset: 0x000FF67D
+	// Token: 0x06003734 RID: 14132 RVA: 0x00054713 File Offset: 0x00052913
 	public override bool ShouldBeKinematic()
 	{
 		return this.inInitialPose || base.ShouldBeKinematic();
 	}
 
-	// Token: 0x0600366D RID: 13933 RVA: 0x0010148F File Offset: 0x000FF68F
+	// Token: 0x06003735 RID: 14133 RVA: 0x00054725 File Offset: 0x00052925
 	protected override void Awake()
 	{
 		base.Awake();
 		this.netView = base.GetComponent<NetworkView>();
 	}
 
-	// Token: 0x0600366E RID: 13934 RVA: 0x001014A3 File Offset: 0x000FF6A3
+	// Token: 0x06003736 RID: 14134 RVA: 0x00054739 File Offset: 0x00052939
 	protected override void Start()
 	{
 		base.Start();
@@ -33,7 +33,7 @@ public class ThrowableSetDressing : TransferrableObject
 		this.currentState = TransferrableObject.PositionState.Dropped;
 	}
 
-	// Token: 0x0600366F RID: 13935 RVA: 0x001014D8 File Offset: 0x000FF6D8
+	// Token: 0x06003737 RID: 14135 RVA: 0x0005476E File Offset: 0x0005296E
 	public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 	{
 		base.OnGrab(pointGrabbed, grabbingHand);
@@ -41,7 +41,7 @@ public class ThrowableSetDressing : TransferrableObject
 		this.StopRespawnTimer();
 	}
 
-	// Token: 0x06003670 RID: 13936 RVA: 0x001014EF File Offset: 0x000FF6EF
+	// Token: 0x06003738 RID: 14136 RVA: 0x00054785 File Offset: 0x00052985
 	public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		if (!base.OnRelease(zoneReleased, releasingHand))
@@ -52,14 +52,14 @@ public class ThrowableSetDressing : TransferrableObject
 		return true;
 	}
 
-	// Token: 0x06003671 RID: 13937 RVA: 0x00101509 File Offset: 0x000FF709
+	// Token: 0x06003739 RID: 14137 RVA: 0x0005479F File Offset: 0x0005299F
 	public override void DropItem()
 	{
 		base.DropItem();
 		this.StartRespawnTimer(-1f);
 	}
 
-	// Token: 0x06003672 RID: 13938 RVA: 0x0010151C File Offset: 0x000FF71C
+	// Token: 0x0600373A RID: 14138 RVA: 0x000547B2 File Offset: 0x000529B2
 	private void StopRespawnTimer()
 	{
 		if (this.respawnTimer != null)
@@ -69,13 +69,13 @@ public class ThrowableSetDressing : TransferrableObject
 		}
 	}
 
-	// Token: 0x06003673 RID: 13939 RVA: 0x00101539 File Offset: 0x000FF739
+	// Token: 0x0600373B RID: 14139 RVA: 0x000547CF File Offset: 0x000529CF
 	public void SetWillTeleport()
 	{
 		this.worldShareableInstance.SetWillTeleport();
 	}
 
-	// Token: 0x06003674 RID: 13940 RVA: 0x00101548 File Offset: 0x000FF748
+	// Token: 0x0600373C RID: 14140 RVA: 0x00146A84 File Offset: 0x00144C84
 	public void StartRespawnTimer(float overrideTimer = -1f)
 	{
 		float timerDuration = (overrideTimer != -1f) ? overrideTimer : this.respawnTimerDuration;
@@ -86,7 +86,7 @@ public class ThrowableSetDressing : TransferrableObject
 		}
 	}
 
-	// Token: 0x06003675 RID: 13941 RVA: 0x001015A7 File Offset: 0x000FF7A7
+	// Token: 0x0600373D RID: 14141 RVA: 0x000547DC File Offset: 0x000529DC
 	private IEnumerator RespawnTimerCoroutine(float timerDuration)
 	{
 		yield return new WaitForSeconds(timerDuration);
@@ -102,29 +102,29 @@ public class ThrowableSetDressing : TransferrableObject
 		yield break;
 	}
 
-	// Token: 0x040038A8 RID: 14504
+	// Token: 0x04003969 RID: 14697
 	public float respawnTimerDuration;
 
-	// Token: 0x040038AA RID: 14506
+	// Token: 0x0400396B RID: 14699
 	[Tooltip("set this only if this set dressing is using as an ingredient for the magic cauldron - Halloween")]
 	public MagicIngredientType IngredientTypeSO;
 
-	// Token: 0x040038AB RID: 14507
+	// Token: 0x0400396C RID: 14700
 	private float _respawnTimestamp;
 
-	// Token: 0x040038AC RID: 14508
+	// Token: 0x0400396D RID: 14701
 	[SerializeField]
 	private CapsuleCollider capsuleCollider;
 
-	// Token: 0x040038AD RID: 14509
+	// Token: 0x0400396E RID: 14702
 	private NetworkView netView;
 
-	// Token: 0x040038AE RID: 14510
+	// Token: 0x0400396F RID: 14703
 	private Vector3 respawnAtPos;
 
-	// Token: 0x040038AF RID: 14511
+	// Token: 0x04003970 RID: 14704
 	private Quaternion respawnAtRot;
 
-	// Token: 0x040038B0 RID: 14512
+	// Token: 0x04003971 RID: 14705
 	private Coroutine respawnTimer;
 }

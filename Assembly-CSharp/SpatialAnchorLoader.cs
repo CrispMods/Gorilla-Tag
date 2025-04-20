@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200035C RID: 860
+// Token: 0x02000367 RID: 871
 public class SpatialAnchorLoader : MonoBehaviour
 {
-	// Token: 0x06001403 RID: 5123 RVA: 0x0006222C File Offset: 0x0006042C
+	// Token: 0x0600144F RID: 5199 RVA: 0x000BB890 File Offset: 0x000B9A90
 	public void LoadAnchorsByUuid()
 	{
 		if (!PlayerPrefs.HasKey("numUuids"))
@@ -32,13 +32,13 @@ public class SpatialAnchorLoader : MonoBehaviour
 		});
 	}
 
-	// Token: 0x06001404 RID: 5124 RVA: 0x000622EB File Offset: 0x000604EB
+	// Token: 0x06001450 RID: 5200 RVA: 0x0003DA97 File Offset: 0x0003BC97
 	private void Awake()
 	{
 		this._onLoadAnchor = new Action<OVRSpatialAnchor.UnboundAnchor, bool>(this.OnLocalized);
 	}
 
-	// Token: 0x06001405 RID: 5125 RVA: 0x000622FF File Offset: 0x000604FF
+	// Token: 0x06001451 RID: 5201 RVA: 0x0003DAAB File Offset: 0x0003BCAB
 	private void Load(OVRSpatialAnchor.LoadOptions options)
 	{
 		OVRSpatialAnchor.LoadUnboundAnchors(options, delegate(OVRSpatialAnchor.UnboundAnchor[] anchors)
@@ -62,7 +62,7 @@ public class SpatialAnchorLoader : MonoBehaviour
 		});
 	}
 
-	// Token: 0x06001406 RID: 5126 RVA: 0x00062314 File Offset: 0x00060514
+	// Token: 0x06001452 RID: 5202 RVA: 0x000BB950 File Offset: 0x000B9B50
 	private void OnLocalized(OVRSpatialAnchor.UnboundAnchor unboundAnchor, bool success)
 	{
 		if (!success)
@@ -71,7 +71,7 @@ public class SpatialAnchorLoader : MonoBehaviour
 			return;
 		}
 		Pose pose = unboundAnchor.Pose;
-		OVRSpatialAnchor ovrspatialAnchor = Object.Instantiate<OVRSpatialAnchor>(this._anchorPrefab, pose.position, pose.rotation);
+		OVRSpatialAnchor ovrspatialAnchor = UnityEngine.Object.Instantiate<OVRSpatialAnchor>(this._anchorPrefab, pose.position, pose.rotation);
 		unboundAnchor.BindTo(ovrspatialAnchor);
 		Anchor anchor;
 		if (ovrspatialAnchor.TryGetComponent<Anchor>(out anchor))
@@ -80,16 +80,16 @@ public class SpatialAnchorLoader : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001407 RID: 5127 RVA: 0x00062373 File Offset: 0x00060573
+	// Token: 0x06001453 RID: 5203 RVA: 0x0003DAC0 File Offset: 0x0003BCC0
 	private static void Log(string message)
 	{
 		Debug.Log("[SpatialAnchorsUnity]: " + message);
 	}
 
-	// Token: 0x04001627 RID: 5671
+	// Token: 0x0400166F RID: 5743
 	[SerializeField]
 	private OVRSpatialAnchor _anchorPrefab;
 
-	// Token: 0x04001628 RID: 5672
+	// Token: 0x04001670 RID: 5744
 	private Action<OVRSpatialAnchor.UnboundAnchor, bool> _onLoadAnchor;
 }

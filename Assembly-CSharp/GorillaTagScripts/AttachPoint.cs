@@ -4,16 +4,16 @@ using UnityEngine.Events;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x0200097E RID: 2430
+	// Token: 0x020009A4 RID: 2468
 	public class AttachPoint : MonoBehaviour
 	{
-		// Token: 0x06003B64 RID: 15204 RVA: 0x001118F1 File Offset: 0x0010FAF1
+		// Token: 0x06003C7C RID: 15484 RVA: 0x000577A2 File Offset: 0x000559A2
 		private void Start()
 		{
 			base.transform.parent.parent = null;
 		}
 
-		// Token: 0x06003B65 RID: 15205 RVA: 0x00111904 File Offset: 0x0010FB04
+		// Token: 0x06003C7D RID: 15485 RVA: 0x00154BE8 File Offset: 0x00152DE8
 		private void OnTriggerEnter(Collider other)
 		{
 			if (this.attachPoint.childCount == 0)
@@ -33,7 +33,7 @@ namespace GorillaTagScripts
 			componentInParent.SnapItem(true, this.attachPoint.position);
 		}
 
-		// Token: 0x06003B66 RID: 15206 RVA: 0x00111960 File Offset: 0x0010FB60
+		// Token: 0x06003C7E RID: 15486 RVA: 0x00154C44 File Offset: 0x00152E44
 		private void OnTriggerExit(Collider other)
 		{
 			DecorativeItem componentInParent = other.GetComponentInParent<DecorativeItem>();
@@ -45,13 +45,13 @@ namespace GorillaTagScripts
 			componentInParent.SnapItem(false, Vector3.zero);
 		}
 
-		// Token: 0x06003B67 RID: 15207 RVA: 0x00111999 File Offset: 0x0010FB99
+		// Token: 0x06003C7F RID: 15487 RVA: 0x000577B5 File Offset: 0x000559B5
 		private void UpdateHookState(bool isHooked)
 		{
 			this.SetIsHook(isHooked);
 		}
 
-		// Token: 0x06003B68 RID: 15208 RVA: 0x001119A2 File Offset: 0x0010FBA2
+		// Token: 0x06003C80 RID: 15488 RVA: 0x000577BE File Offset: 0x000559BE
 		internal void SetIsHook(bool isHooked)
 		{
 			this.isHooked = isHooked;
@@ -63,25 +63,25 @@ namespace GorillaTagScripts
 			unityAction();
 		}
 
-		// Token: 0x06003B69 RID: 15209 RVA: 0x001119BB File Offset: 0x0010FBBB
+		// Token: 0x06003C81 RID: 15489 RVA: 0x000577D7 File Offset: 0x000559D7
 		public bool IsHooked()
 		{
 			return this.isHooked || this.attachPoint.childCount != 0;
 		}
 
-		// Token: 0x04003C94 RID: 15508
+		// Token: 0x04003D6E RID: 15726
 		public Transform attachPoint;
 
-		// Token: 0x04003C95 RID: 15509
+		// Token: 0x04003D6F RID: 15727
 		public UnityAction onHookedChanged;
 
-		// Token: 0x04003C96 RID: 15510
+		// Token: 0x04003D70 RID: 15728
 		private bool isHooked;
 
-		// Token: 0x04003C97 RID: 15511
+		// Token: 0x04003D71 RID: 15729
 		private bool wasHooked;
 
-		// Token: 0x04003C98 RID: 15512
+		// Token: 0x04003D72 RID: 15730
 		public bool inForest;
 	}
 }

@@ -4,13 +4,13 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.Scripting;
 
-// Token: 0x020000AF RID: 175
+// Token: 0x020000B9 RID: 185
 [NetworkBehaviourWeaved(11)]
 public class GhostLabReliableState : NetworkComponent
 {
-	// Token: 0x17000051 RID: 81
-	// (get) Token: 0x06000467 RID: 1127 RVA: 0x0001A150 File Offset: 0x00018350
-	// (set) Token: 0x06000468 RID: 1128 RVA: 0x0001A17A File Offset: 0x0001837A
+	// Token: 0x17000056 RID: 86
+	// (get) Token: 0x060004A3 RID: 1187 RVA: 0x00033758 File Offset: 0x00031958
+	// (set) Token: 0x060004A4 RID: 1188 RVA: 0x00033782 File Offset: 0x00031982
 	[Networked]
 	[NetworkedWeaved(0, 11)]
 	private unsafe GhostLabData NetData
@@ -33,27 +33,27 @@ public class GhostLabReliableState : NetworkComponent
 		}
 	}
 
-	// Token: 0x06000469 RID: 1129 RVA: 0x0001A1A5 File Offset: 0x000183A5
+	// Token: 0x060004A5 RID: 1189 RVA: 0x000337AD File Offset: 0x000319AD
 	protected override void Awake()
 	{
 		base.Awake();
 		this.singleDoorOpen = new bool[this.singleDoorCount];
 	}
 
-	// Token: 0x0600046A RID: 1130 RVA: 0x0001A1BE File Offset: 0x000183BE
+	// Token: 0x060004A6 RID: 1190 RVA: 0x000337C6 File Offset: 0x000319C6
 	public override void OnOwnerChange(Player newOwner, Player previousOwner)
 	{
 		base.OnOwnerChange(newOwner, previousOwner);
 		Player localPlayer = PhotonNetwork.LocalPlayer;
 	}
 
-	// Token: 0x0600046B RID: 1131 RVA: 0x0001A1D0 File Offset: 0x000183D0
+	// Token: 0x060004A7 RID: 1191 RVA: 0x000337D8 File Offset: 0x000319D8
 	public override void WriteDataFusion()
 	{
 		this.NetData = new GhostLabData((int)this.doorState, this.singleDoorOpen);
 	}
 
-	// Token: 0x0600046C RID: 1132 RVA: 0x0001A1EC File Offset: 0x000183EC
+	// Token: 0x060004A8 RID: 1192 RVA: 0x0007DA84 File Offset: 0x0007BC84
 	public override void ReadDataFusion()
 	{
 		this.doorState = (GhostLab.EntranceDoorsState)this.NetData.DoorState;
@@ -63,7 +63,7 @@ public class GhostLabReliableState : NetworkComponent
 		}
 	}
 
-	// Token: 0x0600046D RID: 1133 RVA: 0x0001A244 File Offset: 0x00018444
+	// Token: 0x060004A9 RID: 1193 RVA: 0x0007DADC File Offset: 0x0007BCDC
 	protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (!base.IsMine && !info.Sender.IsMasterClient)
@@ -77,7 +77,7 @@ public class GhostLabReliableState : NetworkComponent
 		}
 	}
 
-	// Token: 0x0600046E RID: 1134 RVA: 0x0001A2A0 File Offset: 0x000184A0
+	// Token: 0x060004AA RID: 1194 RVA: 0x0007DB38 File Offset: 0x0007BD38
 	protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (!base.IsMine && !info.Sender.IsMasterClient)
@@ -91,7 +91,7 @@ public class GhostLabReliableState : NetworkComponent
 		}
 	}
 
-	// Token: 0x0600046F RID: 1135 RVA: 0x0001A2FC File Offset: 0x000184FC
+	// Token: 0x060004AB RID: 1195 RVA: 0x0007DB94 File Offset: 0x0007BD94
 	public void UpdateEntranceDoorsState(GhostLab.EntranceDoorsState newState)
 	{
 		if (!NetworkSystem.Instance.InRoom || NetworkSystem.Instance.IsMasterClient)
@@ -108,7 +108,7 @@ public class GhostLabReliableState : NetworkComponent
 		}
 	}
 
-	// Token: 0x06000470 RID: 1136 RVA: 0x0001A35C File Offset: 0x0001855C
+	// Token: 0x060004AC RID: 1196 RVA: 0x0007DBF4 File Offset: 0x0007BDF4
 	public void UpdateSingleDoorState(int singleDoorIndex)
 	{
 		if (!NetworkSystem.Instance.InRoom || NetworkSystem.Instance.IsMasterClient)
@@ -125,7 +125,7 @@ public class GhostLabReliableState : NetworkComponent
 		}
 	}
 
-	// Token: 0x06000471 RID: 1137 RVA: 0x0001A3C8 File Offset: 0x000185C8
+	// Token: 0x060004AD RID: 1197 RVA: 0x0007DC60 File Offset: 0x0007BE60
 	[Rpc(RpcSources.All, RpcTargets.StateAuthority)]
 	public unsafe void RPC_RemoteEntranceDoorState(GhostLab.EntranceDoorsState newState, RpcInfo info = default(RpcInfo))
 	{
@@ -173,7 +173,7 @@ public class GhostLabReliableState : NetworkComponent
 		this.doorState = newState;
 	}
 
-	// Token: 0x06000472 RID: 1138 RVA: 0x0001A52C File Offset: 0x0001872C
+	// Token: 0x060004AE RID: 1198 RVA: 0x0007DDC4 File Offset: 0x0007BFC4
 	[Rpc(RpcSources.All, RpcTargets.StateAuthority)]
 	public unsafe void RPC_RemoteSingleDoorState(int doorIndex, RpcInfo info = default(RpcInfo))
 	{
@@ -225,7 +225,7 @@ public class GhostLabReliableState : NetworkComponent
 		this.singleDoorOpen[doorIndex] = !this.singleDoorOpen[doorIndex];
 	}
 
-	// Token: 0x06000473 RID: 1139 RVA: 0x0001A6A1 File Offset: 0x000188A1
+	// Token: 0x060004AF RID: 1199 RVA: 0x000337F1 File Offset: 0x000319F1
 	[PunRPC]
 	public void RemoteEntranceDoorState(GhostLab.EntranceDoorsState newState, PhotonMessageInfo info)
 	{
@@ -237,7 +237,7 @@ public class GhostLabReliableState : NetworkComponent
 		this.doorState = newState;
 	}
 
-	// Token: 0x06000474 RID: 1140 RVA: 0x0001A6BE File Offset: 0x000188BE
+	// Token: 0x060004B0 RID: 1200 RVA: 0x0003380E File Offset: 0x00031A0E
 	[PunRPC]
 	public void RemoteSingleDoorState(int doorIndex, PhotonMessageInfo info)
 	{
@@ -253,7 +253,7 @@ public class GhostLabReliableState : NetworkComponent
 		this.singleDoorOpen[doorIndex] = !this.singleDoorOpen[doorIndex];
 	}
 
-	// Token: 0x06000476 RID: 1142 RVA: 0x0001A6F1 File Offset: 0x000188F1
+	// Token: 0x060004B2 RID: 1202 RVA: 0x00033841 File Offset: 0x00031A41
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -261,7 +261,7 @@ public class GhostLabReliableState : NetworkComponent
 		this.NetData = this._NetData;
 	}
 
-	// Token: 0x06000477 RID: 1143 RVA: 0x0001A709 File Offset: 0x00018909
+	// Token: 0x060004B3 RID: 1203 RVA: 0x00033859 File Offset: 0x00031A59
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -269,7 +269,7 @@ public class GhostLabReliableState : NetworkComponent
 		this._NetData = this.NetData;
 	}
 
-	// Token: 0x06000478 RID: 1144 RVA: 0x0001A720 File Offset: 0x00018920
+	// Token: 0x060004B4 RID: 1204 RVA: 0x0007DF3C File Offset: 0x0007C13C
 	[NetworkRpcWeavedInvoker(1, 7, 1)]
 	[Preserve]
 	[WeaverGenerated]
@@ -285,7 +285,7 @@ public class GhostLabReliableState : NetworkComponent
 		((GhostLabReliableState)behaviour).RPC_RemoteEntranceDoorState(newState, info);
 	}
 
-	// Token: 0x06000479 RID: 1145 RVA: 0x0001A794 File Offset: 0x00018994
+	// Token: 0x060004B5 RID: 1205 RVA: 0x0007DFB0 File Offset: 0x0007C1B0
 	[NetworkRpcWeavedInvoker(2, 7, 1)]
 	[Preserve]
 	[WeaverGenerated]
@@ -301,16 +301,16 @@ public class GhostLabReliableState : NetworkComponent
 		((GhostLabReliableState)behaviour).RPC_RemoteSingleDoorState(doorIndex, info);
 	}
 
-	// Token: 0x0400051B RID: 1307
+	// Token: 0x0400055B RID: 1371
 	public GhostLab.EntranceDoorsState doorState;
 
-	// Token: 0x0400051C RID: 1308
+	// Token: 0x0400055C RID: 1372
 	public int singleDoorCount;
 
-	// Token: 0x0400051D RID: 1309
+	// Token: 0x0400055D RID: 1373
 	public bool[] singleDoorOpen;
 
-	// Token: 0x0400051E RID: 1310
+	// Token: 0x0400055E RID: 1374
 	[WeaverGenerated]
 	[DefaultForProperty("NetData", 0, 11)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]

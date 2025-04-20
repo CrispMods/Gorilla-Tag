@@ -7,11 +7,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x0200078E RID: 1934
+// Token: 0x020007A6 RID: 1958
 public class FriendDisplay : MonoBehaviour
 {
-	// Token: 0x170004FA RID: 1274
-	// (get) Token: 0x06002FB3 RID: 12211 RVA: 0x000E55B5 File Offset: 0x000E37B5
+	// Token: 0x17000508 RID: 1288
+	// (get) Token: 0x06003065 RID: 12389 RVA: 0x00050233 File Offset: 0x0004E433
 	public bool InRemoveMode
 	{
 		get
@@ -20,7 +20,7 @@ public class FriendDisplay : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002FB4 RID: 12212 RVA: 0x000E55C0 File Offset: 0x000E37C0
+	// Token: 0x06003066 RID: 12390 RVA: 0x0012EE48 File Offset: 0x0012D048
 	private void Start()
 	{
 		this.InitFriendCards();
@@ -31,7 +31,7 @@ public class FriendDisplay : MonoBehaviour
 		NetworkSystem.Instance.OnJoinedRoomEvent += this.OnJoinedRoom;
 	}
 
-	// Token: 0x06002FB5 RID: 12213 RVA: 0x000E5624 File Offset: 0x000E3824
+	// Token: 0x06003067 RID: 12391 RVA: 0x0012EEAC File Offset: 0x0012D0AC
 	private void OnDestroy()
 	{
 		if (NetworkSystem.Instance != null)
@@ -45,7 +45,7 @@ public class FriendDisplay : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002FB6 RID: 12214 RVA: 0x000E5690 File Offset: 0x000E3890
+	// Token: 0x06003068 RID: 12392 RVA: 0x0012EF18 File Offset: 0x0012D118
 	public void TriggerEntered(TriggerEventNotifier notifier, Collider other)
 	{
 		if (other == GTPlayer.Instance.headCollider)
@@ -61,7 +61,7 @@ public class FriendDisplay : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002FB7 RID: 12215 RVA: 0x000E56F0 File Offset: 0x000E38F0
+	// Token: 0x06003069 RID: 12393 RVA: 0x0012EF78 File Offset: 0x0012D178
 	public void TriggerExited(TriggerEventNotifier notifier, Collider other)
 	{
 		if (other == GTPlayer.Instance.headCollider)
@@ -77,13 +77,13 @@ public class FriendDisplay : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002FB8 RID: 12216 RVA: 0x000E5748 File Offset: 0x000E3948
+	// Token: 0x0600306A RID: 12394 RVA: 0x0005023B File Offset: 0x0004E43B
 	private void OnJoinedRoom()
 	{
 		this.Refresh();
 	}
 
-	// Token: 0x06002FB9 RID: 12217 RVA: 0x000E5750 File Offset: 0x000E3950
+	// Token: 0x0600306B RID: 12395 RVA: 0x00050243 File Offset: 0x0004E443
 	private void Refresh()
 	{
 		if (this.localPlayerAtDisplay)
@@ -93,7 +93,7 @@ public class FriendDisplay : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002FBA RID: 12218 RVA: 0x000E576C File Offset: 0x000E396C
+	// Token: 0x0600306C RID: 12396 RVA: 0x0005025F File Offset: 0x0004E45F
 	public void LocalPlayerFullyVisiblePress()
 	{
 		FriendSystem.Instance.SetLocalPlayerPrivacy(FriendSystem.PlayerPrivacy.Visible);
@@ -101,7 +101,7 @@ public class FriendDisplay : MonoBehaviour
 		this.PopulateLocalPlayerCard();
 	}
 
-	// Token: 0x06002FBB RID: 12219 RVA: 0x000E5787 File Offset: 0x000E3987
+	// Token: 0x0600306D RID: 12397 RVA: 0x0005027A File Offset: 0x0004E47A
 	public void LocalPlayerPublicOnlyPress()
 	{
 		FriendSystem.Instance.SetLocalPlayerPrivacy(FriendSystem.PlayerPrivacy.PublicOnly);
@@ -109,7 +109,7 @@ public class FriendDisplay : MonoBehaviour
 		this.PopulateLocalPlayerCard();
 	}
 
-	// Token: 0x06002FBC RID: 12220 RVA: 0x000E57A2 File Offset: 0x000E39A2
+	// Token: 0x0600306E RID: 12398 RVA: 0x00050295 File Offset: 0x0004E495
 	public void LocalPlayerFullyHiddenPress()
 	{
 		FriendSystem.Instance.SetLocalPlayerPrivacy(FriendSystem.PlayerPrivacy.Hidden);
@@ -117,7 +117,7 @@ public class FriendDisplay : MonoBehaviour
 		this.PopulateLocalPlayerCard();
 	}
 
-	// Token: 0x06002FBD RID: 12221 RVA: 0x000E57C0 File Offset: 0x000E39C0
+	// Token: 0x0600306F RID: 12399 RVA: 0x0012EFD0 File Offset: 0x0012D1D0
 	private void UpdateLocalPlayerPrivacyButtons()
 	{
 		FriendSystem.PlayerPrivacy localPlayerPrivacy = FriendSystem.Instance.LocalPlayerPrivacy;
@@ -126,13 +126,13 @@ public class FriendDisplay : MonoBehaviour
 		this.SetButtonAppearance(this._localPlayerFullyHiddenButton, localPlayerPrivacy == FriendSystem.PlayerPrivacy.Hidden);
 	}
 
-	// Token: 0x06002FBE RID: 12222 RVA: 0x000E580A File Offset: 0x000E3A0A
+	// Token: 0x06003070 RID: 12400 RVA: 0x000502B0 File Offset: 0x0004E4B0
 	private void SetButtonAppearance(MeshRenderer buttonRenderer, bool active)
 	{
 		this.SetButtonAppearance(buttonRenderer, active ? FriendDisplay.ButtonState.Active : FriendDisplay.ButtonState.Default);
 	}
 
-	// Token: 0x06002FBF RID: 12223 RVA: 0x000E581C File Offset: 0x000E3A1C
+	// Token: 0x06003071 RID: 12401 RVA: 0x0012F01C File Offset: 0x0012D21C
 	private void SetButtonAppearance(MeshRenderer buttonRenderer, FriendDisplay.ButtonState state)
 	{
 		Material[] sharedMaterials;
@@ -153,7 +153,7 @@ public class FriendDisplay : MonoBehaviour
 		buttonRenderer.sharedMaterials = sharedMaterials;
 	}
 
-	// Token: 0x06002FC0 RID: 12224 RVA: 0x000E5874 File Offset: 0x000E3A74
+	// Token: 0x06003072 RID: 12402 RVA: 0x0012F074 File Offset: 0x0012D274
 	public void ToggleRemoveFriendMode()
 	{
 		this.inRemoveMode = !this.inRemoveMode;
@@ -165,7 +165,7 @@ public class FriendDisplay : MonoBehaviour
 		this.SetButtonAppearance(this._removeFriendButton, this.inRemoveMode ? FriendDisplay.ButtonState.Alert : FriendDisplay.ButtonState.Default);
 	}
 
-	// Token: 0x06002FC1 RID: 12225 RVA: 0x000E58CC File Offset: 0x000E3ACC
+	// Token: 0x06003073 RID: 12403 RVA: 0x0012F0CC File Offset: 0x0012D2CC
 	private void InitFriendCards()
 	{
 		float num = this.gridWidth / (float)this.gridDimension;
@@ -192,7 +192,7 @@ public class FriendDisplay : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002FC2 RID: 12226 RVA: 0x000E5A6C File Offset: 0x000E3C6C
+	// Token: 0x06003074 RID: 12404 RVA: 0x0012F26C File Offset: 0x0012D46C
 	public void RandomizeFriendCards()
 	{
 		for (int i = 0; i < this.friendCards.Length; i++)
@@ -201,7 +201,7 @@ public class FriendDisplay : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002FC3 RID: 12227 RVA: 0x000E5A9C File Offset: 0x000E3C9C
+	// Token: 0x06003075 RID: 12405 RVA: 0x0012F29C File Offset: 0x0012D49C
 	private void ClearFriendCards()
 	{
 		for (int i = 0; i < this.friendCards.Length; i++)
@@ -210,7 +210,7 @@ public class FriendDisplay : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002FC4 RID: 12228 RVA: 0x000E5AC9 File Offset: 0x000E3CC9
+	// Token: 0x06003076 RID: 12406 RVA: 0x000502C0 File Offset: 0x0004E4C0
 	public void OnGetFriendsReceived(List<FriendBackendController.Friend> friendsList)
 	{
 		this.PopulateFriendCards(friendsList);
@@ -218,7 +218,7 @@ public class FriendDisplay : MonoBehaviour
 		this.PopulateLocalPlayerCard();
 	}
 
-	// Token: 0x06002FC5 RID: 12229 RVA: 0x000E5AE0 File Offset: 0x000E3CE0
+	// Token: 0x06003077 RID: 12407 RVA: 0x0012F2CC File Offset: 0x0012D4CC
 	private void PopulateFriendCards(List<FriendBackendController.Friend> friendsList)
 	{
 		int num = 0;
@@ -229,14 +229,14 @@ public class FriendDisplay : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002FC6 RID: 12230 RVA: 0x000E5B1B File Offset: 0x000E3D1B
+	// Token: 0x06003078 RID: 12408 RVA: 0x000502D5 File Offset: 0x0004E4D5
 	private void InitLocalPlayerCard()
 	{
 		this._localPlayerCard.Init(this);
 		this.ClearLocalPlayerCard();
 	}
 
-	// Token: 0x06002FC7 RID: 12231 RVA: 0x000E5B30 File Offset: 0x000E3D30
+	// Token: 0x06003079 RID: 12409 RVA: 0x0012F308 File Offset: 0x0012D508
 	private void PopulateLocalPlayerCard()
 	{
 		string zone = PhotonNetworkController.Instance.CurrentRoomZone.GetName<GTZone>().ToUpper();
@@ -271,13 +271,13 @@ public class FriendDisplay : MonoBehaviour
 		this._localPlayerCard.SetZone(zone);
 	}
 
-	// Token: 0x06002FC8 RID: 12232 RVA: 0x000E5CBD File Offset: 0x000E3EBD
+	// Token: 0x0600307A RID: 12410 RVA: 0x000502E9 File Offset: 0x0004E4E9
 	private void ClearLocalPlayerCard()
 	{
 		this._localPlayerCard.SetEmpty();
 	}
 
-	// Token: 0x06002FC9 RID: 12233 RVA: 0x000E5CCC File Offset: 0x000E3ECC
+	// Token: 0x0600307B RID: 12411 RVA: 0x0012F498 File Offset: 0x0012D698
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.white;
@@ -301,90 +301,90 @@ public class FriendDisplay : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040033B5 RID: 13237
+	// Token: 0x0400345F RID: 13407
 	[FormerlySerializedAs("gridCenter")]
 	[SerializeField]
 	private FriendCard[] friendCards = new FriendCard[9];
 
-	// Token: 0x040033B6 RID: 13238
+	// Token: 0x04003460 RID: 13408
 	[SerializeField]
 	private Transform gridRoot;
 
-	// Token: 0x040033B7 RID: 13239
+	// Token: 0x04003461 RID: 13409
 	[SerializeField]
 	private float gridWidth = 2f;
 
-	// Token: 0x040033B8 RID: 13240
+	// Token: 0x04003462 RID: 13410
 	[SerializeField]
 	private float gridHeight = 1f;
 
-	// Token: 0x040033B9 RID: 13241
+	// Token: 0x04003463 RID: 13411
 	[SerializeField]
 	private int gridDimension = 3;
 
-	// Token: 0x040033BA RID: 13242
+	// Token: 0x04003464 RID: 13412
 	[SerializeField]
 	private TriggerEventNotifier triggerNotifier;
 
-	// Token: 0x040033BB RID: 13243
+	// Token: 0x04003465 RID: 13413
 	[FormerlySerializedAs("_joinButtons")]
 	[Header("Buttons")]
 	[SerializeField]
 	private GorillaPressableDelayButton[] _friendCardButtons;
 
-	// Token: 0x040033BC RID: 13244
+	// Token: 0x04003466 RID: 13414
 	[SerializeField]
 	private TextMeshProUGUI[] _friendCardButtonText;
 
-	// Token: 0x040033BD RID: 13245
+	// Token: 0x04003467 RID: 13415
 	[SerializeField]
 	private MeshRenderer _localPlayerFullyVisibleButton;
 
-	// Token: 0x040033BE RID: 13246
+	// Token: 0x04003468 RID: 13416
 	[SerializeField]
 	private MeshRenderer _localPlayerPublicOnlyButton;
 
-	// Token: 0x040033BF RID: 13247
+	// Token: 0x04003469 RID: 13417
 	[SerializeField]
 	private MeshRenderer _localPlayerFullyHiddenButton;
 
-	// Token: 0x040033C0 RID: 13248
+	// Token: 0x0400346A RID: 13418
 	[SerializeField]
 	private MeshRenderer _removeFriendButton;
 
-	// Token: 0x040033C1 RID: 13249
+	// Token: 0x0400346B RID: 13419
 	[SerializeField]
 	private FriendCard _localPlayerCard;
 
-	// Token: 0x040033C2 RID: 13250
+	// Token: 0x0400346C RID: 13420
 	[SerializeField]
 	private Material[] _buttonDefaultMaterials;
 
-	// Token: 0x040033C3 RID: 13251
+	// Token: 0x0400346D RID: 13421
 	[SerializeField]
 	private Material[] _buttonActiveMaterials;
 
-	// Token: 0x040033C4 RID: 13252
+	// Token: 0x0400346E RID: 13422
 	[SerializeField]
 	private Material[] _buttonAlertMaterials;
 
-	// Token: 0x040033C5 RID: 13253
+	// Token: 0x0400346F RID: 13423
 	private MeshRenderer[] _joinButtonRenderers;
 
-	// Token: 0x040033C6 RID: 13254
+	// Token: 0x04003470 RID: 13424
 	private bool inRemoveMode;
 
-	// Token: 0x040033C7 RID: 13255
+	// Token: 0x04003471 RID: 13425
 	private bool localPlayerAtDisplay;
 
-	// Token: 0x0200078F RID: 1935
+	// Token: 0x020007A7 RID: 1959
 	public enum ButtonState
 	{
-		// Token: 0x040033C9 RID: 13257
+		// Token: 0x04003473 RID: 13427
 		Default,
-		// Token: 0x040033CA RID: 13258
+		// Token: 0x04003474 RID: 13428
 		Active,
-		// Token: 0x040033CB RID: 13259
+		// Token: 0x04003475 RID: 13429
 		Alert
 	}
 }

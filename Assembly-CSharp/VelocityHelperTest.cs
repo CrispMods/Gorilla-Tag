@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006D8 RID: 1752
+// Token: 0x020006ED RID: 1773
 public class VelocityHelperTest : MonoBehaviour
 {
-	// Token: 0x06002BB3 RID: 11187 RVA: 0x000D6A99 File Offset: 0x000D4C99
+	// Token: 0x06002C49 RID: 11337 RVA: 0x0004E159 File Offset: 0x0004C359
 	private void Setup()
 	{
 		this.lastPosition = base.transform.position;
@@ -13,13 +13,13 @@ public class VelocityHelperTest : MonoBehaviour
 		this.speed = 0f;
 	}
 
-	// Token: 0x06002BB4 RID: 11188 RVA: 0x000D6ACD File Offset: 0x000D4CCD
+	// Token: 0x06002C4A RID: 11338 RVA: 0x0004E18D File Offset: 0x0004C38D
 	private void Start()
 	{
 		this.Setup();
 	}
 
-	// Token: 0x06002BB5 RID: 11189 RVA: 0x000D6AD8 File Offset: 0x000D4CD8
+	// Token: 0x06002C4B RID: 11339 RVA: 0x00121D20 File Offset: 0x0011FF20
 	private void FixedUpdate()
 	{
 		float deltaTime = Time.deltaTime;
@@ -31,25 +31,25 @@ public class VelocityHelperTest : MonoBehaviour
 		this.lastVelocity = b;
 	}
 
-	// Token: 0x06002BB6 RID: 11190 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002C4C RID: 11340 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Update()
 	{
 	}
 
-	// Token: 0x040030C9 RID: 12489
+	// Token: 0x04003166 RID: 12646
 	public Vector3 velocity;
 
-	// Token: 0x040030CA RID: 12490
+	// Token: 0x04003167 RID: 12647
 	public float speed;
 
-	// Token: 0x040030CB RID: 12491
+	// Token: 0x04003168 RID: 12648
 	[Space]
 	public Vector3 lastVelocity;
 
-	// Token: 0x040030CC RID: 12492
+	// Token: 0x04003169 RID: 12649
 	public Vector3 lastPosition;
 
-	// Token: 0x040030CD RID: 12493
+	// Token: 0x0400316A RID: 12650
 	[Space]
 	[SerializeField]
 	private float[] _deltaTimes = new float[5];

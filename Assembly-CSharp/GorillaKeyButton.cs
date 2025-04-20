@@ -5,10 +5,10 @@ using GorillaTag;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000662 RID: 1634
+// Token: 0x02000641 RID: 1601
 public abstract class GorillaKeyButton<TBinding> : MonoBehaviour where TBinding : Enum
 {
-	// Token: 0x06002875 RID: 10357 RVA: 0x000C6B19 File Offset: 0x000C4D19
+	// Token: 0x060027A0 RID: 10144 RVA: 0x0004AF9A File Offset: 0x0004919A
 	private void Start()
 	{
 		if (this.ButtonRenderer == null)
@@ -19,7 +19,7 @@ public abstract class GorillaKeyButton<TBinding> : MonoBehaviour where TBinding 
 		this.pressTime = 0f;
 	}
 
-	// Token: 0x06002876 RID: 10358 RVA: 0x000C6B4C File Offset: 0x000C4D4C
+	// Token: 0x060027A1 RID: 10145 RVA: 0x0010DA78 File Offset: 0x0010BC78
 	private void OnTriggerEnter(Collider collider)
 	{
 		if (collider.GetComponentInParent<GorillaTriggerColliderHandIndicator>() != null)
@@ -44,7 +44,7 @@ public abstract class GorillaKeyButton<TBinding> : MonoBehaviour where TBinding 
 		}
 	}
 
-	// Token: 0x06002877 RID: 10359 RVA: 0x000C6C30 File Offset: 0x000C4E30
+	// Token: 0x060027A2 RID: 10146 RVA: 0x0010DB5C File Offset: 0x0010BD5C
 	public void PressButtonColourUpdate()
 	{
 		this.propBlock.SetColor("_BaseColor", this.ButtonColorSettings.PressedColor);
@@ -54,10 +54,10 @@ public abstract class GorillaKeyButton<TBinding> : MonoBehaviour where TBinding 
 		base.StartCoroutine(this.<PressButtonColourUpdate>g__ButtonColorUpdate_Local|13_0());
 	}
 
-	// Token: 0x06002878 RID: 10360
+	// Token: 0x060027A3 RID: 10147
 	public abstract void OnButtonPressedEvent();
 
-	// Token: 0x0600287A RID: 10362 RVA: 0x000C6CAF File Offset: 0x000C4EAF
+	// Token: 0x060027A5 RID: 10149 RVA: 0x0004AFDF File Offset: 0x000491DF
 	[CompilerGenerated]
 	private IEnumerator <PressButtonColourUpdate>g__ButtonColorUpdate_Local|13_0()
 	{
@@ -72,36 +72,36 @@ public abstract class GorillaKeyButton<TBinding> : MonoBehaviour where TBinding 
 		yield break;
 	}
 
-	// Token: 0x04002D5C RID: 11612
+	// Token: 0x04002CC2 RID: 11458
 	public string characterString;
 
-	// Token: 0x04002D5D RID: 11613
+	// Token: 0x04002CC3 RID: 11459
 	public TBinding Binding;
 
-	// Token: 0x04002D5E RID: 11614
+	// Token: 0x04002CC4 RID: 11460
 	public float pressTime;
 
-	// Token: 0x04002D5F RID: 11615
+	// Token: 0x04002CC5 RID: 11461
 	public bool functionKey;
 
-	// Token: 0x04002D60 RID: 11616
+	// Token: 0x04002CC6 RID: 11462
 	public bool testClick;
 
-	// Token: 0x04002D61 RID: 11617
+	// Token: 0x04002CC7 RID: 11463
 	public bool repeatTestClick;
 
-	// Token: 0x04002D62 RID: 11618
+	// Token: 0x04002CC8 RID: 11464
 	public float repeatCooldown = 2f;
 
-	// Token: 0x04002D63 RID: 11619
+	// Token: 0x04002CC9 RID: 11465
 	public Renderer ButtonRenderer;
 
-	// Token: 0x04002D64 RID: 11620
+	// Token: 0x04002CCA RID: 11466
 	public ButtonColorSettings ButtonColorSettings;
 
-	// Token: 0x04002D65 RID: 11621
+	// Token: 0x04002CCB RID: 11467
 	private float lastTestClick;
 
-	// Token: 0x04002D66 RID: 11622
+	// Token: 0x04002CCC RID: 11468
 	private MaterialPropertyBlock propBlock;
 }

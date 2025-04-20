@@ -1,12 +1,12 @@
 ﻿using System;
 
-// Token: 0x020008D8 RID: 2264
+// Token: 0x020008F4 RID: 2292
 public enum GTShaderColorSource
 {
-	// Token: 0x04003919 RID: 14617
+	// Token: 0x040039DA RID: 14810
 	Color,
-	// Token: 0x0400391A RID: 14618
+	// Token: 0x040039DB RID: 14811
 	Texture,
-	// Token: 0x0400391B RID: 14619
+	// Token: 0x040039DC RID: 14812
 	TextureAsMask
 }

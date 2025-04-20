@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace GorillaTag
 {
-	// Token: 0x02000BB6 RID: 2998
+	// Token: 0x02000BE4 RID: 3044
 	[Serializable]
 	internal class ExpectedUsersDecayTimer : TickSystemTimerAbstract
 	{
-		// Token: 0x06004BD3 RID: 19411 RVA: 0x00171084 File Offset: 0x0016F284
+		// Token: 0x06004D1C RID: 19740 RVA: 0x001A9D54 File Offset: 0x001A7F54
 		public override void OnTimedEvent()
 		{
 			if (NetworkSystem.Instance.InRoom && NetworkSystem.Instance.IsMasterClient)
@@ -41,17 +41,17 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004BD4 RID: 19412 RVA: 0x0017114B File Offset: 0x0016F34B
+		// Token: 0x06004D1D RID: 19741 RVA: 0x00062A11 File Offset: 0x00060C11
 		public override void Stop()
 		{
 			base.Stop();
 			this.expectedUsers.Clear();
 		}
 
-		// Token: 0x04004D9D RID: 19869
+		// Token: 0x04004E93 RID: 20115
 		public float decayTime = 15f;
 
-		// Token: 0x04004D9E RID: 19870
+		// Token: 0x04004E94 RID: 20116
 		private Dictionary<string, float> expectedUsers = new Dictionary<string, float>(10);
 	}
 }

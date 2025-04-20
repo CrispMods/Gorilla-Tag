@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020007DD RID: 2013
+// Token: 0x020007F7 RID: 2039
 public class RandomStrings : RandomContainer<string>
 {
 }

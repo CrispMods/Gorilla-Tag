@@ -7,10 +7,10 @@ using UnityEngine;
 
 namespace GorillaTag.Reactions
 {
-	// Token: 0x02000BC3 RID: 3011
+	// Token: 0x02000BF1 RID: 3057
 	public class GorillaMaterialReaction : MonoBehaviour, ITickSystemPost
 	{
-		// Token: 0x06004C16 RID: 19478 RVA: 0x00172514 File Offset: 0x00170714
+		// Token: 0x06004D62 RID: 19810 RVA: 0x001AAFB8 File Offset: 0x001A91B8
 		public void PopulateRuntimeLookupArrays()
 		{
 			this._momentEnumCount = ((GorillaMaterialReaction.EMomentInState[])Enum.GetValues(typeof(GorillaMaterialReaction.EMomentInState))).Length;
@@ -88,14 +88,14 @@ namespace GorillaTag.Reactions
 			}
 		}
 
-		// Token: 0x06004C17 RID: 19479 RVA: 0x00172743 File Offset: 0x00170943
+		// Token: 0x06004D63 RID: 19811 RVA: 0x00062C4F File Offset: 0x00060E4F
 		protected void Awake()
 		{
 			this.RemoveAndReportNulls();
 			this.PopulateRuntimeLookupArrays();
 		}
 
-		// Token: 0x06004C18 RID: 19480 RVA: 0x00172754 File Offset: 0x00170954
+		// Token: 0x06004D64 RID: 19812 RVA: 0x001AB1E8 File Offset: 0x001A93E8
 		protected void OnEnable()
 		{
 			if (this._ownerVRRig == null)
@@ -117,18 +117,18 @@ namespace GorillaTag.Reactions
 			TickSystem<object>.AddCallbackTarget(this);
 		}
 
-		// Token: 0x06004C19 RID: 19481 RVA: 0x00019B13 File Offset: 0x00017D13
+		// Token: 0x06004D65 RID: 19813 RVA: 0x0003368B File Offset: 0x0003188B
 		protected void OnDisable()
 		{
 			TickSystem<object>.RemoveCallbackTarget(this);
 		}
 
-		// Token: 0x170007E0 RID: 2016
-		// (get) Token: 0x06004C1A RID: 19482 RVA: 0x001727FC File Offset: 0x001709FC
-		// (set) Token: 0x06004C1B RID: 19483 RVA: 0x00172804 File Offset: 0x00170A04
+		// Token: 0x170007FE RID: 2046
+		// (get) Token: 0x06004D66 RID: 19814 RVA: 0x00062C5D File Offset: 0x00060E5D
+		// (set) Token: 0x06004D67 RID: 19815 RVA: 0x00062C65 File Offset: 0x00060E65
 		bool ITickSystemPost.PostTickRunning { get; set; }
 
-		// Token: 0x06004C1C RID: 19484 RVA: 0x00172810 File Offset: 0x00170A10
+		// Token: 0x06004D68 RID: 19816 RVA: 0x001AB290 File Offset: 0x001A9490
 		void ITickSystemPost.PostTick()
 		{
 			if (!GorillaComputer.hasInstance || this._ownerVRRig == null)
@@ -186,7 +186,7 @@ namespace GorillaTag.Reactions
 			}
 		}
 
-		// Token: 0x06004C1D RID: 19485 RVA: 0x001729C8 File Offset: 0x00170BC8
+		// Token: 0x06004D69 RID: 19817 RVA: 0x001AB448 File Offset: 0x001A9648
 		private void RemoveAndReportNulls()
 		{
 			StringBuilder stringBuilder = new StringBuilder(1024);
@@ -245,92 +245,92 @@ namespace GorillaTag.Reactions
 			}
 		}
 
-		// Token: 0x04004DE2 RID: 19938
+		// Token: 0x04004ED8 RID: 20184
 		[SerializeField]
 		private GorillaMaterialReaction.ReactionEntry[] _statusEffectReactions;
 
-		// Token: 0x04004DE3 RID: 19939
+		// Token: 0x04004ED9 RID: 20185
 		private int _previousMatIndex;
 
-		// Token: 0x04004DE4 RID: 19940
+		// Token: 0x04004EDA RID: 20186
 		private GorillaMaterialReaction.EMomentInState _currentMomentInState;
 
-		// Token: 0x04004DE5 RID: 19941
+		// Token: 0x04004EDB RID: 20187
 		private double _currentMatIndexStartTime;
 
-		// Token: 0x04004DE6 RID: 19942
+		// Token: 0x04004EDC RID: 20188
 		private double _currentMomentDuration;
 
-		// Token: 0x04004DE7 RID: 19943
+		// Token: 0x04004EDD RID: 20189
 		private int _reactionsRemaining;
 
-		// Token: 0x04004DE8 RID: 19944
+		// Token: 0x04004EDE RID: 20190
 		private int _momentEnumCount;
 
-		// Token: 0x04004DE9 RID: 19945
+		// Token: 0x04004EDF RID: 20191
 		private int _matCount;
 
-		// Token: 0x04004DEA RID: 19946
+		// Token: 0x04004EE0 RID: 20192
 		private GameObject[][] _mat_x_moment_x_activeBool_to_gObjs;
 
-		// Token: 0x04004DEB RID: 19947
+		// Token: 0x04004EE1 RID: 20193
 		private VRRig _ownerVRRig;
 
-		// Token: 0x02000BC4 RID: 3012
+		// Token: 0x02000BF2 RID: 3058
 		[Serializable]
 		public struct ReactionEntry
 		{
-			// Token: 0x04004DED RID: 19949
+			// Token: 0x04004EE3 RID: 20195
 			[Tooltip("If any of these statuses are true then this reaction will be executed.")]
 			public int[] statusMaterialIndexes;
 
-			// Token: 0x04004DEE RID: 19950
+			// Token: 0x04004EE4 RID: 20196
 			public GorillaMaterialReaction.GameObjectStates[] gameObjectStates;
 		}
 
-		// Token: 0x02000BC5 RID: 3013
+		// Token: 0x02000BF3 RID: 3059
 		[Serializable]
 		public struct GameObjectStates
 		{
-			// Token: 0x04004DEF RID: 19951
+			// Token: 0x04004EE5 RID: 20197
 			public GameObject gameObject;
 
-			// Token: 0x04004DF0 RID: 19952
+			// Token: 0x04004EE6 RID: 20198
 			[GorillaMaterialReaction.MomentInStateAttribute]
 			public GorillaMaterialReaction.MomentInStateActiveOption onEnter;
 
-			// Token: 0x04004DF1 RID: 19953
+			// Token: 0x04004EE7 RID: 20199
 			[GorillaMaterialReaction.MomentInStateAttribute]
 			public GorillaMaterialReaction.MomentInStateActiveOption onStay;
 
-			// Token: 0x04004DF2 RID: 19954
+			// Token: 0x04004EE8 RID: 20200
 			[GorillaMaterialReaction.MomentInStateAttribute]
 			public GorillaMaterialReaction.MomentInStateActiveOption onExit;
 		}
 
-		// Token: 0x02000BC6 RID: 3014
+		// Token: 0x02000BF4 RID: 3060
 		[Serializable]
 		public struct MomentInStateActiveOption
 		{
-			// Token: 0x04004DF3 RID: 19955
+			// Token: 0x04004EE9 RID: 20201
 			public bool change;
 
-			// Token: 0x04004DF4 RID: 19956
+			// Token: 0x04004EEA RID: 20202
 			public bool activeState;
 		}
 
-		// Token: 0x02000BC7 RID: 3015
+		// Token: 0x02000BF5 RID: 3061
 		public enum EMomentInState
 		{
-			// Token: 0x04004DF6 RID: 19958
+			// Token: 0x04004EEC RID: 20204
 			OnEnter,
-			// Token: 0x04004DF7 RID: 19959
+			// Token: 0x04004EED RID: 20205
 			OnStay,
-			// Token: 0x04004DF8 RID: 19960
+			// Token: 0x04004EEE RID: 20206
 			OnExit
 		}
 
-		// Token: 0x02000BC8 RID: 3016
+		// Token: 0x02000BF6 RID: 3062
 		public class MomentInStateAttribute : Attribute
 		{
 		}

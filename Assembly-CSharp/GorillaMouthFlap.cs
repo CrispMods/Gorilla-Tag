@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200057C RID: 1404
+// Token: 0x0200058A RID: 1418
 public class GorillaMouthFlap : MonoBehaviour, IGorillaSliceableSimple
 {
-	// Token: 0x0600227F RID: 8831 RVA: 0x000AB623 File Offset: 0x000A9823
+	// Token: 0x060022DD RID: 8925 RVA: 0x0004797A File Offset: 0x00045B7A
 	private void Start()
 	{
 		this.speaker = base.GetComponent<GorillaSpeakerLoudness>();
@@ -12,13 +12,13 @@ public class GorillaMouthFlap : MonoBehaviour, IGorillaSliceableSimple
 		this.facePropBlock = new MaterialPropertyBlock();
 	}
 
-	// Token: 0x06002280 RID: 8832 RVA: 0x000AB64D File Offset: 0x000A984D
+	// Token: 0x060022DE RID: 8926 RVA: 0x000479A4 File Offset: 0x00045BA4
 	public void EnableLeafBlower()
 	{
 		this.leafBlowerActiveUntilTimestamp = Time.time + 0.1f;
 	}
 
-	// Token: 0x06002281 RID: 8833 RVA: 0x000AB660 File Offset: 0x000A9860
+	// Token: 0x060022DF RID: 8927 RVA: 0x000479B7 File Offset: 0x00045BB7
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.LateUpdate);
@@ -26,13 +26,13 @@ public class GorillaMouthFlap : MonoBehaviour, IGorillaSliceableSimple
 		this.deltaTime = Time.deltaTime;
 	}
 
-	// Token: 0x06002282 RID: 8834 RVA: 0x0000F86B File Offset: 0x0000DA6B
+	// Token: 0x060022E0 RID: 8928 RVA: 0x000320C8 File Offset: 0x000302C8
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.LateUpdate);
 	}
 
-	// Token: 0x06002283 RID: 8835 RVA: 0x000AB680 File Offset: 0x000A9880
+	// Token: 0x060022E1 RID: 8929 RVA: 0x000FB318 File Offset: 0x000F9518
 	public void SliceUpdate()
 	{
 		this.deltaTime = Time.time - this.lastTimeUpdated;
@@ -60,7 +60,7 @@ public class GorillaMouthFlap : MonoBehaviour, IGorillaSliceableSimple
 		this.UpdateMouthFlapFlipbook(mouthFlap);
 	}
 
-	// Token: 0x06002284 RID: 8836 RVA: 0x000AB734 File Offset: 0x000A9934
+	// Token: 0x060022E2 RID: 8930 RVA: 0x000FB3CC File Offset: 0x000F95CC
 	private void CheckMouthflapChange(bool isMicEnabled, float currentLoudness)
 	{
 		if (isMicEnabled)
@@ -97,7 +97,7 @@ public class GorillaMouthFlap : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06002285 RID: 8837 RVA: 0x000AB7C0 File Offset: 0x000A99C0
+	// Token: 0x060022E3 RID: 8931 RVA: 0x000FB458 File Offset: 0x000F9658
 	private void UpdateMouthFlapFlipbook(MouthFlapLevel mouthFlap)
 	{
 		Material material = this.targetFaceRenderer.material;
@@ -107,7 +107,7 @@ public class GorillaMouthFlap : MonoBehaviour, IGorillaSliceableSimple
 		material.SetTextureOffset(this._MouthMap, mouthFlap.faces[num]);
 	}
 
-	// Token: 0x06002286 RID: 8838 RVA: 0x000AB838 File Offset: 0x000A9A38
+	// Token: 0x060022E4 RID: 8932 RVA: 0x000FB4D0 File Offset: 0x000F96D0
 	public void SetMouthTextureReplacement(Texture2D replacementMouthAtlas)
 	{
 		Material material = this.targetFaceRenderer.material;
@@ -119,63 +119,92 @@ public class GorillaMouthFlap : MonoBehaviour, IGorillaSliceableSimple
 		material.SetTexture(this._MouthMap, replacementMouthAtlas);
 	}
 
-	// Token: 0x06002287 RID: 8839 RVA: 0x000AB889 File Offset: 0x000A9A89
+	// Token: 0x060022E5 RID: 8933 RVA: 0x000479D6 File Offset: 0x00045BD6
 	public void ClearMouthTextureReplacement()
 	{
 		this.targetFaceRenderer.material.SetTexture(this._MouthMap, this.defaultMouthAtlas);
 	}
 
-	// Token: 0x06002289 RID: 8841 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x060022E6 RID: 8934 RVA: 0x000479F9 File Offset: 0x00045BF9
+	public void SetFaceMaterialReplacement(Material replacementFaceMaterial)
+	{
+		if (!this.hasDefaultFaceMaterial)
+		{
+			this.defaultFaceMaterial = this.targetFaceRenderer.material;
+			this.hasDefaultFaceMaterial = true;
+		}
+		this.targetFaceRenderer.material = replacementFaceMaterial;
+	}
+
+	// Token: 0x060022E7 RID: 8935 RVA: 0x00047A27 File Offset: 0x00045C27
+	public void ClearFaceMaterialReplacement()
+	{
+		if (this.hasDefaultFaceMaterial)
+		{
+			this.targetFaceRenderer.material = this.defaultFaceMaterial;
+		}
+	}
+
+	// Token: 0x060022E9 RID: 8937 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x0400261B RID: 9755
+	// Token: 0x04002673 RID: 9843
 	public GameObject targetFace;
 
-	// Token: 0x0400261C RID: 9756
+	// Token: 0x04002674 RID: 9844
 	public MouthFlapLevel[] mouthFlapLevels;
 
-	// Token: 0x0400261D RID: 9757
+	// Token: 0x04002675 RID: 9845
 	public MouthFlapLevel noMicFace;
 
-	// Token: 0x0400261E RID: 9758
+	// Token: 0x04002676 RID: 9846
 	public MouthFlapLevel leafBlowerFace;
 
-	// Token: 0x0400261F RID: 9759
+	// Token: 0x04002677 RID: 9847
 	private bool useMicEnabled;
 
-	// Token: 0x04002620 RID: 9760
+	// Token: 0x04002678 RID: 9848
 	private float leafBlowerActiveUntilTimestamp;
 
-	// Token: 0x04002621 RID: 9761
+	// Token: 0x04002679 RID: 9849
 	private int activeFlipbookIndex;
 
-	// Token: 0x04002622 RID: 9762
+	// Token: 0x0400267A RID: 9850
 	private float activeFlipbookPlayTime;
 
-	// Token: 0x04002623 RID: 9763
+	// Token: 0x0400267B RID: 9851
 	private GorillaSpeakerLoudness speaker;
 
-	// Token: 0x04002624 RID: 9764
+	// Token: 0x0400267C RID: 9852
 	private float lastTimeUpdated;
 
-	// Token: 0x04002625 RID: 9765
+	// Token: 0x0400267D RID: 9853
 	private float deltaTime;
 
-	// Token: 0x04002626 RID: 9766
+	// Token: 0x0400267E RID: 9854
 	private Renderer targetFaceRenderer;
 
-	// Token: 0x04002627 RID: 9767
+	// Token: 0x0400267F RID: 9855
 	private MaterialPropertyBlock facePropBlock;
 
-	// Token: 0x04002628 RID: 9768
+	// Token: 0x04002680 RID: 9856
 	private Texture defaultMouthAtlas;
 
-	// Token: 0x04002629 RID: 9769
+	// Token: 0x04002681 RID: 9857
+	private Material defaultFaceMaterial;
+
+	// Token: 0x04002682 RID: 9858
 	private bool hasDefaultMouthAtlas;
 
-	// Token: 0x0400262A RID: 9770
+	// Token: 0x04002683 RID: 9859
+	private bool hasDefaultFaceMaterial;
+
+	// Token: 0x04002684 RID: 9860
 	private ShaderHashId _MouthMap = "_MouthMap";
+
+	// Token: 0x04002685 RID: 9861
+	private ShaderHashId _BaseMap = "_BaseMap";
 }

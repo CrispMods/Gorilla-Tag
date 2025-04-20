@@ -4,10 +4,10 @@ using GorillaTagScripts;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020004AA RID: 1194
+// Token: 0x020004B6 RID: 1206
 public class BuilderPaintBrush : HoldableObject
 {
-	// Token: 0x06001D07 RID: 7431 RVA: 0x0008D474 File Offset: 0x0008B674
+	// Token: 0x06001D5B RID: 7515 RVA: 0x000E074C File Offset: 0x000DE94C
 	private void Awake()
 	{
 		this.pieceLayers |= 1 << LayerMask.NameToLayer("Gorilla Object");
@@ -17,12 +17,12 @@ public class BuilderPaintBrush : HoldableObject
 		this.rb = base.GetComponent<Rigidbody>();
 	}
 
-	// Token: 0x06001D08 RID: 7432 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001D5C RID: 7516 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void DropItemCleanup()
 	{
 	}
 
-	// Token: 0x06001D09 RID: 7433 RVA: 0x0008D510 File Offset: 0x0008B710
+	// Token: 0x06001D5D RID: 7517 RVA: 0x000E07E8 File Offset: 0x000DE9E8
 	public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 	{
 		this.holdingHand = grabbingHand;
@@ -49,12 +49,12 @@ public class BuilderPaintBrush : HoldableObject
 		this.brushState = BuilderPaintBrush.PaintBrushState.Held;
 	}
 
-	// Token: 0x06001D0A RID: 7434 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001D5E RID: 7518 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnHover(InteractionPoint pointHovered, GameObject hoveringHand)
 	{
 	}
 
-	// Token: 0x06001D0B RID: 7435 RVA: 0x0008D610 File Offset: 0x0008B810
+	// Token: 0x06001D5F RID: 7519 RVA: 0x000E08E8 File Offset: 0x000DEAE8
 	public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		if (base.OnRelease(zoneReleased, releasingHand))
@@ -75,7 +75,7 @@ public class BuilderPaintBrush : HoldableObject
 		return false;
 	}
 
-	// Token: 0x06001D0C RID: 7436 RVA: 0x0008D6AF File Offset: 0x0008B8AF
+	// Token: 0x06001D60 RID: 7520 RVA: 0x000441BF File Offset: 0x000423BF
 	private void LateUpdate()
 	{
 		if (this.brushState == BuilderPaintBrush.PaintBrushState.Inactive)
@@ -90,7 +90,7 @@ public class BuilderPaintBrush : HoldableObject
 		this.FindPieceToPaint();
 	}
 
-	// Token: 0x06001D0D RID: 7437 RVA: 0x0008D6E0 File Offset: 0x0008B8E0
+	// Token: 0x06001D61 RID: 7521 RVA: 0x000E0988 File Offset: 0x000DEB88
 	private void FindPieceToPaint()
 	{
 		switch (this.brushState)
@@ -189,7 +189,7 @@ public class BuilderPaintBrush : HoldableObject
 		}
 	}
 
-	// Token: 0x06001D0E RID: 7438 RVA: 0x0008DAA8 File Offset: 0x0008BCA8
+	// Token: 0x06001D62 RID: 7522 RVA: 0x000E0D50 File Offset: 0x000DEF50
 	private void PaintPiece()
 	{
 		BuilderTable.instance.RequestPaintPiece(this.hoveredPiece.pieceId, this.materialType);
@@ -200,7 +200,7 @@ public class BuilderPaintBrush : HoldableObject
 		GorillaTagger.Instance.StartVibration(this.inLeftHand, GorillaTagger.Instance.tapHapticStrength / 2f, GorillaTagger.Instance.tapHapticDuration);
 	}
 
-	// Token: 0x06001D0F RID: 7439 RVA: 0x0008DB20 File Offset: 0x0008BD20
+	// Token: 0x06001D63 RID: 7523 RVA: 0x000E0DC8 File Offset: 0x000DEFC8
 	private void ClearHoveredPiece()
 	{
 		if (this.hoveredPiece != null)
@@ -213,7 +213,7 @@ public class BuilderPaintBrush : HoldableObject
 		this.brushState = ((this.holdingHand == null || this.materialType == -1) ? BuilderPaintBrush.PaintBrushState.Inactive : BuilderPaintBrush.PaintBrushState.Held);
 	}
 
-	// Token: 0x06001D10 RID: 7440 RVA: 0x0008DB84 File Offset: 0x0008BD84
+	// Token: 0x06001D64 RID: 7524 RVA: 0x000E0E2C File Offset: 0x000DF02C
 	public void SetBrushMaterial(int inMaterialType)
 	{
 		this.materialType = inMaterialType;
@@ -243,103 +243,103 @@ public class BuilderPaintBrush : HoldableObject
 		}
 	}
 
-	// Token: 0x04001FF2 RID: 8178
+	// Token: 0x04002041 RID: 8257
 	[SerializeField]
 	private Transform brushSurface;
 
-	// Token: 0x04001FF3 RID: 8179
+	// Token: 0x04002042 RID: 8258
 	[SerializeField]
 	private Vector3 paintVolumeHalfExtents;
 
-	// Token: 0x04001FF4 RID: 8180
+	// Token: 0x04002043 RID: 8259
 	[SerializeField]
 	private BuilderMaterialOptions paintBrushMaterialOptions;
 
-	// Token: 0x04001FF5 RID: 8181
+	// Token: 0x04002044 RID: 8260
 	[SerializeField]
 	private MeshRenderer brushRenderer;
 
-	// Token: 0x04001FF6 RID: 8182
+	// Token: 0x04002045 RID: 8261
 	[SerializeField]
 	private AudioSource audioSource;
 
-	// Token: 0x04001FF7 RID: 8183
+	// Token: 0x04002046 RID: 8262
 	[SerializeField]
 	private AudioClip paintSound;
 
-	// Token: 0x04001FF8 RID: 8184
+	// Token: 0x04002047 RID: 8263
 	[SerializeField]
 	private AudioClip brushStrokeSound;
 
-	// Token: 0x04001FF9 RID: 8185
+	// Token: 0x04002048 RID: 8264
 	private GameObject holdingHand;
 
-	// Token: 0x04001FFA RID: 8186
+	// Token: 0x04002049 RID: 8265
 	private bool inLeftHand;
 
-	// Token: 0x04001FFB RID: 8187
+	// Token: 0x0400204A RID: 8266
 	private GorillaVelocityTracker handVelocity;
 
-	// Token: 0x04001FFC RID: 8188
+	// Token: 0x0400204B RID: 8267
 	private BuilderPiece hoveredPiece;
 
-	// Token: 0x04001FFD RID: 8189
+	// Token: 0x0400204C RID: 8268
 	private Collider hoveredPieceCollider;
 
-	// Token: 0x04001FFE RID: 8190
+	// Token: 0x0400204D RID: 8269
 	private Collider[] hitColliders = new Collider[16];
 
-	// Token: 0x04001FFF RID: 8191
+	// Token: 0x0400204E RID: 8270
 	private LayerMask pieceLayers = 0;
 
-	// Token: 0x04002000 RID: 8192
+	// Token: 0x0400204F RID: 8271
 	private Vector3 lastPosition = Vector3.zero;
 
-	// Token: 0x04002001 RID: 8193
+	// Token: 0x04002050 RID: 8272
 	private float positionDelta;
 
-	// Token: 0x04002002 RID: 8194
+	// Token: 0x04002051 RID: 8273
 	private float wiggleDistanceRequirement = 0.08f;
 
-	// Token: 0x04002003 RID: 8195
+	// Token: 0x04002052 RID: 8274
 	private float minimumWiggleFrameDistance = 0.005f;
 
-	// Token: 0x04002004 RID: 8196
+	// Token: 0x04002053 RID: 8275
 	private float maximumWiggleFrameDistance = 0.04f;
 
-	// Token: 0x04002005 RID: 8197
+	// Token: 0x04002054 RID: 8276
 	private float maxPaintVelocitySqrMag = 0.5f;
 
-	// Token: 0x04002006 RID: 8198
+	// Token: 0x04002055 RID: 8277
 	private float paintDelay = 0.2f;
 
-	// Token: 0x04002007 RID: 8199
+	// Token: 0x04002056 RID: 8278
 	private float paintTimeElapsed = -1f;
 
-	// Token: 0x04002008 RID: 8200
+	// Token: 0x04002057 RID: 8279
 	private float paintDistance;
 
-	// Token: 0x04002009 RID: 8201
+	// Token: 0x04002058 RID: 8280
 	private int materialType = -1;
 
-	// Token: 0x0400200A RID: 8202
+	// Token: 0x04002059 RID: 8281
 	private BuilderPaintBrush.PaintBrushState brushState;
 
-	// Token: 0x0400200B RID: 8203
+	// Token: 0x0400205A RID: 8282
 	private Rigidbody rb;
 
-	// Token: 0x020004AB RID: 1195
+	// Token: 0x020004B7 RID: 1207
 	public enum PaintBrushState
 	{
-		// Token: 0x0400200D RID: 8205
+		// Token: 0x0400205C RID: 8284
 		Inactive,
-		// Token: 0x0400200E RID: 8206
+		// Token: 0x0400205D RID: 8285
 		HeldRemote,
-		// Token: 0x0400200F RID: 8207
+		// Token: 0x0400205E RID: 8286
 		Held,
-		// Token: 0x04002010 RID: 8208
+		// Token: 0x0400205F RID: 8287
 		Hover,
-		// Token: 0x04002011 RID: 8209
+		// Token: 0x04002060 RID: 8288
 		JustPainted
 	}
 }

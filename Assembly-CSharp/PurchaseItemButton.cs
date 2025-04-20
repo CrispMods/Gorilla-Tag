@@ -3,10 +3,10 @@ using System.Collections;
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x02000417 RID: 1047
+// Token: 0x02000422 RID: 1058
 public class PurchaseItemButton : GorillaPressableButton
 {
-	// Token: 0x060019E5 RID: 6629 RVA: 0x0007F587 File Offset: 0x0007D787
+	// Token: 0x06001A32 RID: 6706 RVA: 0x00041AB9 File Offset: 0x0003FCB9
 	public override void ButtonActivationWithHand(bool isLeftHand)
 	{
 		base.ButtonActivation();
@@ -14,7 +14,7 @@ public class PurchaseItemButton : GorillaPressableButton
 		base.StartCoroutine(this.ButtonColorUpdate());
 	}
 
-	// Token: 0x060019E6 RID: 6630 RVA: 0x0007F5AA File Offset: 0x0007D7AA
+	// Token: 0x06001A33 RID: 6707 RVA: 0x00041ADC File Offset: 0x0003FCDC
 	private IEnumerator ButtonColorUpdate()
 	{
 		Debug.Log("did this happen?");
@@ -24,6 +24,6 @@ public class PurchaseItemButton : GorillaPressableButton
 		yield break;
 	}
 
-	// Token: 0x04001CC8 RID: 7368
+	// Token: 0x04001D11 RID: 7441
 	public string buttonSide;
 }

@@ -3,18 +3,18 @@ using UnityEngine;
 
 namespace GorillaTag.CosmeticSystem
 {
-	// Token: 0x02000BF1 RID: 3057
+	// Token: 0x02000C1F RID: 3103
 	[Serializable]
 	public struct CosmeticPart
 	{
-		// Token: 0x04004EAA RID: 20138
+		// Token: 0x04004FA0 RID: 20384
 		public GTAssetRef<GameObject> prefabAssetRef;
 
-		// Token: 0x04004EAB RID: 20139
+		// Token: 0x04004FA1 RID: 20385
 		[Tooltip("Determines how the cosmetic part will be attached to the player.")]
 		public CosmeticAttachInfo[] attachAnchors;
 
-		// Token: 0x04004EAC RID: 20140
+		// Token: 0x04004FA2 RID: 20386
 		[NonSerialized]
 		public ECosmeticPartType partType;
 	}

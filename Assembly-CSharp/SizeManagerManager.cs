@@ -2,38 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020005E7 RID: 1511
+// Token: 0x020005F5 RID: 1525
 public class SizeManagerManager : MonoBehaviour
 {
-	// Token: 0x0600258C RID: 9612 RVA: 0x000B9A0E File Offset: 0x000B7C0E
+	// Token: 0x060025EE RID: 9710 RVA: 0x00049C04 File Offset: 0x00047E04
 	protected void Awake()
 	{
 		if (SizeManagerManager.hasInstance && SizeManagerManager.instance != this)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 			return;
 		}
 		SizeManagerManager.SetInstance(this);
 	}
 
-	// Token: 0x0600258D RID: 9613 RVA: 0x000B9A31 File Offset: 0x000B7C31
+	// Token: 0x060025EF RID: 9711 RVA: 0x00049C27 File Offset: 0x00047E27
 	public static void CreateManager()
 	{
 		SizeManagerManager.SetInstance(new GameObject("SizeManagerManager").AddComponent<SizeManagerManager>());
 	}
 
-	// Token: 0x0600258E RID: 9614 RVA: 0x000B9A47 File Offset: 0x000B7C47
+	// Token: 0x060025F0 RID: 9712 RVA: 0x00049C3D File Offset: 0x00047E3D
 	private static void SetInstance(SizeManagerManager manager)
 	{
 		SizeManagerManager.instance = manager;
 		SizeManagerManager.hasInstance = true;
 		if (Application.isPlaying)
 		{
-			Object.DontDestroyOnLoad(manager);
+			UnityEngine.Object.DontDestroyOnLoad(manager);
 		}
 	}
 
-	// Token: 0x0600258F RID: 9615 RVA: 0x000B9A62 File Offset: 0x000B7C62
+	// Token: 0x060025F1 RID: 9713 RVA: 0x00049C58 File Offset: 0x00047E58
 	public static void RegisterSM(SizeManager sM)
 	{
 		if (!SizeManagerManager.hasInstance)
@@ -46,7 +46,7 @@ public class SizeManagerManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002590 RID: 9616 RVA: 0x000B9A88 File Offset: 0x000B7C88
+	// Token: 0x060025F2 RID: 9714 RVA: 0x00049C7E File Offset: 0x00047E7E
 	public static void UnregisterSM(SizeManager sM)
 	{
 		if (!SizeManagerManager.hasInstance)
@@ -59,7 +59,7 @@ public class SizeManagerManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002591 RID: 9617 RVA: 0x000B9AB0 File Offset: 0x000B7CB0
+	// Token: 0x060025F3 RID: 9715 RVA: 0x0010766C File Offset: 0x0010586C
 	public void FixedUpdate()
 	{
 		for (int i = 0; i < SizeManagerManager.allSM.Count; i++)
@@ -68,15 +68,15 @@ public class SizeManagerManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040029C9 RID: 10697
+	// Token: 0x04002A28 RID: 10792
 	[OnEnterPlay_SetNull]
 	public static SizeManagerManager instance;
 
-	// Token: 0x040029CA RID: 10698
+	// Token: 0x04002A29 RID: 10793
 	[OnEnterPlay_Set(false)]
 	public static bool hasInstance = false;
 
-	// Token: 0x040029CB RID: 10699
+	// Token: 0x04002A2A RID: 10794
 	[OnEnterPlay_Clear]
 	public static List<SizeManager> allSM = new List<SizeManager>();
 }

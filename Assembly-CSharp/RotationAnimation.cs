@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003A5 RID: 933
+// Token: 0x020003B0 RID: 944
 public class RotationAnimation : MonoBehaviour, ITickSystemTick
 {
-	// Token: 0x17000261 RID: 609
-	// (get) Token: 0x060015D5 RID: 5589 RVA: 0x00069958 File Offset: 0x00067B58
-	// (set) Token: 0x060015D6 RID: 5590 RVA: 0x00069960 File Offset: 0x00067B60
+	// Token: 0x17000268 RID: 616
+	// (get) Token: 0x06001621 RID: 5665 RVA: 0x0003EF57 File Offset: 0x0003D157
+	// (set) Token: 0x06001622 RID: 5666 RVA: 0x0003EF5F File Offset: 0x0003D15F
 	public bool TickRunning { get; set; }
 
-	// Token: 0x060015D7 RID: 5591 RVA: 0x0006996C File Offset: 0x00067B6C
+	// Token: 0x06001623 RID: 5667 RVA: 0x000C1A9C File Offset: 0x000BFC9C
 	public void Tick()
 	{
 		Vector3 vector = Vector3.zero;
@@ -28,13 +28,13 @@ public class RotationAnimation : MonoBehaviour, ITickSystemTick
 		base.transform.localRotation = Quaternion.Euler(vector) * this.baseRotation;
 	}
 
-	// Token: 0x060015D8 RID: 5592 RVA: 0x00069A86 File Offset: 0x00067C86
+	// Token: 0x06001624 RID: 5668 RVA: 0x0003EF68 File Offset: 0x0003D168
 	private void Awake()
 	{
 		this.baseRotation = base.transform.localRotation;
 	}
 
-	// Token: 0x060015D9 RID: 5593 RVA: 0x00069A99 File Offset: 0x00067C99
+	// Token: 0x06001625 RID: 5669 RVA: 0x0003EF7B File Offset: 0x0003D17B
 	private void OnEnable()
 	{
 		TickSystem<object>.AddTickCallback(this);
@@ -42,63 +42,63 @@ public class RotationAnimation : MonoBehaviour, ITickSystemTick
 		this.baseTime = Time.time;
 	}
 
-	// Token: 0x060015DA RID: 5594 RVA: 0x00069AB3 File Offset: 0x00067CB3
+	// Token: 0x06001626 RID: 5670 RVA: 0x0003EF95 File Offset: 0x0003D195
 	public void ReleaseToDisable()
 	{
 		this.releaseSet = true;
 		this.releaseTime = Time.time;
 	}
 
-	// Token: 0x060015DB RID: 5595 RVA: 0x00069AC7 File Offset: 0x00067CC7
+	// Token: 0x06001627 RID: 5671 RVA: 0x0003EFA9 File Offset: 0x0003D1A9
 	public void CancelRelease()
 	{
 		this.releaseSet = false;
 	}
 
-	// Token: 0x060015DC RID: 5596 RVA: 0x00069AD0 File Offset: 0x00067CD0
+	// Token: 0x06001628 RID: 5672 RVA: 0x0003EFB2 File Offset: 0x0003D1B2
 	private void OnDisable()
 	{
 		base.transform.localRotation = this.baseRotation;
 		TickSystem<object>.RemoveTickCallback(this);
 	}
 
-	// Token: 0x040017F9 RID: 6137
+	// Token: 0x04001840 RID: 6208
 	[SerializeField]
 	private AnimationCurve x;
 
-	// Token: 0x040017FA RID: 6138
+	// Token: 0x04001841 RID: 6209
 	[SerializeField]
 	private AnimationCurve y;
 
-	// Token: 0x040017FB RID: 6139
+	// Token: 0x04001842 RID: 6210
 	[SerializeField]
 	private AnimationCurve z;
 
-	// Token: 0x040017FC RID: 6140
+	// Token: 0x04001843 RID: 6211
 	[SerializeField]
 	private AnimationCurve attack;
 
-	// Token: 0x040017FD RID: 6141
+	// Token: 0x04001844 RID: 6212
 	[SerializeField]
 	private AnimationCurve release;
 
-	// Token: 0x040017FE RID: 6142
+	// Token: 0x04001845 RID: 6213
 	[SerializeField]
 	private Vector3 amplitude = Vector3.one;
 
-	// Token: 0x040017FF RID: 6143
+	// Token: 0x04001846 RID: 6214
 	[SerializeField]
 	private Vector3 period = Vector3.one;
 
-	// Token: 0x04001800 RID: 6144
+	// Token: 0x04001847 RID: 6215
 	private Quaternion baseRotation;
 
-	// Token: 0x04001801 RID: 6145
+	// Token: 0x04001848 RID: 6216
 	private float baseTime;
 
-	// Token: 0x04001802 RID: 6146
+	// Token: 0x04001849 RID: 6217
 	private float releaseTime;
 
-	// Token: 0x04001803 RID: 6147
+	// Token: 0x0400184A RID: 6218
 	private bool releaseSet;
 }

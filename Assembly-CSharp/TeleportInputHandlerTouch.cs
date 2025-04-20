@@ -2,15 +2,15 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// Token: 0x020002D8 RID: 728
+// Token: 0x020002E3 RID: 739
 public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
 {
-	// Token: 0x060011A0 RID: 4512 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060011EC RID: 4588 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Start()
 	{
 	}
 
-	// Token: 0x060011A1 RID: 4513 RVA: 0x00053D48 File Offset: 0x00051F48
+	// Token: 0x060011ED RID: 4589 RVA: 0x000AEBB8 File Offset: 0x000ACDB8
 	public override LocomotionTeleport.TeleportIntentions GetIntention()
 	{
 		if (!base.isActiveAndEnabled)
@@ -121,7 +121,7 @@ public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
 		}
 	}
 
-	// Token: 0x060011A2 RID: 4514 RVA: 0x00053F80 File Offset: 0x00052180
+	// Token: 0x060011EE RID: 4590 RVA: 0x000AEDF0 File Offset: 0x000ACFF0
 	public override void GetAimData(out Ray aimRay)
 	{
 		OVRInput.Controller controller = this.AimingController;
@@ -133,7 +133,7 @@ public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
 		aimRay = new Ray(transform.position, transform.forward);
 	}
 
-	// Token: 0x060011A3 RID: 4515 RVA: 0x00053FCC File Offset: 0x000521CC
+	// Token: 0x060011EF RID: 4591 RVA: 0x000AEE3C File Offset: 0x000AD03C
 	public TeleportInputHandlerTouch()
 	{
 		OVRInput.RawButton[] array = new OVRInput.RawButton[8];
@@ -146,68 +146,68 @@ public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
 		base..ctor();
 	}
 
-	// Token: 0x0400137B RID: 4987
+	// Token: 0x040013C3 RID: 5059
 	public Transform LeftHand;
 
-	// Token: 0x0400137C RID: 4988
+	// Token: 0x040013C4 RID: 5060
 	public Transform RightHand;
 
-	// Token: 0x0400137D RID: 4989
+	// Token: 0x040013C5 RID: 5061
 	[Tooltip("CapacitiveButtonForAimAndTeleport=Activate aiming via cap touch detection, press the same button to teleport.\nSeparateButtonsForAimAndTeleport=Use one button to begin aiming, and another to trigger the teleport.\nThumbstickTeleport=Push a thumbstick to begin aiming, release to teleport.")]
 	public TeleportInputHandlerTouch.InputModes InputMode;
 
-	// Token: 0x0400137E RID: 4990
+	// Token: 0x040013C6 RID: 5062
 	private readonly OVRInput.RawButton[] _rawButtons;
 
-	// Token: 0x0400137F RID: 4991
+	// Token: 0x040013C7 RID: 5063
 	private readonly OVRInput.RawTouch[] _rawTouch;
 
-	// Token: 0x04001380 RID: 4992
+	// Token: 0x040013C8 RID: 5064
 	[Tooltip("Select the controller to be used for aiming. Supports LTouch, RTouch, or Touch for either.")]
 	public OVRInput.Controller AimingController;
 
-	// Token: 0x04001381 RID: 4993
+	// Token: 0x040013C9 RID: 5065
 	private OVRInput.Controller InitiatingController;
 
-	// Token: 0x04001382 RID: 4994
+	// Token: 0x040013CA RID: 5066
 	[Tooltip("Select the button to use for triggering aim and teleport when InputMode==CapacitiveButtonForAimAndTeleport")]
 	public TeleportInputHandlerTouch.AimCapTouchButtons CapacitiveAimAndTeleportButton;
 
-	// Token: 0x04001383 RID: 4995
+	// Token: 0x040013CB RID: 5067
 	[Tooltip("The thumbstick magnitude required to trigger aiming and teleports when InputMode==InputModes.ThumbstickTeleport")]
 	public float ThumbstickTeleportThreshold;
 
-	// Token: 0x020002D9 RID: 729
+	// Token: 0x020002E4 RID: 740
 	public enum InputModes
 	{
-		// Token: 0x04001385 RID: 4997
+		// Token: 0x040013CD RID: 5069
 		CapacitiveButtonForAimAndTeleport,
-		// Token: 0x04001386 RID: 4998
+		// Token: 0x040013CE RID: 5070
 		SeparateButtonsForAimAndTeleport,
-		// Token: 0x04001387 RID: 4999
+		// Token: 0x040013CF RID: 5071
 		ThumbstickTeleport,
-		// Token: 0x04001388 RID: 5000
+		// Token: 0x040013D0 RID: 5072
 		ThumbstickTeleportForwardBackOnly
 	}
 
-	// Token: 0x020002DA RID: 730
+	// Token: 0x020002E5 RID: 741
 	public enum AimCapTouchButtons
 	{
-		// Token: 0x0400138A RID: 5002
+		// Token: 0x040013D2 RID: 5074
 		A,
-		// Token: 0x0400138B RID: 5003
+		// Token: 0x040013D3 RID: 5075
 		B,
-		// Token: 0x0400138C RID: 5004
+		// Token: 0x040013D4 RID: 5076
 		LeftTrigger,
-		// Token: 0x0400138D RID: 5005
+		// Token: 0x040013D5 RID: 5077
 		LeftThumbstick,
-		// Token: 0x0400138E RID: 5006
+		// Token: 0x040013D6 RID: 5078
 		RightTrigger,
-		// Token: 0x0400138F RID: 5007
+		// Token: 0x040013D7 RID: 5079
 		RightThumbstick,
-		// Token: 0x04001390 RID: 5008
+		// Token: 0x040013D8 RID: 5080
 		X,
-		// Token: 0x04001391 RID: 5009
+		// Token: 0x040013D9 RID: 5081
 		Y
 	}
 }

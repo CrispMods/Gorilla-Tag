@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace NetSynchrony
 {
-	// Token: 0x02000B14 RID: 2836
+	// Token: 0x02000B41 RID: 2881
 	public class RandomDispatcherManager : MonoBehaviour
 	{
-		// Token: 0x060046EA RID: 18154 RVA: 0x001509F4 File Offset: 0x0014EBF4
+		// Token: 0x06004833 RID: 18483 RVA: 0x0018D224 File Offset: 0x0018B424
 		private void OnDisable()
 		{
 			if (ApplicationQuittingState.IsQuitting)
@@ -21,7 +21,7 @@ namespace NetSynchrony
 			}
 		}
 
-		// Token: 0x060046EB RID: 18155 RVA: 0x00150A40 File Offset: 0x0014EC40
+		// Token: 0x06004834 RID: 18484 RVA: 0x0018D270 File Offset: 0x0018B470
 		private void OnTimeChanged()
 		{
 			this.AdjustedServerTime();
@@ -31,7 +31,7 @@ namespace NetSynchrony
 			}
 		}
 
-		// Token: 0x060046EC RID: 18156 RVA: 0x00150A7C File Offset: 0x0014EC7C
+		// Token: 0x06004835 RID: 18485 RVA: 0x0018D2AC File Offset: 0x0018B4AC
 		private void AdjustedServerTime()
 		{
 			DateTime dateTime = new DateTime(2020, 1, 1);
@@ -39,7 +39,7 @@ namespace NetSynchrony
 			this.serverTime = (double)((float)num / 10000000f);
 		}
 
-		// Token: 0x060046ED RID: 18157 RVA: 0x00150AC4 File Offset: 0x0014ECC4
+		// Token: 0x06004836 RID: 18486 RVA: 0x0018D2F4 File Offset: 0x0018B4F4
 		private void Start()
 		{
 			GorillaComputer instance = GorillaComputer.instance;
@@ -50,7 +50,7 @@ namespace NetSynchrony
 			}
 		}
 
-		// Token: 0x060046EE RID: 18158 RVA: 0x00150B20 File Offset: 0x0014ED20
+		// Token: 0x06004837 RID: 18487 RVA: 0x0018D350 File Offset: 0x0018B550
 		private void Update()
 		{
 			for (int i = 0; i < this.randomDispatchers.Length; i++)
@@ -60,14 +60,14 @@ namespace NetSynchrony
 			this.serverTime += (double)Time.deltaTime;
 		}
 
-		// Token: 0x0400485B RID: 18523
+		// Token: 0x04004950 RID: 18768
 		[SerializeField]
 		private RandomDispatcher[] randomDispatchers;
 
-		// Token: 0x0400485C RID: 18524
+		// Token: 0x04004951 RID: 18769
 		private static RandomDispatcherManager __instance;
 
-		// Token: 0x0400485D RID: 18525
+		// Token: 0x04004952 RID: 18770
 		private double serverTime;
 	}
 }

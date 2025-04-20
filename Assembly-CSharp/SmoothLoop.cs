@@ -3,10 +3,10 @@ using System.Collections;
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x0200041B RID: 1051
+// Token: 0x02000426 RID: 1062
 public class SmoothLoop : MonoBehaviour, IGorillaSliceableSimple, IBuildValidation
 {
-	// Token: 0x060019F6 RID: 6646 RVA: 0x0007F6E1 File Offset: 0x0007D8E1
+	// Token: 0x06001A43 RID: 6723 RVA: 0x00041B8A File Offset: 0x0003FD8A
 	public bool BuildValidationCheck()
 	{
 		if (this.source == null)
@@ -17,7 +17,7 @@ public class SmoothLoop : MonoBehaviour, IGorillaSliceableSimple, IBuildValidati
 		return true;
 	}
 
-	// Token: 0x060019F7 RID: 6647 RVA: 0x0007F704 File Offset: 0x0007D904
+	// Token: 0x06001A44 RID: 6724 RVA: 0x000D4B5C File Offset: 0x000D2D5C
 	private void Start()
 	{
 		if (this.delay != 0f && !this.randomStart)
@@ -32,11 +32,11 @@ public class SmoothLoop : MonoBehaviour, IGorillaSliceableSimple, IBuildValidati
 			{
 				this.source.GTPlay();
 			}
-			this.source.time = Random.Range(0f, this.source.clip.length);
+			this.source.time = UnityEngine.Random.Range(0f, this.source.clip.length);
 		}
 	}
 
-	// Token: 0x060019F8 RID: 6648 RVA: 0x0007F784 File Offset: 0x0007D984
+	// Token: 0x06001A45 RID: 6725 RVA: 0x00041BAD File Offset: 0x0003FDAD
 	public void SliceUpdate()
 	{
 		if (!base.enabled)
@@ -49,7 +49,7 @@ public class SmoothLoop : MonoBehaviour, IGorillaSliceableSimple, IBuildValidati
 		}
 	}
 
-	// Token: 0x060019F9 RID: 6649 RVA: 0x0007F7C4 File Offset: 0x0007D9C4
+	// Token: 0x06001A46 RID: 6726 RVA: 0x000D4BDC File Offset: 0x000D2DDC
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
@@ -63,17 +63,17 @@ public class SmoothLoop : MonoBehaviour, IGorillaSliceableSimple, IBuildValidati
 			{
 				this.source.GTPlay();
 			}
-			this.source.time = Random.Range(0f, this.source.clip.length);
+			this.source.time = UnityEngine.Random.Range(0f, this.source.clip.length);
 		}
 	}
 
-	// Token: 0x060019FA RID: 6650 RVA: 0x00015902 File Offset: 0x00013B02
+	// Token: 0x06001A47 RID: 6727 RVA: 0x00032C92 File Offset: 0x00030E92
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x060019FB RID: 6651 RVA: 0x0007F828 File Offset: 0x0007DA28
+	// Token: 0x06001A48 RID: 6728 RVA: 0x000D4C40 File Offset: 0x000D2E40
 	private bool sourceCheck()
 	{
 		if (!this.source || !this.source.clip)
@@ -86,7 +86,7 @@ public class SmoothLoop : MonoBehaviour, IGorillaSliceableSimple, IBuildValidati
 		return true;
 	}
 
-	// Token: 0x060019FC RID: 6652 RVA: 0x0007F87F File Offset: 0x0007DA7F
+	// Token: 0x06001A49 RID: 6729 RVA: 0x00041BED File Offset: 0x0003FDED
 	public IEnumerator DelayedStart()
 	{
 		if (!this.sourceCheck())
@@ -98,27 +98,27 @@ public class SmoothLoop : MonoBehaviour, IGorillaSliceableSimple, IBuildValidati
 		yield break;
 	}
 
-	// Token: 0x060019FE RID: 6654 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x06001A4B RID: 6731 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x04001CCE RID: 7374
+	// Token: 0x04001D17 RID: 7447
 	public AudioSource source;
 
-	// Token: 0x04001CCF RID: 7375
+	// Token: 0x04001D18 RID: 7448
 	public float delay;
 
-	// Token: 0x04001CD0 RID: 7376
+	// Token: 0x04001D19 RID: 7449
 	public bool randomStart;
 
-	// Token: 0x04001CD1 RID: 7377
+	// Token: 0x04001D1A RID: 7450
 	[SerializeField]
 	[Range(0f, 1f)]
 	private float loopStart = 0.1f;
 
-	// Token: 0x04001CD2 RID: 7378
+	// Token: 0x04001D1B RID: 7451
 	[SerializeField]
 	[Range(0f, 1f)]
 	private float loopEnd = 0.95f;

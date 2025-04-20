@@ -1,24 +1,24 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020002C1 RID: 705
+// Token: 0x020002CC RID: 716
 public class LocomotionController : MonoBehaviour
 {
-	// Token: 0x060010FD RID: 4349 RVA: 0x000522BC File Offset: 0x000504BC
+	// Token: 0x06001149 RID: 4425 RVA: 0x0003BD0C File Offset: 0x00039F0C
 	private void Start()
 	{
 		if (this.CameraRig == null)
 		{
-			this.CameraRig = Object.FindObjectOfType<OVRCameraRig>();
+			this.CameraRig = UnityEngine.Object.FindObjectOfType<OVRCameraRig>();
 		}
 	}
 
-	// Token: 0x040012FF RID: 4863
+	// Token: 0x04001347 RID: 4935
 	public OVRCameraRig CameraRig;
 
-	// Token: 0x04001300 RID: 4864
+	// Token: 0x04001348 RID: 4936
 	public CapsuleCollider CharacterController;
 
-	// Token: 0x04001301 RID: 4865
+	// Token: 0x04001349 RID: 4937
 	public SimpleCapsuleWithStickMovement PlayerController;
 }

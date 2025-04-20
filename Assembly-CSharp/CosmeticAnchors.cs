@@ -5,20 +5,20 @@ using GorillaTag;
 using GorillaTag.CosmeticSystem;
 using UnityEngine;
 
-// Token: 0x020003DA RID: 986
+// Token: 0x020003E5 RID: 997
 public class CosmeticAnchors : MonoBehaviour, ISpawnable
 {
-	// Token: 0x170002AB RID: 683
-	// (get) Token: 0x060017DB RID: 6107 RVA: 0x00074010 File Offset: 0x00072210
-	// (set) Token: 0x060017DC RID: 6108 RVA: 0x00074018 File Offset: 0x00072218
+	// Token: 0x170002B2 RID: 690
+	// (get) Token: 0x06001828 RID: 6184 RVA: 0x00040666 File Offset: 0x0003E866
+	// (set) Token: 0x06001829 RID: 6185 RVA: 0x0004066E File Offset: 0x0003E86E
 	bool ISpawnable.IsSpawned { get; set; }
 
-	// Token: 0x170002AC RID: 684
-	// (get) Token: 0x060017DD RID: 6109 RVA: 0x00074021 File Offset: 0x00072221
-	// (set) Token: 0x060017DE RID: 6110 RVA: 0x00074029 File Offset: 0x00072229
+	// Token: 0x170002B3 RID: 691
+	// (get) Token: 0x0600182A RID: 6186 RVA: 0x00040677 File Offset: 0x0003E877
+	// (set) Token: 0x0600182B RID: 6187 RVA: 0x0004067F File Offset: 0x0003E87F
 	ECosmeticSelectSide ISpawnable.CosmeticSelectedSide { get; set; }
 
-	// Token: 0x060017DF RID: 6111 RVA: 0x00074034 File Offset: 0x00072234
+	// Token: 0x0600182C RID: 6188 RVA: 0x000CAA44 File Offset: 0x000C8C44
 	void ISpawnable.OnSpawn(VRRig rig)
 	{
 		this.anchorEnabled = false;
@@ -41,12 +41,12 @@ public class CosmeticAnchors : MonoBehaviour, ISpawnable
 		this.AssignAnchorToPath(ref this.friendshipBraceletRightOverride, this.friendshipBraceletRightOverride_path);
 	}
 
-	// Token: 0x060017E0 RID: 6112 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600182D RID: 6189 RVA: 0x00030607 File Offset: 0x0002E807
 	void ISpawnable.OnDespawn()
 	{
 	}
 
-	// Token: 0x060017E1 RID: 6113 RVA: 0x00074138 File Offset: 0x00072338
+	// Token: 0x0600182E RID: 6190 RVA: 0x000CAB48 File Offset: 0x000C8D48
 	private void AssignAnchorToPath(ref GameObject anchorGObjRef, string path)
 	{
 		if (string.IsNullOrEmpty(path))
@@ -66,7 +66,7 @@ public class CosmeticAnchors : MonoBehaviour, ISpawnable
 		anchorGObjRef = transform.gameObject;
 	}
 
-	// Token: 0x060017E2 RID: 6114 RVA: 0x000741B0 File Offset: 0x000723B0
+	// Token: 0x0600182F RID: 6191 RVA: 0x00040688 File Offset: 0x0003E888
 	private void OnEnable()
 	{
 		if (this.huntComputerAnchor || this.builderWatchAnchor)
@@ -75,7 +75,7 @@ public class CosmeticAnchors : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x060017E3 RID: 6115 RVA: 0x000741D2 File Offset: 0x000723D2
+	// Token: 0x06001830 RID: 6192 RVA: 0x000406AA File Offset: 0x0003E8AA
 	private void OnDisable()
 	{
 		if (this.huntComputerAnchor || this.builderWatchAnchor)
@@ -84,7 +84,7 @@ public class CosmeticAnchors : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x060017E4 RID: 6116 RVA: 0x000741F4 File Offset: 0x000723F4
+	// Token: 0x06001831 RID: 6193 RVA: 0x000CABC0 File Offset: 0x000C8DC0
 	public void TryUpdate()
 	{
 		if (this.anchorEnabled && this.huntComputerAnchor && !GorillaTagger.Instance.offlineVRRig.huntComputer.activeSelf && this.anchorOverrides.HuntComputer.parent != this.anchorOverrides.HuntDefaultAnchor)
@@ -107,7 +107,7 @@ public class CosmeticAnchors : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x060017E5 RID: 6117 RVA: 0x00074388 File Offset: 0x00072588
+	// Token: 0x06001832 RID: 6194 RVA: 0x000CAD54 File Offset: 0x000C8F54
 	public void EnableAnchor(bool enable)
 	{
 		this.anchorEnabled = enable;
@@ -141,7 +141,7 @@ public class CosmeticAnchors : MonoBehaviour, ISpawnable
 		this.SetCustomAnchor(this.anchorOverrides.friendshipBraceletRightAnchor, enable, this.friendshipBraceletRightOverride, this.anchorOverrides.friendshipBraceletRightDefaultAnchor);
 	}
 
-	// Token: 0x060017E6 RID: 6118 RVA: 0x000744DC File Offset: 0x000726DC
+	// Token: 0x06001833 RID: 6195 RVA: 0x000CAEA8 File Offset: 0x000C90A8
 	private void SetHuntComputerAnchor(bool enable)
 	{
 		Transform huntComputer = this.anchorOverrides.HuntComputer;
@@ -157,7 +157,7 @@ public class CosmeticAnchors : MonoBehaviour, ISpawnable
 		huntComputer.transform.localRotation = Quaternion.identity;
 	}
 
-	// Token: 0x060017E7 RID: 6119 RVA: 0x00074554 File Offset: 0x00072754
+	// Token: 0x06001834 RID: 6196 RVA: 0x000CAF20 File Offset: 0x000C9120
 	private void SetBuilderWatchAnchor(bool enable)
 	{
 		Transform builderWatch = this.anchorOverrides.BuilderWatch;
@@ -173,7 +173,7 @@ public class CosmeticAnchors : MonoBehaviour, ISpawnable
 		builderWatch.transform.localRotation = Quaternion.identity;
 	}
 
-	// Token: 0x060017E8 RID: 6120 RVA: 0x000745CC File Offset: 0x000727CC
+	// Token: 0x06001835 RID: 6197 RVA: 0x000CAF98 File Offset: 0x000C9198
 	private void SetCustomAnchor(Transform target, bool enable, GameObject overrideAnchor, Transform defaultAnchor)
 	{
 		Transform transform = (enable && overrideAnchor != null) ? overrideAnchor.transform : defaultAnchor;
@@ -186,7 +186,7 @@ public class CosmeticAnchors : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x060017E9 RID: 6121 RVA: 0x00074640 File Offset: 0x00072840
+	// Token: 0x06001836 RID: 6198 RVA: 0x000CB00C File Offset: 0x000C920C
 	public Transform GetPositionAnchor(TransferrableObject.PositionState pos)
 	{
 		if (pos != TransferrableObject.PositionState.OnLeftArm)
@@ -222,7 +222,7 @@ public class CosmeticAnchors : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x060017EA RID: 6122 RVA: 0x000746AE File Offset: 0x000728AE
+	// Token: 0x06001837 RID: 6199 RVA: 0x000406CC File Offset: 0x0003E8CC
 	public Transform GetNameAnchor()
 	{
 		if (!this.nameAnchor)
@@ -232,112 +232,112 @@ public class CosmeticAnchors : MonoBehaviour, ISpawnable
 		return this.nameAnchor.transform;
 	}
 
-	// Token: 0x060017EB RID: 6123 RVA: 0x000746CA File Offset: 0x000728CA
+	// Token: 0x06001838 RID: 6200 RVA: 0x000406E8 File Offset: 0x0003E8E8
 	public bool AffectedByHunt()
 	{
 		return this.huntComputerAnchor != null;
 	}
 
-	// Token: 0x060017EC RID: 6124 RVA: 0x000746D8 File Offset: 0x000728D8
+	// Token: 0x06001839 RID: 6201 RVA: 0x000406F6 File Offset: 0x0003E8F6
 	public bool AffectedByBuilder()
 	{
 		return this.builderWatchAnchor != null;
 	}
 
-	// Token: 0x04001A6C RID: 6764
+	// Token: 0x04001AB5 RID: 6837
 	[SerializeField]
 	protected GameObject nameAnchor;
 
-	// Token: 0x04001A6D RID: 6765
+	// Token: 0x04001AB6 RID: 6838
 	[Delayed]
 	[SerializeField]
 	protected string nameAnchor_path;
 
-	// Token: 0x04001A6E RID: 6766
+	// Token: 0x04001AB7 RID: 6839
 	[SerializeField]
 	protected GameObject leftArmAnchor;
 
-	// Token: 0x04001A6F RID: 6767
+	// Token: 0x04001AB8 RID: 6840
 	[Delayed]
 	[SerializeField]
 	protected string leftArmAnchor_path;
 
-	// Token: 0x04001A70 RID: 6768
+	// Token: 0x04001AB9 RID: 6841
 	[SerializeField]
 	protected GameObject rightArmAnchor;
 
-	// Token: 0x04001A71 RID: 6769
+	// Token: 0x04001ABA RID: 6842
 	[Delayed]
 	[SerializeField]
 	protected string rightArmAnchor_path;
 
-	// Token: 0x04001A72 RID: 6770
+	// Token: 0x04001ABB RID: 6843
 	[SerializeField]
 	protected GameObject chestAnchor;
 
-	// Token: 0x04001A73 RID: 6771
+	// Token: 0x04001ABC RID: 6844
 	[Delayed]
 	[SerializeField]
 	protected string chestAnchor_path;
 
-	// Token: 0x04001A74 RID: 6772
+	// Token: 0x04001ABD RID: 6845
 	[SerializeField]
 	protected GameObject huntComputerAnchor;
 
-	// Token: 0x04001A75 RID: 6773
+	// Token: 0x04001ABE RID: 6846
 	[Delayed]
 	[SerializeField]
 	protected string huntComputerAnchor_path;
 
-	// Token: 0x04001A76 RID: 6774
+	// Token: 0x04001ABF RID: 6847
 	[SerializeField]
 	protected GameObject builderWatchAnchor;
 
-	// Token: 0x04001A77 RID: 6775
+	// Token: 0x04001AC0 RID: 6848
 	[Delayed]
 	[SerializeField]
 	protected string builderWatchAnchor_path;
 
-	// Token: 0x04001A78 RID: 6776
+	// Token: 0x04001AC1 RID: 6849
 	[SerializeField]
 	protected GameObject friendshipBraceletLeftOverride;
 
-	// Token: 0x04001A79 RID: 6777
+	// Token: 0x04001AC2 RID: 6850
 	[Delayed]
 	[SerializeField]
 	protected string friendshipBraceletLeftOverride_path;
 
-	// Token: 0x04001A7A RID: 6778
+	// Token: 0x04001AC3 RID: 6851
 	[SerializeField]
 	protected GameObject friendshipBraceletRightOverride;
 
-	// Token: 0x04001A7B RID: 6779
+	// Token: 0x04001AC4 RID: 6852
 	[Delayed]
 	[SerializeField]
 	protected string friendshipBraceletRightOverride_path;
 
-	// Token: 0x04001A7C RID: 6780
+	// Token: 0x04001AC5 RID: 6853
 	[SerializeField]
 	protected GameObject badgeAnchor;
 
-	// Token: 0x04001A7D RID: 6781
+	// Token: 0x04001AC6 RID: 6854
 	[Delayed]
 	[SerializeField]
 	protected string badgeAnchor_path;
 
-	// Token: 0x04001A7E RID: 6782
+	// Token: 0x04001AC7 RID: 6855
 	[SerializeField]
 	public CosmeticsController.CosmeticSlots slot;
 
-	// Token: 0x04001A7F RID: 6783
+	// Token: 0x04001AC8 RID: 6856
 	private VRRig vrRig;
 
-	// Token: 0x04001A80 RID: 6784
+	// Token: 0x04001AC9 RID: 6857
 	private VRRigAnchorOverrides anchorOverrides;
 
-	// Token: 0x04001A81 RID: 6785
+	// Token: 0x04001ACA RID: 6858
 	private bool anchorEnabled;
 
-	// Token: 0x04001A82 RID: 6786
+	// Token: 0x04001ACB RID: 6859
 	private static GTLogErrorLimiter k_debugLogError_anchorOverridesNull = new GTLogErrorLimiter("The array `anchorOverrides` was null. Is the cosmetic getting initialized properly? ", 10, "\n- ");
 }

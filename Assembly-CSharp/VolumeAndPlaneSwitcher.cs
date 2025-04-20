@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000354 RID: 852
+// Token: 0x0200035F RID: 863
 [RequireComponent(typeof(OVRSceneAnchor))]
 public class VolumeAndPlaneSwitcher : MonoBehaviour
 {
-	// Token: 0x060013CB RID: 5067 RVA: 0x00061448 File Offset: 0x0005F648
+	// Token: 0x06001417 RID: 5143 RVA: 0x000BAD74 File Offset: 0x000B8F74
 	private void ReplaceAnchor(OVRSceneAnchor prefab, Vector3 position, Quaternion rotation, Vector3 localScale)
 	{
-		OVRSceneAnchor ovrsceneAnchor = Object.Instantiate<OVRSceneAnchor>(prefab, base.transform.parent);
+		OVRSceneAnchor ovrsceneAnchor = UnityEngine.Object.Instantiate<OVRSceneAnchor>(prefab, base.transform.parent);
 		ovrsceneAnchor.enabled = false;
 		ovrsceneAnchor.InitializeFrom(base.GetComponent<OVRSceneAnchor>());
 		ovrsceneAnchor.transform.SetPositionAndRotation(position, rotation);
@@ -17,10 +17,10 @@ public class VolumeAndPlaneSwitcher : MonoBehaviour
 		{
 			((Transform)obj).localScale = localScale;
 		}
-		Object.Destroy(base.gameObject);
+		UnityEngine.Object.Destroy(base.gameObject);
 	}
 
-	// Token: 0x060013CC RID: 5068 RVA: 0x000614DC File Offset: 0x0005F6DC
+	// Token: 0x06001418 RID: 5144 RVA: 0x000BAE08 File Offset: 0x000B9008
 	private void Start()
 	{
 		OVRSemanticClassification component = base.GetComponent<OVRSemanticClassification>();
@@ -71,10 +71,10 @@ public class VolumeAndPlaneSwitcher : MonoBehaviour
 				}
 			}
 		}
-		Object.Destroy(this);
+		UnityEngine.Object.Destroy(this);
 	}
 
-	// Token: 0x060013CD RID: 5069 RVA: 0x000616E8 File Offset: 0x0005F8E8
+	// Token: 0x06001419 RID: 5145 RVA: 0x0003D7D0 File Offset: 0x0003B9D0
 	private void GetVolumeFromTopPlane(Transform plane, Vector2 dimensions, float height, out Vector3 position, out Quaternion rotation, out Vector3 localScale)
 	{
 		position = plane.position;
@@ -82,7 +82,7 @@ public class VolumeAndPlaneSwitcher : MonoBehaviour
 		localScale = new Vector3(dimensions.x, dimensions.y, height);
 	}
 
-	// Token: 0x060013CE RID: 5070 RVA: 0x00061720 File Offset: 0x0005F920
+	// Token: 0x0600141A RID: 5146 RVA: 0x000BB014 File Offset: 0x000B9214
 	private void GetTopPlaneFromVolume(Transform volume, Vector3 dimensions, out Vector3 position, out Quaternion rotation, out Vector3 localScale)
 	{
 		float d = dimensions.y / 2f;
@@ -91,32 +91,32 @@ public class VolumeAndPlaneSwitcher : MonoBehaviour
 		localScale = new Vector3(dimensions.x, dimensions.z, dimensions.y);
 	}
 
-	// Token: 0x040015F4 RID: 5620
+	// Token: 0x0400163C RID: 5692
 	public OVRSceneAnchor planePrefab;
 
-	// Token: 0x040015F5 RID: 5621
+	// Token: 0x0400163D RID: 5693
 	public OVRSceneAnchor volumePrefab;
 
-	// Token: 0x040015F6 RID: 5622
+	// Token: 0x0400163E RID: 5694
 	public List<VolumeAndPlaneSwitcher.LabelGeometryPair> desiredSwitches;
 
-	// Token: 0x02000355 RID: 853
+	// Token: 0x02000360 RID: 864
 	public enum GeometryType
 	{
-		// Token: 0x040015F8 RID: 5624
+		// Token: 0x04001640 RID: 5696
 		Plane,
-		// Token: 0x040015F9 RID: 5625
+		// Token: 0x04001641 RID: 5697
 		Volume
 	}
 
-	// Token: 0x02000356 RID: 854
+	// Token: 0x02000361 RID: 865
 	[Serializable]
 	public struct LabelGeometryPair
 	{
-		// Token: 0x040015FA RID: 5626
+		// Token: 0x04001642 RID: 5698
 		public string label;
 
-		// Token: 0x040015FB RID: 5627
+		// Token: 0x04001643 RID: 5699
 		public VolumeAndPlaneSwitcher.GeometryType desiredGeometryType;
 	}
 }

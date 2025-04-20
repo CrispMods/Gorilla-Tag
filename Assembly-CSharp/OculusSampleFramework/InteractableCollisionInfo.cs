@@ -2,10 +2,10 @@
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A5C RID: 2652
+	// Token: 0x02000A89 RID: 2697
 	public class InteractableCollisionInfo
 	{
-		// Token: 0x06004204 RID: 16900 RVA: 0x00138101 File Offset: 0x00136301
+		// Token: 0x06004349 RID: 17225 RVA: 0x0005BE0A File Offset: 0x0005A00A
 		public InteractableCollisionInfo(ColliderZone collider, InteractableCollisionDepth collisionDepth, InteractableTool collidingTool)
 		{
 			this.InteractableCollider = collider;
@@ -13,13 +13,13 @@ namespace OculusSampleFramework
 			this.CollidingTool = collidingTool;
 		}
 
-		// Token: 0x04004314 RID: 17172
+		// Token: 0x0400440E RID: 17422
 		public ColliderZone InteractableCollider;
 
-		// Token: 0x04004315 RID: 17173
+		// Token: 0x0400440F RID: 17423
 		public InteractableCollisionDepth CollisionDepth;
 
-		// Token: 0x04004316 RID: 17174
+		// Token: 0x04004410 RID: 17424
 		public InteractableTool CollidingTool;
 	}
 }

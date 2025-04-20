@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200081E RID: 2078
+// Token: 0x02000838 RID: 2104
 public class KinematicTestMotion : MonoBehaviour
 {
-	// Token: 0x060032F3 RID: 13043 RVA: 0x000F400A File Offset: 0x000F220A
+	// Token: 0x060033AE RID: 13230 RVA: 0x00051FC0 File Offset: 0x000501C0
 	private void FixedUpdate()
 	{
 		if (this.updateType != KinematicTestMotion.UpdateType.FixedUpdate)
@@ -14,7 +14,7 @@ public class KinematicTestMotion : MonoBehaviour
 		this.UpdatePosition(Time.time);
 	}
 
-	// Token: 0x060032F4 RID: 13044 RVA: 0x000F4021 File Offset: 0x000F2221
+	// Token: 0x060033AF RID: 13231 RVA: 0x00051FD7 File Offset: 0x000501D7
 	private void Update()
 	{
 		if (this.updateType != KinematicTestMotion.UpdateType.Update)
@@ -24,7 +24,7 @@ public class KinematicTestMotion : MonoBehaviour
 		this.UpdatePosition(Time.time);
 	}
 
-	// Token: 0x060032F5 RID: 13045 RVA: 0x000F4037 File Offset: 0x000F2237
+	// Token: 0x060033B0 RID: 13232 RVA: 0x00051FED File Offset: 0x000501ED
 	private void LateUpdate()
 	{
 		if (this.updateType != KinematicTestMotion.UpdateType.LateUpdate)
@@ -34,7 +34,7 @@ public class KinematicTestMotion : MonoBehaviour
 		this.UpdatePosition(Time.time);
 	}
 
-	// Token: 0x060032F6 RID: 13046 RVA: 0x000F4050 File Offset: 0x000F2250
+	// Token: 0x060033B1 RID: 13233 RVA: 0x0013BF90 File Offset: 0x0013A190
 	private void UpdatePosition(float time)
 	{
 		float t = Mathf.Sin(time * 2f * 3.1415927f * this.period) * 0.5f + 0.5f;
@@ -50,41 +50,41 @@ public class KinematicTestMotion : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04003669 RID: 13929
+	// Token: 0x04003725 RID: 14117
 	public Transform start;
 
-	// Token: 0x0400366A RID: 13930
+	// Token: 0x04003726 RID: 14118
 	public Transform end;
 
-	// Token: 0x0400366B RID: 13931
+	// Token: 0x04003727 RID: 14119
 	public Rigidbody rigidbody;
 
-	// Token: 0x0400366C RID: 13932
+	// Token: 0x04003728 RID: 14120
 	public KinematicTestMotion.UpdateType updateType;
 
-	// Token: 0x0400366D RID: 13933
+	// Token: 0x04003729 RID: 14121
 	public KinematicTestMotion.MoveType moveType = KinematicTestMotion.MoveType.RigidbodyMovePosition;
 
-	// Token: 0x0400366E RID: 13934
+	// Token: 0x0400372A RID: 14122
 	public float period = 4f;
 
-	// Token: 0x0200081F RID: 2079
+	// Token: 0x02000839 RID: 2105
 	public enum UpdateType
 	{
-		// Token: 0x04003670 RID: 13936
+		// Token: 0x0400372C RID: 14124
 		Update,
-		// Token: 0x04003671 RID: 13937
+		// Token: 0x0400372D RID: 14125
 		LateUpdate,
-		// Token: 0x04003672 RID: 13938
+		// Token: 0x0400372E RID: 14126
 		FixedUpdate
 	}
 
-	// Token: 0x02000820 RID: 2080
+	// Token: 0x0200083A RID: 2106
 	public enum MoveType
 	{
-		// Token: 0x04003674 RID: 13940
+		// Token: 0x04003730 RID: 14128
 		TransformPosition,
-		// Token: 0x04003675 RID: 13941
+		// Token: 0x04003731 RID: 14129
 		RigidbodyMovePosition
 	}
 }

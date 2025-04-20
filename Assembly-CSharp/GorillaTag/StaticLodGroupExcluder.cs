@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B93 RID: 2963
+	// Token: 0x02000BC0 RID: 3008
 	public class StaticLodGroupExcluder : MonoBehaviour
 	{
 	}

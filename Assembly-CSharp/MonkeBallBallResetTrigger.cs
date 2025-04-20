@@ -2,10 +2,10 @@
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x0200049C RID: 1180
+// Token: 0x020004A8 RID: 1192
 public class MonkeBallBallResetTrigger : MonoBehaviour
 {
-	// Token: 0x06001C91 RID: 7313 RVA: 0x0008B080 File Offset: 0x00089280
+	// Token: 0x06001CE5 RID: 7397 RVA: 0x000DE744 File Offset: 0x000DC944
 	private void OnTriggerEnter(Collider other)
 	{
 		GameBall component = other.transform.GetComponent<GameBall>();
@@ -37,7 +37,7 @@ public class MonkeBallBallResetTrigger : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001C92 RID: 7314 RVA: 0x0008B138 File Offset: 0x00089338
+	// Token: 0x06001CE6 RID: 7398 RVA: 0x000DE7FC File Offset: 0x000DC9FC
 	private void OnTriggerExit(Collider other)
 	{
 		GameBall component = other.transform.GetComponent<GameBall>();
@@ -55,15 +55,15 @@ public class MonkeBallBallResetTrigger : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001F86 RID: 8070
+	// Token: 0x04001FD5 RID: 8149
 	public Renderer trigger;
 
-	// Token: 0x04001F87 RID: 8071
+	// Token: 0x04001FD6 RID: 8150
 	public Material[] teamMaterials;
 
-	// Token: 0x04001F88 RID: 8072
+	// Token: 0x04001FD7 RID: 8151
 	public Material neutralMaterial;
 
-	// Token: 0x04001F89 RID: 8073
+	// Token: 0x04001FD8 RID: 8152
 	private GameBall _lastBall;
 }

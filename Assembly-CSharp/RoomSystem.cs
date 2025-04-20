@@ -12,10 +12,10 @@ using Photon.Pun;
 using TagEffects;
 using UnityEngine;
 
-// Token: 0x020007FB RID: 2043
+// Token: 0x02000815 RID: 2069
 internal class RoomSystem : MonoBehaviour
 {
-	// Token: 0x06003257 RID: 12887 RVA: 0x000F1980 File Offset: 0x000EFB80
+	// Token: 0x0600330D RID: 13069 RVA: 0x001399B0 File Offset: 0x00137BB0
 	internal static void DeserializeLaunchProjectile(object[] projectileData, PhotonMessageInfoWrapped info)
 	{
 		NetPlayer player = NetworkSystem.Instance.GetPlayer(info.senderID);
@@ -39,7 +39,7 @@ internal class RoomSystem : MonoBehaviour
 			if (velocity.IsValid(num2) && float.IsFinite((float)b) && float.IsFinite((float)b2) && float.IsFinite((float)b3) && float.IsFinite((float)b4))
 			{
 				RoomSystem.ProjectileSource projectileSource = (RoomSystem.ProjectileSource)Convert.ToInt32(projectileData[2]);
-				int projectileCount = Convert.ToInt32(projectileData[3]);
+				int projectileIndex = Convert.ToInt32(projectileData[3]);
 				bool overridecolour = Convert.ToBoolean(projectileData[4]);
 				VRRig rig = rigContainer.Rig;
 				if (rig.isOfflineVRRig || rig.IsPositionInRange(position, 4f))
@@ -49,7 +49,7 @@ internal class RoomSystem : MonoBehaviour
 					RoomSystem.launchProjectile.velocity = velocity;
 					RoomSystem.launchProjectile.overridecolour = overridecolour;
 					RoomSystem.launchProjectile.colour = c;
-					RoomSystem.launchProjectile.projectileCount = projectileCount;
+					RoomSystem.launchProjectile.projectileIndex = projectileIndex;
 					RoomSystem.launchProjectile.projectileSource = projectileSource;
 					RoomSystem.launchProjectile.messageInfo = info;
 					FXSystem.PlayFXForRig(FXType.Projectile, RoomSystem.launchProjectile, info);
@@ -60,7 +60,7 @@ internal class RoomSystem : MonoBehaviour
 		GorillaNot.instance.SendReport("invalid projectile state", player.UserId, player.NickName);
 	}
 
-	// Token: 0x06003258 RID: 12888 RVA: 0x000F1B18 File Offset: 0x000EFD18
+	// Token: 0x0600330E RID: 13070 RVA: 0x00139B48 File Offset: 0x00137D48
 	internal static void SendLaunchProjectile(Vector3 position, Vector3 velocity, RoomSystem.ProjectileSource projectileSource, int projectileCount, bool randomColour, byte r, byte g, byte b, byte a)
 	{
 		if (!RoomSystem.JoinedRoom)
@@ -81,17 +81,17 @@ internal class RoomSystem : MonoBehaviour
 		RoomSystem.SendEvent(b2, obj, NetworkSystemRaiseEvent.neoOthers, false);
 	}
 
-	// Token: 0x06003259 RID: 12889 RVA: 0x000F1BC0 File Offset: 0x000EFDC0
+	// Token: 0x0600330F RID: 13071 RVA: 0x00139BF0 File Offset: 0x00137DF0
 	internal static void ImpactEffect(VRRig targetRig, Vector3 position, float r, float g, float b, float a, int projectileCount, PhotonMessageInfoWrapped info = default(PhotonMessageInfoWrapped))
 	{
 		RoomSystem.impactEffect.targetRig = targetRig;
 		RoomSystem.impactEffect.position = position;
 		RoomSystem.impactEffect.colour = new Color(r, g, b, a);
-		RoomSystem.impactEffect.projectileCount = projectileCount;
+		RoomSystem.impactEffect.projectileIndex = projectileCount;
 		FXSystem.PlayFXForRig(FXType.Impact, RoomSystem.impactEffect, info);
 	}
 
-	// Token: 0x0600325A RID: 12890 RVA: 0x000F1C14 File Offset: 0x000EFE14
+	// Token: 0x06003310 RID: 13072 RVA: 0x00139C44 File Offset: 0x00137E44
 	internal static void DeserializeImpactEffect(object[] impactData, PhotonMessageInfoWrapped info)
 	{
 		NetPlayer player = NetworkSystem.Instance.GetPlayer(info.senderID);
@@ -116,7 +116,7 @@ internal class RoomSystem : MonoBehaviour
 		RoomSystem.ImpactEffect(rigContainer.Rig, position, num, num2, num3, num4, projectileCount, info);
 	}
 
-	// Token: 0x0600325B RID: 12891 RVA: 0x000F1D04 File Offset: 0x000EFF04
+	// Token: 0x06003311 RID: 13073 RVA: 0x00139D34 File Offset: 0x00137F34
 	internal static void SendImpactEffect(Vector3 position, float r, float g, float b, float a, int projectileCount)
 	{
 		RoomSystem.ImpactEffect(VRRigCache.Instance.localRig.Rig, position, r, g, b, a, projectileCount, default(PhotonMessageInfoWrapped));
@@ -134,11 +134,11 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600325C RID: 12892 RVA: 0x000F1DA4 File Offset: 0x000EFFA4
+	// Token: 0x06003312 RID: 13074 RVA: 0x00139DD4 File Offset: 0x00137FD4
 	private void Awake()
 	{
 		base.transform.SetParent(null, true);
-		Object.DontDestroyOnLoad(this);
+		UnityEngine.Object.DontDestroyOnLoad(this);
 		RoomSystem.playerImpactEffectPrefab = this.roomSettings.PlayerImpactEffect;
 		RoomSystem.callbackInstance = this;
 		RoomSystem.disconnectTimer.Interval = (double)(this.roomSettings.PausedDCTimer * 1000);
@@ -149,7 +149,7 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600325D RID: 12893 RVA: 0x000F1E58 File Offset: 0x000F0058
+	// Token: 0x06003313 RID: 13075 RVA: 0x00139E88 File Offset: 0x00138088
 	private void Start()
 	{
 		List<PhotonView> list = new List<PhotonView>(20);
@@ -168,7 +168,7 @@ internal class RoomSystem : MonoBehaviour
 		NetworkSystem.Instance.OnReturnedToSinglePlayer += this.OnLeftRoom;
 	}
 
-	// Token: 0x0600325E RID: 12894 RVA: 0x000F1F38 File Offset: 0x000F0138
+	// Token: 0x06003314 RID: 13076 RVA: 0x00051B63 File Offset: 0x0004FD63
 	private void OnApplicationPause(bool paused)
 	{
 		if (!paused)
@@ -182,7 +182,7 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600325F RID: 12895 RVA: 0x000F1F5C File Offset: 0x000F015C
+	// Token: 0x06003315 RID: 13077 RVA: 0x00139F68 File Offset: 0x00138168
 	private void OnJoinedRoom()
 	{
 		RoomSystem.joinedRoom = true;
@@ -214,7 +214,7 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003260 RID: 12896 RVA: 0x000F2038 File Offset: 0x000F0238
+	// Token: 0x06003316 RID: 13078 RVA: 0x0013A044 File Offset: 0x00138244
 	private void OnPlayerEnteredRoom(NetPlayer newPlayer)
 	{
 		if (newPlayer.IsLocal)
@@ -245,7 +245,7 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003261 RID: 12897 RVA: 0x000F20AC File Offset: 0x000F02AC
+	// Token: 0x06003317 RID: 13079 RVA: 0x0013A0B8 File Offset: 0x001382B8
 	private void OnLeftRoom()
 	{
 		if (ApplicationQuittingState.IsQuitting)
@@ -282,7 +282,7 @@ internal class RoomSystem : MonoBehaviour
 		GC.Collect(0);
 	}
 
-	// Token: 0x06003262 RID: 12898 RVA: 0x000F21A4 File Offset: 0x000F03A4
+	// Token: 0x06003318 RID: 13080 RVA: 0x0013A1B0 File Offset: 0x001383B0
 	private void OnPlayerLeftRoom(NetPlayer netPlayer)
 	{
 		if (netPlayer == null)
@@ -317,8 +317,8 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000533 RID: 1331
-	// (get) Token: 0x06003263 RID: 12899 RVA: 0x000F2258 File Offset: 0x000F0458
+	// Token: 0x17000541 RID: 1345
+	// (get) Token: 0x06003319 RID: 13081 RVA: 0x00051B84 File Offset: 0x0004FD84
 	public static List<NetPlayer> PlayersInRoom
 	{
 		get
@@ -327,8 +327,8 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000534 RID: 1332
-	// (get) Token: 0x06003264 RID: 12900 RVA: 0x000F225F File Offset: 0x000F045F
+	// Token: 0x17000542 RID: 1346
+	// (get) Token: 0x0600331A RID: 13082 RVA: 0x00051B8B File Offset: 0x0004FD8B
 	public static string RoomGameMode
 	{
 		get
@@ -337,8 +337,8 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000535 RID: 1333
-	// (get) Token: 0x06003265 RID: 12901 RVA: 0x000F2266 File Offset: 0x000F0466
+	// Token: 0x17000543 RID: 1347
+	// (get) Token: 0x0600331B RID: 13083 RVA: 0x00051B92 File Offset: 0x0004FD92
 	public static bool JoinedRoom
 	{
 		get
@@ -347,8 +347,8 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000536 RID: 1334
-	// (get) Token: 0x06003266 RID: 12902 RVA: 0x000F227B File Offset: 0x000F047B
+	// Token: 0x17000544 RID: 1348
+	// (get) Token: 0x0600331C RID: 13084 RVA: 0x00051BA7 File Offset: 0x0004FDA7
 	public static bool AmITheHost
 	{
 		get
@@ -357,7 +357,7 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003267 RID: 12903 RVA: 0x000F2298 File Offset: 0x000F0498
+	// Token: 0x0600331D RID: 13085 RVA: 0x0013A264 File Offset: 0x00138464
 	static RoomSystem()
 	{
 		RoomSystem.disconnectTimer.Elapsed += RoomSystem.TimerDC;
@@ -365,7 +365,7 @@ internal class RoomSystem : MonoBehaviour
 		RoomSystem.StaticLoad();
 	}
 
-	// Token: 0x06003268 RID: 12904 RVA: 0x000F23A8 File Offset: 0x000F05A8
+	// Token: 0x0600331E RID: 13086 RVA: 0x0013A374 File Offset: 0x00138574
 	[OnEnterPlay_Run]
 	private static void StaticLoad()
 	{
@@ -382,7 +382,7 @@ internal class RoomSystem : MonoBehaviour
 		RoomSystem.statusEffectCallback = new Action<RoomSystem.StatusEffects>(RoomSystem.OnStatusEffect);
 	}
 
-	// Token: 0x06003269 RID: 12905 RVA: 0x000F24A6 File Offset: 0x000F06A6
+	// Token: 0x0600331F RID: 13087 RVA: 0x00051BC4 File Offset: 0x0004FDC4
 	private static void TimerDC(object sender, ElapsedEventArgs args)
 	{
 		RoomSystem.disconnectTimer.Stop();
@@ -394,14 +394,14 @@ internal class RoomSystem : MonoBehaviour
 		PhotonNetwork.SendAllOutgoingCommands();
 	}
 
-	// Token: 0x0600326A RID: 12906 RVA: 0x000F24C4 File Offset: 0x000F06C4
+	// Token: 0x06003320 RID: 13088 RVA: 0x00051BE2 File Offset: 0x0004FDE2
 	internal static void SendEvent(in byte code, in object evData, in NetPlayer target, bool reliable)
 	{
 		NetworkSystemRaiseEvent.neoTarget.TargetActors[0] = target.ActorNumber;
 		RoomSystem.SendEvent(code, evData, NetworkSystemRaiseEvent.neoTarget, reliable);
 	}
 
-	// Token: 0x0600326B RID: 12907 RVA: 0x000F24E6 File Offset: 0x000F06E6
+	// Token: 0x06003321 RID: 13089 RVA: 0x00051C04 File Offset: 0x0004FE04
 	internal static void SendEvent(in byte code, in object evData, in NetEventOptions neo, bool reliable)
 	{
 		RoomSystem.sendEventData[0] = NetworkSystem.Instance.ServerTimestamp;
@@ -410,13 +410,13 @@ internal class RoomSystem : MonoBehaviour
 		NetworkSystemRaiseEvent.RaiseEvent(3, RoomSystem.sendEventData, neo, reliable);
 	}
 
-	// Token: 0x0600326C RID: 12908 RVA: 0x000F2523 File Offset: 0x000F0723
+	// Token: 0x06003322 RID: 13090 RVA: 0x00051C41 File Offset: 0x0004FE41
 	private static void OnEvent(EventData data)
 	{
 		RoomSystem.OnEvent(data.Code, data.CustomData, data.Sender);
 	}
 
-	// Token: 0x0600326D RID: 12909 RVA: 0x000F253C File Offset: 0x000F073C
+	// Token: 0x06003323 RID: 13091 RVA: 0x0013A474 File Offset: 0x00138674
 	private static void OnEvent(byte code, object data, int source)
 	{
 		NetPlayer netPlayer;
@@ -447,7 +447,7 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600326E RID: 12910 RVA: 0x000F25D0 File Offset: 0x000F07D0
+	// Token: 0x06003324 RID: 13092 RVA: 0x0013A508 File Offset: 0x00138708
 	internal static void SearchForNearby(object[] shuffleData, PhotonMessageInfoWrapped info)
 	{
 		NetPlayer player = NetworkSystem.Instance.GetPlayer(info.senderID);
@@ -468,7 +468,7 @@ internal class RoomSystem : MonoBehaviour
 		PhotonNetworkController.Instance.AttemptToFollowIntoPub(player.UserId, player.ActorNumber, newKeyStr, shufflerStr, JoinType.FollowingNearby);
 	}
 
-	// Token: 0x0600326F RID: 12911 RVA: 0x000F26AC File Offset: 0x000F08AC
+	// Token: 0x06003325 RID: 13093 RVA: 0x0013A5E4 File Offset: 0x001387E4
 	internal static void SearchForParty(object[] shuffleData, PhotonMessageInfoWrapped info)
 	{
 		GorillaNot.IncrementRPCCall(info, "PARTY_JOIN");
@@ -486,7 +486,7 @@ internal class RoomSystem : MonoBehaviour
 		PhotonNetworkController.Instance.AttemptToFollowIntoPub(info.Sender.UserId, info.Sender.ActorNumber, newKeyStr, shufflerStr, JoinType.FollowingParty);
 	}
 
-	// Token: 0x06003270 RID: 12912 RVA: 0x000F2750 File Offset: 0x000F0950
+	// Token: 0x06003326 RID: 13094 RVA: 0x0013A688 File Offset: 0x00138888
 	internal static void SendNearbyFollowCommand(GorillaFriendCollider friendCollider, string shuffler, string keyStr)
 	{
 		RoomSystem.groupJoinSendData[0] = shuffler;
@@ -507,7 +507,7 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003271 RID: 12913 RVA: 0x000F2800 File Offset: 0x000F0A00
+	// Token: 0x06003327 RID: 13095 RVA: 0x0013A738 File Offset: 0x00138938
 	internal static void SendPartyFollowCommand(string shuffler, string keyStr)
 	{
 		RoomSystem.groupJoinSendData[0] = shuffler;
@@ -535,7 +535,7 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003272 RID: 12914 RVA: 0x000F2908 File Offset: 0x000F0B08
+	// Token: 0x06003328 RID: 13096 RVA: 0x0013A840 File Offset: 0x00138A40
 	private static void DeserializeReportTouch(object[] data, PhotonMessageInfoWrapped info)
 	{
 		if (!NetworkSystem.Instance.IsMasterClient)
@@ -552,7 +552,7 @@ internal class RoomSystem : MonoBehaviour
 		action(arg, player);
 	}
 
-	// Token: 0x06003273 RID: 12915 RVA: 0x000F2950 File Offset: 0x000F0B50
+	// Token: 0x06003329 RID: 13097 RVA: 0x0013A888 File Offset: 0x00138A88
 	internal static void SendReportTouch(NetPlayer touchedNetPlayer)
 	{
 		if (!NetworkSystem.Instance.IsMasterClient)
@@ -571,7 +571,7 @@ internal class RoomSystem : MonoBehaviour
 		action(touchedNetPlayer, NetworkSystem.Instance.LocalPlayer);
 	}
 
-	// Token: 0x06003274 RID: 12916 RVA: 0x000F29A4 File Offset: 0x000F0BA4
+	// Token: 0x0600332A RID: 13098 RVA: 0x0013A8DC File Offset: 0x00138ADC
 	internal static void LaunchPlayer(NetPlayer player, Vector3 velocity)
 	{
 		RoomSystem.reportTouchSendData[0] = velocity;
@@ -580,7 +580,7 @@ internal class RoomSystem : MonoBehaviour
 		RoomSystem.SendEvent(b, obj, player, false);
 	}
 
-	// Token: 0x06003275 RID: 12917 RVA: 0x000F29D4 File Offset: 0x000F0BD4
+	// Token: 0x0600332B RID: 13099 RVA: 0x0013A90C File Offset: 0x00138B0C
 	private static void DeserializePlayerLaunched(object[] data, PhotonMessageInfoWrapped info)
 	{
 		GorillaNot.IncrementRPCCall(info, "DeserializePlayerLaunched");
@@ -601,7 +601,7 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003276 RID: 12918 RVA: 0x000F2A68 File Offset: 0x000F0C68
+	// Token: 0x0600332C RID: 13100 RVA: 0x0013A9A0 File Offset: 0x00138BA0
 	private static void SetSlowedTime()
 	{
 		if (GorillaTagger.Instance.currentStatus != GorillaTagger.StatusEffect.Slowed)
@@ -613,7 +613,7 @@ internal class RoomSystem : MonoBehaviour
 		GorillaTagger.Instance.offlineVRRig.PlayTaggedEffect();
 	}
 
-	// Token: 0x06003277 RID: 12919 RVA: 0x000F2AE4 File Offset: 0x000F0CE4
+	// Token: 0x0600332D RID: 13101 RVA: 0x0013AA1C File Offset: 0x00138C1C
 	private static void SetTaggedTime()
 	{
 		GorillaTagger.Instance.ApplyStatusEffect(GorillaTagger.StatusEffect.Frozen, GorillaTagger.Instance.tagCooldown);
@@ -622,7 +622,7 @@ internal class RoomSystem : MonoBehaviour
 		GorillaTagger.Instance.offlineVRRig.PlayTaggedEffect();
 	}
 
-	// Token: 0x06003278 RID: 12920 RVA: 0x000F2B54 File Offset: 0x000F0D54
+	// Token: 0x0600332E RID: 13102 RVA: 0x0013AA8C File Offset: 0x00138C8C
 	private static void SetFrozenTime()
 	{
 		GorillaFreezeTagManager gorillaFreezeTagManager = GameMode.ActiveGameMode as GorillaFreezeTagManager;
@@ -635,14 +635,14 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003279 RID: 12921 RVA: 0x000F2BCD File Offset: 0x000F0DCD
+	// Token: 0x0600332F RID: 13103 RVA: 0x00051C5A File Offset: 0x0004FE5A
 	private static void SetJoinedTaggedTime()
 	{
 		GorillaTagger.Instance.StartVibration(true, GorillaTagger.Instance.taggedHapticStrength, GorillaTagger.Instance.taggedHapticDuration);
 		GorillaTagger.Instance.StartVibration(false, GorillaTagger.Instance.taggedHapticStrength, GorillaTagger.Instance.taggedHapticDuration);
 	}
 
-	// Token: 0x0600327A RID: 12922 RVA: 0x000F2C10 File Offset: 0x000F0E10
+	// Token: 0x06003330 RID: 13104 RVA: 0x0013AB08 File Offset: 0x00138D08
 	private static void SetUntaggedTime()
 	{
 		GorillaTagger.Instance.ApplyStatusEffect(GorillaTagger.StatusEffect.None, 0f);
@@ -650,7 +650,7 @@ internal class RoomSystem : MonoBehaviour
 		GorillaTagger.Instance.StartVibration(false, GorillaTagger.Instance.taggedHapticStrength, GorillaTagger.Instance.taggedHapticDuration);
 	}
 
-	// Token: 0x0600327B RID: 12923 RVA: 0x000F2C6B File Offset: 0x000F0E6B
+	// Token: 0x06003331 RID: 13105 RVA: 0x00051C9A File Offset: 0x0004FE9A
 	private static void OnStatusEffect(RoomSystem.StatusEffects status)
 	{
 		switch (status)
@@ -675,7 +675,7 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600327C RID: 12924 RVA: 0x000F2CA8 File Offset: 0x000F0EA8
+	// Token: 0x06003332 RID: 13106 RVA: 0x0013AB64 File Offset: 0x00138D64
 	private static void DeserializeStatusEffect(object[] data, PhotonMessageInfoWrapped info)
 	{
 		NetPlayer player = NetworkSystem.Instance.GetPlayer(info.senderID);
@@ -698,7 +698,7 @@ internal class RoomSystem : MonoBehaviour
 		action(obj);
 	}
 
-	// Token: 0x0600327D RID: 12925 RVA: 0x000F2D30 File Offset: 0x000F0F30
+	// Token: 0x06003333 RID: 13107 RVA: 0x0013ABEC File Offset: 0x00138DEC
 	internal static void SendStatusEffectAll(RoomSystem.StatusEffects status)
 	{
 		Action<RoomSystem.StatusEffects> action = RoomSystem.statusEffectCallback;
@@ -716,7 +716,7 @@ internal class RoomSystem : MonoBehaviour
 		RoomSystem.SendEvent(b, obj, NetworkSystemRaiseEvent.neoOthers, false);
 	}
 
-	// Token: 0x0600327E RID: 12926 RVA: 0x000F2D7C File Offset: 0x000F0F7C
+	// Token: 0x06003334 RID: 13108 RVA: 0x0013AC38 File Offset: 0x00138E38
 	internal static void SendStatusEffectToPlayer(RoomSystem.StatusEffects status, NetPlayer target)
 	{
 		if (!target.IsLocal)
@@ -735,13 +735,13 @@ internal class RoomSystem : MonoBehaviour
 		action(status);
 	}
 
-	// Token: 0x0600327F RID: 12927 RVA: 0x000F2DC3 File Offset: 0x000F0FC3
+	// Token: 0x06003335 RID: 13109 RVA: 0x00051CD4 File Offset: 0x0004FED4
 	internal static void PlaySoundEffect(int soundIndex, float soundVolume, bool stopCurrentAudio)
 	{
 		VRRigCache.Instance.localRig.Rig.PlayTagSoundLocal(soundIndex, soundVolume, stopCurrentAudio);
 	}
 
-	// Token: 0x06003280 RID: 12928 RVA: 0x000F2DDC File Offset: 0x000F0FDC
+	// Token: 0x06003336 RID: 13110 RVA: 0x0013AC80 File Offset: 0x00138E80
 	internal static void PlaySoundEffect(int soundIndex, float soundVolume, bool stopCurrentAudio, NetPlayer target)
 	{
 		RigContainer rigContainer;
@@ -751,7 +751,7 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003281 RID: 12929 RVA: 0x000F2E06 File Offset: 0x000F1006
+	// Token: 0x06003337 RID: 13111 RVA: 0x00051CED File Offset: 0x0004FEED
 	private static void OnPlaySoundEffect(RoomSystem.SoundEffect sound, NetPlayer target)
 	{
 		if (target.IsLocal)
@@ -762,7 +762,7 @@ internal class RoomSystem : MonoBehaviour
 		RoomSystem.PlaySoundEffect(sound.id, sound.volume, sound.stopCurrentAudio, target);
 	}
 
-	// Token: 0x06003282 RID: 12930 RVA: 0x000F2E40 File Offset: 0x000F1040
+	// Token: 0x06003338 RID: 13112 RVA: 0x0013ACAC File Offset: 0x00138EAC
 	private static void DeserializeSoundEffect(object[] data, PhotonMessageInfoWrapped info)
 	{
 		NetPlayer player = NetworkSystem.Instance.GetPlayer(info.senderID);
@@ -801,13 +801,13 @@ internal class RoomSystem : MonoBehaviour
 		RoomSystem.soundEffectCallback(soundEffect, arg);
 	}
 
-	// Token: 0x06003283 RID: 12931 RVA: 0x000F2F46 File Offset: 0x000F1146
+	// Token: 0x06003339 RID: 13113 RVA: 0x00051D27 File Offset: 0x0004FF27
 	internal static void SendSoundEffectAll(int soundIndex, float soundVolume, bool stopCurrentAudio = false)
 	{
 		RoomSystem.SendSoundEffectAll(new RoomSystem.SoundEffect(soundIndex, soundVolume, stopCurrentAudio));
 	}
 
-	// Token: 0x06003284 RID: 12932 RVA: 0x000F2F58 File Offset: 0x000F1158
+	// Token: 0x0600333A RID: 13114 RVA: 0x0013ADB4 File Offset: 0x00138FB4
 	internal static void SendSoundEffectAll(RoomSystem.SoundEffect sound)
 	{
 		Action<RoomSystem.SoundEffect, NetPlayer> action = RoomSystem.soundEffectCallback;
@@ -827,13 +827,13 @@ internal class RoomSystem : MonoBehaviour
 		RoomSystem.SendEvent(b, obj, NetworkSystemRaiseEvent.neoOthers, false);
 	}
 
-	// Token: 0x06003285 RID: 12933 RVA: 0x000F2FD5 File Offset: 0x000F11D5
+	// Token: 0x0600333B RID: 13115 RVA: 0x00051D36 File Offset: 0x0004FF36
 	internal static void SendSoundEffectToPlayer(int soundIndex, float soundVolume, NetPlayer player, bool stopCurrentAudio = false)
 	{
 		RoomSystem.SendSoundEffectToPlayer(new RoomSystem.SoundEffect(soundIndex, soundVolume, stopCurrentAudio), player);
 	}
 
-	// Token: 0x06003286 RID: 12934 RVA: 0x000F2FE8 File Offset: 0x000F11E8
+	// Token: 0x0600333C RID: 13116 RVA: 0x0013AE34 File Offset: 0x00139034
 	internal static void SendSoundEffectToPlayer(RoomSystem.SoundEffect sound, NetPlayer player)
 	{
 		if (player.IsLocal)
@@ -862,13 +862,13 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003287 RID: 12935 RVA: 0x000F3061 File Offset: 0x000F1261
+	// Token: 0x0600333D RID: 13117 RVA: 0x00051D46 File Offset: 0x0004FF46
 	internal static void SendSoundEffectOnOther(int soundIndex, float soundvolume, NetPlayer target, bool stopCurrentAudio = false)
 	{
 		RoomSystem.SendSoundEffectOnOther(new RoomSystem.SoundEffect(soundIndex, soundvolume, stopCurrentAudio), target);
 	}
 
-	// Token: 0x06003288 RID: 12936 RVA: 0x000F3074 File Offset: 0x000F1274
+	// Token: 0x0600333E RID: 13118 RVA: 0x0013AEB0 File Offset: 0x001390B0
 	internal static void SendSoundEffectOnOther(RoomSystem.SoundEffect sound, NetPlayer target)
 	{
 		Action<RoomSystem.SoundEffect, NetPlayer> action = RoomSystem.soundEffectCallback;
@@ -889,7 +889,7 @@ internal class RoomSystem : MonoBehaviour
 		RoomSystem.SendEvent(b, obj, NetworkSystemRaiseEvent.neoOthers, false);
 	}
 
-	// Token: 0x06003289 RID: 12937 RVA: 0x000F30FC File Offset: 0x000F12FC
+	// Token: 0x0600333F RID: 13119 RVA: 0x0013AF38 File Offset: 0x00139138
 	internal static void OnPlayerEffect(PlayerEffect effect, NetPlayer target)
 	{
 		if (target == null)
@@ -904,7 +904,7 @@ internal class RoomSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600328A RID: 12938 RVA: 0x000F3194 File Offset: 0x000F1394
+	// Token: 0x06003340 RID: 13120 RVA: 0x0013AFD0 File Offset: 0x001391D0
 	private static void DeserializePlayerEffect(object[] data, PhotonMessageInfoWrapped info)
 	{
 		GorillaNot.IncrementRPCCall(info, "DeserializePlayerEffect");
@@ -918,7 +918,7 @@ internal class RoomSystem : MonoBehaviour
 		RoomSystem.OnPlayerEffect(effect, player);
 	}
 
-	// Token: 0x0600328B RID: 12939 RVA: 0x000F31F0 File Offset: 0x000F13F0
+	// Token: 0x06003341 RID: 13121 RVA: 0x0013B02C File Offset: 0x0013922C
 	internal static void SendPlayerEffect(PlayerEffect effect, NetPlayer target)
 	{
 		RoomSystem.OnPlayerEffect(effect, target);
@@ -933,128 +933,128 @@ internal class RoomSystem : MonoBehaviour
 		RoomSystem.SendEvent(b, obj, NetworkSystemRaiseEvent.neoOthers, false);
 	}
 
-	// Token: 0x040035D2 RID: 13778
+	// Token: 0x0400368D RID: 13965
 	private static RoomSystem.ImpactFxContainer impactEffect = new RoomSystem.ImpactFxContainer();
 
-	// Token: 0x040035D3 RID: 13779
+	// Token: 0x0400368E RID: 13966
 	private static RoomSystem.LaunchProjectileContainer launchProjectile = new RoomSystem.LaunchProjectileContainer();
 
-	// Token: 0x040035D4 RID: 13780
+	// Token: 0x0400368F RID: 13967
 	public static GameObject playerImpactEffectPrefab = null;
 
-	// Token: 0x040035D5 RID: 13781
+	// Token: 0x04003690 RID: 13968
 	private static readonly object[] projectileSendData = new object[9];
 
-	// Token: 0x040035D6 RID: 13782
+	// Token: 0x04003691 RID: 13969
 	private static readonly object[] impactSendData = new object[6];
 
-	// Token: 0x040035D7 RID: 13783
+	// Token: 0x04003692 RID: 13970
 	private static readonly List<int> hashValues = new List<int>(2);
 
-	// Token: 0x040035D8 RID: 13784
+	// Token: 0x04003693 RID: 13971
 	[SerializeField]
 	private RoomSystemSettings roomSettings;
 
-	// Token: 0x040035D9 RID: 13785
+	// Token: 0x04003694 RID: 13972
 	[SerializeField]
 	private string[] prefabsToInstantiateByPath;
 
-	// Token: 0x040035DA RID: 13786
+	// Token: 0x04003695 RID: 13973
 	[SerializeField]
 	private GameObject[] prefabsToInstantiate;
 
-	// Token: 0x040035DB RID: 13787
+	// Token: 0x04003696 RID: 13974
 	private List<GameObject> prefabsInstantiated = new List<GameObject>();
 
-	// Token: 0x040035DC RID: 13788
+	// Token: 0x04003697 RID: 13975
 	public static Dictionary<PlayerEffect, RoomSystem.PlayerEffectConfig> playerEffectDictionary = new Dictionary<PlayerEffect, RoomSystem.PlayerEffectConfig>();
 
-	// Token: 0x040035DD RID: 13789
+	// Token: 0x04003698 RID: 13976
 	[OnEnterPlay_SetNull]
 	private static RoomSystem callbackInstance;
 
-	// Token: 0x040035DE RID: 13790
+	// Token: 0x04003699 RID: 13977
 	[OnEnterPlay_Clear]
 	private static List<NetPlayer> netPlayersInRoom = new List<NetPlayer>(10);
 
-	// Token: 0x040035DF RID: 13791
+	// Token: 0x0400369A RID: 13978
 	[OnEnterPlay_Set("")]
 	private static string roomGameMode = "";
 
-	// Token: 0x040035E0 RID: 13792
+	// Token: 0x0400369B RID: 13979
 	[OnEnterPlay_Set(false)]
 	private static bool joinedRoom = false;
 
-	// Token: 0x040035E1 RID: 13793
+	// Token: 0x0400369C RID: 13980
 	[OnEnterPlay_SetNull]
 	private static PhotonView[] sceneViews;
 
-	// Token: 0x040035E2 RID: 13794
+	// Token: 0x0400369D RID: 13981
 	[OnExitPlay_SetNull]
 	public static Action LeftRoomEvent;
 
-	// Token: 0x040035E3 RID: 13795
+	// Token: 0x0400369E RID: 13982
 	[OnExitPlay_SetNull]
 	public static Action JoinedRoomEvent;
 
-	// Token: 0x040035E4 RID: 13796
+	// Token: 0x0400369F RID: 13983
 	[OnExitPlay_SetNull]
 	public static Action<NetPlayer> PlayerJoinedEvent;
 
-	// Token: 0x040035E5 RID: 13797
+	// Token: 0x040036A0 RID: 13984
 	[OnExitPlay_SetNull]
 	public static Action<NetPlayer> PlayerLeftEvent;
 
-	// Token: 0x040035E6 RID: 13798
+	// Token: 0x040036A1 RID: 13985
 	[OnExitPlay_SetNull]
 	public static Action PlayersChangedEvent;
 
-	// Token: 0x040035E7 RID: 13799
+	// Token: 0x040036A2 RID: 13986
 	private static Timer disconnectTimer = new Timer();
 
-	// Token: 0x040035E8 RID: 13800
+	// Token: 0x040036A3 RID: 13987
 	[OnExitPlay_Clear]
 	internal static readonly Dictionary<byte, Action<object[], PhotonMessageInfoWrapped>> netEventCallbacks = new Dictionary<byte, Action<object[], PhotonMessageInfoWrapped>>(10);
 
-	// Token: 0x040035E9 RID: 13801
+	// Token: 0x040036A4 RID: 13988
 	private static readonly object[] sendEventData = new object[3];
 
-	// Token: 0x040035EA RID: 13802
+	// Token: 0x040036A5 RID: 13989
 	private static readonly object[] groupJoinSendData = new object[2];
 
-	// Token: 0x040035EB RID: 13803
+	// Token: 0x040036A6 RID: 13990
 	private static readonly object[] reportTouchSendData = new object[1];
 
-	// Token: 0x040035EC RID: 13804
+	// Token: 0x040036A7 RID: 13991
 	[OnExitPlay_SetNull]
 	public static Action<NetPlayer, NetPlayer> playerTouchedCallback;
 
-	// Token: 0x040035ED RID: 13805
+	// Token: 0x040036A8 RID: 13992
 	private static CallLimiter playerLaunchedCallLimiter = new CallLimiter(3, 15f, 0.5f);
 
-	// Token: 0x040035EE RID: 13806
+	// Token: 0x040036A9 RID: 13993
 	private static object[] statusSendData = new object[1];
 
-	// Token: 0x040035EF RID: 13807
+	// Token: 0x040036AA RID: 13994
 	public static Action<RoomSystem.StatusEffects> statusEffectCallback;
 
-	// Token: 0x040035F0 RID: 13808
+	// Token: 0x040036AB RID: 13995
 	private static object[] soundSendData = new object[3];
 
-	// Token: 0x040035F1 RID: 13809
+	// Token: 0x040036AC RID: 13996
 	private static object[] sendSoundDataOther = new object[4];
 
-	// Token: 0x040035F2 RID: 13810
+	// Token: 0x040036AD RID: 13997
 	public static Action<RoomSystem.SoundEffect, NetPlayer> soundEffectCallback;
 
-	// Token: 0x040035F3 RID: 13811
+	// Token: 0x040036AE RID: 13998
 	private static object[] playerEffectData = new object[2];
 
-	// Token: 0x020007FC RID: 2044
+	// Token: 0x02000816 RID: 2070
 	private class ImpactFxContainer : IFXContext
 	{
-		// Token: 0x17000537 RID: 1335
-		// (get) Token: 0x0600328D RID: 12941 RVA: 0x000F3255 File Offset: 0x000F1455
+		// Token: 0x17000545 RID: 1349
+		// (get) Token: 0x06003343 RID: 13123 RVA: 0x00051D69 File Offset: 0x0004FF69
 		public FXSystemSettings settings
 		{
 			get
@@ -1063,39 +1063,66 @@ internal class RoomSystem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x0600328E RID: 12942 RVA: 0x000F3264 File Offset: 0x000F1464
+		// Token: 0x06003344 RID: 13124 RVA: 0x0013B080 File Offset: 0x00139280
 		public virtual void OnPlayFX()
 		{
-			if (this.targetRig.projectileWeapon != null)
+			NetPlayer creator = this.targetRig.creator;
+			ProjectileTracker.ProjectileInfo projectileInfo;
+			if (this.targetRig.isOfflineVRRig)
 			{
-				this.targetRig.projectileWeapon.DestroyProjectile(this.projectileCount, this.position);
+				projectileInfo = ProjectileTracker.GetLocalProjectile(this.projectileIndex);
 			}
-			GameObject gameObject = ObjectPools.instance.Instantiate(RoomSystem.playerImpactEffectPrefab, this.position);
+			else
+			{
+				ValueTuple<bool, ProjectileTracker.ProjectileInfo> remotePlayerProjectile = ProjectileTracker.GetRemotePlayerProjectile(creator, this.projectileIndex);
+				if (!remotePlayerProjectile.Item1)
+				{
+					return;
+				}
+				projectileInfo = remotePlayerProjectile.Item2;
+			}
+			SlingshotProjectile projectileInstance = projectileInfo.projectileInstance;
+			GameObject obj = projectileInfo.hasImpactOverride ? projectileInstance.playerImpactEffectPrefab : RoomSystem.playerImpactEffectPrefab;
+			GameObject gameObject = ObjectPools.instance.Instantiate(obj, this.position);
 			gameObject.transform.localScale = Vector3.one * this.targetRig.scaleFactor;
 			GorillaColorizableBase gorillaColorizableBase;
 			if (gameObject.TryGetComponent<GorillaColorizableBase>(out gorillaColorizableBase))
 			{
 				gorillaColorizableBase.SetColor(this.colour);
 			}
+			SurfaceImpactFX component = gameObject.GetComponent<SurfaceImpactFX>();
+			if (component != null)
+			{
+				component.SetScale(projectileInstance.transform.localScale.x * projectileInstance.impactEffectScaleMultiplier);
+			}
+			SoundBankPlayer component2 = gameObject.GetComponent<SoundBankPlayer>();
+			if (component2 != null && !component2.playOnEnable)
+			{
+				component2.Play(projectileInstance.impactSoundVolumeOverride, projectileInstance.impactSoundPitchOverride);
+			}
+			if (projectileInstance.gameObject.activeSelf && projectileInstance.projectileOwner == creator)
+			{
+				projectileInstance.Deactivate();
+			}
 		}
 
-		// Token: 0x040035F4 RID: 13812
+		// Token: 0x040036AF RID: 13999
 		public VRRig targetRig;
 
-		// Token: 0x040035F5 RID: 13813
+		// Token: 0x040036B0 RID: 14000
 		public Vector3 position;
 
-		// Token: 0x040035F6 RID: 13814
+		// Token: 0x040036B1 RID: 14001
 		public Color colour;
 
-		// Token: 0x040035F7 RID: 13815
-		public int projectileCount;
+		// Token: 0x040036B2 RID: 14002
+		public int projectileIndex;
 	}
 
-	// Token: 0x020007FD RID: 2045
+	// Token: 0x02000817 RID: 2071
 	private class LaunchProjectileContainer : RoomSystem.ImpactFxContainer
 	{
-		// Token: 0x06003290 RID: 12944 RVA: 0x000F32E4 File Offset: 0x000F14E4
+		// Token: 0x06003346 RID: 13126 RVA: 0x0013B1B4 File Offset: 0x001393B4
 		public override void OnPlayFX()
 		{
 			GameObject gameObject = null;
@@ -1105,9 +1132,13 @@ internal class RoomSystem : MonoBehaviour
 				switch (this.projectileSource)
 				{
 				case RoomSystem.ProjectileSource.ProjectileWeapon:
-					if (this.targetRig.projectileWeapon.IsNotNull())
+					if (this.targetRig.projectileWeapon.IsNotNull() && this.targetRig.projectileWeapon.IsNotNull())
 					{
-						this.targetRig.projectileWeapon.LaunchNetworkedProjectile(this.position, this.velocity, this.projectileSource, this.projectileCount, this.targetRig.scaleFactor, this.overridecolour, this.colour, this.messageInfo);
+						SlingshotProjectile slingshotProjectile2 = this.targetRig.projectileWeapon.LaunchNetworkedProjectile(this.position, this.velocity, this.projectileSource, this.projectileIndex, this.targetRig.scaleFactor, this.overridecolour, this.colour, this.messageInfo);
+						if (slingshotProjectile2.IsNotNull())
+						{
+							ProjectileTracker.AddRemotePlayerProjectile(this.messageInfo.Sender, slingshotProjectile2, this.projectileIndex, this.messageInfo.SentServerTime, this.velocity, this.position, this.targetRig.scaleFactor);
+						}
 					}
 					return;
 				case RoomSystem.ProjectileSource.LeftHand:
@@ -1124,7 +1155,8 @@ internal class RoomSystem : MonoBehaviour
 					int projectileHash = this.tempThrowableRef.ProjectileHash;
 					gameObject = ObjectPools.instance.Instantiate(projectileHash);
 					slingshotProjectile = gameObject.GetComponent<SlingshotProjectile>();
-					slingshotProjectile.Launch(this.position, this.velocity, this.messageInfo.Sender, false, false, this.projectileCount, this.targetRig.scaleFactor, this.overridecolour, this.colour);
+					ProjectileTracker.AddRemotePlayerProjectile(this.targetRig.creator, slingshotProjectile, this.projectileIndex, this.messageInfo.SentServerTime, this.velocity, this.position, this.targetRig.scaleFactor);
+					slingshotProjectile.Launch(this.position, this.velocity, this.messageInfo.Sender, false, false, this.projectileIndex, this.targetRig.scaleFactor, this.overridecolour, this.colour);
 				}
 			}
 			catch
@@ -1142,86 +1174,86 @@ internal class RoomSystem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x040035F8 RID: 13816
+		// Token: 0x040036B3 RID: 14003
 		public Vector3 velocity;
 
-		// Token: 0x040035F9 RID: 13817
+		// Token: 0x040036B4 RID: 14004
 		public RoomSystem.ProjectileSource projectileSource;
 
-		// Token: 0x040035FA RID: 13818
+		// Token: 0x040036B5 RID: 14005
 		public bool overridecolour;
 
-		// Token: 0x040035FB RID: 13819
+		// Token: 0x040036B6 RID: 14006
 		public PhotonMessageInfoWrapped messageInfo;
 
-		// Token: 0x040035FC RID: 13820
+		// Token: 0x040036B7 RID: 14007
 		private GameObject tempThrowableGO;
 
-		// Token: 0x040035FD RID: 13821
+		// Token: 0x040036B8 RID: 14008
 		private SnowballThrowable tempThrowableRef;
 	}
 
-	// Token: 0x020007FE RID: 2046
+	// Token: 0x02000818 RID: 2072
 	internal enum ProjectileSource
 	{
-		// Token: 0x040035FF RID: 13823
+		// Token: 0x040036BA RID: 14010
 		ProjectileWeapon,
-		// Token: 0x04003600 RID: 13824
+		// Token: 0x040036BB RID: 14011
 		LeftHand,
-		// Token: 0x04003601 RID: 13825
+		// Token: 0x040036BC RID: 14012
 		RightHand
 	}
 
-	// Token: 0x020007FF RID: 2047
+	// Token: 0x02000819 RID: 2073
 	private struct Events
 	{
-		// Token: 0x04003602 RID: 13826
+		// Token: 0x040036BD RID: 14013
 		public const byte PROJECTILE = 0;
 
-		// Token: 0x04003603 RID: 13827
+		// Token: 0x040036BE RID: 14014
 		public const byte IMPACT = 1;
 
-		// Token: 0x04003604 RID: 13828
+		// Token: 0x040036BF RID: 14015
 		public const byte STATUS_EFFECT = 2;
 
-		// Token: 0x04003605 RID: 13829
+		// Token: 0x040036C0 RID: 14016
 		public const byte SOUND_EFFECT = 3;
 
-		// Token: 0x04003606 RID: 13830
+		// Token: 0x040036C1 RID: 14017
 		public const byte NEARBY_JOIN = 4;
 
-		// Token: 0x04003607 RID: 13831
+		// Token: 0x040036C2 RID: 14018
 		public const byte PLAYER_TOUCHED = 5;
 
-		// Token: 0x04003608 RID: 13832
+		// Token: 0x040036C3 RID: 14019
 		public const byte PLAYER_EFFECT = 6;
 
-		// Token: 0x04003609 RID: 13833
+		// Token: 0x040036C4 RID: 14020
 		public const byte PARTY_JOIN = 7;
 
-		// Token: 0x0400360A RID: 13834
+		// Token: 0x040036C5 RID: 14021
 		public const byte PLAYER_LAUNCHED = 8;
 	}
 
-	// Token: 0x02000800 RID: 2048
+	// Token: 0x0200081A RID: 2074
 	public enum StatusEffects
 	{
-		// Token: 0x0400360C RID: 13836
+		// Token: 0x040036C7 RID: 14023
 		TaggedTime,
-		// Token: 0x0400360D RID: 13837
+		// Token: 0x040036C8 RID: 14024
 		JoinedTaggedTime,
-		// Token: 0x0400360E RID: 13838
+		// Token: 0x040036C9 RID: 14025
 		SetSlowedTime,
-		// Token: 0x0400360F RID: 13839
+		// Token: 0x040036CA RID: 14026
 		UnTagged,
-		// Token: 0x04003610 RID: 13840
+		// Token: 0x040036CB RID: 14027
 		FrozenTime
 	}
 
-	// Token: 0x02000801 RID: 2049
+	// Token: 0x0200081B RID: 2075
 	public struct SoundEffect
 	{
-		// Token: 0x06003292 RID: 12946 RVA: 0x000F34B8 File Offset: 0x000F16B8
+		// Token: 0x06003348 RID: 13128 RVA: 0x0013B414 File Offset: 0x00139614
 		public SoundEffect(int soundID, float soundVolume, bool _stopCurrentAudio)
 		{
 			this.id = soundID;
@@ -1230,24 +1262,24 @@ internal class RoomSystem : MonoBehaviour
 			this.stopCurrentAudio = _stopCurrentAudio;
 		}
 
-		// Token: 0x04003611 RID: 13841
+		// Token: 0x040036CC RID: 14028
 		public int id;
 
-		// Token: 0x04003612 RID: 13842
+		// Token: 0x040036CD RID: 14029
 		public float volume;
 
-		// Token: 0x04003613 RID: 13843
+		// Token: 0x040036CE RID: 14030
 		public bool stopCurrentAudio;
 	}
 
-	// Token: 0x02000802 RID: 2050
+	// Token: 0x0200081C RID: 2076
 	[Serializable]
 	public struct PlayerEffectConfig
 	{
-		// Token: 0x04003614 RID: 13844
+		// Token: 0x040036CF RID: 14031
 		public PlayerEffect type;
 
-		// Token: 0x04003615 RID: 13845
+		// Token: 0x040036D0 RID: 14032
 		public TagEffectPack tagEffectPack;
 	}
 }

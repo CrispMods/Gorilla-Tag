@@ -3,10 +3,10 @@ using GorillaExtensions;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000152 RID: 338
+// Token: 0x0200015C RID: 348
 public class ElfLauncher : MonoBehaviour
 {
-	// Token: 0x0600089C RID: 2204 RVA: 0x0002F1EC File Offset: 0x0002D3EC
+	// Token: 0x060008E0 RID: 2272 RVA: 0x0008FED8 File Offset: 0x0008E0D8
 	private void OnEnable()
 	{
 		if (this._events == null)
@@ -29,7 +29,7 @@ public class ElfLauncher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600089D RID: 2205 RVA: 0x0002F2D8 File Offset: 0x0002D4D8
+	// Token: 0x060008E1 RID: 2273 RVA: 0x0008FFC4 File Offset: 0x0008E1C4
 	private void OnDisable()
 	{
 		if (this._events != null)
@@ -41,7 +41,7 @@ public class ElfLauncher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600089E RID: 2206 RVA: 0x0002F330 File Offset: 0x0002D530
+	// Token: 0x060008E2 RID: 2274 RVA: 0x0009001C File Offset: 0x0008E21C
 	private void Awake()
 	{
 		this._events = base.GetComponent<RubberDuckEvents>();
@@ -53,7 +53,7 @@ public class ElfLauncher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600089F RID: 2207 RVA: 0x0002F384 File Offset: 0x0002D584
+	// Token: 0x060008E3 RID: 2275 RVA: 0x00090070 File Offset: 0x0008E270
 	private void OnCranked(float deltaAngle)
 	{
 		this.currentShootCrankAmount += deltaAngle;
@@ -70,7 +70,7 @@ public class ElfLauncher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008A0 RID: 2208 RVA: 0x0002F3FC File Offset: 0x0002D5FC
+	// Token: 0x060008E4 RID: 2276 RVA: 0x000900E8 File Offset: 0x0008E2E8
 	private void Shoot()
 	{
 		if (this.parentHoldable.IsLocalObject())
@@ -90,7 +90,7 @@ public class ElfLauncher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008A1 RID: 2209 RVA: 0x0002F4BC File Offset: 0x0002D6BC
+	// Token: 0x060008E5 RID: 2277 RVA: 0x000901A8 File Offset: 0x0008E3A8
 	private void ShootShared(int sender, int target, object[] args, PhotonMessageInfoWrapped info)
 	{
 		if (args.Length != 2)
@@ -135,7 +135,7 @@ public class ElfLauncher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008A2 RID: 2210 RVA: 0x0002F574 File Offset: 0x0002D774
+	// Token: 0x060008E6 RID: 2278 RVA: 0x00090260 File Offset: 0x0008E460
 	private void ShootShared(Vector3 origin, Vector3 direction)
 	{
 		this.shootAudio.Play();
@@ -147,62 +147,62 @@ public class ElfLauncher : MonoBehaviour
 		gameObject.GetComponent<Rigidbody>().velocity = direction * this.muzzleVelocity * lossyScale.x;
 	}
 
-	// Token: 0x04000A4C RID: 2636
+	// Token: 0x04000A8F RID: 2703
 	[SerializeField]
 	private TransferrableObject parentHoldable;
 
-	// Token: 0x04000A4D RID: 2637
+	// Token: 0x04000A90 RID: 2704
 	[SerializeField]
 	private TransferrableObjectHoldablePart_Crank[] cranks;
 
-	// Token: 0x04000A4E RID: 2638
+	// Token: 0x04000A91 RID: 2705
 	[SerializeField]
 	private float crankShootThreshold = 360f;
 
-	// Token: 0x04000A4F RID: 2639
+	// Token: 0x04000A92 RID: 2706
 	[SerializeField]
 	private float crankClickThreshold = 30f;
 
-	// Token: 0x04000A50 RID: 2640
+	// Token: 0x04000A93 RID: 2707
 	[SerializeField]
 	private Transform muzzle;
 
-	// Token: 0x04000A51 RID: 2641
+	// Token: 0x04000A94 RID: 2708
 	[SerializeField]
 	private GameObject elfProjectilePrefab;
 
-	// Token: 0x04000A52 RID: 2642
+	// Token: 0x04000A95 RID: 2709
 	private int elfProjectileHash;
 
-	// Token: 0x04000A53 RID: 2643
+	// Token: 0x04000A96 RID: 2710
 	[SerializeField]
 	private float muzzleVelocity = 10f;
 
-	// Token: 0x04000A54 RID: 2644
+	// Token: 0x04000A97 RID: 2711
 	[SerializeField]
 	private SoundBankPlayer crankClickAudio;
 
-	// Token: 0x04000A55 RID: 2645
+	// Token: 0x04000A98 RID: 2712
 	[SerializeField]
 	private SoundBankPlayer shootAudio;
 
-	// Token: 0x04000A56 RID: 2646
+	// Token: 0x04000A99 RID: 2713
 	[SerializeField]
 	private float shootHapticStrength;
 
-	// Token: 0x04000A57 RID: 2647
+	// Token: 0x04000A9A RID: 2714
 	[SerializeField]
 	private float shootHapticDuration;
 
-	// Token: 0x04000A58 RID: 2648
+	// Token: 0x04000A9B RID: 2715
 	private RubberDuckEvents _events;
 
-	// Token: 0x04000A59 RID: 2649
+	// Token: 0x04000A9C RID: 2716
 	private float currentShootCrankAmount;
 
-	// Token: 0x04000A5A RID: 2650
+	// Token: 0x04000A9D RID: 2717
 	private float currentClickCrankAmount;
 
-	// Token: 0x04000A5B RID: 2651
+	// Token: 0x04000A9E RID: 2718
 	private NetPlayer m_player;
 }

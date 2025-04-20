@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200021A RID: 538
+// Token: 0x02000225 RID: 549
 [Serializable]
 public struct XSceneRef
 {
-	// Token: 0x06000C75 RID: 3189 RVA: 0x00042388 File Offset: 0x00040588
+	// Token: 0x06000CC0 RID: 3264 RVA: 0x000A064C File Offset: 0x0009E84C
 	public bool TryResolve(out XSceneRefTarget result)
 	{
 		if (this.TargetID == 0)
@@ -30,7 +30,7 @@ public struct XSceneRef
 		return true;
 	}
 
-	// Token: 0x06000C76 RID: 3190 RVA: 0x000423F0 File Offset: 0x000405F0
+	// Token: 0x06000CC1 RID: 3265 RVA: 0x000A06B4 File Offset: 0x0009E8B4
 	public bool TryResolve(out GameObject result)
 	{
 		XSceneRefTarget xsceneRefTarget;
@@ -43,7 +43,7 @@ public struct XSceneRef
 		return false;
 	}
 
-	// Token: 0x06000C77 RID: 3191 RVA: 0x00042424 File Offset: 0x00040624
+	// Token: 0x06000CC2 RID: 3266 RVA: 0x000A06E8 File Offset: 0x0009E8E8
 	public bool TryResolve<T>(out T result) where T : Component
 	{
 		XSceneRefTarget xsceneRefTarget;
@@ -56,39 +56,39 @@ public struct XSceneRef
 		return false;
 	}
 
-	// Token: 0x06000C78 RID: 3192 RVA: 0x00042465 File Offset: 0x00040665
+	// Token: 0x06000CC3 RID: 3267 RVA: 0x00038EB4 File Offset: 0x000370B4
 	public void AddCallbackOnLoad(Action callback)
 	{
 		this.TargetScene.AddCallbackOnSceneLoad(callback);
 	}
 
-	// Token: 0x06000C79 RID: 3193 RVA: 0x00042473 File Offset: 0x00040673
+	// Token: 0x06000CC4 RID: 3268 RVA: 0x00038EC2 File Offset: 0x000370C2
 	public void RemoveCallbackOnLoad(Action callback)
 	{
 		this.TargetScene.RemoveCallbackOnSceneLoad(callback);
 	}
 
-	// Token: 0x06000C7A RID: 3194 RVA: 0x00042481 File Offset: 0x00040681
+	// Token: 0x06000CC5 RID: 3269 RVA: 0x00038ED0 File Offset: 0x000370D0
 	public void AddCallbackOnUnload(Action callback)
 	{
 		this.TargetScene.AddCallbackOnSceneUnload(callback);
 	}
 
-	// Token: 0x06000C7B RID: 3195 RVA: 0x0004248F File Offset: 0x0004068F
+	// Token: 0x06000CC6 RID: 3270 RVA: 0x00038EDE File Offset: 0x000370DE
 	public void RemoveCallbackOnUnload(Action callback)
 	{
 		this.TargetScene.RemoveCallbackOnSceneUnload(callback);
 	}
 
-	// Token: 0x04000FDE RID: 4062
+	// Token: 0x04001024 RID: 4132
 	public SceneIndex TargetScene;
 
-	// Token: 0x04000FDF RID: 4063
+	// Token: 0x04001025 RID: 4133
 	public int TargetID;
 
-	// Token: 0x04000FE0 RID: 4064
+	// Token: 0x04001026 RID: 4134
 	private XSceneRefTarget cached;
 
-	// Token: 0x04000FE1 RID: 4065
+	// Token: 0x04001027 RID: 4135
 	private bool didCache;
 }

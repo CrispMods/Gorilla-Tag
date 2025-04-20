@@ -7,13 +7,13 @@ using UnityEngine;
 // Token: 0x02000010 RID: 16
 public class LengthStiffnessComparison : MonoBehaviour
 {
-	// Token: 0x06000041 RID: 65 RVA: 0x000028DB File Offset: 0x00000ADB
+	// Token: 0x06000041 RID: 65 RVA: 0x0003078C File Offset: 0x0002E98C
 	private void Start()
 	{
 		this.m_timer = 0f;
 	}
 
-	// Token: 0x06000042 RID: 66 RVA: 0x000028E8 File Offset: 0x00000AE8
+	// Token: 0x06000042 RID: 66 RVA: 0x00067D94 File Offset: 0x00065F94
 	private void FixedUpdate()
 	{
 		BoingBones[] components = this.BonesA.GetComponents<BoingBones>();

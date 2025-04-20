@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000373 RID: 883
+// Token: 0x0200037E RID: 894
 internal struct StringVertex
 {
-	// Token: 0x040016D1 RID: 5841
+	// Token: 0x04001719 RID: 5913
 	private Vector3 p;
 
-	// Token: 0x040016D2 RID: 5842
+	// Token: 0x0400171A RID: 5914
 	private Vector3 prevp;
 }

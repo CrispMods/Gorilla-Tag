@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using UnityEngine;
 
-// Token: 0x02000336 RID: 822
+// Token: 0x02000341 RID: 833
 public class PrefabSceneManager : MonoBehaviour
 {
-	// Token: 0x06001357 RID: 4951 RVA: 0x0005E97A File Offset: 0x0005CB7A
+	// Token: 0x060013A3 RID: 5027 RVA: 0x0003D4EC File Offset: 0x0003B6EC
 	private void Start()
 	{
 		SceneManagerHelper.RequestScenePermission();
@@ -16,7 +16,7 @@ public class PrefabSceneManager : MonoBehaviour
 		base.StartCoroutine(this.UpdateAnchorsPeriodically());
 	}
 
-	// Token: 0x06001358 RID: 4952 RVA: 0x0005E994 File Offset: 0x0005CB94
+	// Token: 0x060013A4 RID: 5028 RVA: 0x000B85A0 File Offset: 0x000B67A0
 	private void LoadSceneAsync()
 	{
 		PrefabSceneManager.<LoadSceneAsync>d__7 <LoadSceneAsync>d__;
@@ -26,7 +26,7 @@ public class PrefabSceneManager : MonoBehaviour
 		<LoadSceneAsync>d__.<>t__builder.Start<PrefabSceneManager.<LoadSceneAsync>d__7>(ref <LoadSceneAsync>d__);
 	}
 
-	// Token: 0x06001359 RID: 4953 RVA: 0x0005E9CC File Offset: 0x0005CBCC
+	// Token: 0x060013A5 RID: 5029 RVA: 0x000B85D8 File Offset: 0x000B67D8
 	private Task CreateSceneAnchors(GameObject roomGameObject, OVRRoomLayout roomLayout, List<OVRAnchor> anchors)
 	{
 		PrefabSceneManager.<CreateSceneAnchors>d__8 <CreateSceneAnchors>d__;
@@ -40,7 +40,7 @@ public class PrefabSceneManager : MonoBehaviour
 		return <CreateSceneAnchors>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x0600135A RID: 4954 RVA: 0x0005EA27 File Offset: 0x0005CC27
+	// Token: 0x060013A6 RID: 5030 RVA: 0x0003D506 File Offset: 0x0003B706
 	private IEnumerator UpdateAnchorsPeriodically()
 	{
 		for (;;)
@@ -56,21 +56,21 @@ public class PrefabSceneManager : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04001571 RID: 5489
+	// Token: 0x040015B9 RID: 5561
 	public GameObject WallPrefab;
 
-	// Token: 0x04001572 RID: 5490
+	// Token: 0x040015BA RID: 5562
 	public GameObject CeilingPrefab;
 
-	// Token: 0x04001573 RID: 5491
+	// Token: 0x040015BB RID: 5563
 	public GameObject FloorPrefab;
 
-	// Token: 0x04001574 RID: 5492
+	// Token: 0x040015BC RID: 5564
 	public GameObject FallbackPrefab;
 
-	// Token: 0x04001575 RID: 5493
+	// Token: 0x040015BD RID: 5565
 	public float UpdateFrequencySeconds = 5f;
 
-	// Token: 0x04001576 RID: 5494
+	// Token: 0x040015BE RID: 5566
 	private List<ValueTuple<GameObject, OVRLocatable>> _locatableObjects = new List<ValueTuple<GameObject, OVRLocatable>>();
 }

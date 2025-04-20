@@ -3,12 +3,12 @@ using System.Runtime.CompilerServices;
 
 namespace Fusion.CodeGen
 {
-	// Token: 0x02000D10 RID: 3344
+	// Token: 0x02000D41 RID: 3393
 	[WeaverGenerated]
 	[PreserveInPlugin]
 	internal struct ReaderWriter@System_Single : IElementReaderWriter<float>
 	{
-		// Token: 0x060053D7 RID: 21463 RVA: 0x0019C3F1 File Offset: 0x0019A5F1
+		// Token: 0x06005539 RID: 21817 RVA: 0x000674A8 File Offset: 0x000656A8
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -17,7 +17,7 @@ namespace Fusion.CodeGen
 			return *(float*)(data + index * 4);
 		}
 
-		// Token: 0x060053D8 RID: 21464 RVA: 0x0019C1CC File Offset: 0x0019A3CC
+		// Token: 0x0600553A RID: 21818 RVA: 0x000673A8 File Offset: 0x000655A8
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -26,7 +26,7 @@ namespace Fusion.CodeGen
 			return ref *(float*)(data + index * 4);
 		}
 
-		// Token: 0x060053D9 RID: 21465 RVA: 0x0019C3FD File Offset: 0x0019A5FD
+		// Token: 0x0600553B RID: 21819 RVA: 0x000674B4 File Offset: 0x000656B4
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -35,7 +35,7 @@ namespace Fusion.CodeGen
 			*(float*)(data + index * 4) = val;
 		}
 
-		// Token: 0x060053DA RID: 21466 RVA: 0x000444E2 File Offset: 0x000426E2
+		// Token: 0x0600553C RID: 21820 RVA: 0x00039846 File Offset: 0x00037A46
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -44,7 +44,7 @@ namespace Fusion.CodeGen
 			return 1;
 		}
 
-		// Token: 0x060053DB RID: 21467 RVA: 0x0019C40C File Offset: 0x0019A60C
+		// Token: 0x0600553D RID: 21821 RVA: 0x001D1324 File Offset: 0x001CF524
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -53,7 +53,7 @@ namespace Fusion.CodeGen
 			return val.GetHashCode();
 		}
 
-		// Token: 0x060053DC RID: 21468 RVA: 0x0019C420 File Offset: 0x0019A620
+		// Token: 0x0600553E RID: 21822 RVA: 0x001D1338 File Offset: 0x001CF538
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[WeaverGenerated]
 		public static IElementReaderWriter<float> GetInstance()
@@ -65,7 +65,7 @@ namespace Fusion.CodeGen
 			return ReaderWriter@System_Single.Instance;
 		}
 
-		// Token: 0x0400562A RID: 22058
+		// Token: 0x04005736 RID: 22326
 		[WeaverGenerated]
 		public static IElementReaderWriter<float> Instance;
 	}

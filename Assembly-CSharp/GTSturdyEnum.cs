@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020006B7 RID: 1719
+// Token: 0x020006CC RID: 1740
 [Serializable]
 public struct GTSturdyEnum<TEnum> : ISerializationCallbackReceiver where TEnum : struct, Enum
 {
-	// Token: 0x17000482 RID: 1154
-	// (get) Token: 0x06002A87 RID: 10887 RVA: 0x000D3C81 File Offset: 0x000D1E81
-	// (set) Token: 0x06002A88 RID: 10888 RVA: 0x000D3C89 File Offset: 0x000D1E89
+	// Token: 0x1700048F RID: 1167
+	// (get) Token: 0x06002B1D RID: 11037 RVA: 0x0004D179 File Offset: 0x0004B379
+	// (set) Token: 0x06002B1E RID: 11038 RVA: 0x0004D181 File Offset: 0x0004B381
 	public TEnum Value { readonly get; private set; }
 
-	// Token: 0x06002A89 RID: 10889 RVA: 0x000D3C94 File Offset: 0x000D1E94
+	// Token: 0x06002B1F RID: 11039 RVA: 0x0011FF28 File Offset: 0x0011E128
 	public static implicit operator GTSturdyEnum<TEnum>(TEnum value)
 	{
 		return new GTSturdyEnum<TEnum>
@@ -20,13 +20,13 @@ public struct GTSturdyEnum<TEnum> : ISerializationCallbackReceiver where TEnum :
 		};
 	}
 
-	// Token: 0x06002A8A RID: 10890 RVA: 0x000D3CB2 File Offset: 0x000D1EB2
+	// Token: 0x06002B20 RID: 11040 RVA: 0x0004D18A File Offset: 0x0004B38A
 	public static implicit operator TEnum(GTSturdyEnum<TEnum> sturdyEnum)
 	{
 		return sturdyEnum.Value;
 	}
 
-	// Token: 0x06002A8B RID: 10891 RVA: 0x000D3CBC File Offset: 0x000D1EBC
+	// Token: 0x06002B21 RID: 11041 RVA: 0x0011FF48 File Offset: 0x0011E148
 	public void OnBeforeSerialize()
 	{
 		EnumData<TEnum> shared = EnumData<TEnum>.Shared;
@@ -72,7 +72,7 @@ public struct GTSturdyEnum<TEnum> : ISerializationCallbackReceiver where TEnum :
 		this.m_stringValuePairs = list.ToArray();
 	}
 
-	// Token: 0x06002A8C RID: 10892 RVA: 0x000D3E04 File Offset: 0x000D2004
+	// Token: 0x06002B22 RID: 11042 RVA: 0x00120090 File Offset: 0x0011E290
 	public void OnAfterDeserialize()
 	{
 		EnumData<TEnum> shared = EnumData<TEnum>.Shared;
@@ -119,18 +119,18 @@ public struct GTSturdyEnum<TEnum> : ISerializationCallbackReceiver where TEnum :
 		}
 	}
 
-	// Token: 0x04003015 RID: 12309
+	// Token: 0x040030B2 RID: 12466
 	[SerializeField]
 	private GTSturdyEnum<TEnum>.EnumPair[] m_stringValuePairs;
 
-	// Token: 0x020006B8 RID: 1720
+	// Token: 0x020006CD RID: 1741
 	[Serializable]
 	private struct EnumPair
 	{
-		// Token: 0x04003016 RID: 12310
+		// Token: 0x040030B3 RID: 12467
 		public string Name;
 
-		// Token: 0x04003017 RID: 12311
+		// Token: 0x040030B4 RID: 12468
 		public TEnum FallbackValue;
 	}
 }

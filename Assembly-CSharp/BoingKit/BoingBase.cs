@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace BoingKit
 {
-	// Token: 0x02000CAB RID: 3243
+	// Token: 0x02000CDC RID: 3292
 	public class BoingBase : MonoBehaviour
 	{
-		// Token: 0x1700083E RID: 2110
-		// (get) Token: 0x060051D7 RID: 20951 RVA: 0x0019165A File Offset: 0x0018F85A
+		// Token: 0x1700085C RID: 2140
+		// (get) Token: 0x06005339 RID: 21305 RVA: 0x00065F1E File Offset: 0x0006411E
 		public Version CurrentVersion
 		{
 			get
@@ -16,8 +16,8 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x1700083F RID: 2111
-		// (get) Token: 0x060051D8 RID: 20952 RVA: 0x00191662 File Offset: 0x0018F862
+		// Token: 0x1700085D RID: 2141
+		// (get) Token: 0x0600533A RID: 21306 RVA: 0x00065F26 File Offset: 0x00064126
 		public Version PreviousVersion
 		{
 			get
@@ -26,8 +26,8 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x17000840 RID: 2112
-		// (get) Token: 0x060051D9 RID: 20953 RVA: 0x0019166A File Offset: 0x0018F86A
+		// Token: 0x1700085E RID: 2142
+		// (get) Token: 0x0600533B RID: 21307 RVA: 0x00065F2E File Offset: 0x0006412E
 		public Version InitialVersion
 		{
 			get
@@ -36,7 +36,7 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x060051DA RID: 20954 RVA: 0x00191672 File Offset: 0x0018F872
+		// Token: 0x0600533C RID: 21308 RVA: 0x00065F36 File Offset: 0x00064136
 		protected virtual void OnUpgrade(Version oldVersion, Version newVersion)
 		{
 			this.m_previousVersion = this.m_currentVersion;
@@ -48,15 +48,15 @@ namespace BoingKit
 			this.m_currentVersion = newVersion;
 		}
 
-		// Token: 0x0400540E RID: 21518
+		// Token: 0x0400551A RID: 21786
 		[SerializeField]
 		private Version m_currentVersion;
 
-		// Token: 0x0400540F RID: 21519
+		// Token: 0x0400551B RID: 21787
 		[SerializeField]
 		private Version m_previousVersion;
 
-		// Token: 0x04005410 RID: 21520
+		// Token: 0x0400551C RID: 21788
 		[SerializeField]
 		private Version m_initialVersion = BoingKit.Version;
 	}

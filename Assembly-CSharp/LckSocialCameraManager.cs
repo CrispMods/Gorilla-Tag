@@ -3,11 +3,11 @@ using Liv.Lck;
 using Liv.Lck.GorillaTag;
 using UnityEngine;
 
-// Token: 0x02000241 RID: 577
+// Token: 0x0200024C RID: 588
 public class LckSocialCameraManager : MonoBehaviour
 {
-	// Token: 0x17000151 RID: 337
-	// (get) Token: 0x06000D42 RID: 3394 RVA: 0x0004490E File Offset: 0x00042B0E
+	// Token: 0x17000158 RID: 344
+	// (get) Token: 0x06000D8D RID: 3469 RVA: 0x000399E4 File Offset: 0x00037BE4
 	public LckDirectGrabbable lckDirectGrabbable
 	{
 		get
@@ -16,8 +16,8 @@ public class LckSocialCameraManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000152 RID: 338
-	// (get) Token: 0x06000D43 RID: 3395 RVA: 0x00044916 File Offset: 0x00042B16
+	// Token: 0x17000159 RID: 345
+	// (get) Token: 0x06000D8E RID: 3470 RVA: 0x000399EC File Offset: 0x00037BEC
 	public static LckSocialCameraManager Instance
 	{
 		get
@@ -26,20 +26,20 @@ public class LckSocialCameraManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000D44 RID: 3396 RVA: 0x0004491D File Offset: 0x00042B1D
+	// Token: 0x06000D8F RID: 3471 RVA: 0x000399F3 File Offset: 0x00037BF3
 	private void Awake()
 	{
 		this.SetManagerInstance();
 		this._lckCamera = this._gtLckController.GetActiveCamera();
 	}
 
-	// Token: 0x06000D45 RID: 3397 RVA: 0x00044936 File Offset: 0x00042B36
+	// Token: 0x06000D90 RID: 3472 RVA: 0x00039A0C File Offset: 0x00037C0C
 	public void SetLckSocialCamera(LckSocialCamera socialCamera)
 	{
 		this._socialCameraInstance = socialCamera;
 	}
 
-	// Token: 0x06000D46 RID: 3398 RVA: 0x0004493F File Offset: 0x00042B3F
+	// Token: 0x06000D91 RID: 3473 RVA: 0x00039A15 File Offset: 0x00037C15
 	private void SetManagerInstance()
 	{
 		LckSocialCameraManager._instance = this;
@@ -51,7 +51,7 @@ public class LckSocialCameraManager : MonoBehaviour
 		onManagerSpawned(this);
 	}
 
-	// Token: 0x06000D47 RID: 3399 RVA: 0x00044958 File Offset: 0x00042B58
+	// Token: 0x06000D92 RID: 3474 RVA: 0x000A20A8 File Offset: 0x000A02A8
 	private void OnEnable()
 	{
 		LckResult<LckService> service = LckService.GetService();
@@ -63,7 +63,7 @@ public class LckSocialCameraManager : MonoBehaviour
 		this._gtLckController.OnCameraModeChanged += this.OnCameraModeChanged;
 	}
 
-	// Token: 0x06000D48 RID: 3400 RVA: 0x000449B8 File Offset: 0x00042BB8
+	// Token: 0x06000D93 RID: 3475 RVA: 0x000A2108 File Offset: 0x000A0308
 	private void Update()
 	{
 		if (this._socialCameraInstance != null)
@@ -120,7 +120,7 @@ public class LckSocialCameraManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000D49 RID: 3401 RVA: 0x00044AFC File Offset: 0x00042CFC
+	// Token: 0x06000D94 RID: 3476 RVA: 0x000A224C File Offset: 0x000A044C
 	private void OnDisable()
 	{
 		LckResult<LckService> service = LckService.GetService();
@@ -132,9 +132,9 @@ public class LckSocialCameraManager : MonoBehaviour
 		this._gtLckController.OnCameraModeChanged -= this.OnCameraModeChanged;
 	}
 
-	// Token: 0x17000153 RID: 339
-	// (get) Token: 0x06000D4A RID: 3402 RVA: 0x00044B5C File Offset: 0x00042D5C
-	// (set) Token: 0x06000D4B RID: 3403 RVA: 0x00044B69 File Offset: 0x00042D69
+	// Token: 0x1700015A RID: 346
+	// (get) Token: 0x06000D95 RID: 3477 RVA: 0x00039A2D File Offset: 0x00037C2D
+	// (set) Token: 0x06000D96 RID: 3478 RVA: 0x00039A3A File Offset: 0x00037C3A
 	public bool cameraActive
 	{
 		get
@@ -151,9 +151,9 @@ public class LckSocialCameraManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000154 RID: 340
-	// (get) Token: 0x06000D4C RID: 3404 RVA: 0x00044B86 File Offset: 0x00042D86
-	// (set) Token: 0x06000D4D RID: 3405 RVA: 0x00044B93 File Offset: 0x00042D93
+	// Token: 0x1700015B RID: 347
+	// (get) Token: 0x06000D97 RID: 3479 RVA: 0x00039A57 File Offset: 0x00037C57
+	// (set) Token: 0x06000D98 RID: 3480 RVA: 0x00039A64 File Offset: 0x00037C64
 	public bool uiVisible
 	{
 		get
@@ -166,61 +166,61 @@ public class LckSocialCameraManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000D4E RID: 3406 RVA: 0x00044BA1 File Offset: 0x00042DA1
+	// Token: 0x06000D99 RID: 3481 RVA: 0x00039A72 File Offset: 0x00037C72
 	private void OnRecordingStarted(LckResult result)
 	{
 		this._recording = result.Success;
 	}
 
-	// Token: 0x06000D4F RID: 3407 RVA: 0x00044BAF File Offset: 0x00042DAF
+	// Token: 0x06000D9A RID: 3482 RVA: 0x00039A80 File Offset: 0x00037C80
 	private void OnRecordingStopped(LckResult result)
 	{
 		this._recording = false;
 	}
 
-	// Token: 0x06000D50 RID: 3408 RVA: 0x00044BB8 File Offset: 0x00042DB8
+	// Token: 0x06000D9B RID: 3483 RVA: 0x00039A89 File Offset: 0x00037C89
 	private void OnCameraModeChanged(CameraMode mode, ILckCamera lckCamera)
 	{
 		this._lckCamera = lckCamera.GetCameraComponent();
 		this._lckActiveCameraMode = mode;
 	}
 
-	// Token: 0x0400107E RID: 4222
+	// Token: 0x040010C4 RID: 4292
 	[SerializeField]
 	private GameObject _localUi;
 
-	// Token: 0x0400107F RID: 4223
+	// Token: 0x040010C5 RID: 4293
 	[SerializeField]
 	private GameObject _localCameras;
 
-	// Token: 0x04001080 RID: 4224
+	// Token: 0x040010C6 RID: 4294
 	[SerializeField]
 	private GTLckController _gtLckController;
 
-	// Token: 0x04001081 RID: 4225
+	// Token: 0x040010C7 RID: 4295
 	[SerializeField]
 	private LckDirectGrabbable _lckDirectGrabbable;
 
-	// Token: 0x04001082 RID: 4226
+	// Token: 0x040010C8 RID: 4296
 	[SerializeField]
 	public CoconutCamera CoconutCamera;
 
-	// Token: 0x04001083 RID: 4227
+	// Token: 0x040010C9 RID: 4297
 	private LckSocialCamera _socialCameraInstance;
 
-	// Token: 0x04001084 RID: 4228
+	// Token: 0x040010CA RID: 4298
 	private Camera _lckCamera;
 
-	// Token: 0x04001085 RID: 4229
+	// Token: 0x040010CB RID: 4299
 	private CameraMode _lckActiveCameraMode;
 
-	// Token: 0x04001086 RID: 4230
+	// Token: 0x040010CC RID: 4300
 	[OnEnterPlay_SetNull]
 	private static LckSocialCameraManager _instance;
 
-	// Token: 0x04001087 RID: 4231
+	// Token: 0x040010CD RID: 4301
 	public static Action<LckSocialCameraManager> OnManagerSpawned;
 
-	// Token: 0x04001088 RID: 4232
+	// Token: 0x040010CE RID: 4302
 	private bool _recording;
 }

@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200040B RID: 1035
+// Token: 0x02000416 RID: 1046
 [DefaultExecutionOrder(1549)]
 public class TransferrableObjectManager : MonoBehaviour
 {
-	// Token: 0x06001996 RID: 6550 RVA: 0x0007E442 File Offset: 0x0007C642
+	// Token: 0x060019E3 RID: 6627 RVA: 0x00041685 File Offset: 0x0003F885
 	protected void Awake()
 	{
 		if (TransferrableObjectManager.hasInstance && TransferrableObjectManager.instance != this)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 			return;
 		}
 		TransferrableObjectManager.SetInstance(this);
 	}
 
-	// Token: 0x06001997 RID: 6551 RVA: 0x0007E465 File Offset: 0x0007C665
+	// Token: 0x060019E4 RID: 6628 RVA: 0x000416A8 File Offset: 0x0003F8A8
 	protected void OnDestroy()
 	{
 		if (TransferrableObjectManager.instance == this)
@@ -27,7 +27,7 @@ public class TransferrableObjectManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001998 RID: 6552 RVA: 0x0007E480 File Offset: 0x0007C680
+	// Token: 0x060019E5 RID: 6629 RVA: 0x000D3DBC File Offset: 0x000D1FBC
 	protected void LateUpdate()
 	{
 		for (int i = 0; i < TransferrableObjectManager.transObs.Count; i++)
@@ -36,24 +36,24 @@ public class TransferrableObjectManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001999 RID: 6553 RVA: 0x0007E4B2 File Offset: 0x0007C6B2
+	// Token: 0x060019E6 RID: 6630 RVA: 0x000416C3 File Offset: 0x0003F8C3
 	public static void CreateManager()
 	{
 		TransferrableObjectManager.SetInstance(new GameObject("TransferrableObjectManager").AddComponent<TransferrableObjectManager>());
 	}
 
-	// Token: 0x0600199A RID: 6554 RVA: 0x0007E4C8 File Offset: 0x0007C6C8
+	// Token: 0x060019E7 RID: 6631 RVA: 0x000416D9 File Offset: 0x0003F8D9
 	private static void SetInstance(TransferrableObjectManager manager)
 	{
 		TransferrableObjectManager.instance = manager;
 		TransferrableObjectManager.hasInstance = true;
 		if (Application.isPlaying)
 		{
-			Object.DontDestroyOnLoad(manager);
+			UnityEngine.Object.DontDestroyOnLoad(manager);
 		}
 	}
 
-	// Token: 0x0600199B RID: 6555 RVA: 0x0007E4E3 File Offset: 0x0007C6E3
+	// Token: 0x060019E8 RID: 6632 RVA: 0x000416F4 File Offset: 0x0003F8F4
 	public static void Register(TransferrableObject transOb)
 	{
 		if (!TransferrableObjectManager.hasInstance)
@@ -66,7 +66,7 @@ public class TransferrableObjectManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600199C RID: 6556 RVA: 0x0007E509 File Offset: 0x0007C709
+	// Token: 0x060019E9 RID: 6633 RVA: 0x0004171A File Offset: 0x0003F91A
 	public static void Unregister(TransferrableObject transOb)
 	{
 		if (!TransferrableObjectManager.hasInstance)
@@ -79,12 +79,12 @@ public class TransferrableObjectManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001C82 RID: 7298
+	// Token: 0x04001CCB RID: 7371
 	public static TransferrableObjectManager instance;
 
-	// Token: 0x04001C83 RID: 7299
+	// Token: 0x04001CCC RID: 7372
 	public static bool hasInstance = false;
 
-	// Token: 0x04001C84 RID: 7300
+	// Token: 0x04001CCD RID: 7373
 	public static readonly List<TransferrableObject> transObs = new List<TransferrableObject>(1024);
 }

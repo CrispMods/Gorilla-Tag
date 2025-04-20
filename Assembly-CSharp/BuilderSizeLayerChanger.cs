@@ -2,11 +2,11 @@
 using GorillaLocomotion;
 using UnityEngine;
 
-// Token: 0x020004B3 RID: 1203
+// Token: 0x020004C0 RID: 1216
 public class BuilderSizeLayerChanger : MonoBehaviour
 {
-	// Token: 0x17000312 RID: 786
-	// (get) Token: 0x06001D21 RID: 7457 RVA: 0x0008DE44 File Offset: 0x0008C044
+	// Token: 0x17000319 RID: 793
+	// (get) Token: 0x06001D7A RID: 7546 RVA: 0x000E112C File Offset: 0x000DF32C
 	public int SizeLayerMask
 	{
 		get
@@ -32,13 +32,13 @@ public class BuilderSizeLayerChanger : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D22 RID: 7458 RVA: 0x0008DE84 File Offset: 0x0008C084
+	// Token: 0x06001D7B RID: 7547 RVA: 0x0004429A File Offset: 0x0004249A
 	private void Awake()
 	{
 		this.minScale = Mathf.Max(this.minScale, 0.01f);
 	}
 
-	// Token: 0x06001D23 RID: 7459 RVA: 0x0008DE9C File Offset: 0x0008C09C
+	// Token: 0x06001D7C RID: 7548 RVA: 0x000E116C File Offset: 0x000DF36C
 	public void OnTriggerEnter(Collider other)
 	{
 		if (other != GTPlayer.Instance.bodyCollider)
@@ -60,7 +60,7 @@ public class BuilderSizeLayerChanger : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D24 RID: 7460 RVA: 0x0008DF28 File Offset: 0x0008C128
+	// Token: 0x06001D7D RID: 7549 RVA: 0x000E11F8 File Offset: 0x000DF3F8
 	public void OnTriggerExit(Collider other)
 	{
 		if (other != GTPlayer.Instance.bodyCollider)
@@ -82,36 +82,36 @@ public class BuilderSizeLayerChanger : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002022 RID: 8226
+	// Token: 0x04002075 RID: 8309
 	public float maxScale;
 
-	// Token: 0x04002023 RID: 8227
+	// Token: 0x04002076 RID: 8310
 	public float minScale;
 
-	// Token: 0x04002024 RID: 8228
+	// Token: 0x04002077 RID: 8311
 	public bool isAssurance;
 
-	// Token: 0x04002025 RID: 8229
+	// Token: 0x04002078 RID: 8312
 	public bool affectLayerA = true;
 
-	// Token: 0x04002026 RID: 8230
+	// Token: 0x04002079 RID: 8313
 	public bool affectLayerB = true;
 
-	// Token: 0x04002027 RID: 8231
+	// Token: 0x0400207A RID: 8314
 	public bool affectLayerC = true;
 
-	// Token: 0x04002028 RID: 8232
+	// Token: 0x0400207B RID: 8315
 	public bool affectLayerD = true;
 
-	// Token: 0x04002029 RID: 8233
+	// Token: 0x0400207C RID: 8316
 	[SerializeField]
 	private bool applyOnTriggerEnter = true;
 
-	// Token: 0x0400202A RID: 8234
+	// Token: 0x0400207D RID: 8317
 	[SerializeField]
 	private bool applyOnTriggerExit;
 
-	// Token: 0x0400202B RID: 8235
+	// Token: 0x0400207E RID: 8318
 	[SerializeField]
 	private GameObject fxForLayerChange;
 }

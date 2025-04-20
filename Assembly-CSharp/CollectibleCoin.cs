@@ -5,7 +5,7 @@ using UnityEngine;
 // Token: 0x02000016 RID: 22
 public class CollectibleCoin : MonoBehaviour
 {
-	// Token: 0x06000053 RID: 83 RVA: 0x000031AC File Offset: 0x000013AC
+	// Token: 0x06000053 RID: 83 RVA: 0x00068578 File Offset: 0x00066778
 	public void Update()
 	{
 		BoingBehavior component = base.GetComponent<BoingBehavior>();

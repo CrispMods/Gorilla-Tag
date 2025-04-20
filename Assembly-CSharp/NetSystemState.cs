@@ -1,18 +1,18 @@
 ﻿using System;
 
-// Token: 0x02000285 RID: 645
+// Token: 0x02000290 RID: 656
 public enum NetSystemState
 {
-	// Token: 0x040011C6 RID: 4550
+	// Token: 0x0400120E RID: 4622
 	Initialization,
-	// Token: 0x040011C7 RID: 4551
+	// Token: 0x0400120F RID: 4623
 	PingRecon,
-	// Token: 0x040011C8 RID: 4552
+	// Token: 0x04001210 RID: 4624
 	Idle,
-	// Token: 0x040011C9 RID: 4553
+	// Token: 0x04001211 RID: 4625
 	Connecting,
-	// Token: 0x040011CA RID: 4554
+	// Token: 0x04001212 RID: 4626
 	InGame,
-	// Token: 0x040011CB RID: 4555
+	// Token: 0x04001213 RID: 4627
 	Disconnecting
 }

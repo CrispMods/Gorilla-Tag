@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace GorillaTagScripts.AI
 {
-	// Token: 0x02000A12 RID: 2578
+	// Token: 0x02000A3F RID: 2623
 	public class StateMachine
 	{
-		// Token: 0x0600408E RID: 16526 RVA: 0x00133230 File Offset: 0x00131430
+		// Token: 0x060041D3 RID: 16851 RVA: 0x001739B0 File Offset: 0x00171BB0
 		public void Tick()
 		{
 			StateMachine.Transition transition = this.GetTransition();
@@ -22,7 +22,7 @@ namespace GorillaTagScripts.AI
 			currentState.Tick();
 		}
 
-		// Token: 0x0600408F RID: 16527 RVA: 0x00133264 File Offset: 0x00131464
+		// Token: 0x060041D4 RID: 16852 RVA: 0x001739E4 File Offset: 0x00171BE4
 		public void SetState(IState state)
 		{
 			if (state == this._currentState)
@@ -43,13 +43,13 @@ namespace GorillaTagScripts.AI
 			this._currentState.OnEnter();
 		}
 
-		// Token: 0x06004090 RID: 16528 RVA: 0x001332CE File Offset: 0x001314CE
+		// Token: 0x060041D5 RID: 16853 RVA: 0x0005B0C4 File Offset: 0x000592C4
 		public IState GetState()
 		{
 			return this._currentState;
 		}
 
-		// Token: 0x06004091 RID: 16529 RVA: 0x001332D8 File Offset: 0x001314D8
+		// Token: 0x060041D6 RID: 16854 RVA: 0x00173A50 File Offset: 0x00171C50
 		public void AddTransition(IState from, IState to, Func<bool> predicate)
 		{
 			List<StateMachine.Transition> list;
@@ -61,13 +61,13 @@ namespace GorillaTagScripts.AI
 			list.Add(new StateMachine.Transition(to, predicate));
 		}
 
-		// Token: 0x06004092 RID: 16530 RVA: 0x0013331F File Offset: 0x0013151F
+		// Token: 0x060041D7 RID: 16855 RVA: 0x0005B0CC File Offset: 0x000592CC
 		public void AddAnyTransition(IState state, Func<bool> predicate)
 		{
 			this._anyTransitions.Add(new StateMachine.Transition(state, predicate));
 		}
 
-		// Token: 0x06004093 RID: 16531 RVA: 0x00133334 File Offset: 0x00131534
+		// Token: 0x060041D8 RID: 16856 RVA: 0x00173A98 File Offset: 0x00171C98
 		private StateMachine.Transition GetTransition()
 		{
 			foreach (StateMachine.Transition transition in this._anyTransitions)
@@ -87,33 +87,33 @@ namespace GorillaTagScripts.AI
 			return null;
 		}
 
-		// Token: 0x040041CC RID: 16844
+		// Token: 0x040042C6 RID: 17094
 		private IState _currentState;
 
-		// Token: 0x040041CD RID: 16845
+		// Token: 0x040042C7 RID: 17095
 		private Dictionary<Type, List<StateMachine.Transition>> _transitions = new Dictionary<Type, List<StateMachine.Transition>>();
 
-		// Token: 0x040041CE RID: 16846
+		// Token: 0x040042C8 RID: 17096
 		private List<StateMachine.Transition> _currentTransitions = new List<StateMachine.Transition>();
 
-		// Token: 0x040041CF RID: 16847
+		// Token: 0x040042C9 RID: 17097
 		private List<StateMachine.Transition> _anyTransitions = new List<StateMachine.Transition>();
 
-		// Token: 0x040041D0 RID: 16848
+		// Token: 0x040042CA RID: 17098
 		private static List<StateMachine.Transition> EmptyTransitions = new List<StateMachine.Transition>(0);
 
-		// Token: 0x02000A13 RID: 2579
+		// Token: 0x02000A40 RID: 2624
 		private class Transition
 		{
-			// Token: 0x1700066F RID: 1647
-			// (get) Token: 0x06004096 RID: 16534 RVA: 0x00133416 File Offset: 0x00131616
+			// Token: 0x1700068B RID: 1675
+			// (get) Token: 0x060041DB RID: 16859 RVA: 0x0005B116 File Offset: 0x00059316
 			public Func<bool> Condition { get; }
 
-			// Token: 0x17000670 RID: 1648
-			// (get) Token: 0x06004097 RID: 16535 RVA: 0x0013341E File Offset: 0x0013161E
+			// Token: 0x1700068C RID: 1676
+			// (get) Token: 0x060041DC RID: 16860 RVA: 0x0005B11E File Offset: 0x0005931E
 			public IState To { get; }
 
-			// Token: 0x06004098 RID: 16536 RVA: 0x00133426 File Offset: 0x00131626
+			// Token: 0x060041DD RID: 16861 RVA: 0x0005B126 File Offset: 0x00059326
 			public Transition(IState to, Func<bool> condition)
 			{
 				this.To = to;

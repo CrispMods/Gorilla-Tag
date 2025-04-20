@@ -4,258 +4,258 @@ using emotitron.Compression.Utilities;
 
 namespace emotitron.Compression
 {
-	// Token: 0x02000C6B RID: 3179
+	// Token: 0x02000C9C RID: 3228
 	public static class PrimitiveSerializeExt
 	{
-		// Token: 0x06004FBF RID: 20415 RVA: 0x00185EE6 File Offset: 0x001840E6
+		// Token: 0x0600511F RID: 20767 RVA: 0x00064B33 File Offset: 0x00062D33
 		public static void Inject(this ByteConverter value, ref ulong buffer, ref int bitposition, int bits)
 		{
 			value.Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FC0 RID: 20416 RVA: 0x00185EF6 File Offset: 0x001840F6
+		// Token: 0x06005120 RID: 20768 RVA: 0x00064B43 File Offset: 0x00062D43
 		public static void Inject(this ByteConverter value, ref uint buffer, ref int bitposition, int bits)
 		{
 			value.Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FC1 RID: 20417 RVA: 0x00185F06 File Offset: 0x00184106
+		// Token: 0x06005121 RID: 20769 RVA: 0x00064B53 File Offset: 0x00062D53
 		public static void Inject(this ByteConverter value, ref ushort buffer, ref int bitposition, int bits)
 		{
 			value.Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FC2 RID: 20418 RVA: 0x00185F16 File Offset: 0x00184116
+		// Token: 0x06005122 RID: 20770 RVA: 0x00064B63 File Offset: 0x00062D63
 		public static void Inject(this ByteConverter value, ref byte buffer, ref int bitposition, int bits)
 		{
 			value.Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FC3 RID: 20419 RVA: 0x00185F28 File Offset: 0x00184128
+		// Token: 0x06005123 RID: 20771 RVA: 0x001BD94C File Offset: 0x001BBB4C
 		public static ulong WriteSigned(this ulong buffer, int value, ref int bitposition, int bits)
 		{
 			uint num = (uint)(value << 1 ^ value >> 31);
 			return buffer.Write((ulong)num, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FC4 RID: 20420 RVA: 0x00185F48 File Offset: 0x00184148
+		// Token: 0x06005124 RID: 20772 RVA: 0x00064B73 File Offset: 0x00062D73
 		public static void InjectSigned(this long value, ref ulong buffer, ref int bitposition, int bits)
 		{
 			((uint)(value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FC5 RID: 20421 RVA: 0x00185F5B File Offset: 0x0018415B
+		// Token: 0x06005125 RID: 20773 RVA: 0x00064B86 File Offset: 0x00062D86
 		public static void InjectSigned(this int value, ref ulong buffer, ref int bitposition, int bits)
 		{
 			((uint)(value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FC6 RID: 20422 RVA: 0x00185F5B File Offset: 0x0018415B
+		// Token: 0x06005126 RID: 20774 RVA: 0x00064B86 File Offset: 0x00062D86
 		public static void InjectSigned(this short value, ref ulong buffer, ref int bitposition, int bits)
 		{
 			((uint)((int)value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FC7 RID: 20423 RVA: 0x00185F5B File Offset: 0x0018415B
+		// Token: 0x06005127 RID: 20775 RVA: 0x00064B86 File Offset: 0x00062D86
 		public static void InjectSigned(this sbyte value, ref ulong buffer, ref int bitposition, int bits)
 		{
 			((uint)((int)value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FC8 RID: 20424 RVA: 0x00185F70 File Offset: 0x00184170
+		// Token: 0x06005128 RID: 20776 RVA: 0x001BD96C File Offset: 0x001BBB6C
 		public static int ReadSigned(this ulong buffer, ref int bitposition, int bits)
 		{
 			uint num = (uint)buffer.Read(ref bitposition, bits);
 			return (int)((ulong)(num >> 1) ^ (ulong)((long)(-(long)(num & 1U))));
 		}
 
-		// Token: 0x06004FC9 RID: 20425 RVA: 0x00185F94 File Offset: 0x00184194
+		// Token: 0x06005129 RID: 20777 RVA: 0x001BD990 File Offset: 0x001BBB90
 		public static uint WriteSigned(this uint buffer, int value, ref int bitposition, int bits)
 		{
 			uint num = (uint)(value << 1 ^ value >> 31);
 			return buffer.Write((ulong)num, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FCA RID: 20426 RVA: 0x00185FB4 File Offset: 0x001841B4
+		// Token: 0x0600512A RID: 20778 RVA: 0x00064B98 File Offset: 0x00062D98
 		public static void InjectSigned(this long value, ref uint buffer, ref int bitposition, int bits)
 		{
 			((uint)(value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FCB RID: 20427 RVA: 0x00185FC7 File Offset: 0x001841C7
+		// Token: 0x0600512B RID: 20779 RVA: 0x00064BAB File Offset: 0x00062DAB
 		public static void InjectSigned(this int value, ref uint buffer, ref int bitposition, int bits)
 		{
 			((uint)(value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FCC RID: 20428 RVA: 0x00185FC7 File Offset: 0x001841C7
+		// Token: 0x0600512C RID: 20780 RVA: 0x00064BAB File Offset: 0x00062DAB
 		public static void InjectSigned(this short value, ref uint buffer, ref int bitposition, int bits)
 		{
 			((uint)((int)value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FCD RID: 20429 RVA: 0x00185FC7 File Offset: 0x001841C7
+		// Token: 0x0600512D RID: 20781 RVA: 0x00064BAB File Offset: 0x00062DAB
 		public static void InjectSigned(this sbyte value, ref uint buffer, ref int bitposition, int bits)
 		{
 			((uint)((int)value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FCE RID: 20430 RVA: 0x00185FDC File Offset: 0x001841DC
+		// Token: 0x0600512E RID: 20782 RVA: 0x001BD9B0 File Offset: 0x001BBBB0
 		public static int ReadSigned(this uint buffer, ref int bitposition, int bits)
 		{
 			uint num = buffer.Read(ref bitposition, bits);
 			return (int)((ulong)(num >> 1) ^ (ulong)((long)(-(long)(num & 1U))));
 		}
 
-		// Token: 0x06004FCF RID: 20431 RVA: 0x00186000 File Offset: 0x00184200
+		// Token: 0x0600512F RID: 20783 RVA: 0x001BD9D4 File Offset: 0x001BBBD4
 		public static ushort WriteSigned(this ushort buffer, int value, ref int bitposition, int bits)
 		{
 			uint num = (uint)(value << 1 ^ value >> 31);
 			return buffer.Write((ulong)num, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FD0 RID: 20432 RVA: 0x00186020 File Offset: 0x00184220
+		// Token: 0x06005130 RID: 20784 RVA: 0x00064BBD File Offset: 0x00062DBD
 		public static void InjectSigned(this long value, ref ushort buffer, ref int bitposition, int bits)
 		{
 			((uint)(value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FD1 RID: 20433 RVA: 0x00186033 File Offset: 0x00184233
+		// Token: 0x06005131 RID: 20785 RVA: 0x00064BD0 File Offset: 0x00062DD0
 		public static void InjectSigned(this int value, ref ushort buffer, ref int bitposition, int bits)
 		{
 			((uint)(value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FD2 RID: 20434 RVA: 0x00186033 File Offset: 0x00184233
+		// Token: 0x06005132 RID: 20786 RVA: 0x00064BD0 File Offset: 0x00062DD0
 		public static void InjectSigned(this short value, ref ushort buffer, ref int bitposition, int bits)
 		{
 			((uint)((int)value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FD3 RID: 20435 RVA: 0x00186033 File Offset: 0x00184233
+		// Token: 0x06005133 RID: 20787 RVA: 0x00064BD0 File Offset: 0x00062DD0
 		public static void InjectSigned(this sbyte value, ref ushort buffer, ref int bitposition, int bits)
 		{
 			((uint)((int)value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FD4 RID: 20436 RVA: 0x00186048 File Offset: 0x00184248
+		// Token: 0x06005134 RID: 20788 RVA: 0x001BD9F4 File Offset: 0x001BBBF4
 		public static int ReadSigned(this ushort buffer, ref int bitposition, int bits)
 		{
 			uint num = buffer.Read(ref bitposition, bits);
 			return (int)((ulong)(num >> 1) ^ (ulong)((long)(-(long)(num & 1U))));
 		}
 
-		// Token: 0x06004FD5 RID: 20437 RVA: 0x0018606C File Offset: 0x0018426C
+		// Token: 0x06005135 RID: 20789 RVA: 0x001BDA18 File Offset: 0x001BBC18
 		public static byte WriteSigned(this byte buffer, int value, ref int bitposition, int bits)
 		{
 			uint num = (uint)(value << 1 ^ value >> 31);
 			return buffer.Write((ulong)num, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FD6 RID: 20438 RVA: 0x0018608C File Offset: 0x0018428C
+		// Token: 0x06005136 RID: 20790 RVA: 0x00064BE2 File Offset: 0x00062DE2
 		public static void InjectSigned(this long value, ref byte buffer, ref int bitposition, int bits)
 		{
 			((uint)(value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FD7 RID: 20439 RVA: 0x0018609F File Offset: 0x0018429F
+		// Token: 0x06005137 RID: 20791 RVA: 0x00064BF5 File Offset: 0x00062DF5
 		public static void InjectSigned(this int value, ref byte buffer, ref int bitposition, int bits)
 		{
 			((uint)(value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FD8 RID: 20440 RVA: 0x0018609F File Offset: 0x0018429F
+		// Token: 0x06005138 RID: 20792 RVA: 0x00064BF5 File Offset: 0x00062DF5
 		public static void InjectSigned(this short value, ref byte buffer, ref int bitposition, int bits)
 		{
 			((uint)((int)value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FD9 RID: 20441 RVA: 0x0018609F File Offset: 0x0018429F
+		// Token: 0x06005139 RID: 20793 RVA: 0x00064BF5 File Offset: 0x00062DF5
 		public static void InjectSigned(this sbyte value, ref byte buffer, ref int bitposition, int bits)
 		{
 			((uint)((int)value << 1 ^ value >> 31)).Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FDA RID: 20442 RVA: 0x001860B4 File Offset: 0x001842B4
+		// Token: 0x0600513A RID: 20794 RVA: 0x001BDA38 File Offset: 0x001BBC38
 		public static int ReadSigned(this byte buffer, ref int bitposition, int bits)
 		{
 			uint num = buffer.Read(ref bitposition, bits);
 			return (int)((ulong)(num >> 1) ^ (ulong)((long)(-(long)(num & 1U))));
 		}
 
-		// Token: 0x06004FDB RID: 20443 RVA: 0x001860D5 File Offset: 0x001842D5
+		// Token: 0x0600513B RID: 20795 RVA: 0x00064C07 File Offset: 0x00062E07
 		public static ulong WritetBool(this ulong buffer, bool value, ref int bitposition)
 		{
 			return buffer.Write((ulong)(value ? 1L : 0L), ref bitposition, 1);
 		}
 
-		// Token: 0x06004FDC RID: 20444 RVA: 0x001860E7 File Offset: 0x001842E7
+		// Token: 0x0600513C RID: 20796 RVA: 0x00064C19 File Offset: 0x00062E19
 		public static uint WritetBool(this uint buffer, bool value, ref int bitposition)
 		{
 			return buffer.Write((ulong)(value ? 1L : 0L), ref bitposition, 1);
 		}
 
-		// Token: 0x06004FDD RID: 20445 RVA: 0x001860F9 File Offset: 0x001842F9
+		// Token: 0x0600513D RID: 20797 RVA: 0x00064C2B File Offset: 0x00062E2B
 		public static ushort WritetBool(this ushort buffer, bool value, ref int bitposition)
 		{
 			return buffer.Write((ulong)(value ? 1L : 0L), ref bitposition, 1);
 		}
 
-		// Token: 0x06004FDE RID: 20446 RVA: 0x0018610B File Offset: 0x0018430B
+		// Token: 0x0600513E RID: 20798 RVA: 0x00064C3D File Offset: 0x00062E3D
 		public static byte WritetBool(this byte buffer, bool value, ref int bitposition)
 		{
 			return buffer.Write((ulong)(value ? 1L : 0L), ref bitposition, 1);
 		}
 
-		// Token: 0x06004FDF RID: 20447 RVA: 0x0018611D File Offset: 0x0018431D
+		// Token: 0x0600513F RID: 20799 RVA: 0x00064C4F File Offset: 0x00062E4F
 		public static void Inject(this bool value, ref ulong buffer, ref int bitposition)
 		{
 			((ulong)(value ? 1L : 0L)).Inject(ref buffer, ref bitposition, 1);
 		}
 
-		// Token: 0x06004FE0 RID: 20448 RVA: 0x0018612F File Offset: 0x0018432F
+		// Token: 0x06005140 RID: 20800 RVA: 0x00064C61 File Offset: 0x00062E61
 		public static void Inject(this bool value, ref uint buffer, ref int bitposition)
 		{
 			((ulong)(value ? 1L : 0L)).Inject(ref buffer, ref bitposition, 1);
 		}
 
-		// Token: 0x06004FE1 RID: 20449 RVA: 0x00186141 File Offset: 0x00184341
+		// Token: 0x06005141 RID: 20801 RVA: 0x00064C73 File Offset: 0x00062E73
 		public static void Inject(this bool value, ref ushort buffer, ref int bitposition)
 		{
 			((ulong)(value ? 1L : 0L)).Inject(ref buffer, ref bitposition, 1);
 		}
 
-		// Token: 0x06004FE2 RID: 20450 RVA: 0x00186153 File Offset: 0x00184353
+		// Token: 0x06005142 RID: 20802 RVA: 0x00064C85 File Offset: 0x00062E85
 		public static void Inject(this bool value, ref byte buffer, ref int bitposition)
 		{
 			((ulong)(value ? 1L : 0L)).Inject(ref buffer, ref bitposition, 1);
 		}
 
-		// Token: 0x06004FE3 RID: 20451 RVA: 0x00186165 File Offset: 0x00184365
+		// Token: 0x06005143 RID: 20803 RVA: 0x00064C97 File Offset: 0x00062E97
 		public static bool ReadBool(this ulong buffer, ref int bitposition)
 		{
 			return buffer.Read(ref bitposition, 1) != 0UL;
 		}
 
-		// Token: 0x06004FE4 RID: 20452 RVA: 0x00186174 File Offset: 0x00184374
+		// Token: 0x06005144 RID: 20804 RVA: 0x00064CA6 File Offset: 0x00062EA6
 		public static bool ReadtBool(this uint buffer, ref int bitposition)
 		{
 			return buffer.Read(ref bitposition, 1) != 0U;
 		}
 
-		// Token: 0x06004FE5 RID: 20453 RVA: 0x00186183 File Offset: 0x00184383
+		// Token: 0x06005145 RID: 20805 RVA: 0x00064CB5 File Offset: 0x00062EB5
 		public static bool ReadBool(this ushort buffer, ref int bitposition)
 		{
 			return buffer.Read(ref bitposition, 1) != 0U;
 		}
 
-		// Token: 0x06004FE6 RID: 20454 RVA: 0x00186192 File Offset: 0x00184392
+		// Token: 0x06005146 RID: 20806 RVA: 0x00064CC4 File Offset: 0x00062EC4
 		public static bool ReadBool(this byte buffer, ref int bitposition)
 		{
 			return buffer.Read(ref bitposition, 1) != 0U;
 		}
 
-		// Token: 0x06004FE7 RID: 20455 RVA: 0x001861A4 File Offset: 0x001843A4
+		// Token: 0x06005147 RID: 20807 RVA: 0x001BDA5C File Offset: 0x001BBC5C
 		public static ulong Write(this ulong buffer, ulong value, ref int bitposition, int bits = 64)
 		{
 			ulong num = value << bitposition;
@@ -266,7 +266,7 @@ namespace emotitron.Compression
 			return buffer;
 		}
 
-		// Token: 0x06004FE8 RID: 20456 RVA: 0x001861E0 File Offset: 0x001843E0
+		// Token: 0x06005148 RID: 20808 RVA: 0x001BDA98 File Offset: 0x001BBC98
 		public static uint Write(this uint buffer, ulong value, ref int bitposition, int bits = 64)
 		{
 			uint num = (uint)value << bitposition;
@@ -277,7 +277,7 @@ namespace emotitron.Compression
 			return buffer;
 		}
 
-		// Token: 0x06004FE9 RID: 20457 RVA: 0x0018621C File Offset: 0x0018441C
+		// Token: 0x06005149 RID: 20809 RVA: 0x001BDAD4 File Offset: 0x001BBCD4
 		public static ushort Write(this ushort buffer, ulong value, ref int bitposition, int bits = 64)
 		{
 			uint num = (uint)value << bitposition;
@@ -287,7 +287,7 @@ namespace emotitron.Compression
 			return buffer;
 		}
 
-		// Token: 0x06004FEA RID: 20458 RVA: 0x00186258 File Offset: 0x00184458
+		// Token: 0x0600514A RID: 20810 RVA: 0x001BDB10 File Offset: 0x001BBD10
 		public static byte Write(this byte buffer, ulong value, ref int bitposition, int bits = 64)
 		{
 			uint num = (uint)value << bitposition;
@@ -297,13 +297,13 @@ namespace emotitron.Compression
 			return buffer;
 		}
 
-		// Token: 0x06004FEB RID: 20459 RVA: 0x00186293 File Offset: 0x00184493
+		// Token: 0x0600514B RID: 20811 RVA: 0x00064CD3 File Offset: 0x00062ED3
 		public static void Inject(this ulong value, ref ulong buffer, ref int bitposition, int bits = 64)
 		{
 			buffer = buffer.Write(value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FEC RID: 20460 RVA: 0x001862A4 File Offset: 0x001844A4
+		// Token: 0x0600514C RID: 20812 RVA: 0x001BDB4C File Offset: 0x001BBD4C
 		public static void Inject(this ulong value, ref ulong buffer, int bitposition, int bits = 64)
 		{
 			ulong num = value << bitposition;
@@ -312,13 +312,13 @@ namespace emotitron.Compression
 			buffer |= (num2 & num);
 		}
 
-		// Token: 0x06004FED RID: 20461 RVA: 0x001862D7 File Offset: 0x001844D7
+		// Token: 0x0600514D RID: 20813 RVA: 0x00064CE1 File Offset: 0x00062EE1
 		public static void Inject(this uint value, ref ulong buffer, ref int bitposition, int bits = 32)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FEE RID: 20462 RVA: 0x001862E8 File Offset: 0x001844E8
+		// Token: 0x0600514E RID: 20814 RVA: 0x001BDB80 File Offset: 0x001BBD80
 		public static void Inject(this uint value, ref ulong buffer, int bitposition, int bits = 32)
 		{
 			ulong num = (ulong)value << bitposition;
@@ -327,230 +327,230 @@ namespace emotitron.Compression
 			buffer |= (num2 & num);
 		}
 
-		// Token: 0x06004FEF RID: 20463 RVA: 0x001862D7 File Offset: 0x001844D7
+		// Token: 0x0600514F RID: 20815 RVA: 0x00064CE1 File Offset: 0x00062EE1
 		public static void Inject(this ushort value, ref ulong buffer, ref int bitposition, int bits = 16)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FF0 RID: 20464 RVA: 0x0018631C File Offset: 0x0018451C
+		// Token: 0x06005150 RID: 20816 RVA: 0x00064CF0 File Offset: 0x00062EF0
 		public static void Inject(this ushort value, ref ulong buffer, int bitposition, int bits = 16)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FF1 RID: 20465 RVA: 0x001862D7 File Offset: 0x001844D7
+		// Token: 0x06005151 RID: 20817 RVA: 0x00064CE1 File Offset: 0x00062EE1
 		public static void Inject(this byte value, ref ulong buffer, ref int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FF2 RID: 20466 RVA: 0x0018631C File Offset: 0x0018451C
+		// Token: 0x06005152 RID: 20818 RVA: 0x00064CF0 File Offset: 0x00062EF0
 		public static void Inject(this byte value, ref ulong buffer, int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FF3 RID: 20467 RVA: 0x00186293 File Offset: 0x00184493
+		// Token: 0x06005153 RID: 20819 RVA: 0x00064CD3 File Offset: 0x00062ED3
 		public static void InjectUnsigned(this long value, ref ulong buffer, ref int bitposition, int bits = 32)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FF4 RID: 20468 RVA: 0x0018632C File Offset: 0x0018452C
+		// Token: 0x06005154 RID: 20820 RVA: 0x00064D00 File Offset: 0x00062F00
 		public static void InjectUnsigned(this int value, ref ulong buffer, ref int bitposition, int bits = 32)
 		{
 			buffer = buffer.Write((ulong)((long)value), ref bitposition, bits);
 		}
 
-		// Token: 0x06004FF5 RID: 20469 RVA: 0x0018632C File Offset: 0x0018452C
+		// Token: 0x06005155 RID: 20821 RVA: 0x00064D00 File Offset: 0x00062F00
 		public static void InjectUnsigned(this short value, ref ulong buffer, ref int bitposition, int bits = 32)
 		{
 			buffer = buffer.Write((ulong)((long)value), ref bitposition, bits);
 		}
 
-		// Token: 0x06004FF6 RID: 20470 RVA: 0x0018632C File Offset: 0x0018452C
+		// Token: 0x06005156 RID: 20822 RVA: 0x00064D00 File Offset: 0x00062F00
 		public static void InjectUnsigned(this sbyte value, ref ulong buffer, ref int bitposition, int bits = 32)
 		{
 			buffer = buffer.Write((ulong)((long)value), ref bitposition, bits);
 		}
 
-		// Token: 0x06004FF7 RID: 20471 RVA: 0x0018633B File Offset: 0x0018453B
+		// Token: 0x06005157 RID: 20823 RVA: 0x00064D0F File Offset: 0x00062F0F
 		public static void Inject(this ulong value, ref uint buffer, ref int bitposition, int bits = 64)
 		{
 			buffer = buffer.Write(value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FF8 RID: 20472 RVA: 0x00186349 File Offset: 0x00184549
+		// Token: 0x06005158 RID: 20824 RVA: 0x00064D1D File Offset: 0x00062F1D
 		public static void Inject(this ulong value, ref uint buffer, int bitposition, int bits = 64)
 		{
 			buffer = buffer.Write(value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FF9 RID: 20473 RVA: 0x00186358 File Offset: 0x00184558
+		// Token: 0x06005159 RID: 20825 RVA: 0x00064D2C File Offset: 0x00062F2C
 		public static void Inject(this uint value, ref uint buffer, ref int bitposition, int bits = 32)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FFA RID: 20474 RVA: 0x00186367 File Offset: 0x00184567
+		// Token: 0x0600515A RID: 20826 RVA: 0x00064D3B File Offset: 0x00062F3B
 		public static void Inject(this uint value, ref uint buffer, int bitposition, int bits = 32)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FFB RID: 20475 RVA: 0x00186358 File Offset: 0x00184558
+		// Token: 0x0600515B RID: 20827 RVA: 0x00064D2C File Offset: 0x00062F2C
 		public static void Inject(this ushort value, ref uint buffer, ref int bitposition, int bits = 16)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FFC RID: 20476 RVA: 0x00186367 File Offset: 0x00184567
+		// Token: 0x0600515C RID: 20828 RVA: 0x00064D3B File Offset: 0x00062F3B
 		public static void Inject(this ushort value, ref uint buffer, int bitposition, int bits = 16)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FFD RID: 20477 RVA: 0x00186358 File Offset: 0x00184558
+		// Token: 0x0600515D RID: 20829 RVA: 0x00064D2C File Offset: 0x00062F2C
 		public static void Inject(this byte value, ref uint buffer, ref int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FFE RID: 20478 RVA: 0x00186367 File Offset: 0x00184567
+		// Token: 0x0600515E RID: 20830 RVA: 0x00064D3B File Offset: 0x00062F3B
 		public static void Inject(this byte value, ref uint buffer, int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06004FFF RID: 20479 RVA: 0x0018633B File Offset: 0x0018453B
+		// Token: 0x0600515F RID: 20831 RVA: 0x00064D0F File Offset: 0x00062F0F
 		public static void InjectUnsigned(this long value, ref uint buffer, ref int bitposition, int bits = 64)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06005000 RID: 20480 RVA: 0x00186377 File Offset: 0x00184577
+		// Token: 0x06005160 RID: 20832 RVA: 0x00064D4B File Offset: 0x00062F4B
 		public static void InjectUnsigned(this int value, ref uint buffer, ref int bitposition, int bits = 64)
 		{
 			buffer = buffer.Write((ulong)((long)value), ref bitposition, bits);
 		}
 
-		// Token: 0x06005001 RID: 20481 RVA: 0x00186377 File Offset: 0x00184577
+		// Token: 0x06005161 RID: 20833 RVA: 0x00064D4B File Offset: 0x00062F4B
 		public static void InjectUnsigned(this short value, ref uint buffer, ref int bitposition, int bits = 64)
 		{
 			buffer = buffer.Write((ulong)((long)value), ref bitposition, bits);
 		}
 
-		// Token: 0x06005002 RID: 20482 RVA: 0x00186377 File Offset: 0x00184577
+		// Token: 0x06005162 RID: 20834 RVA: 0x00064D4B File Offset: 0x00062F4B
 		public static void InjectUnsigned(this sbyte value, ref uint buffer, ref int bitposition, int bits = 64)
 		{
 			buffer = buffer.Write((ulong)((long)value), ref bitposition, bits);
 		}
 
-		// Token: 0x06005003 RID: 20483 RVA: 0x00186386 File Offset: 0x00184586
+		// Token: 0x06005163 RID: 20835 RVA: 0x00064D5A File Offset: 0x00062F5A
 		public static void Inject(this ulong value, ref ushort buffer, ref int bitposition, int bits = 16)
 		{
 			buffer = buffer.Write(value, ref bitposition, bits);
 		}
 
-		// Token: 0x06005004 RID: 20484 RVA: 0x00186394 File Offset: 0x00184594
+		// Token: 0x06005164 RID: 20836 RVA: 0x00064D68 File Offset: 0x00062F68
 		public static void Inject(this ulong value, ref ushort buffer, int bitposition, int bits = 16)
 		{
 			buffer = buffer.Write(value, ref bitposition, bits);
 		}
 
-		// Token: 0x06005005 RID: 20485 RVA: 0x001863A3 File Offset: 0x001845A3
+		// Token: 0x06005165 RID: 20837 RVA: 0x00064D77 File Offset: 0x00062F77
 		public static void Inject(this uint value, ref ushort buffer, ref int bitposition, int bits = 16)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06005006 RID: 20486 RVA: 0x001863B2 File Offset: 0x001845B2
+		// Token: 0x06005166 RID: 20838 RVA: 0x00064D86 File Offset: 0x00062F86
 		public static void Inject(this uint value, ref ushort buffer, int bitposition, int bits = 16)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06005007 RID: 20487 RVA: 0x001863A3 File Offset: 0x001845A3
+		// Token: 0x06005167 RID: 20839 RVA: 0x00064D77 File Offset: 0x00062F77
 		public static void Inject(this ushort value, ref ushort buffer, ref int bitposition, int bits = 16)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06005008 RID: 20488 RVA: 0x001863B2 File Offset: 0x001845B2
+		// Token: 0x06005168 RID: 20840 RVA: 0x00064D86 File Offset: 0x00062F86
 		public static void Inject(this ushort value, ref ushort buffer, int bitposition, int bits = 16)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06005009 RID: 20489 RVA: 0x001863A3 File Offset: 0x001845A3
+		// Token: 0x06005169 RID: 20841 RVA: 0x00064D77 File Offset: 0x00062F77
 		public static void Inject(this byte value, ref ushort buffer, ref int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x0600500A RID: 20490 RVA: 0x001863B2 File Offset: 0x001845B2
+		// Token: 0x0600516A RID: 20842 RVA: 0x00064D86 File Offset: 0x00062F86
 		public static void Inject(this byte value, ref ushort buffer, int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x0600500B RID: 20491 RVA: 0x001863C2 File Offset: 0x001845C2
+		// Token: 0x0600516B RID: 20843 RVA: 0x00064D96 File Offset: 0x00062F96
 		public static void Inject(this ulong value, ref byte buffer, ref int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write(value, ref bitposition, bits);
 		}
 
-		// Token: 0x0600500C RID: 20492 RVA: 0x001863D0 File Offset: 0x001845D0
+		// Token: 0x0600516C RID: 20844 RVA: 0x00064DA4 File Offset: 0x00062FA4
 		public static void Inject(this ulong value, ref byte buffer, int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write(value, ref bitposition, bits);
 		}
 
-		// Token: 0x0600500D RID: 20493 RVA: 0x001863DF File Offset: 0x001845DF
+		// Token: 0x0600516D RID: 20845 RVA: 0x00064DB3 File Offset: 0x00062FB3
 		public static void Inject(this uint value, ref byte buffer, ref int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x0600500E RID: 20494 RVA: 0x001863EE File Offset: 0x001845EE
+		// Token: 0x0600516E RID: 20846 RVA: 0x00064DC2 File Offset: 0x00062FC2
 		public static void Inject(this uint value, ref byte buffer, int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x0600500F RID: 20495 RVA: 0x001863DF File Offset: 0x001845DF
+		// Token: 0x0600516F RID: 20847 RVA: 0x00064DB3 File Offset: 0x00062FB3
 		public static void Inject(this ushort value, ref byte buffer, ref int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06005010 RID: 20496 RVA: 0x001863EE File Offset: 0x001845EE
+		// Token: 0x06005170 RID: 20848 RVA: 0x00064DC2 File Offset: 0x00062FC2
 		public static void Inject(this ushort value, ref byte buffer, int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06005011 RID: 20497 RVA: 0x001863DF File Offset: 0x001845DF
+		// Token: 0x06005171 RID: 20849 RVA: 0x00064DB3 File Offset: 0x00062FB3
 		public static void Inject(this byte value, ref byte buffer, ref int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06005012 RID: 20498 RVA: 0x001863EE File Offset: 0x001845EE
+		// Token: 0x06005172 RID: 20850 RVA: 0x00064DC2 File Offset: 0x00062FC2
 		public static void Inject(this byte value, ref byte buffer, int bitposition, int bits = 8)
 		{
 			buffer = buffer.Write((ulong)value, ref bitposition, bits);
 		}
 
-		// Token: 0x06005013 RID: 20499 RVA: 0x001863FE File Offset: 0x001845FE
+		// Token: 0x06005173 RID: 20851 RVA: 0x00064DD2 File Offset: 0x00062FD2
 		[Obsolete("Argument order changed")]
 		public static ulong Extract(this ulong value, int bits, ref int bitposition)
 		{
 			return value.Extract(bits, ref bitposition);
 		}
 
-		// Token: 0x06005014 RID: 20500 RVA: 0x00186408 File Offset: 0x00184608
+		// Token: 0x06005174 RID: 20852 RVA: 0x001BDBB4 File Offset: 0x001BBDB4
 		public static ulong Read(this ulong value, ref int bitposition, int bits)
 		{
 			ulong num = ulong.MaxValue >> 64 - bits;
@@ -559,7 +559,7 @@ namespace emotitron.Compression
 			return result;
 		}
 
-		// Token: 0x06005015 RID: 20501 RVA: 0x00186430 File Offset: 0x00184630
+		// Token: 0x06005175 RID: 20853 RVA: 0x001BDBB4 File Offset: 0x001BBDB4
 		[Obsolete("Use Read instead.")]
 		public static ulong Extract(this ulong value, ref int bitposition, int bits)
 		{
@@ -569,7 +569,7 @@ namespace emotitron.Compression
 			return result;
 		}
 
-		// Token: 0x06005016 RID: 20502 RVA: 0x00186458 File Offset: 0x00184658
+		// Token: 0x06005176 RID: 20854 RVA: 0x001BDBDC File Offset: 0x001BBDDC
 		[Obsolete("Always include the [ref int bitposition] argument. Extracting from position 0 would be better handled with a mask operation.")]
 		public static ulong Extract(this ulong value, int bits)
 		{
@@ -577,7 +577,7 @@ namespace emotitron.Compression
 			return value & num;
 		}
 
-		// Token: 0x06005017 RID: 20503 RVA: 0x00186474 File Offset: 0x00184674
+		// Token: 0x06005177 RID: 20855 RVA: 0x001BDBF8 File Offset: 0x001BBDF8
 		public static uint Read(this uint value, ref int bitposition, int bits)
 		{
 			uint num = uint.MaxValue >> 32 - bits;
@@ -586,7 +586,7 @@ namespace emotitron.Compression
 			return result;
 		}
 
-		// Token: 0x06005018 RID: 20504 RVA: 0x0018649C File Offset: 0x0018469C
+		// Token: 0x06005178 RID: 20856 RVA: 0x001BDBF8 File Offset: 0x001BBDF8
 		[Obsolete("Use Read instead.")]
 		public static uint Extract(this uint value, ref int bitposition, int bits)
 		{
@@ -596,7 +596,7 @@ namespace emotitron.Compression
 			return result;
 		}
 
-		// Token: 0x06005019 RID: 20505 RVA: 0x001864C4 File Offset: 0x001846C4
+		// Token: 0x06005179 RID: 20857 RVA: 0x001BDC20 File Offset: 0x001BBE20
 		[Obsolete("Always include the [ref int bitposition] argument. Extracting from position 0 would be better handled with a mask operation.")]
 		public static uint Extract(this uint value, int bits)
 		{
@@ -604,7 +604,7 @@ namespace emotitron.Compression
 			return value & num;
 		}
 
-		// Token: 0x0600501A RID: 20506 RVA: 0x001864E0 File Offset: 0x001846E0
+		// Token: 0x0600517A RID: 20858 RVA: 0x001BDC3C File Offset: 0x001BBE3C
 		public static uint Read(this ushort value, ref int bitposition, int bits)
 		{
 			uint num = 65535U >> 16 - bits;
@@ -613,7 +613,7 @@ namespace emotitron.Compression
 			return result;
 		}
 
-		// Token: 0x0600501B RID: 20507 RVA: 0x0018650C File Offset: 0x0018470C
+		// Token: 0x0600517B RID: 20859 RVA: 0x001BDC3C File Offset: 0x001BBE3C
 		[Obsolete("Use Read instead.")]
 		public static uint Extract(this ushort value, ref int bitposition, int bits)
 		{
@@ -623,7 +623,7 @@ namespace emotitron.Compression
 			return result;
 		}
 
-		// Token: 0x0600501C RID: 20508 RVA: 0x00186538 File Offset: 0x00184738
+		// Token: 0x0600517C RID: 20860 RVA: 0x001BDC68 File Offset: 0x001BBE68
 		public static uint Read(this byte value, ref int bitposition, int bits)
 		{
 			uint num = 255U >> 8 - bits;
@@ -632,7 +632,7 @@ namespace emotitron.Compression
 			return result;
 		}
 
-		// Token: 0x0600501D RID: 20509 RVA: 0x00186564 File Offset: 0x00184764
+		// Token: 0x0600517D RID: 20861 RVA: 0x001BDC68 File Offset: 0x001BBE68
 		[Obsolete("Use Read instead.")]
 		public static uint Extract(this byte value, ref int bitposition, int bits)
 		{
@@ -642,7 +642,7 @@ namespace emotitron.Compression
 			return result;
 		}
 
-		// Token: 0x0600501E RID: 20510 RVA: 0x00186590 File Offset: 0x00184790
+		// Token: 0x0600517E RID: 20862 RVA: 0x001BDC94 File Offset: 0x001BBE94
 		[Obsolete("Always include the [ref int bitposition] argument. Extracting from position 0 would be better handled with a mask operation.")]
 		public static byte Extract(this byte value, int bits)
 		{
@@ -650,26 +650,26 @@ namespace emotitron.Compression
 			return (byte)((uint)value & num);
 		}
 
-		// Token: 0x0600501F RID: 20511 RVA: 0x001865AE File Offset: 0x001847AE
+		// Token: 0x0600517F RID: 20863 RVA: 0x00064DDC File Offset: 0x00062FDC
 		public static void Inject(this float f, ref ulong buffer, ref int bitposition)
 		{
 			buffer = buffer.Write(f, ref bitposition, 32);
 		}
 
-		// Token: 0x06005020 RID: 20512 RVA: 0x001865C7 File Offset: 0x001847C7
+		// Token: 0x06005180 RID: 20864 RVA: 0x00064DF5 File Offset: 0x00062FF5
 		public static float ReadFloat(this ulong buffer, ref int bitposition)
 		{
 			return buffer.Read(ref bitposition, 32);
 		}
 
-		// Token: 0x06005021 RID: 20513 RVA: 0x001865DC File Offset: 0x001847DC
+		// Token: 0x06005181 RID: 20865 RVA: 0x00064E0A File Offset: 0x0006300A
 		[Obsolete("Use Read instead.")]
 		public static float ExtractFloat(this ulong buffer, ref int bitposition)
 		{
 			return buffer.Extract(ref bitposition, 32);
 		}
 
-		// Token: 0x06005022 RID: 20514 RVA: 0x001865F4 File Offset: 0x001847F4
+		// Token: 0x06005182 RID: 20866 RVA: 0x001BDCB4 File Offset: 0x001BBEB4
 		public static ushort InjectAsHalfFloat(this float f, ref ulong buffer, ref int bitposition)
 		{
 			ushort num = HalfUtilities.Pack(f);
@@ -677,7 +677,7 @@ namespace emotitron.Compression
 			return num;
 		}
 
-		// Token: 0x06005023 RID: 20515 RVA: 0x00186618 File Offset: 0x00184818
+		// Token: 0x06005183 RID: 20867 RVA: 0x001BDCD8 File Offset: 0x001BBED8
 		public static ushort InjectAsHalfFloat(this float f, ref uint buffer, ref int bitposition)
 		{
 			ushort num = HalfUtilities.Pack(f);
@@ -685,47 +685,47 @@ namespace emotitron.Compression
 			return num;
 		}
 
-		// Token: 0x06005024 RID: 20516 RVA: 0x0018663B File Offset: 0x0018483B
+		// Token: 0x06005184 RID: 20868 RVA: 0x00064E1F File Offset: 0x0006301F
 		public static float ReadHalfFloat(this ulong buffer, ref int bitposition)
 		{
 			return HalfUtilities.Unpack((ushort)buffer.Read(ref bitposition, 16));
 		}
 
-		// Token: 0x06005025 RID: 20517 RVA: 0x0018664C File Offset: 0x0018484C
+		// Token: 0x06005185 RID: 20869 RVA: 0x00064E30 File Offset: 0x00063030
 		[Obsolete("Use Read instead.")]
 		public static float ExtractHalfFloat(this ulong buffer, ref int bitposition)
 		{
 			return HalfUtilities.Unpack((ushort)buffer.Extract(ref bitposition, 16));
 		}
 
-		// Token: 0x06005026 RID: 20518 RVA: 0x0018665D File Offset: 0x0018485D
+		// Token: 0x06005186 RID: 20870 RVA: 0x00064E41 File Offset: 0x00063041
 		public static float ReadHalfFloat(this uint buffer, ref int bitposition)
 		{
 			return HalfUtilities.Unpack((ushort)buffer.Read(ref bitposition, 16));
 		}
 
-		// Token: 0x06005027 RID: 20519 RVA: 0x0018666E File Offset: 0x0018486E
+		// Token: 0x06005187 RID: 20871 RVA: 0x00064E52 File Offset: 0x00063052
 		[Obsolete("Use Read instead.")]
 		public static float ExtractHalfFloat(this uint buffer, ref int bitposition)
 		{
 			return HalfUtilities.Unpack((ushort)buffer.Extract(ref bitposition, 16));
 		}
 
-		// Token: 0x06005028 RID: 20520 RVA: 0x0018667F File Offset: 0x0018487F
+		// Token: 0x06005188 RID: 20872 RVA: 0x00064E63 File Offset: 0x00063063
 		[Obsolete("Argument order changed")]
 		public static void Inject(this ulong value, ref uint buffer, int bits, ref int bitposition)
 		{
 			value.Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x06005029 RID: 20521 RVA: 0x0018668A File Offset: 0x0018488A
+		// Token: 0x06005189 RID: 20873 RVA: 0x00064E6E File Offset: 0x0006306E
 		[Obsolete("Argument order changed")]
 		public static void Inject(this ulong value, ref ulong buffer, int bits, ref int bitposition)
 		{
 			value.Inject(ref buffer, ref bitposition, bits);
 		}
 
-		// Token: 0x040052C9 RID: 21193
+		// Token: 0x040053D5 RID: 21461
 		private const string overrunerror = "Write buffer overrun. writepos + bits exceeds target length. Data loss will occur.";
 	}
 }

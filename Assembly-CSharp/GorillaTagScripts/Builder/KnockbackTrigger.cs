@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace GorillaTagScripts.Builder
 {
-	// Token: 0x02000A0D RID: 2573
+	// Token: 0x02000A3A RID: 2618
 	public class KnockbackTrigger : MonoBehaviour
 	{
-		// Token: 0x1700066E RID: 1646
-		// (get) Token: 0x0600407A RID: 16506 RVA: 0x001328F3 File Offset: 0x00130AF3
+		// Token: 0x1700068A RID: 1674
+		// (get) Token: 0x060041BF RID: 16831 RVA: 0x0005AF9C File Offset: 0x0005919C
 		public bool TriggeredThisFrame
 		{
 			get
@@ -18,7 +18,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x0600407B RID: 16507 RVA: 0x00132904 File Offset: 0x00130B04
+		// Token: 0x060041C0 RID: 16832 RVA: 0x00173200 File Offset: 0x00171400
 		private void OnTriggerEnter(Collider other)
 		{
 			if (!other.gameObject.IsOnLayer(UnityLayer.GorillaBodyCollider) && !other.gameObject.IsOnLayer(UnityLayer.GorillaHead) && !other.gameObject.IsOnLayer(UnityLayer.GorillaHand))
@@ -54,7 +54,7 @@ namespace GorillaTagScripts.Builder
 			this.lastTriggeredFrame = Time.frameCount;
 		}
 
-		// Token: 0x0600407C RID: 16508 RVA: 0x00132A82 File Offset: 0x00130C82
+		// Token: 0x060041C1 RID: 16833 RVA: 0x0005AFAB File Offset: 0x000591AB
 		private void OnTriggerExit(Collider other)
 		{
 			if (!other.gameObject.IsOnLayer(UnityLayer.GorillaBodyCollider) && !other.gameObject.IsOnLayer(UnityLayer.GorillaHead) && !other.gameObject.IsOnLayer(UnityLayer.GorillaHand))
@@ -64,36 +64,36 @@ namespace GorillaTagScripts.Builder
 			this.collidersEntered.Remove(other);
 		}
 
-		// Token: 0x0600407D RID: 16509 RVA: 0x00132ABE File Offset: 0x00130CBE
+		// Token: 0x060041C2 RID: 16834 RVA: 0x0005AFE7 File Offset: 0x000591E7
 		private void OnDisable()
 		{
 			this.collidersEntered.Clear();
 		}
 
-		// Token: 0x040041A1 RID: 16801
+		// Token: 0x0400429B RID: 17051
 		[SerializeField]
 		private BoxCollider triggerVolume;
 
-		// Token: 0x040041A2 RID: 16802
+		// Token: 0x0400429C RID: 17052
 		[SerializeField]
 		private float knockbackVelocity;
 
-		// Token: 0x040041A3 RID: 16803
+		// Token: 0x0400429D RID: 17053
 		[SerializeField]
 		private Vector3 localAxis;
 
-		// Token: 0x040041A4 RID: 16804
+		// Token: 0x0400429E RID: 17054
 		[SerializeField]
 		private GameObject impactFX;
 
-		// Token: 0x040041A5 RID: 16805
+		// Token: 0x0400429F RID: 17055
 		[SerializeField]
 		private bool onlySmallMonke;
 
-		// Token: 0x040041A6 RID: 16806
+		// Token: 0x040042A0 RID: 17056
 		private int lastTriggeredFrame = -1;
 
-		// Token: 0x040041A7 RID: 16807
+		// Token: 0x040042A1 RID: 17057
 		private List<Collider> collidersEntered = new List<Collider>(4);
 	}
 }

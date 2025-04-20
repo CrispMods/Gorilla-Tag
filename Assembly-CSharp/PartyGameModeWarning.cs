@@ -3,11 +3,11 @@ using System.Collections;
 using GorillaTagScripts;
 using UnityEngine;
 
-// Token: 0x020001CC RID: 460
+// Token: 0x020001D7 RID: 471
 public class PartyGameModeWarning : MonoBehaviour
 {
-	// Token: 0x1700010F RID: 271
-	// (get) Token: 0x06000AB7 RID: 2743 RVA: 0x0003A2D4 File Offset: 0x000384D4
+	// Token: 0x17000116 RID: 278
+	// (get) Token: 0x06000B03 RID: 2819 RVA: 0x00037C4A File Offset: 0x00035E4A
 	public bool ShouldShowWarning
 	{
 		get
@@ -16,7 +16,7 @@ public class PartyGameModeWarning : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AB8 RID: 2744 RVA: 0x0003A2F0 File Offset: 0x000384F0
+	// Token: 0x06000B04 RID: 2820 RVA: 0x0009985C File Offset: 0x00097A5C
 	private void Awake()
 	{
 		GameObject[] array = this.showParts;
@@ -26,7 +26,7 @@ public class PartyGameModeWarning : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AB9 RID: 2745 RVA: 0x0003A31B File Offset: 0x0003851B
+	// Token: 0x06000B05 RID: 2821 RVA: 0x00037C64 File Offset: 0x00035E64
 	public void Show()
 	{
 		this.visibleUntilTimestamp = Time.time + this.visibleDuration;
@@ -36,7 +36,7 @@ public class PartyGameModeWarning : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000ABA RID: 2746 RVA: 0x0003A349 File Offset: 0x00038549
+	// Token: 0x06000B06 RID: 2822 RVA: 0x00037C92 File Offset: 0x00035E92
 	private IEnumerator HideCo()
 	{
 		GameObject[] array = this.showParts;
@@ -70,21 +70,21 @@ public class PartyGameModeWarning : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04000D2A RID: 3370
+	// Token: 0x04000D70 RID: 3440
 	[SerializeField]
 	private GameObject[] showParts;
 
-	// Token: 0x04000D2B RID: 3371
+	// Token: 0x04000D71 RID: 3441
 	[SerializeField]
 	private GameObject[] hideParts;
 
-	// Token: 0x04000D2C RID: 3372
+	// Token: 0x04000D72 RID: 3442
 	[SerializeField]
 	private float visibleDuration;
 
-	// Token: 0x04000D2D RID: 3373
+	// Token: 0x04000D73 RID: 3443
 	private float visibleUntilTimestamp;
 
-	// Token: 0x04000D2E RID: 3374
+	// Token: 0x04000D74 RID: 3444
 	private Coroutine hideCoroutine;
 }

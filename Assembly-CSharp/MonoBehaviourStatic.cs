@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006C8 RID: 1736
+// Token: 0x020006DD RID: 1757
 public class MonoBehaviourStatic<T> : MonoBehaviour where T : MonoBehaviour
 {
-	// Token: 0x1700048B RID: 1163
-	// (get) Token: 0x06002AFF RID: 11007 RVA: 0x000D5291 File Offset: 0x000D3491
+	// Token: 0x17000498 RID: 1176
+	// (get) Token: 0x06002B95 RID: 11157 RVA: 0x0004D841 File Offset: 0x0004BA41
 	public static T Instance
 	{
 		get
@@ -14,22 +14,22 @@ public class MonoBehaviourStatic<T> : MonoBehaviour where T : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002B00 RID: 11008 RVA: 0x000D5298 File Offset: 0x000D3498
+	// Token: 0x06002B96 RID: 11158 RVA: 0x00120E78 File Offset: 0x0011F078
 	protected void Awake()
 	{
 		if (MonoBehaviourStatic<T>.gInstance && MonoBehaviourStatic<T>.gInstance != this)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 		}
 		MonoBehaviourStatic<T>.gInstance = (this as T);
 		this.OnAwake();
 	}
 
-	// Token: 0x06002B01 RID: 11009 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002B97 RID: 11159 RVA: 0x00030607 File Offset: 0x0002E807
 	protected virtual void OnAwake()
 	{
 	}
 
-	// Token: 0x0400308A RID: 12426
+	// Token: 0x04003127 RID: 12583
 	protected static T gInstance;
 }

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200022A RID: 554
+// Token: 0x02000235 RID: 565
 [ExecuteAlways]
 public class GTShaderVolume : MonoBehaviour
 {
-	// Token: 0x06000CA4 RID: 3236 RVA: 0x00042C20 File Offset: 0x00040E20
+	// Token: 0x06000CEF RID: 3311 RVA: 0x00039127 File Offset: 0x00037327
 	private void OnEnable()
 	{
 		if (GTShaderVolume.gVolumes.Count > 16)
@@ -19,13 +19,13 @@ public class GTShaderVolume : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000CA5 RID: 3237 RVA: 0x00042C49 File Offset: 0x00040E49
+	// Token: 0x06000CF0 RID: 3312 RVA: 0x00039150 File Offset: 0x00037350
 	private void OnDisable()
 	{
 		GTShaderVolume.gVolumes.Remove(this);
 	}
 
-	// Token: 0x06000CA6 RID: 3238 RVA: 0x00042C58 File Offset: 0x00040E58
+	// Token: 0x06000CF1 RID: 3313 RVA: 0x000A0C6C File Offset: 0x0009EE6C
 	public static void SyncVolumeData()
 	{
 		m4x4 m4x = default(m4x4);
@@ -60,19 +60,19 @@ public class GTShaderVolume : MonoBehaviour
 		Shader.SetGlobalMatrixArray(GTShaderVolume._GT_ShaderVolumes, GTShaderVolume.ShaderData);
 	}
 
-	// Token: 0x0400100F RID: 4111
+	// Token: 0x04001055 RID: 4181
 	public const int MAX_VOLUMES = 16;
 
-	// Token: 0x04001010 RID: 4112
+	// Token: 0x04001056 RID: 4182
 	private static Matrix4x4[] ShaderData = new Matrix4x4[16];
 
-	// Token: 0x04001011 RID: 4113
+	// Token: 0x04001057 RID: 4183
 	[Space]
 	private static List<GTShaderVolume> gVolumes = new List<GTShaderVolume>(16);
 
-	// Token: 0x04001012 RID: 4114
+	// Token: 0x04001058 RID: 4184
 	private static ShaderHashId _GT_ShaderVolumes = "_GT_ShaderVolumes";
 
-	// Token: 0x04001013 RID: 4115
+	// Token: 0x04001059 RID: 4185
 	private static ShaderHashId _GT_ShaderVolumesActive = "_GT_ShaderVolumesActive";
 }

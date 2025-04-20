@@ -6,11 +6,11 @@ using UnityEngine.XR;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C27 RID: 3111
+	// Token: 0x02000C55 RID: 3157
 	public class RCVehicle : MonoBehaviour, ISpawnable
 	{
-		// Token: 0x1700080A RID: 2058
-		// (get) Token: 0x06004D96 RID: 19862 RVA: 0x0017C524 File Offset: 0x0017A724
+		// Token: 0x17000828 RID: 2088
+		// (get) Token: 0x06004EE7 RID: 20199 RVA: 0x000638C2 File Offset: 0x00061AC2
 		public bool HasLocalAuthority
 		{
 			get
@@ -19,7 +19,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D97 RID: 19863 RVA: 0x0017C550 File Offset: 0x0017A750
+		// Token: 0x06004EE8 RID: 20200 RVA: 0x001B4B3C File Offset: 0x001B2D3C
 		public virtual void WakeUpRemote(RCCosmeticNetworkSync sync)
 		{
 			this.networkSync = sync;
@@ -37,7 +37,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D98 RID: 19864 RVA: 0x0017C5B4 File Offset: 0x0017A7B4
+		// Token: 0x06004EE9 RID: 20201 RVA: 0x001B4BA0 File Offset: 0x001B2DA0
 		public virtual void StartConnection(RCRemoteHoldable remote, RCCosmeticNetworkSync sync)
 		{
 			this.connectedRemote = remote;
@@ -52,7 +52,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D99 RID: 19865 RVA: 0x0017C615 File Offset: 0x0017A815
+		// Token: 0x06004EEA RID: 20202 RVA: 0x000638ED File Offset: 0x00061AED
 		public virtual void EndConnection()
 		{
 			this.connectedRemote = null;
@@ -60,7 +60,7 @@ namespace GorillaTag.Cosmetics
 			this.disconnectionTime = Time.time;
 		}
 
-		// Token: 0x06004D9A RID: 19866 RVA: 0x0017C638 File Offset: 0x0017A838
+		// Token: 0x06004EEB RID: 20203 RVA: 0x001B4C04 File Offset: 0x001B2E04
 		protected virtual void ResetToSpawnPosition()
 		{
 			if (this.rb == null)
@@ -76,7 +76,7 @@ namespace GorillaTag.Cosmetics
 			base.transform.localScale = (this.useLeftDock ? this.dockLeftOffset.scale : this.dockRightOffset.scale);
 		}
 
-		// Token: 0x06004D9B RID: 19867 RVA: 0x0017C710 File Offset: 0x0017A910
+		// Token: 0x06004EEC RID: 20204 RVA: 0x001B4CDC File Offset: 0x001B2EDC
 		protected virtual void AuthorityBeginDocked()
 		{
 			this.localState = (this.useLeftDock ? RCVehicle.State.DockedLeft : RCVehicle.State.DockedRight);
@@ -93,7 +93,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D9C RID: 19868 RVA: 0x0017C780 File Offset: 0x0017A980
+		// Token: 0x06004EED RID: 20205 RVA: 0x001B4D4C File Offset: 0x001B2F4C
 		protected virtual void AuthorityBeginMobilization()
 		{
 			this.localState = RCVehicle.State.Mobilized;
@@ -106,7 +106,7 @@ namespace GorillaTag.Cosmetics
 			this.rb.isKinematic = false;
 		}
 
-		// Token: 0x06004D9D RID: 19869 RVA: 0x0017C7DC File Offset: 0x0017A9DC
+		// Token: 0x06004EEE RID: 20206 RVA: 0x0006390D File Offset: 0x00061B0D
 		protected virtual void AuthorityBeginCrash()
 		{
 			this.localState = RCVehicle.State.Crashed;
@@ -117,7 +117,7 @@ namespace GorillaTag.Cosmetics
 			this.stateStartTime = Time.time;
 		}
 
-		// Token: 0x06004D9E RID: 19870 RVA: 0x0017C818 File Offset: 0x0017AA18
+		// Token: 0x06004EEF RID: 20207 RVA: 0x001B4DA8 File Offset: 0x001B2FA8
 		protected virtual void SetDisabledState()
 		{
 			this.localState = RCVehicle.State.Disabled;
@@ -130,28 +130,28 @@ namespace GorillaTag.Cosmetics
 			base.gameObject.SetActive(false);
 		}
 
-		// Token: 0x06004D9F RID: 19871 RVA: 0x0017C86A File Offset: 0x0017AA6A
+		// Token: 0x06004EF0 RID: 20208 RVA: 0x00063946 File Offset: 0x00061B46
 		protected virtual void Awake()
 		{
 			this.rb = base.GetComponent<Rigidbody>();
 		}
 
-		// Token: 0x06004DA0 RID: 19872 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004EF1 RID: 20209 RVA: 0x00030607 File Offset: 0x0002E807
 		protected virtual void OnEnable()
 		{
 		}
 
-		// Token: 0x1700080B RID: 2059
-		// (get) Token: 0x06004DA1 RID: 19873 RVA: 0x0017C878 File Offset: 0x0017AA78
-		// (set) Token: 0x06004DA2 RID: 19874 RVA: 0x0017C880 File Offset: 0x0017AA80
+		// Token: 0x17000829 RID: 2089
+		// (get) Token: 0x06004EF2 RID: 20210 RVA: 0x00063954 File Offset: 0x00061B54
+		// (set) Token: 0x06004EF3 RID: 20211 RVA: 0x0006395C File Offset: 0x00061B5C
 		bool ISpawnable.IsSpawned { get; set; }
 
-		// Token: 0x1700080C RID: 2060
-		// (get) Token: 0x06004DA3 RID: 19875 RVA: 0x0017C889 File Offset: 0x0017AA89
-		// (set) Token: 0x06004DA4 RID: 19876 RVA: 0x0017C891 File Offset: 0x0017AA91
+		// Token: 0x1700082A RID: 2090
+		// (get) Token: 0x06004EF4 RID: 20212 RVA: 0x00063965 File Offset: 0x00061B65
+		// (set) Token: 0x06004EF5 RID: 20213 RVA: 0x0006396D File Offset: 0x00061B6D
 		ECosmeticSelectSide ISpawnable.CosmeticSelectedSide { get; set; }
 
-		// Token: 0x06004DA5 RID: 19877 RVA: 0x0017C89C File Offset: 0x0017AA9C
+		// Token: 0x06004EF6 RID: 20214 RVA: 0x001B4DFC File Offset: 0x001B2FFC
 		void ISpawnable.OnSpawn(VRRig rig)
 		{
 			if (rig == null)
@@ -175,19 +175,19 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DA6 RID: 19878 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004EF7 RID: 20215 RVA: 0x00030607 File Offset: 0x0002E807
 		void ISpawnable.OnDespawn()
 		{
 		}
 
-		// Token: 0x06004DA7 RID: 19879 RVA: 0x0017C957 File Offset: 0x0017AB57
+		// Token: 0x06004EF8 RID: 20216 RVA: 0x00063976 File Offset: 0x00061B76
 		protected virtual void OnDisable()
 		{
 			this.localState = RCVehicle.State.Disabled;
 			this.localStatePrev = RCVehicle.State.Disabled;
 		}
 
-		// Token: 0x06004DA8 RID: 19880 RVA: 0x0017C968 File Offset: 0x0017AB68
+		// Token: 0x06004EF9 RID: 20217 RVA: 0x001B4EB8 File Offset: 0x001B30B8
 		public void ApplyRemoteControlInput(RCRemoteHoldable.RCInput rcInput)
 		{
 			this.activeInput.joystick.y = Mathf.Sign(rcInput.joystick.y) * Mathf.Lerp(0f, 1f, Mathf.InverseLerp(this.joystickDeadzone, 1f, Mathf.Abs(rcInput.joystick.y)));
@@ -196,7 +196,7 @@ namespace GorillaTag.Cosmetics
 			this.activeInput.buttons = rcInput.buttons;
 		}
 
-		// Token: 0x06004DA9 RID: 19881 RVA: 0x0017CA48 File Offset: 0x0017AC48
+		// Token: 0x06004EFA RID: 20218 RVA: 0x001B4F98 File Offset: 0x001B3198
 		private void Update()
 		{
 			float deltaTime = Time.deltaTime;
@@ -212,7 +212,7 @@ namespace GorillaTag.Cosmetics
 			this.localStatePrev = this.localState;
 		}
 
-		// Token: 0x06004DAA RID: 19882 RVA: 0x0017CA88 File Offset: 0x0017AC88
+		// Token: 0x06004EFB RID: 20219 RVA: 0x001B4FD8 File Offset: 0x001B31D8
 		protected virtual void AuthorityUpdate(float dt)
 		{
 			switch (this.localState)
@@ -262,7 +262,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DAB RID: 19883 RVA: 0x0017CBE8 File Offset: 0x0017ADE8
+		// Token: 0x06004EFC RID: 20220 RVA: 0x001B5138 File Offset: 0x001B3338
 		protected virtual void RemoteUpdate(float dt)
 		{
 			if (this.networkSync == null)
@@ -317,12 +317,12 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DAC RID: 19884 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004EFD RID: 20221 RVA: 0x00030607 File Offset: 0x0002E807
 		protected virtual void SharedUpdate(float dt)
 		{
 		}
 
-		// Token: 0x06004DAD RID: 19885 RVA: 0x0017CD70 File Offset: 0x0017AF70
+		// Token: 0x06004EFE RID: 20222 RVA: 0x001B52C0 File Offset: 0x001B34C0
 		public virtual void AuthorityApplyImpact(Vector3 hitVelocity, bool isProjectile)
 		{
 			if (this.HasLocalAuthority && this.localState == RCVehicle.State.Mobilized)
@@ -336,7 +336,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DAE RID: 19886 RVA: 0x000EC73D File Offset: 0x000EA93D
+		// Token: 0x06004EFF RID: 20223 RVA: 0x00050BA5 File Offset: 0x0004EDA5
 		protected float NormalizeAngle180(float angle)
 		{
 			angle = (angle + 180f) % 360f;
@@ -347,7 +347,7 @@ namespace GorillaTag.Cosmetics
 			return angle - 180f;
 		}
 
-		// Token: 0x06004DAF RID: 19887 RVA: 0x0017CDE8 File Offset: 0x0017AFE8
+		// Token: 0x06004F00 RID: 20224 RVA: 0x001B5338 File Offset: 0x001B3538
 		protected static void AddScaledGravityCompensationForce(Rigidbody rb, float scaleFactor, float gravityCompensation)
 		{
 			Vector3 gravity = Physics.gravity;
@@ -357,110 +357,110 @@ namespace GorillaTag.Cosmetics
 			rb.AddForce(vector + b, ForceMode.Acceleration);
 		}
 
-		// Token: 0x0400509C RID: 20636
+		// Token: 0x04005192 RID: 20882
 		[SerializeField]
 		private Transform leftDockParent;
 
-		// Token: 0x0400509D RID: 20637
+		// Token: 0x04005193 RID: 20883
 		[SerializeField]
 		private Transform rightDockParent;
 
-		// Token: 0x0400509E RID: 20638
+		// Token: 0x04005194 RID: 20884
 		[SerializeField]
 		private float maxRange = 100f;
 
-		// Token: 0x0400509F RID: 20639
+		// Token: 0x04005195 RID: 20885
 		[SerializeField]
 		private float maxDisconnectionTime = 10f;
 
-		// Token: 0x040050A0 RID: 20640
+		// Token: 0x04005196 RID: 20886
 		[SerializeField]
 		private float crashRespawnDelay = 3f;
 
-		// Token: 0x040050A1 RID: 20641
+		// Token: 0x04005197 RID: 20887
 		[SerializeField]
 		private bool crashOnHit;
 
-		// Token: 0x040050A2 RID: 20642
+		// Token: 0x04005198 RID: 20888
 		[SerializeField]
 		private float crashOnHitSpeedThreshold = 5f;
 
-		// Token: 0x040050A3 RID: 20643
+		// Token: 0x04005199 RID: 20889
 		[SerializeField]
 		[Range(0f, 1f)]
 		private float hitVelocityTransfer = 0.5f;
 
-		// Token: 0x040050A4 RID: 20644
+		// Token: 0x0400519A RID: 20890
 		[SerializeField]
 		[Range(0f, 1f)]
 		private float projectileVelocityTransfer = 0.1f;
 
-		// Token: 0x040050A5 RID: 20645
+		// Token: 0x0400519B RID: 20891
 		[SerializeField]
 		private float hitMaxHitSpeed = 4f;
 
-		// Token: 0x040050A6 RID: 20646
+		// Token: 0x0400519C RID: 20892
 		[SerializeField]
 		[Range(0f, 1f)]
 		private float joystickDeadzone = 0.1f;
 
-		// Token: 0x040050A7 RID: 20647
+		// Token: 0x0400519D RID: 20893
 		protected RCVehicle.State localState;
 
-		// Token: 0x040050A8 RID: 20648
+		// Token: 0x0400519E RID: 20894
 		protected RCVehicle.State localStatePrev;
 
-		// Token: 0x040050A9 RID: 20649
+		// Token: 0x0400519F RID: 20895
 		protected float stateStartTime;
 
-		// Token: 0x040050AA RID: 20650
+		// Token: 0x040051A0 RID: 20896
 		protected RCRemoteHoldable connectedRemote;
 
-		// Token: 0x040050AB RID: 20651
+		// Token: 0x040051A1 RID: 20897
 		protected RCCosmeticNetworkSync networkSync;
 
-		// Token: 0x040050AC RID: 20652
+		// Token: 0x040051A2 RID: 20898
 		protected bool hasNetworkSync;
 
-		// Token: 0x040050AD RID: 20653
+		// Token: 0x040051A3 RID: 20899
 		protected RCRemoteHoldable.RCInput activeInput;
 
-		// Token: 0x040050AE RID: 20654
+		// Token: 0x040051A4 RID: 20900
 		protected Rigidbody rb;
 
-		// Token: 0x040050AF RID: 20655
+		// Token: 0x040051A5 RID: 20901
 		private bool waitingForTriggerRelease;
 
-		// Token: 0x040050B0 RID: 20656
+		// Token: 0x040051A6 RID: 20902
 		private float disconnectionTime;
 
-		// Token: 0x040050B1 RID: 20657
+		// Token: 0x040051A7 RID: 20903
 		private bool useLeftDock;
 
-		// Token: 0x040050B2 RID: 20658
+		// Token: 0x040051A8 RID: 20904
 		private BoneOffset dockLeftOffset = new BoneOffset(GTHardCodedBones.EBone.forearm_L, new Vector3(-0.062f, 0.283f, -0.136f), new Vector3(275f, 0f, 25f));
 
-		// Token: 0x040050B3 RID: 20659
+		// Token: 0x040051A9 RID: 20905
 		private BoneOffset dockRightOffset = new BoneOffset(GTHardCodedBones.EBone.forearm_R, new Vector3(0.069f, 0.265f, -0.128f), new Vector3(275f, 0f, 335f));
 
-		// Token: 0x040050B4 RID: 20660
+		// Token: 0x040051AA RID: 20906
 		private float networkSyncFollowRateExp = 2f;
 
-		// Token: 0x040050B5 RID: 20661
+		// Token: 0x040051AB RID: 20907
 		private Transform[] _vrRigBones;
 
-		// Token: 0x02000C28 RID: 3112
+		// Token: 0x02000C56 RID: 3158
 		protected enum State
 		{
-			// Token: 0x040050B9 RID: 20665
+			// Token: 0x040051AF RID: 20911
 			Disabled,
-			// Token: 0x040050BA RID: 20666
+			// Token: 0x040051B0 RID: 20912
 			DockedLeft,
-			// Token: 0x040050BB RID: 20667
+			// Token: 0x040051B1 RID: 20913
 			DockedRight,
-			// Token: 0x040050BC RID: 20668
+			// Token: 0x040051B2 RID: 20914
 			Mobilized,
-			// Token: 0x040050BD RID: 20669
+			// Token: 0x040051B3 RID: 20915
 			Crashed
 		}
 	}

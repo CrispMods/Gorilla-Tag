@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000145 RID: 325
+// Token: 0x0200014F RID: 335
 public class CosmeticRefRegistry : MonoBehaviour
 {
-	// Token: 0x06000854 RID: 2132 RVA: 0x0002DBDC File Offset: 0x0002BDDC
+	// Token: 0x06000898 RID: 2200 RVA: 0x0008ECD4 File Offset: 0x0008CED4
 	private void Awake()
 	{
 		foreach (CosmeticRefTarget cosmeticRefTarget in this.builtInRefTargets)
@@ -13,22 +13,22 @@ public class CosmeticRefRegistry : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000855 RID: 2133 RVA: 0x0002DC14 File Offset: 0x0002BE14
+	// Token: 0x06000899 RID: 2201 RVA: 0x00036125 File Offset: 0x00034325
 	public void Register(CosmeticRefID partID, GameObject part)
 	{
 		this.partsTable[(int)partID] = part;
 	}
 
-	// Token: 0x06000856 RID: 2134 RVA: 0x0002DC1F File Offset: 0x0002BE1F
+	// Token: 0x0600089A RID: 2202 RVA: 0x00036130 File Offset: 0x00034330
 	public GameObject Get(CosmeticRefID partID)
 	{
 		return this.partsTable[(int)partID];
 	}
 
-	// Token: 0x040009D8 RID: 2520
+	// Token: 0x04000A1B RID: 2587
 	private GameObject[] partsTable = new GameObject[6];
 
-	// Token: 0x040009D9 RID: 2521
+	// Token: 0x04000A1C RID: 2588
 	[SerializeField]
 	private CosmeticRefTarget[] builtInRefTargets;
 }

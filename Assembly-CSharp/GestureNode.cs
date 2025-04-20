@@ -1,23 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000159 RID: 345
+// Token: 0x02000164 RID: 356
 [Serializable]
 public class GestureNode
 {
-	// Token: 0x04000A75 RID: 2677
+	// Token: 0x04000ABC RID: 2748
 	public bool track;
 
-	// Token: 0x04000A76 RID: 2678
+	// Token: 0x04000ABD RID: 2749
 	public GestureHandState state;
 
-	// Token: 0x04000A77 RID: 2679
+	// Token: 0x04000ABE RID: 2750
 	public GestureDigitFlexion flexion;
 
-	// Token: 0x04000A78 RID: 2680
+	// Token: 0x04000ABF RID: 2751
 	public GestureAlignment alignment;
 
-	// Token: 0x04000A79 RID: 2681
+	// Token: 0x04000AC0 RID: 2752
 	[Space]
 	public GestureNodeFlags flags;
 }

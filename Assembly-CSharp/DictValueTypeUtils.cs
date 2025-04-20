@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x02000846 RID: 2118
+// Token: 0x02000860 RID: 2144
 public static class DictValueTypeUtils
 {
-	// Token: 0x06003397 RID: 13207 RVA: 0x000F6585 File Offset: 0x000F4785
+	// Token: 0x06003452 RID: 13394 RVA: 0x00052751 File Offset: 0x00050951
 	public static void TryGetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dict, TKey key, out TValue value) where TValue : struct
 	{
 		if (dict.TryGetValue(key, out value))

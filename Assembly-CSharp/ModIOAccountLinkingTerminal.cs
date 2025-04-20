@@ -4,10 +4,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x02000675 RID: 1653
+// Token: 0x02000677 RID: 1655
 public class ModIOAccountLinkingTerminal : MonoBehaviour
 {
-	// Token: 0x060028F6 RID: 10486 RVA: 0x000C92E4 File Offset: 0x000C74E4
+	// Token: 0x0600290F RID: 10511 RVA: 0x00114720 File Offset: 0x00112920
 	public void Start()
 	{
 		this.modioUsernameLabelText.gameObject.SetActive(false);
@@ -21,20 +21,20 @@ public class ModIOAccountLinkingTerminal : MonoBehaviour
 		this.linkAccountCodeText.gameObject.SetActive(false);
 		this.alreadyLinkedAccountText.gameObject.SetActive(false);
 		this.errorText.gameObject.SetActive(false);
-		GameEvents.OnModIOKeyboardButtonPressedEvent.AddListener(new UnityAction<ModIOKeyboardButton.ModIOKeyboardBindings>(ModIOAccountLinkingTerminal.PressButton));
+		GameEvents.OnModIOKeyboardButtonPressedEvent.AddListener(new UnityAction<CustomMapsTerminalButton.ModIOKeyboardBindings>(ModIOAccountLinkingTerminal.PressButton));
 		GameEvents.OnModIOLoggedIn.AddListener(new UnityAction(this.OnModIOLoggedIn));
 		ModIOAccountLinkingTerminal.OnButtonPress.AddListener(new UnityAction(this.ResetScreen));
 	}
 
-	// Token: 0x060028F7 RID: 10487 RVA: 0x000C93F0 File Offset: 0x000C75F0
+	// Token: 0x06002910 RID: 10512 RVA: 0x0011482C File Offset: 0x00112A2C
 	public void OnDestroy()
 	{
-		GameEvents.OnModIOKeyboardButtonPressedEvent.RemoveListener(new UnityAction<ModIOKeyboardButton.ModIOKeyboardBindings>(ModIOAccountLinkingTerminal.PressButton));
+		GameEvents.OnModIOKeyboardButtonPressedEvent.RemoveListener(new UnityAction<CustomMapsTerminalButton.ModIOKeyboardBindings>(ModIOAccountLinkingTerminal.PressButton));
 		GameEvents.OnModIOLoggedIn.RemoveListener(new UnityAction(this.OnModIOLoggedIn));
 		ModIOAccountLinkingTerminal.OnButtonPress.RemoveListener(new UnityAction(this.ResetScreen));
 	}
 
-	// Token: 0x060028F8 RID: 10488 RVA: 0x000C943F File Offset: 0x000C763F
+	// Token: 0x06002911 RID: 10513 RVA: 0x0004BD39 File Offset: 0x00049F39
 	public void OnModIOLoggedIn()
 	{
 		if (!this.isLoggedIn)
@@ -61,7 +61,7 @@ public class ModIOAccountLinkingTerminal : MonoBehaviour
 				this.modioUsernameText.text = result.value.username;
 				this.modioUsernameLabelText.gameObject.SetActive(true);
 				this.modioUsernameText.gameObject.SetActive(true);
-				if (ModIODataStore.GetLastAuthMethod() != ModIODataStore.ModIOAuthMethod.LinkedAccount)
+				if (ModIOManager.GetLastAuthMethod() != ModIOManager.ModIOAuthMethod.LinkedAccount)
 				{
 					this.linkAccountPromptText.gameObject.SetActive(true);
 				}
@@ -75,14 +75,14 @@ public class ModIOAccountLinkingTerminal : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060028F9 RID: 10489 RVA: 0x000C945C File Offset: 0x000C765C
+	// Token: 0x06002912 RID: 10514 RVA: 0x0011487C File Offset: 0x00112A7C
 	private void OnModIOLoggedOut()
 	{
 		if (this.isLoggedIn)
 		{
 			this.isLoggedIn = false;
 			this.processingAccountLink = false;
-			ModIODataStore.CancelExternalAuthentication();
+			ModIOManager.CancelExternalAuthentication();
 			this.modioUsernameLabelText.gameObject.SetActive(false);
 			this.modioUsernameText.gameObject.SetActive(false);
 			this.modioUsernameText.text = "";
@@ -99,14 +99,14 @@ public class ModIOAccountLinkingTerminal : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060028FA RID: 10490 RVA: 0x000C9564 File Offset: 0x000C7764
-	private static void PressButton(ModIOKeyboardButton.ModIOKeyboardBindings pressedButton)
+	// Token: 0x06002913 RID: 10515 RVA: 0x00114984 File Offset: 0x00112B84
+	private static void PressButton(CustomMapsTerminalButton.ModIOKeyboardBindings pressedButton)
 	{
-		if (pressedButton == ModIOKeyboardButton.ModIOKeyboardBindings.option2)
+		if (pressedButton == CustomMapsTerminalButton.ModIOKeyboardBindings.option2)
 		{
-			if (ModIODataStore.IsLoggedIn())
+			if (ModIOManager.IsLoggedIn())
 			{
-				ModIODataStore.LogoutFromModIO();
+				ModIOManager.LogoutFromModIO();
 			}
 			else
 			{
@@ -117,12 +117,12 @@ public class ModIOAccountLinkingTerminal : MonoBehaviour
 				}
 			}
 		}
-		if (pressedButton == ModIOKeyboardButton.ModIOKeyboardBindings.option4)
+		if (pressedButton == CustomMapsTerminalButton.ModIOKeyboardBindings.option4)
 		{
-			if (!ModIODataStore.IsLoggedIn())
+			if (!ModIOManager.IsLoggedIn())
 			{
-				ModIODataStore.CancelExternalAuthentication();
-				ModIODataStore.RequestPlatformLogin(null);
+				ModIOManager.CancelExternalAuthentication();
+				ModIOManager.RequestPlatformLogin(null);
 				return;
 			}
 			UnityEvent onButtonPress2 = ModIOAccountLinkingTerminal.OnButtonPress;
@@ -134,17 +134,17 @@ public class ModIOAccountLinkingTerminal : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060028FB RID: 10491 RVA: 0x000C95BB File Offset: 0x000C77BB
+	// Token: 0x06002914 RID: 10516 RVA: 0x0004BD55 File Offset: 0x00049F55
 	public void LinkButtonPressed()
 	{
 		if (!this.processingAccountLink)
 		{
 			this.processingAccountLink = true;
-			ModIODataStore.IsAuthenticated(delegate(Result result)
+			ModIOManager.IsAuthenticated(delegate(Result result)
 			{
 				if (result.Succeeded())
 				{
-					if (ModIODataStore.GetLastAuthMethod() == ModIODataStore.ModIOAuthMethod.LinkedAccount)
+					if (ModIOManager.GetLastAuthMethod() == ModIOManager.ModIOAuthMethod.LinkedAccount)
 					{
 						this.processingAccountLink = false;
 						this.alreadyLinkedAccountText.gameObject.SetActive(true);
@@ -152,7 +152,7 @@ public class ModIOAccountLinkingTerminal : MonoBehaviour
 						return;
 					}
 					GameEvents.OnModIOLoggedOut.RemoveListener(new UnityAction(this.OnModIOLoggedOut));
-					ModIODataStore.LogoutFromModIO();
+					ModIOManager.LogoutFromModIO();
 					this.isLoggedIn = false;
 				}
 				this.errorText.gameObject.SetActive(false);
@@ -160,7 +160,7 @@ public class ModIOAccountLinkingTerminal : MonoBehaviour
 				this.modioUsernameLabelText.gameObject.SetActive(false);
 				this.modioUsernameText.gameObject.SetActive(false);
 				this.modioUsernameText.text = "";
-				ModIODataStore.RequestAccountLinkCode(delegate(ModIORequestResult result, string linkURL, string linkCode)
+				ModIOManager.RequestAccountLinkCode(delegate(ModIORequestResult result, string linkURL, string linkCode)
 				{
 					this.linkAccountPromptText.gameObject.SetActive(false);
 					this.linkAccountLabelText.gameObject.SetActive(true);
@@ -192,10 +192,10 @@ public class ModIOAccountLinkingTerminal : MonoBehaviour
 		this.ResetScreen();
 	}
 
-	// Token: 0x060028FC RID: 10492 RVA: 0x000C95E4 File Offset: 0x000C77E4
+	// Token: 0x06002915 RID: 10517 RVA: 0x001149DC File Offset: 0x00112BDC
 	public void NotifyLoggingIn()
 	{
-		ModIODataStore.CancelExternalAuthentication();
+		ModIOManager.CancelExternalAuthentication();
 		this.modioUsernameLabelText.gameObject.SetActive(false);
 		this.modioUsernameText.gameObject.SetActive(false);
 		this.linkAccountPromptText.gameObject.SetActive(false);
@@ -210,10 +210,10 @@ public class ModIOAccountLinkingTerminal : MonoBehaviour
 		this.loggingInText.gameObject.SetActive(true);
 	}
 
-	// Token: 0x060028FD RID: 10493 RVA: 0x000C96C4 File Offset: 0x000C78C4
+	// Token: 0x06002916 RID: 10518 RVA: 0x00114ABC File Offset: 0x00112CBC
 	public void DisplayLoginError(string errorMessage)
 	{
-		ModIODataStore.CancelExternalAuthentication();
+		ModIOManager.CancelExternalAuthentication();
 		this.modioUsernameLabelText.gameObject.SetActive(false);
 		this.modioUsernameText.gameObject.SetActive(false);
 		this.loggingInText.gameObject.SetActive(false);
@@ -228,11 +228,11 @@ public class ModIOAccountLinkingTerminal : MonoBehaviour
 		this.errorText.gameObject.SetActive(true);
 	}
 
-	// Token: 0x060028FE RID: 10494 RVA: 0x000C97A0 File Offset: 0x000C79A0
+	// Token: 0x06002917 RID: 10519 RVA: 0x00114B98 File Offset: 0x00112D98
 	private void ResetScreen()
 	{
 		this.processingAccountLink = false;
-		ModIODataStore.CancelExternalAuthentication();
+		ModIOManager.CancelExternalAuthentication();
 		if (this.isLoggedIn)
 		{
 			this.modioUsernameLabelText.gameObject.SetActive(true);
@@ -253,7 +253,7 @@ public class ModIOAccountLinkingTerminal : MonoBehaviour
 		this.linkAccountCodeText.gameObject.SetActive(false);
 		this.linkAccountPromptText.gameObject.SetActive(false);
 		this.alreadyLinkedAccountText.gameObject.SetActive(false);
-		if (ModIODataStore.GetLastAuthMethod() != ModIODataStore.ModIOAuthMethod.LinkedAccount)
+		if (ModIOManager.GetLastAuthMethod() != ModIOManager.ModIOAuthMethod.LinkedAccount)
 		{
 			this.linkAccountPromptText.gameObject.SetActive(true);
 			return;
@@ -261,56 +261,56 @@ public class ModIOAccountLinkingTerminal : MonoBehaviour
 		this.alreadyLinkedAccountText.gameObject.SetActive(true);
 	}
 
-	// Token: 0x04002E01 RID: 11777
+	// Token: 0x04002E6B RID: 11883
 	[SerializeField]
 	private TMP_Text modioUsernameLabelText;
 
-	// Token: 0x04002E02 RID: 11778
+	// Token: 0x04002E6C RID: 11884
 	[SerializeField]
 	private TMP_Text modioUsernameText;
 
-	// Token: 0x04002E03 RID: 11779
+	// Token: 0x04002E6D RID: 11885
 	[SerializeField]
 	private TMP_Text linkAccountPromptText;
 
-	// Token: 0x04002E04 RID: 11780
+	// Token: 0x04002E6E RID: 11886
 	[SerializeField]
 	private TMP_Text alreadyLinkedAccountText;
 
-	// Token: 0x04002E05 RID: 11781
+	// Token: 0x04002E6F RID: 11887
 	[SerializeField]
 	private TMP_Text linkAccountLabelText;
 
-	// Token: 0x04002E06 RID: 11782
+	// Token: 0x04002E70 RID: 11888
 	[SerializeField]
 	private TMP_Text linkAccountURLLabelText;
 
-	// Token: 0x04002E07 RID: 11783
+	// Token: 0x04002E71 RID: 11889
 	[SerializeField]
 	private TMP_Text linkAccountURLText;
 
-	// Token: 0x04002E08 RID: 11784
+	// Token: 0x04002E72 RID: 11890
 	[SerializeField]
 	private TMP_Text linkAccountCodeLabelText;
 
-	// Token: 0x04002E09 RID: 11785
+	// Token: 0x04002E73 RID: 11891
 	[SerializeField]
 	private TMP_Text linkAccountCodeText;
 
-	// Token: 0x04002E0A RID: 11786
+	// Token: 0x04002E74 RID: 11892
 	[SerializeField]
 	private TMP_Text loggingInText;
 
-	// Token: 0x04002E0B RID: 11787
+	// Token: 0x04002E75 RID: 11893
 	[SerializeField]
 	private TMP_Text errorText;
 
-	// Token: 0x04002E0C RID: 11788
+	// Token: 0x04002E76 RID: 11894
 	private bool processingAccountLink;
 
-	// Token: 0x04002E0D RID: 11789
+	// Token: 0x04002E77 RID: 11895
 	private bool isLoggedIn;
 
-	// Token: 0x04002E0E RID: 11790
+	// Token: 0x04002E78 RID: 11896
 	private static UnityEvent OnButtonPress = new UnityEvent();
 }

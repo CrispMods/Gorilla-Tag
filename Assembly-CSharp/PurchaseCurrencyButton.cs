@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x02000415 RID: 1045
+// Token: 0x02000420 RID: 1056
 public class PurchaseCurrencyButton : GorillaPressableButton
 {
-	// Token: 0x060019DC RID: 6620 RVA: 0x0007F4B8 File Offset: 0x0007D6B8
+	// Token: 0x06001A29 RID: 6697 RVA: 0x00041A59 File Offset: 0x0003FC59
 	public override void ButtonActivation()
 	{
 		base.ButtonActivation();
@@ -13,7 +13,7 @@ public class PurchaseCurrencyButton : GorillaPressableButton
 		base.StartCoroutine(this.ButtonColorUpdate());
 	}
 
-	// Token: 0x060019DD RID: 6621 RVA: 0x0007F4DF File Offset: 0x0007D6DF
+	// Token: 0x06001A2A RID: 6698 RVA: 0x00041A80 File Offset: 0x0003FC80
 	private IEnumerator ButtonColorUpdate()
 	{
 		this.buttonRenderer.material = this.pressedMaterial;
@@ -22,9 +22,9 @@ public class PurchaseCurrencyButton : GorillaPressableButton
 		yield break;
 	}
 
-	// Token: 0x04001CC3 RID: 7363
+	// Token: 0x04001D0C RID: 7436
 	public string purchaseCurrencySize;
 
-	// Token: 0x04001CC4 RID: 7364
+	// Token: 0x04001D0D RID: 7437
 	public float buttonFadeTime = 0.25f;
 }

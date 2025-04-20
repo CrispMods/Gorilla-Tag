@@ -2,25 +2,25 @@
 
 namespace GorillaTag.CosmeticSystem.Editor
 {
-	// Token: 0x02000BFF RID: 3071
+	// Token: 0x02000C2D RID: 3117
 	[Flags]
 	public enum EEdCosBrowserPartsFilter
 	{
-		// Token: 0x04004F30 RID: 20272
+		// Token: 0x04005026 RID: 20518
 		None = 0,
-		// Token: 0x04004F31 RID: 20273
+		// Token: 0x04005027 RID: 20519
 		NoParts = 1,
-		// Token: 0x04004F32 RID: 20274
+		// Token: 0x04005028 RID: 20520
 		Holdable = 2,
-		// Token: 0x04004F33 RID: 20275
+		// Token: 0x04005029 RID: 20521
 		Functional = 4,
-		// Token: 0x04004F34 RID: 20276
+		// Token: 0x0400502A RID: 20522
 		Wardrobe = 8,
-		// Token: 0x04004F35 RID: 20277
+		// Token: 0x0400502B RID: 20523
 		Store = 16,
-		// Token: 0x04004F36 RID: 20278
+		// Token: 0x0400502C RID: 20524
 		FirstPerson = 32,
-		// Token: 0x04004F37 RID: 20279
+		// Token: 0x0400502D RID: 20525
 		All = 63
 	}
 }

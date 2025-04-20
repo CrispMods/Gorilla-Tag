@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x0200031E RID: 798
+// Token: 0x02000329 RID: 809
 public class PassthroughStyler : MonoBehaviour
 {
-	// Token: 0x060012E9 RID: 4841 RVA: 0x0005C7E8 File Offset: 0x0005A9E8
+	// Token: 0x06001335 RID: 4917 RVA: 0x000B6854 File Offset: 0x000B4A54
 	private void Start()
 	{
 		GrabObject grabObject;
@@ -31,7 +31,7 @@ public class PassthroughStyler : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012EA RID: 4842 RVA: 0x0005C8DE File Offset: 0x0005AADE
+	// Token: 0x06001336 RID: 4918 RVA: 0x0003D0BB File Offset: 0x0003B2BB
 	private void Update()
 	{
 		if (this._controllerHand == OVRInput.Controller.None)
@@ -44,48 +44,48 @@ public class PassthroughStyler : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012EB RID: 4843 RVA: 0x0005C8F7 File Offset: 0x0005AAF7
+	// Token: 0x06001337 RID: 4919 RVA: 0x0003D0D4 File Offset: 0x0003B2D4
 	public void OnBrightnessChanged(float newValue)
 	{
 		this._savedBrightness = newValue;
 		this.UpdateBrighnessContrastSaturation();
 	}
 
-	// Token: 0x060012EC RID: 4844 RVA: 0x0005C906 File Offset: 0x0005AB06
+	// Token: 0x06001338 RID: 4920 RVA: 0x0003D0E3 File Offset: 0x0003B2E3
 	public void OnContrastChanged(float newValue)
 	{
 		this._savedContrast = newValue;
 		this.UpdateBrighnessContrastSaturation();
 	}
 
-	// Token: 0x060012ED RID: 4845 RVA: 0x0005C915 File Offset: 0x0005AB15
+	// Token: 0x06001339 RID: 4921 RVA: 0x0003D0F2 File Offset: 0x0003B2F2
 	public void OnSaturationChanged(float newValue)
 	{
 		this._savedSaturation = newValue;
 		this.UpdateBrighnessContrastSaturation();
 	}
 
-	// Token: 0x060012EE RID: 4846 RVA: 0x0005C924 File Offset: 0x0005AB24
+	// Token: 0x0600133A RID: 4922 RVA: 0x0003D101 File Offset: 0x0003B301
 	public void OnAlphaChanged(float newValue)
 	{
 		this._savedColor = new Color(this._savedColor.r, this._savedColor.g, this._savedColor.b, newValue);
 		this._passthroughLayer.edgeColor = this._savedColor;
 	}
 
-	// Token: 0x060012EF RID: 4847 RVA: 0x0005C964 File Offset: 0x0005AB64
+	// Token: 0x0600133B RID: 4923 RVA: 0x0003D141 File Offset: 0x0003B341
 	public void OnBlendChange(float newValue)
 	{
 		this._savedBlend = newValue;
 		this._passthroughLayer.SetColorLut(this._passthroughColorLut, this._savedBlend);
 	}
 
-	// Token: 0x060012F0 RID: 4848 RVA: 0x0005C984 File Offset: 0x0005AB84
+	// Token: 0x0600133C RID: 4924 RVA: 0x0003D161 File Offset: 0x0003B361
 	public void DoColorDrag(bool doDrag)
 	{
 		this._settingColor = doDrag;
 	}
 
-	// Token: 0x060012F1 RID: 4849 RVA: 0x0005C98D File Offset: 0x0005AB8D
+	// Token: 0x0600133D RID: 4925 RVA: 0x0003D16A File Offset: 0x0003B36A
 	public void SetPassthroughStyleToColorAdjustment(bool isOn)
 	{
 		if (isOn)
@@ -94,7 +94,7 @@ public class PassthroughStyler : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012F2 RID: 4850 RVA: 0x0005C999 File Offset: 0x0005AB99
+	// Token: 0x0600133E RID: 4926 RVA: 0x0003D176 File Offset: 0x0003B376
 	public void SetPassthroughStyleToColorLut(bool isOn)
 	{
 		if (isOn)
@@ -103,7 +103,7 @@ public class PassthroughStyler : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012F3 RID: 4851 RVA: 0x0005C9A8 File Offset: 0x0005ABA8
+	// Token: 0x0600133F RID: 4927 RVA: 0x000B694C File Offset: 0x000B4B4C
 	private void Grab(OVRInput.Controller grabHand)
 	{
 		this._controllerHand = grabHand;
@@ -120,7 +120,7 @@ public class PassthroughStyler : MonoBehaviour
 		base.StartCoroutine(this._fade);
 	}
 
-	// Token: 0x060012F4 RID: 4852 RVA: 0x0005CA10 File Offset: 0x0005AC10
+	// Token: 0x06001340 RID: 4928 RVA: 0x000B69B4 File Offset: 0x000B4BB4
 	private void Release()
 	{
 		this._controllerHand = OVRInput.Controller.None;
@@ -137,7 +137,7 @@ public class PassthroughStyler : MonoBehaviour
 		base.StartCoroutine(this._fade);
 	}
 
-	// Token: 0x060012F5 RID: 4853 RVA: 0x0005CA76 File Offset: 0x0005AC76
+	// Token: 0x06001341 RID: 4929 RVA: 0x0003D182 File Offset: 0x0003B382
 	private IEnumerator FadeToCurrentStyle(float fadeTime)
 	{
 		this._passthroughLayer.edgeRenderingEnabled = true;
@@ -145,7 +145,7 @@ public class PassthroughStyler : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060012F6 RID: 4854 RVA: 0x0005CA8C File Offset: 0x0005AC8C
+	// Token: 0x06001342 RID: 4930 RVA: 0x0003D198 File Offset: 0x0003B398
 	private IEnumerator FadeToDefaultPassthrough(float fadeTime)
 	{
 		yield return this.FadeTo(0f, fadeTime);
@@ -153,7 +153,7 @@ public class PassthroughStyler : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060012F7 RID: 4855 RVA: 0x0005CAA2 File Offset: 0x0005ACA2
+	// Token: 0x06001343 RID: 4931 RVA: 0x0003D1AE File Offset: 0x0003B3AE
 	private IEnumerator FadeTo(float styleValueMultiplier, float duration)
 	{
 		float timer = 0f;
@@ -180,13 +180,13 @@ public class PassthroughStyler : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060012F8 RID: 4856 RVA: 0x0005CABF File Offset: 0x0005ACBF
+	// Token: 0x06001344 RID: 4932 RVA: 0x0003D1CB File Offset: 0x0003B3CB
 	private void UpdateBrighnessContrastSaturation()
 	{
 		this._passthroughLayer.SetBrightnessContrastSaturation(this._savedBrightness, this._savedContrast, this._savedSaturation);
 	}
 
-	// Token: 0x060012F9 RID: 4857 RVA: 0x0005CAE0 File Offset: 0x0005ACE0
+	// Token: 0x06001345 RID: 4933 RVA: 0x000B6A1C File Offset: 0x000B4C1C
 	private void ShowFullMenu(bool doShow)
 	{
 		GameObject[] compactObjects = this._compactObjects;
@@ -196,13 +196,13 @@ public class PassthroughStyler : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012FA RID: 4858 RVA: 0x0005CB0B File Offset: 0x0005AD0B
+	// Token: 0x06001346 RID: 4934 RVA: 0x0003D1EA File Offset: 0x0003B3EA
 	private void Cursor(Vector3 cP)
 	{
 		this._cursorPosition = cP;
 	}
 
-	// Token: 0x060012FB RID: 4859 RVA: 0x0005CB14 File Offset: 0x0005AD14
+	// Token: 0x06001347 RID: 4935 RVA: 0x000B6A48 File Offset: 0x000B4C48
 	private void GetColorFromWheel()
 	{
 		Vector3 vector = this._colorWheel.transform.InverseTransformPoint(this._cursorPosition);
@@ -219,7 +219,7 @@ public class PassthroughStyler : MonoBehaviour
 		this._passthroughLayer.edgeColor = this._savedColor;
 	}
 
-	// Token: 0x060012FC RID: 4860 RVA: 0x0005CC64 File Offset: 0x0005AE64
+	// Token: 0x06001348 RID: 4936 RVA: 0x0003D1F3 File Offset: 0x0003B3F3
 	private void SetPassthroughStyle(OVRPassthroughLayer.ColorMapEditorType passthroughStyle)
 	{
 		this._currentStyle = passthroughStyle;
@@ -231,68 +231,68 @@ public class PassthroughStyler : MonoBehaviour
 		this.UpdateBrighnessContrastSaturation();
 	}
 
-	// Token: 0x040014EC RID: 5356
+	// Token: 0x04001534 RID: 5428
 	private const float FadeDuration = 0.2f;
 
-	// Token: 0x040014ED RID: 5357
+	// Token: 0x04001535 RID: 5429
 	[SerializeField]
 	private OVRInput.Controller _controllerHand;
 
-	// Token: 0x040014EE RID: 5358
+	// Token: 0x04001536 RID: 5430
 	[SerializeField]
 	private OVRPassthroughLayer _passthroughLayer;
 
-	// Token: 0x040014EF RID: 5359
+	// Token: 0x04001537 RID: 5431
 	[SerializeField]
 	private RectTransform _colorWheel;
 
-	// Token: 0x040014F0 RID: 5360
+	// Token: 0x04001538 RID: 5432
 	[SerializeField]
 	private Texture2D _colorTexture;
 
-	// Token: 0x040014F1 RID: 5361
+	// Token: 0x04001539 RID: 5433
 	[SerializeField]
 	private Texture2D _colorLutTexture;
 
-	// Token: 0x040014F2 RID: 5362
+	// Token: 0x0400153A RID: 5434
 	[SerializeField]
 	private CanvasGroup _mainCanvas;
 
-	// Token: 0x040014F3 RID: 5363
+	// Token: 0x0400153B RID: 5435
 	[SerializeField]
 	private GameObject[] _compactObjects;
 
-	// Token: 0x040014F4 RID: 5364
+	// Token: 0x0400153C RID: 5436
 	[SerializeField]
 	private GameObject[] _objectsToHideForColorPassthrough;
 
-	// Token: 0x040014F5 RID: 5365
+	// Token: 0x0400153D RID: 5437
 	private Vector3 _cursorPosition = Vector3.zero;
 
-	// Token: 0x040014F6 RID: 5366
+	// Token: 0x0400153E RID: 5438
 	private bool _settingColor;
 
-	// Token: 0x040014F7 RID: 5367
+	// Token: 0x0400153F RID: 5439
 	private Color _savedColor = Color.white;
 
-	// Token: 0x040014F8 RID: 5368
+	// Token: 0x04001540 RID: 5440
 	private float _savedBrightness;
 
-	// Token: 0x040014F9 RID: 5369
+	// Token: 0x04001541 RID: 5441
 	private float _savedContrast;
 
-	// Token: 0x040014FA RID: 5370
+	// Token: 0x04001542 RID: 5442
 	private float _savedSaturation;
 
-	// Token: 0x040014FB RID: 5371
+	// Token: 0x04001543 RID: 5443
 	private OVRPassthroughLayer.ColorMapEditorType _currentStyle = OVRPassthroughLayer.ColorMapEditorType.ColorAdjustment;
 
-	// Token: 0x040014FC RID: 5372
+	// Token: 0x04001544 RID: 5444
 	private float _savedBlend = 1f;
 
-	// Token: 0x040014FD RID: 5373
+	// Token: 0x04001545 RID: 5445
 	private OVRPassthroughColorLut _passthroughColorLut;
 
-	// Token: 0x040014FE RID: 5374
+	// Token: 0x04001546 RID: 5446
 	private IEnumerator _fade;
 }

@@ -2,10 +2,10 @@
 using Photon.Realtime;
 using UnityEngine;
 
-// Token: 0x02000382 RID: 898
+// Token: 0x0200038D RID: 909
 public class PaintbrawlBalloons : MonoBehaviour
 {
-	// Token: 0x06001507 RID: 5383 RVA: 0x00066CC0 File Offset: 0x00064EC0
+	// Token: 0x06001553 RID: 5459 RVA: 0x000BF6E8 File Offset: 0x000BD8E8
 	protected void Awake()
 	{
 		this.matPropBlock = new MaterialPropertyBlock();
@@ -19,13 +19,13 @@ public class PaintbrawlBalloons : MonoBehaviour
 		this.colorShaderPropID = Shader.PropertyToID("_Color");
 	}
 
-	// Token: 0x06001508 RID: 5384 RVA: 0x00066D4B File Offset: 0x00064F4B
+	// Token: 0x06001554 RID: 5460 RVA: 0x0003E67C File Offset: 0x0003C87C
 	protected void OnEnable()
 	{
 		this.UpdateBalloonColors();
 	}
 
-	// Token: 0x06001509 RID: 5385 RVA: 0x00066D54 File Offset: 0x00064F54
+	// Token: 0x06001555 RID: 5461 RVA: 0x000BF774 File Offset: 0x000BD974
 	protected void LateUpdate()
 	{
 		if (GorillaGameManager.instance != null && (this.bMgr != null || GorillaGameManager.instance.gameObject.GetComponent<GorillaPaintbrawlManager>() != null))
@@ -56,7 +56,7 @@ public class PaintbrawlBalloons : MonoBehaviour
 		this.UpdateBalloonColors();
 	}
 
-	// Token: 0x0600150A RID: 5386 RVA: 0x00066E40 File Offset: 0x00065040
+	// Token: 0x06001556 RID: 5462 RVA: 0x000BF860 File Offset: 0x000BDA60
 	private void PopBalloon(int i)
 	{
 		GameObject gameObject = ObjectPools.instance.Instantiate(this.balloonPopFXPrefab);
@@ -68,7 +68,7 @@ public class PaintbrawlBalloons : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600150B RID: 5387 RVA: 0x00066E98 File Offset: 0x00065098
+	// Token: 0x06001557 RID: 5463 RVA: 0x000BF8B8 File Offset: 0x000BDAB8
 	public void UpdateBalloonColors()
 	{
 		if (this.bMgr != null && this.myRig.creator != null)
@@ -108,46 +108,46 @@ public class PaintbrawlBalloons : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001746 RID: 5958
+	// Token: 0x0400178E RID: 6030
 	public VRRig myRig;
 
-	// Token: 0x04001747 RID: 5959
+	// Token: 0x0400178F RID: 6031
 	public GameObject[] balloons;
 
-	// Token: 0x04001748 RID: 5960
+	// Token: 0x04001790 RID: 6032
 	public Color orangeColor;
 
-	// Token: 0x04001749 RID: 5961
+	// Token: 0x04001791 RID: 6033
 	public Color blueColor;
 
-	// Token: 0x0400174A RID: 5962
+	// Token: 0x04001792 RID: 6034
 	public Color defaultColor;
 
-	// Token: 0x0400174B RID: 5963
+	// Token: 0x04001793 RID: 6035
 	public Color lastColor;
 
-	// Token: 0x0400174C RID: 5964
+	// Token: 0x04001794 RID: 6036
 	public GameObject balloonPopFXPrefab;
 
-	// Token: 0x0400174D RID: 5965
+	// Token: 0x04001795 RID: 6037
 	[HideInInspector]
 	public GorillaPaintbrawlManager bMgr;
 
-	// Token: 0x0400174E RID: 5966
+	// Token: 0x04001796 RID: 6038
 	public Player myPlayer;
 
-	// Token: 0x0400174F RID: 5967
+	// Token: 0x04001797 RID: 6039
 	private int colorShaderPropID;
 
-	// Token: 0x04001750 RID: 5968
+	// Token: 0x04001798 RID: 6040
 	private MaterialPropertyBlock matPropBlock;
 
-	// Token: 0x04001751 RID: 5969
+	// Token: 0x04001799 RID: 6041
 	private bool[] balloonsCachedActiveState;
 
-	// Token: 0x04001752 RID: 5970
+	// Token: 0x0400179A RID: 6042
 	private Renderer[] renderers;
 
-	// Token: 0x04001753 RID: 5971
+	// Token: 0x0400179B RID: 6043
 	private Color teamColor;
 }

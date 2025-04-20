@@ -3,14 +3,14 @@ using Fusion.Internal;
 
 namespace Fusion.CodeGen
 {
-	// Token: 0x02000D14 RID: 3348
+	// Token: 0x02000D45 RID: 3397
 	[WeaverGenerated]
 	[Serializable]
 	internal class UnityArraySurrogate@ReaderWriter@Fusion_NetworkBool : UnityArraySurrogate<NetworkBool, ReaderWriter@Fusion_NetworkBool>
 	{
-		// Token: 0x1700086E RID: 2158
-		// (get) Token: 0x060053E0 RID: 21472 RVA: 0x0019C465 File Offset: 0x0019A665
-		// (set) Token: 0x060053E1 RID: 21473 RVA: 0x0019C46D File Offset: 0x0019A66D
+		// Token: 0x1700088C RID: 2188
+		// (get) Token: 0x06005542 RID: 21826 RVA: 0x000674DA File Offset: 0x000656DA
+		// (set) Token: 0x06005543 RID: 21827 RVA: 0x000674E2 File Offset: 0x000656E2
 		[WeaverGenerated]
 		public override NetworkBool[] DataProperty
 		{
@@ -26,13 +26,13 @@ namespace Fusion.CodeGen
 			}
 		}
 
-		// Token: 0x060053E2 RID: 21474 RVA: 0x0019C476 File Offset: 0x0019A676
+		// Token: 0x06005544 RID: 21828 RVA: 0x000674EB File Offset: 0x000656EB
 		[WeaverGenerated]
 		public UnityArraySurrogate@ReaderWriter@Fusion_NetworkBool()
 		{
 		}
 
-		// Token: 0x04005637 RID: 22071
+		// Token: 0x04005743 RID: 22339
 		[WeaverGenerated]
 		public NetworkBool[] Data = Array.Empty<NetworkBool>();
 	}

@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009BA RID: 2490
+	// Token: 0x020009E0 RID: 2528
 	public class GorillaAmbushManager : GorillaTagManager
 	{
-		// Token: 0x06003DEA RID: 15850 RVA: 0x00125B07 File Offset: 0x00123D07
+		// Token: 0x06003F02 RID: 16130 RVA: 0x000590B0 File Offset: 0x000572B0
 		public override GameModeType GameType()
 		{
 			if (!this.isGhostTag)
@@ -18,8 +18,8 @@ namespace GorillaTagScripts
 			return GameModeType.Ghost;
 		}
 
-		// Token: 0x17000646 RID: 1606
-		// (get) Token: 0x06003DEB RID: 15851 RVA: 0x00125B14 File Offset: 0x00123D14
+		// Token: 0x1700065E RID: 1630
+		// (get) Token: 0x06003F03 RID: 16131 RVA: 0x000590BD File Offset: 0x000572BD
 		public static int HandEffectHash
 		{
 			get
@@ -28,17 +28,17 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x17000647 RID: 1607
-		// (get) Token: 0x06003DEC RID: 15852 RVA: 0x00125B1B File Offset: 0x00123D1B
-		// (set) Token: 0x06003DED RID: 15853 RVA: 0x00125B22 File Offset: 0x00123D22
+		// Token: 0x1700065F RID: 1631
+		// (get) Token: 0x06003F04 RID: 16132 RVA: 0x000590C4 File Offset: 0x000572C4
+		// (set) Token: 0x06003F05 RID: 16133 RVA: 0x000590CB File Offset: 0x000572CB
 		public static float HandFXScaleModifier { get; private set; }
 
-		// Token: 0x17000648 RID: 1608
-		// (get) Token: 0x06003DEE RID: 15854 RVA: 0x00125B2A File Offset: 0x00123D2A
-		// (set) Token: 0x06003DEF RID: 15855 RVA: 0x00125B32 File Offset: 0x00123D32
+		// Token: 0x17000660 RID: 1632
+		// (get) Token: 0x06003F06 RID: 16134 RVA: 0x000590D3 File Offset: 0x000572D3
+		// (set) Token: 0x06003F07 RID: 16135 RVA: 0x000590DB File Offset: 0x000572DB
 		public bool isGhostTag { get; private set; }
 
-		// Token: 0x06003DF0 RID: 15856 RVA: 0x00125B3B File Offset: 0x00123D3B
+		// Token: 0x06003F08 RID: 16136 RVA: 0x000590E4 File Offset: 0x000572E4
 		public override void Awake()
 		{
 			base.Awake();
@@ -49,14 +49,14 @@ namespace GorillaTagScripts
 			GorillaAmbushManager.HandFXScaleModifier = this.handTapScaleFactor;
 		}
 
-		// Token: 0x06003DF1 RID: 15857 RVA: 0x00125B6C File Offset: 0x00123D6C
+		// Token: 0x06003F09 RID: 16137 RVA: 0x00059115 File Offset: 0x00057315
 		private void Start()
 		{
 			this.hasScryingPlane = this.scryingPlaneRef.TryResolve<MeshRenderer>(out this.scryingPlane);
 			this.hasScryingPlane3p = this.scryingPlane3pRef.TryResolve<MeshRenderer>(out this.scryingPlane3p);
 		}
 
-		// Token: 0x06003DF2 RID: 15858 RVA: 0x00125B9C File Offset: 0x00123D9C
+		// Token: 0x06003F0A RID: 16138 RVA: 0x00059145 File Offset: 0x00057345
 		public override string GameModeName()
 		{
 			if (!this.isGhostTag)
@@ -66,7 +66,7 @@ namespace GorillaTagScripts
 			return "GHOST";
 		}
 
-		// Token: 0x06003DF3 RID: 15859 RVA: 0x00125BB4 File Offset: 0x00123DB4
+		// Token: 0x06003F0B RID: 16139 RVA: 0x001674F8 File Offset: 0x001656F8
 		public override void UpdatePlayerAppearance(VRRig rig)
 		{
 			int materialIndex = this.MyMatIndex(rig.creator);
@@ -89,7 +89,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003DF4 RID: 15860 RVA: 0x00125C5A File Offset: 0x00123E5A
+		// Token: 0x06003F0C RID: 16140 RVA: 0x0005915A File Offset: 0x0005735A
 		public override int MyMatIndex(NetPlayer forPlayer)
 		{
 			if (!base.IsInfected(forPlayer))
@@ -99,7 +99,7 @@ namespace GorillaTagScripts
 			return 13;
 		}
 
-		// Token: 0x06003DF5 RID: 15861 RVA: 0x00125C6C File Offset: 0x00123E6C
+		// Token: 0x06003F0D RID: 16141 RVA: 0x001675A0 File Offset: 0x001657A0
 		public override void StopPlaying()
 		{
 			base.StopPlaying();
@@ -120,50 +120,50 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x04003F28 RID: 16168
+		// Token: 0x04004002 RID: 16386
 		public GameObject handTapFX;
 
-		// Token: 0x04003F29 RID: 16169
+		// Token: 0x04004003 RID: 16387
 		public GorillaSkin ambushSkin;
 
-		// Token: 0x04003F2A RID: 16170
+		// Token: 0x04004004 RID: 16388
 		[SerializeField]
 		private AudioClip[] firstPersonTaggedSounds;
 
-		// Token: 0x04003F2B RID: 16171
+		// Token: 0x04004005 RID: 16389
 		[SerializeField]
 		private float firstPersonTaggedSoundVolume;
 
-		// Token: 0x04003F2C RID: 16172
+		// Token: 0x04004006 RID: 16390
 		private static int handTapHash = -1;
 
-		// Token: 0x04003F2D RID: 16173
+		// Token: 0x04004007 RID: 16391
 		public float handTapScaleFactor = 0.5f;
 
-		// Token: 0x04003F2F RID: 16175
+		// Token: 0x04004009 RID: 16393
 		public float crawlingSpeedForMaxVolume;
 
-		// Token: 0x04003F31 RID: 16177
+		// Token: 0x0400400B RID: 16395
 		[SerializeField]
 		private XSceneRef scryingPlaneRef;
 
-		// Token: 0x04003F32 RID: 16178
+		// Token: 0x0400400C RID: 16396
 		[SerializeField]
 		private XSceneRef scryingPlane3pRef;
 
-		// Token: 0x04003F33 RID: 16179
+		// Token: 0x0400400D RID: 16397
 		private const int STEALTH_MATERIAL_INDEX = 13;
 
-		// Token: 0x04003F34 RID: 16180
+		// Token: 0x0400400E RID: 16398
 		private MeshRenderer scryingPlane;
 
-		// Token: 0x04003F35 RID: 16181
+		// Token: 0x0400400F RID: 16399
 		private bool hasScryingPlane;
 
-		// Token: 0x04003F36 RID: 16182
+		// Token: 0x04004010 RID: 16400
 		private MeshRenderer scryingPlane3p;
 
-		// Token: 0x04003F37 RID: 16183
+		// Token: 0x04004011 RID: 16401
 		private bool hasScryingPlane3p;
 	}
 }

@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace GameObjectScheduling
 {
-	// Token: 0x02000C88 RID: 3208
+	// Token: 0x02000CB9 RID: 3257
 	public class GameObjectScheduler : MonoBehaviour
 	{
-		// Token: 0x060050EB RID: 20715 RVA: 0x00188D70 File Offset: 0x00186F70
+		// Token: 0x0600524D RID: 21069 RVA: 0x001BFCAC File Offset: 0x001BDEAC
 		private void Start()
 		{
 			this.schedule.Validate();
@@ -27,7 +27,7 @@ namespace GameObjectScheduling
 			this.monitor = base.StartCoroutine(this.MonitorTime());
 		}
 
-		// Token: 0x060050EC RID: 20716 RVA: 0x00188E06 File Offset: 0x00187006
+		// Token: 0x0600524E RID: 21070 RVA: 0x000655F3 File Offset: 0x000637F3
 		private void OnEnable()
 		{
 			if (this.monitor == null && this.scheduledGameObject != null)
@@ -36,7 +36,7 @@ namespace GameObjectScheduling
 			}
 		}
 
-		// Token: 0x060050ED RID: 20717 RVA: 0x00188E2A File Offset: 0x0018702A
+		// Token: 0x0600524F RID: 21071 RVA: 0x00065617 File Offset: 0x00063817
 		private void OnDisable()
 		{
 			if (this.monitor != null)
@@ -46,7 +46,7 @@ namespace GameObjectScheduling
 			this.monitor = null;
 		}
 
-		// Token: 0x060050EE RID: 20718 RVA: 0x00188E47 File Offset: 0x00187047
+		// Token: 0x06005250 RID: 21072 RVA: 0x00065634 File Offset: 0x00063834
 		private IEnumerator MonitorTime()
 		{
 			while (GorillaComputer.instance == null || GorillaComputer.instance.startupMillis == 0L)
@@ -71,7 +71,7 @@ namespace GameObjectScheduling
 			yield break;
 		}
 
-		// Token: 0x060050EF RID: 20719 RVA: 0x00188E58 File Offset: 0x00187058
+		// Token: 0x06005251 RID: 21073 RVA: 0x001BFD44 File Offset: 0x001BDF44
 		private bool getActiveState()
 		{
 			this.currentNodeIndex = this.schedule.GetCurrentNodeIndex(this.getServerTime(), 0);
@@ -91,13 +91,13 @@ namespace GameObjectScheduling
 			return result;
 		}
 
-		// Token: 0x060050F0 RID: 20720 RVA: 0x0014F867 File Offset: 0x0014DA67
+		// Token: 0x06005252 RID: 21074 RVA: 0x0005EE1B File Offset: 0x0005D01B
 		private DateTime getServerTime()
 		{
 			return GorillaComputer.instance.GetServerTime();
 		}
 
-		// Token: 0x060050F1 RID: 20721 RVA: 0x00188EE8 File Offset: 0x001870E8
+		// Token: 0x06005253 RID: 21075 RVA: 0x001BFDD4 File Offset: 0x001BDFD4
 		private void changeActiveState(bool state)
 		{
 			if (state)
@@ -126,20 +126,20 @@ namespace GameObjectScheduling
 			}
 		}
 
-		// Token: 0x0400534D RID: 21325
+		// Token: 0x04005459 RID: 21593
 		[SerializeField]
 		private GameObjectSchedule schedule;
 
-		// Token: 0x0400534E RID: 21326
+		// Token: 0x0400545A RID: 21594
 		private GameObject[] scheduledGameObject;
 
-		// Token: 0x0400534F RID: 21327
+		// Token: 0x0400545B RID: 21595
 		private GameObjectSchedulerEventDispatcher dispatcher;
 
-		// Token: 0x04005350 RID: 21328
+		// Token: 0x0400545C RID: 21596
 		private int currentNodeIndex = -1;
 
-		// Token: 0x04005351 RID: 21329
+		// Token: 0x0400545D RID: 21597
 		private Coroutine monitor;
 	}
 }

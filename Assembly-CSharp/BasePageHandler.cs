@@ -1,38 +1,38 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200082F RID: 2095
+// Token: 0x02000849 RID: 2121
 public abstract class BasePageHandler : MonoBehaviour
 {
-	// Token: 0x1700054C RID: 1356
-	// (get) Token: 0x0600332B RID: 13099 RVA: 0x000F469C File Offset: 0x000F289C
-	// (set) Token: 0x0600332C RID: 13100 RVA: 0x000F46A4 File Offset: 0x000F28A4
+	// Token: 0x1700055A RID: 1370
+	// (get) Token: 0x060033E6 RID: 13286 RVA: 0x0005224E File Offset: 0x0005044E
+	// (set) Token: 0x060033E7 RID: 13287 RVA: 0x00052256 File Offset: 0x00050456
 	private protected int selectedIndex { protected get; private set; }
 
-	// Token: 0x1700054D RID: 1357
-	// (get) Token: 0x0600332D RID: 13101 RVA: 0x000F46AD File Offset: 0x000F28AD
-	// (set) Token: 0x0600332E RID: 13102 RVA: 0x000F46B5 File Offset: 0x000F28B5
+	// Token: 0x1700055B RID: 1371
+	// (get) Token: 0x060033E8 RID: 13288 RVA: 0x0005225F File Offset: 0x0005045F
+	// (set) Token: 0x060033E9 RID: 13289 RVA: 0x00052267 File Offset: 0x00050467
 	private protected int currentPage { protected get; private set; }
 
-	// Token: 0x1700054E RID: 1358
-	// (get) Token: 0x0600332F RID: 13103 RVA: 0x000F46BE File Offset: 0x000F28BE
-	// (set) Token: 0x06003330 RID: 13104 RVA: 0x000F46C6 File Offset: 0x000F28C6
+	// Token: 0x1700055C RID: 1372
+	// (get) Token: 0x060033EA RID: 13290 RVA: 0x00052270 File Offset: 0x00050470
+	// (set) Token: 0x060033EB RID: 13291 RVA: 0x00052278 File Offset: 0x00050478
 	private protected int pages { protected get; private set; }
 
-	// Token: 0x1700054F RID: 1359
-	// (get) Token: 0x06003331 RID: 13105 RVA: 0x000F46CF File Offset: 0x000F28CF
-	// (set) Token: 0x06003332 RID: 13106 RVA: 0x000F46D7 File Offset: 0x000F28D7
+	// Token: 0x1700055D RID: 1373
+	// (get) Token: 0x060033EC RID: 13292 RVA: 0x00052281 File Offset: 0x00050481
+	// (set) Token: 0x060033ED RID: 13293 RVA: 0x00052289 File Offset: 0x00050489
 	private protected int maxEntires { protected get; private set; }
 
-	// Token: 0x17000550 RID: 1360
-	// (get) Token: 0x06003333 RID: 13107
+	// Token: 0x1700055E RID: 1374
+	// (get) Token: 0x060033EE RID: 13294
 	protected abstract int pageSize { get; }
 
-	// Token: 0x17000551 RID: 1361
-	// (get) Token: 0x06003334 RID: 13108
+	// Token: 0x1700055F RID: 1375
+	// (get) Token: 0x060033EF RID: 13295
 	protected abstract int entriesCount { get; }
 
-	// Token: 0x06003335 RID: 13109 RVA: 0x000F46E0 File Offset: 0x000F28E0
+	// Token: 0x060033F0 RID: 13296 RVA: 0x0013C394 File Offset: 0x0013A594
 	protected virtual void Start()
 	{
 		Debug.Log("base page handler " + this.entriesCount.ToString() + " " + this.pageSize.ToString());
@@ -40,7 +40,7 @@ public abstract class BasePageHandler : MonoBehaviour
 		this.maxEntires = this.pages * this.pageSize;
 	}
 
-	// Token: 0x06003336 RID: 13110 RVA: 0x000F4748 File Offset: 0x000F2948
+	// Token: 0x060033F1 RID: 13297 RVA: 0x0013C3FC File Offset: 0x0013A5FC
 	public void SelectEntryOnPage(int entryIndex)
 	{
 		int num = entryIndex + this.pageSize * this.currentPage;
@@ -52,7 +52,7 @@ public abstract class BasePageHandler : MonoBehaviour
 		this.PageEntrySelected(entryIndex, this.selectedIndex);
 	}
 
-	// Token: 0x06003337 RID: 13111 RVA: 0x000F4784 File Offset: 0x000F2984
+	// Token: 0x060033F2 RID: 13298 RVA: 0x0013C438 File Offset: 0x0013A638
 	public void SelectEntryFromIndex(int index)
 	{
 		this.selectedIndex = index;
@@ -62,14 +62,14 @@ public abstract class BasePageHandler : MonoBehaviour
 		this.SetPage(this.currentPage);
 	}
 
-	// Token: 0x06003338 RID: 13112 RVA: 0x000F47D0 File Offset: 0x000F29D0
+	// Token: 0x060033F3 RID: 13299 RVA: 0x0013C484 File Offset: 0x0013A684
 	public void ChangePage(bool left)
 	{
 		int num = left ? -1 : 1;
 		this.SetPage(Mathf.Abs((this.currentPage + num) % this.pages));
 	}
 
-	// Token: 0x06003339 RID: 13113 RVA: 0x000F4800 File Offset: 0x000F2A00
+	// Token: 0x060033F4 RID: 13300 RVA: 0x0013C4B4 File Offset: 0x0013A6B4
 	public void SetPage(int page)
 	{
 		if (page > this.pages)
@@ -81,9 +81,9 @@ public abstract class BasePageHandler : MonoBehaviour
 		this.ShowPage(this.currentPage, num, Mathf.Min(num + this.pageSize, this.entriesCount));
 	}
 
-	// Token: 0x0600333A RID: 13114
+	// Token: 0x060033F5 RID: 13301
 	protected abstract void ShowPage(int selectedPage, int startIndex, int endIndex);
 
-	// Token: 0x0600333B RID: 13115
+	// Token: 0x060033F6 RID: 13302
 	protected abstract void PageEntrySelected(int pageEntry, int selectionIndex);
 }

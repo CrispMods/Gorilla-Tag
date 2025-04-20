@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000698 RID: 1688
+// Token: 0x020006AD RID: 1709
 public class VRRigLookupTableGenerator : MonoBehaviour
 {
-	// Token: 0x060029EC RID: 10732 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002A82 RID: 10882 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Start()
 	{
 	}
 
-	// Token: 0x060029ED RID: 10733 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002A83 RID: 10883 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Update()
 	{
 	}

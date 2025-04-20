@@ -12,33 +12,33 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-// Token: 0x02000182 RID: 386
+// Token: 0x0200018D RID: 397
 public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 {
-	// Token: 0x170000F4 RID: 244
-	// (get) Token: 0x060009A2 RID: 2466 RVA: 0x000356B7 File Offset: 0x000338B7
-	// (set) Token: 0x060009A3 RID: 2467 RVA: 0x000356BE File Offset: 0x000338BE
+	// Token: 0x170000FB RID: 251
+	// (get) Token: 0x060009EE RID: 2542 RVA: 0x00036FF7 File Offset: 0x000351F7
+	// (set) Token: 0x060009EF RID: 2543 RVA: 0x00036FFE File Offset: 0x000351FE
 	[OnEnterPlay_Set(false)]
 	public static bool startedAllPartsInstantiated { get; private set; }
 
-	// Token: 0x170000F5 RID: 245
-	// (get) Token: 0x060009A4 RID: 2468 RVA: 0x000356C6 File Offset: 0x000338C6
-	// (set) Token: 0x060009A5 RID: 2469 RVA: 0x000356CD File Offset: 0x000338CD
+	// Token: 0x170000FC RID: 252
+	// (get) Token: 0x060009F0 RID: 2544 RVA: 0x00037006 File Offset: 0x00035206
+	// (set) Token: 0x060009F1 RID: 2545 RVA: 0x0003700D File Offset: 0x0003520D
 	[OnEnterPlay_Set(false)]
 	public static bool allPartsInstantiated { get; private set; }
 
-	// Token: 0x170000F6 RID: 246
-	// (get) Token: 0x060009A6 RID: 2470 RVA: 0x000356D5 File Offset: 0x000338D5
-	// (set) Token: 0x060009A7 RID: 2471 RVA: 0x000356DC File Offset: 0x000338DC
+	// Token: 0x170000FD RID: 253
+	// (get) Token: 0x060009F2 RID: 2546 RVA: 0x00037015 File Offset: 0x00035215
+	// (set) Token: 0x060009F3 RID: 2547 RVA: 0x0003701C File Offset: 0x0003521C
 	[OnEnterPlay_Set(false)]
 	public static bool completed { get; private set; }
 
-	// Token: 0x170000F7 RID: 247
-	// (get) Token: 0x060009A8 RID: 2472 RVA: 0x000356E4 File Offset: 0x000338E4
-	// (set) Token: 0x060009A9 RID: 2473 RVA: 0x000356EC File Offset: 0x000338EC
+	// Token: 0x170000FE RID: 254
+	// (get) Token: 0x060009F4 RID: 2548 RVA: 0x00037024 File Offset: 0x00035224
+	// (set) Token: 0x060009F5 RID: 2549 RVA: 0x0003702C File Offset: 0x0003522C
 	public bool TickRunning { get; set; }
 
-	// Token: 0x060009AA RID: 2474 RVA: 0x000356F5 File Offset: 0x000338F5
+	// Token: 0x060009F6 RID: 2550 RVA: 0x00037035 File Offset: 0x00035235
 	void ITickSystemTick.Tick()
 	{
 		this._shouldTick = false;
@@ -53,7 +53,7 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 		}
 	}
 
-	// Token: 0x060009AB RID: 2475 RVA: 0x0003572E File Offset: 0x0003392E
+	// Token: 0x060009F7 RID: 2551 RVA: 0x0003706E File Offset: 0x0003526E
 	void IDelayedExecListener.OnDelayedAction(int contextId)
 	{
 		if (contextId >= 0 && contextId < 1000000)
@@ -72,7 +72,7 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 		}
 	}
 
-	// Token: 0x060009AC RID: 2476 RVA: 0x00035768 File Offset: 0x00033968
+	// Token: 0x060009F8 RID: 2552 RVA: 0x0009588C File Offset: 0x00093A8C
 	public static void StartInstantiatingPrefabs()
 	{
 		if (ApplicationQuittingState.IsQuitting)
@@ -89,7 +89,7 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 			CosmeticsV2Spawner_Dirty._instance = new CosmeticsV2Spawner_Dirty();
 		}
 		CosmeticsV2Spawner_Dirty.k_stopwatch.Restart();
-		CosmeticsV2Spawner_Dirty.g_gorillaPlayer = Object.FindObjectOfType<GTPlayer>();
+		CosmeticsV2Spawner_Dirty.g_gorillaPlayer = UnityEngine.Object.FindObjectOfType<GTPlayer>();
 		foreach (SnowballMaker snowballMaker in CosmeticsV2Spawner_Dirty.g_gorillaPlayer.GetComponentsInChildren<SnowballMaker>(true))
 		{
 			if (snowballMaker.isLeftHand)
@@ -174,7 +174,7 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 		TickSystem<object>.AddTickCallback(CosmeticsV2Spawner_Dirty._instance);
 	}
 
-	// Token: 0x060009AD RID: 2477 RVA: 0x00035A34 File Offset: 0x00033C34
+	// Token: 0x060009F9 RID: 2553 RVA: 0x00095B58 File Offset: 0x00093D58
 	private static void AddEachAttachInfoToLoadOpInfosList(CosmeticPart part, int partIndex, CosmeticInfoV2 cosmeticInfo, int vrRigIndex, ref int partCount)
 	{
 		if (ApplicationQuittingState.IsQuitting)
@@ -193,7 +193,7 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 		}
 	}
 
-	// Token: 0x060009AE RID: 2478 RVA: 0x00035A94 File Offset: 0x00033C94
+	// Token: 0x060009FA RID: 2554 RVA: 0x00095BB8 File Offset: 0x00093DB8
 	private static void _Step2_UpdateLoadOpStarting()
 	{
 		int num = CosmeticsV2Spawner_Dirty._g_loadOp_to_index.Count - CosmeticsV2Spawner_Dirty._g_loadOpsCountCompleted;
@@ -210,7 +210,7 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 		}
 	}
 
-	// Token: 0x060009AF RID: 2479 RVA: 0x00035B4C File Offset: 0x00033D4C
+	// Token: 0x060009FB RID: 2555 RVA: 0x00095C70 File Offset: 0x00093E70
 	private static void _Step3_HandleLoadOpCompleted(AsyncOperationHandle<GameObject> loadOp)
 	{
 		if (ApplicationQuittingState.IsQuitting)
@@ -413,7 +413,7 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 		CosmeticsV2Spawner_Dirty._Step4_PopulateAllArrays();
 	}
 
-	// Token: 0x060009B0 RID: 2480 RVA: 0x000361C8 File Offset: 0x000343C8
+	// Token: 0x060009FC RID: 2556 RVA: 0x000962EC File Offset: 0x000944EC
 	private static void _RetryDownload(int loadOpIndex)
 	{
 		if (loadOpIndex < 0 || loadOpIndex >= CosmeticsV2Spawner_Dirty._g_loadOpInfos.Count)
@@ -440,7 +440,7 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 		loadOpInfo.loadOp.Completed += CosmeticsV2Spawner_Dirty._Step3_HandleLoadOpCompleted;
 	}
 
-	// Token: 0x060009B1 RID: 2481 RVA: 0x00036308 File Offset: 0x00034508
+	// Token: 0x060009FD RID: 2557 RVA: 0x0009642C File Offset: 0x0009462C
 	private static void AddPartToThrowableLists(CosmeticsV2Spawner_Dirty.LoadOpInfo loadOpInfo, SnowballThrowable throwable)
 	{
 		CosmeticsV2Spawner_Dirty.VRRigData vrrigData = CosmeticsV2Spawner_Dirty._gVRRigDatas[loadOpInfo.vrRigIndex];
@@ -480,7 +480,7 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 		}
 	}
 
-	// Token: 0x060009B2 RID: 2482 RVA: 0x00036468 File Offset: 0x00034668
+	// Token: 0x060009FE RID: 2558 RVA: 0x0009658C File Offset: 0x0009478C
 	private static void ResizeAndSetAtIndex<T>(List<T> list, T item, int index)
 	{
 		if (index >= list.Count)
@@ -494,7 +494,7 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 		list[index] = item;
 	}
 
-	// Token: 0x060009B3 RID: 2483 RVA: 0x000364AC File Offset: 0x000346AC
+	// Token: 0x060009FF RID: 2559 RVA: 0x000965D0 File Offset: 0x000947D0
 	private static void _Step4_PopulateAllArrays()
 	{
 		if (CosmeticsV2Spawner_Dirty.allPartsInstantiated)
@@ -540,7 +540,7 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 		GTDelayedExec.Add(CosmeticsV2Spawner_Dirty._instance, 1f, -Mathf.Abs("_Step5_InitializeVRRigsAndCosmeticsControllerFinalize".GetHashCode()));
 	}
 
-	// Token: 0x060009B4 RID: 2484 RVA: 0x000366F0 File Offset: 0x000348F0
+	// Token: 0x06000A00 RID: 2560 RVA: 0x00096814 File Offset: 0x00094A14
 	private static void _Step5_InitializeVRRigsAndCosmeticsControllerFinalize()
 	{
 		CosmeticsController.instance.UpdateWardrobeModelsAndButtons();
@@ -611,7 +611,7 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 		Debug.Log("_Step5_InitializeVRRigsAndCosmeticsControllerFinalize" + string.Format(": Done instantiating cosmetics in {0:0.0000} seconds.", (double)CosmeticsV2Spawner_Dirty.k_stopwatch.ElapsedMilliseconds / 1000.0));
 	}
 
-	// Token: 0x060009B5 RID: 2485 RVA: 0x00036870 File Offset: 0x00034A70
+	// Token: 0x06000A01 RID: 2561 RVA: 0x00096994 File Offset: 0x00094B94
 	private void _DelayedStatusCheck()
 	{
 		int count = CosmeticsV2Spawner_Dirty._g_loadOpInfos.Count;
@@ -622,78 +622,78 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 		}
 	}
 
-	// Token: 0x04000BA7 RID: 2983
+	// Token: 0x04000BED RID: 3053
 	private static CosmeticsV2Spawner_Dirty _instance;
 
-	// Token: 0x04000BA8 RID: 2984
+	// Token: 0x04000BEE RID: 3054
 	public static Action OnPostInstantiateAllPrefabs;
 
-	// Token: 0x04000BA9 RID: 2985
+	// Token: 0x04000BEF RID: 3055
 	public static Action OnPostInstantiateAllPrefabs2;
 
-	// Token: 0x04000BAD RID: 2989
+	// Token: 0x04000BF3 RID: 3059
 	[OnEnterPlay_SetNull]
 	private static Transform _gDeactivatedSpawnParent;
 
-	// Token: 0x04000BAE RID: 2990
+	// Token: 0x04000BF4 RID: 3060
 	[OnEnterPlay_Set(0)]
 	private static int _g_loadOpsCountCompleted = 0;
 
-	// Token: 0x04000BAF RID: 2991
+	// Token: 0x04000BF5 RID: 3061
 	private const int _k_maxActiveLoadOps = 1000000;
 
-	// Token: 0x04000BB0 RID: 2992
+	// Token: 0x04000BF6 RID: 3062
 	private const int _k_maxTotalLoadOps = 1000000;
 
-	// Token: 0x04000BB1 RID: 2993
+	// Token: 0x04000BF7 RID: 3063
 	private const int _k_delayedStatusCheckContextId = -100;
 
-	// Token: 0x04000BB2 RID: 2994
+	// Token: 0x04000BF8 RID: 3064
 	[OnEnterPlay_Clear]
 	private static readonly List<CosmeticsV2Spawner_Dirty.LoadOpInfo> _g_loadOpInfos = new List<CosmeticsV2Spawner_Dirty.LoadOpInfo>(100000);
 
-	// Token: 0x04000BB3 RID: 2995
+	// Token: 0x04000BF9 RID: 3065
 	[OnEnterPlay_Clear]
 	private static readonly Dictionary<AsyncOperationHandle<GameObject>, int> _g_loadOp_to_index = new Dictionary<AsyncOperationHandle<GameObject>, int>(100000);
 
-	// Token: 0x04000BB4 RID: 2996
+	// Token: 0x04000BFA RID: 3066
 	[OnEnterPlay_SetNull]
 	private static SnowballMaker _gSnowballMakerLeft;
 
-	// Token: 0x04000BB5 RID: 2997
+	// Token: 0x04000BFB RID: 3067
 	[OnEnterPlay_Clear]
 	private static readonly List<SnowballThrowable> _gSnowballMakerLeft_throwables = new List<SnowballThrowable>(20);
 
-	// Token: 0x04000BB6 RID: 2998
+	// Token: 0x04000BFC RID: 3068
 	[OnEnterPlay_SetNull]
 	private static SnowballMaker _gSnowballMakerRight;
 
-	// Token: 0x04000BB7 RID: 2999
+	// Token: 0x04000BFD RID: 3069
 	[OnEnterPlay_Clear]
 	private static readonly List<SnowballThrowable> _gSnowballMakerRight_throwables = new List<SnowballThrowable>(20);
 
-	// Token: 0x04000BB8 RID: 3000
+	// Token: 0x04000BFE RID: 3070
 	[OnEnterPlay_SetNull]
 	private static GTPlayer g_gorillaPlayer;
 
-	// Token: 0x04000BB9 RID: 3001
+	// Token: 0x04000BFF RID: 3071
 	[OnEnterPlay_SetNull]
 	private static Transform[] g_allInstantiatedParts;
 
-	// Token: 0x04000BBA RID: 3002
+	// Token: 0x04000C00 RID: 3072
 	private static Stopwatch k_stopwatch = new Stopwatch();
 
-	// Token: 0x04000BBB RID: 3003
+	// Token: 0x04000C01 RID: 3073
 	[OnEnterPlay_Clear]
 	private static readonly List<CosmeticsV2Spawner_Dirty.VRRigData> _gVRRigDatas = new List<CosmeticsV2Spawner_Dirty.VRRigData>(11);
 
-	// Token: 0x04000BBC RID: 3004
+	// Token: 0x04000C02 RID: 3074
 	private bool _shouldTick;
 
-	// Token: 0x02000183 RID: 387
+	// Token: 0x0200018E RID: 398
 	private struct LoadOpInfo
 	{
-		// Token: 0x060009B8 RID: 2488 RVA: 0x00036944 File Offset: 0x00034B44
+		// Token: 0x06000A04 RID: 2564 RVA: 0x00096A68 File Offset: 0x00094C68
 		public LoadOpInfo(CosmeticAttachInfo attachInfo, CosmeticPart part, int partIndex, CosmeticInfoV2 cosmeticInfoV2, int vrRigIndex)
 		{
 			this.isStarted = false;
@@ -706,35 +706,35 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 			this.vrRigIndex = vrRigIndex;
 		}
 
-		// Token: 0x04000BBE RID: 3006
+		// Token: 0x04000C04 RID: 3076
 		public bool isStarted;
 
-		// Token: 0x04000BBF RID: 3007
+		// Token: 0x04000C05 RID: 3077
 		public AsyncOperationHandle<GameObject> loadOp;
 
-		// Token: 0x04000BC0 RID: 3008
+		// Token: 0x04000C06 RID: 3078
 		public GameObject resultGObj;
 
-		// Token: 0x04000BC1 RID: 3009
+		// Token: 0x04000C07 RID: 3079
 		public readonly CosmeticAttachInfo attachInfo;
 
-		// Token: 0x04000BC2 RID: 3010
+		// Token: 0x04000C08 RID: 3080
 		public readonly CosmeticPart part;
 
-		// Token: 0x04000BC3 RID: 3011
+		// Token: 0x04000C09 RID: 3081
 		public readonly int partIndex;
 
-		// Token: 0x04000BC4 RID: 3012
+		// Token: 0x04000C0A RID: 3082
 		public readonly CosmeticInfoV2 cosmeticInfoV2;
 
-		// Token: 0x04000BC5 RID: 3013
+		// Token: 0x04000C0B RID: 3083
 		public readonly int vrRigIndex;
 	}
 
-	// Token: 0x02000184 RID: 388
+	// Token: 0x0200018F RID: 399
 	private struct VRRigData
 	{
-		// Token: 0x060009B9 RID: 2489 RVA: 0x00036990 File Offset: 0x00034B90
+		// Token: 0x06000A05 RID: 2565 RVA: 0x00096AB4 File Offset: 0x00094CB4
 		public VRRigData(VRRig vrRig, Transform[] boneXforms)
 		{
 			this.vrRig = vrRig;
@@ -752,34 +752,34 @@ public class CosmeticsV2Spawner_Dirty : IDelayedExecListener, ITickSystemTick
 			this.bdPositions_allObjects_length = 0;
 		}
 
-		// Token: 0x04000BC6 RID: 3014
+		// Token: 0x04000C0C RID: 3084
 		public readonly VRRig vrRig;
 
-		// Token: 0x04000BC7 RID: 3015
+		// Token: 0x04000C0D RID: 3085
 		public readonly Transform[] boneXforms;
 
-		// Token: 0x04000BC8 RID: 3016
+		// Token: 0x04000C0E RID: 3086
 		public readonly BodyDockPositions bdPositionsComp;
 
-		// Token: 0x04000BC9 RID: 3017
+		// Token: 0x04000C0F RID: 3087
 		public readonly List<GameObject> vrRig_cosmetics;
 
-		// Token: 0x04000BCA RID: 3018
+		// Token: 0x04000C10 RID: 3088
 		public readonly List<GameObject> vrRig_override;
 
-		// Token: 0x04000BCB RID: 3019
+		// Token: 0x04000C11 RID: 3089
 		public readonly Transform parentOfDeactivatedHoldables;
 
-		// Token: 0x04000BCC RID: 3020
+		// Token: 0x04000C12 RID: 3090
 		public readonly List<TransferrableObject> bdPositions_allObjects;
 
-		// Token: 0x04000BCD RID: 3021
+		// Token: 0x04000C13 RID: 3091
 		public int bdPositions_allObjects_length;
 
-		// Token: 0x04000BCE RID: 3022
+		// Token: 0x04000C14 RID: 3092
 		public readonly List<GameObject> bdPositions_leftHandThrowables;
 
-		// Token: 0x04000BCF RID: 3023
+		// Token: 0x04000C15 RID: 3093
 		public readonly List<GameObject> bdPositions_rightHandThrowables;
 	}
 }

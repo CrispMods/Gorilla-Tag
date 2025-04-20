@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-// Token: 0x0200058F RID: 1423
+// Token: 0x0200059D RID: 1437
 public class GorillaSlicerSimpleManager : MonoBehaviour
 {
-	// Token: 0x06002338 RID: 9016 RVA: 0x000AE76D File Offset: 0x000AC96D
+	// Token: 0x06002398 RID: 9112 RVA: 0x000480C5 File Offset: 0x000462C5
 	protected void Awake()
 	{
 		if (GorillaSlicerSimpleManager.hasInstance && GorillaSlicerSimpleManager.instance != this)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 			return;
 		}
 		GorillaSlicerSimpleManager.SetInstance(this);
 	}
 
-	// Token: 0x06002339 RID: 9017 RVA: 0x000AE790 File Offset: 0x000AC990
+	// Token: 0x06002399 RID: 9113 RVA: 0x000FDD6C File Offset: 0x000FBF6C
 	public static void CreateManager()
 	{
 		GorillaSlicerSimpleManager gorillaSlicerSimpleManager = new GameObject("GorillaSlicerSimpleManager").AddComponent<GorillaSlicerSimpleManager>();
@@ -28,18 +28,18 @@ public class GorillaSlicerSimpleManager : MonoBehaviour
 		GorillaSlicerSimpleManager.SetInstance(gorillaSlicerSimpleManager);
 	}
 
-	// Token: 0x0600233A RID: 9018 RVA: 0x000AE7DD File Offset: 0x000AC9DD
+	// Token: 0x0600239A RID: 9114 RVA: 0x000480E8 File Offset: 0x000462E8
 	private static void SetInstance(GorillaSlicerSimpleManager manager)
 	{
 		GorillaSlicerSimpleManager.instance = manager;
 		GorillaSlicerSimpleManager.hasInstance = true;
 		if (Application.isPlaying)
 		{
-			Object.DontDestroyOnLoad(manager);
+			UnityEngine.Object.DontDestroyOnLoad(manager);
 		}
 	}
 
-	// Token: 0x0600233B RID: 9019 RVA: 0x000AE7F8 File Offset: 0x000AC9F8
+	// Token: 0x0600239B RID: 9115 RVA: 0x000FDDBC File Offset: 0x000FBFBC
 	public static void RegisterSliceable(IGorillaSliceableSimple gSS, GorillaSlicerSimpleManager.UpdateStep step)
 	{
 		if (!GorillaSlicerSimpleManager.hasInstance)
@@ -73,7 +73,7 @@ public class GorillaSlicerSimpleManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600233C RID: 9020 RVA: 0x000AE88C File Offset: 0x000ACA8C
+	// Token: 0x0600239C RID: 9116 RVA: 0x000FDE50 File Offset: 0x000FC050
 	public static void UnregisterSliceable(IGorillaSliceableSimple gSS, GorillaSlicerSimpleManager.UpdateStep step)
 	{
 		if (!GorillaSlicerSimpleManager.hasInstance)
@@ -107,7 +107,7 @@ public class GorillaSlicerSimpleManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600233D RID: 9021 RVA: 0x000AE924 File Offset: 0x000ACB24
+	// Token: 0x0600239D RID: 9117 RVA: 0x000FDEE8 File Offset: 0x000FC0E8
 	public void FixedUpdate()
 	{
 		if (this.updateIndex < 0 || this.updateIndex >= this.fixedUpdateSlice.Count + this.updateSlice.Count + this.lateUpdateSlice.Count)
@@ -121,7 +121,7 @@ public class GorillaSlicerSimpleManager : MonoBehaviour
 			int num = 0;
 			while (num < this.checkEveryXUpdateSteps && this.updateIndex < this.fixedUpdateSlice.Count)
 			{
-				if (this.fixedUpdateSlice[this.updateIndex].isActiveAndEnabled)
+				if (0 <= this.updateIndex && this.updateIndex < this.fixedUpdateSlice.Count && this.fixedUpdateSlice[this.updateIndex].isActiveAndEnabled)
 				{
 					this.fixedUpdateSlice[this.updateIndex].SliceUpdate();
 				}
@@ -133,7 +133,7 @@ public class GorillaSlicerSimpleManager : MonoBehaviour
 		this.sW.Stop();
 	}
 
-	// Token: 0x0600233E RID: 9022 RVA: 0x000AEA34 File Offset: 0x000ACC34
+	// Token: 0x0600239E RID: 9118 RVA: 0x000FE014 File Offset: 0x000FC214
 	public void Update()
 	{
 		int count = this.fixedUpdateSlice.Count;
@@ -145,7 +145,7 @@ public class GorillaSlicerSimpleManager : MonoBehaviour
 			int num2 = 0;
 			while (num2 < this.checkEveryXUpdateSteps && this.updateIndex < num)
 			{
-				if (this.updateSlice[this.updateIndex - count].isActiveAndEnabled)
+				if (0 <= this.updateIndex - count && this.updateIndex - count < this.updateSlice.Count && this.updateSlice[this.updateIndex - count].isActiveAndEnabled)
 				{
 					this.updateSlice[this.updateIndex - count].SliceUpdate();
 				}
@@ -157,7 +157,7 @@ public class GorillaSlicerSimpleManager : MonoBehaviour
 		this.sW.Stop();
 	}
 
-	// Token: 0x0600233F RID: 9023 RVA: 0x000AEB18 File Offset: 0x000ACD18
+	// Token: 0x0600239F RID: 9119 RVA: 0x000FE118 File Offset: 0x000FC318
 	public void LateUpdate()
 	{
 		int count = this.fixedUpdateSlice.Count;
@@ -171,7 +171,7 @@ public class GorillaSlicerSimpleManager : MonoBehaviour
 			int num3 = 0;
 			while (num3 < this.checkEveryXUpdateSteps && this.updateIndex < num2)
 			{
-				if (this.lateUpdateSlice[this.updateIndex - num].isActiveAndEnabled)
+				if (0 <= this.updateIndex - num && this.updateIndex - num < this.lateUpdateSlice.Count && this.lateUpdateSlice[this.updateIndex - num].isActiveAndEnabled)
 				{
 					this.lateUpdateSlice[this.updateIndex - num].SliceUpdate();
 				}
@@ -187,44 +187,44 @@ public class GorillaSlicerSimpleManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040026CF RID: 9935
+	// Token: 0x0400272A RID: 10026
 	public static GorillaSlicerSimpleManager instance;
 
-	// Token: 0x040026D0 RID: 9936
+	// Token: 0x0400272B RID: 10027
 	public static bool hasInstance;
 
-	// Token: 0x040026D1 RID: 9937
+	// Token: 0x0400272C RID: 10028
 	public List<IGorillaSliceableSimple> fixedUpdateSlice;
 
-	// Token: 0x040026D2 RID: 9938
+	// Token: 0x0400272D RID: 10029
 	public List<IGorillaSliceableSimple> updateSlice;
 
-	// Token: 0x040026D3 RID: 9939
+	// Token: 0x0400272E RID: 10030
 	public List<IGorillaSliceableSimple> lateUpdateSlice;
 
-	// Token: 0x040026D4 RID: 9940
+	// Token: 0x0400272F RID: 10031
 	public long ticksPerFrame = 1500L;
 
-	// Token: 0x040026D5 RID: 9941
+	// Token: 0x04002730 RID: 10032
 	public long ticksThisFrame;
 
-	// Token: 0x040026D6 RID: 9942
+	// Token: 0x04002731 RID: 10033
 	public int checkEveryXUpdateSteps = 10;
 
-	// Token: 0x040026D7 RID: 9943
+	// Token: 0x04002732 RID: 10034
 	public int updateIndex = -1;
 
-	// Token: 0x040026D8 RID: 9944
+	// Token: 0x04002733 RID: 10035
 	public Stopwatch sW;
 
-	// Token: 0x02000590 RID: 1424
+	// Token: 0x0200059E RID: 1438
 	public enum UpdateStep
 	{
-		// Token: 0x040026DA RID: 9946
+		// Token: 0x04002735 RID: 10037
 		FixedUpdate,
-		// Token: 0x040026DB RID: 9947
+		// Token: 0x04002736 RID: 10038
 		Update,
-		// Token: 0x040026DC RID: 9948
+		// Token: 0x04002737 RID: 10039
 		LateUpdate
 	}
 }

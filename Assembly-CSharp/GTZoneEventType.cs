@@ -1,12 +1,12 @@
 ﻿using System;
 
-// Token: 0x02000599 RID: 1433
+// Token: 0x020005A7 RID: 1447
 public enum GTZoneEventType
 {
-	// Token: 0x04002785 RID: 10117
+	// Token: 0x040027E1 RID: 10209
 	zone_enter,
-	// Token: 0x04002786 RID: 10118
+	// Token: 0x040027E2 RID: 10210
 	zone_exit,
-	// Token: 0x04002787 RID: 10119
+	// Token: 0x040027E3 RID: 10211
 	zone_stay
 }

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020002CF RID: 719
+// Token: 0x020002DA RID: 730
 public abstract class TeleportAimHandler : TeleportSupport
 {
-	// Token: 0x0600116C RID: 4460 RVA: 0x00053554 File Offset: 0x00051754
+	// Token: 0x060011B8 RID: 4536 RVA: 0x0003C03A File Offset: 0x0003A23A
 	protected override void OnEnable()
 	{
 		base.OnEnable();
 		base.LocomotionTeleport.AimHandler = this;
 	}
 
-	// Token: 0x0600116D RID: 4461 RVA: 0x00053568 File Offset: 0x00051768
+	// Token: 0x060011B9 RID: 4537 RVA: 0x0003C04E File Offset: 0x0003A24E
 	protected override void OnDisable()
 	{
 		if (base.LocomotionTeleport.AimHandler == this)
@@ -22,6 +22,6 @@ public abstract class TeleportAimHandler : TeleportSupport
 		base.OnDisable();
 	}
 
-	// Token: 0x0600116E RID: 4462
+	// Token: 0x060011BA RID: 4538
 	public abstract void GetPoints(List<Vector3> points);
 }

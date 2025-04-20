@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000308 RID: 776
+// Token: 0x02000313 RID: 787
 public class AugmentedObject : MonoBehaviour
 {
-	// Token: 0x0600127D RID: 4733 RVA: 0x00058D2C File Offset: 0x00056F2C
+	// Token: 0x060012C9 RID: 4809 RVA: 0x000B2FE8 File Offset: 0x000B11E8
 	private void Start()
 	{
 		if (base.GetComponent<GrabObject>())
@@ -16,7 +16,7 @@ public class AugmentedObject : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600127E RID: 4734 RVA: 0x00058D94 File Offset: 0x00056F94
+	// Token: 0x060012CA RID: 4810 RVA: 0x000B3050 File Offset: 0x000B1250
 	private void Update()
 	{
 		if (this.controllerHand != OVRInput.Controller.None && OVRInput.GetUp(OVRInput.Button.One, this.controllerHand))
@@ -34,30 +34,30 @@ public class AugmentedObject : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600127F RID: 4735 RVA: 0x00058E22 File Offset: 0x00057022
+	// Token: 0x060012CB RID: 4811 RVA: 0x0003CE73 File Offset: 0x0003B073
 	public void Grab(OVRInput.Controller grabHand)
 	{
 		this.controllerHand = grabHand;
 	}
 
-	// Token: 0x06001280 RID: 4736 RVA: 0x00058E2B File Offset: 0x0005702B
+	// Token: 0x060012CC RID: 4812 RVA: 0x0003CE7C File Offset: 0x0003B07C
 	public void Release()
 	{
 		this.controllerHand = OVRInput.Controller.None;
 	}
 
-	// Token: 0x06001281 RID: 4737 RVA: 0x00058E34 File Offset: 0x00057034
+	// Token: 0x060012CD RID: 4813 RVA: 0x0003CE85 File Offset: 0x0003B085
 	private void ToggleShadowType()
 	{
 		this.groundShadow = !this.groundShadow;
 	}
 
-	// Token: 0x0400146F RID: 5231
+	// Token: 0x040014B7 RID: 5303
 	public OVRInput.Controller controllerHand;
 
-	// Token: 0x04001470 RID: 5232
+	// Token: 0x040014B8 RID: 5304
 	public Transform shadow;
 
-	// Token: 0x04001471 RID: 5233
+	// Token: 0x040014B9 RID: 5305
 	private bool groundShadow;
 }

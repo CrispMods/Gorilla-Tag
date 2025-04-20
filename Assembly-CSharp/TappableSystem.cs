@@ -2,10 +2,10 @@
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020005EB RID: 1515
+// Token: 0x020005F9 RID: 1529
 public class TappableSystem : GTSystem<Tappable>
 {
-	// Token: 0x060025B9 RID: 9657 RVA: 0x000BA538 File Offset: 0x000B8738
+	// Token: 0x0600261B RID: 9755 RVA: 0x00107F84 File Offset: 0x00106184
 	[PunRPC]
 	public void SendOnTapRPC(int key, float tapStrength, PhotonMessageInfo info)
 	{

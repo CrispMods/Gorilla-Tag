@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008B3 RID: 2227
+// Token: 0x020008CF RID: 2255
 public class GrowUntilCollision : MonoBehaviour
 {
-	// Token: 0x060035E3 RID: 13795 RVA: 0x000FF3F4 File Offset: 0x000FD5F4
+	// Token: 0x060036AB RID: 13995 RVA: 0x00145034 File Offset: 0x00143234
 	private void Start()
 	{
 		this.audioSource = base.GetComponent<AudioSource>();
@@ -16,7 +16,7 @@ public class GrowUntilCollision : MonoBehaviour
 		this.zero();
 	}
 
-	// Token: 0x060035E4 RID: 13796 RVA: 0x000FF444 File Offset: 0x000FD644
+	// Token: 0x060036AC RID: 13996 RVA: 0x00145084 File Offset: 0x00143284
 	private void zero()
 	{
 		base.transform.localScale = Vector3.one * this.initialRadius;
@@ -28,31 +28,31 @@ public class GrowUntilCollision : MonoBehaviour
 		this.timeSinceTrigger = 0f;
 	}
 
-	// Token: 0x060035E5 RID: 13797 RVA: 0x000FF4A5 File Offset: 0x000FD6A5
+	// Token: 0x060036AD RID: 13997 RVA: 0x0005410A File Offset: 0x0005230A
 	private void OnTriggerEnter(Collider other)
 	{
 		this.tryToTrigger(base.transform.position, other.transform.position);
 	}
 
-	// Token: 0x060035E6 RID: 13798 RVA: 0x000FF4A5 File Offset: 0x000FD6A5
+	// Token: 0x060036AE RID: 13998 RVA: 0x0005410A File Offset: 0x0005230A
 	private void OnTriggerExit(Collider other)
 	{
 		this.tryToTrigger(base.transform.position, other.transform.position);
 	}
 
-	// Token: 0x060035E7 RID: 13799 RVA: 0x000FF4C4 File Offset: 0x000FD6C4
+	// Token: 0x060036AF RID: 13999 RVA: 0x001450E8 File Offset: 0x001432E8
 	private void OnCollisionEnter(Collision collision)
 	{
 		this.tryToTrigger(base.transform.position, collision.GetContact(0).point);
 	}
 
-	// Token: 0x060035E8 RID: 13800 RVA: 0x000FF4F4 File Offset: 0x000FD6F4
+	// Token: 0x060036B0 RID: 14000 RVA: 0x001450E8 File Offset: 0x001432E8
 	private void OnCollisionExit(Collision collision)
 	{
 		this.tryToTrigger(base.transform.position, collision.GetContact(0).point);
 	}
 
-	// Token: 0x060035E9 RID: 13801 RVA: 0x000FF521 File Offset: 0x000FD721
+	// Token: 0x060036B1 RID: 14001 RVA: 0x00054128 File Offset: 0x00052328
 	private void tryToTrigger(Vector3 p1, Vector3 p2)
 	{
 		if (this.timeSinceTrigger > this.minRetriggerTime)
@@ -65,7 +65,7 @@ public class GrowUntilCollision : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060035EA RID: 13802 RVA: 0x000FF54C File Offset: 0x000FD74C
+	// Token: 0x060036B2 RID: 14002 RVA: 0x00145118 File Offset: 0x00143318
 	private void Update()
 	{
 		float num = Mathf.Max(new float[]
@@ -86,31 +86,31 @@ public class GrowUntilCollision : MonoBehaviour
 		this.timeSinceTrigger += Time.deltaTime;
 	}
 
-	// Token: 0x04003812 RID: 14354
+	// Token: 0x040038D3 RID: 14547
 	[SerializeField]
 	private float maxSize = 10f;
 
-	// Token: 0x04003813 RID: 14355
+	// Token: 0x040038D4 RID: 14548
 	[SerializeField]
 	private float initialRadius = 1f;
 
-	// Token: 0x04003814 RID: 14356
+	// Token: 0x040038D5 RID: 14549
 	[SerializeField]
 	private float minRetriggerTime = 1f;
 
-	// Token: 0x04003815 RID: 14357
+	// Token: 0x040038D6 RID: 14550
 	[SerializeField]
 	private LightningDispatcherEvent colliderFound;
 
-	// Token: 0x04003816 RID: 14358
+	// Token: 0x040038D7 RID: 14551
 	private AudioSource audioSource;
 
-	// Token: 0x04003817 RID: 14359
+	// Token: 0x040038D8 RID: 14552
 	private float maxVolume;
 
-	// Token: 0x04003818 RID: 14360
+	// Token: 0x040038D9 RID: 14553
 	private float maxPitch;
 
-	// Token: 0x04003819 RID: 14361
+	// Token: 0x040038DA RID: 14554
 	private float timeSinceTrigger;
 }

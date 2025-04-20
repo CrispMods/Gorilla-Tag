@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-// Token: 0x020008CF RID: 2255
+// Token: 0x020008EB RID: 2283
 public class GTMeshData
 {
-	// Token: 0x06003680 RID: 13952 RVA: 0x0010187C File Offset: 0x000FFA7C
+	// Token: 0x06003748 RID: 14152 RVA: 0x00146D5C File Offset: 0x00144F5C
 	public GTMeshData(Mesh m)
 	{
 		this.mesh = m;
@@ -26,7 +26,7 @@ public class GTMeshData
 		this.uv8 = m.uv8;
 	}
 
-	// Token: 0x06003681 RID: 13953 RVA: 0x0010194C File Offset: 0x000FFB4C
+	// Token: 0x06003749 RID: 14153 RVA: 0x00146E2C File Offset: 0x0014502C
 	public Mesh ExtractSubmesh(int subMeshIndex, bool optimize = false)
 	{
 		if (subMeshIndex < 0 || subMeshIndex >= this.subMeshCount)
@@ -89,7 +89,7 @@ public class GTMeshData
 		return mesh;
 	}
 
-	// Token: 0x06003682 RID: 13954 RVA: 0x00101B1A File Offset: 0x000FFD1A
+	// Token: 0x0600374A RID: 14154 RVA: 0x00054836 File Offset: 0x00052A36
 	public static GTMeshData Parse(Mesh mesh)
 	{
 		if (mesh == null)
@@ -99,51 +99,51 @@ public class GTMeshData
 		return new GTMeshData(mesh);
 	}
 
-	// Token: 0x040038BF RID: 14527
+	// Token: 0x04003980 RID: 14720
 	public Mesh mesh;
 
-	// Token: 0x040038C0 RID: 14528
+	// Token: 0x04003981 RID: 14721
 	public Vector3[] vertices;
 
-	// Token: 0x040038C1 RID: 14529
+	// Token: 0x04003982 RID: 14722
 	public Vector3[] normals;
 
-	// Token: 0x040038C2 RID: 14530
+	// Token: 0x04003983 RID: 14723
 	public Vector4[] tangents;
 
-	// Token: 0x040038C3 RID: 14531
+	// Token: 0x04003984 RID: 14724
 	public Color32[] colors32;
 
-	// Token: 0x040038C4 RID: 14532
+	// Token: 0x04003985 RID: 14725
 	public int[] triangles;
 
-	// Token: 0x040038C5 RID: 14533
+	// Token: 0x04003986 RID: 14726
 	public BoneWeight[] boneWeights;
 
-	// Token: 0x040038C6 RID: 14534
+	// Token: 0x04003987 RID: 14727
 	public Vector2[] uv;
 
-	// Token: 0x040038C7 RID: 14535
+	// Token: 0x04003988 RID: 14728
 	public Vector2[] uv2;
 
-	// Token: 0x040038C8 RID: 14536
+	// Token: 0x04003989 RID: 14729
 	public Vector2[] uv3;
 
-	// Token: 0x040038C9 RID: 14537
+	// Token: 0x0400398A RID: 14730
 	public Vector2[] uv4;
 
-	// Token: 0x040038CA RID: 14538
+	// Token: 0x0400398B RID: 14731
 	public Vector2[] uv5;
 
-	// Token: 0x040038CB RID: 14539
+	// Token: 0x0400398C RID: 14732
 	public Vector2[] uv6;
 
-	// Token: 0x040038CC RID: 14540
+	// Token: 0x0400398D RID: 14733
 	public Vector2[] uv7;
 
-	// Token: 0x040038CD RID: 14541
+	// Token: 0x0400398E RID: 14734
 	public Vector2[] uv8;
 
-	// Token: 0x040038CE RID: 14542
+	// Token: 0x0400398F RID: 14735
 	public int subMeshCount;
 }

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200054B RID: 1355
+// Token: 0x02000559 RID: 1369
 public class GorillaBodyRenderer : MonoBehaviour
 {
-	// Token: 0x17000369 RID: 873
-	// (get) Token: 0x06002130 RID: 8496 RVA: 0x000A578A File Offset: 0x000A398A
-	// (set) Token: 0x06002131 RID: 8497 RVA: 0x000A5792 File Offset: 0x000A3992
+	// Token: 0x17000371 RID: 881
+	// (get) Token: 0x0600218E RID: 8590 RVA: 0x00046DE6 File Offset: 0x00044FE6
+	// (set) Token: 0x0600218F RID: 8591 RVA: 0x00046DEE File Offset: 0x00044FEE
 	public GorillaBodyType bodyType
 	{
 		get
@@ -20,8 +20,8 @@ public class GorillaBodyRenderer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700036A RID: 874
-	// (get) Token: 0x06002132 RID: 8498 RVA: 0x000A579B File Offset: 0x000A399B
+	// Token: 0x17000372 RID: 882
+	// (get) Token: 0x06002190 RID: 8592 RVA: 0x00046DF7 File Offset: 0x00044FF7
 	public bool renderFace
 	{
 		get
@@ -30,14 +30,14 @@ public class GorillaBodyRenderer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002133 RID: 8499 RVA: 0x000A57A3 File Offset: 0x000A39A3
+	// Token: 0x06002191 RID: 8593 RVA: 0x00046DFF File Offset: 0x00044FFF
 	public SkinnedMeshRenderer GetBody(GorillaBodyType type)
 	{
 		return this._renderersCache[(int)type];
 	}
 
-	// Token: 0x1700036B RID: 875
-	// (get) Token: 0x06002134 RID: 8500 RVA: 0x000A57AD File Offset: 0x000A39AD
+	// Token: 0x17000373 RID: 883
+	// (get) Token: 0x06002192 RID: 8594 RVA: 0x00046E09 File Offset: 0x00045009
 	public SkinnedMeshRenderer ActiveBody
 	{
 		get
@@ -46,7 +46,7 @@ public class GorillaBodyRenderer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002135 RID: 8501 RVA: 0x000A57BC File Offset: 0x000A39BC
+	// Token: 0x06002193 RID: 8595 RVA: 0x000F601C File Offset: 0x000F421C
 	public static void SetAllSkeletons(bool allSkeletons)
 	{
 		GorillaBodyRenderer.oopsAllSkeletons = allSkeletons;
@@ -57,21 +57,21 @@ public class GorillaBodyRenderer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002136 RID: 8502 RVA: 0x000A5834 File Offset: 0x000A3A34
+	// Token: 0x06002194 RID: 8596 RVA: 0x00046E17 File Offset: 0x00045017
 	public void SetGameModeBodyType(GorillaBodyType bodyType)
 	{
 		this.gameModeBodyType = bodyType;
 		this.Refresh();
 	}
 
-	// Token: 0x06002137 RID: 8503 RVA: 0x000A5843 File Offset: 0x000A3A43
+	// Token: 0x06002195 RID: 8597 RVA: 0x00046E26 File Offset: 0x00045026
 	public void SetCosmeticBodyType(GorillaBodyType bodyType)
 	{
 		this.cosmeticBodyType = bodyType;
 		this.Refresh();
 	}
 
-	// Token: 0x06002138 RID: 8504 RVA: 0x000A5852 File Offset: 0x000A3A52
+	// Token: 0x06002196 RID: 8598 RVA: 0x00046E35 File Offset: 0x00045035
 	public void SetDefaults()
 	{
 		this.gameModeBodyType = GorillaBodyType.Default;
@@ -79,7 +79,7 @@ public class GorillaBodyRenderer : MonoBehaviour
 		this.Refresh();
 	}
 
-	// Token: 0x06002139 RID: 8505 RVA: 0x000A5868 File Offset: 0x000A3A68
+	// Token: 0x06002197 RID: 8599 RVA: 0x000F6094 File Offset: 0x000F4294
 	private void Refresh()
 	{
 		GorillaBodyType bodyType;
@@ -98,7 +98,7 @@ public class GorillaBodyRenderer : MonoBehaviour
 		this.SetBodyType(bodyType);
 	}
 
-	// Token: 0x0600213A RID: 8506 RVA: 0x000A58A0 File Offset: 0x000A3AA0
+	// Token: 0x06002198 RID: 8600 RVA: 0x000F60CC File Offset: 0x000F42CC
 	public void SetMaterialIndex(int materialIndex)
 	{
 		this.bodyDefault.sharedMaterial = this.rig.materialsToChangeTo[materialIndex];
@@ -106,7 +106,7 @@ public class GorillaBodyRenderer : MonoBehaviour
 		this.rig.skeleton.SetMaterialIndex(materialIndex);
 	}
 
-	// Token: 0x0600213B RID: 8507 RVA: 0x000A58EC File Offset: 0x000A3AEC
+	// Token: 0x06002199 RID: 8601 RVA: 0x000F6118 File Offset: 0x000F4318
 	public void SetSkinMaterials(Material bodyMat, Material chestMat)
 	{
 		Material[] sharedMaterials = this.bodyDefault.sharedMaterials;
@@ -116,13 +116,13 @@ public class GorillaBodyRenderer : MonoBehaviour
 		this.bodyNoHead.sharedMaterials = sharedMaterials;
 	}
 
-	// Token: 0x0600213C RID: 8508 RVA: 0x000A5925 File Offset: 0x000A3B25
+	// Token: 0x0600219A RID: 8602 RVA: 0x00046E4B File Offset: 0x0004504B
 	public void SetupAsLocalPlayerBody()
 	{
 		this.faceRenderer.gameObject.layer = 22;
 	}
 
-	// Token: 0x0600213D RID: 8509 RVA: 0x000A593C File Offset: 0x000A3B3C
+	// Token: 0x0600219B RID: 8603 RVA: 0x000F6154 File Offset: 0x000F4354
 	private void SetBodyType(GorillaBodyType type)
 	{
 		if (this._bodyType == type)
@@ -139,7 +139,7 @@ public class GorillaBodyRenderer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600213E RID: 8510 RVA: 0x000A59AC File Offset: 0x000A3BAC
+	// Token: 0x0600219C RID: 8604 RVA: 0x000F61C4 File Offset: 0x000F43C4
 	private void SetBodyEnabled(GorillaBodyType bodyType, bool enabled)
 	{
 		SkinnedMeshRenderer body = this.GetBody(bodyType);
@@ -155,13 +155,13 @@ public class GorillaBodyRenderer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600213F RID: 8511 RVA: 0x000A59F5 File Offset: 0x000A3BF5
+	// Token: 0x0600219D RID: 8605 RVA: 0x00046E5F File Offset: 0x0004505F
 	private void Awake()
 	{
 		this.Setup();
 	}
 
-	// Token: 0x06002140 RID: 8512 RVA: 0x000A5A00 File Offset: 0x000A3C00
+	// Token: 0x0600219E RID: 8606 RVA: 0x000F6210 File Offset: 0x000F4410
 	private void Setup()
 	{
 		this.rig = base.GetComponentInParent<VRRig>();
@@ -175,51 +175,51 @@ public class GorillaBodyRenderer : MonoBehaviour
 		this.bodyDefault.GetSharedMaterials(this._cachedDefaultMats);
 	}
 
-	// Token: 0x040024CA RID: 9418
+	// Token: 0x04002522 RID: 9506
 	[SerializeField]
 	private GorillaBodyType _bodyType;
 
-	// Token: 0x040024CB RID: 9419
+	// Token: 0x04002523 RID: 9507
 	[SerializeField]
 	private bool _renderFace = true;
 
-	// Token: 0x040024CC RID: 9420
+	// Token: 0x04002524 RID: 9508
 	public MeshRenderer faceRenderer;
 
-	// Token: 0x040024CD RID: 9421
+	// Token: 0x04002525 RID: 9509
 	public SkinnedMeshRenderer bodyDefault;
 
-	// Token: 0x040024CE RID: 9422
+	// Token: 0x04002526 RID: 9510
 	public SkinnedMeshRenderer bodyNoHead;
 
-	// Token: 0x040024CF RID: 9423
+	// Token: 0x04002527 RID: 9511
 	public SkinnedMeshRenderer bodySkeleton;
 
-	// Token: 0x040024D0 RID: 9424
+	// Token: 0x04002528 RID: 9512
 	public SkinnedMeshRenderer bodyCosmetic;
 
-	// Token: 0x040024D1 RID: 9425
+	// Token: 0x04002529 RID: 9513
 	private static bool oopsAllSkeletons;
 
-	// Token: 0x040024D2 RID: 9426
+	// Token: 0x0400252A RID: 9514
 	private GorillaBodyType gameModeBodyType;
 
-	// Token: 0x040024D3 RID: 9427
+	// Token: 0x0400252B RID: 9515
 	private GorillaBodyType cosmeticBodyType;
 
-	// Token: 0x040024D4 RID: 9428
+	// Token: 0x0400252C RID: 9516
 	[Space]
 	[NonSerialized]
 	private SkinnedMeshRenderer[] _renderersCache = new SkinnedMeshRenderer[0];
 
-	// Token: 0x040024D5 RID: 9429
+	// Token: 0x0400252D RID: 9517
 	[NonSerialized]
 	private List<Material> _cachedDefaultMats = new List<Material>(2);
 
-	// Token: 0x040024D6 RID: 9430
+	// Token: 0x0400252E RID: 9518
 	private static readonly List<Material> gEmptyDefaultMats = new List<Material>();
 
-	// Token: 0x040024D7 RID: 9431
+	// Token: 0x0400252F RID: 9519
 	[Space]
 	public VRRig rig;
 }

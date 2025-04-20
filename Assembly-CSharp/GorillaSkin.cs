@@ -3,11 +3,11 @@ using GorillaExtensions;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x02000162 RID: 354
+// Token: 0x0200016D RID: 365
 public class GorillaSkin : ScriptableObject
 {
-	// Token: 0x170000D8 RID: 216
-	// (get) Token: 0x060008E5 RID: 2277 RVA: 0x0003052E File Offset: 0x0002E72E
+	// Token: 0x170000DF RID: 223
+	// (get) Token: 0x06000932 RID: 2354 RVA: 0x000367EA File Offset: 0x000349EA
 	public Mesh bodyMesh
 	{
 		get
@@ -16,7 +16,7 @@ public class GorillaSkin : ScriptableObject
 		}
 	}
 
-	// Token: 0x060008E6 RID: 2278 RVA: 0x00030538 File Offset: 0x0002E738
+	// Token: 0x06000933 RID: 2355 RVA: 0x00090FB4 File Offset: 0x0008F1B4
 	public static GorillaSkin CopyWithInstancedMaterials(GorillaSkin basis)
 	{
 		GorillaSkin gorillaSkin = ScriptableObject.CreateInstance<GorillaSkin>();
@@ -28,8 +28,8 @@ public class GorillaSkin : ScriptableObject
 		return gorillaSkin;
 	}
 
-	// Token: 0x170000D9 RID: 217
-	// (get) Token: 0x060008E7 RID: 2279 RVA: 0x0003059A File Offset: 0x0002E79A
+	// Token: 0x170000E0 RID: 224
+	// (get) Token: 0x06000934 RID: 2356 RVA: 0x000367F2 File Offset: 0x000349F2
 	public Material faceMaterial
 	{
 		get
@@ -38,8 +38,8 @@ public class GorillaSkin : ScriptableObject
 		}
 	}
 
-	// Token: 0x170000DA RID: 218
-	// (get) Token: 0x060008E8 RID: 2280 RVA: 0x000305A2 File Offset: 0x0002E7A2
+	// Token: 0x170000E1 RID: 225
+	// (get) Token: 0x06000935 RID: 2357 RVA: 0x000367FA File Offset: 0x000349FA
 	public Material bodyMaterial
 	{
 		get
@@ -48,8 +48,8 @@ public class GorillaSkin : ScriptableObject
 		}
 	}
 
-	// Token: 0x170000DB RID: 219
-	// (get) Token: 0x060008E9 RID: 2281 RVA: 0x000305AA File Offset: 0x0002E7AA
+	// Token: 0x170000E2 RID: 226
+	// (get) Token: 0x06000936 RID: 2358 RVA: 0x00036802 File Offset: 0x00034A02
 	public Material chestMaterial
 	{
 		get
@@ -58,8 +58,8 @@ public class GorillaSkin : ScriptableObject
 		}
 	}
 
-	// Token: 0x170000DC RID: 220
-	// (get) Token: 0x060008EA RID: 2282 RVA: 0x000305B2 File Offset: 0x0002E7B2
+	// Token: 0x170000E3 RID: 227
+	// (get) Token: 0x06000937 RID: 2359 RVA: 0x0003680A File Offset: 0x00034A0A
 	public Material scoreboardMaterial
 	{
 		get
@@ -68,7 +68,7 @@ public class GorillaSkin : ScriptableObject
 		}
 	}
 
-	// Token: 0x060008EB RID: 2283 RVA: 0x000305BC File Offset: 0x0002E7BC
+	// Token: 0x06000938 RID: 2360 RVA: 0x00091018 File Offset: 0x0008F218
 	public static void ShowActiveSkin(VRRig rig)
 	{
 		bool useDefaultBodySkin;
@@ -76,7 +76,7 @@ public class GorillaSkin : ScriptableObject
 		GorillaSkin.ShowSkin(rig, activeSkin, useDefaultBodySkin);
 	}
 
-	// Token: 0x060008EC RID: 2284 RVA: 0x000305DC File Offset: 0x0002E7DC
+	// Token: 0x06000939 RID: 2361 RVA: 0x00091038 File Offset: 0x0008F238
 	public void ApplySkinToMannequin(GameObject mannequin)
 	{
 		SkinnedMeshRenderer skinnedMeshRenderer;
@@ -104,7 +104,7 @@ public class GorillaSkin : ScriptableObject
 		}
 	}
 
-	// Token: 0x060008ED RID: 2285 RVA: 0x00030650 File Offset: 0x0002E850
+	// Token: 0x0600093A RID: 2362 RVA: 0x000910AC File Offset: 0x0008F2AC
 	public static GorillaSkin GetActiveSkin(VRRig rig, out bool useDefaultBodySkin)
 	{
 		if (rig.CurrentModeSkin.IsNotNull())
@@ -126,7 +126,7 @@ public class GorillaSkin : ScriptableObject
 		return rig.defaultSkin;
 	}
 
-	// Token: 0x060008EE RID: 2286 RVA: 0x000306AC File Offset: 0x0002E8AC
+	// Token: 0x0600093B RID: 2363 RVA: 0x00091108 File Offset: 0x0008F308
 	public static void ShowSkin(VRRig rig, GorillaSkin skin, bool useDefaultBodySkin = false)
 	{
 		if (skin.bodyMesh != null)
@@ -145,7 +145,7 @@ public class GorillaSkin : ScriptableObject
 		rig.scoreboardMaterial = skin.scoreboardMaterial;
 	}
 
-	// Token: 0x060008EF RID: 2287 RVA: 0x00030724 File Offset: 0x0002E924
+	// Token: 0x0600093C RID: 2364 RVA: 0x00091180 File Offset: 0x0008F380
 	public static void ApplyToRig(VRRig rig, GorillaSkin skin, GorillaSkin.SkinType type)
 	{
 		bool flag;
@@ -173,57 +173,57 @@ public class GorillaSkin : ScriptableObject
 		}
 	}
 
-	// Token: 0x04000AC9 RID: 2761
+	// Token: 0x04000B10 RID: 2832
 	[FormerlySerializedAs("faceMaterial")]
 	[Space]
 	[SerializeField]
 	private Material _faceMaterial;
 
-	// Token: 0x04000ACA RID: 2762
+	// Token: 0x04000B11 RID: 2833
 	[FormerlySerializedAs("chestMaterial")]
 	[FormerlySerializedAs("chestEarsMaterial")]
 	[SerializeField]
 	private Material _chestMaterial;
 
-	// Token: 0x04000ACB RID: 2763
+	// Token: 0x04000B12 RID: 2834
 	[FormerlySerializedAs("bodyMaterial")]
 	[SerializeField]
 	private Material _bodyMaterial;
 
-	// Token: 0x04000ACC RID: 2764
+	// Token: 0x04000B13 RID: 2835
 	[SerializeField]
 	private Material _scoreboardMaterial;
 
-	// Token: 0x04000ACD RID: 2765
+	// Token: 0x04000B14 RID: 2836
 	[Space]
 	[SerializeField]
 	private Mesh _bodyMesh;
 
-	// Token: 0x04000ACE RID: 2766
+	// Token: 0x04000B15 RID: 2837
 	[Space]
 	[NonSerialized]
 	private Material _bodyRuntime;
 
-	// Token: 0x04000ACF RID: 2767
+	// Token: 0x04000B16 RID: 2838
 	[NonSerialized]
 	private Material _chestRuntime;
 
-	// Token: 0x04000AD0 RID: 2768
+	// Token: 0x04000B17 RID: 2839
 	[NonSerialized]
 	private Material _faceRuntime;
 
-	// Token: 0x04000AD1 RID: 2769
+	// Token: 0x04000B18 RID: 2840
 	[NonSerialized]
 	private Material _scoreRuntime;
 
-	// Token: 0x02000163 RID: 355
+	// Token: 0x0200016E RID: 366
 	public enum SkinType
 	{
-		// Token: 0x04000AD3 RID: 2771
+		// Token: 0x04000B1A RID: 2842
 		cosmetic,
-		// Token: 0x04000AD4 RID: 2772
+		// Token: 0x04000B1B RID: 2843
 		gameMode,
-		// Token: 0x04000AD5 RID: 2773
+		// Token: 0x04000B1C RID: 2844
 		temporaryEffect
 	}
 }

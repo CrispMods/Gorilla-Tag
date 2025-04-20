@@ -5,11 +5,11 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x02000521 RID: 1313
+// Token: 0x0200052E RID: 1326
 [NetworkBehaviourWeaved(337)]
 public class FlockingManager : NetworkComponent
 {
-	// Token: 0x06001FD1 RID: 8145 RVA: 0x000A08F8 File Offset: 0x0009EAF8
+	// Token: 0x0600202A RID: 8234 RVA: 0x000F20B8 File Offset: 0x000F02B8
 	protected override void Awake()
 	{
 		base.Awake();
@@ -43,13 +43,13 @@ public class FlockingManager : NetworkComponent
 		}
 	}
 
-	// Token: 0x06001FD2 RID: 8146 RVA: 0x0001758B File Offset: 0x0001578B
+	// Token: 0x0600202B RID: 8235 RVA: 0x00033269 File Offset: 0x00031469
 	private new void Start()
 	{
 		NetworkSystem.Instance.RegisterSceneNetworkItem(base.gameObject);
 	}
 
-	// Token: 0x06001FD3 RID: 8147 RVA: 0x000A0A50 File Offset: 0x0009EC50
+	// Token: 0x0600202C RID: 8236 RVA: 0x000F2210 File Offset: 0x000F0410
 	private void OnDestroy()
 	{
 		NetworkBehaviourUtils.InternalOnDestroy(this);
@@ -67,10 +67,10 @@ public class FlockingManager : NetworkComponent
 		}
 	}
 
-	// Token: 0x06001FD4 RID: 8148 RVA: 0x000A0AF8 File Offset: 0x0009ECF8
+	// Token: 0x0600202D RID: 8237 RVA: 0x000F22B8 File Offset: 0x000F04B8
 	private void Update()
 	{
-		if (Random.Range(0, 10000) < 50)
+		if (UnityEngine.Random.Range(0, 10000) < 50)
 		{
 			foreach (FlockingManager.FishArea fishArea in this.fishAreaList)
 			{
@@ -85,17 +85,17 @@ public class FlockingManager : NetworkComponent
 		}
 	}
 
-	// Token: 0x06001FD5 RID: 8149 RVA: 0x000A0BC4 File Offset: 0x0009EDC4
+	// Token: 0x0600202E RID: 8238 RVA: 0x000F2384 File Offset: 0x000F0584
 	public Vector3 GetRandomPointInsideCollider(FlockingManager.FishArea fishArea)
 	{
-		int num = Random.Range(0, fishArea.colliders.Length);
+		int num = UnityEngine.Random.Range(0, fishArea.colliders.Length);
 		BoxCollider boxCollider = fishArea.colliders[num];
 		Vector3 vector = boxCollider.size / 2f;
-		Vector3 position = new Vector3(Random.Range(-vector.x, vector.x), Random.Range(-vector.y, vector.y), Random.Range(-vector.z, vector.z));
+		Vector3 position = new Vector3(UnityEngine.Random.Range(-vector.x, vector.x), UnityEngine.Random.Range(-vector.y, vector.y), UnityEngine.Random.Range(-vector.z, vector.z));
 		return boxCollider.transform.TransformPoint(position);
 	}
 
-	// Token: 0x06001FD6 RID: 8150 RVA: 0x000A0C44 File Offset: 0x0009EE44
+	// Token: 0x0600202F RID: 8239 RVA: 0x000F2404 File Offset: 0x000F0604
 	public bool IsInside(Vector3 point, FlockingManager.FishArea fish)
 	{
 		foreach (BoxCollider boxCollider in fish.colliders)
@@ -112,7 +112,7 @@ public class FlockingManager : NetworkComponent
 		return false;
 	}
 
-	// Token: 0x06001FD7 RID: 8151 RVA: 0x000A0CE0 File Offset: 0x0009EEE0
+	// Token: 0x06002030 RID: 8240 RVA: 0x000F24A0 File Offset: 0x000F06A0
 	public Vector3 RestrictPointToArea(Vector3 point, FlockingManager.FishArea fish)
 	{
 		Vector3 result = default(Vector3);
@@ -151,7 +151,7 @@ public class FlockingManager : NetworkComponent
 		return result;
 	}
 
-	// Token: 0x06001FD8 RID: 8152 RVA: 0x000A0E90 File Offset: 0x0009F090
+	// Token: 0x06002031 RID: 8241 RVA: 0x000F2650 File Offset: 0x000F0850
 	private void ProjectileHitReceiver(SlingshotProjectile projectile, Collider collider1)
 	{
 		bool isRealFood = projectile.CompareTag(this.foodProjectileTag);
@@ -169,7 +169,7 @@ public class FlockingManager : NetworkComponent
 		unityAction(arg);
 	}
 
-	// Token: 0x06001FD9 RID: 8153 RVA: 0x000A0EDB File Offset: 0x0009F0DB
+	// Token: 0x06002032 RID: 8242 RVA: 0x00045DE3 File Offset: 0x00043FE3
 	private void ProjectileHitExit(SlingshotProjectile projectile, Collider collider2)
 	{
 		UnityAction<BoxCollider> unityAction = this.onFoodDestroyed;
@@ -180,9 +180,9 @@ public class FlockingManager : NetworkComponent
 		unityAction(collider2 as BoxCollider);
 	}
 
-	// Token: 0x1700033A RID: 826
-	// (get) Token: 0x06001FDA RID: 8154 RVA: 0x000A0EF3 File Offset: 0x0009F0F3
-	// (set) Token: 0x06001FDB RID: 8155 RVA: 0x000A0F1D File Offset: 0x0009F11D
+	// Token: 0x17000341 RID: 833
+	// (get) Token: 0x06002033 RID: 8243 RVA: 0x00045DFB File Offset: 0x00043FFB
+	// (set) Token: 0x06002034 RID: 8244 RVA: 0x00045E25 File Offset: 0x00044025
 	[Networked]
 	[NetworkedWeaved(0, 337)]
 	public unsafe FlockingData Data
@@ -205,13 +205,13 @@ public class FlockingManager : NetworkComponent
 		}
 	}
 
-	// Token: 0x06001FDC RID: 8156 RVA: 0x000A0F48 File Offset: 0x0009F148
+	// Token: 0x06002035 RID: 8245 RVA: 0x00045E50 File Offset: 0x00044050
 	public override void WriteDataFusion()
 	{
 		this.Data = new FlockingData(this.allFish);
 	}
 
-	// Token: 0x06001FDD RID: 8157 RVA: 0x000A0F5C File Offset: 0x0009F15C
+	// Token: 0x06002036 RID: 8246 RVA: 0x000F269C File Offset: 0x000F089C
 	public override void ReadDataFusion()
 	{
 		for (int i = 0; i < this.Data.count; i++)
@@ -222,29 +222,29 @@ public class FlockingManager : NetworkComponent
 		}
 	}
 
-	// Token: 0x06001FDE RID: 8158 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002037 RID: 8247 RVA: 0x00030607 File Offset: 0x0002E807
 	protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 	}
 
-	// Token: 0x06001FDF RID: 8159 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002038 RID: 8248 RVA: 0x00030607 File Offset: 0x0002E807
 	protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 	}
 
-	// Token: 0x06001FE0 RID: 8160 RVA: 0x000A0FC7 File Offset: 0x0009F1C7
+	// Token: 0x06002039 RID: 8249 RVA: 0x00045E63 File Offset: 0x00044063
 	public static void RegisterAvoidPoint(GameObject obj)
 	{
 		FlockingManager.avoidPoints.Add(obj);
 	}
 
-	// Token: 0x06001FE1 RID: 8161 RVA: 0x000A0FD4 File Offset: 0x0009F1D4
+	// Token: 0x0600203A RID: 8250 RVA: 0x00045E70 File Offset: 0x00044070
 	public static void UnregisterAvoidPoint(GameObject obj)
 	{
 		FlockingManager.avoidPoints.Remove(obj);
 	}
 
-	// Token: 0x06001FE4 RID: 8164 RVA: 0x000A1022 File Offset: 0x0009F222
+	// Token: 0x0600203D RID: 8253 RVA: 0x00045EBE File Offset: 0x000440BE
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -252,7 +252,7 @@ public class FlockingManager : NetworkComponent
 		this.Data = this._Data;
 	}
 
-	// Token: 0x06001FE5 RID: 8165 RVA: 0x000A103A File Offset: 0x0009F23A
+	// Token: 0x0600203E RID: 8254 RVA: 0x00045ED6 File Offset: 0x000440D6
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -260,72 +260,72 @@ public class FlockingManager : NetworkComponent
 		this._Data = this.Data;
 	}
 
-	// Token: 0x040023DF RID: 9183
+	// Token: 0x04002432 RID: 9266
 	public List<GameObject> fishAreaContainer;
 
-	// Token: 0x040023E0 RID: 9184
+	// Token: 0x04002433 RID: 9267
 	public string foodProjectileTag = "WaterBalloonProjectile";
 
-	// Token: 0x040023E1 RID: 9185
+	// Token: 0x04002434 RID: 9268
 	private Dictionary<string, Vector3> areaToWaypointDict = new Dictionary<string, Vector3>();
 
-	// Token: 0x040023E2 RID: 9186
+	// Token: 0x04002435 RID: 9269
 	private List<FlockingManager.FishArea> fishAreaList = new List<FlockingManager.FishArea>();
 
-	// Token: 0x040023E3 RID: 9187
+	// Token: 0x04002436 RID: 9270
 	private List<Flocking> allFish = new List<Flocking>();
 
-	// Token: 0x040023E4 RID: 9188
+	// Token: 0x04002437 RID: 9271
 	public UnityAction<FlockingManager.FishFood> onFoodDetected;
 
-	// Token: 0x040023E5 RID: 9189
+	// Token: 0x04002438 RID: 9272
 	public UnityAction<BoxCollider> onFoodDestroyed;
 
-	// Token: 0x040023E6 RID: 9190
+	// Token: 0x04002439 RID: 9273
 	private bool hasBeenSerialized;
 
-	// Token: 0x040023E7 RID: 9191
+	// Token: 0x0400243A RID: 9274
 	public static readonly List<GameObject> avoidPoints = new List<GameObject>();
 
-	// Token: 0x040023E8 RID: 9192
+	// Token: 0x0400243B RID: 9275
 	[WeaverGenerated]
 	[SerializeField]
 	[DefaultForProperty("Data", 0, 337)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
 	private FlockingData _Data;
 
-	// Token: 0x02000522 RID: 1314
+	// Token: 0x0200052F RID: 1327
 	public class FishArea
 	{
-		// Token: 0x040023E9 RID: 9193
+		// Token: 0x0400243C RID: 9276
 		public string id;
 
-		// Token: 0x040023EA RID: 9194
+		// Token: 0x0400243D RID: 9277
 		public List<Flocking> fishList = new List<Flocking>();
 
-		// Token: 0x040023EB RID: 9195
+		// Token: 0x0400243E RID: 9278
 		public Vector3 colliderCenter;
 
-		// Token: 0x040023EC RID: 9196
+		// Token: 0x0400243F RID: 9279
 		public BoxCollider[] colliders;
 
-		// Token: 0x040023ED RID: 9197
+		// Token: 0x04002440 RID: 9280
 		public Vector3 nextWaypoint = Vector3.zero;
 
-		// Token: 0x040023EE RID: 9198
+		// Token: 0x04002441 RID: 9281
 		public ZoneBasedObject zoneBasedObject;
 	}
 
-	// Token: 0x02000523 RID: 1315
+	// Token: 0x02000530 RID: 1328
 	public class FishFood
 	{
-		// Token: 0x040023EF RID: 9199
+		// Token: 0x04002442 RID: 9282
 		public BoxCollider collider;
 
-		// Token: 0x040023F0 RID: 9200
+		// Token: 0x04002443 RID: 9283
 		public bool isRealFood;
 
-		// Token: 0x040023F1 RID: 9201
+		// Token: 0x04002444 RID: 9284
 		public SlingshotProjectile slingshotProjectile;
 	}
 }

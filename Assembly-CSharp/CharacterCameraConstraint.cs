@@ -1,34 +1,34 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020002C0 RID: 704
+// Token: 0x020002CB RID: 715
 public class CharacterCameraConstraint : MonoBehaviour
 {
-	// Token: 0x060010F6 RID: 4342 RVA: 0x00002705 File Offset: 0x00000905
+	// Token: 0x06001142 RID: 4418 RVA: 0x00030758 File Offset: 0x0002E958
 	private CharacterCameraConstraint()
 	{
 	}
 
-	// Token: 0x060010F7 RID: 4343 RVA: 0x00051E07 File Offset: 0x00050007
+	// Token: 0x06001143 RID: 4419 RVA: 0x0003BCC0 File Offset: 0x00039EC0
 	private void Awake()
 	{
 		this._character = base.GetComponent<CapsuleCollider>();
 		this._simplePlayerController = base.GetComponent<SimpleCapsuleWithStickMovement>();
 	}
 
-	// Token: 0x060010F8 RID: 4344 RVA: 0x00051E21 File Offset: 0x00050021
+	// Token: 0x06001144 RID: 4420 RVA: 0x0003BCDA File Offset: 0x00039EDA
 	private void OnEnable()
 	{
 		this._simplePlayerController.CameraUpdated += this.CameraUpdate;
 	}
 
-	// Token: 0x060010F9 RID: 4345 RVA: 0x00051E3A File Offset: 0x0005003A
+	// Token: 0x06001145 RID: 4421 RVA: 0x0003BCF3 File Offset: 0x00039EF3
 	private void OnDisable()
 	{
 		this._simplePlayerController.CameraUpdated -= this.CameraUpdate;
 	}
 
-	// Token: 0x060010FA RID: 4346 RVA: 0x00051E54 File Offset: 0x00050054
+	// Token: 0x06001146 RID: 4422 RVA: 0x000AD2D0 File Offset: 0x000AB4D0
 	private void CameraUpdate()
 	{
 		float value = 0f;
@@ -62,7 +62,7 @@ public class CharacterCameraConstraint : MonoBehaviour
 		this.CameraRig.transform.localPosition = new Vector3(0f, y, 0f);
 	}
 
-	// Token: 0x060010FB RID: 4347 RVA: 0x00051FDC File Offset: 0x000501DC
+	// Token: 0x06001147 RID: 4423 RVA: 0x000AD458 File Offset: 0x000AB658
 	private bool CheckCameraOverlapped()
 	{
 		Camera component = this.CameraRig.centerEyeAnchor.GetComponent<Camera>();
@@ -76,7 +76,7 @@ public class CharacterCameraConstraint : MonoBehaviour
 		return Physics.SphereCast(position, component.nearClipPlane, direction, out raycastHit, magnitude, this.CollideLayers, QueryTriggerInteraction.Ignore);
 	}
 
-	// Token: 0x060010FC RID: 4348 RVA: 0x000520CC File Offset: 0x000502CC
+	// Token: 0x06001148 RID: 4424 RVA: 0x000AD548 File Offset: 0x000AB748
 	private bool CheckCameraNearClipping(out float result)
 	{
 		Camera component = this.CameraRig.centerEyeAnchor.GetComponent<Camera>();
@@ -108,38 +108,38 @@ public class CharacterCameraConstraint : MonoBehaviour
 		return result2;
 	}
 
-	// Token: 0x040012F5 RID: 4853
+	// Token: 0x0400133D RID: 4925
 	private const float FADE_RAY_LENGTH = 0.25f;
 
-	// Token: 0x040012F6 RID: 4854
+	// Token: 0x0400133E RID: 4926
 	private const float FADE_OVERLAP_MAXIMUM = 0.1f;
 
-	// Token: 0x040012F7 RID: 4855
+	// Token: 0x0400133F RID: 4927
 	private const float FADE_AMOUNT_MAXIMUM = 1f;
 
-	// Token: 0x040012F8 RID: 4856
+	// Token: 0x04001340 RID: 4928
 	[Tooltip("This should be a reference to the OVRCameraRig that is usually a child of the PlayerController.")]
 	public OVRCameraRig CameraRig;
 
-	// Token: 0x040012F9 RID: 4857
+	// Token: 0x04001341 RID: 4929
 	[Tooltip("Collision layers to be used for the purposes of fading out the screen when the HMD is inside world geometry and adjusting the capsule height.")]
 	public LayerMask CollideLayers;
 
-	// Token: 0x040012FA RID: 4858
+	// Token: 0x04001342 RID: 4930
 	[Tooltip("Offset is added to camera's real world height, effectively treating it as though the player was taller/standing higher.")]
 	public float HeightOffset;
 
-	// Token: 0x040012FB RID: 4859
+	// Token: 0x04001343 RID: 4931
 	[Tooltip("Minimum height that the character capsule can shrink to.  To disable, set to capsule's height.")]
 	public float MinimumHeight;
 
-	// Token: 0x040012FC RID: 4860
+	// Token: 0x04001344 RID: 4932
 	[Tooltip("Maximum height that the character capsule can grow to.  To disable, set to capsule's height.")]
 	public float MaximumHeight;
 
-	// Token: 0x040012FD RID: 4861
+	// Token: 0x04001345 RID: 4933
 	private CapsuleCollider _character;
 
-	// Token: 0x040012FE RID: 4862
+	// Token: 0x04001346 RID: 4934
 	private SimpleCapsuleWithStickMovement _simplePlayerController;
 }

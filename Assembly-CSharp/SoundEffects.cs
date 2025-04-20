@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-// Token: 0x0200044D RID: 1101
+// Token: 0x02000459 RID: 1113
 public class SoundEffects : MonoBehaviour
 {
-	// Token: 0x170002F2 RID: 754
-	// (get) Token: 0x06001B20 RID: 6944 RVA: 0x00085CAE File Offset: 0x00083EAE
+	// Token: 0x170002F9 RID: 761
+	// (get) Token: 0x06001B74 RID: 7028 RVA: 0x00042B57 File Offset: 0x00040D57
 	public bool isPlaying
 	{
 		get
@@ -16,7 +16,7 @@ public class SoundEffects : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001B21 RID: 6945 RVA: 0x00085CE1 File Offset: 0x00083EE1
+	// Token: 0x06001B75 RID: 7029 RVA: 0x00042B8A File Offset: 0x00040D8A
 	public void Clear()
 	{
 		this.audioClips.Clear();
@@ -24,7 +24,7 @@ public class SoundEffects : MonoBehaviour
 		this._lastClipLength = -1.0;
 	}
 
-	// Token: 0x06001B22 RID: 6946 RVA: 0x00085D04 File Offset: 0x00083F04
+	// Token: 0x06001B76 RID: 7030 RVA: 0x00042BAD File Offset: 0x00040DAD
 	public void Stop()
 	{
 		if (this.source)
@@ -34,7 +34,7 @@ public class SoundEffects : MonoBehaviour
 		this._lastClipLength = -1.0;
 	}
 
-	// Token: 0x06001B23 RID: 6947 RVA: 0x00085D30 File Offset: 0x00083F30
+	// Token: 0x06001B77 RID: 7031 RVA: 0x000DA624 File Offset: 0x000D8824
 	public void PlayNext(float delayMin, float delayMax, float volMin, float volMax)
 	{
 		float delay = this._rnd.NextFloat(delayMin, delayMax);
@@ -42,7 +42,7 @@ public class SoundEffects : MonoBehaviour
 		this.PlayNext(delay, volume);
 	}
 
-	// Token: 0x06001B24 RID: 6948 RVA: 0x00085D64 File Offset: 0x00083F64
+	// Token: 0x06001B78 RID: 7032 RVA: 0x000DA658 File Offset: 0x000D8858
 	public void PlayNext(float delay = 0f, float volume = 1f)
 	{
 		if (!this.source)
@@ -82,7 +82,7 @@ public class SoundEffects : MonoBehaviour
 		this._lastClipElapsedTime = -num2;
 	}
 
-	// Token: 0x06001B25 RID: 6949 RVA: 0x00085E78 File Offset: 0x00084078
+	// Token: 0x06001B79 RID: 7033 RVA: 0x00042BD6 File Offset: 0x00040DD6
 	[Conditional("UNITY_EDITOR")]
 	private void OnValidate()
 	{
@@ -97,38 +97,38 @@ public class SoundEffects : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001E12 RID: 7698
+	// Token: 0x04001E61 RID: 7777
 	public AudioSource source;
 
-	// Token: 0x04001E13 RID: 7699
+	// Token: 0x04001E62 RID: 7778
 	[Space]
 	public List<AudioClip> audioClips = new List<AudioClip>();
 
-	// Token: 0x04001E14 RID: 7700
+	// Token: 0x04001E63 RID: 7779
 	public string seed = "0x1337C0D3";
 
-	// Token: 0x04001E15 RID: 7701
+	// Token: 0x04001E64 RID: 7780
 	[Space]
 	public bool distinct = true;
 
-	// Token: 0x04001E16 RID: 7702
+	// Token: 0x04001E65 RID: 7781
 	[SerializeField]
 	private float _minDelay;
 
-	// Token: 0x04001E17 RID: 7703
+	// Token: 0x04001E66 RID: 7782
 	[Space]
 	[SerializeField]
 	private SRand _rnd;
 
-	// Token: 0x04001E18 RID: 7704
+	// Token: 0x04001E67 RID: 7783
 	[NonSerialized]
 	private int _lastClipIndex = -1;
 
-	// Token: 0x04001E19 RID: 7705
+	// Token: 0x04001E68 RID: 7784
 	[NonSerialized]
 	private double _lastClipLength = -1.0;
 
-	// Token: 0x04001E1A RID: 7706
+	// Token: 0x04001E69 RID: 7785
 	[NonSerialized]
 	private TimeSince _lastClipElapsedTime;
 }

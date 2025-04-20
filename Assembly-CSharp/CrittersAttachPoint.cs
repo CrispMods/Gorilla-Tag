@@ -1,30 +1,30 @@
 ﻿using System;
 
-// Token: 0x02000039 RID: 57
+// Token: 0x0200003D RID: 61
 public class CrittersAttachPoint : CrittersActor
 {
-	// Token: 0x06000120 RID: 288 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000135 RID: 309 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void ProcessRemote()
 	{
 	}
 
-	// Token: 0x04000158 RID: 344
+	// Token: 0x04000169 RID: 361
 	public bool fixedOrientation = true;
 
-	// Token: 0x04000159 RID: 345
+	// Token: 0x0400016A RID: 362
 	public CrittersAttachPoint.AnchoredLocationTypes anchorLocation;
 
-	// Token: 0x0400015A RID: 346
+	// Token: 0x0400016B RID: 363
 	public bool isLeft;
 
-	// Token: 0x0200003A RID: 58
+	// Token: 0x0200003E RID: 62
 	public enum AnchoredLocationTypes
 	{
-		// Token: 0x0400015C RID: 348
+		// Token: 0x0400016D RID: 365
 		Arm,
-		// Token: 0x0400015D RID: 349
+		// Token: 0x0400016E RID: 366
 		Chest,
-		// Token: 0x0400015E RID: 350
+		// Token: 0x0400016F RID: 367
 		Back
 	}
 }

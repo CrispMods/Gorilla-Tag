@@ -2,10 +2,10 @@
 using GorillaLocomotion;
 using UnityEngine;
 
-// Token: 0x02000253 RID: 595
+// Token: 0x0200025E RID: 606
 public class NativeSizeVolume : MonoBehaviour
 {
-	// Token: 0x06000DC8 RID: 3528 RVA: 0x00046158 File Offset: 0x00044358
+	// Token: 0x06000E13 RID: 3603 RVA: 0x000A3190 File Offset: 0x000A1390
 	private void OnTriggerEnter(Collider other)
 	{
 		GTPlayer componentInParent = other.GetComponentInParent<GTPlayer>();
@@ -27,7 +27,7 @@ public class NativeSizeVolume : MonoBehaviour
 		componentInParent.SetNativeScale(null);
 	}
 
-	// Token: 0x06000DC9 RID: 3529 RVA: 0x000461B0 File Offset: 0x000443B0
+	// Token: 0x06000E14 RID: 3604 RVA: 0x000A31E8 File Offset: 0x000A13E8
 	private void OnTriggerExit(Collider other)
 	{
 		GTPlayer componentInParent = other.GetComponentInParent<GTPlayer>();
@@ -49,31 +49,31 @@ public class NativeSizeVolume : MonoBehaviour
 		componentInParent.SetNativeScale(null);
 	}
 
-	// Token: 0x040010D2 RID: 4306
+	// Token: 0x04001118 RID: 4376
 	[SerializeField]
 	private Collider triggerVolume;
 
-	// Token: 0x040010D3 RID: 4307
+	// Token: 0x04001119 RID: 4377
 	[SerializeField]
 	private NativeSizeChangerSettings settings;
 
-	// Token: 0x040010D4 RID: 4308
+	// Token: 0x0400111A RID: 4378
 	[SerializeField]
 	private NativeSizeVolume.NativeSizeVolumeAction OnEnterAction;
 
-	// Token: 0x040010D5 RID: 4309
+	// Token: 0x0400111B RID: 4379
 	[SerializeField]
 	private NativeSizeVolume.NativeSizeVolumeAction OnExitAction;
 
-	// Token: 0x02000254 RID: 596
+	// Token: 0x0200025F RID: 607
 	[Serializable]
 	private enum NativeSizeVolumeAction
 	{
-		// Token: 0x040010D7 RID: 4311
+		// Token: 0x0400111D RID: 4381
 		None,
-		// Token: 0x040010D8 RID: 4312
+		// Token: 0x0400111E RID: 4382
 		ApplySettings,
-		// Token: 0x040010D9 RID: 4313
+		// Token: 0x0400111F RID: 4383
 		ResetSize
 	}
 }

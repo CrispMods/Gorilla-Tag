@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace GorillaTagScripts.Builder
 {
-	// Token: 0x020009FA RID: 2554
+	// Token: 0x02000A27 RID: 2599
 	public class BuilderParticleSpawner : MonoBehaviour
 	{
-		// Token: 0x06003FD8 RID: 16344 RVA: 0x0012ED40 File Offset: 0x0012CF40
+		// Token: 0x0600411D RID: 16669 RVA: 0x0005A8D4 File Offset: 0x00058AD4
 		private void Start()
 		{
 			this.spawnTrigger.onTriggerFirstEntered += this.OnEnter;
 			this.spawnTrigger.onTriggerLastExited += this.OnExit;
 		}
 
-		// Token: 0x06003FD9 RID: 16345 RVA: 0x0012ED70 File Offset: 0x0012CF70
+		// Token: 0x0600411E RID: 16670 RVA: 0x0005A904 File Offset: 0x00058B04
 		private void OnDestroy()
 		{
 			if (this.spawnTrigger != null)
@@ -23,7 +23,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003FDA RID: 16346 RVA: 0x0012EDB0 File Offset: 0x0012CFB0
+		// Token: 0x0600411F RID: 16671 RVA: 0x0016FDF0 File Offset: 0x0016DFF0
 		public void TrySpawning()
 		{
 			if (Time.time > this.lastSpawnTime + this.cooldown)
@@ -33,7 +33,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003FDB RID: 16347 RVA: 0x0012EE03 File Offset: 0x0012D003
+		// Token: 0x06004120 RID: 16672 RVA: 0x0005A942 File Offset: 0x00058B42
 		private void OnEnter()
 		{
 			if (this.spawnOnEnter)
@@ -42,7 +42,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003FDC RID: 16348 RVA: 0x0012EE13 File Offset: 0x0012D013
+		// Token: 0x06004121 RID: 16673 RVA: 0x0005A952 File Offset: 0x00058B52
 		private void OnExit()
 		{
 			if (this.spawnOnExit)
@@ -51,28 +51,28 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x040040DD RID: 16605
+		// Token: 0x040041D7 RID: 16855
 		public GameObject prefab;
 
-		// Token: 0x040040DE RID: 16606
+		// Token: 0x040041D8 RID: 16856
 		public float cooldown = 0.1f;
 
-		// Token: 0x040040DF RID: 16607
+		// Token: 0x040041D9 RID: 16857
 		private float lastSpawnTime;
 
-		// Token: 0x040040E0 RID: 16608
+		// Token: 0x040041DA RID: 16858
 		[SerializeField]
 		private BuilderSmallMonkeTrigger spawnTrigger;
 
-		// Token: 0x040040E1 RID: 16609
+		// Token: 0x040041DB RID: 16859
 		[SerializeField]
 		private bool spawnOnEnter = true;
 
-		// Token: 0x040040E2 RID: 16610
+		// Token: 0x040041DC RID: 16860
 		[SerializeField]
 		private bool spawnOnExit;
 
-		// Token: 0x040040E3 RID: 16611
+		// Token: 0x040041DD RID: 16861
 		[SerializeField]
 		private Transform spawnLocation;
 	}

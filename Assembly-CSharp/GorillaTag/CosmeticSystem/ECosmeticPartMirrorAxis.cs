@@ -2,16 +2,16 @@
 
 namespace GorillaTag.CosmeticSystem
 {
-	// Token: 0x02000BF5 RID: 3061
+	// Token: 0x02000C23 RID: 3107
 	public enum ECosmeticPartMirrorAxis
 	{
-		// Token: 0x04004EB3 RID: 20147
+		// Token: 0x04004FA9 RID: 20393
 		Disabled,
-		// Token: 0x04004EB4 RID: 20148
+		// Token: 0x04004FAA RID: 20394
 		X,
-		// Token: 0x04004EB5 RID: 20149
+		// Token: 0x04004FAB RID: 20395
 		Y,
-		// Token: 0x04004EB6 RID: 20150
+		// Token: 0x04004FAC RID: 20396
 		Z
 	}
 }

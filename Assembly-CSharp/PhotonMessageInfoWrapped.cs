@@ -3,11 +3,11 @@ using Fusion;
 using Photon.Pun;
 using Photon.Realtime;
 
-// Token: 0x0200027D RID: 637
+// Token: 0x02000288 RID: 648
 public struct PhotonMessageInfoWrapped
 {
-	// Token: 0x17000184 RID: 388
-	// (get) Token: 0x06000EE3 RID: 3811 RVA: 0x0004BD81 File Offset: 0x00049F81
+	// Token: 0x1700018B RID: 395
+	// (get) Token: 0x06000F2E RID: 3886 RVA: 0x0003AA30 File Offset: 0x00038C30
 	public NetPlayer Sender
 	{
 		get
@@ -16,8 +16,8 @@ public struct PhotonMessageInfoWrapped
 		}
 	}
 
-	// Token: 0x17000185 RID: 389
-	// (get) Token: 0x06000EE4 RID: 3812 RVA: 0x0004BD93 File Offset: 0x00049F93
+	// Token: 0x1700018C RID: 396
+	// (get) Token: 0x06000F2F RID: 3887 RVA: 0x0003AA42 File Offset: 0x00038C42
 	public double SentServerTime
 	{
 		get
@@ -26,7 +26,7 @@ public struct PhotonMessageInfoWrapped
 		}
 	}
 
-	// Token: 0x06000EE5 RID: 3813 RVA: 0x0004BDA7 File Offset: 0x00049FA7
+	// Token: 0x06000F30 RID: 3888 RVA: 0x0003AA56 File Offset: 0x00038C56
 	public PhotonMessageInfoWrapped(PhotonMessageInfo info)
 	{
 		Player sender = info.Sender;
@@ -35,7 +35,7 @@ public struct PhotonMessageInfoWrapped
 		this.punInfo = info;
 	}
 
-	// Token: 0x06000EE6 RID: 3814 RVA: 0x0004BDD5 File Offset: 0x00049FD5
+	// Token: 0x06000F31 RID: 3889 RVA: 0x0003AA84 File Offset: 0x00038C84
 	public PhotonMessageInfoWrapped(RpcInfo info)
 	{
 		this.senderID = info.Source.PlayerId;
@@ -43,7 +43,7 @@ public struct PhotonMessageInfoWrapped
 		this.punInfo = default(PhotonMessageInfo);
 	}
 
-	// Token: 0x06000EE7 RID: 3815 RVA: 0x0004BE06 File Offset: 0x0004A006
+	// Token: 0x06000F32 RID: 3890 RVA: 0x0003AAB5 File Offset: 0x00038CB5
 	public PhotonMessageInfoWrapped(int playerID, int tick)
 	{
 		this.senderID = playerID;
@@ -51,24 +51,24 @@ public struct PhotonMessageInfoWrapped
 		this.punInfo = default(PhotonMessageInfo);
 	}
 
-	// Token: 0x06000EE8 RID: 3816 RVA: 0x0004BE22 File Offset: 0x0004A022
+	// Token: 0x06000F33 RID: 3891 RVA: 0x0003AAD1 File Offset: 0x00038CD1
 	public static implicit operator PhotonMessageInfoWrapped(PhotonMessageInfo info)
 	{
 		return new PhotonMessageInfoWrapped(info);
 	}
 
-	// Token: 0x06000EE9 RID: 3817 RVA: 0x0004BE2A File Offset: 0x0004A02A
+	// Token: 0x06000F34 RID: 3892 RVA: 0x0003AAD9 File Offset: 0x00038CD9
 	public static implicit operator PhotonMessageInfoWrapped(RpcInfo info)
 	{
 		return new PhotonMessageInfoWrapped(info);
 	}
 
-	// Token: 0x040011AE RID: 4526
+	// Token: 0x040011F4 RID: 4596
 	public int senderID;
 
-	// Token: 0x040011AF RID: 4527
+	// Token: 0x040011F5 RID: 4597
 	public int sentTick;
 
-	// Token: 0x040011B0 RID: 4528
+	// Token: 0x040011F6 RID: 4598
 	public PhotonMessageInfo punInfo;
 }

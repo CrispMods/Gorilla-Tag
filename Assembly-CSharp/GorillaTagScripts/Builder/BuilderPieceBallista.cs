@@ -9,10 +9,10 @@ using UnityEngine.Events;
 
 namespace GorillaTagScripts.Builder
 {
-	// Token: 0x020009FB RID: 2555
+	// Token: 0x02000A28 RID: 2600
 	public class BuilderPieceBallista : MonoBehaviour, IBuilderPieceComponent, IBuilderPieceFunctional
 	{
-		// Token: 0x06003FDE RID: 16350 RVA: 0x0012EE40 File Offset: 0x0012D040
+		// Token: 0x06004123 RID: 16675 RVA: 0x0016FE44 File Offset: 0x0016E044
 		private void Awake()
 		{
 			this.animator.SetFloat(this.pitchParamHash, this.pitch);
@@ -28,7 +28,7 @@ namespace GorillaTagScripts.Builder
 			this.hasLaunchParticles = (this.launchParticles != null);
 		}
 
-		// Token: 0x06003FDF RID: 16351 RVA: 0x0012EF06 File Offset: 0x0012D106
+		// Token: 0x06004124 RID: 16676 RVA: 0x0005A97C File Offset: 0x00058B7C
 		private void OnDestroy()
 		{
 			if (this.handTrigger != null)
@@ -37,7 +37,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003FE0 RID: 16352 RVA: 0x0012EF32 File Offset: 0x0012D132
+		// Token: 0x06004125 RID: 16677 RVA: 0x0005A9A8 File Offset: 0x00058BA8
 		private void OnHandTriggerPressed()
 		{
 			if (this.autoLaunch)
@@ -50,7 +50,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003FE1 RID: 16353 RVA: 0x0012EF5C File Offset: 0x0012D15C
+		// Token: 0x06004126 RID: 16678 RVA: 0x0016FF0C File Offset: 0x0016E10C
 		private void UpdateStateMaster()
 		{
 			if (!NetworkSystem.Instance.InRoom || !NetworkSystem.Instance.IsMasterClient)
@@ -138,14 +138,14 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003FE2 RID: 16354 RVA: 0x0012F2E0 File Offset: 0x0012D4E0
+		// Token: 0x06004127 RID: 16679 RVA: 0x0005A9D2 File Offset: 0x00058BD2
 		private void ResetFlags()
 		{
 			this.playerLaunched = false;
 			this.loadCompleteTime = double.MaxValue;
 		}
 
-		// Token: 0x06003FE3 RID: 16355 RVA: 0x0012F2F8 File Offset: 0x0012D4F8
+		// Token: 0x06004128 RID: 16680 RVA: 0x00170290 File Offset: 0x0016E490
 		private void UpdatePlayerPosition()
 		{
 			if (this.ballistaState != BuilderPieceBallista.BallistaState.PrepareForLaunchLocal && this.ballistaState != BuilderPieceBallista.BallistaState.LaunchingLocal)
@@ -198,13 +198,13 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003FE4 RID: 16356 RVA: 0x0012F514 File Offset: 0x0012D714
+		// Token: 0x06004129 RID: 16681 RVA: 0x001704AC File Offset: 0x0016E6AC
 		private Vector3 GetPlayerBodyCenterPosition(Transform headTransform)
 		{
 			return headTransform.position + Quaternion.Euler(0f, headTransform.rotation.eulerAngles.y, 0f) * new Vector3(0f, 0f, -0.009f) + Vector3.down * 0.024f;
 		}
 
-		// Token: 0x06003FE5 RID: 16357 RVA: 0x0012F57C File Offset: 0x0012D77C
+		// Token: 0x0600412A RID: 16682 RVA: 0x00170514 File Offset: 0x0016E714
 		private void OnTriggerEnter(Collider other)
 		{
 			if (this.playerRigInTrigger != null)
@@ -236,7 +236,7 @@ namespace GorillaTagScripts.Builder
 			this.playerInTrigger = true;
 		}
 
-		// Token: 0x06003FE6 RID: 16358 RVA: 0x0012F614 File Offset: 0x0012D814
+		// Token: 0x0600412B RID: 16683 RVA: 0x001705AC File Offset: 0x0016E7AC
 		private void OnTriggerExit(Collider other)
 		{
 			if (this.playerRigInTrigger == null || !this.playerInTrigger)
@@ -267,7 +267,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003FE7 RID: 16359 RVA: 0x0012F6AC File Offset: 0x0012D8AC
+		// Token: 0x0600412C RID: 16684 RVA: 0x0005A9EA File Offset: 0x00058BEA
 		public void OnPieceCreate(int pieceType, int pieceId)
 		{
 			this.ballistaState = BuilderPieceBallista.BallistaState.Idle;
@@ -276,14 +276,14 @@ namespace GorillaTagScripts.Builder
 			this.playerLaunched = false;
 		}
 
-		// Token: 0x06003FE8 RID: 16360 RVA: 0x0012F6CA File Offset: 0x0012D8CA
+		// Token: 0x0600412D RID: 16685 RVA: 0x0005AA08 File Offset: 0x00058C08
 		public void OnPieceDestroy()
 		{
 			this.myPiece.functionalPieceState = 0;
 			this.ballistaState = BuilderPieceBallista.BallistaState.Idle;
 		}
 
-		// Token: 0x06003FE9 RID: 16361 RVA: 0x0012F6E0 File Offset: 0x0012D8E0
+		// Token: 0x0600412E RID: 16686 RVA: 0x00170644 File Offset: 0x0016E844
 		public void OnPiecePlacementDeserialized()
 		{
 			this.launchDirection = this.launchEnd.position - this.launchStart.position;
@@ -291,7 +291,7 @@ namespace GorillaTagScripts.Builder
 			this.launchDirection /= this.launchRampDistance;
 		}
 
-		// Token: 0x06003FEA RID: 16362 RVA: 0x0012F738 File Offset: 0x0012D938
+		// Token: 0x0600412F RID: 16687 RVA: 0x0017069C File Offset: 0x0016E89C
 		public void OnPieceActivate()
 		{
 			foreach (Collider collider in this.triggers)
@@ -306,7 +306,7 @@ namespace GorillaTagScripts.Builder
 			BuilderTable.instance.RegisterFunctionalPiece(this);
 		}
 
-		// Token: 0x06003FEB RID: 16363 RVA: 0x0012F800 File Offset: 0x0012DA00
+		// Token: 0x06004130 RID: 16688 RVA: 0x00170764 File Offset: 0x0016E964
 		public void OnPieceDeactivate()
 		{
 			foreach (Collider collider in this.triggers)
@@ -326,7 +326,7 @@ namespace GorillaTagScripts.Builder
 			BuilderTable.instance.UnregisterFunctionalPiece(this);
 		}
 
-		// Token: 0x06003FEC RID: 16364 RVA: 0x0012F8A4 File Offset: 0x0012DAA4
+		// Token: 0x06004131 RID: 16689 RVA: 0x00170808 File Offset: 0x0016EA08
 		public void OnStateRequest(byte newState, NetPlayer instigator, int timeStamp)
 		{
 			if (!NetworkSystem.Instance.IsMasterClient)
@@ -355,7 +355,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003FED RID: 16365 RVA: 0x0012F938 File Offset: 0x0012DB38
+		// Token: 0x06004132 RID: 16690 RVA: 0x0017089C File Offset: 0x0016EA9C
 		public void OnStateChanged(byte newState, NetPlayer instigator, int timeStamp)
 		{
 			if (!this.IsStateValid(newState))
@@ -460,13 +460,13 @@ namespace GorillaTagScripts.Builder
 			this.ballistaState = ballistaState;
 		}
 
-		// Token: 0x06003FEE RID: 16366 RVA: 0x0012FC10 File Offset: 0x0012DE10
+		// Token: 0x06004133 RID: 16691 RVA: 0x0005AA1D File Offset: 0x00058C1D
 		public bool IsStateValid(byte state)
 		{
 			return state < 8;
 		}
 
-		// Token: 0x06003FEF RID: 16367 RVA: 0x0012FC16 File Offset: 0x0012DE16
+		// Token: 0x06004134 RID: 16692 RVA: 0x0005AA23 File Offset: 0x00058C23
 		public void FunctionalPieceUpdate()
 		{
 			if (this.myPiece == null || this.myPiece.state != BuilderPiece.State.AttachedAndPlaced)
@@ -480,7 +480,7 @@ namespace GorillaTagScripts.Builder
 			this.UpdatePlayerPosition();
 		}
 
-		// Token: 0x06003FF0 RID: 16368 RVA: 0x0012FC4C File Offset: 0x0012DE4C
+		// Token: 0x06004135 RID: 16693 RVA: 0x00170B74 File Offset: 0x0016ED74
 		private void UpdatePredictionLine()
 		{
 			float d = 0.033333335f;
@@ -494,7 +494,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003FF1 RID: 16369 RVA: 0x0012FCE6 File Offset: 0x0012DEE6
+		// Token: 0x06004136 RID: 16694 RVA: 0x0005AA59 File Offset: 0x00058C59
 		private IEnumerator DebugDrawTrajectory(float duration)
 		{
 			this.UpdatePredictionLine();
@@ -508,163 +508,163 @@ namespace GorillaTagScripts.Builder
 			yield break;
 		}
 
-		// Token: 0x040040E4 RID: 16612
+		// Token: 0x040041DE RID: 16862
 		[SerializeField]
 		private BuilderPiece myPiece;
 
-		// Token: 0x040040E5 RID: 16613
+		// Token: 0x040041DF RID: 16863
 		[SerializeField]
 		private List<Collider> triggers;
 
-		// Token: 0x040040E6 RID: 16614
+		// Token: 0x040041E0 RID: 16864
 		[SerializeField]
 		private List<Collider> disableWhileLaunching;
 
-		// Token: 0x040040E7 RID: 16615
+		// Token: 0x040041E1 RID: 16865
 		[SerializeField]
 		private BuilderSmallHandTrigger handTrigger;
 
-		// Token: 0x040040E8 RID: 16616
+		// Token: 0x040041E2 RID: 16866
 		[SerializeField]
 		private bool autoLaunch;
 
-		// Token: 0x040040E9 RID: 16617
+		// Token: 0x040041E3 RID: 16867
 		[SerializeField]
 		private float autoLaunchDelay = 0.75f;
 
-		// Token: 0x040040EA RID: 16618
+		// Token: 0x040041E4 RID: 16868
 		private double enteredTriggerTime;
 
-		// Token: 0x040040EB RID: 16619
+		// Token: 0x040041E5 RID: 16869
 		public Animator animator;
 
-		// Token: 0x040040EC RID: 16620
+		// Token: 0x040041E6 RID: 16870
 		public Transform launchStart;
 
-		// Token: 0x040040ED RID: 16621
+		// Token: 0x040041E7 RID: 16871
 		public Transform launchEnd;
 
-		// Token: 0x040040EE RID: 16622
+		// Token: 0x040041E8 RID: 16872
 		public Transform launchBone;
 
-		// Token: 0x040040EF RID: 16623
+		// Token: 0x040041E9 RID: 16873
 		[SerializeField]
 		private SoundBankPlayer loadSFX;
 
-		// Token: 0x040040F0 RID: 16624
+		// Token: 0x040041EA RID: 16874
 		[SerializeField]
 		private SoundBankPlayer launchSFX;
 
-		// Token: 0x040040F1 RID: 16625
+		// Token: 0x040041EB RID: 16875
 		[SerializeField]
 		private SoundBankPlayer cockSFX;
 
-		// Token: 0x040040F2 RID: 16626
+		// Token: 0x040041EC RID: 16876
 		[SerializeField]
 		private ParticleSystem launchParticles;
 
-		// Token: 0x040040F3 RID: 16627
+		// Token: 0x040041ED RID: 16877
 		private bool hasLaunchParticles;
 
-		// Token: 0x040040F4 RID: 16628
+		// Token: 0x040041EE RID: 16878
 		public float reloadDelay = 1f;
 
-		// Token: 0x040040F5 RID: 16629
+		// Token: 0x040041EF RID: 16879
 		public float loadTime = 1.933f;
 
-		// Token: 0x040040F6 RID: 16630
+		// Token: 0x040041F0 RID: 16880
 		public float slipOverrideDuration = 0.1f;
 
-		// Token: 0x040040F7 RID: 16631
+		// Token: 0x040041F1 RID: 16881
 		private double launchedTime;
 
-		// Token: 0x040040F8 RID: 16632
+		// Token: 0x040041F2 RID: 16882
 		public float playerMagnetismStrength = 3f;
 
-		// Token: 0x040040F9 RID: 16633
+		// Token: 0x040041F3 RID: 16883
 		public float launchSpeed = 20f;
 
-		// Token: 0x040040FA RID: 16634
+		// Token: 0x040041F4 RID: 16884
 		[Range(0f, 1f)]
 		public float pitch;
 
-		// Token: 0x040040FB RID: 16635
+		// Token: 0x040041F5 RID: 16885
 		private bool debugDrawTrajectoryOnLaunch;
 
-		// Token: 0x040040FC RID: 16636
+		// Token: 0x040041F6 RID: 16886
 		private int loadTriggerHash = Animator.StringToHash("Load");
 
-		// Token: 0x040040FD RID: 16637
+		// Token: 0x040041F7 RID: 16887
 		private int fireTriggerHash = Animator.StringToHash("Fire");
 
-		// Token: 0x040040FE RID: 16638
+		// Token: 0x040041F8 RID: 16888
 		private int pitchParamHash = Animator.StringToHash("Pitch");
 
-		// Token: 0x040040FF RID: 16639
+		// Token: 0x040041F9 RID: 16889
 		private int idleStateHash = Animator.StringToHash("Idle");
 
-		// Token: 0x04004100 RID: 16640
+		// Token: 0x040041FA RID: 16890
 		private int loadStateHash = Animator.StringToHash("Load");
 
-		// Token: 0x04004101 RID: 16641
+		// Token: 0x040041FB RID: 16891
 		private int fireStateHash = Animator.StringToHash("Fire");
 
-		// Token: 0x04004102 RID: 16642
+		// Token: 0x040041FC RID: 16892
 		private bool playerInTrigger;
 
-		// Token: 0x04004103 RID: 16643
+		// Token: 0x040041FD RID: 16893
 		private VRRig playerRigInTrigger;
 
-		// Token: 0x04004104 RID: 16644
+		// Token: 0x040041FE RID: 16894
 		private bool playerLaunched;
 
-		// Token: 0x04004105 RID: 16645
+		// Token: 0x040041FF RID: 16895
 		private float playerReadyToFireDist = 0.1f;
 
-		// Token: 0x04004106 RID: 16646
+		// Token: 0x04004200 RID: 16896
 		private Vector3 launchDirection;
 
-		// Token: 0x04004107 RID: 16647
+		// Token: 0x04004201 RID: 16897
 		private float launchRampDistance;
 
-		// Token: 0x04004108 RID: 16648
+		// Token: 0x04004202 RID: 16898
 		private float playerPullInRate;
 
-		// Token: 0x04004109 RID: 16649
+		// Token: 0x04004203 RID: 16899
 		private float appliedAnimatorPitch;
 
-		// Token: 0x0400410A RID: 16650
+		// Token: 0x04004204 RID: 16900
 		private double loadCompleteTime;
 
-		// Token: 0x0400410B RID: 16651
+		// Token: 0x04004205 RID: 16901
 		private BuilderPieceBallista.BallistaState ballistaState;
 
-		// Token: 0x0400410C RID: 16652
+		// Token: 0x04004206 RID: 16902
 		private const int predictionLineSamples = 240;
 
-		// Token: 0x0400410D RID: 16653
+		// Token: 0x04004207 RID: 16903
 		private Vector3[] predictionLinePoints = new Vector3[240];
 
-		// Token: 0x020009FC RID: 2556
+		// Token: 0x02000A29 RID: 2601
 		private enum BallistaState
 		{
-			// Token: 0x0400410F RID: 16655
+			// Token: 0x04004209 RID: 16905
 			Idle,
-			// Token: 0x04004110 RID: 16656
+			// Token: 0x0400420A RID: 16906
 			Loading,
-			// Token: 0x04004111 RID: 16657
+			// Token: 0x0400420B RID: 16907
 			WaitingForTrigger,
-			// Token: 0x04004112 RID: 16658
+			// Token: 0x0400420C RID: 16908
 			PlayerInTrigger,
-			// Token: 0x04004113 RID: 16659
+			// Token: 0x0400420D RID: 16909
 			PrepareForLaunch,
-			// Token: 0x04004114 RID: 16660
+			// Token: 0x0400420E RID: 16910
 			PrepareForLaunchLocal,
-			// Token: 0x04004115 RID: 16661
+			// Token: 0x0400420F RID: 16911
 			Launching,
-			// Token: 0x04004116 RID: 16662
+			// Token: 0x04004210 RID: 16912
 			LaunchingLocal,
-			// Token: 0x04004117 RID: 16663
+			// Token: 0x04004211 RID: 16913
 			Count
 		}
 	}

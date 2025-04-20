@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x020006D0 RID: 1744
+// Token: 0x020006E5 RID: 1765
 public class RingBuffer<T>
 {
-	// Token: 0x17000493 RID: 1171
-	// (get) Token: 0x06002B27 RID: 11047 RVA: 0x000D59A6 File Offset: 0x000D3BA6
+	// Token: 0x170004A0 RID: 1184
+	// (get) Token: 0x06002BBD RID: 11197 RVA: 0x0004D97A File Offset: 0x0004BB7A
 	public int Size
 	{
 		get
@@ -14,8 +14,8 @@ public class RingBuffer<T>
 		}
 	}
 
-	// Token: 0x17000494 RID: 1172
-	// (get) Token: 0x06002B28 RID: 11048 RVA: 0x000D59AE File Offset: 0x000D3BAE
+	// Token: 0x170004A1 RID: 1185
+	// (get) Token: 0x06002BBE RID: 11198 RVA: 0x0004D982 File Offset: 0x0004BB82
 	public int Capacity
 	{
 		get
@@ -24,8 +24,8 @@ public class RingBuffer<T>
 		}
 	}
 
-	// Token: 0x17000495 RID: 1173
-	// (get) Token: 0x06002B29 RID: 11049 RVA: 0x000D59B6 File Offset: 0x000D3BB6
+	// Token: 0x170004A2 RID: 1186
+	// (get) Token: 0x06002BBF RID: 11199 RVA: 0x0004D98A File Offset: 0x0004BB8A
 	public bool IsFull
 	{
 		get
@@ -34,8 +34,8 @@ public class RingBuffer<T>
 		}
 	}
 
-	// Token: 0x17000496 RID: 1174
-	// (get) Token: 0x06002B2A RID: 11050 RVA: 0x000D59C6 File Offset: 0x000D3BC6
+	// Token: 0x170004A3 RID: 1187
+	// (get) Token: 0x06002BC0 RID: 11200 RVA: 0x0004D99A File Offset: 0x0004BB9A
 	public bool IsEmpty
 	{
 		get
@@ -44,7 +44,7 @@ public class RingBuffer<T>
 		}
 	}
 
-	// Token: 0x06002B2B RID: 11051 RVA: 0x000D59D1 File Offset: 0x000D3BD1
+	// Token: 0x06002BC1 RID: 11201 RVA: 0x0004D9A5 File Offset: 0x0004BBA5
 	public RingBuffer(int capacity)
 	{
 		if (capacity < 1)
@@ -56,7 +56,7 @@ public class RingBuffer<T>
 		this._items = new T[capacity];
 	}
 
-	// Token: 0x06002B2C RID: 11052 RVA: 0x000D5A07 File Offset: 0x000D3C07
+	// Token: 0x06002BC2 RID: 11202 RVA: 0x0004D9DB File Offset: 0x0004BBDB
 	public RingBuffer(IList<T> list) : this(list.Count)
 	{
 		if (list == null)
@@ -66,19 +66,19 @@ public class RingBuffer<T>
 		list.CopyTo(this._items, 0);
 	}
 
-	// Token: 0x06002B2D RID: 11053 RVA: 0x000D5A30 File Offset: 0x000D3C30
+	// Token: 0x06002BC3 RID: 11203 RVA: 0x0004DA04 File Offset: 0x0004BC04
 	public ref T PeekFirst()
 	{
 		return ref this._items[this._head];
 	}
 
-	// Token: 0x06002B2E RID: 11054 RVA: 0x000D5A43 File Offset: 0x000D3C43
+	// Token: 0x06002BC4 RID: 11204 RVA: 0x0004DA17 File Offset: 0x0004BC17
 	public ref T PeekLast()
 	{
 		return ref this._items[this._tail];
 	}
 
-	// Token: 0x06002B2F RID: 11055 RVA: 0x000D5A58 File Offset: 0x000D3C58
+	// Token: 0x06002BC5 RID: 11205 RVA: 0x00121458 File Offset: 0x0011F658
 	public bool Push(T item)
 	{
 		if (this._size == this._capacity)
@@ -91,7 +91,7 @@ public class RingBuffer<T>
 		return true;
 	}
 
-	// Token: 0x06002B30 RID: 11056 RVA: 0x000D5AAC File Offset: 0x000D3CAC
+	// Token: 0x06002BC6 RID: 11206 RVA: 0x001214AC File Offset: 0x0011F6AC
 	public T Pop()
 	{
 		if (this._size == 0)
@@ -104,7 +104,7 @@ public class RingBuffer<T>
 		return result;
 	}
 
-	// Token: 0x06002B31 RID: 11057 RVA: 0x000D5B00 File Offset: 0x000D3D00
+	// Token: 0x06002BC7 RID: 11207 RVA: 0x00121500 File Offset: 0x0011F700
 	public bool TryPop(out T item)
 	{
 		if (this._size == 0)
@@ -118,7 +118,7 @@ public class RingBuffer<T>
 		return true;
 	}
 
-	// Token: 0x06002B32 RID: 11058 RVA: 0x000D5B59 File Offset: 0x000D3D59
+	// Token: 0x06002BC8 RID: 11208 RVA: 0x0004DA2A File Offset: 0x0004BC2A
 	public void Clear()
 	{
 		this._head = 0;
@@ -127,7 +127,7 @@ public class RingBuffer<T>
 		Array.Clear(this._items, 0, this._capacity);
 	}
 
-	// Token: 0x06002B33 RID: 11059 RVA: 0x000D5B82 File Offset: 0x000D3D82
+	// Token: 0x06002BC9 RID: 11209 RVA: 0x0004DA53 File Offset: 0x0004BC53
 	public bool TryGet(int i, out T item)
 	{
 		if (this._size == 0)
@@ -139,24 +139,24 @@ public class RingBuffer<T>
 		return true;
 	}
 
-	// Token: 0x06002B34 RID: 11060 RVA: 0x000D5BB6 File Offset: 0x000D3DB6
+	// Token: 0x06002BCA RID: 11210 RVA: 0x0004DA87 File Offset: 0x0004BC87
 	public ArraySegment<T> AsSegment()
 	{
 		return new ArraySegment<T>(this._items);
 	}
 
-	// Token: 0x040030A6 RID: 12454
+	// Token: 0x04003143 RID: 12611
 	private T[] _items;
 
-	// Token: 0x040030A7 RID: 12455
+	// Token: 0x04003144 RID: 12612
 	private int _head;
 
-	// Token: 0x040030A8 RID: 12456
+	// Token: 0x04003145 RID: 12613
 	private int _tail;
 
-	// Token: 0x040030A9 RID: 12457
+	// Token: 0x04003146 RID: 12614
 	private int _size;
 
-	// Token: 0x040030AA RID: 12458
+	// Token: 0x04003147 RID: 12615
 	private readonly int _capacity;
 }

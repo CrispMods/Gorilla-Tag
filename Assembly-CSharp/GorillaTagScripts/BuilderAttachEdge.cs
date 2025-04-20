@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x02000984 RID: 2436
+	// Token: 0x020009AA RID: 2474
 	public class BuilderAttachEdge : MonoBehaviour
 	{
-		// Token: 0x06003B98 RID: 15256 RVA: 0x00112196 File Offset: 0x00110396
+		// Token: 0x06003CB0 RID: 15536 RVA: 0x00057A9C File Offset: 0x00055C9C
 		private void Awake()
 		{
 			if (this.center == null)
@@ -15,7 +15,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003B99 RID: 15257 RVA: 0x001121B4 File Offset: 0x001103B4
+		// Token: 0x06003CB1 RID: 15537 RVA: 0x00155190 File Offset: 0x00153390
 		protected virtual void OnDrawGizmosSelected()
 		{
 			Gizmos.color = Color.green;
@@ -28,10 +28,10 @@ namespace GorillaTagScripts
 			Gizmos.DrawLine(transform.position - a * this.length * 0.5f, transform.position + a * this.length * 0.5f);
 		}
 
-		// Token: 0x04003CBE RID: 15550
+		// Token: 0x04003D98 RID: 15768
 		public Transform center;
 
-		// Token: 0x04003CBF RID: 15551
+		// Token: 0x04003D99 RID: 15769
 		public float length;
 	}
 }

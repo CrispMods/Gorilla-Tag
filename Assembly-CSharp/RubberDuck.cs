@@ -5,12 +5,12 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x0200044B RID: 1099
+// Token: 0x02000457 RID: 1111
 public class RubberDuck : TransferrableObject
 {
-	// Token: 0x170002EF RID: 751
-	// (get) Token: 0x06001B08 RID: 6920 RVA: 0x00085423 File Offset: 0x00083623
-	// (set) Token: 0x06001B09 RID: 6921 RVA: 0x00085435 File Offset: 0x00083635
+	// Token: 0x170002F6 RID: 758
+	// (get) Token: 0x06001B5C RID: 7004 RVA: 0x00042972 File Offset: 0x00040B72
+	// (set) Token: 0x06001B5D RID: 7005 RVA: 0x00042984 File Offset: 0x00040B84
 	public bool fxActive
 	{
 		get
@@ -28,15 +28,15 @@ public class RubberDuck : TransferrableObject
 		}
 	}
 
-	// Token: 0x170002F0 RID: 752
-	// (get) Token: 0x06001B0A RID: 6922 RVA: 0x00085453 File Offset: 0x00083653
+	// Token: 0x170002F7 RID: 759
+	// (get) Token: 0x06001B5E RID: 7006 RVA: 0x000429A2 File Offset: 0x00040BA2
 	public int SqueezeSound
 	{
 		get
 		{
 			if (this.squeezeSoundBank.Length > 1)
 			{
-				return this.squeezeSoundBank[Random.Range(0, this.squeezeSoundBank.Length)];
+				return this.squeezeSoundBank[UnityEngine.Random.Range(0, this.squeezeSoundBank.Length)];
 			}
 			if (this.squeezeSoundBank.Length == 1)
 			{
@@ -46,15 +46,15 @@ public class RubberDuck : TransferrableObject
 		}
 	}
 
-	// Token: 0x170002F1 RID: 753
-	// (get) Token: 0x06001B0B RID: 6923 RVA: 0x00085490 File Offset: 0x00083690
+	// Token: 0x170002F8 RID: 760
+	// (get) Token: 0x06001B5F RID: 7007 RVA: 0x000429DF File Offset: 0x00040BDF
 	public int SqueezeReleaseSound
 	{
 		get
 		{
 			if (this.squeezeReleaseSoundBank.Length > 1)
 			{
-				return this.squeezeReleaseSoundBank[Random.Range(0, this.squeezeReleaseSoundBank.Length)];
+				return this.squeezeReleaseSoundBank[UnityEngine.Random.Range(0, this.squeezeReleaseSoundBank.Length)];
 			}
 			if (this.squeezeReleaseSoundBank.Length == 1)
 			{
@@ -64,7 +64,7 @@ public class RubberDuck : TransferrableObject
 		}
 	}
 
-	// Token: 0x06001B0C RID: 6924 RVA: 0x000854D0 File Offset: 0x000836D0
+	// Token: 0x06001B60 RID: 7008 RVA: 0x000D9F80 File Offset: 0x000D8180
 	public override void OnSpawn(VRRig rig)
 	{
 		base.OnSpawn(rig);
@@ -84,7 +84,7 @@ public class RubberDuck : TransferrableObject
 		this.fxActive = false;
 	}
 
-	// Token: 0x06001B0D RID: 6925 RVA: 0x00085570 File Offset: 0x00083770
+	// Token: 0x06001B61 RID: 7009 RVA: 0x000DA020 File Offset: 0x000D8220
 	internal override void OnEnable()
 	{
 		base.OnEnable();
@@ -108,7 +108,7 @@ public class RubberDuck : TransferrableObject
 		}
 	}
 
-	// Token: 0x06001B0E RID: 6926 RVA: 0x00085660 File Offset: 0x00083860
+	// Token: 0x06001B62 RID: 7010 RVA: 0x000DA110 File Offset: 0x000D8310
 	internal override void OnDisable()
 	{
 		base.OnDisable();
@@ -121,7 +121,7 @@ public class RubberDuck : TransferrableObject
 		}
 	}
 
-	// Token: 0x06001B0F RID: 6927 RVA: 0x000856D7 File Offset: 0x000838D7
+	// Token: 0x06001B63 RID: 7011 RVA: 0x00042A1C File Offset: 0x00040C1C
 	private void OnSqueezeActivate(int sender, int target, object[] args, PhotonMessageInfoWrapped info)
 	{
 		if (sender != target)
@@ -135,7 +135,7 @@ public class RubberDuck : TransferrableObject
 		this.SqueezeActivateLocal();
 	}
 
-	// Token: 0x06001B10 RID: 6928 RVA: 0x000856FE File Offset: 0x000838FE
+	// Token: 0x06001B64 RID: 7012 RVA: 0x00042A43 File Offset: 0x00040C43
 	private void SqueezeActivateLocal()
 	{
 		this.PlayParticleFX(this.particleFXEmissionSqueeze);
@@ -145,7 +145,7 @@ public class RubberDuck : TransferrableObject
 		}
 	}
 
-	// Token: 0x06001B11 RID: 6929 RVA: 0x0008573B File Offset: 0x0008393B
+	// Token: 0x06001B65 RID: 7013 RVA: 0x00042A80 File Offset: 0x00040C80
 	private void OnSqueezeDeactivate(int sender, int target, object[] args, PhotonMessageInfoWrapped info)
 	{
 		if (sender != target)
@@ -160,13 +160,13 @@ public class RubberDuck : TransferrableObject
 		this.SqueezeDeactivateLocal();
 	}
 
-	// Token: 0x06001B12 RID: 6930 RVA: 0x0008576E File Offset: 0x0008396E
+	// Token: 0x06001B66 RID: 7014 RVA: 0x00042AB3 File Offset: 0x00040CB3
 	private void SqueezeDeactivateLocal()
 	{
 		this.PlayParticleFX(this.particleFXEmissionIdle);
 	}
 
-	// Token: 0x06001B13 RID: 6931 RVA: 0x0008577C File Offset: 0x0008397C
+	// Token: 0x06001B67 RID: 7015 RVA: 0x000DA188 File Offset: 0x000D8388
 	public override void TriggeredLateUpdate()
 	{
 		base.TriggeredLateUpdate();
@@ -198,7 +198,7 @@ public class RubberDuck : TransferrableObject
 		}
 	}
 
-	// Token: 0x06001B14 RID: 6932 RVA: 0x00085898 File Offset: 0x00083A98
+	// Token: 0x06001B68 RID: 7016 RVA: 0x000DA2A4 File Offset: 0x000D84A4
 	public override void OnActivate()
 	{
 		base.OnActivate();
@@ -243,7 +243,7 @@ public class RubberDuck : TransferrableObject
 		}
 	}
 
-	// Token: 0x06001B15 RID: 6933 RVA: 0x00085974 File Offset: 0x00083B74
+	// Token: 0x06001B69 RID: 7017 RVA: 0x000DA380 File Offset: 0x000D8580
 	public override void OnDeactivate()
 	{
 		base.OnDeactivate();
@@ -289,7 +289,7 @@ public class RubberDuck : TransferrableObject
 		}
 	}
 
-	// Token: 0x06001B16 RID: 6934 RVA: 0x00085A80 File Offset: 0x00083C80
+	// Token: 0x06001B6A RID: 7018 RVA: 0x000DA48C File Offset: 0x000D868C
 	public void PlayParticleFX(float rate)
 	{
 		if (!this.hasParticleFX)
@@ -308,104 +308,104 @@ public class RubberDuck : TransferrableObject
 		this.pFXEmissionModule.rateOverTime = rate;
 	}
 
-	// Token: 0x06001B17 RID: 6935 RVA: 0x00085AD4 File Offset: 0x00083CD4
+	// Token: 0x06001B6B RID: 7019 RVA: 0x00042AC1 File Offset: 0x00040CC1
 	public override bool CanActivate()
 	{
 		return !this.disableActivation;
 	}
 
-	// Token: 0x06001B18 RID: 6936 RVA: 0x00085ADF File Offset: 0x00083CDF
+	// Token: 0x06001B6C RID: 7020 RVA: 0x00042ACC File Offset: 0x00040CCC
 	public override bool CanDeactivate()
 	{
 		return !this.disableDeactivation;
 	}
 
-	// Token: 0x04001DF6 RID: 7670
+	// Token: 0x04001E45 RID: 7749
 	[DebugOption]
 	public bool disableActivation;
 
-	// Token: 0x04001DF7 RID: 7671
+	// Token: 0x04001E46 RID: 7750
 	[DebugOption]
 	public bool disableDeactivation;
 
-	// Token: 0x04001DF8 RID: 7672
+	// Token: 0x04001E47 RID: 7751
 	private SkinnedMeshRenderer skinRenderer;
 
-	// Token: 0x04001DF9 RID: 7673
+	// Token: 0x04001E48 RID: 7752
 	[FormerlySerializedAs("duckieLerp")]
 	public float blendShapeMaxWeight = 1f;
 
-	// Token: 0x04001DFA RID: 7674
+	// Token: 0x04001E49 RID: 7753
 	private int tempHandPos;
 
-	// Token: 0x04001DFB RID: 7675
+	// Token: 0x04001E4A RID: 7754
 	[GorillaSoundLookup]
 	[SerializeField]
 	private int squeezeSound = 75;
 
-	// Token: 0x04001DFC RID: 7676
+	// Token: 0x04001E4B RID: 7755
 	[GorillaSoundLookup]
 	[SerializeField]
 	private int squeezeReleaseSound = 76;
 
-	// Token: 0x04001DFD RID: 7677
+	// Token: 0x04001E4C RID: 7756
 	[GorillaSoundLookup]
 	public int[] squeezeSoundBank;
 
-	// Token: 0x04001DFE RID: 7678
+	// Token: 0x04001E4D RID: 7757
 	[GorillaSoundLookup]
 	public int[] squeezeReleaseSoundBank;
 
-	// Token: 0x04001DFF RID: 7679
+	// Token: 0x04001E4E RID: 7758
 	public float squeezeStrength = 0.05f;
 
-	// Token: 0x04001E00 RID: 7680
+	// Token: 0x04001E4F RID: 7759
 	public float releaseStrength = 0.03f;
 
-	// Token: 0x04001E01 RID: 7681
+	// Token: 0x04001E50 RID: 7760
 	public ParticleSystem particleFX;
 
-	// Token: 0x04001E02 RID: 7682
+	// Token: 0x04001E51 RID: 7761
 	[Tooltip("The emission rate of the particle effect when not squeezed.")]
 	public float particleFXEmissionIdle = 0.8f;
 
-	// Token: 0x04001E03 RID: 7683
+	// Token: 0x04001E52 RID: 7762
 	[Tooltip("The emission rate of the particle effect when squeezed.")]
 	public float particleFXEmissionSqueeze = 10f;
 
-	// Token: 0x04001E04 RID: 7684
+	// Token: 0x04001E53 RID: 7763
 	[Tooltip("The animation of the particle effect returning to the idle emission rate. X axis is time, Y axis is the emission lerp value where 0 is idle, 1 is squeezed.")]
 	public AnimationCurve particleFXEmissionCooldownCurve;
 
-	// Token: 0x04001E05 RID: 7685
+	// Token: 0x04001E54 RID: 7764
 	private bool hasSkinRenderer;
 
-	// Token: 0x04001E06 RID: 7686
+	// Token: 0x04001E55 RID: 7765
 	private ParticleSystem.EmissionModule pFXEmissionModule;
 
-	// Token: 0x04001E07 RID: 7687
+	// Token: 0x04001E56 RID: 7766
 	private bool hasParticleFX;
 
-	// Token: 0x04001E08 RID: 7688
+	// Token: 0x04001E57 RID: 7767
 	private float squeezeTimeElapsed;
 
-	// Token: 0x04001E09 RID: 7689
+	// Token: 0x04001E58 RID: 7768
 	[SerializeField]
 	private RubberDuckEvents _events;
 
-	// Token: 0x04001E0A RID: 7690
+	// Token: 0x04001E59 RID: 7769
 	[SerializeField]
 	private bool _raiseActivate = true;
 
-	// Token: 0x04001E0B RID: 7691
+	// Token: 0x04001E5A RID: 7770
 	[SerializeField]
 	private bool _raiseDeactivate = true;
 
-	// Token: 0x04001E0C RID: 7692
+	// Token: 0x04001E5B RID: 7771
 	[SerializeField]
 	private SoundEffects _sfxActivate;
 
-	// Token: 0x04001E0D RID: 7693
+	// Token: 0x04001E5C RID: 7772
 	[SerializeField]
 	private bool _fxActive;
 }

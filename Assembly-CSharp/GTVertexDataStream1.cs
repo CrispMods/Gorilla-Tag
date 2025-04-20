@@ -2,12 +2,12 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-// Token: 0x020001E7 RID: 487
+// Token: 0x020001F2 RID: 498
 public struct GTVertexDataStream1
 {
-	// Token: 0x04000DF5 RID: 3573
+	// Token: 0x04000E3B RID: 3643
 	public float3 normal;
 
-	// Token: 0x04000DF6 RID: 3574
+	// Token: 0x04000E3C RID: 3644
 	public Color32 tangent;
 }

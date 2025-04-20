@@ -2,10 +2,10 @@
 
 namespace GorillaTag
 {
-	// Token: 0x02000B8D RID: 2957
+	// Token: 0x02000BBA RID: 3002
 	public interface IResettableItem
 	{
-		// Token: 0x06004AB5 RID: 19125
+		// Token: 0x06004C00 RID: 19456
 		void ResetToDefaultState();
 	}
 }

@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008A6 RID: 2214
+// Token: 0x020008C2 RID: 2242
 [Serializable]
 public class SceneObject : IEquatable<SceneObject>
 {
-	// Token: 0x060035AD RID: 13741 RVA: 0x000FE809 File Offset: 0x000FCA09
+	// Token: 0x06003675 RID: 13941 RVA: 0x00053DEE File Offset: 0x00051FEE
 	public Type GetObjectType()
 	{
 		if (string.IsNullOrWhiteSpace(this.typeString))
@@ -19,7 +19,7 @@ public class SceneObject : IEquatable<SceneObject>
 		return Type.GetType(this.typeString);
 	}
 
-	// Token: 0x060035AE RID: 13742 RVA: 0x000FE843 File Offset: 0x000FCA43
+	// Token: 0x06003676 RID: 13942 RVA: 0x00053E28 File Offset: 0x00052028
 	public SceneObject(int classID, ulong fileID)
 	{
 		this.classID = classID;
@@ -27,20 +27,20 @@ public class SceneObject : IEquatable<SceneObject>
 		this.typeString = UnityYaml.ClassIDToType[classID].AssemblyQualifiedName;
 	}
 
-	// Token: 0x060035AF RID: 13743 RVA: 0x000FE86F File Offset: 0x000FCA6F
+	// Token: 0x06003677 RID: 13943 RVA: 0x00053E54 File Offset: 0x00052054
 	public bool Equals(SceneObject other)
 	{
 		return this.fileID == other.fileID && this.classID == other.classID;
 	}
 
-	// Token: 0x060035B0 RID: 13744 RVA: 0x000FE890 File Offset: 0x000FCA90
+	// Token: 0x06003678 RID: 13944 RVA: 0x00144768 File Offset: 0x00142968
 	public override bool Equals(object obj)
 	{
 		SceneObject sceneObject = obj as SceneObject;
 		return sceneObject != null && this.Equals(sceneObject);
 	}
 
-	// Token: 0x060035B1 RID: 13745 RVA: 0x000FE8B0 File Offset: 0x000FCAB0
+	// Token: 0x06003679 RID: 13945 RVA: 0x00144788 File Offset: 0x00142988
 	public override int GetHashCode()
 	{
 		int i = this.classID;
@@ -48,28 +48,28 @@ public class SceneObject : IEquatable<SceneObject>
 		return StaticHash.Compute(i, i2);
 	}
 
-	// Token: 0x060035B2 RID: 13746 RVA: 0x000FE8D5 File Offset: 0x000FCAD5
+	// Token: 0x0600367A RID: 13946 RVA: 0x00053E74 File Offset: 0x00052074
 	public static bool operator ==(SceneObject x, SceneObject y)
 	{
 		return x.Equals(y);
 	}
 
-	// Token: 0x060035B3 RID: 13747 RVA: 0x000FE8DE File Offset: 0x000FCADE
+	// Token: 0x0600367B RID: 13947 RVA: 0x00053E7D File Offset: 0x0005207D
 	public static bool operator !=(SceneObject x, SceneObject y)
 	{
 		return !x.Equals(y);
 	}
 
-	// Token: 0x040037CE RID: 14286
+	// Token: 0x0400388F RID: 14479
 	public int classID;
 
-	// Token: 0x040037CF RID: 14287
+	// Token: 0x04003890 RID: 14480
 	public ulong fileID;
 
-	// Token: 0x040037D0 RID: 14288
+	// Token: 0x04003891 RID: 14481
 	[SerializeField]
 	public string typeString;
 
-	// Token: 0x040037D1 RID: 14289
+	// Token: 0x04003892 RID: 14482
 	public string json;
 }

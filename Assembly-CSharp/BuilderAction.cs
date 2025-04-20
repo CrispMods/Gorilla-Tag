@@ -1,60 +1,60 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004B6 RID: 1206
+// Token: 0x020004C3 RID: 1219
 public struct BuilderAction
 {
-	// Token: 0x04002039 RID: 8249
+	// Token: 0x0400208C RID: 8332
 	public BuilderActionType type;
 
-	// Token: 0x0400203A RID: 8250
+	// Token: 0x0400208D RID: 8333
 	public int pieceId;
 
-	// Token: 0x0400203B RID: 8251
+	// Token: 0x0400208E RID: 8334
 	public int parentPieceId;
 
-	// Token: 0x0400203C RID: 8252
+	// Token: 0x0400208F RID: 8335
 	public Vector3 localPosition;
 
-	// Token: 0x0400203D RID: 8253
+	// Token: 0x04002090 RID: 8336
 	public Quaternion localRotation;
 
-	// Token: 0x0400203E RID: 8254
+	// Token: 0x04002091 RID: 8337
 	public byte twist;
 
-	// Token: 0x0400203F RID: 8255
+	// Token: 0x04002092 RID: 8338
 	public sbyte bumpOffsetx;
 
-	// Token: 0x04002040 RID: 8256
+	// Token: 0x04002093 RID: 8339
 	public sbyte bumpOffsetz;
 
-	// Token: 0x04002041 RID: 8257
+	// Token: 0x04002094 RID: 8340
 	public bool isLeftHand;
 
-	// Token: 0x04002042 RID: 8258
+	// Token: 0x04002095 RID: 8341
 	public int playerActorNumber;
 
-	// Token: 0x04002043 RID: 8259
+	// Token: 0x04002096 RID: 8342
 	public int parentAttachIndex;
 
-	// Token: 0x04002044 RID: 8260
+	// Token: 0x04002097 RID: 8343
 	public int attachIndex;
 
-	// Token: 0x04002045 RID: 8261
+	// Token: 0x04002098 RID: 8344
 	public SnapBounds attachBounds;
 
-	// Token: 0x04002046 RID: 8262
+	// Token: 0x04002099 RID: 8345
 	public SnapBounds parentAttachBounds;
 
-	// Token: 0x04002047 RID: 8263
+	// Token: 0x0400209A RID: 8346
 	public Vector3 velocity;
 
-	// Token: 0x04002048 RID: 8264
+	// Token: 0x0400209B RID: 8347
 	public Vector3 angVelocity;
 
-	// Token: 0x04002049 RID: 8265
+	// Token: 0x0400209C RID: 8348
 	public int localCommandId;
 
-	// Token: 0x0400204A RID: 8266
+	// Token: 0x0400209D RID: 8349
 	public int timeStamp;
 }

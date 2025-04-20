@@ -4,10 +4,10 @@ using GorillaLocomotion;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020000B2 RID: 178
+// Token: 0x020000BC RID: 188
 public class SecondLookSkeleton : MonoBehaviour
 {
-	// Token: 0x0600047D RID: 1149 RVA: 0x0001A824 File Offset: 0x00018A24
+	// Token: 0x060004B9 RID: 1209 RVA: 0x0007E020 File Offset: 0x0007C220
 	private void Start()
 	{
 		this.playersSeen = new List<NetPlayer>();
@@ -17,7 +17,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		this.localCaught = false;
 		this.audioSource = base.GetComponentInChildren<AudioSource>();
 		this.spookyGhost.SetActive(false);
-		this.angerPointIndex = Random.Range(0, this.angerPoint.Length);
+		this.angerPointIndex = UnityEngine.Random.Range(0, this.angerPoint.Length);
 		this.angerPointChangedTime = Time.time;
 		this.synchValues.angerPoint = this.angerPointIndex;
 		this.spookyGhost.transform.position = this.angerPoint[this.synchValues.angerPoint].position;
@@ -29,13 +29,13 @@ public class SecondLookSkeleton : MonoBehaviour
 		this.animator.Play("ArmsOut");
 	}
 
-	// Token: 0x0600047E RID: 1150 RVA: 0x0001A939 File Offset: 0x00018B39
+	// Token: 0x060004BA RID: 1210 RVA: 0x0003388D File Offset: 0x00031A8D
 	private void Update()
 	{
 		this.ProcessGhostState();
 	}
 
-	// Token: 0x0600047F RID: 1151 RVA: 0x0001A944 File Offset: 0x00018B44
+	// Token: 0x060004BB RID: 1211 RVA: 0x0007E138 File Offset: 0x0007C338
 	public void ChangeState(SecondLookSkeleton.GhostState newState)
 	{
 		if (newState == this.currentState)
@@ -50,7 +50,7 @@ public class SecondLookSkeleton : MonoBehaviour
 			this.audioSource.loop = false;
 			if (this.IsMine())
 			{
-				this.synchValues.angerPoint = Random.Range(0, this.angerPoint.Length);
+				this.synchValues.angerPoint = UnityEngine.Random.Range(0, this.angerPoint.Length);
 				this.angerPointIndex = this.synchValues.angerPoint;
 				this.angerPointChangedTime = Time.time;
 				this.spookyGhost.transform.position = this.angerPoint[this.angerPointIndex].position;
@@ -89,8 +89,8 @@ public class SecondLookSkeleton : MonoBehaviour
 			}
 			if (this.IsMine())
 			{
-				this.currentNode = this.pathPoints[Random.Range(0, this.pathPoints.Length)];
-				this.nextNode = this.currentNode.connectedNodes[Random.Range(0, this.currentNode.connectedNodes.Length)];
+				this.currentNode = this.pathPoints[UnityEngine.Random.Range(0, this.pathPoints.Length)];
+				this.nextNode = this.currentNode.connectedNodes[UnityEngine.Random.Range(0, this.currentNode.connectedNodes.Length)];
 				this.SyncNodes();
 				this.spookyGhost.transform.position = this.currentNode.transform.position;
 			}
@@ -139,7 +139,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000480 RID: 1152 RVA: 0x0001ACAC File Offset: 0x00018EAC
+	// Token: 0x060004BC RID: 1212 RVA: 0x0007E4A0 File Offset: 0x0007C6A0
 	private void ProcessGhostState()
 	{
 		if (this.IsMine())
@@ -149,7 +149,7 @@ public class SecondLookSkeleton : MonoBehaviour
 			case SecondLookSkeleton.GhostState.Unactivated:
 				if (this.changeAngerPointOnTimeInterval && Time.time - this.angerPointChangedTime > this.changeAngerPointTimeMinutes * 60f)
 				{
-					this.synchValues.angerPoint = Random.Range(0, this.angerPoint.Length);
+					this.synchValues.angerPoint = UnityEngine.Random.Range(0, this.angerPoint.Length);
 					this.angerPointIndex = this.synchValues.angerPoint;
 					this.angerPointChangedTime = Time.time;
 				}
@@ -230,7 +230,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000481 RID: 1153 RVA: 0x0001AECC File Offset: 0x000190CC
+	// Token: 0x060004BD RID: 1213 RVA: 0x0007E6C0 File Offset: 0x0007C8C0
 	private void CaughtPlayerUpdate()
 	{
 		if (this.localThrown)
@@ -261,7 +261,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000482 RID: 1154 RVA: 0x0001AF34 File Offset: 0x00019134
+	// Token: 0x060004BE RID: 1214 RVA: 0x0007E728 File Offset: 0x0007C928
 	private void SetTappedState()
 	{
 		if (!this.tapped)
@@ -315,7 +315,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000483 RID: 1155 RVA: 0x0001B0B8 File Offset: 0x000192B8
+	// Token: 0x060004BF RID: 1215 RVA: 0x0007E8AC File Offset: 0x0007CAAC
 	private void FollowPosition()
 	{
 		this.spookyGhost.transform.position = Vector3.Lerp(this.spookyGhost.transform.position, this.synchValues.position, 0.66f);
@@ -328,7 +328,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		this.heightOffset.localPosition = Vector3.zero;
 	}
 
-	// Token: 0x06000484 RID: 1156 RVA: 0x0001B158 File Offset: 0x00019358
+	// Token: 0x060004C0 RID: 1216 RVA: 0x0007E94C File Offset: 0x0007CB4C
 	private void CheckActivateGhost()
 	{
 		if (!this.tapped || this.currentState != SecondLookSkeleton.GhostState.Unactivated || this.playerTransform == null)
@@ -362,13 +362,13 @@ public class SecondLookSkeleton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000485 RID: 1157 RVA: 0x0001B208 File Offset: 0x00019408
+	// Token: 0x060004C1 RID: 1217 RVA: 0x00033895 File Offset: 0x00031A95
 	private bool CanSeePlayer()
 	{
 		return this.CanSeePlayerWithResults(out this.closest);
 	}
 
-	// Token: 0x06000486 RID: 1158 RVA: 0x0001B218 File Offset: 0x00019418
+	// Token: 0x060004C2 RID: 1218 RVA: 0x0007E9FC File Offset: 0x0007CBFC
 	private bool CanSeePlayerWithResults(out RaycastHit closest)
 	{
 		Vector3 vector = this.playerTransform.position - this.lookSource.position;
@@ -388,7 +388,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		return (this.playerMask & 1 << closest.collider.gameObject.layer) != 0;
 	}
 
-	// Token: 0x06000487 RID: 1159 RVA: 0x0001B2E3 File Offset: 0x000194E3
+	// Token: 0x060004C3 RID: 1219 RVA: 0x000338A3 File Offset: 0x00031AA3
 	private void ActivateGhost()
 	{
 		if (this.IsMine())
@@ -399,7 +399,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		this.synchValues.SendRPC("RemoteActivateGhost", RpcTarget.MasterClient, Array.Empty<object>());
 	}
 
-	// Token: 0x06000488 RID: 1160 RVA: 0x0001B30B File Offset: 0x0001950B
+	// Token: 0x060004C4 RID: 1220 RVA: 0x000338CB File Offset: 0x00031ACB
 	private void StartChasing()
 	{
 		if (!this.IsMine())
@@ -409,7 +409,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		this.ChangeState(SecondLookSkeleton.GhostState.Chasing);
 	}
 
-	// Token: 0x06000489 RID: 1161 RVA: 0x0001B320 File Offset: 0x00019520
+	// Token: 0x060004C5 RID: 1221 RVA: 0x0007EAC8 File Offset: 0x0007CCC8
 	private bool CheckPlayerSeen()
 	{
 		if (!this.tapped)
@@ -432,7 +432,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x0600048A RID: 1162 RVA: 0x0001B392 File Offset: 0x00019592
+	// Token: 0x060004C6 RID: 1222 RVA: 0x000338DD File Offset: 0x00031ADD
 	public void RemoteActivateGhost()
 	{
 		if (this.IsMine() && this.currentState == SecondLookSkeleton.GhostState.Unactivated)
@@ -441,7 +441,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600048B RID: 1163 RVA: 0x0001B3AA File Offset: 0x000195AA
+	// Token: 0x060004C7 RID: 1223 RVA: 0x000338F5 File Offset: 0x00031AF5
 	public void RemotePlayerSeen(NetPlayer player)
 	{
 		if (this.IsMine() && !this.playersSeen.Contains(player))
@@ -450,7 +450,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600048C RID: 1164 RVA: 0x0001B3D0 File Offset: 0x000195D0
+	// Token: 0x060004C8 RID: 1224 RVA: 0x0007EB3C File Offset: 0x0007CD3C
 	public void RemotePlayerCaught(NetPlayer player)
 	{
 		if (this.IsMine() && this.currentState == SecondLookSkeleton.GhostState.Chasing)
@@ -464,13 +464,13 @@ public class SecondLookSkeleton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600048D RID: 1165 RVA: 0x0001B41C File Offset: 0x0001961C
+	// Token: 0x060004C9 RID: 1225 RVA: 0x0007EB88 File Offset: 0x0007CD88
 	private bool IsCurrentlyLooking()
 	{
 		return Vector3.Dot(this.playerTransform.forward, -this.spookyGhost.transform.forward) > 0f && (this.spookyGhost.transform.position - this.playerTransform.position).magnitude < this.ghostActivationDistance && this.CanSeePlayer();
 	}
 
-	// Token: 0x0600048E RID: 1166 RVA: 0x0001B48D File Offset: 0x0001968D
+	// Token: 0x060004CA RID: 1226 RVA: 0x00033919 File Offset: 0x00031B19
 	private void PatrolMove()
 	{
 		this.GhostMove(this.nextNode.transform, this.patrolSpeed);
@@ -478,7 +478,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		this.CheckReachedNextNode(false, false);
 	}
 
-	// Token: 0x0600048F RID: 1167 RVA: 0x0001B4B4 File Offset: 0x000196B4
+	// Token: 0x060004CB RID: 1227 RVA: 0x0007EBFC File Offset: 0x0007CDFC
 	private void CheckReachedNextNode(bool forChuck, bool forChase)
 	{
 		if ((this.nextNode.transform.position - this.spookyGhost.transform.position).magnitude < this.reachNodeDist)
@@ -554,10 +554,10 @@ public class SecondLookSkeleton : MonoBehaviour
 				}
 				return;
 			}
-			SkeletonPathingNode skeletonPathingNode3 = this.nextNode.connectedNodes[Random.Range(0, this.nextNode.connectedNodes.Length)];
+			SkeletonPathingNode skeletonPathingNode3 = this.nextNode.connectedNodes[UnityEngine.Random.Range(0, this.nextNode.connectedNodes.Length)];
 			for (int l = 0; l < 10; l++)
 			{
-				skeletonPathingNode3 = this.nextNode.connectedNodes[Random.Range(0, this.nextNode.connectedNodes.Length)];
+				skeletonPathingNode3 = this.nextNode.connectedNodes[UnityEngine.Random.Range(0, this.nextNode.connectedNodes.Length)];
 				if (!skeletonPathingNode3.ejectionPoint && skeletonPathingNode3 != this.currentNode)
 				{
 					break;
@@ -569,7 +569,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000490 RID: 1168 RVA: 0x0001B87E File Offset: 0x00019A7E
+	// Token: 0x060004CC RID: 1228 RVA: 0x00033940 File Offset: 0x00031B40
 	private void ChaseMove()
 	{
 		this.GhostMove(this.nextNode.transform, this.chaseSpeed);
@@ -577,7 +577,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		this.CheckReachedNextNode(false, true);
 	}
 
-	// Token: 0x06000491 RID: 1169 RVA: 0x0001B8A5 File Offset: 0x00019AA5
+	// Token: 0x060004CD RID: 1229 RVA: 0x00033967 File Offset: 0x00031B67
 	private void CaughtMove()
 	{
 		this.GhostMove(this.nextNode.transform, this.caughtSpeed);
@@ -585,7 +585,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		this.SyncNodes();
 	}
 
-	// Token: 0x06000492 RID: 1170 RVA: 0x0001B8CC File Offset: 0x00019ACC
+	// Token: 0x060004CE RID: 1230 RVA: 0x0007EFC8 File Offset: 0x0007D1C8
 	private void SyncNodes()
 	{
 		this.synchValues.currentNode = this.pathPoints.IndexOfRef(this.currentNode);
@@ -593,7 +593,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		this.synchValues.angerPoint = this.angerPointIndex;
 	}
 
-	// Token: 0x06000493 RID: 1171 RVA: 0x0001B924 File Offset: 0x00019B24
+	// Token: 0x060004CF RID: 1231 RVA: 0x0007F020 File Offset: 0x0007D220
 	public void SetNodes()
 	{
 		if (this.synchValues.currentNode > this.pathPoints.Length || this.synchValues.currentNode < 0)
@@ -605,32 +605,32 @@ public class SecondLookSkeleton : MonoBehaviour
 		this.angerPointIndex = this.synchValues.angerPoint;
 	}
 
-	// Token: 0x06000494 RID: 1172 RVA: 0x0001B998 File Offset: 0x00019B98
+	// Token: 0x060004D0 RID: 1232 RVA: 0x0007F094 File Offset: 0x0007D294
 	private bool GhostAtExit()
 	{
 		return this.currentNode.distanceToExitNode == 0f && (this.spookyGhost.transform.position - this.currentNode.transform.position).magnitude < this.reachNodeDist;
 	}
 
-	// Token: 0x06000495 RID: 1173 RVA: 0x0001B9F0 File Offset: 0x00019BF0
+	// Token: 0x060004D1 RID: 1233 RVA: 0x0007F0EC File Offset: 0x0007D2EC
 	private void GhostMove(Transform target, float speed)
 	{
 		this.spookyGhost.transform.rotation = Quaternion.RotateTowards(this.spookyGhost.transform.rotation, Quaternion.LookRotation(target.position - this.spookyGhost.transform.position, Vector3.up), this.maxRotSpeed * Time.deltaTime);
 		this.spookyGhost.transform.position += (target.position - this.spookyGhost.transform.position).normalized * speed * Time.deltaTime;
 	}
 
-	// Token: 0x06000496 RID: 1174 RVA: 0x0001BAA1 File Offset: 0x00019CA1
+	// Token: 0x060004D2 RID: 1234 RVA: 0x0003398E File Offset: 0x00031B8E
 	private void DeactivateGhost()
 	{
 		this.ChangeState(SecondLookSkeleton.GhostState.PlayerThrown);
 	}
 
-	// Token: 0x06000497 RID: 1175 RVA: 0x0001BAAC File Offset: 0x00019CAC
+	// Token: 0x060004D3 RID: 1235 RVA: 0x0007F1A0 File Offset: 0x0007D3A0
 	private bool CanGrab()
 	{
 		return (this.spookyGhost.transform.position - this.playerTransform.position).magnitude < this.catchDistance;
 	}
 
-	// Token: 0x06000498 RID: 1176 RVA: 0x0001BAE9 File Offset: 0x00019CE9
+	// Token: 0x060004D4 RID: 1236 RVA: 0x00033997 File Offset: 0x00031B97
 	private void GrabPlayer()
 	{
 		if (this.IsMine())
@@ -644,7 +644,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		this.synchValues.SendRPC("RemotePlayerCaught", RpcTarget.MasterClient, Array.Empty<object>());
 	}
 
-	// Token: 0x06000499 RID: 1177 RVA: 0x0001BB20 File Offset: 0x00019D20
+	// Token: 0x060004D5 RID: 1237 RVA: 0x0007F1E0 File Offset: 0x0007D3E0
 	private void FloatPlayer()
 	{
 		RaycastHit raycastHit;
@@ -666,7 +666,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		GorillaTagger.Instance.StartVibration(false, this.hapticStrength / 4f, Time.deltaTime);
 	}
 
-	// Token: 0x0600049A RID: 1178 RVA: 0x0001BC70 File Offset: 0x00019E70
+	// Token: 0x060004D6 RID: 1238 RVA: 0x0007F330 File Offset: 0x0007D530
 	private void ChuckPlayer()
 	{
 		this.localCaught = false;
@@ -683,7 +683,7 @@ public class SecondLookSkeleton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600049B RID: 1179 RVA: 0x0001BD24 File Offset: 0x00019F24
+	// Token: 0x060004D7 RID: 1239 RVA: 0x0007F3E4 File Offset: 0x0007D5E4
 	private void SetHeightOffset()
 	{
 		int num = Physics.RaycastNonAlloc(this.spookyGhost.transform.position + Vector3.up * this.bodyHeightOffset, Vector3.down, this.rHits, this.maxSeeDistance, this.mask, QueryTriggerInteraction.Ignore);
@@ -703,196 +703,196 @@ public class SecondLookSkeleton : MonoBehaviour
 		this.heightOffset.localPosition = new Vector3(0f, -raycastHit.distance, 0f);
 	}
 
-	// Token: 0x0600049C RID: 1180 RVA: 0x0001BDEF File Offset: 0x00019FEF
+	// Token: 0x060004D8 RID: 1240 RVA: 0x000339CE File Offset: 0x00031BCE
 	private bool IsMine()
 	{
 		return !NetworkSystem.Instance.InRoom || this.synchValues.IsMine;
 	}
 
-	// Token: 0x04000520 RID: 1312
+	// Token: 0x04000560 RID: 1376
 	public Transform[] angerPoint;
 
-	// Token: 0x04000521 RID: 1313
+	// Token: 0x04000561 RID: 1377
 	public int angerPointIndex;
 
-	// Token: 0x04000522 RID: 1314
+	// Token: 0x04000562 RID: 1378
 	public SkeletonPathingNode[] pathPoints;
 
-	// Token: 0x04000523 RID: 1315
+	// Token: 0x04000563 RID: 1379
 	public SkeletonPathingNode[] exitPoints;
 
-	// Token: 0x04000524 RID: 1316
+	// Token: 0x04000564 RID: 1380
 	public Transform heightOffset;
 
-	// Token: 0x04000525 RID: 1317
+	// Token: 0x04000565 RID: 1381
 	public bool requireSecondLookToActivate;
 
-	// Token: 0x04000526 RID: 1318
+	// Token: 0x04000566 RID: 1382
 	public bool requireTappingToActivate;
 
-	// Token: 0x04000527 RID: 1319
+	// Token: 0x04000567 RID: 1383
 	public bool changeAngerPointOnTimeInterval;
 
-	// Token: 0x04000528 RID: 1320
+	// Token: 0x04000568 RID: 1384
 	public float changeAngerPointTimeMinutes = 3f;
 
-	// Token: 0x04000529 RID: 1321
+	// Token: 0x04000569 RID: 1385
 	private bool firstLookActivated;
 
-	// Token: 0x0400052A RID: 1322
+	// Token: 0x0400056A RID: 1386
 	private bool lookedAway;
 
-	// Token: 0x0400052B RID: 1323
+	// Token: 0x0400056B RID: 1387
 	private bool currentlyLooking;
 
-	// Token: 0x0400052C RID: 1324
+	// Token: 0x0400056C RID: 1388
 	public float ghostActivationDistance;
 
-	// Token: 0x0400052D RID: 1325
+	// Token: 0x0400056D RID: 1389
 	public GameObject spookyGhost;
 
-	// Token: 0x0400052E RID: 1326
+	// Token: 0x0400056E RID: 1390
 	public float timeFirstAppeared;
 
-	// Token: 0x0400052F RID: 1327
+	// Token: 0x0400056F RID: 1391
 	public float timeToFirstDisappear;
 
-	// Token: 0x04000530 RID: 1328
+	// Token: 0x04000570 RID: 1392
 	public SecondLookSkeleton.GhostState currentState;
 
-	// Token: 0x04000531 RID: 1329
+	// Token: 0x04000571 RID: 1393
 	public GameObject spookyText;
 
-	// Token: 0x04000532 RID: 1330
+	// Token: 0x04000572 RID: 1394
 	public float patrolSpeed;
 
-	// Token: 0x04000533 RID: 1331
+	// Token: 0x04000573 RID: 1395
 	public float chaseSpeed;
 
-	// Token: 0x04000534 RID: 1332
+	// Token: 0x04000574 RID: 1396
 	public float caughtSpeed;
 
-	// Token: 0x04000535 RID: 1333
+	// Token: 0x04000575 RID: 1397
 	public SkeletonPathingNode firstNode;
 
-	// Token: 0x04000536 RID: 1334
+	// Token: 0x04000576 RID: 1398
 	public SkeletonPathingNode currentNode;
 
-	// Token: 0x04000537 RID: 1335
+	// Token: 0x04000577 RID: 1399
 	public SkeletonPathingNode nextNode;
 
-	// Token: 0x04000538 RID: 1336
+	// Token: 0x04000578 RID: 1400
 	public Transform lookSource;
 
-	// Token: 0x04000539 RID: 1337
+	// Token: 0x04000579 RID: 1401
 	private Transform playerTransform;
 
-	// Token: 0x0400053A RID: 1338
+	// Token: 0x0400057A RID: 1402
 	public float reachNodeDist;
 
-	// Token: 0x0400053B RID: 1339
+	// Token: 0x0400057B RID: 1403
 	public float maxRotSpeed;
 
-	// Token: 0x0400053C RID: 1340
+	// Token: 0x0400057C RID: 1404
 	public float hapticStrength;
 
-	// Token: 0x0400053D RID: 1341
+	// Token: 0x0400057D RID: 1405
 	public float hapticDuration;
 
-	// Token: 0x0400053E RID: 1342
+	// Token: 0x0400057E RID: 1406
 	public Vector3 offsetGrabPosition;
 
-	// Token: 0x0400053F RID: 1343
+	// Token: 0x0400057F RID: 1407
 	public float throwForce;
 
-	// Token: 0x04000540 RID: 1344
+	// Token: 0x04000580 RID: 1408
 	public Animator animator;
 
-	// Token: 0x04000541 RID: 1345
+	// Token: 0x04000581 RID: 1409
 	public float bodyHeightOffset;
 
-	// Token: 0x04000542 RID: 1346
+	// Token: 0x04000582 RID: 1410
 	private float timeThrown;
 
-	// Token: 0x04000543 RID: 1347
+	// Token: 0x04000583 RID: 1411
 	public float timeThrownCooldown = 1f;
 
-	// Token: 0x04000544 RID: 1348
+	// Token: 0x04000584 RID: 1412
 	public float catchDistance;
 
-	// Token: 0x04000545 RID: 1349
+	// Token: 0x04000585 RID: 1413
 	public float maxSeeDistance;
 
-	// Token: 0x04000546 RID: 1350
+	// Token: 0x04000586 RID: 1414
 	private RaycastHit[] rHits;
 
-	// Token: 0x04000547 RID: 1351
+	// Token: 0x04000587 RID: 1415
 	public LayerMask mask;
 
-	// Token: 0x04000548 RID: 1352
+	// Token: 0x04000588 RID: 1416
 	public LayerMask playerMask;
 
-	// Token: 0x04000549 RID: 1353
+	// Token: 0x04000589 RID: 1417
 	public AudioSource audioSource;
 
-	// Token: 0x0400054A RID: 1354
+	// Token: 0x0400058A RID: 1418
 	public AudioClip initialScream;
 
-	// Token: 0x0400054B RID: 1355
+	// Token: 0x0400058B RID: 1419
 	public AudioClip patrolLoop;
 
-	// Token: 0x0400054C RID: 1356
+	// Token: 0x0400058C RID: 1420
 	public AudioClip chaseLoop;
 
-	// Token: 0x0400054D RID: 1357
+	// Token: 0x0400058D RID: 1421
 	public AudioClip grabbedSound;
 
-	// Token: 0x0400054E RID: 1358
+	// Token: 0x0400058E RID: 1422
 	public AudioClip carryingLoop;
 
-	// Token: 0x0400054F RID: 1359
+	// Token: 0x0400058F RID: 1423
 	public AudioClip throwSound;
 
-	// Token: 0x04000550 RID: 1360
+	// Token: 0x04000590 RID: 1424
 	public List<SkeletonPathingNode> resetChaseHistory = new List<SkeletonPathingNode>();
 
-	// Token: 0x04000551 RID: 1361
+	// Token: 0x04000591 RID: 1425
 	private SecondLookSkeletonSynchValues synchValues;
 
-	// Token: 0x04000552 RID: 1362
+	// Token: 0x04000592 RID: 1426
 	private bool localCaught;
 
-	// Token: 0x04000553 RID: 1363
+	// Token: 0x04000593 RID: 1427
 	private bool localThrown;
 
-	// Token: 0x04000554 RID: 1364
+	// Token: 0x04000594 RID: 1428
 	public List<NetPlayer> playersSeen;
 
-	// Token: 0x04000555 RID: 1365
+	// Token: 0x04000595 RID: 1429
 	public bool tapped;
 
-	// Token: 0x04000556 RID: 1366
+	// Token: 0x04000596 RID: 1430
 	private RaycastHit closest;
 
-	// Token: 0x04000557 RID: 1367
+	// Token: 0x04000597 RID: 1431
 	private float angerPointChangedTime;
 
-	// Token: 0x020000B3 RID: 179
+	// Token: 0x020000BD RID: 189
 	public enum GhostState
 	{
-		// Token: 0x04000559 RID: 1369
+		// Token: 0x04000599 RID: 1433
 		Unactivated,
-		// Token: 0x0400055A RID: 1370
+		// Token: 0x0400059A RID: 1434
 		Activated,
-		// Token: 0x0400055B RID: 1371
+		// Token: 0x0400059B RID: 1435
 		Patrolling,
-		// Token: 0x0400055C RID: 1372
+		// Token: 0x0400059C RID: 1436
 		Chasing,
-		// Token: 0x0400055D RID: 1373
+		// Token: 0x0400059D RID: 1437
 		CaughtPlayer,
-		// Token: 0x0400055E RID: 1374
+		// Token: 0x0400059E RID: 1438
 		PlayerThrown,
-		// Token: 0x0400055F RID: 1375
+		// Token: 0x0400059F RID: 1439
 		Reset
 	}
 }

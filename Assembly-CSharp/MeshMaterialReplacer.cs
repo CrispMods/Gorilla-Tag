@@ -2,10 +2,10 @@
 using GameObjectScheduling;
 using UnityEngine;
 
-// Token: 0x02000249 RID: 585
+// Token: 0x02000254 RID: 596
 public class MeshMaterialReplacer : MonoBehaviour
 {
-	// Token: 0x06000D81 RID: 3457 RVA: 0x000457B4 File Offset: 0x000439B4
+	// Token: 0x06000DCC RID: 3532 RVA: 0x000A2B3C File Offset: 0x000A0D3C
 	private void Start()
 	{
 		MeshRenderer meshRenderer;
@@ -23,7 +23,7 @@ public class MeshMaterialReplacer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040010A9 RID: 4265
+	// Token: 0x040010EF RID: 4335
 	[SerializeField]
 	private MeshMaterialReplacement meshMaterialReplacement;
 }

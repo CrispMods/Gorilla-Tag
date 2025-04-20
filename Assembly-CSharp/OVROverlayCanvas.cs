@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000306 RID: 774
+// Token: 0x02000311 RID: 785
 [RequireComponent(typeof(Canvas))]
 public class OVROverlayCanvas : MonoBehaviour
 {
-	// Token: 0x06001273 RID: 4723 RVA: 0x000582C8 File Offset: 0x000564C8
+	// Token: 0x060012BF RID: 4799 RVA: 0x000B2684 File Offset: 0x000B0884
 	private void Start()
 	{
 		this._canvas = base.GetComponent<Canvas>();
@@ -119,15 +119,15 @@ public class OVROverlayCanvas : MonoBehaviour
 		this._overlay.useExpensiveSuperSample = this.Expensive;
 	}
 
-	// Token: 0x06001274 RID: 4724 RVA: 0x0005889F File Offset: 0x00056A9F
+	// Token: 0x060012C0 RID: 4800 RVA: 0x0003CD72 File Offset: 0x0003AF72
 	private void OnDestroy()
 	{
-		Object.Destroy(this._defaultMat);
-		Object.Destroy(this._quad);
-		Object.Destroy(this._renderTexture);
+		UnityEngine.Object.Destroy(this._defaultMat);
+		UnityEngine.Object.Destroy(this._quad);
+		UnityEngine.Object.Destroy(this._renderTexture);
 	}
 
-	// Token: 0x06001275 RID: 4725 RVA: 0x000588C2 File Offset: 0x00056AC2
+	// Token: 0x060012C1 RID: 4801 RVA: 0x0003CD95 File Offset: 0x0003AF95
 	private void OnEnable()
 	{
 		if (this._overlay)
@@ -141,7 +141,7 @@ public class OVROverlayCanvas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001276 RID: 4726 RVA: 0x00058902 File Offset: 0x00056B02
+	// Token: 0x060012C2 RID: 4802 RVA: 0x0003CDD5 File Offset: 0x0003AFD5
 	private void OnDisable()
 	{
 		if (this._overlay)
@@ -155,7 +155,7 @@ public class OVROverlayCanvas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001277 RID: 4727 RVA: 0x00058944 File Offset: 0x00056B44
+	// Token: 0x060012C3 RID: 4803 RVA: 0x000B2C5C File Offset: 0x000B0E5C
 	protected virtual bool ShouldRender()
 	{
 		if (this.DrawRate > 1 && Time.frameCount % this.DrawRate != this.DrawFrameOffset % this.DrawRate)
@@ -178,7 +178,7 @@ public class OVROverlayCanvas : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06001278 RID: 4728 RVA: 0x000589D4 File Offset: 0x00056BD4
+	// Token: 0x060012C4 RID: 4804 RVA: 0x000B2CEC File Offset: 0x000B0EEC
 	private void Update()
 	{
 		if (this.ShouldRender())
@@ -210,9 +210,9 @@ public class OVROverlayCanvas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700021A RID: 538
-	// (get) Token: 0x06001279 RID: 4729 RVA: 0x00058C7E File Offset: 0x00056E7E
-	// (set) Token: 0x0600127A RID: 4730 RVA: 0x00058C9A File Offset: 0x00056E9A
+	// Token: 0x17000221 RID: 545
+	// (get) Token: 0x060012C5 RID: 4805 RVA: 0x0003CE15 File Offset: 0x0003B015
+	// (set) Token: 0x060012C6 RID: 4806 RVA: 0x0003CE31 File Offset: 0x0003B031
 	public bool overlayEnabled
 	{
 		get
@@ -229,80 +229,80 @@ public class OVROverlayCanvas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001456 RID: 5206
+	// Token: 0x0400149E RID: 5278
 	[SerializeField]
 	[HideInInspector]
 	private Shader _transparentShader;
 
-	// Token: 0x04001457 RID: 5207
+	// Token: 0x0400149F RID: 5279
 	[SerializeField]
 	[HideInInspector]
 	private Shader _opaqueShader;
 
-	// Token: 0x04001458 RID: 5208
+	// Token: 0x040014A0 RID: 5280
 	private RectTransform _rectTransform;
 
-	// Token: 0x04001459 RID: 5209
+	// Token: 0x040014A1 RID: 5281
 	private Canvas _canvas;
 
-	// Token: 0x0400145A RID: 5210
+	// Token: 0x040014A2 RID: 5282
 	private Camera _camera;
 
-	// Token: 0x0400145B RID: 5211
+	// Token: 0x040014A3 RID: 5283
 	private OVROverlay _overlay;
 
-	// Token: 0x0400145C RID: 5212
+	// Token: 0x040014A4 RID: 5284
 	private RenderTexture _renderTexture;
 
-	// Token: 0x0400145D RID: 5213
+	// Token: 0x040014A5 RID: 5285
 	private MeshRenderer _meshRenderer;
 
-	// Token: 0x0400145E RID: 5214
+	// Token: 0x040014A6 RID: 5286
 	private Mesh _quad;
 
-	// Token: 0x0400145F RID: 5215
+	// Token: 0x040014A7 RID: 5287
 	private Material _defaultMat;
 
-	// Token: 0x04001460 RID: 5216
+	// Token: 0x040014A8 RID: 5288
 	public int MaxTextureSize = 1600;
 
-	// Token: 0x04001461 RID: 5217
+	// Token: 0x040014A9 RID: 5289
 	public int MinTextureSize = 200;
 
-	// Token: 0x04001462 RID: 5218
+	// Token: 0x040014AA RID: 5290
 	public float PixelsPerUnit = 1f;
 
-	// Token: 0x04001463 RID: 5219
+	// Token: 0x040014AB RID: 5291
 	public int DrawRate = 1;
 
-	// Token: 0x04001464 RID: 5220
+	// Token: 0x040014AC RID: 5292
 	public int DrawFrameOffset;
 
-	// Token: 0x04001465 RID: 5221
+	// Token: 0x040014AD RID: 5293
 	public bool Expensive;
 
-	// Token: 0x04001466 RID: 5222
+	// Token: 0x040014AE RID: 5294
 	public int Layer;
 
-	// Token: 0x04001467 RID: 5223
+	// Token: 0x040014AF RID: 5295
 	public OVROverlayCanvas.DrawMode Opacity = OVROverlayCanvas.DrawMode.OpaqueWithClip;
 
-	// Token: 0x04001468 RID: 5224
+	// Token: 0x040014B0 RID: 5296
 	private bool ScaleViewport = Application.isMobilePlatform;
 
-	// Token: 0x04001469 RID: 5225
+	// Token: 0x040014B1 RID: 5297
 	private static readonly Plane[] _FrustumPlanes = new Plane[6];
 
-	// Token: 0x02000307 RID: 775
+	// Token: 0x02000312 RID: 786
 	public enum DrawMode
 	{
-		// Token: 0x0400146B RID: 5227
+		// Token: 0x040014B3 RID: 5299
 		Opaque,
-		// Token: 0x0400146C RID: 5228
+		// Token: 0x040014B4 RID: 5300
 		OpaqueWithClip,
-		// Token: 0x0400146D RID: 5229
+		// Token: 0x040014B5 RID: 5301
 		TransparentDefaultAlpha,
-		// Token: 0x0400146E RID: 5230
+		// Token: 0x040014B6 RID: 5302
 		TransparentCorrectAlpha
 	}
 }

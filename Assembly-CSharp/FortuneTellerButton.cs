@@ -3,22 +3,22 @@ using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// Token: 0x0200052C RID: 1324
+// Token: 0x02000539 RID: 1337
 public class FortuneTellerButton : GorillaPressableButton
 {
-	// Token: 0x0600200E RID: 8206 RVA: 0x000A19D1 File Offset: 0x0009FBD1
+	// Token: 0x06002067 RID: 8295 RVA: 0x00046102 File Offset: 0x00044302
 	public void Awake()
 	{
 		this.startingPos = base.transform.localPosition;
 	}
 
-	// Token: 0x0600200F RID: 8207 RVA: 0x000A19E4 File Offset: 0x0009FBE4
+	// Token: 0x06002068 RID: 8296 RVA: 0x00046115 File Offset: 0x00044315
 	public override void ButtonActivation()
 	{
 		this.PressButtonUpdate();
 	}
 
-	// Token: 0x06002010 RID: 8208 RVA: 0x000A19EC File Offset: 0x0009FBEC
+	// Token: 0x06002069 RID: 8297 RVA: 0x000F2E58 File Offset: 0x000F1058
 	public void PressButtonUpdate()
 	{
 		if (this.pressTime != 0f)
@@ -31,7 +31,7 @@ public class FortuneTellerButton : GorillaPressableButton
 		base.StartCoroutine(this.<PressButtonUpdate>g__ButtonColorUpdate_Local|6_0());
 	}
 
-	// Token: 0x06002012 RID: 8210 RVA: 0x000A1A79 File Offset: 0x0009FC79
+	// Token: 0x0600206B RID: 8299 RVA: 0x0004614A File Offset: 0x0004434A
 	[CompilerGenerated]
 	private IEnumerator <PressButtonUpdate>g__ButtonColorUpdate_Local|6_0()
 	{
@@ -45,17 +45,17 @@ public class FortuneTellerButton : GorillaPressableButton
 		yield break;
 	}
 
-	// Token: 0x04002420 RID: 9248
+	// Token: 0x04002473 RID: 9331
 	[SerializeField]
 	private float durationPressed = 0.25f;
 
-	// Token: 0x04002421 RID: 9249
+	// Token: 0x04002474 RID: 9332
 	[SerializeField]
 	private Vector3 pressedOffset = new Vector3(0f, 0f, 0.1f);
 
-	// Token: 0x04002422 RID: 9250
+	// Token: 0x04002475 RID: 9333
 	private float pressTime;
 
-	// Token: 0x04002423 RID: 9251
+	// Token: 0x04002476 RID: 9334
 	private Vector3 startingPos;
 }

@@ -2,10 +2,10 @@
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x0200086C RID: 2156
+// Token: 0x02000888 RID: 2184
 public class OnExitPlay_SetNew : OnExitPlay_Attribute
 {
-	// Token: 0x06003430 RID: 13360 RVA: 0x000F87F8 File Offset: 0x000F69F8
+	// Token: 0x060034FC RID: 13564 RVA: 0x0013F80C File Offset: 0x0013DA0C
 	public override void OnEnterPlay(FieldInfo field)
 	{
 		if (!field.IsStatic)

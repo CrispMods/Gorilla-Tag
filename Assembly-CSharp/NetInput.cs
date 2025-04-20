@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.XR;
 
-// Token: 0x02000265 RID: 613
+// Token: 0x02000270 RID: 624
 public static class NetInput
 {
-	// Token: 0x17000171 RID: 369
-	// (get) Token: 0x06000E55 RID: 3669 RVA: 0x00047DE0 File Offset: 0x00045FE0
+	// Token: 0x17000178 RID: 376
+	// (get) Token: 0x06000EA0 RID: 3744 RVA: 0x0003A4CA File Offset: 0x000386CA
 	public static VRRig LocalPlayerVRRig
 	{
 		get
@@ -19,7 +19,7 @@ public static class NetInput
 		}
 	}
 
-	// Token: 0x06000E56 RID: 3670 RVA: 0x00047E08 File Offset: 0x00046008
+	// Token: 0x06000EA1 RID: 3745 RVA: 0x000A4A84 File Offset: 0x000A2C84
 	public static NetworkedInput GetInput()
 	{
 		NetworkedInput result = default(NetworkedInput);
@@ -47,6 +47,6 @@ public static class NetInput
 		return result;
 	}
 
-	// Token: 0x04001111 RID: 4369
+	// Token: 0x04001157 RID: 4439
 	private static VRRig _localPlayerVRRig;
 }

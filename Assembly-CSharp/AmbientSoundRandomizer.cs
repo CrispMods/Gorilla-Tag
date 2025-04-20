@@ -1,28 +1,28 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000825 RID: 2085
+// Token: 0x0200083F RID: 2111
 public class AmbientSoundRandomizer : MonoBehaviour
 {
-	// Token: 0x060032FF RID: 13055 RVA: 0x000F4129 File Offset: 0x000F2329
+	// Token: 0x060033BA RID: 13242 RVA: 0x0005202F File Offset: 0x0005022F
 	private void Button_Cache()
 	{
 		this.audioSources = base.GetComponentsInChildren<AudioSource>();
 	}
 
-	// Token: 0x06003300 RID: 13056 RVA: 0x000F4137 File Offset: 0x000F2337
+	// Token: 0x060033BB RID: 13243 RVA: 0x0005203D File Offset: 0x0005023D
 	private void Awake()
 	{
 		this.SetTarget();
 	}
 
-	// Token: 0x06003301 RID: 13057 RVA: 0x000F4140 File Offset: 0x000F2340
+	// Token: 0x060033BC RID: 13244 RVA: 0x0013C040 File Offset: 0x0013A240
 	private void Update()
 	{
 		if (this.timer >= this.timerTarget)
 		{
-			int num = Random.Range(0, this.audioSources.Length);
-			int num2 = Random.Range(0, this.audioClips.Length);
+			int num = UnityEngine.Random.Range(0, this.audioSources.Length);
+			int num2 = UnityEngine.Random.Range(0, this.audioClips.Length);
 			this.audioSources[num].clip = this.audioClips[num2];
 			this.audioSources[num].GTPlay();
 			this.SetTarget();
@@ -31,32 +31,32 @@ public class AmbientSoundRandomizer : MonoBehaviour
 		this.timer += Time.deltaTime;
 	}
 
-	// Token: 0x06003302 RID: 13058 RVA: 0x000F41B4 File Offset: 0x000F23B4
+	// Token: 0x060033BD RID: 13245 RVA: 0x00052045 File Offset: 0x00050245
 	private void SetTarget()
 	{
-		this.timerTarget = this.baseTime + Random.Range(0f, this.randomModifier);
+		this.timerTarget = this.baseTime + UnityEngine.Random.Range(0f, this.randomModifier);
 		this.timer = 0f;
 	}
 
-	// Token: 0x04003677 RID: 13943
+	// Token: 0x04003733 RID: 14131
 	[SerializeField]
 	private AudioSource[] audioSources;
 
-	// Token: 0x04003678 RID: 13944
+	// Token: 0x04003734 RID: 14132
 	[SerializeField]
 	private AudioClip[] audioClips;
 
-	// Token: 0x04003679 RID: 13945
+	// Token: 0x04003735 RID: 14133
 	[SerializeField]
 	private float baseTime = 15f;
 
-	// Token: 0x0400367A RID: 13946
+	// Token: 0x04003736 RID: 14134
 	[SerializeField]
 	private float randomModifier = 5f;
 
-	// Token: 0x0400367B RID: 13947
+	// Token: 0x04003737 RID: 14135
 	private float timer;
 
-	// Token: 0x0400367C RID: 13948
+	// Token: 0x04003738 RID: 14136
 	private float timerTarget;
 }

@@ -3,14 +3,14 @@ using Fusion.Internal;
 
 namespace Fusion.CodeGen
 {
-	// Token: 0x02000D22 RID: 3362
+	// Token: 0x02000D53 RID: 3411
 	[WeaverGenerated]
 	[Serializable]
 	internal class UnityArraySurrogate@ReaderWriter@GorillaPaintbrawlManager__PaintbrawlStatus : UnityArraySurrogate<GorillaPaintbrawlManager.PaintbrawlStatus, ReaderWriter@GorillaPaintbrawlManager__PaintbrawlStatus>
 	{
-		// Token: 0x17000874 RID: 2164
-		// (get) Token: 0x0600540A RID: 21514 RVA: 0x0019C6CC File Offset: 0x0019A8CC
-		// (set) Token: 0x0600540B RID: 21515 RVA: 0x0019C6D4 File Offset: 0x0019A8D4
+		// Token: 0x17000892 RID: 2194
+		// (get) Token: 0x0600556C RID: 21868 RVA: 0x00067626 File Offset: 0x00065826
+		// (set) Token: 0x0600556D RID: 21869 RVA: 0x0006762E File Offset: 0x0006582E
 		[WeaverGenerated]
 		public override GorillaPaintbrawlManager.PaintbrawlStatus[] DataProperty
 		{
@@ -26,13 +26,13 @@ namespace Fusion.CodeGen
 			}
 		}
 
-		// Token: 0x0600540C RID: 21516 RVA: 0x0019C6DD File Offset: 0x0019A8DD
+		// Token: 0x0600556E RID: 21870 RVA: 0x00067637 File Offset: 0x00065837
 		[WeaverGenerated]
 		public UnityArraySurrogate@ReaderWriter@GorillaPaintbrawlManager__PaintbrawlStatus()
 		{
 		}
 
-		// Token: 0x04005716 RID: 22294
+		// Token: 0x04005822 RID: 22562
 		[WeaverGenerated]
 		public GorillaPaintbrawlManager.PaintbrawlStatus[] Data = Array.Empty<GorillaPaintbrawlManager.PaintbrawlStatus>();
 	}

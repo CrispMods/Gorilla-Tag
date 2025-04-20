@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000155 RID: 341
+// Token: 0x0200015F RID: 351
 public class EqualizerAnim : MonoBehaviour
 {
-	// Token: 0x060008AF RID: 2223 RVA: 0x0002F705 File Offset: 0x0002D905
+	// Token: 0x060008F3 RID: 2291 RVA: 0x000365DF File Offset: 0x000347DF
 	private void Start()
 	{
 		this.inputColorHash = this.inputColorProperty;
 	}
 
-	// Token: 0x060008B0 RID: 2224 RVA: 0x0002F718 File Offset: 0x0002D918
+	// Token: 0x060008F4 RID: 2292 RVA: 0x00090340 File Offset: 0x0008E540
 	private void Update()
 	{
 		if (EqualizerAnim.thisFrame == Time.frameCount)
@@ -31,36 +31,36 @@ public class EqualizerAnim : MonoBehaviour
 		EqualizerAnim.materialsUpdatedThisFrame.Add(this.material);
 	}
 
-	// Token: 0x04000A64 RID: 2660
+	// Token: 0x04000AA7 RID: 2727
 	[SerializeField]
 	private AnimationCurve redCurve;
 
-	// Token: 0x04000A65 RID: 2661
+	// Token: 0x04000AA8 RID: 2728
 	[SerializeField]
 	private AnimationCurve greenCurve;
 
-	// Token: 0x04000A66 RID: 2662
+	// Token: 0x04000AA9 RID: 2729
 	[SerializeField]
 	private AnimationCurve blueCurve;
 
-	// Token: 0x04000A67 RID: 2663
+	// Token: 0x04000AAA RID: 2730
 	[SerializeField]
 	private float loopDuration;
 
-	// Token: 0x04000A68 RID: 2664
+	// Token: 0x04000AAB RID: 2731
 	[SerializeField]
 	private Material material;
 
-	// Token: 0x04000A69 RID: 2665
+	// Token: 0x04000AAC RID: 2732
 	[SerializeField]
 	private string inputColorProperty;
 
-	// Token: 0x04000A6A RID: 2666
+	// Token: 0x04000AAD RID: 2733
 	private ShaderHashId inputColorHash;
 
-	// Token: 0x04000A6B RID: 2667
+	// Token: 0x04000AAE RID: 2734
 	private static int thisFrame;
 
-	// Token: 0x04000A6C RID: 2668
+	// Token: 0x04000AAF RID: 2735
 	private static HashSet<Material> materialsUpdatedThisFrame = new HashSet<Material>();
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200065C RID: 1628
+// Token: 0x0200063B RID: 1595
 public class GorillaColorSlider : MonoBehaviour
 {
-	// Token: 0x0600285A RID: 10330 RVA: 0x000C6659 File Offset: 0x000C4859
+	// Token: 0x06002785 RID: 10117 RVA: 0x0004AEC7 File Offset: 0x000490C7
 	private void Start()
 	{
 		if (!this.setRandomly)
@@ -13,7 +13,7 @@ public class GorillaColorSlider : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600285B RID: 10331 RVA: 0x000C6674 File Offset: 0x000C4874
+	// Token: 0x06002786 RID: 10118 RVA: 0x0010D680 File Offset: 0x0010B880
 	public void SetPosition(float speed)
 	{
 		float num = this.startingLocation.x - this.zRange / 2f;
@@ -23,7 +23,7 @@ public class GorillaColorSlider : MonoBehaviour
 		this.valueImReporting = this.InterpolateValue(base.transform.position.x);
 	}
 
-	// Token: 0x0600285C RID: 10332 RVA: 0x000C6714 File Offset: 0x000C4914
+	// Token: 0x06002787 RID: 10119 RVA: 0x0010D720 File Offset: 0x0010B920
 	public float InterpolateValue(float value)
 	{
 		float num = this.startingLocation.x - this.zRange / 2f;
@@ -31,7 +31,7 @@ public class GorillaColorSlider : MonoBehaviour
 		return (value - num) / (num2 - num) * (this.maxValue - this.minValue) + this.minValue;
 	}
 
-	// Token: 0x0600285D RID: 10333 RVA: 0x000C6770 File Offset: 0x000C4970
+	// Token: 0x06002788 RID: 10120 RVA: 0x0010D77C File Offset: 0x0010B97C
 	public void OnSliderRelease()
 	{
 		if (this.zRange != 0f && (base.transform.position - this.startingLocation).magnitude > this.zRange / 2f)
@@ -48,30 +48,30 @@ public class GorillaColorSlider : MonoBehaviour
 		this.valueImReporting = this.InterpolateValue(base.transform.position.x);
 	}
 
-	// Token: 0x04002D33 RID: 11571
+	// Token: 0x04002C99 RID: 11417
 	public bool setRandomly;
 
-	// Token: 0x04002D34 RID: 11572
+	// Token: 0x04002C9A RID: 11418
 	public float zRange;
 
-	// Token: 0x04002D35 RID: 11573
+	// Token: 0x04002C9B RID: 11419
 	public float maxValue;
 
-	// Token: 0x04002D36 RID: 11574
+	// Token: 0x04002C9C RID: 11420
 	public float minValue;
 
-	// Token: 0x04002D37 RID: 11575
+	// Token: 0x04002C9D RID: 11421
 	public Vector3 startingLocation;
 
-	// Token: 0x04002D38 RID: 11576
+	// Token: 0x04002C9E RID: 11422
 	public int valueIndex;
 
-	// Token: 0x04002D39 RID: 11577
+	// Token: 0x04002C9F RID: 11423
 	public float valueImReporting;
 
-	// Token: 0x04002D3A RID: 11578
+	// Token: 0x04002CA0 RID: 11424
 	public GorillaTriggerBox gorilla;
 
-	// Token: 0x04002D3B RID: 11579
+	// Token: 0x04002CA1 RID: 11425
 	private float startingZ;
 }

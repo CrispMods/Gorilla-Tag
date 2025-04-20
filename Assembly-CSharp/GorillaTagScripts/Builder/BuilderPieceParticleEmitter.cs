@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts.Builder
 {
-	// Token: 0x02000A01 RID: 2561
+	// Token: 0x02000A2E RID: 2606
 	public class BuilderPieceParticleEmitter : MonoBehaviour, IBuilderPieceComponent
 	{
-		// Token: 0x06004014 RID: 16404 RVA: 0x001308AD File Offset: 0x0012EAAD
+		// Token: 0x06004159 RID: 16729 RVA: 0x0005AA8C File Offset: 0x00058C8C
 		private void OnZoneChanged()
 		{
 			this.inBuilderZone = ZoneManagement.instance.IsZoneActive(GTZone.monkeBlocks);
@@ -22,7 +22,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004015 RID: 16405 RVA: 0x001308E8 File Offset: 0x0012EAE8
+		// Token: 0x0600415A RID: 16730 RVA: 0x001717EC File Offset: 0x0016F9EC
 		private void StopParticles()
 		{
 			foreach (ParticleSystem particleSystem in this.particles)
@@ -35,7 +35,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004016 RID: 16406 RVA: 0x00130948 File Offset: 0x0012EB48
+		// Token: 0x0600415B RID: 16731 RVA: 0x0017184C File Offset: 0x0016FA4C
 		private void StartParticles()
 		{
 			foreach (ParticleSystem particleSystem in this.particles)
@@ -47,7 +47,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004017 RID: 16407 RVA: 0x001309A4 File Offset: 0x0012EBA4
+		// Token: 0x0600415C RID: 16732 RVA: 0x0005AAC5 File Offset: 0x00058CC5
 		public void OnPieceCreate(int pieceType, int pieceId)
 		{
 			this.StopParticles();
@@ -56,19 +56,19 @@ namespace GorillaTagScripts.Builder
 			this.OnZoneChanged();
 		}
 
-		// Token: 0x06004018 RID: 16408 RVA: 0x001309D8 File Offset: 0x0012EBD8
+		// Token: 0x0600415D RID: 16733 RVA: 0x0005AAF9 File Offset: 0x00058CF9
 		public void OnPieceDestroy()
 		{
 			ZoneManagement instance = ZoneManagement.instance;
 			instance.onZoneChanged = (Action)Delegate.Remove(instance.onZoneChanged, new Action(this.OnZoneChanged));
 		}
 
-		// Token: 0x06004019 RID: 16409 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x0600415E RID: 16734 RVA: 0x00030607 File Offset: 0x0002E807
 		public void OnPiecePlacementDeserialized()
 		{
 		}
 
-		// Token: 0x0600401A RID: 16410 RVA: 0x00130A00 File Offset: 0x0012EC00
+		// Token: 0x0600415F RID: 16735 RVA: 0x0005AB21 File Offset: 0x00058D21
 		public void OnPieceActivate()
 		{
 			this.isPieceActive = true;
@@ -78,25 +78,25 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x0600401B RID: 16411 RVA: 0x00130A17 File Offset: 0x0012EC17
+		// Token: 0x06004160 RID: 16736 RVA: 0x0005AB38 File Offset: 0x00058D38
 		public void OnPieceDeactivate()
 		{
 			this.isPieceActive = false;
 			this.StopParticles();
 		}
 
-		// Token: 0x0400413B RID: 16699
+		// Token: 0x04004235 RID: 16949
 		[SerializeField]
 		private BuilderPiece myPiece;
 
-		// Token: 0x0400413C RID: 16700
+		// Token: 0x04004236 RID: 16950
 		[SerializeField]
 		private List<ParticleSystem> particles;
 
-		// Token: 0x0400413D RID: 16701
+		// Token: 0x04004237 RID: 16951
 		private bool inBuilderZone;
 
-		// Token: 0x0400413E RID: 16702
+		// Token: 0x04004238 RID: 16952
 		private bool isPieceActive;
 	}
 }

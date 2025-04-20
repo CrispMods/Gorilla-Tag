@@ -2,12 +2,12 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// Token: 0x02000890 RID: 2192
+// Token: 0x020008AC RID: 2220
 public static class UnityObjectUtils
 {
-	// Token: 0x0600351D RID: 13597 RVA: 0x000FD54C File Offset: 0x000FB74C
+	// Token: 0x060035E9 RID: 13801 RVA: 0x00143D0C File Offset: 0x00141F0C
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static T AsNull<T>(this T obj) where T : Object
+	public static T AsNull<T>(this T obj) where T : UnityEngine.Object
 	{
 		if (obj == null)
 		{
@@ -20,10 +20,10 @@ public static class UnityObjectUtils
 		return default(T);
 	}
 
-	// Token: 0x0600351E RID: 13598 RVA: 0x00037516 File Offset: 0x00035716
+	// Token: 0x060035EA RID: 13802 RVA: 0x000373D8 File Offset: 0x000355D8
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static void SafeDestroy(this Object obj)
+	public static void SafeDestroy(this UnityEngine.Object obj)
 	{
-		Object.Destroy(obj);
+		UnityEngine.Object.Destroy(obj);
 	}
 }

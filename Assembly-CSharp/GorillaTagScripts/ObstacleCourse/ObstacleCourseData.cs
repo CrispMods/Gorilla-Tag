@@ -7,18 +7,18 @@ using UnityEngine;
 
 namespace GorillaTagScripts.ObstacleCourse
 {
-	// Token: 0x020009DB RID: 2523
+	// Token: 0x02000A17 RID: 2583
 	[NetworkStructWeaved(9)]
 	[StructLayout(LayoutKind.Explicit, Size = 36)]
 	public struct ObstacleCourseData : INetworkStruct
 	{
-		// Token: 0x17000659 RID: 1625
-		// (get) Token: 0x06003EF3 RID: 16115 RVA: 0x0012A6ED File Offset: 0x001288ED
-		// (set) Token: 0x06003EF4 RID: 16116 RVA: 0x0012A6F5 File Offset: 0x001288F5
+		// Token: 0x1700067F RID: 1663
+		// (get) Token: 0x060040B8 RID: 16568 RVA: 0x0005A57B File Offset: 0x0005877B
+		// (set) Token: 0x060040B9 RID: 16569 RVA: 0x0005A583 File Offset: 0x00058783
 		public int ObstacleCourseCount { readonly get; set; }
 
-		// Token: 0x1700065A RID: 1626
-		// (get) Token: 0x06003EF5 RID: 16117 RVA: 0x0012A700 File Offset: 0x00128900
+		// Token: 0x17000680 RID: 1664
+		// (get) Token: 0x060040BA RID: 16570 RVA: 0x0005A58C File Offset: 0x0005878C
 		[Networked]
 		[Capacity(4)]
 		public NetworkArray<int> WinnerActorNumber
@@ -29,8 +29,8 @@ namespace GorillaTagScripts.ObstacleCourse
 			}
 		}
 
-		// Token: 0x1700065B RID: 1627
-		// (get) Token: 0x06003EF6 RID: 16118 RVA: 0x0012A724 File Offset: 0x00128924
+		// Token: 0x17000681 RID: 1665
+		// (get) Token: 0x060040BB RID: 16571 RVA: 0x0005A5A4 File Offset: 0x000587A4
 		[Networked]
 		[Capacity(4)]
 		public NetworkArray<int> CurrentRaceState
@@ -41,7 +41,7 @@ namespace GorillaTagScripts.ObstacleCourse
 			}
 		}
 
-		// Token: 0x06003EF7 RID: 16119 RVA: 0x0012A748 File Offset: 0x00128948
+		// Token: 0x060040BC RID: 16572 RVA: 0x0016E6A4 File Offset: 0x0016C8A4
 		public ObstacleCourseData(List<ObstacleCourse> courses)
 		{
 			this.ObstacleCourseCount = courses.Count;
@@ -56,14 +56,14 @@ namespace GorillaTagScripts.ObstacleCourse
 			this.CurrentRaceState.CopyFrom(array2, 0, this.ObstacleCourseCount);
 		}
 
-		// Token: 0x04004031 RID: 16433
+		// Token: 0x04004189 RID: 16777
 		[FixedBufferProperty(typeof(NetworkArray<int>), typeof(UnityArraySurrogate@ReaderWriter@System_Int32), 4, order = -2147483647)]
 		[WeaverGenerated]
 		[SerializeField]
 		[FieldOffset(4)]
 		private FixedStorage@4 _WinnerActorNumber;
 
-		// Token: 0x04004032 RID: 16434
+		// Token: 0x0400418A RID: 16778
 		[FixedBufferProperty(typeof(NetworkArray<int>), typeof(UnityArraySurrogate@ReaderWriter@System_Int32), 4, order = -2147483647)]
 		[WeaverGenerated]
 		[SerializeField]

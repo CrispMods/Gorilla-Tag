@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using GorillaTag;
 using UnityEngine;
 
-// Token: 0x02000368 RID: 872
+// Token: 0x02000373 RID: 883
 public class PlayerCollection : MonoBehaviour
 {
-	// Token: 0x06001439 RID: 5177 RVA: 0x00062FD4 File Offset: 0x000611D4
+	// Token: 0x06001485 RID: 5253 RVA: 0x0003DD81 File Offset: 0x0003BF81
 	private void Start()
 	{
 		NetworkSystem.Instance.OnPlayerLeft += this.OnPlayerLeftRoom;
 	}
 
-	// Token: 0x0600143A RID: 5178 RVA: 0x00062FEC File Offset: 0x000611EC
+	// Token: 0x06001486 RID: 5254 RVA: 0x0003DD99 File Offset: 0x0003BF99
 	private void OnDestroy()
 	{
 		NetworkSystem.Instance.OnPlayerLeft -= this.OnPlayerLeftRoom;
 	}
 
-	// Token: 0x0600143B RID: 5179 RVA: 0x00063004 File Offset: 0x00061204
+	// Token: 0x06001487 RID: 5255 RVA: 0x000BC350 File Offset: 0x000BA550
 	public void OnTriggerEnter(Collider other)
 	{
 		if (!other.GetComponent<SphereCollider>())
@@ -36,7 +36,7 @@ public class PlayerCollection : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600143C RID: 5180 RVA: 0x00063054 File Offset: 0x00061254
+	// Token: 0x06001488 RID: 5256 RVA: 0x000BC3A0 File Offset: 0x000BA5A0
 	public void OnTriggerExit(Collider other)
 	{
 		SphereCollider component = other.GetComponent<SphereCollider>();
@@ -65,13 +65,13 @@ public class PlayerCollection : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600143D RID: 5181 RVA: 0x000630F8 File Offset: 0x000612F8
+	// Token: 0x06001489 RID: 5257 RVA: 0x000BC444 File Offset: 0x000BA644
 	public void OnPlayerLeftRoom(NetPlayer otherPlayer)
 	{
 		this.containedRigs.RemoveAll((VRRig r) => r.creator == null || r.creator == otherPlayer);
 	}
 
-	// Token: 0x04001662 RID: 5730
+	// Token: 0x040016AA RID: 5802
 	[DebugReadout]
 	[NonSerialized]
 	public readonly List<VRRig> containedRigs = new List<VRRig>(10);

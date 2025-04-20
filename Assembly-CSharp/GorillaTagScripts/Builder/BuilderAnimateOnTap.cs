@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace GorillaTagScripts.Builder
 {
-	// Token: 0x020009F2 RID: 2546
+	// Token: 0x02000A1F RID: 2591
 	public class BuilderAnimateOnTap : BuilderPieceTappable
 	{
-		// Token: 0x06003F95 RID: 16277 RVA: 0x0012D6A4 File Offset: 0x0012B8A4
+		// Token: 0x060040DA RID: 16602 RVA: 0x0005A64A File Offset: 0x0005884A
 		public override void OnTapReplicated()
 		{
 			this.anim.Rewind();
 			this.anim.Play();
 		}
 
-		// Token: 0x0400409B RID: 16539
+		// Token: 0x04004195 RID: 16789
 		[SerializeField]
 		private Animation anim;
 	}

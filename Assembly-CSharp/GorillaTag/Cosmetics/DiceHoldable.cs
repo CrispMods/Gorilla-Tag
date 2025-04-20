@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C1B RID: 3099
+	// Token: 0x02000C49 RID: 3145
 	public class DiceHoldable : TransferrableObject
 	{
-		// Token: 0x06004D4D RID: 19789 RVA: 0x00178190 File Offset: 0x00176390
+		// Token: 0x06004E9E RID: 20126 RVA: 0x001B0A60 File Offset: 0x001AEC60
 		internal override void OnEnable()
 		{
 			base.OnEnable();
@@ -32,19 +32,19 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D4E RID: 19790 RVA: 0x00178260 File Offset: 0x00176460
+		// Token: 0x06004E9F RID: 20127 RVA: 0x001B0B30 File Offset: 0x001AED30
 		internal override void OnDisable()
 		{
 			base.OnDisable();
 			if (this._events != null)
 			{
 				this._events.Activate -= this.OnDiceEvent;
-				Object.Destroy(this._events);
+				UnityEngine.Object.Destroy(this._events);
 				this._events = null;
 			}
 		}
 
-		// Token: 0x06004D4F RID: 19791 RVA: 0x001782B8 File Offset: 0x001764B8
+		// Token: 0x06004EA0 RID: 20128 RVA: 0x001B0B88 File Offset: 0x001AED88
 		private void OnDiceEvent(int sender, int target, object[] args, PhotonMessageInfoWrapped info)
 		{
 			GorillaNot.IncrementRPCCall(info, "OnDiceEvent");
@@ -73,7 +73,7 @@ namespace GorillaTag.Cosmetics
 			this.dicePhysics.EndThrow();
 		}
 
-		// Token: 0x06004D50 RID: 19792 RVA: 0x0017838C File Offset: 0x0017658C
+		// Token: 0x06004EA1 RID: 20129 RVA: 0x001B0C5C File Offset: 0x001AEE5C
 		public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 		{
 			if (this.dicePhysics.enabled)
@@ -105,7 +105,7 @@ namespace GorillaTag.Cosmetics
 			base.OnGrab(pointGrabbed, grabbingHand);
 		}
 
-		// Token: 0x06004D51 RID: 19793 RVA: 0x001784A4 File Offset: 0x001766A4
+		// Token: 0x06004EA2 RID: 20130 RVA: 0x001B0D74 File Offset: 0x001AEF74
 		public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 		{
 			if (!base.OnRelease(zoneReleased, releasingHand))
@@ -137,17 +137,17 @@ namespace GorillaTag.Cosmetics
 			return true;
 		}
 
-		// Token: 0x06004D52 RID: 19794 RVA: 0x001785CE File Offset: 0x001767CE
+		// Token: 0x06004EA3 RID: 20131 RVA: 0x00063732 File Offset: 0x00061932
 		private void ThrowDiceLocal(Vector3 startPosition, Vector3 throwVelocity, float playerScale, int landingSide, double startTime)
 		{
 			this.dicePhysics.StartThrow(this, startPosition, throwVelocity, playerScale, landingSide, startTime);
 		}
 
-		// Token: 0x04004FC5 RID: 20421
+		// Token: 0x040050BB RID: 20667
 		[SerializeField]
 		private DicePhysics dicePhysics;
 
-		// Token: 0x04004FC6 RID: 20422
+		// Token: 0x040050BC RID: 20668
 		private RubberDuckEvents _events;
 	}
 }

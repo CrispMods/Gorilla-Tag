@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000D4 RID: 212
+// Token: 0x020000DE RID: 222
 public static class AprilFools
 {
-	// Token: 0x06000578 RID: 1400 RVA: 0x000204AD File Offset: 0x0001E6AD
+	// Token: 0x060005B9 RID: 1465 RVA: 0x000343C7 File Offset: 0x000325C7
 	public static int mod(int x, int m)
 	{
 		return (x % m + m) % m;
 	}
 
-	// Token: 0x06000579 RID: 1401 RVA: 0x000204B8 File Offset: 0x0001E6B8
+	// Token: 0x060005BA RID: 1466 RVA: 0x00083284 File Offset: 0x00081484
 	public static float GenerateTarget(string username, string roomName, string areaName, int startTime)
 	{
 		float num = (float)AprilFools.mod(string.Format("{0}-{1}-{2}-{3}", new object[]
@@ -37,7 +37,7 @@ public static class AprilFools
 		return num;
 	}
 
-	// Token: 0x0600057A RID: 1402 RVA: 0x00020548 File Offset: 0x0001E748
+	// Token: 0x060005BB RID: 1467 RVA: 0x00083314 File Offset: 0x00081514
 	public static float Slerp(float a, float b, float t)
 	{
 		float num = Mathf.Acos(Mathf.Clamp(Vector2.Dot(new Vector2(a, b).normalized, Vector2.right), -1f, 1f)) * t;
@@ -47,7 +47,7 @@ public static class AprilFools
 		return a * num3 + b * num4;
 	}
 
-	// Token: 0x0600057B RID: 1403 RVA: 0x000205B0 File Offset: 0x0001E7B0
+	// Token: 0x060005BC RID: 1468 RVA: 0x0008337C File Offset: 0x0008157C
 	public static float SmoothSlerp(float a, float b, float t)
 	{
 		t = Mathf.Clamp01(t);
@@ -59,7 +59,7 @@ public static class AprilFools
 		return AprilFools.Slerp(a, b, Mathf.Lerp(a2, b2, (t - num2) / (num3 - num2)));
 	}
 
-	// Token: 0x0600057C RID: 1404 RVA: 0x00020624 File Offset: 0x0001E824
+	// Token: 0x060005BD RID: 1469 RVA: 0x000833F0 File Offset: 0x000815F0
 	public static float GenerateSmoothTarget(string username, string roomName, string areaName)
 	{
 		float num = (float)DateTime.UtcNow.Subtract(new DateTime(2023, 3, 30)).TotalSeconds;
@@ -93,21 +93,21 @@ public static class AprilFools
 		return num5;
 	}
 
-	// Token: 0x04000666 RID: 1638
+	// Token: 0x040006A7 RID: 1703
 	private const int changeIntervalSeconds = 300;
 
-	// Token: 0x04000667 RID: 1639
+	// Token: 0x040006A8 RID: 1704
 	private const int lerpIntervalSeconds = 120;
 
-	// Token: 0x04000668 RID: 1640
+	// Token: 0x040006A9 RID: 1705
 	private const float minRange = 0.5f;
 
-	// Token: 0x04000669 RID: 1641
+	// Token: 0x040006AA RID: 1706
 	private const float maxRange = 2f;
 
-	// Token: 0x0400066A RID: 1642
+	// Token: 0x040006AB RID: 1707
 	private const float excludeRangeStart = 0.75f;
 
-	// Token: 0x0400066B RID: 1643
+	// Token: 0x040006AC RID: 1708
 	private const float excludeRangeEnd = 1.25f;
 }

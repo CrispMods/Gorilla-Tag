@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace GameObjectScheduling
 {
-	// Token: 0x02000C8C RID: 3212
+	// Token: 0x02000CBD RID: 3261
 	[CreateAssetMenu(fileName = "New Options", menuName = "Game Object Scheduling/Options", order = 0)]
 	public class SchedulingOptions : ScriptableObject
 	{
-		// Token: 0x17000835 RID: 2101
-		// (get) Token: 0x060050FD RID: 20733 RVA: 0x001890A5 File Offset: 0x001872A5
+		// Token: 0x17000853 RID: 2131
+		// (get) Token: 0x0600525F RID: 21087 RVA: 0x00065679 File Offset: 0x00063879
 		public DateTime DtDebugServerTime
 		{
 			get
@@ -17,15 +17,15 @@ namespace GameObjectScheduling
 			}
 		}
 
-		// Token: 0x0400535A RID: 21338
+		// Token: 0x04005466 RID: 21606
 		[SerializeField]
 		private string debugServerTime;
 
-		// Token: 0x0400535B RID: 21339
+		// Token: 0x04005467 RID: 21607
 		[SerializeField]
 		private DateTime dtDebugServerTime;
 
-		// Token: 0x0400535C RID: 21340
+		// Token: 0x04005468 RID: 21608
 		[SerializeField]
 		[Range(-60f, 3660f)]
 		private float timescale = 1f;

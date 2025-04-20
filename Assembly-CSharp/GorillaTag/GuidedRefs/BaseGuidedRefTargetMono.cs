@@ -3,24 +3,24 @@ using UnityEngine;
 
 namespace GorillaTag.GuidedRefs
 {
-	// Token: 0x02000BCF RID: 3023
+	// Token: 0x02000BFD RID: 3069
 	public abstract class BaseGuidedRefTargetMono : MonoBehaviour, IGuidedRefTargetMono, IGuidedRefMonoBehaviour, IGuidedRefObject
 	{
-		// Token: 0x06004C43 RID: 19523 RVA: 0x000A6C70 File Offset: 0x000A4E70
+		// Token: 0x06004D8F RID: 19855 RVA: 0x0004722A File Offset: 0x0004542A
 		protected virtual void Awake()
 		{
 			((IGuidedRefObject)this).GuidedRefInitialize();
 		}
 
-		// Token: 0x06004C44 RID: 19524 RVA: 0x0017359E File Offset: 0x0017179E
+		// Token: 0x06004D90 RID: 19856 RVA: 0x00062D97 File Offset: 0x00060F97
 		protected virtual void OnDestroy()
 		{
 			GuidedRefHub.UnregisterTarget<BaseGuidedRefTargetMono>(this, true);
 		}
 
-		// Token: 0x170007E6 RID: 2022
-		// (get) Token: 0x06004C45 RID: 19525 RVA: 0x001735A7 File Offset: 0x001717A7
-		// (set) Token: 0x06004C46 RID: 19526 RVA: 0x001735AF File Offset: 0x001717AF
+		// Token: 0x17000804 RID: 2052
+		// (get) Token: 0x06004D91 RID: 19857 RVA: 0x00062DA0 File Offset: 0x00060FA0
+		// (set) Token: 0x06004D92 RID: 19858 RVA: 0x00062DA8 File Offset: 0x00060FA8
 		GuidedRefBasicTargetInfo IGuidedRefTargetMono.GRefTargetInfo
 		{
 			get
@@ -33,9 +33,9 @@ namespace GorillaTag.GuidedRefs
 			}
 		}
 
-		// Token: 0x170007E7 RID: 2023
-		// (get) Token: 0x06004C47 RID: 19527 RVA: 0x0003FF72 File Offset: 0x0003E172
-		Object IGuidedRefTargetMono.GuidedRefTargetObject
+		// Token: 0x17000805 RID: 2053
+		// (get) Token: 0x06004D93 RID: 19859 RVA: 0x00038A24 File Offset: 0x00036C24
+		UnityEngine.Object IGuidedRefTargetMono.GuidedRefTargetObject
 		{
 			get
 			{
@@ -43,25 +43,25 @@ namespace GorillaTag.GuidedRefs
 			}
 		}
 
-		// Token: 0x06004C48 RID: 19528 RVA: 0x001735B8 File Offset: 0x001717B8
+		// Token: 0x06004D94 RID: 19860 RVA: 0x00062DB1 File Offset: 0x00060FB1
 		void IGuidedRefObject.GuidedRefInitialize()
 		{
 			GuidedRefHub.RegisterTarget<BaseGuidedRefTargetMono>(this, this.guidedRefTargetInfo.hubIds, this);
 		}
 
-		// Token: 0x06004C4A RID: 19530 RVA: 0x00042E29 File Offset: 0x00041029
+		// Token: 0x06004D96 RID: 19862 RVA: 0x00039243 File Offset: 0x00037443
 		Transform IGuidedRefMonoBehaviour.get_transform()
 		{
 			return base.transform;
 		}
 
-		// Token: 0x06004C4B RID: 19531 RVA: 0x00015AA9 File Offset: 0x00013CA9
+		// Token: 0x06004D97 RID: 19863 RVA: 0x00032CAE File Offset: 0x00030EAE
 		int IGuidedRefObject.GetInstanceID()
 		{
 			return base.GetInstanceID();
 		}
 
-		// Token: 0x04004E2F RID: 20015
+		// Token: 0x04004F25 RID: 20261
 		public GuidedRefBasicTargetInfo guidedRefTargetInfo;
 	}
 }

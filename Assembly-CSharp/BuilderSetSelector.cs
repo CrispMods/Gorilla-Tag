@@ -6,10 +6,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-// Token: 0x020004F5 RID: 1269
+// Token: 0x02000502 RID: 1282
 public class BuilderSetSelector : MonoBehaviour
 {
-	// Token: 0x06001EC5 RID: 7877 RVA: 0x0009B390 File Offset: 0x00099590
+	// Token: 0x06001F1E RID: 7966 RVA: 0x000ED7F8 File Offset: 0x000EB9F8
 	private void Start()
 	{
 		this.zoneRenderers.Clear();
@@ -43,7 +43,7 @@ public class BuilderSetSelector : MonoBehaviour
 		this.OnZoneChanged();
 	}
 
-	// Token: 0x06001EC6 RID: 7878 RVA: 0x0009B4B8 File Offset: 0x000996B8
+	// Token: 0x06001F1F RID: 7967 RVA: 0x000ED920 File Offset: 0x000EBB20
 	public void Setup(List<BuilderPieceSet.BuilderPieceCategory> categories)
 	{
 		List<BuilderPieceSet> livePieceSets = BuilderSetManager.instance.GetLivePieceSets();
@@ -81,7 +81,7 @@ public class BuilderSetSelector : MonoBehaviour
 		this.UpdateLabels();
 	}
 
-	// Token: 0x06001EC7 RID: 7879 RVA: 0x0009B6C8 File Offset: 0x000998C8
+	// Token: 0x06001F20 RID: 7968 RVA: 0x000EDB30 File Offset: 0x000EBD30
 	private void OnDestroy()
 	{
 		if (this.previousPageButton != null)
@@ -111,7 +111,7 @@ public class BuilderSetSelector : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001EC8 RID: 7880 RVA: 0x0009B7DC File Offset: 0x000999DC
+	// Token: 0x06001F21 RID: 7969 RVA: 0x000EDC44 File Offset: 0x000EBE44
 	private void OnZoneChanged()
 	{
 		bool flag = ZoneManagement.instance.IsZoneActive(GTZone.monkeBlocks);
@@ -138,7 +138,7 @@ public class BuilderSetSelector : MonoBehaviour
 		this.inBuilderZone = flag;
 	}
 
-	// Token: 0x06001EC9 RID: 7881 RVA: 0x0009B898 File Offset: 0x00099A98
+	// Token: 0x06001F22 RID: 7970 RVA: 0x000EDD00 File Offset: 0x000EBF00
 	private void OnSetButtonPressed(GorillaPressableButton button, bool isLeft)
 	{
 		int num = 0;
@@ -166,7 +166,7 @@ public class BuilderSetSelector : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001ECA RID: 7882 RVA: 0x0009B938 File Offset: 0x00099B38
+	// Token: 0x06001F23 RID: 7971 RVA: 0x000EDDA0 File Offset: 0x000EBFA0
 	private void RefreshUnlockedSets()
 	{
 		List<BuilderPieceSet> livePieceSets = BuilderSetManager.instance.GetLivePieceSets();
@@ -210,7 +210,7 @@ public class BuilderSetSelector : MonoBehaviour
 		this.UpdateLabels();
 	}
 
-	// Token: 0x06001ECB RID: 7883 RVA: 0x0009BB08 File Offset: 0x00099D08
+	// Token: 0x06001F24 RID: 7972 RVA: 0x000EDF70 File Offset: 0x000EC170
 	private void OnPreviousPageClicked()
 	{
 		this.RefreshUnlockedSets();
@@ -222,7 +222,7 @@ public class BuilderSetSelector : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001ECC RID: 7884 RVA: 0x0009BB48 File Offset: 0x00099D48
+	// Token: 0x06001F25 RID: 7973 RVA: 0x000EDFB0 File Offset: 0x000EC1B0
 	private void OnNextPageClicked()
 	{
 		this.RefreshUnlockedSets();
@@ -234,7 +234,7 @@ public class BuilderSetSelector : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001ECD RID: 7885 RVA: 0x0009BB88 File Offset: 0x00099D88
+	// Token: 0x06001F26 RID: 7974 RVA: 0x000EDFF0 File Offset: 0x000EC1F0
 	public void SetSelection(int setID)
 	{
 		if (BuilderSetManager.instance == null)
@@ -250,7 +250,7 @@ public class BuilderSetSelector : MonoBehaviour
 		this.UpdateLabels();
 	}
 
-	// Token: 0x06001ECE RID: 7886 RVA: 0x0009BBCC File Offset: 0x00099DCC
+	// Token: 0x06001F27 RID: 7975 RVA: 0x000EE034 File Offset: 0x000EC234
 	private void UpdateLabels()
 	{
 		for (int i = 0; i < this.setLabels.Length; i++)
@@ -312,7 +312,7 @@ public class BuilderSetSelector : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001ECF RID: 7887 RVA: 0x0009BEB8 File Offset: 0x0009A0B8
+	// Token: 0x06001F28 RID: 7976 RVA: 0x000EE320 File Offset: 0x000EC520
 	public bool DoesSetHaveIncludedCategories(BuilderPieceSet set)
 	{
 		foreach (BuilderPieceSet.BuilderPieceSubset builderPieceSubset in set.subsets)
@@ -325,13 +325,13 @@ public class BuilderSetSelector : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06001ED0 RID: 7888 RVA: 0x0009BF20 File Offset: 0x0009A120
+	// Token: 0x06001F29 RID: 7977 RVA: 0x000450F5 File Offset: 0x000432F5
 	public BuilderPieceSet GetSelectedSet()
 	{
 		return this.currentSet;
 	}
 
-	// Token: 0x06001ED1 RID: 7889 RVA: 0x0009BF28 File Offset: 0x0009A128
+	// Token: 0x06001F2A RID: 7978 RVA: 0x000EE388 File Offset: 0x000EC588
 	public int GetDefaultSetID()
 	{
 		if (this.pieceSets == null || this.pieceSets.Count < 1)
@@ -354,59 +354,59 @@ public class BuilderSetSelector : MonoBehaviour
 		return builderPieceSet.GetIntIdentifier();
 	}
 
-	// Token: 0x0400226D RID: 8813
+	// Token: 0x040022C0 RID: 8896
 	private List<BuilderPieceSet> pieceSets;
 
-	// Token: 0x0400226E RID: 8814
+	// Token: 0x040022C1 RID: 8897
 	private int numLivePieceSets;
 
-	// Token: 0x0400226F RID: 8815
+	// Token: 0x040022C2 RID: 8898
 	[SerializeField]
 	private Material disabledMaterial;
 
-	// Token: 0x04002270 RID: 8816
+	// Token: 0x040022C3 RID: 8899
 	[Header("UI")]
 	[SerializeField]
 	private Text[] setLabels;
 
-	// Token: 0x04002271 RID: 8817
+	// Token: 0x040022C4 RID: 8900
 	[Header("Buttons")]
 	[SerializeField]
 	private GorillaPressableButton[] setButtons;
 
-	// Token: 0x04002272 RID: 8818
+	// Token: 0x040022C5 RID: 8901
 	[SerializeField]
 	private GorillaPressableButton previousPageButton;
 
-	// Token: 0x04002273 RID: 8819
+	// Token: 0x040022C6 RID: 8902
 	[SerializeField]
 	private GorillaPressableButton nextPageButton;
 
-	// Token: 0x04002274 RID: 8820
+	// Token: 0x040022C7 RID: 8903
 	private List<BuilderPieceSet.BuilderPieceCategory> _includedCategories;
 
-	// Token: 0x04002275 RID: 8821
+	// Token: 0x040022C8 RID: 8904
 	private int setIndex;
 
-	// Token: 0x04002276 RID: 8822
+	// Token: 0x040022C9 RID: 8905
 	private BuilderPieceSet currentSet;
 
-	// Token: 0x04002277 RID: 8823
+	// Token: 0x040022CA RID: 8906
 	private int pageIndex;
 
-	// Token: 0x04002278 RID: 8824
+	// Token: 0x040022CB RID: 8907
 	private int setsPerPage = 3;
 
-	// Token: 0x04002279 RID: 8825
+	// Token: 0x040022CC RID: 8908
 	private int totalPages = 1;
 
-	// Token: 0x0400227A RID: 8826
+	// Token: 0x040022CD RID: 8909
 	private List<Renderer> zoneRenderers = new List<Renderer>(10);
 
-	// Token: 0x0400227B RID: 8827
+	// Token: 0x040022CE RID: 8910
 	private bool inBuilderZone;
 
-	// Token: 0x0400227C RID: 8828
+	// Token: 0x040022CF RID: 8911
 	[HideInInspector]
 	public UnityEvent<int> OnSelectedSet;
 }

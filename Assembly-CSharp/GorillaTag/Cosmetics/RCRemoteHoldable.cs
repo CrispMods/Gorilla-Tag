@@ -9,11 +9,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C25 RID: 3109
+	// Token: 0x02000C53 RID: 3155
 	public class RCRemoteHoldable : TransferrableObject, ISnapTurnOverride
 	{
-		// Token: 0x17000808 RID: 2056
-		// (get) Token: 0x06004D87 RID: 19847 RVA: 0x0017BDF0 File Offset: 0x00179FF0
+		// Token: 0x17000826 RID: 2086
+		// (get) Token: 0x06004ED8 RID: 20184 RVA: 0x000637EE File Offset: 0x000619EE
 		public XRNode XRNode
 		{
 			get
@@ -22,8 +22,8 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x17000809 RID: 2057
-		// (get) Token: 0x06004D88 RID: 19848 RVA: 0x0017BDF8 File Offset: 0x00179FF8
+		// Token: 0x17000827 RID: 2087
+		// (get) Token: 0x06004ED9 RID: 20185 RVA: 0x000637F6 File Offset: 0x000619F6
 		public RCVehicle Vehicle
 		{
 			get
@@ -32,13 +32,13 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D89 RID: 19849 RVA: 0x0017BE00 File Offset: 0x0017A000
+		// Token: 0x06004EDA RID: 20186 RVA: 0x000637FE File Offset: 0x000619FE
 		public bool TurnOverrideActive()
 		{
 			return base.gameObject.activeSelf && this.currentlyHeld && this.xrNode == XRNode.RightHand;
 		}
 
-		// Token: 0x06004D8A RID: 19850 RVA: 0x0017BE24 File Offset: 0x0017A024
+		// Token: 0x06004EDB RID: 20187 RVA: 0x001B44E0 File Offset: 0x001B26E0
 		protected override void Awake()
 		{
 			base.Awake();
@@ -51,7 +51,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D8B RID: 19851 RVA: 0x0017BE8C File Offset: 0x0017A08C
+		// Token: 0x06004EDC RID: 20188 RVA: 0x001B4548 File Offset: 0x001B2748
 		internal override void OnEnable()
 		{
 			base.OnEnable();
@@ -77,7 +77,7 @@ namespace GorillaTag.Cosmetics
 			this.WakeUpRemoteVehicle();
 		}
 
-		// Token: 0x06004D8C RID: 19852 RVA: 0x0017BF7C File Offset: 0x0017A17C
+		// Token: 0x06004EDD RID: 20189 RVA: 0x001B4638 File Offset: 0x001B2838
 		internal override void OnDisable()
 		{
 			base.OnDisable();
@@ -97,7 +97,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D8D RID: 19853 RVA: 0x0017C020 File Offset: 0x0017A220
+		// Token: 0x06004EDE RID: 20190 RVA: 0x001B46DC File Offset: 0x001B28DC
 		protected override void OnDestroy()
 		{
 			base.OnDestroy();
@@ -108,7 +108,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D8E RID: 19854 RVA: 0x0017C060 File Offset: 0x0017A260
+		// Token: 0x06004EDF RID: 20191 RVA: 0x001B471C File Offset: 0x001B291C
 		public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 		{
 			base.OnGrab(pointGrabbed, grabbingHand);
@@ -148,7 +148,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D8F RID: 19855 RVA: 0x0017C1B0 File Offset: 0x0017A3B0
+		// Token: 0x06004EE0 RID: 20192 RVA: 0x001B486C File Offset: 0x001B2A6C
 		public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 		{
 			if (!base.OnRelease(zoneReleased, releasingHand))
@@ -167,7 +167,7 @@ namespace GorillaTag.Cosmetics
 			return true;
 		}
 
-		// Token: 0x06004D90 RID: 19856 RVA: 0x0017C228 File Offset: 0x0017A428
+		// Token: 0x06004EE1 RID: 20193 RVA: 0x001B48E4 File Offset: 0x001B2AE4
 		private void Update()
 		{
 			if (this.currentlyHeld)
@@ -188,7 +188,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D91 RID: 19857 RVA: 0x0017C387 File Offset: 0x0017A587
+		// Token: 0x06004EE2 RID: 20194 RVA: 0x00063820 File Offset: 0x00061A20
 		public void OnStartConnectionEvent(int sender, int target, object[] args, PhotonMessageInfoWrapped info)
 		{
 			if (sender != target)
@@ -202,7 +202,7 @@ namespace GorillaTag.Cosmetics
 			this.WakeUpRemoteVehicle();
 		}
 
-		// Token: 0x06004D92 RID: 19858 RVA: 0x0017C3AE File Offset: 0x0017A5AE
+		// Token: 0x06004EE3 RID: 20195 RVA: 0x00063847 File Offset: 0x00061A47
 		public void WakeUpRemoteVehicle()
 		{
 			if (this.networkSync != null && this.targetVehicle.IsNotNull() && !this.targetVehicle.HasLocalAuthority)
@@ -211,7 +211,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D93 RID: 19859 RVA: 0x0017C3EC File Offset: 0x0017A5EC
+		// Token: 0x06004EE4 RID: 20196 RVA: 0x001B4A44 File Offset: 0x001B2C44
 		private bool _TryFindRemoteVehicle()
 		{
 			if (this.targetVehicle != null)
@@ -229,7 +229,7 @@ namespace GorillaTag.Cosmetics
 			return this._TryFindRemoteVehicle_InCosmeticInstanceArray(instanceID, cosmeticItemInstance.objects) || this._TryFindRemoteVehicle_InCosmeticInstanceArray(instanceID, cosmeticItemInstance.leftObjects) || this._TryFindRemoteVehicle_InCosmeticInstanceArray(instanceID, cosmeticItemInstance.rightObjects);
 		}
 
-		// Token: 0x06004D94 RID: 19860 RVA: 0x0017C478 File Offset: 0x0017A678
+		// Token: 0x06004EE5 RID: 20197 RVA: 0x001B4AD0 File Offset: 0x001B2CD0
 		private bool _TryFindRemoteVehicle_InCosmeticInstanceArray(int thisGobjInstId, List<GameObject> gameObjects)
 		{
 			foreach (GameObject gameObject in gameObjects)
@@ -246,74 +246,74 @@ namespace GorillaTag.Cosmetics
 			return false;
 		}
 
-		// Token: 0x04005087 RID: 20615
+		// Token: 0x0400517D RID: 20861
 		[SerializeField]
 		private Transform joystickTransform;
 
-		// Token: 0x04005088 RID: 20616
+		// Token: 0x0400517E RID: 20862
 		[SerializeField]
 		private Transform triggerTransform;
 
-		// Token: 0x04005089 RID: 20617
+		// Token: 0x0400517F RID: 20863
 		[SerializeField]
 		private Transform buttonTransform;
 
-		// Token: 0x0400508A RID: 20618
+		// Token: 0x04005180 RID: 20864
 		private RCVehicle targetVehicle;
 
-		// Token: 0x0400508B RID: 20619
+		// Token: 0x04005181 RID: 20865
 		private float joystickLeanDegrees = 30f;
 
-		// Token: 0x0400508C RID: 20620
+		// Token: 0x04005182 RID: 20866
 		private float triggerPullDegrees = 40f;
 
-		// Token: 0x0400508D RID: 20621
+		// Token: 0x04005183 RID: 20867
 		private float buttonPressDepth = 0.005f;
 
-		// Token: 0x0400508E RID: 20622
+		// Token: 0x04005184 RID: 20868
 		private Quaternion initialJoystickRotation;
 
-		// Token: 0x0400508F RID: 20623
+		// Token: 0x04005185 RID: 20869
 		private Quaternion initialTriggerRotation;
 
-		// Token: 0x04005090 RID: 20624
+		// Token: 0x04005186 RID: 20870
 		private Quaternion initialButtonRotation;
 
-		// Token: 0x04005091 RID: 20625
+		// Token: 0x04005187 RID: 20871
 		private Vector3 initialButtonPosition;
 
-		// Token: 0x04005092 RID: 20626
+		// Token: 0x04005188 RID: 20872
 		private bool currentlyHeld;
 
-		// Token: 0x04005093 RID: 20627
+		// Token: 0x04005189 RID: 20873
 		private XRNode xrNode;
 
-		// Token: 0x04005094 RID: 20628
+		// Token: 0x0400518A RID: 20874
 		private RCRemoteHoldable.RCInput currentInput;
 
-		// Token: 0x04005095 RID: 20629
+		// Token: 0x0400518B RID: 20875
 		[HideInInspector]
 		public RCCosmeticNetworkSync networkSync;
 
-		// Token: 0x04005096 RID: 20630
+		// Token: 0x0400518C RID: 20876
 		private string networkSyncPrefabName = "RCCosmeticNetworkSync";
 
-		// Token: 0x04005097 RID: 20631
+		// Token: 0x0400518D RID: 20877
 		private RubberDuckEvents _events;
 
-		// Token: 0x04005098 RID: 20632
+		// Token: 0x0400518E RID: 20878
 		private object[] emptyArgs = new object[0];
 
-		// Token: 0x02000C26 RID: 3110
+		// Token: 0x02000C54 RID: 3156
 		public struct RCInput
 		{
-			// Token: 0x04005099 RID: 20633
+			// Token: 0x0400518F RID: 20879
 			public Vector2 joystick;
 
-			// Token: 0x0400509A RID: 20634
+			// Token: 0x04005190 RID: 20880
 			public float trigger;
 
-			// Token: 0x0400509B RID: 20635
+			// Token: 0x04005191 RID: 20881
 			public byte buttons;
 		}
 	}

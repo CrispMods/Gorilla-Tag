@@ -3,31 +3,31 @@ using GorillaTag;
 using GorillaTag.CosmeticSystem;
 using UnityEngine;
 
-// Token: 0x0200022B RID: 555
+// Token: 0x02000236 RID: 566
 public class HandEffectsOverrideCosmetic : MonoBehaviour, ISpawnable
 {
-	// Token: 0x17000134 RID: 308
-	// (get) Token: 0x06000CA9 RID: 3241 RVA: 0x00042D7C File Offset: 0x00040F7C
-	// (set) Token: 0x06000CAA RID: 3242 RVA: 0x00042D84 File Offset: 0x00040F84
+	// Token: 0x1700013B RID: 315
+	// (get) Token: 0x06000CF4 RID: 3316 RVA: 0x00039196 File Offset: 0x00037396
+	// (set) Token: 0x06000CF5 RID: 3317 RVA: 0x0003919E File Offset: 0x0003739E
 	public bool IsSpawned { get; set; }
 
-	// Token: 0x17000135 RID: 309
-	// (get) Token: 0x06000CAB RID: 3243 RVA: 0x00042D8D File Offset: 0x00040F8D
-	// (set) Token: 0x06000CAC RID: 3244 RVA: 0x00042D95 File Offset: 0x00040F95
+	// Token: 0x1700013C RID: 316
+	// (get) Token: 0x06000CF6 RID: 3318 RVA: 0x000391A7 File Offset: 0x000373A7
+	// (set) Token: 0x06000CF7 RID: 3319 RVA: 0x000391AF File Offset: 0x000373AF
 	public ECosmeticSelectSide CosmeticSelectedSide { get; set; }
 
-	// Token: 0x06000CAD RID: 3245 RVA: 0x00042D9E File Offset: 0x00040F9E
+	// Token: 0x06000CF8 RID: 3320 RVA: 0x000391B8 File Offset: 0x000373B8
 	public void OnSpawn(VRRig rig)
 	{
 		this._rig = rig;
 	}
 
-	// Token: 0x06000CAE RID: 3246 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000CF9 RID: 3321 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnDespawn()
 	{
 	}
 
-	// Token: 0x06000CAF RID: 3247 RVA: 0x00042DA7 File Offset: 0x00040FA7
+	// Token: 0x06000CFA RID: 3322 RVA: 0x000391C1 File Offset: 0x000373C1
 	public void OnEnable()
 	{
 		if (!this.isLeftHand)
@@ -38,7 +38,7 @@ public class HandEffectsOverrideCosmetic : MonoBehaviour, ISpawnable
 		this._rig.CosmeticHandEffectsOverride_Left.Add(this);
 	}
 
-	// Token: 0x06000CB0 RID: 3248 RVA: 0x00042DD4 File Offset: 0x00040FD4
+	// Token: 0x06000CFB RID: 3323 RVA: 0x000391EE File Offset: 0x000373EE
 	public void OnDisable()
 	{
 		if (!this.isLeftHand)
@@ -49,49 +49,49 @@ public class HandEffectsOverrideCosmetic : MonoBehaviour, ISpawnable
 		this._rig.CosmeticHandEffectsOverride_Left.Remove(this);
 	}
 
-	// Token: 0x04001014 RID: 4116
+	// Token: 0x0400105A RID: 4186
 	public HandEffectsOverrideCosmetic.HandEffectType handEffectType;
 
-	// Token: 0x04001015 RID: 4117
+	// Token: 0x0400105B RID: 4187
 	public bool isLeftHand;
 
-	// Token: 0x04001016 RID: 4118
+	// Token: 0x0400105C RID: 4188
 	public HandEffectsOverrideCosmetic.EffectsOverride firstPerson;
 
-	// Token: 0x04001017 RID: 4119
+	// Token: 0x0400105D RID: 4189
 	public HandEffectsOverrideCosmetic.EffectsOverride thirdPerson;
 
-	// Token: 0x04001018 RID: 4120
+	// Token: 0x0400105E RID: 4190
 	private VRRig _rig;
 
-	// Token: 0x0200022C RID: 556
+	// Token: 0x02000237 RID: 567
 	[Serializable]
 	public class EffectsOverride
 	{
-		// Token: 0x0400101B RID: 4123
+		// Token: 0x04001061 RID: 4193
 		public GameObject effectVFX;
 
-		// Token: 0x0400101C RID: 4124
+		// Token: 0x04001062 RID: 4194
 		public bool playHaptics;
 
-		// Token: 0x0400101D RID: 4125
+		// Token: 0x04001063 RID: 4195
 		public float hapticStrength = 0.5f;
 
-		// Token: 0x0400101E RID: 4126
+		// Token: 0x04001064 RID: 4196
 		public float hapticDuration = 0.5f;
 
-		// Token: 0x0400101F RID: 4127
+		// Token: 0x04001065 RID: 4197
 		public bool parentEffect;
 	}
 
-	// Token: 0x0200022D RID: 557
+	// Token: 0x02000238 RID: 568
 	public enum HandEffectType
 	{
-		// Token: 0x04001021 RID: 4129
+		// Token: 0x04001067 RID: 4199
 		None,
-		// Token: 0x04001022 RID: 4130
+		// Token: 0x04001068 RID: 4200
 		FistBump,
-		// Token: 0x04001023 RID: 4131
+		// Token: 0x04001069 RID: 4201
 		HighFive
 	}
 }

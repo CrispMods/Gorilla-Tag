@@ -3,11 +3,11 @@ using System.Runtime.CompilerServices;
 
 namespace Utilities
 {
-	// Token: 0x0200095F RID: 2399
+	// Token: 0x02000985 RID: 2437
 	public abstract class AverageCalculator<T> where T : struct
 	{
-		// Token: 0x17000618 RID: 1560
-		// (get) Token: 0x06003A87 RID: 14983 RVA: 0x0010DA7E File Offset: 0x0010BC7E
+		// Token: 0x17000630 RID: 1584
+		// (get) Token: 0x06003B9F RID: 15263 RVA: 0x00056F30 File Offset: 0x00055130
 		public T Average
 		{
 			get
@@ -16,13 +16,13 @@ namespace Utilities
 			}
 		}
 
-		// Token: 0x06003A88 RID: 14984 RVA: 0x0010DA86 File Offset: 0x0010BC86
+		// Token: 0x06003BA0 RID: 15264 RVA: 0x00056F38 File Offset: 0x00055138
 		public AverageCalculator(int sampleCount)
 		{
 			this.m_samples = new T[sampleCount];
 		}
 
-		// Token: 0x06003A89 RID: 14985 RVA: 0x0010DA9C File Offset: 0x0010BC9C
+		// Token: 0x06003BA1 RID: 15265 RVA: 0x001515E0 File Offset: 0x0014F7E0
 		public virtual void AddSample(T sample)
 		{
 			T sample2 = this.m_samples[this.m_index];
@@ -35,7 +35,7 @@ namespace Utilities
 			this.m_index = num % this.m_samples.Length;
 		}
 
-		// Token: 0x06003A8A RID: 14986 RVA: 0x0010DB30 File Offset: 0x0010BD30
+		// Token: 0x06003BA2 RID: 15266 RVA: 0x00151674 File Offset: 0x0014F874
 		public virtual void Reset()
 		{
 			T t = this.DefaultTypeValue();
@@ -48,39 +48,39 @@ namespace Utilities
 			this.m_total = this.Multiply(t, this.m_samples.Length);
 		}
 
-		// Token: 0x06003A8B RID: 14987 RVA: 0x0010DB88 File Offset: 0x0010BD88
+		// Token: 0x06003BA3 RID: 15267 RVA: 0x001516CC File Offset: 0x0014F8CC
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		protected virtual T DefaultTypeValue()
 		{
 			return default(T);
 		}
 
-		// Token: 0x06003A8C RID: 14988
+		// Token: 0x06003BA4 RID: 15268
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		protected abstract T PlusEquals(T value, T sample);
 
-		// Token: 0x06003A8D RID: 14989
+		// Token: 0x06003BA5 RID: 15269
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		protected abstract T MinusEquals(T value, T sample);
 
-		// Token: 0x06003A8E RID: 14990
+		// Token: 0x06003BA6 RID: 15270
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		protected abstract T Divide(T value, int sampleCount);
 
-		// Token: 0x06003A8F RID: 14991
+		// Token: 0x06003BA7 RID: 15271
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		protected abstract T Multiply(T value, int sampleCount);
 
-		// Token: 0x04003BAD RID: 15277
+		// Token: 0x04003C87 RID: 15495
 		private T[] m_samples;
 
-		// Token: 0x04003BAE RID: 15278
+		// Token: 0x04003C88 RID: 15496
 		private T m_average;
 
-		// Token: 0x04003BAF RID: 15279
+		// Token: 0x04003C89 RID: 15497
 		private T m_total;
 
-		// Token: 0x04003BB0 RID: 15280
+		// Token: 0x04003C8A RID: 15498
 		private int m_index;
 	}
 }

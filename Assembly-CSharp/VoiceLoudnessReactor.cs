@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008E3 RID: 2275
+// Token: 0x020008FF RID: 2303
 public class VoiceLoudnessReactor : MonoBehaviour
 {
-	// Token: 0x060036BB RID: 14011 RVA: 0x00103238 File Offset: 0x00101438
+	// Token: 0x06003783 RID: 14211 RVA: 0x001484B0 File Offset: 0x001466B0
 	private void Start()
 	{
 		for (int i = 0; i < this.transformPositionTargets.Length; i++)
@@ -40,7 +40,7 @@ public class VoiceLoudnessReactor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060036BC RID: 14012 RVA: 0x00103434 File Offset: 0x00101634
+	// Token: 0x06003784 RID: 14212 RVA: 0x001486AC File Offset: 0x001468AC
 	private void OnEnable()
 	{
 		if (this.loudness != null)
@@ -63,7 +63,7 @@ public class VoiceLoudnessReactor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060036BD RID: 14013 RVA: 0x001034BC File Offset: 0x001016BC
+	// Token: 0x06003785 RID: 14213 RVA: 0x00148734 File Offset: 0x00146934
 	private void Update()
 	{
 		if (this.loudness == null)
@@ -158,52 +158,52 @@ public class VoiceLoudnessReactor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400399C RID: 14748
+	// Token: 0x04003A5D RID: 14941
 	private GorillaSpeakerLoudness loudness;
 
-	// Token: 0x0400399D RID: 14749
+	// Token: 0x04003A5E RID: 14942
 	[SerializeField]
 	private VoiceLoudnessReactorBlendShapeTarget[] blendShapeTargets = new VoiceLoudnessReactorBlendShapeTarget[0];
 
-	// Token: 0x0400399E RID: 14750
+	// Token: 0x04003A5F RID: 14943
 	[SerializeField]
 	private VoiceLoudnessReactorTransformTarget[] transformPositionTargets = new VoiceLoudnessReactorTransformTarget[0];
 
-	// Token: 0x0400399F RID: 14751
+	// Token: 0x04003A60 RID: 14944
 	[SerializeField]
 	private VoiceLoudnessReactorTransformRotationTarget[] transformRotationTargets = new VoiceLoudnessReactorTransformRotationTarget[0];
 
-	// Token: 0x040039A0 RID: 14752
+	// Token: 0x04003A61 RID: 14945
 	[SerializeField]
 	private VoiceLoudnessReactorTransformTarget[] transformScaleTargets = new VoiceLoudnessReactorTransformTarget[0];
 
-	// Token: 0x040039A1 RID: 14753
+	// Token: 0x04003A62 RID: 14946
 	[SerializeField]
 	private VoiceLoudnessReactorParticleSystemTarget[] particleTargets = new VoiceLoudnessReactorParticleSystemTarget[0];
 
-	// Token: 0x040039A2 RID: 14754
+	// Token: 0x04003A63 RID: 14947
 	[SerializeField]
 	private VoiceLoudnessReactorGameObjectEnableTarget[] gameObjectEnableTargets = new VoiceLoudnessReactorGameObjectEnableTarget[0];
 
-	// Token: 0x040039A3 RID: 14755
+	// Token: 0x04003A64 RID: 14948
 	[SerializeField]
 	private VoiceLoudnessReactorRendererColorTarget[] rendererColorTargets = new VoiceLoudnessReactorRendererColorTarget[0];
 
-	// Token: 0x040039A4 RID: 14756
+	// Token: 0x04003A65 RID: 14949
 	[SerializeField]
 	private VoiceLoudnessReactorAnimatorTarget[] animatorTargets = new VoiceLoudnessReactorAnimatorTarget[0];
 
-	// Token: 0x040039A5 RID: 14757
+	// Token: 0x04003A66 RID: 14950
 	private float frameLoudness;
 
-	// Token: 0x040039A6 RID: 14758
+	// Token: 0x04003A67 RID: 14951
 	private float frameSmoothedLoudness;
 
-	// Token: 0x040039A7 RID: 14759
+	// Token: 0x04003A68 RID: 14952
 	[SerializeField]
 	private float attack;
 
-	// Token: 0x040039A8 RID: 14760
+	// Token: 0x04003A69 RID: 14953
 	[SerializeField]
 	private float decay;
 }

@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace GorillaTag.CosmeticSystem
 {
-	// Token: 0x02000BF3 RID: 3059
+	// Token: 0x02000C21 RID: 3105
 	[Serializable]
 	public struct CosmeticPlacementInfo
 	{
-		// Token: 0x04004EAF RID: 20143
+		// Token: 0x04004FA5 RID: 20389
 		[Tooltip("The bone to attach the cosmetic to.")]
 		public GTHardCodedBones.SturdyEBone parentBone;
 
-		// Token: 0x04004EB0 RID: 20144
+		// Token: 0x04004FA6 RID: 20390
 		public XformOffset offset;
 	}
 }

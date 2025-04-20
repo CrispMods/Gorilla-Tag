@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.XR;
 
-// Token: 0x020003B7 RID: 951
+// Token: 0x020003C2 RID: 962
 [Serializable]
 public class VRMapMiddle : VRMap
 {
-	// Token: 0x060016F5 RID: 5877 RVA: 0x000705E9 File Offset: 0x0006E7E9
+	// Token: 0x06001742 RID: 5954 RVA: 0x0003FCB0 File Offset: 0x0003DEB0
 	public override void MapMyFinger(float lerpValue)
 	{
 		this.calcT = 0f;
@@ -15,7 +15,7 @@ public class VRMapMiddle : VRMap
 		this.LerpFinger(lerpValue, false);
 	}
 
-	// Token: 0x060016F6 RID: 5878 RVA: 0x00070624 File Offset: 0x0006E824
+	// Token: 0x06001743 RID: 5955 RVA: 0x000C79EC File Offset: 0x000C5BEC
 	public override void LerpFinger(float lerpValue, bool isOther)
 	{
 		if (isOther)
@@ -51,72 +51,72 @@ public class VRMapMiddle : VRMap
 		}
 	}
 
-	// Token: 0x0400197E RID: 6526
+	// Token: 0x040019C7 RID: 6599
 	public InputFeatureUsage inputAxis;
 
-	// Token: 0x0400197F RID: 6527
+	// Token: 0x040019C8 RID: 6600
 	public float gripValue;
 
-	// Token: 0x04001980 RID: 6528
+	// Token: 0x040019C9 RID: 6601
 	public Transform fingerBone1;
 
-	// Token: 0x04001981 RID: 6529
+	// Token: 0x040019CA RID: 6602
 	public Transform fingerBone2;
 
-	// Token: 0x04001982 RID: 6530
+	// Token: 0x040019CB RID: 6603
 	public Transform fingerBone3;
 
-	// Token: 0x04001983 RID: 6531
+	// Token: 0x040019CC RID: 6604
 	public float closedAngles;
 
-	// Token: 0x04001984 RID: 6532
+	// Token: 0x040019CD RID: 6605
 	public Vector3 closedAngle1;
 
-	// Token: 0x04001985 RID: 6533
+	// Token: 0x040019CE RID: 6606
 	public Vector3 closedAngle2;
 
-	// Token: 0x04001986 RID: 6534
+	// Token: 0x040019CF RID: 6607
 	public Vector3 closedAngle3;
 
-	// Token: 0x04001987 RID: 6535
+	// Token: 0x040019D0 RID: 6608
 	public Vector3 startingAngle1;
 
-	// Token: 0x04001988 RID: 6536
+	// Token: 0x040019D1 RID: 6609
 	public Vector3 startingAngle2;
 
-	// Token: 0x04001989 RID: 6537
+	// Token: 0x040019D2 RID: 6610
 	public Vector3 startingAngle3;
 
-	// Token: 0x0400198A RID: 6538
+	// Token: 0x040019D3 RID: 6611
 	public Quaternion[] angle1Table;
 
-	// Token: 0x0400198B RID: 6539
+	// Token: 0x040019D4 RID: 6612
 	public Quaternion[] angle2Table;
 
-	// Token: 0x0400198C RID: 6540
+	// Token: 0x040019D5 RID: 6613
 	public Quaternion[] angle3Table;
 
-	// Token: 0x0400198D RID: 6541
+	// Token: 0x040019D6 RID: 6614
 	private int lastAngle1;
 
-	// Token: 0x0400198E RID: 6542
+	// Token: 0x040019D7 RID: 6615
 	private int lastAngle2;
 
-	// Token: 0x0400198F RID: 6543
+	// Token: 0x040019D8 RID: 6616
 	private int lastAngle3;
 
-	// Token: 0x04001990 RID: 6544
+	// Token: 0x040019D9 RID: 6617
 	private float currentAngle1;
 
-	// Token: 0x04001991 RID: 6545
+	// Token: 0x040019DA RID: 6618
 	private float currentAngle2;
 
-	// Token: 0x04001992 RID: 6546
+	// Token: 0x040019DB RID: 6619
 	private float currentAngle3;
 
-	// Token: 0x04001993 RID: 6547
+	// Token: 0x040019DC RID: 6620
 	private InputDevice tempDevice;
 
-	// Token: 0x04001994 RID: 6548
+	// Token: 0x040019DD RID: 6621
 	private int myTempInt;
 }

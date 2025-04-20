@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020006CA RID: 1738
+// Token: 0x020006DF RID: 1759
 public class ObjectToggle : MonoBehaviour
 {
-	// Token: 0x06002B07 RID: 11015 RVA: 0x000D545A File Offset: 0x000D365A
+	// Token: 0x06002B9D RID: 11165 RVA: 0x0004D86A File Offset: 0x0004BA6A
 	public void Toggle(bool initialState = true)
 	{
 		if (this._toggled == null)
@@ -30,7 +30,7 @@ public class ObjectToggle : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002B08 RID: 11016 RVA: 0x000D5494 File Offset: 0x000D3694
+	// Token: 0x06002B9E RID: 11166 RVA: 0x00121018 File Offset: 0x0011F218
 	public void Enable()
 	{
 		if (this.objectsToToggle == null)
@@ -55,7 +55,7 @@ public class ObjectToggle : MonoBehaviour
 		this._toggled = new bool?(true);
 	}
 
-	// Token: 0x06002B09 RID: 11017 RVA: 0x000D5504 File Offset: 0x000D3704
+	// Token: 0x06002B9F RID: 11167 RVA: 0x00121088 File Offset: 0x0011F288
 	public void Disable()
 	{
 		if (this.objectsToToggle == null)
@@ -80,14 +80,14 @@ public class ObjectToggle : MonoBehaviour
 		this._toggled = new bool?(false);
 	}
 
-	// Token: 0x04003090 RID: 12432
+	// Token: 0x0400312D RID: 12589
 	public List<GameObject> objectsToToggle = new List<GameObject>();
 
-	// Token: 0x04003091 RID: 12433
+	// Token: 0x0400312E RID: 12590
 	[SerializeField]
 	private bool _ignoreHierarchyState;
 
-	// Token: 0x04003092 RID: 12434
+	// Token: 0x0400312F RID: 12591
 	[NonSerialized]
 	private bool? _toggled;
 }

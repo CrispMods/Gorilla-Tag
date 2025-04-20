@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace GorillaTag.GuidedRefs
 {
-	// Token: 0x02000BDC RID: 3036
+	// Token: 0x02000C0A RID: 3082
 	public class GuidedRefTargetMonoGameObject : MonoBehaviour, IGuidedRefTargetMono, IGuidedRefMonoBehaviour, IGuidedRefObject
 	{
-		// Token: 0x170007EB RID: 2027
-		// (get) Token: 0x06004C7B RID: 19579 RVA: 0x001747CE File Offset: 0x001729CE
-		// (set) Token: 0x06004C7C RID: 19580 RVA: 0x001747D6 File Offset: 0x001729D6
+		// Token: 0x17000809 RID: 2057
+		// (get) Token: 0x06004DC7 RID: 19911 RVA: 0x00062EE1 File Offset: 0x000610E1
+		// (set) Token: 0x06004DC8 RID: 19912 RVA: 0x00062EE9 File Offset: 0x000610E9
 		GuidedRefBasicTargetInfo IGuidedRefTargetMono.GRefTargetInfo
 		{
 			get
@@ -21,9 +21,9 @@ namespace GorillaTag.GuidedRefs
 			}
 		}
 
-		// Token: 0x170007EC RID: 2028
-		// (get) Token: 0x06004C7D RID: 19581 RVA: 0x00012273 File Offset: 0x00010473
-		public Object GuidedRefTargetObject
+		// Token: 0x1700080A RID: 2058
+		// (get) Token: 0x06004DC9 RID: 19913 RVA: 0x00032616 File Offset: 0x00030816
+		public UnityEngine.Object GuidedRefTargetObject
 		{
 			get
 			{
@@ -31,37 +31,37 @@ namespace GorillaTag.GuidedRefs
 			}
 		}
 
-		// Token: 0x06004C7E RID: 19582 RVA: 0x000A6C70 File Offset: 0x000A4E70
+		// Token: 0x06004DCA RID: 19914 RVA: 0x0004722A File Offset: 0x0004542A
 		protected void Awake()
 		{
 			((IGuidedRefObject)this).GuidedRefInitialize();
 		}
 
-		// Token: 0x06004C7F RID: 19583 RVA: 0x001747DF File Offset: 0x001729DF
+		// Token: 0x06004DCB RID: 19915 RVA: 0x00062EF2 File Offset: 0x000610F2
 		protected void OnDestroy()
 		{
 			GuidedRefHub.UnregisterTarget<GuidedRefTargetMonoGameObject>(this, true);
 		}
 
-		// Token: 0x06004C80 RID: 19584 RVA: 0x001747E8 File Offset: 0x001729E8
+		// Token: 0x06004DCC RID: 19916 RVA: 0x00062EFB File Offset: 0x000610FB
 		void IGuidedRefObject.GuidedRefInitialize()
 		{
 			GuidedRefHub.RegisterTarget<GuidedRefTargetMonoGameObject>(this, this.guidedRefTargetInfo.hubIds, this);
 		}
 
-		// Token: 0x06004C82 RID: 19586 RVA: 0x00042E29 File Offset: 0x00041029
+		// Token: 0x06004DCE RID: 19918 RVA: 0x00039243 File Offset: 0x00037443
 		Transform IGuidedRefMonoBehaviour.get_transform()
 		{
 			return base.transform;
 		}
 
-		// Token: 0x06004C83 RID: 19587 RVA: 0x00015AA9 File Offset: 0x00013CA9
+		// Token: 0x06004DCF RID: 19919 RVA: 0x00032CAE File Offset: 0x00030EAE
 		int IGuidedRefObject.GetInstanceID()
 		{
 			return base.GetInstanceID();
 		}
 
-		// Token: 0x04004E4B RID: 20043
+		// Token: 0x04004F41 RID: 20289
 		[SerializeField]
 		private GuidedRefBasicTargetInfo guidedRefTargetInfo;
 	}

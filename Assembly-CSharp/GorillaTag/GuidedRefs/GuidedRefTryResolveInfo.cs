@@ -3,16 +3,16 @@ using UnityEngine.Serialization;
 
 namespace GorillaTag.GuidedRefs
 {
-	// Token: 0x02000BE2 RID: 3042
+	// Token: 0x02000C10 RID: 3088
 	public struct GuidedRefTryResolveInfo
 	{
-		// Token: 0x04004E55 RID: 20053
+		// Token: 0x04004F4B RID: 20299
 		public int fieldId;
 
-		// Token: 0x04004E56 RID: 20054
+		// Token: 0x04004F4C RID: 20300
 		public int index;
 
-		// Token: 0x04004E57 RID: 20055
+		// Token: 0x04004F4D RID: 20301
 		[FormerlySerializedAs("target")]
 		public IGuidedRefTargetMono targetMono;
 	}

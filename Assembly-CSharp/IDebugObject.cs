@@ -1,8 +1,8 @@
 ﻿using System;
 
-// Token: 0x0200018B RID: 395
+// Token: 0x02000196 RID: 406
 public interface IDebugObject
 {
-	// Token: 0x060009CA RID: 2506
+	// Token: 0x06000A16 RID: 2582
 	void OnDestroyDebugObject();
 }

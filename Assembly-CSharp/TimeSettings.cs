@@ -1,10 +1,10 @@
 ﻿using System;
 
-// Token: 0x02000656 RID: 1622
+// Token: 0x02000635 RID: 1589
 public enum TimeSettings
 {
-	// Token: 0x04002D04 RID: 11524
+	// Token: 0x04002C6A RID: 11370
 	Static,
-	// Token: 0x04002D05 RID: 11525
+	// Token: 0x04002C6B RID: 11371
 	Normal
 }

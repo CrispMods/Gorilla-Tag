@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using GorillaTag.Rendering;
 using UnityEngine;
 
-// Token: 0x02000858 RID: 2136
+// Token: 0x02000874 RID: 2164
 [RequireComponent(typeof(MeshRenderer))]
 public class MaterialUVOffsetListSetter : MonoBehaviour, IBuildValidation
 {
-	// Token: 0x060033D3 RID: 13267 RVA: 0x000F6EA4 File Offset: 0x000F50A4
+	// Token: 0x0600349D RID: 13469 RVA: 0x00052AC4 File Offset: 0x00050CC4
 	private void Awake()
 	{
 		this.matPropertyBlock = new MaterialPropertyBlock();
@@ -15,7 +15,7 @@ public class MaterialUVOffsetListSetter : MonoBehaviour, IBuildValidation
 		this.meshRenderer.GetPropertyBlock(this.matPropertyBlock);
 	}
 
-	// Token: 0x060033D4 RID: 13268 RVA: 0x000F6ED0 File Offset: 0x000F50D0
+	// Token: 0x0600349E RID: 13470 RVA: 0x0013E45C File Offset: 0x0013C65C
 	public void SetUVOffset(int listIndex)
 	{
 		if (listIndex >= this.uvOffsetList.Count || listIndex < 0)
@@ -34,7 +34,7 @@ public class MaterialUVOffsetListSetter : MonoBehaviour, IBuildValidation
 		this.meshRenderer.SetPropertyBlock(this.matPropertyBlock);
 	}
 
-	// Token: 0x060033D5 RID: 13269 RVA: 0x000F6F74 File Offset: 0x000F5174
+	// Token: 0x0600349F RID: 13471 RVA: 0x0013E500 File Offset: 0x0013C700
 	public bool BuildValidationCheck()
 	{
 		if (base.GetComponent<MeshRenderer>() == null)
@@ -50,16 +50,16 @@ public class MaterialUVOffsetListSetter : MonoBehaviour, IBuildValidation
 		return true;
 	}
 
-	// Token: 0x04003706 RID: 14086
+	// Token: 0x040037C6 RID: 14278
 	[SerializeField]
 	private List<Vector2> uvOffsetList = new List<Vector2>();
 
-	// Token: 0x04003707 RID: 14087
+	// Token: 0x040037C7 RID: 14279
 	private MeshRenderer meshRenderer;
 
-	// Token: 0x04003708 RID: 14088
+	// Token: 0x040037C8 RID: 14280
 	private MaterialPropertyBlock matPropertyBlock;
 
-	// Token: 0x04003709 RID: 14089
+	// Token: 0x040037C9 RID: 14281
 	private int shaderPropertyID = Shader.PropertyToID("_BaseMap_ST");
 }

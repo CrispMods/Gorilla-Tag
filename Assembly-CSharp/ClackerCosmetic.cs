@@ -3,10 +3,10 @@ using Cinemachine.Utility;
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x02000142 RID: 322
+// Token: 0x0200014C RID: 332
 public class ClackerCosmetic : MonoBehaviour
 {
-	// Token: 0x06000849 RID: 2121 RVA: 0x0002D538 File Offset: 0x0002B738
+	// Token: 0x0600088D RID: 2189 RVA: 0x0008E6D8 File Offset: 0x0008C8D8
 	private void Start()
 	{
 		this.LocalRotationAxis = this.LocalRotationAxis.normalized;
@@ -20,7 +20,7 @@ public class ClackerCosmetic : MonoBehaviour
 		this.RotationCorrection = Quaternion.Euler(this.RotationCorrectionEuler);
 	}
 
-	// Token: 0x0600084A RID: 2122 RVA: 0x0002D5F4 File Offset: 0x0002B7F4
+	// Token: 0x0600088E RID: 2190 RVA: 0x0008E794 File Offset: 0x0008C994
 	private void Update()
 	{
 		Vector3 lastWorldPosition = this.arm1.lastWorldPosition;
@@ -68,90 +68,90 @@ public class ClackerCosmetic : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040009B6 RID: 2486
+	// Token: 0x040009F9 RID: 2553
 	[SerializeField]
 	private TransferrableObject parentHoldable;
 
-	// Token: 0x040009B7 RID: 2487
+	// Token: 0x040009FA RID: 2554
 	[SerializeField]
 	private Transform clackerArm1;
 
-	// Token: 0x040009B8 RID: 2488
+	// Token: 0x040009FB RID: 2555
 	[SerializeField]
 	private Transform clackerArm2;
 
-	// Token: 0x040009B9 RID: 2489
+	// Token: 0x040009FC RID: 2556
 	[SerializeField]
 	private Vector3 LocalCenterOfMass;
 
-	// Token: 0x040009BA RID: 2490
+	// Token: 0x040009FD RID: 2557
 	[SerializeField]
 	private Vector3 LocalRotationAxis;
 
-	// Token: 0x040009BB RID: 2491
+	// Token: 0x040009FE RID: 2558
 	[SerializeField]
 	private Vector3 RotationCorrectionEuler;
 
-	// Token: 0x040009BC RID: 2492
+	// Token: 0x040009FF RID: 2559
 	[SerializeField]
 	private float drag;
 
-	// Token: 0x040009BD RID: 2493
+	// Token: 0x04000A00 RID: 2560
 	[SerializeField]
 	private float gravity;
 
-	// Token: 0x040009BE RID: 2494
+	// Token: 0x04000A01 RID: 2561
 	[SerializeField]
 	private float localFriction;
 
-	// Token: 0x040009BF RID: 2495
+	// Token: 0x04000A02 RID: 2562
 	[SerializeField]
 	private float minimumClackSpeed;
 
-	// Token: 0x040009C0 RID: 2496
+	// Token: 0x04000A03 RID: 2563
 	[SerializeField]
 	private SoundBankPlayer lightClackAudio;
 
-	// Token: 0x040009C1 RID: 2497
+	// Token: 0x04000A04 RID: 2564
 	[SerializeField]
 	private float mediumClackSpeed;
 
-	// Token: 0x040009C2 RID: 2498
+	// Token: 0x04000A05 RID: 2565
 	[SerializeField]
 	private SoundBankPlayer mediumClackAudio;
 
-	// Token: 0x040009C3 RID: 2499
+	// Token: 0x04000A06 RID: 2566
 	[SerializeField]
 	private float heavyClackSpeed;
 
-	// Token: 0x040009C4 RID: 2500
+	// Token: 0x04000A07 RID: 2567
 	[SerializeField]
 	private SoundBankPlayer heavyClackAudio;
 
-	// Token: 0x040009C5 RID: 2501
+	// Token: 0x04000A08 RID: 2568
 	[SerializeField]
 	private float collisionDistance;
 
-	// Token: 0x040009C6 RID: 2502
+	// Token: 0x04000A09 RID: 2569
 	private float centerOfMassRadius;
 
-	// Token: 0x040009C7 RID: 2503
+	// Token: 0x04000A0A RID: 2570
 	[SerializeField]
 	private float pushApartStrength;
 
-	// Token: 0x040009C8 RID: 2504
+	// Token: 0x04000A0B RID: 2571
 	private ClackerCosmetic.PerArmData arm1;
 
-	// Token: 0x040009C9 RID: 2505
+	// Token: 0x04000A0C RID: 2572
 	private ClackerCosmetic.PerArmData arm2;
 
-	// Token: 0x040009CA RID: 2506
+	// Token: 0x04000A0D RID: 2573
 	private Quaternion RotationCorrection;
 
-	// Token: 0x02000143 RID: 323
+	// Token: 0x0200014D RID: 333
 	private struct PerArmData
 	{
-		// Token: 0x0600084C RID: 2124 RVA: 0x0002D880 File Offset: 0x0002BA80
+		// Token: 0x06000890 RID: 2192 RVA: 0x0008EA20 File Offset: 0x0008CC20
 		public void UpdateArm()
 		{
 			Vector3 target = this.transform.TransformPoint(this.parent.LocalCenterOfMass);
@@ -166,7 +166,7 @@ public class ClackerCosmetic : MonoBehaviour
 			this.lastWorldPosition = this.transform.TransformPoint(this.parent.LocalCenterOfMass);
 		}
 
-		// Token: 0x0600084D RID: 2125 RVA: 0x0002D9E8 File Offset: 0x0002BBE8
+		// Token: 0x06000891 RID: 2193 RVA: 0x0008EB88 File Offset: 0x0008CD88
 		public void SetPosition(Vector3 newPosition)
 		{
 			Vector3 forward = this.transform.parent.TransformDirection(this.parent.LocalRotationAxis);
@@ -174,16 +174,16 @@ public class ClackerCosmetic : MonoBehaviour
 			this.lastWorldPosition = this.transform.TransformPoint(this.parent.LocalCenterOfMass);
 		}
 
-		// Token: 0x040009CB RID: 2507
+		// Token: 0x04000A0E RID: 2574
 		public ClackerCosmetic parent;
 
-		// Token: 0x040009CC RID: 2508
+		// Token: 0x04000A0F RID: 2575
 		public Transform transform;
 
-		// Token: 0x040009CD RID: 2509
+		// Token: 0x04000A10 RID: 2576
 		public Vector3 velocity;
 
-		// Token: 0x040009CE RID: 2510
+		// Token: 0x04000A11 RID: 2577
 		public Vector3 lastWorldPosition;
 	}
 }

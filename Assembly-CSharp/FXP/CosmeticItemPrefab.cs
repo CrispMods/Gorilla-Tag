@@ -11,16 +11,16 @@ using UnityEngine;
 
 namespace FXP
 {
-	// Token: 0x02000A1B RID: 2587
+	// Token: 0x02000A48 RID: 2632
 	public class CosmeticItemPrefab : MonoBehaviour
 	{
-		// Token: 0x060040C9 RID: 16585 RVA: 0x00133C88 File Offset: 0x00131E88
+		// Token: 0x0600420E RID: 16910 RVA: 0x0005B398 File Offset: 0x00059598
 		private void Awake()
 		{
 			this.JonsAwakeCode();
 		}
 
-		// Token: 0x060040CA RID: 16586 RVA: 0x00133C90 File Offset: 0x00131E90
+		// Token: 0x0600420F RID: 16911 RVA: 0x00174138 File Offset: 0x00172338
 		private void JonsAwakeCode()
 		{
 			this.lastUpdated = -this.updateClock;
@@ -39,7 +39,7 @@ namespace FXP
 			this.isValid = (this.goPreviewModeSFX && this.goAttractModeSFX && this.goPurchaseModeSFX);
 		}
 
-		// Token: 0x060040CB RID: 16587 RVA: 0x00133E19 File Offset: 0x00132019
+		// Token: 0x06004210 RID: 16912 RVA: 0x0005B3A0 File Offset: 0x000595A0
 		private void OnDisable()
 		{
 			if (StoreUpdater.instance != null)
@@ -50,7 +50,7 @@ namespace FXP
 			}
 		}
 
-		// Token: 0x060040CC RID: 16588 RVA: 0x00133E44 File Offset: 0x00132044
+		// Token: 0x06004211 RID: 16913 RVA: 0x001742C4 File Offset: 0x001724C4
 		private void OnEnable()
 		{
 			if (this.goPreviewModeSFX == null)
@@ -72,7 +72,7 @@ namespace FXP
 			}
 		}
 
-		// Token: 0x060040CD RID: 16589 RVA: 0x00133F14 File Offset: 0x00132114
+		// Token: 0x06004212 RID: 16914 RVA: 0x00174394 File Offset: 0x00172594
 		public void SwitchDisplayMode(CosmeticItemPrefab.EDisplayMode NewDisplayMode)
 		{
 			if (!this.isValid)
@@ -181,7 +181,7 @@ namespace FXP
 			this.currentDisplayMode = NewDisplayMode;
 		}
 
-		// Token: 0x060040CE RID: 16590 RVA: 0x00134262 File Offset: 0x00132462
+		// Token: 0x06004213 RID: 16915 RVA: 0x0005B3CB File Offset: 0x000595CB
 		private void Update()
 		{
 			if (Time.time > this.lastUpdated + this.updateClock)
@@ -191,7 +191,7 @@ namespace FXP
 			}
 		}
 
-		// Token: 0x060040CF RID: 16591 RVA: 0x0013428C File Offset: 0x0013248C
+		// Token: 0x06004214 RID: 16916 RVA: 0x001746E4 File Offset: 0x001728E4
 		private void UpdateClock()
 		{
 			if (this.currentUpdateEvent != null && this.clockTextMeshIsValid && this.clockTextMesh.isActiveAndEnabled)
@@ -201,7 +201,7 @@ namespace FXP
 			}
 		}
 
-		// Token: 0x060040D0 RID: 16592 RVA: 0x001342F0 File Offset: 0x001324F0
+		// Token: 0x06004215 RID: 16917 RVA: 0x00174748 File Offset: 0x00172948
 		public void SetDefaultProperties()
 		{
 			if (!this.isValid)
@@ -220,22 +220,22 @@ namespace FXP
 			this.goPurchaseModeSFX.clip = this.defaultSFXPurchaseMode;
 		}
 
-		// Token: 0x060040D1 RID: 16593 RVA: 0x001343D3 File Offset: 0x001325D3
+		// Token: 0x06004216 RID: 16918 RVA: 0x0005B3F2 File Offset: 0x000595F2
 		private void ClearCosmeticMesh()
 		{
-			Object.Destroy(this.goCosmeticItemGameObject);
+			UnityEngine.Object.Destroy(this.goCosmeticItemGameObject);
 		}
 
-		// Token: 0x060040D2 RID: 16594 RVA: 0x001343E0 File Offset: 0x001325E0
+		// Token: 0x06004217 RID: 16919 RVA: 0x0005B3FF File Offset: 0x000595FF
 		private void ClearCosmeticAtlas()
 		{
 			if (this.goCosmeticItemMeshAtlas.IsNotNull())
 			{
-				Object.Destroy(this.goCosmeticItemMeshAtlas);
+				UnityEngine.Object.Destroy(this.goCosmeticItemMeshAtlas);
 			}
 		}
 
-		// Token: 0x060040D3 RID: 16595 RVA: 0x001343FC File Offset: 0x001325FC
+		// Token: 0x06004218 RID: 16920 RVA: 0x0017482C File Offset: 0x00172A2C
 		public void SetCosmeticItemFromCosmeticController(CosmeticsController.CosmeticItem item)
 		{
 			if (!this.isValid)
@@ -255,7 +255,7 @@ namespace FXP
 			this.SetCosmeticStand();
 		}
 
-		// Token: 0x060040D4 RID: 16596 RVA: 0x00134478 File Offset: 0x00132678
+		// Token: 0x06004219 RID: 16921 RVA: 0x001748A8 File Offset: 0x00172AA8
 		public void SetCosmeticStand()
 		{
 			this.cosmeticStand.thisCosmeticName = this.itemID;
@@ -270,7 +270,7 @@ namespace FXP
 			}
 		}
 
-		// Token: 0x060040D5 RID: 16597 RVA: 0x001344DC File Offset: 0x001326DC
+		// Token: 0x0600421A RID: 16922 RVA: 0x0017490C File Offset: 0x00172B0C
 		public void SetStoreUpdateEvent(StoreUpdateEvent storeUpdateEvent, bool playFX)
 		{
 			if (!this.isValid)
@@ -291,7 +291,7 @@ namespace FXP
 			this.UpdateClock();
 		}
 
-		// Token: 0x060040D6 RID: 16598 RVA: 0x0013454B File Offset: 0x0013274B
+		// Token: 0x0600421B RID: 16923 RVA: 0x0005B419 File Offset: 0x00059619
 		private IEnumerator PlayCountdownTimer()
 		{
 			yield return new WaitForSeconds(Mathf.Clamp((float)((this.currentUpdateEvent.EndTimeUTC.ToUniversalTime() - StoreUpdater.instance.DateTimeNowServerAdjusted).TotalSeconds - 10.0), 0f, float.MaxValue));
@@ -299,7 +299,7 @@ namespace FXP
 			yield break;
 		}
 
-		// Token: 0x060040D7 RID: 16599 RVA: 0x0013455A File Offset: 0x0013275A
+		// Token: 0x0600421C RID: 16924 RVA: 0x0005B428 File Offset: 0x00059628
 		public void StopCountdownCoroutine()
 		{
 			this.CountdownSFX.GTStop();
@@ -311,7 +311,7 @@ namespace FXP
 			}
 		}
 
-		// Token: 0x060040D8 RID: 16600 RVA: 0x00134590 File Offset: 0x00132790
+		// Token: 0x0600421D RID: 16925 RVA: 0x0017497C File Offset: 0x00172B7C
 		private void PlaySFX()
 		{
 			if (this.currentUpdateEvent != null)
@@ -328,7 +328,7 @@ namespace FXP
 			}
 		}
 
-		// Token: 0x060040D9 RID: 16601 RVA: 0x0013461C File Offset: 0x0013281C
+		// Token: 0x0600421E RID: 16926 RVA: 0x00174A08 File Offset: 0x00172C08
 		public void SetCosmeticItemProperties(string WhichGUID, string Name, List<Transform> SocketsList, int Socket, string PedestalMesh = null, string MannequinMesh = null)
 		{
 			if (!this.isValid)
@@ -348,7 +348,7 @@ namespace FXP
 			}
 		}
 
-		// Token: 0x060040DA RID: 16602 RVA: 0x00134670 File Offset: 0x00132870
+		// Token: 0x0600421F RID: 16927 RVA: 0x00174A5C File Offset: 0x00172C5C
 		private void StartPreviewTimer()
 		{
 			if (!this.isValid)
@@ -364,7 +364,7 @@ namespace FXP
 			base.StartCoroutine(this.coroutinePreviewTimer);
 		}
 
-		// Token: 0x060040DB RID: 16603 RVA: 0x001346EF File Offset: 0x001328EF
+		// Token: 0x06004220 RID: 16928 RVA: 0x0005B45B File Offset: 0x0005965B
 		private void StopPreviewTimer()
 		{
 			if (!this.isValid)
@@ -379,7 +379,7 @@ namespace FXP
 			this.clockTextMesh.text = "Clock";
 		}
 
-		// Token: 0x060040DC RID: 16604 RVA: 0x00134725 File Offset: 0x00132925
+		// Token: 0x06004221 RID: 16929 RVA: 0x0005B491 File Offset: 0x00059691
 		private IEnumerator DoPreviewTimer(DateTime ReleaseTime)
 		{
 			if (this.isValid)
@@ -428,7 +428,7 @@ namespace FXP
 			yield break;
 		}
 
-		// Token: 0x060040DD RID: 16605 RVA: 0x0013473C File Offset: 0x0013293C
+		// Token: 0x06004222 RID: 16930 RVA: 0x00174ADC File Offset: 0x00172CDC
 		public void StartAttractTimer()
 		{
 			if (!this.isValid)
@@ -444,7 +444,7 @@ namespace FXP
 			base.StartCoroutine(this.coroutineAttractTimer);
 		}
 
-		// Token: 0x060040DE RID: 16606 RVA: 0x001347BB File Offset: 0x001329BB
+		// Token: 0x06004223 RID: 16931 RVA: 0x0005B4A7 File Offset: 0x000596A7
 		private void StopAttractTimer()
 		{
 			if (!this.isValid)
@@ -459,7 +459,7 @@ namespace FXP
 			this.goClock.GetComponent<TextMesh>().text = "Clock";
 		}
 
-		// Token: 0x060040DF RID: 16607 RVA: 0x001347F6 File Offset: 0x001329F6
+		// Token: 0x06004224 RID: 16932 RVA: 0x0005B4E2 File Offset: 0x000596E2
 		private IEnumerator DoAttractTimer(DateTime ReleaseTime)
 		{
 			if (this.isValid)
@@ -508,242 +508,242 @@ namespace FXP
 			yield break;
 		}
 
-		// Token: 0x040041F4 RID: 16884
+		// Token: 0x040042EE RID: 17134
 		public string PedestalID = "";
 
-		// Token: 0x040041F5 RID: 16885
+		// Token: 0x040042EF RID: 17135
 		public HeadModel HeadModel;
 
-		// Token: 0x040041F6 RID: 16886
+		// Token: 0x040042F0 RID: 17136
 		[SerializeField]
 		private Guid? itemGUID;
 
-		// Token: 0x040041F7 RID: 16887
+		// Token: 0x040042F1 RID: 17137
 		[SerializeField]
 		private string itemName = string.Empty;
 
-		// Token: 0x040041F8 RID: 16888
+		// Token: 0x040042F2 RID: 17138
 		[SerializeField]
 		private List<Transform> sockets = new List<Transform>();
 
-		// Token: 0x040041F9 RID: 16889
+		// Token: 0x040042F3 RID: 17139
 		[SerializeField]
 		private int itemSocket = int.MinValue;
 
-		// Token: 0x040041FA RID: 16890
+		// Token: 0x040042F4 RID: 17140
 		[SerializeField]
 		private int? hoursInPreviewMode;
 
-		// Token: 0x040041FB RID: 16891
+		// Token: 0x040042F5 RID: 17141
 		[SerializeField]
 		private int? hoursInAttractMode;
 
-		// Token: 0x040041FC RID: 16892
+		// Token: 0x040042F6 RID: 17142
 		[SerializeField]
 		private Mesh pedestalMesh;
 
-		// Token: 0x040041FD RID: 16893
+		// Token: 0x040042F7 RID: 17143
 		[SerializeField]
 		private Mesh mannequinMesh;
 
-		// Token: 0x040041FE RID: 16894
+		// Token: 0x040042F8 RID: 17144
 		[SerializeField]
 		private Mesh cosmeticMesh;
 
-		// Token: 0x040041FF RID: 16895
+		// Token: 0x040042F9 RID: 17145
 		[SerializeField]
 		private AudioClip sfxPreviewMode;
 
-		// Token: 0x04004200 RID: 16896
+		// Token: 0x040042FA RID: 17146
 		[SerializeField]
 		private AudioClip sfxAttractMode;
 
-		// Token: 0x04004201 RID: 16897
+		// Token: 0x040042FB RID: 17147
 		[SerializeField]
 		private AudioClip sfxPurchaseMode;
 
-		// Token: 0x04004202 RID: 16898
+		// Token: 0x040042FC RID: 17148
 		[SerializeField]
 		private ParticleSystem vfxPreviewMode;
 
-		// Token: 0x04004203 RID: 16899
+		// Token: 0x040042FD RID: 17149
 		[SerializeField]
 		private ParticleSystem vfxAttractMode;
 
-		// Token: 0x04004204 RID: 16900
+		// Token: 0x040042FE RID: 17150
 		[SerializeField]
 		private ParticleSystem vfxPurchaseMode;
 
-		// Token: 0x04004205 RID: 16901
+		// Token: 0x040042FF RID: 17151
 		[SerializeField]
 		private GameObject goPedestal;
 
-		// Token: 0x04004206 RID: 16902
+		// Token: 0x04004300 RID: 17152
 		[SerializeField]
 		private GameObject goMannequin;
 
-		// Token: 0x04004207 RID: 16903
+		// Token: 0x04004301 RID: 17153
 		[SerializeField]
 		private GameObject goCosmeticItem;
 
-		// Token: 0x04004208 RID: 16904
+		// Token: 0x04004302 RID: 17154
 		[SerializeField]
 		private GameObject goCosmeticItemGameObject;
 
-		// Token: 0x04004209 RID: 16905
+		// Token: 0x04004303 RID: 17155
 		[SerializeField]
 		private GameObject goCosmeticItemNameplate;
 
-		// Token: 0x0400420A RID: 16906
+		// Token: 0x04004304 RID: 17156
 		[SerializeField]
 		private GameObject goClock;
 
-		// Token: 0x0400420B RID: 16907
+		// Token: 0x04004305 RID: 17157
 		[SerializeField]
 		private GameObject goPreviewMode;
 
-		// Token: 0x0400420C RID: 16908
+		// Token: 0x04004306 RID: 17158
 		[SerializeField]
 		private GameObject goAttractMode;
 
-		// Token: 0x0400420D RID: 16909
+		// Token: 0x04004307 RID: 17159
 		[SerializeField]
 		private GameObject goPurchaseMode;
 
-		// Token: 0x0400420E RID: 16910
+		// Token: 0x04004308 RID: 17160
 		[SerializeField]
 		private Mesh defaultPedestalMesh;
 
-		// Token: 0x0400420F RID: 16911
+		// Token: 0x04004309 RID: 17161
 		[SerializeField]
 		private Material defaultPedestalMaterial;
 
-		// Token: 0x04004210 RID: 16912
+		// Token: 0x0400430A RID: 17162
 		[SerializeField]
 		private Mesh defaultMannequinMesh;
 
-		// Token: 0x04004211 RID: 16913
+		// Token: 0x0400430B RID: 17163
 		[SerializeField]
 		private Material defaultMannequinMaterial;
 
-		// Token: 0x04004212 RID: 16914
+		// Token: 0x0400430C RID: 17164
 		[SerializeField]
 		private Mesh defaultCosmeticMesh;
 
-		// Token: 0x04004213 RID: 16915
+		// Token: 0x0400430D RID: 17165
 		[SerializeField]
 		private Material defaultCosmeticMaterial;
 
-		// Token: 0x04004214 RID: 16916
+		// Token: 0x0400430E RID: 17166
 		[SerializeField]
 		private string defaultItemText;
 
-		// Token: 0x04004215 RID: 16917
+		// Token: 0x0400430F RID: 17167
 		[SerializeField]
 		private int defaultHoursInPreviewMode;
 
-		// Token: 0x04004216 RID: 16918
+		// Token: 0x04004310 RID: 17168
 		[SerializeField]
 		private int defaultHoursInAttractMode;
 
-		// Token: 0x04004217 RID: 16919
+		// Token: 0x04004311 RID: 17169
 		[SerializeField]
 		private AudioClip defaultSFXPreviewMode;
 
-		// Token: 0x04004218 RID: 16920
+		// Token: 0x04004312 RID: 17170
 		[SerializeField]
 		private AudioClip defaultSFXAttractMode;
 
-		// Token: 0x04004219 RID: 16921
+		// Token: 0x04004313 RID: 17171
 		[SerializeField]
 		private AudioClip defaultSFXPurchaseMode;
 
-		// Token: 0x0400421A RID: 16922
+		// Token: 0x04004314 RID: 17172
 		private GameObject goCosmeticItemMeshAtlas;
 
-		// Token: 0x0400421B RID: 16923
+		// Token: 0x04004315 RID: 17173
 		public AudioSource CountdownSFX;
 
-		// Token: 0x0400421C RID: 16924
+		// Token: 0x04004316 RID: 17174
 		private CosmeticItemPrefab.EDisplayMode currentDisplayMode;
 
-		// Token: 0x0400421D RID: 16925
+		// Token: 0x04004317 RID: 17175
 		private bool isValid;
 
-		// Token: 0x0400421E RID: 16926
+		// Token: 0x04004318 RID: 17176
 		[Nullable(2)]
 		private AudioSource goPreviewModeSFX;
 
-		// Token: 0x0400421F RID: 16927
+		// Token: 0x04004319 RID: 17177
 		[Nullable(2)]
 		private AudioSource goAttractModeSFX;
 
-		// Token: 0x04004220 RID: 16928
+		// Token: 0x0400431A RID: 17178
 		[Nullable(2)]
 		private AudioSource goPurchaseModeSFX;
 
-		// Token: 0x04004221 RID: 16929
+		// Token: 0x0400431B RID: 17179
 		[Nullable(2)]
 		private ParticleSystem goAttractModeVFX;
 
-		// Token: 0x04004222 RID: 16930
+		// Token: 0x0400431C RID: 17180
 		[Nullable(2)]
 		private ParticleSystem goPurchaseModeVFX;
 
-		// Token: 0x04004223 RID: 16931
+		// Token: 0x0400431D RID: 17181
 		private IEnumerator coroutinePreviewTimer;
 
-		// Token: 0x04004224 RID: 16932
+		// Token: 0x0400431E RID: 17182
 		private IEnumerator coroutineAttractTimer;
 
-		// Token: 0x04004225 RID: 16933
+		// Token: 0x0400431F RID: 17183
 		private DateTime startTime;
 
-		// Token: 0x04004226 RID: 16934
+		// Token: 0x04004320 RID: 17184
 		private TextMeshPro clockTextMesh;
 
-		// Token: 0x04004227 RID: 16935
+		// Token: 0x04004321 RID: 17185
 		private bool clockTextMeshIsValid;
 
-		// Token: 0x04004228 RID: 16936
+		// Token: 0x04004322 RID: 17186
 		private StoreUpdateEvent currentUpdateEvent;
 
-		// Token: 0x04004229 RID: 16937
+		// Token: 0x04004323 RID: 17187
 		private string defaultCountdownTextTemplate = "";
 
-		// Token: 0x0400422A RID: 16938
+		// Token: 0x04004324 RID: 17188
 		public CosmeticStand cosmeticStand;
 
-		// Token: 0x0400422B RID: 16939
+		// Token: 0x04004325 RID: 17189
 		public string itemID = "";
 
-		// Token: 0x0400422C RID: 16940
+		// Token: 0x04004326 RID: 17190
 		public string oldItemID = "";
 
-		// Token: 0x0400422D RID: 16941
+		// Token: 0x04004327 RID: 17191
 		private Coroutine countdownTimerCoRoutine;
 
-		// Token: 0x0400422E RID: 16942
+		// Token: 0x04004328 RID: 17192
 		private float updateClock = 60f;
 
-		// Token: 0x0400422F RID: 16943
+		// Token: 0x04004329 RID: 17193
 		private float lastUpdated;
 
-		// Token: 0x02000A1C RID: 2588
+		// Token: 0x02000A49 RID: 2633
 		[SerializeField]
 		public enum EDisplayMode
 		{
-			// Token: 0x04004231 RID: 16945
+			// Token: 0x0400432B RID: 17195
 			NULL,
-			// Token: 0x04004232 RID: 16946
+			// Token: 0x0400432C RID: 17196
 			HIDDEN,
-			// Token: 0x04004233 RID: 16947
+			// Token: 0x0400432D RID: 17197
 			PREVIEW,
-			// Token: 0x04004234 RID: 16948
+			// Token: 0x0400432E RID: 17198
 			ATTRACT,
-			// Token: 0x04004235 RID: 16949
+			// Token: 0x0400432F RID: 17199
 			PURCHASE,
-			// Token: 0x04004236 RID: 16950
+			// Token: 0x04004330 RID: 17200
 			POSTPURCHASE
 		}
 	}

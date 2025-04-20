@@ -2,18 +2,18 @@
 
 namespace LitJson
 {
-	// Token: 0x02000953 RID: 2387
+	// Token: 0x02000970 RID: 2416
 	internal enum Condition
 	{
-		// Token: 0x04003B64 RID: 15204
+		// Token: 0x04003C29 RID: 15401
 		InArray,
-		// Token: 0x04003B65 RID: 15205
+		// Token: 0x04003C2A RID: 15402
 		InObject,
-		// Token: 0x04003B66 RID: 15206
+		// Token: 0x04003C2B RID: 15403
 		NotAProperty,
-		// Token: 0x04003B67 RID: 15207
+		// Token: 0x04003C2C RID: 15404
 		Property,
-		// Token: 0x04003B68 RID: 15208
+		// Token: 0x04003C2D RID: 15405
 		Value
 	}
 }

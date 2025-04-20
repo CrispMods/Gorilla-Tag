@@ -4,38 +4,38 @@ using Fusion;
 using Photon.Pun;
 using Photon.Realtime;
 
-// Token: 0x02000280 RID: 640
+// Token: 0x0200028B RID: 651
 [NetworkBehaviourWeaved(0)]
 public abstract class NetworkComponent : NetworkView, IPunObservable, IStateAuthorityChanged, IOnPhotonViewOwnerChange, IPhotonViewCallback, IInRoomCallbacks, IPunInstantiateMagicCallback
 {
-	// Token: 0x06000F05 RID: 3845 RVA: 0x0004BF89 File Offset: 0x0004A189
+	// Token: 0x06000F50 RID: 3920 RVA: 0x0003AC38 File Offset: 0x00038E38
 	internal virtual void OnEnable()
 	{
 		NetworkBehaviourUtils.InternalOnEnable(this);
 		this.AddToNetwork();
 	}
 
-	// Token: 0x06000F06 RID: 3846 RVA: 0x0004BF97 File Offset: 0x0004A197
+	// Token: 0x06000F51 RID: 3921 RVA: 0x0003AC46 File Offset: 0x00038E46
 	internal virtual void OnDisable()
 	{
 		NetworkBehaviourUtils.InternalOnDisable(this);
 		PhotonNetwork.RemoveCallbackTarget(this);
 	}
 
-	// Token: 0x06000F07 RID: 3847 RVA: 0x0004BFA5 File Offset: 0x0004A1A5
+	// Token: 0x06000F52 RID: 3922 RVA: 0x0003AC54 File Offset: 0x00038E54
 	protected override void Start()
 	{
 		base.Start();
 		this.AddToNetwork();
 	}
 
-	// Token: 0x06000F08 RID: 3848 RVA: 0x0004BFB3 File Offset: 0x0004A1B3
+	// Token: 0x06000F53 RID: 3923 RVA: 0x0003AC62 File Offset: 0x00038E62
 	private void AddToNetwork()
 	{
 		PhotonNetwork.AddCallbackTarget(this);
 	}
 
-	// Token: 0x06000F09 RID: 3849 RVA: 0x0004BFBB File Offset: 0x0004A1BB
+	// Token: 0x06000F54 RID: 3924 RVA: 0x0003AC6A File Offset: 0x00038E6A
 	public override void Spawned()
 	{
 		if (NetworkSystem.Instance.InRoom)
@@ -44,13 +44,13 @@ public abstract class NetworkComponent : NetworkView, IPunObservable, IStateAuth
 		}
 	}
 
-	// Token: 0x06000F0A RID: 3850 RVA: 0x0004BFCF File Offset: 0x0004A1CF
+	// Token: 0x06000F55 RID: 3925 RVA: 0x0003AC7E File Offset: 0x00038E7E
 	public override void FixedUpdateNetwork()
 	{
 		this.WriteDataFusion();
 	}
 
-	// Token: 0x06000F0B RID: 3851 RVA: 0x0004BFD7 File Offset: 0x0004A1D7
+	// Token: 0x06000F56 RID: 3926 RVA: 0x0003AC86 File Offset: 0x00038E86
 	public override void Render()
 	{
 		if (!base.HasStateAuthority)
@@ -59,19 +59,19 @@ public abstract class NetworkComponent : NetworkView, IPunObservable, IStateAuth
 		}
 	}
 
-	// Token: 0x06000F0C RID: 3852
+	// Token: 0x06000F57 RID: 3927
 	public abstract void WriteDataFusion();
 
-	// Token: 0x06000F0D RID: 3853
+	// Token: 0x06000F58 RID: 3928
 	public abstract void ReadDataFusion();
 
-	// Token: 0x06000F0E RID: 3854 RVA: 0x0004BFE7 File Offset: 0x0004A1E7
+	// Token: 0x06000F59 RID: 3929 RVA: 0x0003AC96 File Offset: 0x00038E96
 	public virtual void OnPhotonInstantiate(PhotonMessageInfo info)
 	{
 		this.OnSpawned();
 	}
 
-	// Token: 0x06000F0F RID: 3855 RVA: 0x0004BFEF File Offset: 0x0004A1EF
+	// Token: 0x06000F5A RID: 3930 RVA: 0x0003AC9E File Offset: 0x00038E9E
 	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.IsWriting)
@@ -85,29 +85,29 @@ public abstract class NetworkComponent : NetworkView, IPunObservable, IStateAuth
 		}
 	}
 
-	// Token: 0x06000F10 RID: 3856
+	// Token: 0x06000F5B RID: 3931
 	protected abstract void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info);
 
-	// Token: 0x06000F11 RID: 3857
+	// Token: 0x06000F5C RID: 3932
 	protected abstract void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info);
 
-	// Token: 0x06000F12 RID: 3858 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000F5D RID: 3933 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void OnSpawned()
 	{
 	}
 
-	// Token: 0x06000F13 RID: 3859 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000F5E RID: 3934 RVA: 0x00030607 File Offset: 0x0002E807
 	protected virtual void OnOwnerSwitched(NetPlayer newOwningPlayer)
 	{
 	}
 
-	// Token: 0x06000F14 RID: 3860 RVA: 0x0004C012 File Offset: 0x0004A212
+	// Token: 0x06000F5F RID: 3935 RVA: 0x0003ACC1 File Offset: 0x00038EC1
 	void IInRoomCallbacks.OnMasterClientSwitched(Player newMasterClient)
 	{
 		this.OnOwnerSwitched(NetworkSystem.Instance.GetPlayer(newMasterClient));
 	}
 
-	// Token: 0x06000F15 RID: 3861 RVA: 0x0004C028 File Offset: 0x0004A228
+	// Token: 0x06000F60 RID: 3936 RVA: 0x000A84A4 File Offset: 0x000A66A4
 	public override void StateAuthorityChanged()
 	{
 		base.StateAuthorityChanged();
@@ -127,39 +127,39 @@ public abstract class NetworkComponent : NetworkView, IPunObservable, IStateAuth
 		this.OnOwnerSwitched(NetworkSystem.Instance.LocalPlayer);
 	}
 
-	// Token: 0x06000F16 RID: 3862 RVA: 0x0004C09E File Offset: 0x0004A29E
+	// Token: 0x06000F61 RID: 3937 RVA: 0x0003ACD4 File Offset: 0x00038ED4
 	public void OnMasterClientSwitch(NetPlayer newMaster)
 	{
 		this.StateAuthorityChanged();
 	}
 
-	// Token: 0x06000F17 RID: 3863 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000F62 RID: 3938 RVA: 0x00030607 File Offset: 0x0002E807
 	void IInRoomCallbacks.OnPlayerEnteredRoom(Player newPlayer)
 	{
 	}
 
-	// Token: 0x06000F18 RID: 3864 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000F63 RID: 3939 RVA: 0x00030607 File Offset: 0x0002E807
 	void IInRoomCallbacks.OnPlayerLeftRoom(Player otherPlayer)
 	{
 	}
 
-	// Token: 0x06000F19 RID: 3865 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000F64 RID: 3940 RVA: 0x00030607 File Offset: 0x0002E807
 	void IInRoomCallbacks.OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
 	{
 	}
 
-	// Token: 0x06000F1A RID: 3866 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000F65 RID: 3941 RVA: 0x00030607 File Offset: 0x0002E807
 	void IInRoomCallbacks.OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
 	{
 	}
 
-	// Token: 0x06000F1B RID: 3867 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000F66 RID: 3942 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void OnOwnerChange(Player newOwner, Player previousOwner)
 	{
 	}
 
-	// Token: 0x17000192 RID: 402
-	// (get) Token: 0x06000F1C RID: 3868 RVA: 0x0004C0A6 File Offset: 0x0004A2A6
+	// Token: 0x17000199 RID: 409
+	// (get) Token: 0x06000F67 RID: 3943 RVA: 0x0003ACDC File Offset: 0x00038EDC
 	public bool IsLocallyOwned
 	{
 		get
@@ -168,8 +168,8 @@ public abstract class NetworkComponent : NetworkView, IPunObservable, IStateAuth
 		}
 	}
 
-	// Token: 0x17000193 RID: 403
-	// (get) Token: 0x06000F1D RID: 3869 RVA: 0x0004C0AE File Offset: 0x0004A2AE
+	// Token: 0x1700019A RID: 410
+	// (get) Token: 0x06000F68 RID: 3944 RVA: 0x0003ACE4 File Offset: 0x00038EE4
 	public bool ShouldWriteObjectData
 	{
 		get
@@ -178,8 +178,8 @@ public abstract class NetworkComponent : NetworkView, IPunObservable, IStateAuth
 		}
 	}
 
-	// Token: 0x17000194 RID: 404
-	// (get) Token: 0x06000F1E RID: 3870 RVA: 0x0004C0C0 File Offset: 0x0004A2C0
+	// Token: 0x1700019B RID: 411
+	// (get) Token: 0x06000F69 RID: 3945 RVA: 0x0003ACF6 File Offset: 0x00038EF6
 	public bool ShouldUpdateobject
 	{
 		get
@@ -188,8 +188,8 @@ public abstract class NetworkComponent : NetworkView, IPunObservable, IStateAuth
 		}
 	}
 
-	// Token: 0x17000195 RID: 405
-	// (get) Token: 0x06000F1F RID: 3871 RVA: 0x0004C0D2 File Offset: 0x0004A2D2
+	// Token: 0x1700019C RID: 412
+	// (get) Token: 0x06000F6A RID: 3946 RVA: 0x0003AD08 File Offset: 0x00038F08
 	public int OwnerID
 	{
 		get
@@ -198,14 +198,14 @@ public abstract class NetworkComponent : NetworkView, IPunObservable, IStateAuth
 		}
 	}
 
-	// Token: 0x06000F21 RID: 3873 RVA: 0x0004C0EC File Offset: 0x0004A2EC
+	// Token: 0x06000F6C RID: 3948 RVA: 0x0003AD22 File Offset: 0x00038F22
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
 		base.CopyBackingFieldsToState(A_1);
 	}
 
-	// Token: 0x06000F22 RID: 3874 RVA: 0x0004C0F8 File Offset: 0x0004A2F8
+	// Token: 0x06000F6D RID: 3949 RVA: 0x0003AD2E File Offset: 0x00038F2E
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using GorillaTag;
 using UnityEngine;
 
-// Token: 0x02000401 RID: 1025
+// Token: 0x0200040C RID: 1036
 [Serializable]
 public class SlotTransformOverride
 {
-	// Token: 0x170002BC RID: 700
-	// (get) Token: 0x06001910 RID: 6416 RVA: 0x0007AC53 File Offset: 0x00078E53
-	// (set) Token: 0x06001911 RID: 6417 RVA: 0x0007AC60 File Offset: 0x00078E60
+	// Token: 0x170002C3 RID: 707
+	// (get) Token: 0x0600195D RID: 6493 RVA: 0x000411E8 File Offset: 0x0003F3E8
+	// (set) Token: 0x0600195E RID: 6494 RVA: 0x000411F5 File Offset: 0x0003F3F5
 	private XformOffset _EdXformOffsetRepresenationOf_overrideTransformMatrix
 	{
 		get
@@ -22,7 +22,7 @@ public class SlotTransformOverride
 		}
 	}
 
-	// Token: 0x06001912 RID: 6418 RVA: 0x0007AC80 File Offset: 0x00078E80
+	// Token: 0x0600195F RID: 6495 RVA: 0x000D0A6C File Offset: 0x000CEC6C
 	public void Initialize(Component component, Transform anchor)
 	{
 		if (!this.useAdvancedGrab)
@@ -41,50 +41,50 @@ public class SlotTransformOverride
 		}
 	}
 
-	// Token: 0x06001913 RID: 6419 RVA: 0x0007AD2C File Offset: 0x00078F2C
+	// Token: 0x06001960 RID: 6496 RVA: 0x00041215 File Offset: 0x0003F415
 	public void AddLineButton()
 	{
 		this.multiPoints.Add(new SubLineGrabPoint());
 	}
 
-	// Token: 0x06001914 RID: 6420 RVA: 0x0007AD40 File Offset: 0x00078F40
+	// Token: 0x06001961 RID: 6497 RVA: 0x000D0B18 File Offset: 0x000CED18
 	public void AddSubGrabPoint(TransferrableObjectGripPosition togp)
 	{
 		SubGrabPoint item = togp.CreateSubGrabPoint(this);
 		this.multiPoints.Add(item);
 	}
 
-	// Token: 0x04001BF1 RID: 7153
+	// Token: 0x04001C3A RID: 7226
 	[Obsolete("(2024-08-20 MattO) Cosmetics use xformOffsets now which fills in the appropriate data for this component. If you are doing something weird then `overrideTransformMatrix` must be used instead. This will probably be removed after 2024-09-15.")]
 	public Transform overrideTransform;
 
-	// Token: 0x04001BF2 RID: 7154
+	// Token: 0x04001C3B RID: 7227
 	[Obsolete("(2024-08-20 MattO) Cosmetics use xformOffsets now which fills in the appropriate data for this component. If you are doing something weird then `overrideTransformMatrix` must be used instead. This will probably be removed after 2024-09-15.")]
 	[Delayed]
 	public string overrideTransform_path;
 
-	// Token: 0x04001BF3 RID: 7155
+	// Token: 0x04001C3C RID: 7228
 	public TransferrableObject.PositionState positionState;
 
-	// Token: 0x04001BF4 RID: 7156
+	// Token: 0x04001C3D RID: 7229
 	public bool useAdvancedGrab;
 
-	// Token: 0x04001BF5 RID: 7157
+	// Token: 0x04001C3E RID: 7230
 	public Matrix4x4 overrideTransformMatrix = Matrix4x4.identity;
 
-	// Token: 0x04001BF6 RID: 7158
+	// Token: 0x04001C3F RID: 7231
 	public Transform advancedGrabPointAnchor;
 
-	// Token: 0x04001BF7 RID: 7159
+	// Token: 0x04001C40 RID: 7232
 	public Transform advancedGrabPointOrigin;
 
-	// Token: 0x04001BF8 RID: 7160
+	// Token: 0x04001C41 RID: 7233
 	[SerializeReference]
 	public List<SubGrabPoint> multiPoints = new List<SubGrabPoint>();
 
-	// Token: 0x04001BF9 RID: 7161
+	// Token: 0x04001C42 RID: 7234
 	public Matrix4x4 AdvOriginLocalToParentAnchorLocal;
 
-	// Token: 0x04001BFA RID: 7162
+	// Token: 0x04001C43 RID: 7235
 	public Matrix4x4 AdvAnchorLocalToAdvOriginLocal;
 }

@@ -4,11 +4,11 @@ using GorillaLocomotion.Climbing;
 using UnityEngine;
 using UnityEngine.XR;
 
-// Token: 0x02000376 RID: 886
+// Token: 0x02000381 RID: 897
 public class EquipmentInteractor : MonoBehaviour
 {
-	// Token: 0x17000246 RID: 582
-	// (get) Token: 0x060014A1 RID: 5281 RVA: 0x0006544B File Offset: 0x0006364B
+	// Token: 0x1700024D RID: 589
+	// (get) Token: 0x060014ED RID: 5357 RVA: 0x0003E191 File Offset: 0x0003C391
 	public GorillaHandClimber BodyClimber
 	{
 		get
@@ -17,8 +17,8 @@ public class EquipmentInteractor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000247 RID: 583
-	// (get) Token: 0x060014A2 RID: 5282 RVA: 0x00065453 File Offset: 0x00063653
+	// Token: 0x1700024E RID: 590
+	// (get) Token: 0x060014EE RID: 5358 RVA: 0x0003E199 File Offset: 0x0003C399
 	public GorillaHandClimber LeftClimber
 	{
 		get
@@ -27,8 +27,8 @@ public class EquipmentInteractor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000248 RID: 584
-	// (get) Token: 0x060014A3 RID: 5283 RVA: 0x0006545B File Offset: 0x0006365B
+	// Token: 0x1700024F RID: 591
+	// (get) Token: 0x060014EF RID: 5359 RVA: 0x0003E1A1 File Offset: 0x0003C3A1
 	public GorillaHandClimber RightClimber
 	{
 		get
@@ -37,7 +37,7 @@ public class EquipmentInteractor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060014A4 RID: 5284 RVA: 0x00065464 File Offset: 0x00063664
+	// Token: 0x060014F0 RID: 5360 RVA: 0x000BE358 File Offset: 0x000BC558
 	private void Awake()
 	{
 		if (EquipmentInteractor.instance == null)
@@ -47,13 +47,13 @@ public class EquipmentInteractor : MonoBehaviour
 		}
 		else if (EquipmentInteractor.instance != this)
 		{
-			Object.Destroy(base.gameObject);
+			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		this.autoGrabLeft = true;
 		this.autoGrabRight = true;
 	}
 
-	// Token: 0x060014A5 RID: 5285 RVA: 0x000654B8 File Offset: 0x000636B8
+	// Token: 0x060014F1 RID: 5361 RVA: 0x0003E1A9 File Offset: 0x0003C3A9
 	private void OnDestroy()
 	{
 		if (EquipmentInteractor.instance == this)
@@ -63,7 +63,7 @@ public class EquipmentInteractor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060014A6 RID: 5286 RVA: 0x000654D7 File Offset: 0x000636D7
+	// Token: 0x060014F2 RID: 5362 RVA: 0x0003E1C8 File Offset: 0x0003C3C8
 	public void ReleaseRightHand()
 	{
 		if (this.rightHandHeldEquipment != null)
@@ -77,7 +77,7 @@ public class EquipmentInteractor : MonoBehaviour
 		this.autoGrabRight = true;
 	}
 
-	// Token: 0x060014A7 RID: 5287 RVA: 0x00065516 File Offset: 0x00063716
+	// Token: 0x060014F3 RID: 5363 RVA: 0x0003E207 File Offset: 0x0003C407
 	public void ReleaseLeftHand()
 	{
 		if (this.rightHandHeldEquipment != null)
@@ -91,7 +91,7 @@ public class EquipmentInteractor : MonoBehaviour
 		this.autoGrabLeft = true;
 	}
 
-	// Token: 0x060014A8 RID: 5288 RVA: 0x00065555 File Offset: 0x00063755
+	// Token: 0x060014F4 RID: 5364 RVA: 0x0003E246 File Offset: 0x0003C446
 	public void ForceStopClimbing()
 	{
 		this.bodyClimber.ForceStopClimbing(false, false);
@@ -99,7 +99,7 @@ public class EquipmentInteractor : MonoBehaviour
 		this.rightClimber.ForceStopClimbing(false, false);
 	}
 
-	// Token: 0x060014A9 RID: 5289 RVA: 0x0006557E File Offset: 0x0006377E
+	// Token: 0x060014F5 RID: 5365 RVA: 0x0003E26F File Offset: 0x0003C46F
 	public bool GetIsHolding(XRNode node)
 	{
 		if (node == XRNode.LeftHand)
@@ -109,7 +109,7 @@ public class EquipmentInteractor : MonoBehaviour
 		return this.rightHandHeldEquipment != null;
 	}
 
-	// Token: 0x060014AA RID: 5290 RVA: 0x00065598 File Offset: 0x00063798
+	// Token: 0x060014F6 RID: 5366 RVA: 0x000BE3AC File Offset: 0x000BC5AC
 	public void InteractionPointDisabled(InteractionPoint interactionPoint)
 	{
 		if (this.iteratingInteractionPoints)
@@ -127,7 +127,7 @@ public class EquipmentInteractor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060014AB RID: 5291 RVA: 0x000655E4 File Offset: 0x000637E4
+	// Token: 0x060014F7 RID: 5367 RVA: 0x000BE3F8 File Offset: 0x000BC5F8
 	private void LateUpdate()
 	{
 		if (ApplicationQuittingState.IsQuitting)
@@ -164,7 +164,7 @@ public class EquipmentInteractor : MonoBehaviour
 		this.wasRightGrabPressed = this.isRightGrabbing;
 	}
 
-	// Token: 0x060014AC RID: 5292 RVA: 0x00065774 File Offset: 0x00063974
+	// Token: 0x060014F8 RID: 5368 RVA: 0x000BE588 File Offset: 0x000BC788
 	private void FireHandInteractions(GameObject interactingHand, bool isLeftHand, BuilderPiece pieceInHand)
 	{
 		if (isLeftHand)
@@ -230,7 +230,7 @@ public class EquipmentInteractor : MonoBehaviour
 		this.interactionPointsToRemove.Clear();
 	}
 
-	// Token: 0x060014AD RID: 5293 RVA: 0x000659CC File Offset: 0x00063BCC
+	// Token: 0x060014F9 RID: 5369 RVA: 0x000BE7E0 File Offset: 0x000BC9E0
 	public void UpdateHandEquipment(IHoldableObject newEquipment, bool forLeftHand)
 	{
 		if (forLeftHand)
@@ -259,7 +259,7 @@ public class EquipmentInteractor : MonoBehaviour
 		this.autoGrabRight = false;
 	}
 
-	// Token: 0x060014AE RID: 5294 RVA: 0x00065A58 File Offset: 0x00063C58
+	// Token: 0x060014FA RID: 5370 RVA: 0x000BE86C File Offset: 0x000BCA6C
 	public void CheckInputValue(bool isLeftHand)
 	{
 		if (isLeftHand)
@@ -275,7 +275,7 @@ public class EquipmentInteractor : MonoBehaviour
 		this.grabValue = Mathf.Max(this.grabValue, this.tempValue);
 	}
 
-	// Token: 0x060014AF RID: 5295 RVA: 0x00065AB1 File Offset: 0x00063CB1
+	// Token: 0x060014FB RID: 5371 RVA: 0x0003E288 File Offset: 0x0003C488
 	public void ForceDropEquipment(IHoldableObject equipment)
 	{
 		if (this.rightHandHeldEquipment == equipment)
@@ -288,7 +288,7 @@ public class EquipmentInteractor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060014B0 RID: 5296 RVA: 0x00065AD4 File Offset: 0x00063CD4
+	// Token: 0x060014FC RID: 5372 RVA: 0x000BE8C8 File Offset: 0x000BCAC8
 	public void ForceDropManipulatableObject(HoldableObject manipulatableObject)
 	{
 		if ((HoldableObject)this.rightHandHeldEquipment == manipulatableObject)
@@ -305,104 +305,104 @@ public class EquipmentInteractor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040016DB RID: 5851
+	// Token: 0x04001723 RID: 5923
 	[OnEnterPlay_SetNull]
 	public static volatile EquipmentInteractor instance;
 
-	// Token: 0x040016DC RID: 5852
+	// Token: 0x04001724 RID: 5924
 	[OnEnterPlay_Set(false)]
 	public static bool hasInstance;
 
-	// Token: 0x040016DD RID: 5853
+	// Token: 0x04001725 RID: 5925
 	public IHoldableObject leftHandHeldEquipment;
 
-	// Token: 0x040016DE RID: 5854
+	// Token: 0x04001726 RID: 5926
 	public IHoldableObject rightHandHeldEquipment;
 
-	// Token: 0x040016DF RID: 5855
+	// Token: 0x04001727 RID: 5927
 	public BuilderPieceInteractor builderPieceInteractor;
 
-	// Token: 0x040016E0 RID: 5856
+	// Token: 0x04001728 RID: 5928
 	public GameObject rightHand;
 
-	// Token: 0x040016E1 RID: 5857
+	// Token: 0x04001729 RID: 5929
 	public GameObject leftHand;
 
-	// Token: 0x040016E2 RID: 5858
+	// Token: 0x0400172A RID: 5930
 	public InputDevice leftHandDevice;
 
-	// Token: 0x040016E3 RID: 5859
+	// Token: 0x0400172B RID: 5931
 	public InputDevice rightHandDevice;
 
-	// Token: 0x040016E4 RID: 5860
+	// Token: 0x0400172C RID: 5932
 	public List<InteractionPoint> overlapInteractionPointsLeft = new List<InteractionPoint>();
 
-	// Token: 0x040016E5 RID: 5861
+	// Token: 0x0400172D RID: 5933
 	public List<InteractionPoint> overlapInteractionPointsRight = new List<InteractionPoint>();
 
-	// Token: 0x040016E6 RID: 5862
+	// Token: 0x0400172E RID: 5934
 	public float grabRadius;
 
-	// Token: 0x040016E7 RID: 5863
+	// Token: 0x0400172F RID: 5935
 	public float grabThreshold = 0.7f;
 
-	// Token: 0x040016E8 RID: 5864
+	// Token: 0x04001730 RID: 5936
 	public float grabHysteresis = 0.05f;
 
-	// Token: 0x040016E9 RID: 5865
+	// Token: 0x04001731 RID: 5937
 	public bool wasLeftGrabPressed;
 
-	// Token: 0x040016EA RID: 5866
+	// Token: 0x04001732 RID: 5938
 	public bool wasRightGrabPressed;
 
-	// Token: 0x040016EB RID: 5867
+	// Token: 0x04001733 RID: 5939
 	public bool isLeftGrabbing;
 
-	// Token: 0x040016EC RID: 5868
+	// Token: 0x04001734 RID: 5940
 	public bool isRightGrabbing;
 
-	// Token: 0x040016ED RID: 5869
+	// Token: 0x04001735 RID: 5941
 	public bool justReleased;
 
-	// Token: 0x040016EE RID: 5870
+	// Token: 0x04001736 RID: 5942
 	public bool justGrabbed;
 
-	// Token: 0x040016EF RID: 5871
+	// Token: 0x04001737 RID: 5943
 	public bool disableLeftGrab;
 
-	// Token: 0x040016F0 RID: 5872
+	// Token: 0x04001738 RID: 5944
 	public bool disableRightGrab;
 
-	// Token: 0x040016F1 RID: 5873
+	// Token: 0x04001739 RID: 5945
 	public bool autoGrabLeft;
 
-	// Token: 0x040016F2 RID: 5874
+	// Token: 0x0400173A RID: 5946
 	public bool autoGrabRight;
 
-	// Token: 0x040016F3 RID: 5875
+	// Token: 0x0400173B RID: 5947
 	private float grabValue;
 
-	// Token: 0x040016F4 RID: 5876
+	// Token: 0x0400173C RID: 5948
 	private float tempValue;
 
-	// Token: 0x040016F5 RID: 5877
+	// Token: 0x0400173D RID: 5949
 	private DropZone tempZone;
 
-	// Token: 0x040016F6 RID: 5878
+	// Token: 0x0400173E RID: 5950
 	private bool iteratingInteractionPoints;
 
-	// Token: 0x040016F7 RID: 5879
+	// Token: 0x0400173F RID: 5951
 	private List<InteractionPoint> interactionPointsToRemove = new List<InteractionPoint>();
 
-	// Token: 0x040016F8 RID: 5880
+	// Token: 0x04001740 RID: 5952
 	[SerializeField]
 	private GorillaHandClimber bodyClimber;
 
-	// Token: 0x040016F9 RID: 5881
+	// Token: 0x04001741 RID: 5953
 	[SerializeField]
 	private GorillaHandClimber leftClimber;
 
-	// Token: 0x040016FA RID: 5882
+	// Token: 0x04001742 RID: 5954
 	[SerializeField]
 	private GorillaHandClimber rightClimber;
 }

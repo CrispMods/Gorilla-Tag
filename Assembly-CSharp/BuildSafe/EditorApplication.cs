@@ -2,12 +2,12 @@
 
 namespace BuildSafe
 {
-	// Token: 0x02000A23 RID: 2595
+	// Token: 0x02000A50 RID: 2640
 	public static class EditorApplication
 	{
-		// Token: 0x14000076 RID: 118
-		// (add) Token: 0x060040F9 RID: 16633 RVA: 0x000023F4 File Offset: 0x000005F4
-		// (remove) Token: 0x060040FA RID: 16634 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x1400007A RID: 122
+		// (add) Token: 0x0600423E RID: 16958 RVA: 0x00030607 File Offset: 0x0002E807
+		// (remove) Token: 0x0600423F RID: 16959 RVA: 0x00030607 File Offset: 0x0002E807
 		public static event Action hierarchyChanged
 		{
 			add
@@ -18,9 +18,9 @@ namespace BuildSafe
 			}
 		}
 
-		// Token: 0x14000077 RID: 119
-		// (add) Token: 0x060040FB RID: 16635 RVA: 0x000023F4 File Offset: 0x000005F4
-		// (remove) Token: 0x060040FC RID: 16636 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x1400007B RID: 123
+		// (add) Token: 0x06004240 RID: 16960 RVA: 0x00030607 File Offset: 0x0002E807
+		// (remove) Token: 0x06004241 RID: 16961 RVA: 0x00030607 File Offset: 0x0002E807
 		public static event Action update
 		{
 			add
@@ -31,9 +31,9 @@ namespace BuildSafe
 			}
 		}
 
-		// Token: 0x14000078 RID: 120
-		// (add) Token: 0x060040FD RID: 16637 RVA: 0x000023F4 File Offset: 0x000005F4
-		// (remove) Token: 0x060040FE RID: 16638 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x1400007C RID: 124
+		// (add) Token: 0x06004242 RID: 16962 RVA: 0x00030607 File Offset: 0x0002E807
+		// (remove) Token: 0x06004243 RID: 16963 RVA: 0x00030607 File Offset: 0x0002E807
 		public static event Action delayCall
 		{
 			add

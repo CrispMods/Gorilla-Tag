@@ -3,23 +3,23 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000363 RID: 867
+// Token: 0x0200036E RID: 878
 public class UiAxis2dInspector : MonoBehaviour
 {
-	// Token: 0x0600141E RID: 5150 RVA: 0x00062977 File Offset: 0x00060B77
+	// Token: 0x0600146A RID: 5226 RVA: 0x0003DBE5 File Offset: 0x0003BDE5
 	public void SetExtents(Vector2 xExtent, Vector2 yExtent)
 	{
 		this.m_xExtent = xExtent;
 		this.m_yExtent = yExtent;
 	}
 
-	// Token: 0x0600141F RID: 5151 RVA: 0x00062987 File Offset: 0x00060B87
+	// Token: 0x0600146B RID: 5227 RVA: 0x0003DBF5 File Offset: 0x0003BDF5
 	public void SetName(string name)
 	{
 		this.m_nameLabel.text = name;
 	}
 
-	// Token: 0x06001420 RID: 5152 RVA: 0x00062998 File Offset: 0x00060B98
+	// Token: 0x0600146C RID: 5228 RVA: 0x000BBE8C File Offset: 0x000BA08C
 	public void SetValue(bool isTouching, Vector2 value)
 	{
 		this.m_handle.color = (isTouching ? Color.white : new Color(0.2f, 0.2f, 0.2f));
@@ -37,25 +37,25 @@ public class UiAxis2dInspector : MonoBehaviour
 		this.m_handle.transform.localPosition = new Vector3(vector.x * vector2.x * 0.5f, vector.y * vector2.y * 0.5f, 0f);
 	}
 
-	// Token: 0x04001643 RID: 5699
+	// Token: 0x0400168B RID: 5771
 	[Header("Settings")]
 	[SerializeField]
 	private Vector2 m_xExtent = new Vector2(-1f, 1f);
 
-	// Token: 0x04001644 RID: 5700
+	// Token: 0x0400168C RID: 5772
 	[SerializeField]
 	private Vector2 m_yExtent = new Vector2(-1f, 1f);
 
-	// Token: 0x04001645 RID: 5701
+	// Token: 0x0400168D RID: 5773
 	[Header("Components")]
 	[SerializeField]
 	private TextMeshProUGUI m_nameLabel;
 
-	// Token: 0x04001646 RID: 5702
+	// Token: 0x0400168E RID: 5774
 	[SerializeField]
 	private TextMeshProUGUI m_valueLabel;
 
-	// Token: 0x04001647 RID: 5703
+	// Token: 0x0400168F RID: 5775
 	[SerializeField]
 	private Image m_handle;
 }

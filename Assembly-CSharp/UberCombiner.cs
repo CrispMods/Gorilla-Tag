@@ -7,11 +7,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
 
-// Token: 0x020008D0 RID: 2256
+// Token: 0x020008EC RID: 2284
 [RequireComponent(typeof(RuntimeMeshCombiner))]
 public class UberCombiner : MonoBehaviour
 {
-	// Token: 0x06003683 RID: 13955 RVA: 0x00101B38 File Offset: 0x000FFD38
+	// Token: 0x0600374B RID: 14155 RVA: 0x00146FFC File Offset: 0x001451FC
 	private void CollectRenderers()
 	{
 		MeshRenderer[] array = UberCombiner.FilterRenderers(this.meshSources.SelectMany((GameObject g) => g.GetComponentsInChildren<MeshRenderer>(this.includeInactive)).ToArray<MeshRenderer>()).DistinctBy((MeshRenderer mr) => mr.GetInstanceID()).ToArray<MeshRenderer>();
@@ -19,7 +19,7 @@ public class UberCombiner : MonoBehaviour
 		string.Format("Found {0} renderers to combine.", array.Length).Echo<string>();
 	}
 
-	// Token: 0x06003684 RID: 13956 RVA: 0x00101BB0 File Offset: 0x000FFDB0
+	// Token: 0x0600374C RID: 14156 RVA: 0x00147074 File Offset: 0x00145274
 	private void ValidateRenderers()
 	{
 		List<GameObject> list = new List<GameObject>(16);
@@ -126,7 +126,7 @@ public class UberCombiner : MonoBehaviour
 		this.invalidObjects = list.DistinctBy((GameObject g) => g.GetHashCode()).ToList<GameObject>();
 	}
 
-	// Token: 0x06003685 RID: 13957 RVA: 0x00101EAC File Offset: 0x001000AC
+	// Token: 0x0600374D RID: 14157 RVA: 0x00147370 File Offset: 0x00145570
 	private void SendToCombiner()
 	{
 		List<GameObject> targetMeshes = (from r in this.renderersToCombine
@@ -138,26 +138,26 @@ public class UberCombiner : MonoBehaviour
 		this._combiner.targetMeshes = targetMeshes;
 	}
 
-	// Token: 0x06003686 RID: 13958 RVA: 0x00101F5F File Offset: 0x0010015F
+	// Token: 0x0600374E RID: 14158 RVA: 0x00054852 File Offset: 0x00052A52
 	private void MergeMeshes()
 	{
 		this._combiner.CombineMeshes();
 	}
 
-	// Token: 0x06003687 RID: 13959 RVA: 0x00101F6D File Offset: 0x0010016D
+	// Token: 0x0600374F RID: 14159 RVA: 0x00054860 File Offset: 0x00052A60
 	private void UndoMerge()
 	{
 		this._combiner.UndoMerge();
 	}
 
-	// Token: 0x06003688 RID: 13960 RVA: 0x00101F7B File Offset: 0x0010017B
+	// Token: 0x06003750 RID: 14160 RVA: 0x0005486E File Offset: 0x00052A6E
 	private void MergeAndExtractPerMaterialMeshes()
 	{
 		this._combiner.onDoneMerge.AddListener(new UnityAction(this.OnPostMerge));
 		this._combiner.CombineMeshes();
 	}
 
-	// Token: 0x06003689 RID: 13961 RVA: 0x00101FA5 File Offset: 0x001001A5
+	// Token: 0x06003751 RID: 14161 RVA: 0x00054898 File Offset: 0x00052A98
 	private void QuickMerge()
 	{
 		this.CollectRenderers();
@@ -166,7 +166,7 @@ public class UberCombiner : MonoBehaviour
 		this.MergeAndExtractPerMaterialMeshes();
 	}
 
-	// Token: 0x0600368A RID: 13962 RVA: 0x00101FC0 File Offset: 0x001001C0
+	// Token: 0x06003752 RID: 14162 RVA: 0x00147424 File Offset: 0x00145624
 	private void OnPostMerge()
 	{
 		MeshFilter component = base.GetComponent<MeshFilter>();
@@ -203,7 +203,7 @@ public class UberCombiner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600368B RID: 13963 RVA: 0x00102118 File Offset: 0x00100318
+	// Token: 0x06003753 RID: 14163 RVA: 0x0014757C File Offset: 0x0014577C
 	private void OnValidate()
 	{
 		if (!base.transform.position.Approx0(1E-05f))
@@ -221,7 +221,7 @@ public class UberCombiner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600368C RID: 13964 RVA: 0x001021A2 File Offset: 0x001003A2
+	// Token: 0x06003754 RID: 14164 RVA: 0x000548B2 File Offset: 0x00052AB2
 	private static IEnumerable<MeshRenderer> FilterRenderers(IList<MeshRenderer> renderers)
 	{
 		Shader uberShader = UberShader.ReferenceShader;
@@ -274,31 +274,31 @@ public class UberCombiner : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x040038CF RID: 14543
+	// Token: 0x04003990 RID: 14736
 	[SerializeField]
 	private RuntimeMeshCombiner _combiner;
 
-	// Token: 0x040038D0 RID: 14544
+	// Token: 0x04003991 RID: 14737
 	[Space]
 	public GameObject[] meshSources = new GameObject[0];
 
-	// Token: 0x040038D1 RID: 14545
+	// Token: 0x04003992 RID: 14738
 	[Space]
 	public GameObject[] objectsToIgnore = new GameObject[0];
 
-	// Token: 0x040038D2 RID: 14546
+	// Token: 0x04003993 RID: 14739
 	[Space]
 	[NonSerialized]
 	private MeshRenderer[] renderersToCombine = new MeshRenderer[0];
 
-	// Token: 0x040038D3 RID: 14547
+	// Token: 0x04003994 RID: 14740
 	[Space]
 	[NonSerialized]
 	private List<GameObject> invalidObjects = new List<GameObject>();
 
-	// Token: 0x040038D4 RID: 14548
+	// Token: 0x04003995 RID: 14741
 	public bool includeInactive;
 
-	// Token: 0x040038D5 RID: 14549
+	// Token: 0x04003996 RID: 14742
 	private static ShaderHashId _BaseMap = "_BaseMap";
 }

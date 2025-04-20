@@ -17,16 +17,16 @@ using PlayFab;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// Token: 0x02000266 RID: 614
+// Token: 0x02000271 RID: 625
 public class NetworkSystemFusion : NetworkSystem
 {
-	// Token: 0x17000172 RID: 370
-	// (get) Token: 0x06000E57 RID: 3671 RVA: 0x00047F96 File Offset: 0x00046196
-	// (set) Token: 0x06000E58 RID: 3672 RVA: 0x00047F9E File Offset: 0x0004619E
+	// Token: 0x17000179 RID: 377
+	// (get) Token: 0x06000EA2 RID: 3746 RVA: 0x0003A4F2 File Offset: 0x000386F2
+	// (set) Token: 0x06000EA3 RID: 3747 RVA: 0x0003A4FA File Offset: 0x000386FA
 	public NetworkRunner runner { get; private set; }
 
-	// Token: 0x17000173 RID: 371
-	// (get) Token: 0x06000E59 RID: 3673 RVA: 0x00047FA7 File Offset: 0x000461A7
+	// Token: 0x1700017A RID: 378
+	// (get) Token: 0x06000EA4 RID: 3748 RVA: 0x0003A503 File Offset: 0x00038703
 	public override bool IsOnline
 	{
 		get
@@ -35,8 +35,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x17000174 RID: 372
-	// (get) Token: 0x06000E5A RID: 3674 RVA: 0x00047FC7 File Offset: 0x000461C7
+	// Token: 0x1700017B RID: 379
+	// (get) Token: 0x06000EA5 RID: 3749 RVA: 0x0003A523 File Offset: 0x00038723
 	public override bool InRoom
 	{
 		get
@@ -45,8 +45,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x17000175 RID: 373
-	// (get) Token: 0x06000E5B RID: 3675 RVA: 0x00047FFF File Offset: 0x000461FF
+	// Token: 0x1700017C RID: 380
+	// (get) Token: 0x06000EA6 RID: 3750 RVA: 0x0003A55B File Offset: 0x0003875B
 	public override string RoomName
 	{
 		get
@@ -60,7 +60,7 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x06000E5C RID: 3676 RVA: 0x00048018 File Offset: 0x00046218
+	// Token: 0x06000EA7 RID: 3751 RVA: 0x000A4C14 File Offset: 0x000A2E14
 	public override string RoomStringStripped()
 	{
 		SessionInfo sessionInfo = this.runner.SessionInfo;
@@ -98,8 +98,8 @@ public class NetworkSystemFusion : NetworkSystem
 		return NetworkSystem.reusableSB.ToString();
 	}
 
-	// Token: 0x17000176 RID: 374
-	// (get) Token: 0x06000E5D RID: 3677 RVA: 0x000481B4 File Offset: 0x000463B4
+	// Token: 0x1700017D RID: 381
+	// (get) Token: 0x06000EA8 RID: 3752 RVA: 0x000A4DB0 File Offset: 0x000A2FB0
 	public override string GameModeString
 	{
 		get
@@ -114,8 +114,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x17000177 RID: 375
-	// (get) Token: 0x06000E5E RID: 3678 RVA: 0x000481EE File Offset: 0x000463EE
+	// Token: 0x1700017E RID: 382
+	// (get) Token: 0x06000EA9 RID: 3753 RVA: 0x0003A573 File Offset: 0x00038773
 	public override string CurrentRegion
 	{
 		get
@@ -129,8 +129,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x17000178 RID: 376
-	// (get) Token: 0x06000E5F RID: 3679 RVA: 0x00048208 File Offset: 0x00046408
+	// Token: 0x1700017F RID: 383
+	// (get) Token: 0x06000EAA RID: 3754 RVA: 0x000A4DEC File Offset: 0x000A2FEC
 	public override bool SessionIsPrivate
 	{
 		get
@@ -151,8 +151,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x17000179 RID: 377
-	// (get) Token: 0x06000E60 RID: 3680 RVA: 0x00048254 File Offset: 0x00046454
+	// Token: 0x17000180 RID: 384
+	// (get) Token: 0x06000EAB RID: 3755 RVA: 0x000A4E38 File Offset: 0x000A3038
 	public override int LocalPlayerID
 	{
 		get
@@ -161,8 +161,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x1700017A RID: 378
-	// (get) Token: 0x06000E61 RID: 3681 RVA: 0x00048274 File Offset: 0x00046474
+	// Token: 0x17000181 RID: 385
+	// (get) Token: 0x06000EAC RID: 3756 RVA: 0x0003A58B File Offset: 0x0003878B
 	public override string CurrentPhotonBackend
 	{
 		get
@@ -171,8 +171,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x1700017B RID: 379
-	// (get) Token: 0x06000E62 RID: 3682 RVA: 0x0004827B File Offset: 0x0004647B
+	// Token: 0x17000182 RID: 386
+	// (get) Token: 0x06000EAD RID: 3757 RVA: 0x0003A592 File Offset: 0x00038792
 	public override double SimTime
 	{
 		get
@@ -181,8 +181,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x1700017C RID: 380
-	// (get) Token: 0x06000E63 RID: 3683 RVA: 0x00048289 File Offset: 0x00046489
+	// Token: 0x17000183 RID: 387
+	// (get) Token: 0x06000EAE RID: 3758 RVA: 0x0003A5A0 File Offset: 0x000387A0
 	public override float SimDeltaTime
 	{
 		get
@@ -191,8 +191,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x1700017D RID: 381
-	// (get) Token: 0x06000E64 RID: 3684 RVA: 0x00048296 File Offset: 0x00046496
+	// Token: 0x17000184 RID: 388
+	// (get) Token: 0x06000EAF RID: 3759 RVA: 0x0003A5AD File Offset: 0x000387AD
 	public override int SimTick
 	{
 		get
@@ -201,8 +201,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x1700017E RID: 382
-	// (get) Token: 0x06000E65 RID: 3685 RVA: 0x000482A8 File Offset: 0x000464A8
+	// Token: 0x17000185 RID: 389
+	// (get) Token: 0x06000EB0 RID: 3760 RVA: 0x0003A5BF File Offset: 0x000387BF
 	public override int TickRate
 	{
 		get
@@ -211,8 +211,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x1700017F RID: 383
-	// (get) Token: 0x06000E66 RID: 3686 RVA: 0x00048296 File Offset: 0x00046496
+	// Token: 0x17000186 RID: 390
+	// (get) Token: 0x06000EB1 RID: 3761 RVA: 0x0003A5AD File Offset: 0x000387AD
 	public override int ServerTimestamp
 	{
 		get
@@ -221,8 +221,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x17000180 RID: 384
-	// (get) Token: 0x06000E67 RID: 3687 RVA: 0x000482B5 File Offset: 0x000464B5
+	// Token: 0x17000187 RID: 391
+	// (get) Token: 0x06000EB2 RID: 3762 RVA: 0x0003A5CC File Offset: 0x000387CC
 	public override int RoomPlayerCount
 	{
 		get
@@ -231,8 +231,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x17000181 RID: 385
-	// (get) Token: 0x06000E68 RID: 3688 RVA: 0x000482C7 File Offset: 0x000464C7
+	// Token: 0x17000188 RID: 392
+	// (get) Token: 0x06000EB3 RID: 3763 RVA: 0x0003A5DE File Offset: 0x000387DE
 	public override VoiceConnection VoiceConnection
 	{
 		get
@@ -241,8 +241,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x17000182 RID: 386
-	// (get) Token: 0x06000E69 RID: 3689 RVA: 0x000482CF File Offset: 0x000464CF
+	// Token: 0x17000189 RID: 393
+	// (get) Token: 0x06000EB4 RID: 3764 RVA: 0x0003A5E6 File Offset: 0x000387E6
 	public override bool IsMasterClient
 	{
 		get
@@ -252,8 +252,8 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x17000183 RID: 387
-	// (get) Token: 0x06000E6A RID: 3690 RVA: 0x000482E4 File Offset: 0x000464E4
+	// Token: 0x1700018A RID: 394
+	// (get) Token: 0x06000EB5 RID: 3765 RVA: 0x000A4E58 File Offset: 0x000A3058
 	public override NetPlayer MasterClient
 	{
 		get
@@ -270,7 +270,7 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x06000E6B RID: 3691 RVA: 0x00048344 File Offset: 0x00046544
+	// Token: 0x06000EB6 RID: 3766 RVA: 0x000A4EB8 File Offset: 0x000A30B8
 	public override void Initialise()
 	{
 		NetworkSystemFusion.<Initialise>d__54 <Initialise>d__;
@@ -280,7 +280,7 @@ public class NetworkSystemFusion : NetworkSystem
 		<Initialise>d__.<>t__builder.Start<NetworkSystemFusion.<Initialise>d__54>(ref <Initialise>d__);
 	}
 
-	// Token: 0x06000E6C RID: 3692 RVA: 0x0004837C File Offset: 0x0004657C
+	// Token: 0x06000EB7 RID: 3767 RVA: 0x000A4EF0 File Offset: 0x000A30F0
 	private void CreateRegionCrawler()
 	{
 		GameObject gameObject = new GameObject("[Network Crawler]");
@@ -288,7 +288,7 @@ public class NetworkSystemFusion : NetworkSystem
 		this.regionCrawler = gameObject.AddComponent<FusionRegionCrawler>();
 	}
 
-	// Token: 0x06000E6D RID: 3693 RVA: 0x000483B4 File Offset: 0x000465B4
+	// Token: 0x06000EB8 RID: 3768 RVA: 0x000A4F28 File Offset: 0x000A3128
 	private Task AwaitAuth()
 	{
 		NetworkSystemFusion.<AwaitAuth>d__56 <AwaitAuth>d__;
@@ -299,7 +299,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return <AwaitAuth>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000E6E RID: 3694 RVA: 0x000483F7 File Offset: 0x000465F7
+	// Token: 0x06000EB9 RID: 3769 RVA: 0x0003A5F9 File Offset: 0x000387F9
 	public override void FinishAuthenticating()
 	{
 		if (this.cachedPlayfabAuth != null)
@@ -310,7 +310,7 @@ public class NetworkSystemFusion : NetworkSystem
 		Debug.LogError("Authentication Failed");
 	}
 
-	// Token: 0x06000E6F RID: 3695 RVA: 0x00048418 File Offset: 0x00046618
+	// Token: 0x06000EBA RID: 3770 RVA: 0x000A4F6C File Offset: 0x000A316C
 	public override Task<NetJoinResult> ConnectToRoom(string roomName, RoomConfig opts, int regionIndex = -1)
 	{
 		NetworkSystemFusion.<ConnectToRoom>d__58 <ConnectToRoom>d__;
@@ -323,7 +323,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return <ConnectToRoom>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000E70 RID: 3696 RVA: 0x0004846C File Offset: 0x0004666C
+	// Token: 0x06000EBB RID: 3771 RVA: 0x000A4FC0 File Offset: 0x000A31C0
 	private Task<bool> Connect(Fusion.GameMode mode, string targetSessionName, RoomConfig opts)
 	{
 		NetworkSystemFusion.<Connect>d__59 <Connect>d__;
@@ -337,7 +337,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return <Connect>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000E71 RID: 3697 RVA: 0x000484C8 File Offset: 0x000466C8
+	// Token: 0x06000EBC RID: 3772 RVA: 0x000A501C File Offset: 0x000A321C
 	private Task<NetJoinResult> MakeOrJoinRoom(string roomName, RoomConfig opts)
 	{
 		NetworkSystemFusion.<MakeOrJoinRoom>d__60 <MakeOrJoinRoom>d__;
@@ -350,7 +350,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return <MakeOrJoinRoom>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000E72 RID: 3698 RVA: 0x0004851C File Offset: 0x0004671C
+	// Token: 0x06000EBD RID: 3773 RVA: 0x000A5070 File Offset: 0x000A3270
 	private Task<NetJoinResult> JoinRandomPublicRoom(RoomConfig opts)
 	{
 		NetworkSystemFusion.<JoinRandomPublicRoom>d__61 <JoinRandomPublicRoom>d__;
@@ -362,7 +362,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return <JoinRandomPublicRoom>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000E73 RID: 3699 RVA: 0x00048568 File Offset: 0x00046768
+	// Token: 0x06000EBE RID: 3774 RVA: 0x000A50BC File Offset: 0x000A32BC
 	public override Task JoinFriendsRoom(string userID, int actorIDToFollow, string keyToFollow, string shufflerToFollow)
 	{
 		NetworkSystemFusion.<JoinFriendsRoom>d__62 <JoinFriendsRoom>d__;
@@ -377,13 +377,13 @@ public class NetworkSystemFusion : NetworkSystem
 		return <JoinFriendsRoom>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000E74 RID: 3700 RVA: 0x00002628 File Offset: 0x00000828
+	// Token: 0x06000EBF RID: 3775 RVA: 0x000306DC File Offset: 0x0002E8DC
 	public override void JoinPubWithFriends()
 	{
 		throw new NotImplementedException();
 	}
 
-	// Token: 0x06000E75 RID: 3701 RVA: 0x000485CC File Offset: 0x000467CC
+	// Token: 0x06000EC0 RID: 3776 RVA: 0x000A5120 File Offset: 0x000A3320
 	public override Task ReturnToSinglePlayer()
 	{
 		NetworkSystemFusion.<ReturnToSinglePlayer>d__64 <ReturnToSinglePlayer>d__;
@@ -394,7 +394,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return <ReturnToSinglePlayer>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000E76 RID: 3702 RVA: 0x00048610 File Offset: 0x00046810
+	// Token: 0x06000EC1 RID: 3777 RVA: 0x000A5164 File Offset: 0x000A3364
 	private Task CloseRunner(ShutdownReason reason = ShutdownReason.Ok)
 	{
 		NetworkSystemFusion.<CloseRunner>d__65 <CloseRunner>d__;
@@ -406,7 +406,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return <CloseRunner>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000E77 RID: 3703 RVA: 0x0004865C File Offset: 0x0004685C
+	// Token: 0x06000EC2 RID: 3778 RVA: 0x000A51B0 File Offset: 0x000A33B0
 	public void MigrateHost(NetworkRunner runner, HostMigrationToken hostMigrationToken)
 	{
 		NetworkSystemFusion.<MigrateHost>d__66 <MigrateHost>d__;
@@ -416,7 +416,7 @@ public class NetworkSystemFusion : NetworkSystem
 		<MigrateHost>d__.<>t__builder.Start<NetworkSystemFusion.<MigrateHost>d__66>(ref <MigrateHost>d__);
 	}
 
-	// Token: 0x06000E78 RID: 3704 RVA: 0x00048694 File Offset: 0x00046894
+	// Token: 0x06000EC3 RID: 3779 RVA: 0x000A51E8 File Offset: 0x000A33E8
 	public void ResetSystem()
 	{
 		NetworkSystemFusion.<ResetSystem>d__67 <ResetSystem>d__;
@@ -426,14 +426,14 @@ public class NetworkSystemFusion : NetworkSystem
 		<ResetSystem>d__.<>t__builder.Start<NetworkSystemFusion.<ResetSystem>d__67>(ref <ResetSystem>d__);
 	}
 
-	// Token: 0x06000E79 RID: 3705 RVA: 0x000486CB File Offset: 0x000468CB
+	// Token: 0x06000EC4 RID: 3780 RVA: 0x0003A618 File Offset: 0x00038818
 	private void AddVoice()
 	{
 		this.SetupVoice();
 		this.FusionVoiceBridge = this.volatileNetObj.AddComponent<FusionVoiceBridge>();
 	}
 
-	// Token: 0x06000E7A RID: 3706 RVA: 0x000486E4 File Offset: 0x000468E4
+	// Token: 0x06000EC5 RID: 3781 RVA: 0x000A5220 File Offset: 0x000A3420
 	private void SetupVoice()
 	{
 		Utils.Log("<color=orange>Adding Voice Stuff</color>");
@@ -474,19 +474,19 @@ public class NetworkSystemFusion : NetworkSystem
 		this.volatileNetObj.AddComponent<VoiceToLoudness>();
 	}
 
-	// Token: 0x06000E7B RID: 3707 RVA: 0x00048987 File Offset: 0x00046B87
+	// Token: 0x06000EC6 RID: 3782 RVA: 0x0003A631 File Offset: 0x00038831
 	public override void AddRemoteVoiceAddedCallback(Action<RemoteVoiceLink> callback)
 	{
 		this.remoteVoiceAddedCallbacks.Add(callback);
 	}
 
-	// Token: 0x06000E7C RID: 3708 RVA: 0x00048995 File Offset: 0x00046B95
+	// Token: 0x06000EC7 RID: 3783 RVA: 0x0003A63F File Offset: 0x0003883F
 	private void AttachCallbackTargets()
 	{
 		this.runner.AddCallbacks(this.objectsThatNeedCallbacks.ToArray());
 	}
 
-	// Token: 0x06000E7D RID: 3709 RVA: 0x000489AD File Offset: 0x00046BAD
+	// Token: 0x06000EC8 RID: 3784 RVA: 0x0003A657 File Offset: 0x00038857
 	public void RegisterForNetworkCallbacks(INetworkRunnerCallbacks callbacks)
 	{
 		if (!this.objectsThatNeedCallbacks.Contains(callbacks))
@@ -502,7 +502,7 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x06000E7E RID: 3710 RVA: 0x000489EC File Offset: 0x00046BEC
+	// Token: 0x06000EC9 RID: 3785 RVA: 0x000A54C4 File Offset: 0x000A36C4
 	private void AttachSceneObjects(bool onlyCached = false)
 	{
 		NetworkSystemFusion.<AttachSceneObjects>d__75 <AttachSceneObjects>d__;
@@ -513,7 +513,7 @@ public class NetworkSystemFusion : NetworkSystem
 		<AttachSceneObjects>d__.<>t__builder.Start<NetworkSystemFusion.<AttachSceneObjects>d__75>(ref <AttachSceneObjects>d__);
 	}
 
-	// Token: 0x06000E7F RID: 3711 RVA: 0x00048A2C File Offset: 0x00046C2C
+	// Token: 0x06000ECA RID: 3786 RVA: 0x000A5504 File Offset: 0x000A3704
 	public override void AttachObjectInGame(GameObject item)
 	{
 		base.AttachObjectInGame(item);
@@ -526,7 +526,7 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x06000E80 RID: 3712 RVA: 0x00048A84 File Offset: 0x00046C84
+	// Token: 0x06000ECB RID: 3787 RVA: 0x000A555C File Offset: 0x000A375C
 	private void ProcessRegistrationQueue()
 	{
 		if (this.isProcessingQueue)
@@ -560,7 +560,7 @@ public class NetworkSystemFusion : NetworkSystem
 		this.isProcessingQueue = false;
 	}
 
-	// Token: 0x06000E81 RID: 3713 RVA: 0x00048B80 File Offset: 0x00046D80
+	// Token: 0x06000ECC RID: 3788 RVA: 0x000A5658 File Offset: 0x000A3858
 	public override GameObject NetInstantiate(GameObject prefab, Vector3 position, Quaternion rotation, bool isRoomObject = false)
 	{
 		Utils.Log("Net instantiate Fusion: " + prefab.name);
@@ -575,7 +575,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return null;
 	}
 
-	// Token: 0x06000E82 RID: 3714 RVA: 0x00048BF0 File Offset: 0x00046DF0
+	// Token: 0x06000ECD RID: 3789 RVA: 0x000A56C8 File Offset: 0x000A38C8
 	public override GameObject NetInstantiate(GameObject prefab, Vector3 position, Quaternion rotation, int playerAuthID, bool isRoomObject = false)
 	{
 		foreach (PlayerRef value in this.runner.ActivePlayers)
@@ -590,14 +590,14 @@ public class NetworkSystemFusion : NetworkSystem
 		return null;
 	}
 
-	// Token: 0x06000E83 RID: 3715 RVA: 0x00048C9C File Offset: 0x00046E9C
+	// Token: 0x06000ECE RID: 3790 RVA: 0x000A5774 File Offset: 0x000A3974
 	public override GameObject NetInstantiate(GameObject prefab, Vector3 position, Quaternion rotation, bool isRoomObject, byte group = 0, object[] data = null, NetworkRunner.OnBeforeSpawned callback = null)
 	{
 		Utils.Log("Net instantiate Fusion: " + prefab.name);
 		return this.runner.Spawn(prefab, new Vector3?(position), new Quaternion?(rotation), new PlayerRef?(this.runner.LocalPlayer), callback, (NetworkSpawnFlags)0).gameObject;
 	}
 
-	// Token: 0x06000E84 RID: 3716 RVA: 0x00048CF0 File Offset: 0x00046EF0
+	// Token: 0x06000ECF RID: 3791 RVA: 0x000A57C8 File Offset: 0x000A39C8
 	public override void NetDestroy(GameObject instance)
 	{
 		NetworkObject networkObject;
@@ -606,10 +606,10 @@ public class NetworkSystemFusion : NetworkSystem
 			this.runner.Despawn(networkObject);
 			return;
 		}
-		Object.Destroy(instance);
+		UnityEngine.Object.Destroy(instance);
 	}
 
-	// Token: 0x06000E85 RID: 3717 RVA: 0x00048D1C File Offset: 0x00046F1C
+	// Token: 0x06000ED0 RID: 3792 RVA: 0x000A57F4 File Offset: 0x000A39F4
 	public override bool ShouldSpawnLocally(int playerID)
 	{
 		if (this.runner.GameMode == Fusion.GameMode.Shared)
@@ -619,7 +619,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return this.runner.GameMode != Fusion.GameMode.Client;
 	}
 
-	// Token: 0x06000E86 RID: 3718 RVA: 0x00048D74 File Offset: 0x00046F74
+	// Token: 0x06000ED1 RID: 3793 RVA: 0x000A584C File Offset: 0x000A3A4C
 	public override void CallRPC(MonoBehaviour component, NetworkSystem.RPC rpcMethod, bool sendToSelf = true)
 	{
 		Utils.Log(rpcMethod.GetDelegateName() + "RPC called!");
@@ -632,7 +632,7 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x06000E87 RID: 3719 RVA: 0x00048DEC File Offset: 0x00046FEC
+	// Token: 0x06000ED2 RID: 3794 RVA: 0x000A58C4 File Offset: 0x000A3AC4
 	public override void CallRPC<T>(MonoBehaviour component, NetworkSystem.RPC rpcMethod, RPCArgBuffer<T> args, bool sendToSelf = true)
 	{
 		Utils.Log(rpcMethod.GetDelegateName() + "RPC called!");
@@ -646,7 +646,7 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x06000E88 RID: 3720 RVA: 0x00048E6C File Offset: 0x0004706C
+	// Token: 0x06000ED3 RID: 3795 RVA: 0x000A5944 File Offset: 0x000A3B44
 	public override void CallRPC(MonoBehaviour component, NetworkSystem.StringRPC rpcMethod, string message, bool sendToSelf = true)
 	{
 		foreach (PlayerRef a in this.runner.ActivePlayers)
@@ -658,41 +658,41 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x06000E89 RID: 3721 RVA: 0x00048ED0 File Offset: 0x000470D0
+	// Token: 0x06000ED4 RID: 3796 RVA: 0x0003A696 File Offset: 0x00038896
 	public override void CallRPC(int targetPlayerID, MonoBehaviour component, NetworkSystem.RPC rpcMethod)
 	{
 		this.GetPlayerRef(targetPlayerID);
 		Utils.Log(rpcMethod.GetDelegateName() + "RPC called!");
 	}
 
-	// Token: 0x06000E8A RID: 3722 RVA: 0x00048EEF File Offset: 0x000470EF
+	// Token: 0x06000ED5 RID: 3797 RVA: 0x0003A6B5 File Offset: 0x000388B5
 	public override void CallRPC<T>(int targetPlayerID, MonoBehaviour component, NetworkSystem.RPC rpcMethod, RPCArgBuffer<T> args)
 	{
 		Utils.Log(rpcMethod.GetDelegateName() + "RPC called!");
 		this.GetPlayerRef(targetPlayerID);
 	}
 
-	// Token: 0x06000E8B RID: 3723 RVA: 0x00048F0E File Offset: 0x0004710E
+	// Token: 0x06000ED6 RID: 3798 RVA: 0x0003A6D4 File Offset: 0x000388D4
 	public override void CallRPC(int targetPlayerID, MonoBehaviour component, NetworkSystem.StringRPC rpcMethod, string message)
 	{
 		this.GetPlayerRef(targetPlayerID);
 	}
 
-	// Token: 0x06000E8C RID: 3724 RVA: 0x00048F18 File Offset: 0x00047118
+	// Token: 0x06000ED7 RID: 3799 RVA: 0x000A59A8 File Offset: 0x000A3BA8
 	public override void NetRaiseEventReliable(byte eventCode, object data)
 	{
 		byte[] byteData = data.ByteSerialize();
 		FusionCallbackHandler.RPC_OnEventRaisedReliable(this.runner, eventCode, byteData, false, null, default(RpcInfo));
 	}
 
-	// Token: 0x06000E8D RID: 3725 RVA: 0x00048F44 File Offset: 0x00047144
+	// Token: 0x06000ED8 RID: 3800 RVA: 0x000A59D4 File Offset: 0x000A3BD4
 	public override void NetRaiseEventUnreliable(byte eventCode, object data)
 	{
 		byte[] byteData = data.ByteSerialize();
 		FusionCallbackHandler.RPC_OnEventRaisedUnreliable(this.runner, eventCode, byteData, false, null, default(RpcInfo));
 	}
 
-	// Token: 0x06000E8E RID: 3726 RVA: 0x00048F70 File Offset: 0x00047170
+	// Token: 0x06000ED9 RID: 3801 RVA: 0x000A5A00 File Offset: 0x000A3C00
 	public override void NetRaiseEventReliable(byte eventCode, object data, NetEventOptions opts)
 	{
 		byte[] byteData = data.ByteSerialize();
@@ -700,7 +700,7 @@ public class NetworkSystemFusion : NetworkSystem
 		FusionCallbackHandler.RPC_OnEventRaisedReliable(this.runner, eventCode, byteData, true, netOptsData, default(RpcInfo));
 	}
 
-	// Token: 0x06000E8F RID: 3727 RVA: 0x00048FA4 File Offset: 0x000471A4
+	// Token: 0x06000EDA RID: 3802 RVA: 0x000A5A34 File Offset: 0x000A3C34
 	public override void NetRaiseEventUnreliable(byte eventCode, object data, NetEventOptions opts)
 	{
 		byte[] byteData = data.ByteSerialize();
@@ -708,13 +708,13 @@ public class NetworkSystemFusion : NetworkSystem
 		FusionCallbackHandler.RPC_OnEventRaisedUnreliable(this.runner, eventCode, byteData, true, netOptsData, default(RpcInfo));
 	}
 
-	// Token: 0x06000E90 RID: 3728 RVA: 0x00002628 File Offset: 0x00000828
+	// Token: 0x06000EDB RID: 3803 RVA: 0x000306DC File Offset: 0x0002E8DC
 	public override string GetRandomWeightedRegion()
 	{
 		throw new NotImplementedException();
 	}
 
-	// Token: 0x06000E91 RID: 3729 RVA: 0x00048FD8 File Offset: 0x000471D8
+	// Token: 0x06000EDC RID: 3804 RVA: 0x000A5A68 File Offset: 0x000A3C68
 	public override Task AwaitSceneReady()
 	{
 		NetworkSystemFusion.<AwaitSceneReady>d__94 <AwaitSceneReady>d__;
@@ -725,12 +725,12 @@ public class NetworkSystemFusion : NetworkSystem
 		return <AwaitSceneReady>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000E92 RID: 3730 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000EDD RID: 3805 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnJoinedSession()
 	{
 	}
 
-	// Token: 0x06000E93 RID: 3731 RVA: 0x0004901B File Offset: 0x0004721B
+	// Token: 0x06000EDE RID: 3806 RVA: 0x0003A6DE File Offset: 0x000388DE
 	public void OnJoinFailed(NetConnectFailedReason reason)
 	{
 		switch (reason)
@@ -746,7 +746,7 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x06000E94 RID: 3732 RVA: 0x00049039 File Offset: 0x00047239
+	// Token: 0x06000EDF RID: 3807 RVA: 0x0003A6FC File Offset: 0x000388FC
 	public void OnDisconnectedFromSession()
 	{
 		Utils.Log("On Disconnected");
@@ -754,7 +754,7 @@ public class NetworkSystemFusion : NetworkSystem
 		base.UpdatePlayers();
 	}
 
-	// Token: 0x06000E95 RID: 3733 RVA: 0x00049053 File Offset: 0x00047253
+	// Token: 0x06000EE0 RID: 3808 RVA: 0x0003A716 File Offset: 0x00038916
 	public void OnRunnerShutDown()
 	{
 		Utils.Log("Runner shutdown callback");
@@ -764,13 +764,13 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x06000E96 RID: 3734 RVA: 0x00049071 File Offset: 0x00047271
+	// Token: 0x06000EE1 RID: 3809 RVA: 0x0003A734 File Offset: 0x00038934
 	public void OnFusionPlayerJoined(PlayerRef player)
 	{
 		this.AwaitJoiningPlayerClientReady(player);
 	}
 
-	// Token: 0x06000E97 RID: 3735 RVA: 0x0004907C File Offset: 0x0004727C
+	// Token: 0x06000EE2 RID: 3810 RVA: 0x000A5AAC File Offset: 0x000A3CAC
 	private Task AwaitJoiningPlayerClientReady(PlayerRef player)
 	{
 		NetworkSystemFusion.<AwaitJoiningPlayerClientReady>d__100 <AwaitJoiningPlayerClientReady>d__;
@@ -782,7 +782,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return <AwaitJoiningPlayerClientReady>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06000E98 RID: 3736 RVA: 0x000490C8 File Offset: 0x000472C8
+	// Token: 0x06000EE3 RID: 3811 RVA: 0x000A5AF8 File Offset: 0x000A3CF8
 	public void OnFusionPlayerLeft(PlayerRef player)
 	{
 		if (this.IsTotalAuthority())
@@ -807,7 +807,7 @@ public class NetworkSystemFusion : NetworkSystem
 		base.UpdatePlayers();
 	}
 
-	// Token: 0x06000E99 RID: 3737 RVA: 0x00049138 File Offset: 0x00047338
+	// Token: 0x06000EE4 RID: 3812 RVA: 0x000A5B68 File Offset: 0x000A3D68
 	protected override void UpdateNetPlayerList()
 	{
 		if (this.runner == null)
@@ -898,7 +898,7 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x06000E9A RID: 3738 RVA: 0x000493F4 File Offset: 0x000475F4
+	// Token: 0x06000EE5 RID: 3813 RVA: 0x000A5E24 File Offset: 0x000A4024
 	public override void SetPlayerObject(GameObject playerInstance, int? owningPlayerID = null)
 	{
 		PlayerRef player = this.runner.LocalPlayer;
@@ -909,7 +909,7 @@ public class NetworkSystemFusion : NetworkSystem
 		this.runner.SetPlayerObject(player, playerInstance.GetComponent<NetworkObject>());
 	}
 
-	// Token: 0x06000E9B RID: 3739 RVA: 0x00049438 File Offset: 0x00047638
+	// Token: 0x06000EE6 RID: 3814 RVA: 0x000A5E68 File Offset: 0x000A4068
 	private PlayerRef GetPlayerRef(int playerID)
 	{
 		if (this.runner == null)
@@ -928,7 +928,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return default(PlayerRef);
 	}
 
-	// Token: 0x06000E9C RID: 3740 RVA: 0x000494D4 File Offset: 0x000476D4
+	// Token: 0x06000EE7 RID: 3815 RVA: 0x000A5F04 File Offset: 0x000A4104
 	public override NetPlayer GetLocalPlayer()
 	{
 		if (this.netPlayerCache.Count == 0 || this.netPlayerCache.Count != this.runner.SessionInfo.PlayerCount)
@@ -946,7 +946,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return null;
 	}
 
-	// Token: 0x06000E9D RID: 3741 RVA: 0x0004956C File Offset: 0x0004776C
+	// Token: 0x06000EE8 RID: 3816 RVA: 0x000A5F9C File Offset: 0x000A419C
 	public override NetPlayer GetPlayer(int PlayerID)
 	{
 		if (PlayerID == -1)
@@ -976,7 +976,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return null;
 	}
 
-	// Token: 0x06000E9E RID: 3742 RVA: 0x00049660 File Offset: 0x00047860
+	// Token: 0x06000EE9 RID: 3817 RVA: 0x000A6090 File Offset: 0x000A4290
 	public override void SetMyNickName(string name)
 	{
 		ValueTuple<bool, Permission.ManagedByEnum> customNicknamePermissionStatus = KIDManager.Instance.GetCustomNicknamePermissionStatus();
@@ -996,26 +996,26 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x06000E9F RID: 3743 RVA: 0x0004971F File Offset: 0x0004791F
+	// Token: 0x06000EEA RID: 3818 RVA: 0x0003A73E File Offset: 0x0003893E
 	public override string GetMyNickName()
 	{
 		return PlayerPrefs.GetString("playerName");
 	}
 
-	// Token: 0x06000EA0 RID: 3744 RVA: 0x0004972C File Offset: 0x0004792C
+	// Token: 0x06000EEB RID: 3819 RVA: 0x000A6150 File Offset: 0x000A4350
 	public override string GetMyDefaultName()
 	{
-		return "gorilla" + Random.Range(0, 9999).ToString().PadLeft(4, '0');
+		return "gorilla" + UnityEngine.Random.Range(0, 9999).ToString().PadLeft(4, '0');
 	}
 
-	// Token: 0x06000EA1 RID: 3745 RVA: 0x00049760 File Offset: 0x00047960
+	// Token: 0x06000EEC RID: 3820 RVA: 0x000A6184 File Offset: 0x000A4384
 	public override string GetNickName(int playerID)
 	{
 		NetPlayer player = this.GetPlayer(playerID);
 		return this.GetNickName(player);
 	}
 
-	// Token: 0x06000EA2 RID: 3746 RVA: 0x0004977C File Offset: 0x0004797C
+	// Token: 0x06000EED RID: 3821 RVA: 0x000A61A0 File Offset: 0x000A43A0
 	public override string GetNickName(NetPlayer player)
 	{
 		if (player == null)
@@ -1033,13 +1033,13 @@ public class NetworkSystemFusion : NetworkSystem
 		return rigContainer.Rig.rigSerializer.nickName.Value ?? "";
 	}
 
-	// Token: 0x06000EA3 RID: 3747 RVA: 0x0004981A File Offset: 0x00047A1A
+	// Token: 0x06000EEE RID: 3822 RVA: 0x0003A74A File Offset: 0x0003894A
 	public override string GetMyUserID()
 	{
 		return this.runner.GetPlayerUserId(this.runner.LocalPlayer);
 	}
 
-	// Token: 0x06000EA4 RID: 3748 RVA: 0x00049832 File Offset: 0x00047A32
+	// Token: 0x06000EEF RID: 3823 RVA: 0x0003A762 File Offset: 0x00038962
 	public override string GetUserID(int playerID)
 	{
 		if (this.runner == null)
@@ -1049,7 +1049,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return this.runner.GetPlayerUserId(this.GetPlayerRef(playerID));
 	}
 
-	// Token: 0x06000EA5 RID: 3749 RVA: 0x0004985A File Offset: 0x00047A5A
+	// Token: 0x06000EF0 RID: 3824 RVA: 0x0003A78A File Offset: 0x0003898A
 	public override string GetUserID(NetPlayer player)
 	{
 		if (this.runner == null)
@@ -1059,7 +1059,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return this.runner.GetPlayerUserId(((FusionNetPlayer)player).PlayerRef);
 	}
 
-	// Token: 0x06000EA6 RID: 3750 RVA: 0x00049886 File Offset: 0x00047A86
+	// Token: 0x06000EF1 RID: 3825 RVA: 0x0003A7B6 File Offset: 0x000389B6
 	public override void SetMyTutorialComplete()
 	{
 		if (!(PlayerPrefs.GetString("didTutorial", "nope") == "done"))
@@ -1069,13 +1069,13 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x06000EA7 RID: 3751 RVA: 0x000498B7 File Offset: 0x00047AB7
+	// Token: 0x06000EF2 RID: 3826 RVA: 0x0003A7E7 File Offset: 0x000389E7
 	public override bool GetMyTutorialCompletion()
 	{
 		return PlayerPrefs.GetString("didTutorial", "nope") == "done";
 	}
 
-	// Token: 0x06000EA8 RID: 3752 RVA: 0x000498D4 File Offset: 0x00047AD4
+	// Token: 0x06000EF3 RID: 3827 RVA: 0x000A6240 File Offset: 0x000A4440
 	public override bool GetPlayerTutorialCompletion(int playerID)
 	{
 		NetPlayer player = this.GetPlayer(playerID);
@@ -1099,7 +1099,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return rigContainer.Rig.rigSerializer.tutorialComplete;
 	}
 
-	// Token: 0x06000EA9 RID: 3753 RVA: 0x0004994A File Offset: 0x00047B4A
+	// Token: 0x06000EF4 RID: 3828 RVA: 0x0003A802 File Offset: 0x00038A02
 	public override int GlobalPlayerCount()
 	{
 		if (this.regionCrawler == null)
@@ -1109,7 +1109,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return this.regionCrawler.PlayerCountGlobal;
 	}
 
-	// Token: 0x06000EAA RID: 3754 RVA: 0x00049968 File Offset: 0x00047B68
+	// Token: 0x06000EF5 RID: 3829 RVA: 0x000A62B8 File Offset: 0x000A44B8
 	public override int GetOwningPlayerID(GameObject obj)
 	{
 		NetworkObject networkObject;
@@ -1124,7 +1124,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return networkObject.InputAuthority.PlayerId;
 	}
 
-	// Token: 0x06000EAB RID: 3755 RVA: 0x000499AC File Offset: 0x00047BAC
+	// Token: 0x06000EF6 RID: 3830 RVA: 0x000A62FC File Offset: 0x000A44FC
 	public override bool IsObjectLocallyOwned(GameObject obj)
 	{
 		NetworkObject networkObject;
@@ -1139,20 +1139,20 @@ public class NetworkSystemFusion : NetworkSystem
 		return networkObject.InputAuthority == this.runner.LocalPlayer;
 	}
 
-	// Token: 0x06000EAC RID: 3756 RVA: 0x00049A00 File Offset: 0x00047C00
+	// Token: 0x06000EF7 RID: 3831 RVA: 0x0003A81F File Offset: 0x00038A1F
 	public override bool IsTotalAuthority()
 	{
 		return this.runner.Mode == SimulationModes.Server || this.runner.Mode == SimulationModes.Host || this.runner.GameMode == Fusion.GameMode.Single || this.runner.IsSharedModeMasterClient;
 	}
 
-	// Token: 0x06000EAD RID: 3757 RVA: 0x00049A3C File Offset: 0x00047C3C
+	// Token: 0x06000EF8 RID: 3832 RVA: 0x000A6350 File Offset: 0x000A4550
 	public override bool ShouldWriteObjectData(GameObject obj)
 	{
 		NetworkObject networkObject;
 		return obj.TryGetComponent<NetworkObject>(out networkObject) && networkObject.HasStateAuthority;
 	}
 
-	// Token: 0x06000EAE RID: 3758 RVA: 0x00049A5C File Offset: 0x00047C5C
+	// Token: 0x06000EF9 RID: 3833 RVA: 0x000A6370 File Offset: 0x000A4570
 	public override bool ShouldUpdateObject(GameObject obj)
 	{
 		NetworkObject networkObject;
@@ -1171,7 +1171,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return this.runner.IsSharedModeMasterClient;
 	}
 
-	// Token: 0x06000EAF RID: 3759 RVA: 0x00049AC4 File Offset: 0x00047CC4
+	// Token: 0x06000EFA RID: 3834 RVA: 0x000A63D8 File Offset: 0x000A45D8
 	public override bool IsObjectRoomObject(GameObject obj)
 	{
 		NetworkObject networkObject;
@@ -1183,7 +1183,7 @@ public class NetworkSystemFusion : NetworkSystem
 		return false;
 	}
 
-	// Token: 0x06000EB0 RID: 3760 RVA: 0x00049AE8 File Offset: 0x00047CE8
+	// Token: 0x06000EFB RID: 3835 RVA: 0x000A63FC File Offset: 0x000A45FC
 	private void OnMasterSwitch(NetPlayer player)
 	{
 		if (this.runner.IsSharedModeMasterClient)
@@ -1199,82 +1199,82 @@ public class NetworkSystemFusion : NetworkSystem
 		}
 	}
 
-	// Token: 0x04001113 RID: 4371
+	// Token: 0x04001159 RID: 4441
 	private NetworkSystemFusion.InternalState internalState;
 
-	// Token: 0x04001114 RID: 4372
+	// Token: 0x0400115A RID: 4442
 	private FusionInternalRPCs internalRPCProvider;
 
-	// Token: 0x04001115 RID: 4373
+	// Token: 0x0400115B RID: 4443
 	private FusionCallbackHandler callbackHandler;
 
-	// Token: 0x04001116 RID: 4374
+	// Token: 0x0400115C RID: 4444
 	private FusionRegionCrawler regionCrawler;
 
-	// Token: 0x04001117 RID: 4375
+	// Token: 0x0400115D RID: 4445
 	private GameObject volatileNetObj;
 
-	// Token: 0x04001118 RID: 4376
+	// Token: 0x0400115E RID: 4446
 	private Fusion.Photon.Realtime.AuthenticationValues cachedPlayfabAuth;
 
-	// Token: 0x04001119 RID: 4377
+	// Token: 0x0400115F RID: 4447
 	private const string playerPropertiesPath = "P_FusionProperties";
 
-	// Token: 0x0400111A RID: 4378
+	// Token: 0x04001160 RID: 4448
 	private bool lastConnectAttempt_WasFull;
 
-	// Token: 0x0400111B RID: 4379
+	// Token: 0x04001161 RID: 4449
 	private FusionVoiceBridge FusionVoiceBridge;
 
-	// Token: 0x0400111C RID: 4380
+	// Token: 0x04001162 RID: 4450
 	private VoiceConnection FusionVoice;
 
-	// Token: 0x0400111D RID: 4381
+	// Token: 0x04001163 RID: 4451
 	private CustomObjectProvider myObjectProvider;
 
-	// Token: 0x0400111E RID: 4382
+	// Token: 0x04001164 RID: 4452
 	private ObjectPool<FusionNetPlayer> playerPool;
 
-	// Token: 0x0400111F RID: 4383
+	// Token: 0x04001165 RID: 4453
 	public List<NetworkObject> cachedNetSceneObjects = new List<NetworkObject>();
 
-	// Token: 0x04001120 RID: 4384
+	// Token: 0x04001166 RID: 4454
 	private List<INetworkRunnerCallbacks> objectsThatNeedCallbacks = new List<INetworkRunnerCallbacks>();
 
-	// Token: 0x04001121 RID: 4385
+	// Token: 0x04001167 RID: 4455
 	private Queue<NetworkObject> registrationQueue = new Queue<NetworkObject>();
 
-	// Token: 0x04001122 RID: 4386
+	// Token: 0x04001168 RID: 4456
 	private bool isProcessingQueue;
 
-	// Token: 0x02000267 RID: 615
+	// Token: 0x02000272 RID: 626
 	private enum InternalState
 	{
-		// Token: 0x04001124 RID: 4388
+		// Token: 0x0400116A RID: 4458
 		AwaitingAuth,
-		// Token: 0x04001125 RID: 4389
+		// Token: 0x0400116B RID: 4459
 		Idle,
-		// Token: 0x04001126 RID: 4390
+		// Token: 0x0400116C RID: 4460
 		Searching_Joining,
-		// Token: 0x04001127 RID: 4391
+		// Token: 0x0400116D RID: 4461
 		Searching_Joined,
-		// Token: 0x04001128 RID: 4392
+		// Token: 0x0400116E RID: 4462
 		Searching_JoinFailed,
-		// Token: 0x04001129 RID: 4393
+		// Token: 0x0400116F RID: 4463
 		Searching_Disconnecting,
-		// Token: 0x0400112A RID: 4394
+		// Token: 0x04001170 RID: 4464
 		Searching_Disconnected,
-		// Token: 0x0400112B RID: 4395
+		// Token: 0x04001171 RID: 4465
 		ConnectingToRoom,
-		// Token: 0x0400112C RID: 4396
+		// Token: 0x04001172 RID: 4466
 		ConnectedToRoom,
-		// Token: 0x0400112D RID: 4397
+		// Token: 0x04001173 RID: 4467
 		JoinRoomFailed,
-		// Token: 0x0400112E RID: 4398
+		// Token: 0x04001174 RID: 4468
 		Disconnecting,
-		// Token: 0x0400112F RID: 4399
+		// Token: 0x04001175 RID: 4469
 		Disconnected,
-		// Token: 0x04001130 RID: 4400
+		// Token: 0x04001176 RID: 4470
 		StateCheckFailed
 	}
 }

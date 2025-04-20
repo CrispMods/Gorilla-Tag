@@ -2,10 +2,10 @@
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000ABC RID: 2748
+	// Token: 0x02000AE9 RID: 2793
 	public class GetAcceptedAgreementsRequest
 	{
-		// Token: 0x0400467F RID: 18047
+		// Token: 0x04004776 RID: 18294
 		public string[] AgreementKeys;
 	}
 }

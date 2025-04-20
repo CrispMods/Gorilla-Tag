@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003ED RID: 1005
+// Token: 0x020003F8 RID: 1016
 public class ManipulatableSlider : ManipulatableObject
 {
-	// Token: 0x06001882 RID: 6274 RVA: 0x0007724E File Offset: 0x0007544E
+	// Token: 0x060018CF RID: 6351 RVA: 0x00040C3B File Offset: 0x0003EE3B
 	private void Awake()
 	{
 		this.localSpace = base.transform.worldToLocalMatrix;
 		this.startingPos = base.transform.localPosition;
 	}
 
-	// Token: 0x06001883 RID: 6275 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060018D0 RID: 6352 RVA: 0x00030607 File Offset: 0x0002E807
 	protected override void OnStartManipulation(GameObject grabbingHand)
 	{
 	}
 
-	// Token: 0x06001884 RID: 6276 RVA: 0x00077272 File Offset: 0x00075472
+	// Token: 0x060018D1 RID: 6353 RVA: 0x00040C5F File Offset: 0x0003EE5F
 	protected override void OnStopManipulation(GameObject releasingHand, Vector3 releaseVelocity)
 	{
 		if (this.applyReleaseVelocity)
@@ -25,7 +25,7 @@ public class ManipulatableSlider : ManipulatableObject
 		}
 	}
 
-	// Token: 0x06001885 RID: 6277 RVA: 0x00077290 File Offset: 0x00075490
+	// Token: 0x060018D2 RID: 6354 RVA: 0x000CD6A8 File Offset: 0x000CB8A8
 	protected override bool ShouldHandDetach(GameObject hand)
 	{
 		Vector3 position = base.transform.position;
@@ -33,7 +33,7 @@ public class ManipulatableSlider : ManipulatableObject
 		return Vector3.SqrMagnitude(position - position2) > this.breakDistance * this.breakDistance;
 	}
 
-	// Token: 0x06001886 RID: 6278 RVA: 0x000772D0 File Offset: 0x000754D0
+	// Token: 0x060018D3 RID: 6355 RVA: 0x000CD6E8 File Offset: 0x000CB8E8
 	protected override void OnHeldUpdate(GameObject hand)
 	{
 		Vector3 vector = this.localSpace.MultiplyPoint3x4(hand.transform.position);
@@ -44,7 +44,7 @@ public class ManipulatableSlider : ManipulatableObject
 		base.transform.localPosition = vector;
 	}
 
-	// Token: 0x06001887 RID: 6279 RVA: 0x00077368 File Offset: 0x00075568
+	// Token: 0x060018D4 RID: 6356 RVA: 0x000CD780 File Offset: 0x000CB980
 	protected override void OnReleasedUpdate()
 	{
 		if (this.velocity != Vector3.zero)
@@ -91,7 +91,7 @@ public class ManipulatableSlider : ManipulatableObject
 		}
 	}
 
-	// Token: 0x06001888 RID: 6280 RVA: 0x0007751C File Offset: 0x0007571C
+	// Token: 0x060018D5 RID: 6357 RVA: 0x000CD934 File Offset: 0x000CBB34
 	public void SetProgress(float x, float y, float z)
 	{
 		x = Mathf.Clamp(x, 0f, 1f);
@@ -104,57 +104,57 @@ public class ManipulatableSlider : ManipulatableObject
 		base.transform.localPosition = localPosition;
 	}
 
-	// Token: 0x06001889 RID: 6281 RVA: 0x000775C9 File Offset: 0x000757C9
+	// Token: 0x060018D6 RID: 6358 RVA: 0x00040C7B File Offset: 0x0003EE7B
 	public float GetProgressX()
 	{
 		return ((base.transform.localPosition - this.startingPos).x - this.minXOffset) / (this.maxXOffset - this.minXOffset);
 	}
 
-	// Token: 0x0600188A RID: 6282 RVA: 0x000775FB File Offset: 0x000757FB
+	// Token: 0x060018D7 RID: 6359 RVA: 0x00040CAD File Offset: 0x0003EEAD
 	public float GetProgressY()
 	{
 		return ((base.transform.localPosition - this.startingPos).y - this.minYOffset) / (this.maxYOffset - this.minYOffset);
 	}
 
-	// Token: 0x0600188B RID: 6283 RVA: 0x0007762D File Offset: 0x0007582D
+	// Token: 0x060018D8 RID: 6360 RVA: 0x00040CDF File Offset: 0x0003EEDF
 	public float GetProgressZ()
 	{
 		return ((base.transform.localPosition - this.startingPos).z - this.minZOffset) / (this.maxZOffset - this.minZOffset);
 	}
 
-	// Token: 0x04001B24 RID: 6948
+	// Token: 0x04001B6D RID: 7021
 	public float breakDistance = 0.2f;
 
-	// Token: 0x04001B25 RID: 6949
+	// Token: 0x04001B6E RID: 7022
 	public float maxXOffset;
 
-	// Token: 0x04001B26 RID: 6950
+	// Token: 0x04001B6F RID: 7023
 	public float minXOffset;
 
-	// Token: 0x04001B27 RID: 6951
+	// Token: 0x04001B70 RID: 7024
 	public float maxYOffset;
 
-	// Token: 0x04001B28 RID: 6952
+	// Token: 0x04001B71 RID: 7025
 	public float minYOffset;
 
-	// Token: 0x04001B29 RID: 6953
+	// Token: 0x04001B72 RID: 7026
 	public float maxZOffset;
 
-	// Token: 0x04001B2A RID: 6954
+	// Token: 0x04001B73 RID: 7027
 	public float minZOffset;
 
-	// Token: 0x04001B2B RID: 6955
+	// Token: 0x04001B74 RID: 7028
 	public bool applyReleaseVelocity;
 
-	// Token: 0x04001B2C RID: 6956
+	// Token: 0x04001B75 RID: 7029
 	public float releaseDrag = 1f;
 
-	// Token: 0x04001B2D RID: 6957
+	// Token: 0x04001B76 RID: 7030
 	private Matrix4x4 localSpace;
 
-	// Token: 0x04001B2E RID: 6958
+	// Token: 0x04001B77 RID: 7031
 	private Vector3 startingPos;
 
-	// Token: 0x04001B2F RID: 6959
+	// Token: 0x04001B78 RID: 7032
 	private Vector3 velocity;
 }

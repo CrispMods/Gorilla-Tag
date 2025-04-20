@@ -2,16 +2,16 @@
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A50 RID: 2640
+	// Token: 0x02000A7D RID: 2685
 	public enum InteractableCollisionDepth
 	{
-		// Token: 0x040042D7 RID: 17111
+		// Token: 0x040043D1 RID: 17361
 		None,
-		// Token: 0x040042D8 RID: 17112
+		// Token: 0x040043D2 RID: 17362
 		Proximity,
-		// Token: 0x040042D9 RID: 17113
+		// Token: 0x040043D3 RID: 17363
 		Contact,
-		// Token: 0x040042DA RID: 17114
+		// Token: 0x040043D4 RID: 17364
 		Action
 	}
 }

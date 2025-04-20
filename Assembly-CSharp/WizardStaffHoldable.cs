@@ -2,10 +2,10 @@
 using GorillaTag;
 using UnityEngine;
 
-// Token: 0x020000D3 RID: 211
+// Token: 0x020000DD RID: 221
 public class WizardStaffHoldable : TransferrableObject
 {
-	// Token: 0x06000570 RID: 1392 RVA: 0x00020260 File Offset: 0x0001E460
+	// Token: 0x060005B1 RID: 1457 RVA: 0x000342EF File Offset: 0x000324EF
 	public override void OnSpawn(VRRig rig)
 	{
 		base.OnSpawn(rig);
@@ -14,21 +14,21 @@ public class WizardStaffHoldable : TransferrableObject
 		this.effectsHaveBeenPlayed = false;
 	}
 
-	// Token: 0x06000571 RID: 1393 RVA: 0x00020293 File Offset: 0x0001E493
+	// Token: 0x060005B2 RID: 1458 RVA: 0x00034322 File Offset: 0x00032522
 	internal override void OnEnable()
 	{
 		base.OnEnable();
 		this.InitToDefault();
 	}
 
-	// Token: 0x06000572 RID: 1394 RVA: 0x000202A1 File Offset: 0x0001E4A1
+	// Token: 0x060005B3 RID: 1459 RVA: 0x00034330 File Offset: 0x00032530
 	public override void ResetToDefaultState()
 	{
 		base.ResetToDefaultState();
 		this.InitToDefault();
 	}
 
-	// Token: 0x06000573 RID: 1395 RVA: 0x000202AF File Offset: 0x0001E4AF
+	// Token: 0x060005B4 RID: 1460 RVA: 0x0003433E File Offset: 0x0003253E
 	private void InitToDefault()
 	{
 		this.cooldownRemaining = 0f;
@@ -39,7 +39,7 @@ public class WizardStaffHoldable : TransferrableObject
 		this.effectsHaveBeenPlayed = false;
 	}
 
-	// Token: 0x06000574 RID: 1396 RVA: 0x000202E0 File Offset: 0x0001E4E0
+	// Token: 0x060005B5 RID: 1461 RVA: 0x00083110 File Offset: 0x00081310
 	protected override void LateUpdateLocal()
 	{
 		base.LateUpdateLocal();
@@ -61,7 +61,7 @@ public class WizardStaffHoldable : TransferrableObject
 		this.cooldownRemaining = this.cooldown;
 	}
 
-	// Token: 0x06000575 RID: 1397 RVA: 0x00020364 File Offset: 0x0001E564
+	// Token: 0x060005B6 RID: 1462 RVA: 0x00083194 File Offset: 0x00081394
 	protected override void LateUpdateShared()
 	{
 		base.LateUpdateShared();
@@ -98,7 +98,7 @@ public class WizardStaffHoldable : TransferrableObject
 		}
 	}
 
-	// Token: 0x06000576 RID: 1398 RVA: 0x00020454 File Offset: 0x0001E654
+	// Token: 0x060005B7 RID: 1463 RVA: 0x0003436E File Offset: 0x0003256E
 	protected override void LateUpdateReplicated()
 	{
 		base.LateUpdateReplicated();
@@ -108,49 +108,49 @@ public class WizardStaffHoldable : TransferrableObject
 		}
 	}
 
-	// Token: 0x04000659 RID: 1625
+	// Token: 0x0400069A RID: 1690
 	[Tooltip("This GameObject will activate when the staff hits the ground with enough force.")]
 	public GameObject effectsGameObject;
 
-	// Token: 0x0400065A RID: 1626
+	// Token: 0x0400069B RID: 1691
 	[Tooltip("The Transform of the staff's tip which will be used to determine if the staff is being slammed. Up axis (Y) should point along the length of the staff.")]
 	public Transform tipTransform;
 
-	// Token: 0x0400065B RID: 1627
+	// Token: 0x0400069C RID: 1692
 	public float tipCollisionRadius = 0.05f;
 
-	// Token: 0x0400065C RID: 1628
+	// Token: 0x0400069D RID: 1693
 	public LayerMask tipCollisionLayerMask;
 
-	// Token: 0x0400065D RID: 1629
+	// Token: 0x0400069E RID: 1694
 	[Tooltip("Used to calculate velocity of the staff.")]
 	public GorillaVelocityEstimator velocityEstimator;
 
-	// Token: 0x0400065E RID: 1630
+	// Token: 0x0400069F RID: 1695
 	public float cooldown = 5f;
 
-	// Token: 0x0400065F RID: 1631
+	// Token: 0x040006A0 RID: 1696
 	[Tooltip("The velocity of the staff's tip must be greater than this value to activate the effect.")]
 	public float minSlamVelocity = 0.5f;
 
-	// Token: 0x04000660 RID: 1632
+	// Token: 0x040006A1 RID: 1697
 	[Tooltip("The angle (in degrees) between the staff's tip and the ground must be less than this value to activate the effect.")]
 	public float minSlamAngle = 5f;
 
-	// Token: 0x04000661 RID: 1633
+	// Token: 0x040006A2 RID: 1698
 	[DebugReadout]
 	private float cooldownRemaining;
 
-	// Token: 0x04000662 RID: 1634
+	// Token: 0x040006A3 RID: 1699
 	[DebugReadout]
 	private bool hitLastFrame;
 
-	// Token: 0x04000663 RID: 1635
+	// Token: 0x040006A4 RID: 1700
 	private Vector3 tipTargetLocalPosition;
 
-	// Token: 0x04000664 RID: 1636
+	// Token: 0x040006A5 RID: 1701
 	private bool hasEffectsGameObject;
 
-	// Token: 0x04000665 RID: 1637
+	// Token: 0x040006A6 RID: 1702
 	private bool effectsHaveBeenPlayed;
 }

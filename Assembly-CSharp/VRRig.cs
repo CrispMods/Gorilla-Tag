@@ -28,10 +28,10 @@ using UnityEngine.Serialization;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
-// Token: 0x020003AF RID: 943
+// Token: 0x020003BA RID: 954
 public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDisable, IUserCosmeticsCallback, IEyeScannable
 {
-	// Token: 0x06001603 RID: 5635 RVA: 0x0006A288 File Offset: 0x00068488
+	// Token: 0x0600164F RID: 5711 RVA: 0x0003F106 File Offset: 0x0003D306
 	private void CosmeticsV2_Awake()
 	{
 		if (CosmeticsV2Spawner_Dirty.allPartsInstantiated)
@@ -46,7 +46,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001604 RID: 5636 RVA: 0x0006A2C7 File Offset: 0x000684C7
+	// Token: 0x06001650 RID: 5712 RVA: 0x0003F145 File Offset: 0x0003D345
 	private void CosmeticsV2_OnDestroy()
 	{
 		if (CosmeticsV2Spawner_Dirty.allPartsInstantiated)
@@ -57,7 +57,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		CosmeticsV2Spawner_Dirty.OnPostInstantiateAllPrefabs = (Action)Delegate.Remove(CosmeticsV2Spawner_Dirty.OnPostInstantiateAllPrefabs, new Action(this.Handle_CosmeticsV2_OnPostInstantiateAllPrefabs_DoEnableAllCosmetics));
 	}
 
-	// Token: 0x06001605 RID: 5637 RVA: 0x0006A2F7 File Offset: 0x000684F7
+	// Token: 0x06001651 RID: 5713 RVA: 0x0003F175 File Offset: 0x0003D375
 	internal void Handle_CosmeticsV2_OnPostInstantiateAllPrefabs_DoEnableAllCosmetics()
 	{
 		CosmeticsV2Spawner_Dirty.OnPostInstantiateAllPrefabs = (Action)Delegate.Remove(CosmeticsV2Spawner_Dirty.OnPostInstantiateAllPrefabs, new Action(this.Handle_CosmeticsV2_OnPostInstantiateAllPrefabs_DoEnableAllCosmetics));
@@ -66,9 +66,9 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.SetCosmeticsActive();
 	}
 
-	// Token: 0x17000265 RID: 613
-	// (get) Token: 0x06001606 RID: 5638 RVA: 0x0006A32B File Offset: 0x0006852B
-	// (set) Token: 0x06001607 RID: 5639 RVA: 0x0006A338 File Offset: 0x00068538
+	// Token: 0x1700026C RID: 620
+	// (get) Token: 0x06001652 RID: 5714 RVA: 0x0003F1A9 File Offset: 0x0003D3A9
+	// (set) Token: 0x06001653 RID: 5715 RVA: 0x0003F1B6 File Offset: 0x0003D3B6
 	public Vector3 syncPos
 	{
 		get
@@ -81,9 +81,9 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000266 RID: 614
-	// (get) Token: 0x06001608 RID: 5640 RVA: 0x0006A346 File Offset: 0x00068546
-	// (set) Token: 0x06001609 RID: 5641 RVA: 0x0006A34E File Offset: 0x0006854E
+	// Token: 0x1700026D RID: 621
+	// (get) Token: 0x06001654 RID: 5716 RVA: 0x0003F1C4 File Offset: 0x0003D3C4
+	// (set) Token: 0x06001655 RID: 5717 RVA: 0x0003F1CC File Offset: 0x0003D3CC
 	public GameObject[] cosmetics
 	{
 		get
@@ -96,9 +96,9 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000267 RID: 615
-	// (get) Token: 0x0600160A RID: 5642 RVA: 0x0006A357 File Offset: 0x00068557
-	// (set) Token: 0x0600160B RID: 5643 RVA: 0x0006A35F File Offset: 0x0006855F
+	// Token: 0x1700026E RID: 622
+	// (get) Token: 0x06001656 RID: 5718 RVA: 0x0003F1D5 File Offset: 0x0003D3D5
+	// (set) Token: 0x06001657 RID: 5719 RVA: 0x0003F1DD File Offset: 0x0003D3DD
 	public GameObject[] overrideCosmetics
 	{
 		get
@@ -111,15 +111,15 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600160C RID: 5644 RVA: 0x0006A368 File Offset: 0x00068568
+	// Token: 0x06001658 RID: 5720 RVA: 0x0003F1E6 File Offset: 0x0003D3E6
 	internal void SetTaggedBy(VRRig taggingRig)
 	{
 		this.taggedById = taggingRig.OwningNetPlayer.ActorNumber;
 	}
 
-	// Token: 0x17000268 RID: 616
-	// (get) Token: 0x0600160D RID: 5645 RVA: 0x0006A37B File Offset: 0x0006857B
-	// (set) Token: 0x0600160E RID: 5646 RVA: 0x0006A383 File Offset: 0x00068583
+	// Token: 0x1700026F RID: 623
+	// (get) Token: 0x06001659 RID: 5721 RVA: 0x0003F1F9 File Offset: 0x0003D3F9
+	// (set) Token: 0x0600165A RID: 5722 RVA: 0x0003F201 File Offset: 0x0003D401
 	internal bool InitializedCosmetics
 	{
 		get
@@ -132,13 +132,13 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000269 RID: 617
-	// (get) Token: 0x0600160F RID: 5647 RVA: 0x0006A38C File Offset: 0x0006858C
-	// (set) Token: 0x06001610 RID: 5648 RVA: 0x0006A394 File Offset: 0x00068594
+	// Token: 0x17000270 RID: 624
+	// (get) Token: 0x0600165B RID: 5723 RVA: 0x0003F20A File Offset: 0x0003D40A
+	// (set) Token: 0x0600165C RID: 5724 RVA: 0x0003F212 File Offset: 0x0003D412
 	public CosmeticRefRegistry cosmeticReferences { get; private set; }
 
-	// Token: 0x1700026A RID: 618
-	// (get) Token: 0x06001611 RID: 5649 RVA: 0x0006A39D File Offset: 0x0006859D
+	// Token: 0x17000271 RID: 625
+	// (get) Token: 0x0600165D RID: 5725 RVA: 0x0003F21B File Offset: 0x0003D41B
 	public bool HasBracelet
 	{
 		get
@@ -147,28 +147,28 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001612 RID: 5650 RVA: 0x0006A3AA File Offset: 0x000685AA
+	// Token: 0x0600165E RID: 5726 RVA: 0x0003F228 File Offset: 0x0003D428
 	public Vector3 GetMouthPosition()
 	{
 		return this.MouthPosition.position;
 	}
 
-	// Token: 0x1700026B RID: 619
-	// (get) Token: 0x06001613 RID: 5651 RVA: 0x0006A3B7 File Offset: 0x000685B7
-	// (set) Token: 0x06001614 RID: 5652 RVA: 0x0006A3BF File Offset: 0x000685BF
+	// Token: 0x17000272 RID: 626
+	// (get) Token: 0x0600165F RID: 5727 RVA: 0x0003F235 File Offset: 0x0003D435
+	// (set) Token: 0x06001660 RID: 5728 RVA: 0x0003F23D File Offset: 0x0003D43D
 	public GorillaSkin CurrentCosmeticSkin { get; set; }
 
-	// Token: 0x1700026C RID: 620
-	// (get) Token: 0x06001615 RID: 5653 RVA: 0x0006A3C8 File Offset: 0x000685C8
-	// (set) Token: 0x06001616 RID: 5654 RVA: 0x0006A3D0 File Offset: 0x000685D0
+	// Token: 0x17000273 RID: 627
+	// (get) Token: 0x06001661 RID: 5729 RVA: 0x0003F246 File Offset: 0x0003D446
+	// (set) Token: 0x06001662 RID: 5730 RVA: 0x0003F24E File Offset: 0x0003D44E
 	public GorillaSkin CurrentModeSkin { get; set; }
 
-	// Token: 0x1700026D RID: 621
-	// (get) Token: 0x06001617 RID: 5655 RVA: 0x0006A3D9 File Offset: 0x000685D9
-	// (set) Token: 0x06001618 RID: 5656 RVA: 0x0006A3E1 File Offset: 0x000685E1
+	// Token: 0x17000274 RID: 628
+	// (get) Token: 0x06001663 RID: 5731 RVA: 0x0003F257 File Offset: 0x0003D457
+	// (set) Token: 0x06001664 RID: 5732 RVA: 0x0003F25F File Offset: 0x0003D45F
 	public GorillaSkin TemporaryEffectSkin { get; set; }
 
-	// Token: 0x06001619 RID: 5657 RVA: 0x0006A3EA File Offset: 0x000685EA
+	// Token: 0x06001665 RID: 5733 RVA: 0x0003F268 File Offset: 0x0003D468
 	public VRRig.PartyMemberStatus GetPartyMemberStatus()
 	{
 		if (this.partyMemberStatus == VRRig.PartyMemberStatus.NeedsUpdate)
@@ -178,8 +178,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return this.partyMemberStatus;
 	}
 
-	// Token: 0x1700026E RID: 622
-	// (get) Token: 0x0600161A RID: 5658 RVA: 0x0006A41B File Offset: 0x0006861B
+	// Token: 0x17000275 RID: 629
+	// (get) Token: 0x06001666 RID: 5734 RVA: 0x0003F299 File Offset: 0x0003D499
 	public bool IsLocalPartyMember
 	{
 		get
@@ -188,25 +188,25 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600161B RID: 5659 RVA: 0x0006A429 File Offset: 0x00068629
+	// Token: 0x06001667 RID: 5735 RVA: 0x0003F2A7 File Offset: 0x0003D4A7
 	public void ClearPartyMemberStatus()
 	{
 		this.partyMemberStatus = VRRig.PartyMemberStatus.NeedsUpdate;
 	}
 
-	// Token: 0x0600161C RID: 5660 RVA: 0x0006A432 File Offset: 0x00068632
+	// Token: 0x06001668 RID: 5736 RVA: 0x0003F2B0 File Offset: 0x0003D4B0
 	public int ActiveTransferrableObjectIndex(int idx)
 	{
 		return this.reliableState.activeTransferrableObjectIndex[idx];
 	}
 
-	// Token: 0x0600161D RID: 5661 RVA: 0x0006A441 File Offset: 0x00068641
+	// Token: 0x06001669 RID: 5737 RVA: 0x0003F2BF File Offset: 0x0003D4BF
 	public int ActiveTransferrableObjectIndexLength()
 	{
 		return this.reliableState.activeTransferrableObjectIndex.Length;
 	}
 
-	// Token: 0x0600161E RID: 5662 RVA: 0x0006A450 File Offset: 0x00068650
+	// Token: 0x0600166A RID: 5738 RVA: 0x0003F2CE File Offset: 0x0003D4CE
 	public void SetActiveTransferrableObjectIndex(int idx, int v)
 	{
 		if (this.reliableState.activeTransferrableObjectIndex[idx] != v)
@@ -216,13 +216,13 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600161F RID: 5663 RVA: 0x0006A47B File Offset: 0x0006867B
+	// Token: 0x0600166B RID: 5739 RVA: 0x0003F2F9 File Offset: 0x0003D4F9
 	public TransferrableObject.PositionState TransferrablePosStates(int idx)
 	{
 		return this.reliableState.transferrablePosStates[idx];
 	}
 
-	// Token: 0x06001620 RID: 5664 RVA: 0x0006A48A File Offset: 0x0006868A
+	// Token: 0x0600166C RID: 5740 RVA: 0x0003F308 File Offset: 0x0003D508
 	public void SetTransferrablePosStates(int idx, TransferrableObject.PositionState v)
 	{
 		if (this.reliableState.transferrablePosStates[idx] != v)
@@ -232,13 +232,13 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001621 RID: 5665 RVA: 0x0006A4B5 File Offset: 0x000686B5
+	// Token: 0x0600166D RID: 5741 RVA: 0x0003F333 File Offset: 0x0003D533
 	public TransferrableObject.ItemStates TransferrableItemStates(int idx)
 	{
 		return this.reliableState.transferrableItemStates[idx];
 	}
 
-	// Token: 0x06001622 RID: 5666 RVA: 0x0006A4C4 File Offset: 0x000686C4
+	// Token: 0x0600166E RID: 5742 RVA: 0x0003F342 File Offset: 0x0003D542
 	public void SetTransferrableItemStates(int idx, TransferrableObject.ItemStates v)
 	{
 		if (this.reliableState.transferrableItemStates[idx] != v)
@@ -248,7 +248,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001623 RID: 5667 RVA: 0x0006A4EF File Offset: 0x000686EF
+	// Token: 0x0600166F RID: 5743 RVA: 0x0003F36D File Offset: 0x0003D56D
 	public void SetTransferrableDockPosition(int idx, BodyDockPositions.DropPositions v)
 	{
 		if (this.reliableState.transferableDockPositions[idx] != v)
@@ -258,15 +258,15 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001624 RID: 5668 RVA: 0x0006A51A File Offset: 0x0006871A
+	// Token: 0x06001670 RID: 5744 RVA: 0x0003F398 File Offset: 0x0003D598
 	public BodyDockPositions.DropPositions TransferrableDockPosition(int idx)
 	{
 		return this.reliableState.transferableDockPositions[idx];
 	}
 
-	// Token: 0x1700026F RID: 623
-	// (get) Token: 0x06001625 RID: 5669 RVA: 0x0006A529 File Offset: 0x00068729
-	// (set) Token: 0x06001626 RID: 5670 RVA: 0x0006A536 File Offset: 0x00068736
+	// Token: 0x17000276 RID: 630
+	// (get) Token: 0x06001671 RID: 5745 RVA: 0x0003F3A7 File Offset: 0x0003D5A7
+	// (set) Token: 0x06001672 RID: 5746 RVA: 0x0003F3B4 File Offset: 0x0003D5B4
 	public int WearablePackedStates
 	{
 		get
@@ -283,9 +283,9 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000270 RID: 624
-	// (get) Token: 0x06001627 RID: 5671 RVA: 0x0006A55D File Offset: 0x0006875D
-	// (set) Token: 0x06001628 RID: 5672 RVA: 0x0006A56A File Offset: 0x0006876A
+	// Token: 0x17000277 RID: 631
+	// (get) Token: 0x06001673 RID: 5747 RVA: 0x0003F3DB File Offset: 0x0003D5DB
+	// (set) Token: 0x06001674 RID: 5748 RVA: 0x0003F3E8 File Offset: 0x0003D5E8
 	public int LeftThrowableProjectileIndex
 	{
 		get
@@ -302,9 +302,9 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000271 RID: 625
-	// (get) Token: 0x06001629 RID: 5673 RVA: 0x0006A591 File Offset: 0x00068791
-	// (set) Token: 0x0600162A RID: 5674 RVA: 0x0006A59E File Offset: 0x0006879E
+	// Token: 0x17000278 RID: 632
+	// (get) Token: 0x06001675 RID: 5749 RVA: 0x0003F40F File Offset: 0x0003D60F
+	// (set) Token: 0x06001676 RID: 5750 RVA: 0x0003F41C File Offset: 0x0003D61C
 	public int RightThrowableProjectileIndex
 	{
 		get
@@ -321,9 +321,9 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000272 RID: 626
-	// (get) Token: 0x0600162B RID: 5675 RVA: 0x0006A5C5 File Offset: 0x000687C5
-	// (set) Token: 0x0600162C RID: 5676 RVA: 0x0006A5D2 File Offset: 0x000687D2
+	// Token: 0x17000279 RID: 633
+	// (get) Token: 0x06001677 RID: 5751 RVA: 0x0003F443 File Offset: 0x0003D643
+	// (set) Token: 0x06001678 RID: 5752 RVA: 0x0003F450 File Offset: 0x0003D650
 	public Color32 LeftThrowableProjectileColor
 	{
 		get
@@ -340,9 +340,9 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000273 RID: 627
-	// (get) Token: 0x0600162D RID: 5677 RVA: 0x0006A609 File Offset: 0x00068809
-	// (set) Token: 0x0600162E RID: 5678 RVA: 0x0006A616 File Offset: 0x00068816
+	// Token: 0x1700027A RID: 634
+	// (get) Token: 0x06001679 RID: 5753 RVA: 0x0003F487 File Offset: 0x0003D687
+	// (set) Token: 0x0600167A RID: 5754 RVA: 0x0003F494 File Offset: 0x0003D694
 	public Color32 RightThrowableProjectileColor
 	{
 		get
@@ -359,7 +359,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600162F RID: 5679 RVA: 0x0006A64D File Offset: 0x0006884D
+	// Token: 0x0600167B RID: 5755 RVA: 0x0003F4CB File Offset: 0x0003D6CB
 	public Color32 GetThrowableProjectileColor(bool isLeftHand)
 	{
 		if (!isLeftHand)
@@ -369,7 +369,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return this.LeftThrowableProjectileColor;
 	}
 
-	// Token: 0x06001630 RID: 5680 RVA: 0x0006A65F File Offset: 0x0006885F
+	// Token: 0x0600167C RID: 5756 RVA: 0x0003F4DD File Offset: 0x0003D6DD
 	public void SetThrowableProjectileColor(bool isLeftHand, Color32 color)
 	{
 		if (isLeftHand)
@@ -380,21 +380,21 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.RightThrowableProjectileColor = color;
 	}
 
-	// Token: 0x06001631 RID: 5681 RVA: 0x0006A673 File Offset: 0x00068873
+	// Token: 0x0600167D RID: 5757 RVA: 0x0003F4F1 File Offset: 0x0003D6F1
 	public void SetRandomThrowableModelIndex(int randModelIndex)
 	{
 		this.RandomThrowableIndex = randModelIndex;
 	}
 
-	// Token: 0x06001632 RID: 5682 RVA: 0x0006A67C File Offset: 0x0006887C
+	// Token: 0x0600167E RID: 5758 RVA: 0x0003F4FA File Offset: 0x0003D6FA
 	public int GetRandomThrowableModelIndex()
 	{
 		return this.RandomThrowableIndex;
 	}
 
-	// Token: 0x17000274 RID: 628
-	// (get) Token: 0x06001633 RID: 5683 RVA: 0x0006A684 File Offset: 0x00068884
-	// (set) Token: 0x06001634 RID: 5684 RVA: 0x0006A691 File Offset: 0x00068891
+	// Token: 0x1700027B RID: 635
+	// (get) Token: 0x0600167F RID: 5759 RVA: 0x0003F502 File Offset: 0x0003D702
+	// (set) Token: 0x06001680 RID: 5760 RVA: 0x0003F50F File Offset: 0x0003D70F
 	private int RandomThrowableIndex
 	{
 		get
@@ -411,9 +411,9 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000275 RID: 629
-	// (get) Token: 0x06001635 RID: 5685 RVA: 0x0006A6B8 File Offset: 0x000688B8
-	// (set) Token: 0x06001636 RID: 5686 RVA: 0x0006A6C5 File Offset: 0x000688C5
+	// Token: 0x1700027C RID: 636
+	// (get) Token: 0x06001681 RID: 5761 RVA: 0x0003F536 File Offset: 0x0003D736
+	// (set) Token: 0x06001682 RID: 5762 RVA: 0x0003F543 File Offset: 0x0003D743
 	public bool IsMicEnabled
 	{
 		get
@@ -430,9 +430,9 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000276 RID: 630
-	// (get) Token: 0x06001637 RID: 5687 RVA: 0x0006A6EC File Offset: 0x000688EC
-	// (set) Token: 0x06001638 RID: 5688 RVA: 0x0006A6F9 File Offset: 0x000688F9
+	// Token: 0x1700027D RID: 637
+	// (get) Token: 0x06001683 RID: 5763 RVA: 0x0003F56A File Offset: 0x0003D76A
+	// (set) Token: 0x06001684 RID: 5764 RVA: 0x0003F577 File Offset: 0x0003D777
 	public int SizeLayerMask
 	{
 		get
@@ -449,8 +449,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000277 RID: 631
-	// (get) Token: 0x06001639 RID: 5689 RVA: 0x0006A720 File Offset: 0x00068920
+	// Token: 0x1700027E RID: 638
+	// (get) Token: 0x06001685 RID: 5765 RVA: 0x0003F59E File Offset: 0x0003D79E
 	public float scaleFactor
 	{
 		get
@@ -459,9 +459,9 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000278 RID: 632
-	// (get) Token: 0x0600163A RID: 5690 RVA: 0x0006A72F File Offset: 0x0006892F
-	// (set) Token: 0x0600163B RID: 5691 RVA: 0x0006A737 File Offset: 0x00068937
+	// Token: 0x1700027F RID: 639
+	// (get) Token: 0x06001686 RID: 5766 RVA: 0x0003F5AD File Offset: 0x0003D7AD
+	// (set) Token: 0x06001687 RID: 5767 RVA: 0x0003F5B5 File Offset: 0x0003D7B5
 	public float ScaleMultiplier
 	{
 		get
@@ -474,9 +474,9 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000279 RID: 633
-	// (get) Token: 0x0600163C RID: 5692 RVA: 0x0006A740 File Offset: 0x00068940
-	// (set) Token: 0x0600163D RID: 5693 RVA: 0x0006A748 File Offset: 0x00068948
+	// Token: 0x17000280 RID: 640
+	// (get) Token: 0x06001688 RID: 5768 RVA: 0x0003F5BE File Offset: 0x0003D7BE
+	// (set) Token: 0x06001689 RID: 5769 RVA: 0x0003F5C6 File Offset: 0x0003D7C6
 	public float NativeScale
 	{
 		get
@@ -489,8 +489,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x1700027A RID: 634
-	// (get) Token: 0x0600163E RID: 5694 RVA: 0x0006A751 File Offset: 0x00068951
+	// Token: 0x17000281 RID: 641
+	// (get) Token: 0x0600168A RID: 5770 RVA: 0x0003F5CF File Offset: 0x0003D7CF
 	public NetPlayer Creator
 	{
 		get
@@ -499,8 +499,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x1700027B RID: 635
-	// (get) Token: 0x0600163F RID: 5695 RVA: 0x0006A759 File Offset: 0x00068959
+	// Token: 0x17000282 RID: 642
+	// (get) Token: 0x0600168B RID: 5771 RVA: 0x0003F5D7 File Offset: 0x0003D7D7
 	internal bool Initialized
 	{
 		get
@@ -509,8 +509,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x1700027C RID: 636
-	// (get) Token: 0x06001640 RID: 5696 RVA: 0x0006A761 File Offset: 0x00068961
+	// Token: 0x17000283 RID: 643
+	// (get) Token: 0x0600168C RID: 5772 RVA: 0x0003F5DF File Offset: 0x0003D7DF
 	public float SpeakingLoudness
 	{
 		get
@@ -519,8 +519,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x1700027D RID: 637
-	// (get) Token: 0x06001641 RID: 5697 RVA: 0x0006A769 File Offset: 0x00068969
+	// Token: 0x17000284 RID: 644
+	// (get) Token: 0x0600168D RID: 5773 RVA: 0x0003F5E7 File Offset: 0x0003D7E7
 	internal HandEffectContext LeftHandEffect
 	{
 		get
@@ -529,8 +529,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x1700027E RID: 638
-	// (get) Token: 0x06001642 RID: 5698 RVA: 0x0006A771 File Offset: 0x00068971
+	// Token: 0x17000285 RID: 645
+	// (get) Token: 0x0600168E RID: 5774 RVA: 0x0003F5EF File Offset: 0x0003D7EF
 	internal HandEffectContext RightHandEffect
 	{
 		get
@@ -539,10 +539,10 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001643 RID: 5699 RVA: 0x0006A77C File Offset: 0x0006897C
+	// Token: 0x0600168F RID: 5775 RVA: 0x000C2218 File Offset: 0x000C0418
 	public void BuildInitialize()
 	{
-		this.fxSettings = Object.Instantiate<FXSystemSettings>(this.sharedFXSettings);
+		this.fxSettings = UnityEngine.Object.Instantiate<FXSystemSettings>(this.sharedFXSettings);
 		this.fxSettings.forLocalRig = this.isOfflineVRRig;
 		this.lastPosition = base.transform.position;
 		if (!this.isOfflineVRRig)
@@ -563,7 +563,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.myEyeExpressions = base.GetComponent<GorillaEyeExpressions>();
 	}
 
-	// Token: 0x06001644 RID: 5700 RVA: 0x0006A820 File Offset: 0x00068A20
+	// Token: 0x06001690 RID: 5776 RVA: 0x000C22BC File Offset: 0x000C04BC
 	public void BuildInitialize_AfterCosmeticsV2Instantiated()
 	{
 		if (!this._rigBuildFullyInitialized)
@@ -591,7 +591,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this._rigBuildFullyInitialized = true;
 	}
 
-	// Token: 0x06001645 RID: 5701 RVA: 0x0006A8F8 File Offset: 0x00068AF8
+	// Token: 0x06001691 RID: 5777 RVA: 0x000C2394 File Offset: 0x000C0594
 	private void Awake()
 	{
 		this.CosmeticsV2_Awake();
@@ -604,17 +604,17 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.SharedStart();
 	}
 
-	// Token: 0x06001646 RID: 5702 RVA: 0x0006A947 File Offset: 0x00068B47
+	// Token: 0x06001692 RID: 5778 RVA: 0x0003F5F7 File Offset: 0x0003D7F7
 	private void EnsureInstantiatedMaterial()
 	{
 		if (this.myDefaultSkinMaterialInstance == null)
 		{
-			this.myDefaultSkinMaterialInstance = Object.Instantiate<Material>(this.materialsToChangeTo[0]);
+			this.myDefaultSkinMaterialInstance = UnityEngine.Object.Instantiate<Material>(this.materialsToChangeTo[0]);
 			this.materialsToChangeTo[0] = this.myDefaultSkinMaterialInstance;
 		}
 	}
 
-	// Token: 0x06001647 RID: 5703 RVA: 0x0006A978 File Offset: 0x00068B78
+	// Token: 0x06001693 RID: 5779 RVA: 0x000C23E4 File Offset: 0x000C05E4
 	private void ApplyColorCode()
 	{
 		float defaultValue = 0f;
@@ -624,7 +624,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		GorillaTagger.Instance.UpdateColor(@float, float2, float3);
 	}
 
-	// Token: 0x06001648 RID: 5704 RVA: 0x0006A9BC File Offset: 0x00068BBC
+	// Token: 0x06001694 RID: 5780 RVA: 0x000C2428 File Offset: 0x000C0628
 	private void SharedStart()
 	{
 		if (this.isInitialized)
@@ -646,7 +646,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 			}
 			if (Application.platform == RuntimePlatform.Android && this.spectatorSkin != null)
 			{
-				Object.Destroy(this.spectatorSkin);
+				UnityEngine.Object.Destroy(this.spectatorSkin);
 			}
 			base.StartCoroutine(this.OccasionalUpdate());
 			this.initialized = true;
@@ -655,7 +655,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		{
 			if (this.spectatorSkin != null)
 			{
-				Object.Destroy(this.spectatorSkin);
+				UnityEngine.Object.Destroy(this.spectatorSkin);
 			}
 			this.head.syncPos = -this.headBodyOffset;
 		}
@@ -672,7 +672,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.frozenEffectMinHorizontalScale = this.frozenEffect.transform.localScale.x;
 	}
 
-	// Token: 0x06001649 RID: 5705 RVA: 0x0006AB4D File Offset: 0x00068D4D
+	// Token: 0x06001695 RID: 5781 RVA: 0x0003F628 File Offset: 0x0003D828
 	private IEnumerator OccasionalUpdate()
 	{
 		for (;;)
@@ -692,7 +692,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		yield break;
 	}
 
-	// Token: 0x0600164A RID: 5706 RVA: 0x0006AB58 File Offset: 0x00068D58
+	// Token: 0x06001696 RID: 5782 RVA: 0x000C25BC File Offset: 0x000C07BC
 	public bool IsItemAllowed(string itemName)
 	{
 		if (itemName == "Slingshot")
@@ -715,7 +715,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return this.inTryOnRoom && canTryOn;
 	}
 
-	// Token: 0x0600164B RID: 5707 RVA: 0x0006ABDE File Offset: 0x00068DDE
+	// Token: 0x06001697 RID: 5783 RVA: 0x0003F630 File Offset: 0x0003D830
 	public void ApplyLocalTrajectoryOverride(Vector3 overrideVelocity)
 	{
 		this.LocalTrajectoryOverrideBlend = 1f;
@@ -723,13 +723,13 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.LocalTrajectoryOverrideVelocity = overrideVelocity;
 	}
 
-	// Token: 0x0600164C RID: 5708 RVA: 0x0006AC03 File Offset: 0x00068E03
+	// Token: 0x06001698 RID: 5784 RVA: 0x0003F655 File Offset: 0x0003D855
 	public bool IsLocalTrajectoryOverrideActive()
 	{
 		return this.LocalTrajectoryOverrideBlend > 0f;
 	}
 
-	// Token: 0x0600164D RID: 5709 RVA: 0x0006AC12 File Offset: 0x00068E12
+	// Token: 0x06001699 RID: 5785 RVA: 0x0003F664 File Offset: 0x0003D864
 	public void ApplyLocalGrabOverride(bool isBody, bool isLeftHand, Transform grabbingHand)
 	{
 		this.localOverrideIsBody = isBody;
@@ -738,13 +738,13 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.localGrabOverrideBlend = 1f;
 	}
 
-	// Token: 0x0600164E RID: 5710 RVA: 0x0006AC34 File Offset: 0x00068E34
+	// Token: 0x0600169A RID: 5786 RVA: 0x0003F686 File Offset: 0x0003D886
 	public void ClearLocalGrabOverride()
 	{
 		this.localGrabOverrideBlend = -1f;
 	}
 
-	// Token: 0x0600164F RID: 5711 RVA: 0x0006AC44 File Offset: 0x00068E44
+	// Token: 0x0600169B RID: 5787 RVA: 0x000C2644 File Offset: 0x000C0844
 	public void RemoteRigUpdate()
 	{
 		if (this.scaleFactor != this.lastScaleFactor)
@@ -903,7 +903,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.rightHandHoldableStatus = this.handSync % 100000000 / 10000000;
 	}
 
-	// Token: 0x06001650 RID: 5712 RVA: 0x0006B2C4 File Offset: 0x000694C4
+	// Token: 0x0600169C RID: 5788 RVA: 0x000C2CC4 File Offset: 0x000C0EC4
 	private void ScaleUpdate()
 	{
 		this.frameScale = Mathf.MoveTowards(this.lastScaleFactor, this.scaleFactor, Time.deltaTime * 4f);
@@ -911,19 +911,19 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.lastScaleFactor = this.frameScale;
 	}
 
-	// Token: 0x06001651 RID: 5713 RVA: 0x0006B31A File Offset: 0x0006951A
+	// Token: 0x0600169D RID: 5789 RVA: 0x0003F693 File Offset: 0x0003D893
 	public void AddLateUpdateCallback(ICallBack action)
 	{
 		this.lateUpdateCallbacks.Add(action);
 	}
 
-	// Token: 0x06001652 RID: 5714 RVA: 0x0006B328 File Offset: 0x00069528
+	// Token: 0x0600169E RID: 5790 RVA: 0x0003F6A1 File Offset: 0x0003D8A1
 	public void RemoveLateUpdateCallback(ICallBack action)
 	{
 		this.lateUpdateCallbacks.Remove(action);
 	}
 
-	// Token: 0x06001653 RID: 5715 RVA: 0x0006B338 File Offset: 0x00069538
+	// Token: 0x0600169F RID: 5791 RVA: 0x000C2D1C File Offset: 0x000C0F1C
 	private void LateUpdate()
 	{
 		if (this.isOfflineVRRig)
@@ -1042,7 +1042,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.lateUpdateCallbacks.TryRunCallbacks();
 	}
 
-	// Token: 0x06001654 RID: 5716 RVA: 0x0006B808 File Offset: 0x00069A08
+	// Token: 0x060016A0 RID: 5792 RVA: 0x000C31EC File Offset: 0x000C13EC
 	private void RemoveTemporaryCosmeticEffects(CosmeticEffectsOnPlayers.CosmeticEffect effect)
 	{
 		bool flag;
@@ -1057,14 +1057,14 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001655 RID: 5717 RVA: 0x0006B863 File Offset: 0x00069A63
+	// Token: 0x060016A1 RID: 5793 RVA: 0x0003F6AF File Offset: 0x0003D8AF
 	public void SpawnSkinEffects(CosmeticEffectsOnPlayers.CosmeticEffect effect)
 	{
 		GorillaSkin.ApplyToRig(this, effect.newSkin, GorillaSkin.SkinType.temporaryEffect);
 		this.TemporaryCosmeticEffects.Add(effect);
 	}
 
-	// Token: 0x06001656 RID: 5718 RVA: 0x0006B880 File Offset: 0x00069A80
+	// Token: 0x060016A2 RID: 5794 RVA: 0x000C3248 File Offset: 0x000C1448
 	public void SpawnFPVEffects(CosmeticEffectsOnPlayers.CosmeticEffect effect, bool enable)
 	{
 		if (this.FPVEffectsParent == null)
@@ -1096,8 +1096,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x1700027F RID: 639
-	// (get) Token: 0x06001657 RID: 5719 RVA: 0x0006B984 File Offset: 0x00069B84
+	// Token: 0x17000286 RID: 646
+	// (get) Token: 0x060016A3 RID: 5795 RVA: 0x0003F6CA File Offset: 0x0003D8CA
 	public bool IsPlayerMeshHidden
 	{
 		get
@@ -1106,7 +1106,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001658 RID: 5720 RVA: 0x0006B994 File Offset: 0x00069B94
+	// Token: 0x060016A4 RID: 5796 RVA: 0x0003F6DA File Offset: 0x0003D8DA
 	public void SetPlayerMeshHidden(bool hide)
 	{
 		this.mainSkin.enabled = !hide;
@@ -1115,7 +1115,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.UpdateMatParticles(-1);
 	}
 
-	// Token: 0x06001659 RID: 5721 RVA: 0x0006B9CA File Offset: 0x00069BCA
+	// Token: 0x060016A5 RID: 5797 RVA: 0x0003F710 File Offset: 0x0003D910
 	public void SetInvisibleToLocalPlayer(bool invisible)
 	{
 		if (this.IsInvisibleToLocalPlayer == invisible)
@@ -1127,7 +1127,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.UpdateFriendshipBracelet();
 	}
 
-	// Token: 0x0600165A RID: 5722 RVA: 0x0006B9F2 File Offset: 0x00069BF2
+	// Token: 0x060016A6 RID: 5798 RVA: 0x0003F738 File Offset: 0x0003D938
 	public void ChangeLayer(string layerName)
 	{
 		if (this.layerChanger != null)
@@ -1137,7 +1137,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		GTPlayer.Instance.ChangeLayer(layerName);
 	}
 
-	// Token: 0x0600165B RID: 5723 RVA: 0x0006BA24 File Offset: 0x00069C24
+	// Token: 0x060016A7 RID: 5799 RVA: 0x0003F76A File Offset: 0x0003D96A
 	public void RestoreLayer()
 	{
 		if (this.layerChanger != null)
@@ -1147,24 +1147,24 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		GTPlayer.Instance.RestoreLayer();
 	}
 
-	// Token: 0x0600165C RID: 5724 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060016A8 RID: 5800 RVA: 0x00030607 File Offset: 0x0002E807
 	public void SetHeadBodyOffset()
 	{
 	}
 
-	// Token: 0x0600165D RID: 5725 RVA: 0x0006BA49 File Offset: 0x00069C49
+	// Token: 0x060016A9 RID: 5801 RVA: 0x0003F78F File Offset: 0x0003D98F
 	public void VRRigResize(float ratioVar)
 	{
 		this.ratio *= ratioVar;
 	}
 
-	// Token: 0x0600165E RID: 5726 RVA: 0x0006BA5C File Offset: 0x00069C5C
+	// Token: 0x060016AA RID: 5802 RVA: 0x000C334C File Offset: 0x000C154C
 	public int ReturnHandPosition()
 	{
 		return 0 + Mathf.FloorToInt(this.rightIndex.calcT * 9.99f) + Mathf.FloorToInt(this.rightMiddle.calcT * 9.99f) * 10 + Mathf.FloorToInt(this.rightThumb.calcT * 9.99f) * 100 + Mathf.FloorToInt(this.leftIndex.calcT * 9.99f) * 1000 + Mathf.FloorToInt(this.leftMiddle.calcT * 9.99f) * 10000 + Mathf.FloorToInt(this.leftThumb.calcT * 9.99f) * 100000 + this.leftHandHoldableStatus * 1000000 + this.rightHandHoldableStatus * 10000000;
 	}
 
-	// Token: 0x0600165F RID: 5727 RVA: 0x0006BB26 File Offset: 0x00069D26
+	// Token: 0x060016AB RID: 5803 RVA: 0x0003F79F File Offset: 0x0003D99F
 	public void OnDestroy()
 	{
 		if (ApplicationQuittingState.IsQuitting)
@@ -1173,12 +1173,12 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 		if (this.currentRopeSwingTarget && this.currentRopeSwingTarget.gameObject)
 		{
-			Object.Destroy(this.currentRopeSwingTarget.gameObject);
+			UnityEngine.Object.Destroy(this.currentRopeSwingTarget.gameObject);
 		}
 		this.ClearRopeData();
 	}
 
-	// Token: 0x06001660 RID: 5728 RVA: 0x0006BB68 File Offset: 0x00069D68
+	// Token: 0x060016AC RID: 5804 RVA: 0x000C3418 File Offset: 0x000C1618
 	private InputStruct SerializeWriteShared()
 	{
 		InputStruct result = default(InputStruct);
@@ -1216,7 +1216,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return result;
 	}
 
-	// Token: 0x06001661 RID: 5729 RVA: 0x0006BDD4 File Offset: 0x00069FD4
+	// Token: 0x060016AD RID: 5805 RVA: 0x000C3684 File Offset: 0x000C1884
 	private void SerializeReadShared(InputStruct data)
 	{
 		VRMap vrmap = this.head;
@@ -1292,7 +1292,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.AddVelocityToQueue(this.syncPos, data.serverTimeStamp);
 	}
 
-	// Token: 0x06001662 RID: 5730 RVA: 0x0006C080 File Offset: 0x0006A280
+	// Token: 0x060016AE RID: 5806 RVA: 0x000C3930 File Offset: 0x000C1B30
 	void IWrappedSerializable.OnSerializeWrite(PhotonStream stream, PhotonMessageInfo info)
 	{
 		InputStruct inputStruct = this.SerializeWriteShared();
@@ -1326,7 +1326,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001663 RID: 5731 RVA: 0x0006C1FC File Offset: 0x0006A3FC
+	// Token: 0x060016AF RID: 5807 RVA: 0x000C3AAC File Offset: 0x000C1CAC
 	void IWrappedSerializable.OnSerializeRead(PhotonStream stream, PhotonMessageInfo info)
 	{
 		InputStruct inputStruct = new InputStruct
@@ -1365,7 +1365,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.SerializeReadShared(inputStruct);
 	}
 
-	// Token: 0x06001664 RID: 5732 RVA: 0x0006C3A4 File Offset: 0x0006A5A4
+	// Token: 0x060016B0 RID: 5808 RVA: 0x000C3C54 File Offset: 0x000C1E54
 	public object OnSerializeWrite()
 	{
 		InputStruct inputStruct = this.SerializeWriteShared();
@@ -1374,14 +1374,14 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return inputStruct;
 	}
 
-	// Token: 0x06001665 RID: 5733 RVA: 0x0006C3E0 File Offset: 0x0006A5E0
+	// Token: 0x060016B1 RID: 5809 RVA: 0x000C3C90 File Offset: 0x000C1E90
 	public void OnSerializeRead(object objectData)
 	{
 		InputStruct data = (InputStruct)objectData;
 		this.SerializeReadShared(data);
 	}
 
-	// Token: 0x06001666 RID: 5734 RVA: 0x0006C3FC File Offset: 0x0006A5FC
+	// Token: 0x060016B2 RID: 5810 RVA: 0x000C3CAC File Offset: 0x000C1EAC
 	private void UpdateExtrapolationTarget()
 	{
 		float num = (float)(NetworkSystem.Instance.SimTime - this.remoteLatestTimestamp);
@@ -1396,7 +1396,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001667 RID: 5735 RVA: 0x0006C4A8 File Offset: 0x0006A6A8
+	// Token: 0x060016B3 RID: 5811 RVA: 0x000C3D58 File Offset: 0x000C1F58
 	private void UpdateRopeData()
 	{
 		if (this.previousGrabbedRope == this.grabbedRopeIndex && this.previousGrabbedRopeBoneIndex == this.grabbedRopeBoneIndex && this.previousGrabbedRopeWasLeft == this.grabbedRopeIsLeft && this.previousGrabbedRopeWasBody == this.grabbedRopeIsBody)
@@ -1458,7 +1458,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.previousGrabbedRopeWasBody = this.grabbedRopeIsBody;
 	}
 
-	// Token: 0x06001668 RID: 5736 RVA: 0x0006C6E8 File Offset: 0x0006A8E8
+	// Token: 0x060016B4 RID: 5812 RVA: 0x000C3F98 File Offset: 0x000C2198
 	private void UpdateMovingMonkeBlockData()
 	{
 		if (this.mountedMonkeBlockOffset.sqrMagnitude > 2f)
@@ -1511,7 +1511,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.movingSurfaceWasMonkeBlock = this.movingSurfaceIsMonkeBlock;
 	}
 
-	// Token: 0x06001669 RID: 5737 RVA: 0x0006C87C File Offset: 0x0006AA7C
+	// Token: 0x060016B5 RID: 5813 RVA: 0x000C412C File Offset: 0x000C232C
 	public static void AttachLocalPlayerToMovingSurface(int blockId, bool isLeft, bool isBody, Vector3 offset, bool isMonkeBlock)
 	{
 		if (GorillaTagger.hasInstance && GorillaTagger.Instance.offlineVRRig)
@@ -1524,7 +1524,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600166A RID: 5738 RVA: 0x0006C8F2 File Offset: 0x0006AAF2
+	// Token: 0x060016B6 RID: 5814 RVA: 0x0003F7DE File Offset: 0x0003D9DE
 	public static void DetachLocalPlayerFromMovingSurface()
 	{
 		if (GorillaTagger.hasInstance && GorillaTagger.Instance.offlineVRRig)
@@ -1533,7 +1533,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600166B RID: 5739 RVA: 0x0006C91C File Offset: 0x0006AB1C
+	// Token: 0x060016B7 RID: 5815 RVA: 0x000C41A4 File Offset: 0x000C23A4
 	public static void AttachLocalPlayerToPhotonView(PhotonView view, XRNode xrNode, Vector3 offset, Vector3 velocity)
 	{
 		if (GorillaTagger.hasInstance && GorillaTagger.Instance.offlineVRRig)
@@ -1545,7 +1545,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600166C RID: 5740 RVA: 0x0006C989 File Offset: 0x0006AB89
+	// Token: 0x060016B8 RID: 5816 RVA: 0x0003F808 File Offset: 0x0003DA08
 	public static void DetachLocalPlayerFromPhotonView()
 	{
 		if (GorillaTagger.hasInstance && GorillaTagger.Instance.offlineVRRig)
@@ -1554,7 +1554,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600166D RID: 5741 RVA: 0x0006C9B4 File Offset: 0x0006ABB4
+	// Token: 0x060016B9 RID: 5817 RVA: 0x000C4214 File Offset: 0x000C2414
 	private void ClearRopeData()
 	{
 		if (this.currentRopeSwing)
@@ -1569,7 +1569,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.currentHoldParent = null;
 	}
 
-	// Token: 0x0600166E RID: 5742 RVA: 0x0006CA0B File Offset: 0x0006AC0B
+	// Token: 0x060016BA RID: 5818 RVA: 0x0003F832 File Offset: 0x0003DA32
 	public void ChangeMaterial(int materialIndex, PhotonMessageInfo info)
 	{
 		if (info.Sender == PhotonNetwork.MasterClient)
@@ -1578,7 +1578,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600166F RID: 5743 RVA: 0x0006CA24 File Offset: 0x0006AC24
+	// Token: 0x060016BB RID: 5819 RVA: 0x000C426C File Offset: 0x000C246C
 	public void UpdateFrozenEffect(bool enable)
 	{
 		if (this.frozenEffect != null && ((!this.frozenEffect.activeSelf && enable) || (this.frozenEffect.activeSelf && !enable)))
@@ -1605,7 +1605,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001670 RID: 5744 RVA: 0x0006CB30 File Offset: 0x0006AD30
+	// Token: 0x060016BC RID: 5820 RVA: 0x0003F848 File Offset: 0x0003DA48
 	public void ForceResetFrozenEffect()
 	{
 		this.frozenEffect.SetActive(false);
@@ -1613,7 +1613,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.iceCubeLeft.SetActive(false);
 	}
 
-	// Token: 0x06001671 RID: 5745 RVA: 0x0006CB58 File Offset: 0x0006AD58
+	// Token: 0x060016BD RID: 5821 RVA: 0x000C4378 File Offset: 0x000C2578
 	public void ChangeMaterialLocal(int materialIndex)
 	{
 		if (this.setMatIndex == materialIndex)
@@ -1632,7 +1632,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001672 RID: 5746 RVA: 0x0006CBBC File Offset: 0x0006ADBC
+	// Token: 0x060016BE RID: 5822 RVA: 0x000C43DC File Offset: 0x000C25DC
 	public void PlayTaggedEffect()
 	{
 		TagEffectPack tagEffectPack = null;
@@ -1655,7 +1655,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		TagEffectsLibrary.PlayEffect(base.transform, false, this.scaleFactor, effectType, this.CosmeticEffectPack, tagEffectPack, q);
 	}
 
-	// Token: 0x06001673 RID: 5747 RVA: 0x0006CCB8 File Offset: 0x0006AEB8
+	// Token: 0x060016BF RID: 5823 RVA: 0x000C44D8 File Offset: 0x000C26D8
 	public void UpdateMatParticles(int materialIndex)
 	{
 		if (this.lavaParticleSystem != null)
@@ -1705,7 +1705,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001674 RID: 5748 RVA: 0x0006CE18 File Offset: 0x0006B018
+	// Token: 0x060016C0 RID: 5824 RVA: 0x000C4638 File Offset: 0x000C2838
 	public void InitializeNoobMaterial(float red, float green, float blue, PhotonMessageInfoWrapped info)
 	{
 		this.IncrementRPC(info, "RPC_InitializeNoobMaterial");
@@ -1721,7 +1721,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001675 RID: 5749 RVA: 0x0006CEF4 File Offset: 0x0006B0F4
+	// Token: 0x060016C1 RID: 5825 RVA: 0x000C4714 File Offset: 0x000C2914
 	public void InitializeNoobMaterialLocal(float red, float green, float blue)
 	{
 		Color color = new Color(red, green, blue);
@@ -1740,7 +1740,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.UpdateName(isNamePermissionEnabled);
 	}
 
-	// Token: 0x06001676 RID: 5750 RVA: 0x0006CFC8 File Offset: 0x0006B1C8
+	// Token: 0x060016C2 RID: 5826 RVA: 0x000C47E8 File Offset: 0x000C29E8
 	public void UpdateName(bool isNamePermissionEnabled)
 	{
 		if (!this.isOfflineVRRig && this.creator != null)
@@ -1760,7 +1760,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001677 RID: 5751 RVA: 0x0006D080 File Offset: 0x0006B280
+	// Token: 0x060016C3 RID: 5827 RVA: 0x000C48A0 File Offset: 0x000C2AA0
 	public void UpdateName()
 	{
 		ValueTuple<bool, Permission.ManagedByEnum> customNicknamePermissionStatus = KIDManager.Instance.GetCustomNicknamePermissionStatus();
@@ -1768,7 +1768,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.UpdateName(isNamePermissionEnabled);
 	}
 
-	// Token: 0x06001678 RID: 5752 RVA: 0x0006D0C0 File Offset: 0x0006B2C0
+	// Token: 0x060016C4 RID: 5828 RVA: 0x000C48E0 File Offset: 0x000C2AE0
 	public string NormalizeName(bool doIt, string text)
 	{
 		if (doIt)
@@ -1790,19 +1790,19 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return text;
 	}
 
-	// Token: 0x06001679 RID: 5753 RVA: 0x0006D137 File Offset: 0x0006B337
+	// Token: 0x060016C5 RID: 5829 RVA: 0x0003F86E File Offset: 0x0003DA6E
 	public void SetJumpLimitLocal(float maxJumpSpeed)
 	{
 		GTPlayer.Instance.maxJumpSpeed = maxJumpSpeed;
 	}
 
-	// Token: 0x0600167A RID: 5754 RVA: 0x0006D144 File Offset: 0x0006B344
+	// Token: 0x060016C6 RID: 5830 RVA: 0x0003F87B File Offset: 0x0003DA7B
 	public void SetJumpMultiplierLocal(float jumpMultiplier)
 	{
 		GTPlayer.Instance.jumpMultiplier = jumpMultiplier;
 	}
 
-	// Token: 0x0600167B RID: 5755 RVA: 0x0006D154 File Offset: 0x0006B354
+	// Token: 0x060016C7 RID: 5831 RVA: 0x000C4958 File Offset: 0x000C2B58
 	public void RequestMaterialColor(int askingPlayerID, PhotonMessageInfoWrapped info)
 	{
 		this.IncrementRPC(info, "RequestMaterialColor");
@@ -1818,7 +1818,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600167C RID: 5756 RVA: 0x0006D1FC File Offset: 0x0006B3FC
+	// Token: 0x060016C8 RID: 5832 RVA: 0x000C4A00 File Offset: 0x000C2C00
 	public void RequestCosmetics(PhotonMessageInfoWrapped info)
 	{
 		NetPlayer player = NetworkSystem.Instance.GetPlayer(info.senderID);
@@ -1839,7 +1839,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600167D RID: 5757 RVA: 0x0006D29C File Offset: 0x0006B49C
+	// Token: 0x060016C9 RID: 5833 RVA: 0x000C4AA0 File Offset: 0x000C2CA0
 	public void PlayTagSoundLocal(int soundIndex, float soundVolume, bool stopCurrentAudio)
 	{
 		if (soundIndex < 0 || soundIndex >= this.clipToPlay.Length)
@@ -1854,7 +1854,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.tagSound.GTPlayOneShot(this.clipToPlay[soundIndex], 1f);
 	}
 
-	// Token: 0x0600167E RID: 5758 RVA: 0x0006D2F5 File Offset: 0x0006B4F5
+	// Token: 0x060016CA RID: 5834 RVA: 0x0003F888 File Offset: 0x0003DA88
 	public void AssignDrumToMusicDrums(int drumIndex, AudioSource drum)
 	{
 		if (drumIndex >= 0 && drumIndex < this.musicDrums.Length && drum != null)
@@ -1863,7 +1863,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600167F RID: 5759 RVA: 0x0006D318 File Offset: 0x0006B518
+	// Token: 0x060016CB RID: 5835 RVA: 0x000C4AFC File Offset: 0x000C2CFC
 	public void PlayDrum(int drumIndex, float drumVolume, PhotonMessageInfoWrapped info)
 	{
 		this.IncrementRPC(info, "RPC_PlayDrum");
@@ -1893,7 +1893,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		audioSource.GTPlay();
 	}
 
-	// Token: 0x06001680 RID: 5760 RVA: 0x0006D44C File Offset: 0x0006B64C
+	// Token: 0x060016CC RID: 5836 RVA: 0x0003F8AB File Offset: 0x0003DAAB
 	public int AssignInstrumentToInstrumentSelfOnly(TransferrableObject instrument)
 	{
 		if (instrument == null)
@@ -1907,7 +1907,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return this.instrumentSelfOnly.IndexOf(instrument);
 	}
 
-	// Token: 0x06001681 RID: 5761 RVA: 0x0006D480 File Offset: 0x0006B680
+	// Token: 0x060016CD RID: 5837 RVA: 0x000C4C30 File Offset: 0x000C2E30
 	public void PlaySelfOnlyInstrument(int selfOnlyIndex, int noteIndex, float instrumentVol, PhotonMessageInfoWrapped info)
 	{
 		this.IncrementRPC(info, "RPC_PlaySelfOnlyInstrument");
@@ -1929,7 +1929,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001682 RID: 5762 RVA: 0x0006D55C File Offset: 0x0006B75C
+	// Token: 0x060016CE RID: 5838 RVA: 0x000C4D0C File Offset: 0x000C2F0C
 	public void PlayHandTapLocal(int soundIndex, bool isLeftHand, float tapVolume)
 	{
 		if (soundIndex > -1 && soundIndex < GTPlayer.Instance.materialData.Count)
@@ -1942,7 +1942,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001683 RID: 5763 RVA: 0x0006D5DC File Offset: 0x0006B7DC
+	// Token: 0x060016CF RID: 5839 RVA: 0x000C4D8C File Offset: 0x000C2F8C
 	internal void OnHandTap(int soundIndex, bool isLeftHand, float handSpeed, Vector3 tapDir)
 	{
 		if (soundIndex < 0 || soundIndex > GTPlayer.Instance.materialData.Count - 1)
@@ -1976,19 +1976,19 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001684 RID: 5764 RVA: 0x0006D70B File Offset: 0x0006B90B
+	// Token: 0x060016D0 RID: 5840 RVA: 0x0003F8DE File Offset: 0x0003DADE
 	internal HandEffectContext GetLeftHandEffect(int index, float handSpeed, Vector3 tapDir)
 	{
 		return this.SetHandEffectData(index, this._leftHandEffect, this.leftHand, handSpeed, tapDir);
 	}
 
-	// Token: 0x06001685 RID: 5765 RVA: 0x0006D722 File Offset: 0x0006B922
+	// Token: 0x060016D1 RID: 5841 RVA: 0x0003F8F5 File Offset: 0x0003DAF5
 	internal HandEffectContext GetRightHandEffect(int index, float handSpeed, Vector3 tapDir)
 	{
 		return this.SetHandEffectData(index, this._rightHandEffect, this.rightHand, handSpeed, tapDir);
 	}
 
-	// Token: 0x06001686 RID: 5766 RVA: 0x0006D73C File Offset: 0x0006B93C
+	// Token: 0x060016D2 RID: 5842 RVA: 0x000C4EBC File Offset: 0x000C30BC
 	internal HandEffectContext SetHandEffectData(int index, HandEffectContext effectContext, VRMap targetHand, float handSpeed, Vector3 tapDir)
 	{
 		GTPlayer.MaterialData handSurfaceData = this.GetHandSurfaceData(index);
@@ -2023,7 +2023,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return effectContext;
 	}
 
-	// Token: 0x06001687 RID: 5767 RVA: 0x0006D8C4 File Offset: 0x0006BAC4
+	// Token: 0x060016D3 RID: 5843 RVA: 0x000C5044 File Offset: 0x000C3244
 	internal GTPlayer.MaterialData GetHandSurfaceData(int index)
 	{
 		GTPlayer.MaterialData materialData = GTPlayer.Instance.materialData[index];
@@ -2034,7 +2034,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return materialData;
 	}
 
-	// Token: 0x06001688 RID: 5768 RVA: 0x0006D8FC File Offset: 0x0006BAFC
+	// Token: 0x060016D4 RID: 5844 RVA: 0x000C507C File Offset: 0x000C327C
 	public void PlaySplashEffect(Vector3 splashPosition, Quaternion splashRotation, float splashScale, float boundingRadius, bool bigSplash, bool enteringWater, PhotonMessageInfoWrapped info)
 	{
 		this.IncrementRPC(info, "RPC_PlaySplashEffect");
@@ -2074,7 +2074,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		GorillaNot.instance.SendReport("inappropriate tag data being sent splash effect", player.UserId, player.NickName);
 	}
 
-	// Token: 0x06001689 RID: 5769 RVA: 0x0006DA94 File Offset: 0x0006BC94
+	// Token: 0x060016D5 RID: 5845 RVA: 0x000C5214 File Offset: 0x000C3414
 	[Rpc(RpcSources.StateAuthority, RpcTargets.All)]
 	public void RPC_EnableNonCosmeticHandItem(bool enable, bool isLeftHand, RpcInfo info = default(RpcInfo))
 	{
@@ -2104,7 +2104,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600168A RID: 5770 RVA: 0x0006DB54 File Offset: 0x0006BD54
+	// Token: 0x060016D6 RID: 5846 RVA: 0x000C52D4 File Offset: 0x000C34D4
 	[PunRPC]
 	public void EnableNonCosmeticHandItemRPC(bool enable, bool isLeftHand, PhotonMessageInfoWrapped info)
 	{
@@ -2134,7 +2134,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600168B RID: 5771 RVA: 0x0006DC0C File Offset: 0x0006BE0C
+	// Token: 0x060016D7 RID: 5847 RVA: 0x000C538C File Offset: 0x000C358C
 	public bool IsMakingFistLeft()
 	{
 		if (this.isOfflineVRRig)
@@ -2144,7 +2144,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return this.leftIndex.calcT > 0.25f && this.leftMiddle.calcT > 0.25f;
 	}
 
-	// Token: 0x0600168C RID: 5772 RVA: 0x0006DC64 File Offset: 0x0006BE64
+	// Token: 0x060016D8 RID: 5848 RVA: 0x000C53E4 File Offset: 0x000C35E4
 	public bool IsMakingFistRight()
 	{
 		if (this.isOfflineVRRig)
@@ -2154,7 +2154,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return this.rightIndex.calcT > 0.25f && this.rightMiddle.calcT > 0.25f;
 	}
 
-	// Token: 0x0600168D RID: 5773 RVA: 0x0006DCBC File Offset: 0x0006BEBC
+	// Token: 0x060016D9 RID: 5849 RVA: 0x000C543C File Offset: 0x000C363C
 	public bool IsMakingFiveLeft()
 	{
 		if (this.isOfflineVRRig)
@@ -2164,7 +2164,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return this.leftIndex.calcT < 0.25f && this.leftMiddle.calcT < 0.25f;
 	}
 
-	// Token: 0x0600168E RID: 5774 RVA: 0x0006DD14 File Offset: 0x0006BF14
+	// Token: 0x060016DA RID: 5850 RVA: 0x000C5494 File Offset: 0x000C3694
 	public bool IsMakingFiveRight()
 	{
 		if (this.isOfflineVRRig)
@@ -2174,7 +2174,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return this.rightIndex.calcT < 0.25f && this.rightMiddle.calcT < 0.25f;
 	}
 
-	// Token: 0x0600168F RID: 5775 RVA: 0x0006DD6C File Offset: 0x0006BF6C
+	// Token: 0x060016DB RID: 5851 RVA: 0x0003F90C File Offset: 0x0003DB0C
 	public VRMap GetMakingFist(bool debug, out bool isLeftHand)
 	{
 		if (this.IsMakingFistRight())
@@ -2191,7 +2191,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return null;
 	}
 
-	// Token: 0x06001690 RID: 5776 RVA: 0x0006DD98 File Offset: 0x0006BF98
+	// Token: 0x060016DC RID: 5852 RVA: 0x000C54EC File Offset: 0x000C36EC
 	public void PlayGeodeEffect(Vector3 hitPosition)
 	{
 		if ((base.transform.position - hitPosition).sqrMagnitude < 9f && this.geodeCrackingSound)
@@ -2200,7 +2200,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001691 RID: 5777 RVA: 0x0006DDE0 File Offset: 0x0006BFE0
+	// Token: 0x060016DD RID: 5853 RVA: 0x000C5534 File Offset: 0x000C3734
 	public void PlayClimbSound(AudioClip clip, bool isLeftHand)
 	{
 		if (isLeftHand)
@@ -2215,7 +2215,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.rightHandPlayer.GTPlayOneShot(this.rightHandPlayer.clip, 1f);
 	}
 
-	// Token: 0x06001692 RID: 5778 RVA: 0x0006DE60 File Offset: 0x0006C060
+	// Token: 0x060016DE RID: 5854 RVA: 0x000C55B4 File Offset: 0x000C37B4
 	public void HideAllCosmetics(PhotonMessageInfo info)
 	{
 		this.IncrementRPC(info, "HideAllCosmetics");
@@ -2227,7 +2227,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		GorillaNot.instance.SendReport("inappropriate tag data being sent update cosmetics", info.Sender.UserId, info.Sender.NickName);
 	}
 
-	// Token: 0x06001693 RID: 5779 RVA: 0x0006DED0 File Offset: 0x0006C0D0
+	// Token: 0x060016DF RID: 5855 RVA: 0x000C5624 File Offset: 0x000C3824
 	public void UpdateCosmetics(string[] currentItems, PhotonMessageInfoWrapped info)
 	{
 		this.IncrementRPC(info, "RPC_UpdateCosmetics");
@@ -2241,7 +2241,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		GorillaNot.instance.SendReport("inappropriate tag data being sent update cosmetics", player.UserId, player.NickName);
 	}
 
-	// Token: 0x06001694 RID: 5780 RVA: 0x0006DF48 File Offset: 0x0006C148
+	// Token: 0x060016E0 RID: 5856 RVA: 0x000C569C File Offset: 0x000C389C
 	public void UpdateCosmeticsWithTryon(string[] currentItems, string[] tryOnItems, PhotonMessageInfoWrapped info)
 	{
 		this.IncrementRPC(info, "RPC_UpdateCosmeticsWithTryon");
@@ -2256,7 +2256,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		GorillaNot.instance.SendReport("inappropriate tag data being sent update cosmetics with tryon", player.UserId, player.NickName);
 	}
 
-	// Token: 0x06001695 RID: 5781 RVA: 0x0006DFD8 File Offset: 0x0006C1D8
+	// Token: 0x060016E1 RID: 5857 RVA: 0x000C572C File Offset: 0x000C392C
 	public void UpdateCosmeticsWithTryon(int[] currentItemsPacked, int[] tryOnItemsPacked, PhotonMessageInfoWrapped info)
 	{
 		this.IncrementRPC(info, "RPC_UpdateCosmeticsWithTryon");
@@ -2271,7 +2271,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		GorillaNot.instance.SendReport("inappropriate tag data being sent update cosmetics with tryon", player.UserId, player.NickName);
 	}
 
-	// Token: 0x06001696 RID: 5782 RVA: 0x0006E076 File Offset: 0x0006C276
+	// Token: 0x060016E2 RID: 5858 RVA: 0x0003F936 File Offset: 0x0003DB36
 	public void LocalUpdateCosmetics(CosmeticsController.CosmeticSet newSet)
 	{
 		this.cosmeticSet = newSet;
@@ -2281,7 +2281,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001697 RID: 5783 RVA: 0x0006E08D File Offset: 0x0006C28D
+	// Token: 0x060016E3 RID: 5859 RVA: 0x0003F94D File Offset: 0x0003DB4D
 	public void LocalUpdateCosmeticsWithTryon(CosmeticsController.CosmeticSet newSet, CosmeticsController.CosmeticSet newTryOnSet)
 	{
 		this.cosmeticSet = newSet;
@@ -2292,7 +2292,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x06001698 RID: 5784 RVA: 0x0006E0AB File Offset: 0x0006C2AB
+	// Token: 0x060016E4 RID: 5860 RVA: 0x0003F96B File Offset: 0x0003DB6B
 	private void CheckForEarlyAccess()
 	{
 		if (this.concatStringOfCosmeticsAllowed.Contains("Early Access Supporter Pack"))
@@ -2302,7 +2302,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.InitializedCosmetics = true;
 	}
 
-	// Token: 0x06001699 RID: 5785 RVA: 0x0006E0DC File Offset: 0x0006C2DC
+	// Token: 0x060016E5 RID: 5861 RVA: 0x000C57CC File Offset: 0x000C39CC
 	public void SetCosmeticsActive()
 	{
 		if (CosmeticsController.instance == null || !CosmeticsV2Spawner_Dirty.allPartsInstantiated)
@@ -2315,7 +2315,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.mergedSet.ActivateCosmetics(this.prevSet, this, component, this.cosmeticsObjectRegistry);
 	}
 
-	// Token: 0x0600169A RID: 5786 RVA: 0x0006E154 File Offset: 0x0006C354
+	// Token: 0x060016E6 RID: 5862 RVA: 0x000C5844 File Offset: 0x000C3A44
 	public void GetCosmeticsPlayFabCatalogData()
 	{
 		if (CosmeticsController.instance != null)
@@ -2351,7 +2351,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.concatStringOfCosmeticsAllowed += BuilderSetManager.instance.GetStarterSetsConcat();
 	}
 
-	// Token: 0x0600169B RID: 5787 RVA: 0x0006E1C8 File Offset: 0x0006C3C8
+	// Token: 0x060016E7 RID: 5863 RVA: 0x000C58B8 File Offset: 0x000C3AB8
 	public void GenerateFingerAngleLookupTables()
 	{
 		this.GenerateTableIndex(ref this.leftIndex);
@@ -2362,7 +2362,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.GenerateTableThumb(ref this.rightThumb);
 	}
 
-	// Token: 0x0600169C RID: 5788 RVA: 0x0006E220 File Offset: 0x0006C420
+	// Token: 0x060016E8 RID: 5864 RVA: 0x000C5910 File Offset: 0x000C3B10
 	private void GenerateTableThumb(ref VRMapThumb thumb)
 	{
 		thumb.angle1Table = new Quaternion[11];
@@ -2375,7 +2375,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600169D RID: 5789 RVA: 0x0006E2D8 File Offset: 0x0006C4D8
+	// Token: 0x060016E9 RID: 5865 RVA: 0x000C59C8 File Offset: 0x000C3BC8
 	private void GenerateTableIndex(ref VRMapIndex index)
 	{
 		index.angle1Table = new Quaternion[11];
@@ -2389,7 +2389,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600169E RID: 5790 RVA: 0x0006E3C0 File Offset: 0x0006C5C0
+	// Token: 0x060016EA RID: 5866 RVA: 0x000C5AB0 File Offset: 0x000C3CB0
 	private void GenerateTableMiddle(ref VRMapMiddle middle)
 	{
 		middle.angle1Table = new Quaternion[11];
@@ -2403,7 +2403,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x0600169F RID: 5791 RVA: 0x0006E4A8 File Offset: 0x0006C6A8
+	// Token: 0x060016EB RID: 5867 RVA: 0x000C5B98 File Offset: 0x000C3D98
 	private Quaternion SanitizeQuaternion(Quaternion quat)
 	{
 		if (float.IsNaN(quat.w) || float.IsNaN(quat.x) || float.IsNaN(quat.y) || float.IsNaN(quat.z) || float.IsInfinity(quat.w) || float.IsInfinity(quat.x) || float.IsInfinity(quat.y) || float.IsInfinity(quat.z))
@@ -2413,7 +2413,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return quat;
 	}
 
-	// Token: 0x060016A0 RID: 5792 RVA: 0x0006E524 File Offset: 0x0006C724
+	// Token: 0x060016EC RID: 5868 RVA: 0x000C5C14 File Offset: 0x000C3E14
 	private Vector3 SanitizeVector3(Vector3 vec)
 	{
 		if (float.IsNaN(vec.x) || float.IsNaN(vec.y) || float.IsNaN(vec.z) || float.IsInfinity(vec.x) || float.IsInfinity(vec.y) || float.IsInfinity(vec.z))
@@ -2423,7 +2423,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return Vector3.ClampMagnitude(vec, 5000f);
 	}
 
-	// Token: 0x060016A1 RID: 5793 RVA: 0x0006E590 File Offset: 0x0006C790
+	// Token: 0x060016ED RID: 5869 RVA: 0x0003F99C File Offset: 0x0003DB9C
 	private void IncrementRPC(PhotonMessageInfoWrapped info, string sourceCall)
 	{
 		if (GorillaGameManager.instance != null)
@@ -2432,7 +2432,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016A2 RID: 5794 RVA: 0x0006E5A6 File Offset: 0x0006C7A6
+	// Token: 0x060016EE RID: 5870 RVA: 0x0003F9B2 File Offset: 0x0003DBB2
 	private void IncrementRPC(PhotonMessageInfo info, string sourceCall)
 	{
 		if (GorillaGameManager.instance != null)
@@ -2441,7 +2441,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016A3 RID: 5795 RVA: 0x0006E5BC File Offset: 0x0006C7BC
+	// Token: 0x060016EF RID: 5871 RVA: 0x000C5C80 File Offset: 0x000C3E80
 	private void AddVelocityToQueue(Vector3 position, double serverTime)
 	{
 		Vector3 velocity;
@@ -2457,7 +2457,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.lastPosition = position;
 	}
 
-	// Token: 0x060016A4 RID: 5796 RVA: 0x0006E620 File Offset: 0x0006C820
+	// Token: 0x060016F0 RID: 5872 RVA: 0x000C5CE4 File Offset: 0x000C3EE4
 	private Vector3 ReturnVelocityAtTime(double timeToReturn)
 	{
 		if (this.velocityHistoryList.Count <= 1)
@@ -2495,7 +2495,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return Vector3.Lerp(this.velocityHistoryList[num].vel, this.velocityHistoryList[num2].vel, num5);
 	}
 
-	// Token: 0x060016A5 RID: 5797 RVA: 0x0006E732 File Offset: 0x0006C932
+	// Token: 0x060016F1 RID: 5873 RVA: 0x0003F9C8 File Offset: 0x0003DBC8
 	public Vector3 LatestVelocity()
 	{
 		if (this.velocityHistoryList.Count > 0)
@@ -2505,13 +2505,13 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return Vector3.zero;
 	}
 
-	// Token: 0x060016A6 RID: 5798 RVA: 0x0006E759 File Offset: 0x0006C959
+	// Token: 0x060016F2 RID: 5874 RVA: 0x0003F9EF File Offset: 0x0003DBEF
 	public bool IsPositionInRange(Vector3 position, float range)
 	{
 		return (this.syncPos - position).IsShorterThan(range * this.scaleFactor);
 	}
 
-	// Token: 0x060016A7 RID: 5799 RVA: 0x0006E774 File Offset: 0x0006C974
+	// Token: 0x060016F3 RID: 5875 RVA: 0x000C5DF8 File Offset: 0x000C3FF8
 	public bool CheckTagDistanceRollback(VRRig otherRig, float max, float timeInterval)
 	{
 		Vector3 a;
@@ -2520,7 +2520,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return Vector3.SqrMagnitude(a - b) < max * max * this.scaleFactor;
 	}
 
-	// Token: 0x060016A8 RID: 5800 RVA: 0x0006E7D0 File Offset: 0x0006C9D0
+	// Token: 0x060016F4 RID: 5876 RVA: 0x000C5E54 File Offset: 0x000C4054
 	public Vector3 ClampVelocityRelativeToPlayerSafe(Vector3 inVel, float max)
 	{
 		Vector3 vector = Vector3.zero;
@@ -2532,12 +2532,12 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return vector;
 	}
 
-	// Token: 0x14000046 RID: 70
-	// (add) Token: 0x060016A9 RID: 5801 RVA: 0x0006E82C File Offset: 0x0006CA2C
-	// (remove) Token: 0x060016AA RID: 5802 RVA: 0x0006E864 File Offset: 0x0006CA64
+	// Token: 0x14000047 RID: 71
+	// (add) Token: 0x060016F5 RID: 5877 RVA: 0x000C5EB0 File Offset: 0x000C40B0
+	// (remove) Token: 0x060016F6 RID: 5878 RVA: 0x000C5EE8 File Offset: 0x000C40E8
 	public event Action<Color> OnColorChanged;
 
-	// Token: 0x060016AB RID: 5803 RVA: 0x0006E89C File Offset: 0x0006CA9C
+	// Token: 0x060016F7 RID: 5879 RVA: 0x000C5F20 File Offset: 0x000C4120
 	public void SetColor(Color color)
 	{
 		this.skeleton.UpdateColor(color);
@@ -2562,7 +2562,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016AC RID: 5804 RVA: 0x0006E91F File Offset: 0x0006CB1F
+	// Token: 0x060016F8 RID: 5880 RVA: 0x0003FA0A File Offset: 0x0003DC0A
 	public void OnColorInitialized(Action<Color> action)
 	{
 		if (this.colorInitialized)
@@ -2573,12 +2573,12 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.onColorInitialized = (Action<Color>)Delegate.Combine(this.onColorInitialized, action);
 	}
 
-	// Token: 0x14000047 RID: 71
-	// (add) Token: 0x060016AD RID: 5805 RVA: 0x0006E950 File Offset: 0x0006CB50
-	// (remove) Token: 0x060016AE RID: 5806 RVA: 0x0006E988 File Offset: 0x0006CB88
+	// Token: 0x14000048 RID: 72
+	// (add) Token: 0x060016F9 RID: 5881 RVA: 0x000C5FA4 File Offset: 0x000C41A4
+	// (remove) Token: 0x060016FA RID: 5882 RVA: 0x000C5FDC File Offset: 0x000C41DC
 	public event Action<int> OnQuestScoreChanged;
 
-	// Token: 0x060016AF RID: 5807 RVA: 0x0006E9C0 File Offset: 0x0006CBC0
+	// Token: 0x060016FB RID: 5883 RVA: 0x000C6014 File Offset: 0x000C4214
 	public void SetQuestScore(int score)
 	{
 		this.SetQuestScoreLocal(score);
@@ -2596,7 +2596,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016B0 RID: 5808 RVA: 0x0006EA1E File Offset: 0x0006CC1E
+	// Token: 0x060016FC RID: 5884 RVA: 0x0003FA38 File Offset: 0x0003DC38
 	public int GetCurrentQuestScore()
 	{
 		if (!this._scoreUpdated)
@@ -2606,14 +2606,14 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return this.currentQuestScore;
 	}
 
-	// Token: 0x060016B1 RID: 5809 RVA: 0x0006EA39 File Offset: 0x0006CC39
+	// Token: 0x060016FD RID: 5885 RVA: 0x0003FA53 File Offset: 0x0003DC53
 	private void SetQuestScoreLocal(int score)
 	{
 		this.currentQuestScore = score;
 		this._scoreUpdated = true;
 	}
 
-	// Token: 0x060016B2 RID: 5810 RVA: 0x0006EA4C File Offset: 0x0006CC4C
+	// Token: 0x060016FE RID: 5886 RVA: 0x000C6074 File Offset: 0x000C4274
 	public void UpdateQuestScore(int score, PhotonMessageInfoWrapped info)
 	{
 		this.IncrementRPC(info, "UpdateQuestScore");
@@ -2637,12 +2637,12 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016B3 RID: 5811 RVA: 0x0006EABC File Offset: 0x0006CCBC
+	// Token: 0x060016FF RID: 5887 RVA: 0x000C60E4 File Offset: 0x000C42E4
 	public void RequestQuestScore(PhotonMessageInfoWrapped info)
 	{
 		this.IncrementRPC(info, "RequestQuestScore");
 		NetPlayer player = NetworkSystem.Instance.GetPlayer(info.senderID);
-		if (player.CheckSingleCallRPC(NetPlayer.SingleCallRPC.CMS_RequestQuestScore))
+		if (player.CheckSingleCallRPC(NetPlayer.SingleCallRPC.RequestQuestScore))
 		{
 			return;
 		}
@@ -2655,7 +2655,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016B4 RID: 5812 RVA: 0x0006EB24 File Offset: 0x0006CD24
+	// Token: 0x06001700 RID: 5888 RVA: 0x000C614C File Offset: 0x000C434C
 	public void OnEnable()
 	{
 		EyeScannerMono.Register(this);
@@ -2679,7 +2679,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		VRRigJobManager.Instance.RegisterVRRig(this);
 	}
 
-	// Token: 0x060016B5 RID: 5813 RVA: 0x0006EBC4 File Offset: 0x0006CDC4
+	// Token: 0x06001701 RID: 5889 RVA: 0x000C61EC File Offset: 0x000C43EC
 	void IPreDisable.PreDisable()
 	{
 		try
@@ -2713,7 +2713,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016B6 RID: 5814 RVA: 0x0006ECDC File Offset: 0x0006CEDC
+	// Token: 0x06001702 RID: 5890 RVA: 0x000C6304 File Offset: 0x000C4504
 	public void OnDisable()
 	{
 		try
@@ -2769,7 +2769,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.creator = null;
 	}
 
-	// Token: 0x060016B7 RID: 5815 RVA: 0x0006EE84 File Offset: 0x0006D084
+	// Token: 0x06001703 RID: 5891 RVA: 0x0003FA63 File Offset: 0x0003DC63
 	private void HandHold_HandPositionReleaseOverride(HandHold hh, bool rightHand)
 	{
 		if (rightHand)
@@ -2780,7 +2780,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.leftHand.handholdOverrideTarget = null;
 	}
 
-	// Token: 0x060016B8 RID: 5816 RVA: 0x0006EEA2 File Offset: 0x0006D0A2
+	// Token: 0x06001704 RID: 5892 RVA: 0x0003FA81 File Offset: 0x0003DC81
 	private void HandHold_HandPositionRequestOverride(HandHold hh, bool rightHand, Vector3 pos)
 	{
 		if (rightHand)
@@ -2793,7 +2793,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.leftHand.handholdOverrideTargetOffset = pos;
 	}
 
-	// Token: 0x060016B9 RID: 5817 RVA: 0x0006EEE4 File Offset: 0x0006D0E4
+	// Token: 0x06001705 RID: 5893 RVA: 0x000C64AC File Offset: 0x000C46AC
 	public void NetInitialize()
 	{
 		this.timeSpawned = Time.time;
@@ -2852,7 +2852,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016BA RID: 5818 RVA: 0x0006F040 File Offset: 0x0006D240
+	// Token: 0x06001706 RID: 5894 RVA: 0x000C6608 File Offset: 0x000C4808
 	public void GrabbedByPlayer(VRRig grabbedByRig, bool grabbedBody, bool grabbedLeftHand, bool grabbedWithLeftHand)
 	{
 		GorillaClimbable climbable = grabbedWithLeftHand ? grabbedByRig.leftHandHoldsPlayer : grabbedByRig.rightHandHoldsPlayer;
@@ -2879,7 +2879,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.grabbedRopeIsPhotonView = true;
 	}
 
-	// Token: 0x060016BB RID: 5819 RVA: 0x0006F0E4 File Offset: 0x0006D2E4
+	// Token: 0x06001707 RID: 5895 RVA: 0x000C66AC File Offset: 0x000C48AC
 	public void DroppedByPlayer(VRRig grabbedByRig, Vector3 throwVelocity)
 	{
 		throwVelocity = Vector3.ClampMagnitude(throwVelocity, 20f);
@@ -2898,7 +2898,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016BC RID: 5820 RVA: 0x0006F184 File Offset: 0x0006D384
+	// Token: 0x06001708 RID: 5896 RVA: 0x000C674C File Offset: 0x000C494C
 	public bool IsOnGround(float headCheckDistance, float handCheckDistance, out Vector3 groundNormal)
 	{
 		GTPlayer instance = GTPlayer.Instance;
@@ -2926,7 +2926,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return false;
 	}
 
-	// Token: 0x060016BD RID: 5821 RVA: 0x0006F298 File Offset: 0x0006D498
+	// Token: 0x06001709 RID: 5897 RVA: 0x000C6860 File Offset: 0x000C4A60
 	private bool LocalTestMovementCollision(Vector3 startPosition, Vector3 startVelocity, out Vector3 modifiedVelocity, out Vector3 finalPosition)
 	{
 		GTPlayer instance = GTPlayer.Instance;
@@ -2962,7 +2962,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return flag || flag2 || flag3;
 	}
 
-	// Token: 0x060016BE RID: 5822 RVA: 0x0006F428 File Offset: 0x0006D628
+	// Token: 0x0600170A RID: 5898 RVA: 0x000C69F0 File Offset: 0x000C4BF0
 	private bool LocalCheckCollision(Vector3 startPosition, Vector3 movement, float radius, out Vector3 finalPosition, out RaycastHit hit)
 	{
 		GTPlayer instance = GTPlayer.Instance;
@@ -2991,7 +2991,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return false;
 	}
 
-	// Token: 0x060016BF RID: 5823 RVA: 0x0006F508 File Offset: 0x0006D708
+	// Token: 0x0600170B RID: 5899 RVA: 0x000C6AD0 File Offset: 0x000C4CD0
 	public void UpdateFriendshipBracelet()
 	{
 		bool flag = false;
@@ -3052,7 +3052,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016C0 RID: 5824 RVA: 0x0006F6D8 File Offset: 0x0006D8D8
+	// Token: 0x0600170C RID: 5900 RVA: 0x000C6CA0 File Offset: 0x000C4EA0
 	public void EnableHuntWatch(bool on)
 	{
 		this.huntComputer.SetActive(on);
@@ -3066,13 +3066,13 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016C1 RID: 5825 RVA: 0x0006F71E File Offset: 0x0006D91E
+	// Token: 0x0600170D RID: 5901 RVA: 0x0003FAC1 File Offset: 0x0003DCC1
 	public void EnablePaintbrawlCosmetics(bool on)
 	{
 		this.paintbrawlBalloons.gameObject.SetActive(on);
 	}
 
-	// Token: 0x060016C2 RID: 5826 RVA: 0x0006F734 File Offset: 0x0006D934
+	// Token: 0x0600170E RID: 5902 RVA: 0x000C6CE8 File Offset: 0x000C4EE8
 	public void EnableBuilderResizeWatch(bool on)
 	{
 		if (this.builderResizeWatch != null && this.builderResizeWatch.activeSelf != on)
@@ -3098,7 +3098,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016C3 RID: 5827 RVA: 0x0006F7D9 File Offset: 0x0006D9D9
+	// Token: 0x0600170F RID: 5903 RVA: 0x0003FAD4 File Offset: 0x0003DCD4
 	public void EnableGuardianEjectWatch(bool on)
 	{
 		if (this.guardianEjectWatch != null && this.guardianEjectWatch.activeSelf != on)
@@ -3107,7 +3107,16 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016C4 RID: 5828 RVA: 0x0006F804 File Offset: 0x0006DA04
+	// Token: 0x06001710 RID: 5904 RVA: 0x0003FAFE File Offset: 0x0003DCFE
+	public void EnableVStumpReturnWatch(bool on)
+	{
+		if (this.vStumpReturnWatch != null && this.vStumpReturnWatch.activeSelf != on)
+		{
+			this.vStumpReturnWatch.SetActive(on);
+		}
+	}
+
+	// Token: 0x06001711 RID: 5905 RVA: 0x000C6D90 File Offset: 0x000C4F90
 	private void UpdateReplacementVoice()
 	{
 		if (this.remoteUseReplacementVoice || this.localUseReplacementVoice || GorillaComputer.instance.voiceChatOn != "TRUE")
@@ -3118,20 +3127,20 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.voiceAudio.mute = false;
 	}
 
-	// Token: 0x060016C5 RID: 5829 RVA: 0x0006F854 File Offset: 0x0006DA54
+	// Token: 0x06001712 RID: 5906 RVA: 0x000C6DE0 File Offset: 0x000C4FE0
 	public bool ShouldPlayReplacementVoice()
 	{
 		return this.netView && !this.netView.IsMine && !(GorillaComputer.instance.voiceChatOn == "OFF") && (this.remoteUseReplacementVoice || this.localUseReplacementVoice || GorillaComputer.instance.voiceChatOn == "FALSE") && this.speakingLoudness > this.replacementVoiceLoudnessThreshold;
 	}
 
-	// Token: 0x060016C6 RID: 5830 RVA: 0x0006F8CF File Offset: 0x0006DACF
+	// Token: 0x06001713 RID: 5907 RVA: 0x0003FB28 File Offset: 0x0003DD28
 	public void SetDuplicationZone(RigDuplicationZone duplicationZone)
 	{
 		this.duplicationZone = duplicationZone;
 		this.inDuplicationZone = (duplicationZone != null);
 	}
 
-	// Token: 0x060016C7 RID: 5831 RVA: 0x0006F8E5 File Offset: 0x0006DAE5
+	// Token: 0x06001714 RID: 5908 RVA: 0x0003FB3E File Offset: 0x0003DD3E
 	public void ClearDuplicationZone(RigDuplicationZone duplicationZone)
 	{
 		if (this.duplicationZone == duplicationZone)
@@ -3141,9 +3150,9 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000280 RID: 640
-	// (get) Token: 0x060016C8 RID: 5832 RVA: 0x0006F90C File Offset: 0x0006DB0C
-	// (set) Token: 0x060016C9 RID: 5833 RVA: 0x0006F914 File Offset: 0x0006DB14
+	// Token: 0x17000287 RID: 647
+	// (get) Token: 0x06001715 RID: 5909 RVA: 0x0003FB65 File Offset: 0x0003DD65
+	// (set) Token: 0x06001716 RID: 5910 RVA: 0x0003FB6D File Offset: 0x0003DD6D
 	bool IUserCosmeticsCallback.PendingUpdate
 	{
 		get
@@ -3156,12 +3165,12 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000281 RID: 641
-	// (get) Token: 0x060016CA RID: 5834 RVA: 0x0006F91D File Offset: 0x0006DB1D
-	// (set) Token: 0x060016CB RID: 5835 RVA: 0x0006F925 File Offset: 0x0006DB25
+	// Token: 0x17000288 RID: 648
+	// (get) Token: 0x06001717 RID: 5911 RVA: 0x0003FB76 File Offset: 0x0003DD76
+	// (set) Token: 0x06001718 RID: 5912 RVA: 0x0003FB7E File Offset: 0x0003DD7E
 	public bool IsFrozen { get; set; }
 
-	// Token: 0x060016CC RID: 5836 RVA: 0x0006F930 File Offset: 0x0006DB30
+	// Token: 0x06001719 RID: 5913 RVA: 0x000C6E5C File Offset: 0x000C505C
 	bool IUserCosmeticsCallback.OnGetUserCosmetics(string cosmetics)
 	{
 		if (cosmetics == this.rawCosmeticString && this.currentCosmeticTries < this.cosmeticRetries)
@@ -3184,7 +3193,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return true;
 	}
 
-	// Token: 0x060016CD RID: 5837 RVA: 0x0006F9CC File Offset: 0x0006DBCC
+	// Token: 0x0600171A RID: 5914 RVA: 0x000C6EF8 File Offset: 0x000C50F8
 	private short PackCompetitiveData()
 	{
 		if (!this.turningCompInitialized)
@@ -3216,7 +3225,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		return (short)(this.fps + (num << 8));
 	}
 
-	// Token: 0x060016CE RID: 5838 RVA: 0x0006FA8C File Offset: 0x0006DC8C
+	// Token: 0x0600171B RID: 5915 RVA: 0x000C6FB8 File Offset: 0x000C51B8
 	private void UnpackCompetitiveData(short packed)
 	{
 		int num = 255;
@@ -3238,7 +3247,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		this.turnType = "SMOOTH";
 	}
 
-	// Token: 0x060016CF RID: 5839 RVA: 0x0006FAF0 File Offset: 0x0006DCF0
+	// Token: 0x0600171C RID: 5916 RVA: 0x000C701C File Offset: 0x000C521C
 	private void OnKIDSessionUpdated(bool showCustomNames, Permission.ManagedByEnum managedBy)
 	{
 		bool flag = (showCustomNames || managedBy == Permission.ManagedByEnum.PLAYER) && managedBy != Permission.ManagedByEnum.PROHIBITED;
@@ -3263,7 +3272,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		Debug.Log("[KID] On Session Update - Custom Names Permission changed - Has enabled customNames? [" + flag.ToString() + "]");
 	}
 
-	// Token: 0x060016D0 RID: 5840 RVA: 0x0006FB8C File Offset: 0x0006DD8C
+	// Token: 0x0600171D RID: 5917 RVA: 0x0003FB87 File Offset: 0x0003DD87
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
 	private static void CacheLocalRig()
 	{
@@ -3275,8 +3284,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		VRRig.gLocalRig = ((gameObject != null) ? gameObject.GetComponentInChildren<VRRig>() : null);
 	}
 
-	// Token: 0x17000282 RID: 642
-	// (get) Token: 0x060016D1 RID: 5841 RVA: 0x0006FBB7 File Offset: 0x0006DDB7
+	// Token: 0x17000289 RID: 649
+	// (get) Token: 0x0600171E RID: 5918 RVA: 0x0003FBB2 File Offset: 0x0003DDB2
 	public static VRRig LocalRig
 	{
 		get
@@ -3285,8 +3294,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000283 RID: 643
-	// (get) Token: 0x060016D2 RID: 5842 RVA: 0x0006FBBE File Offset: 0x0006DDBE
+	// Token: 0x1700028A RID: 650
+	// (get) Token: 0x0600171F RID: 5919 RVA: 0x0003FBB9 File Offset: 0x0003DDB9
 	public bool isLocal
 	{
 		get
@@ -3295,8 +3304,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000284 RID: 644
-	// (get) Token: 0x060016D3 RID: 5843 RVA: 0x0000EA77 File Offset: 0x0000CC77
+	// Token: 0x1700028B RID: 651
+	// (get) Token: 0x06001720 RID: 5920 RVA: 0x00031CCF File Offset: 0x0002FECF
 	int IEyeScannable.scannableId
 	{
 		get
@@ -3305,8 +3314,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000285 RID: 645
-	// (get) Token: 0x060016D4 RID: 5844 RVA: 0x0006FBCB File Offset: 0x0006DDCB
+	// Token: 0x1700028C RID: 652
+	// (get) Token: 0x06001721 RID: 5921 RVA: 0x0003FBC6 File Offset: 0x0003DDC6
 	Vector3 IEyeScannable.Position
 	{
 		get
@@ -3315,8 +3324,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000286 RID: 646
-	// (get) Token: 0x060016D5 RID: 5845 RVA: 0x0006FBD8 File Offset: 0x0006DDD8
+	// Token: 0x1700028D RID: 653
+	// (get) Token: 0x06001722 RID: 5922 RVA: 0x000C70B8 File Offset: 0x000C52B8
 	Bounds IEyeScannable.Bounds
 	{
 		get
@@ -3325,8 +3334,8 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x17000287 RID: 647
-	// (get) Token: 0x060016D6 RID: 5846 RVA: 0x0006FBEE File Offset: 0x0006DDEE
+	// Token: 0x1700028E RID: 654
+	// (get) Token: 0x06001723 RID: 5923 RVA: 0x0003FBD3 File Offset: 0x0003DDD3
 	IList<KeyValueStringPair> IEyeScannable.Entries
 	{
 		get
@@ -3335,7 +3344,7 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		}
 	}
 
-	// Token: 0x060016D7 RID: 5847 RVA: 0x0006FBF8 File Offset: 0x0006DDF8
+	// Token: 0x06001724 RID: 5924 RVA: 0x000C70D0 File Offset: 0x000C52D0
 	private IList<KeyValueStringPair> buildEntries()
 	{
 		return new KeyValueStringPair[]
@@ -3345,469 +3354,472 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		};
 	}
 
-	// Token: 0x14000048 RID: 72
-	// (add) Token: 0x060016D8 RID: 5848 RVA: 0x0006FC90 File Offset: 0x0006DE90
-	// (remove) Token: 0x060016D9 RID: 5849 RVA: 0x0006FCC8 File Offset: 0x0006DEC8
+	// Token: 0x14000049 RID: 73
+	// (add) Token: 0x06001725 RID: 5925 RVA: 0x000C7168 File Offset: 0x000C5368
+	// (remove) Token: 0x06001726 RID: 5926 RVA: 0x000C71A0 File Offset: 0x000C53A0
 	public event Action OnDataChange;
 
-	// Token: 0x04001839 RID: 6201
+	// Token: 0x04001880 RID: 6272
 	private bool _isListeningFor_OnPostInstantiateAllPrefabs;
 
-	// Token: 0x0400183A RID: 6202
+	// Token: 0x04001881 RID: 6273
 	public static Action newPlayerJoined;
 
-	// Token: 0x0400183B RID: 6203
+	// Token: 0x04001882 RID: 6274
 	public VRMap head;
 
-	// Token: 0x0400183C RID: 6204
+	// Token: 0x04001883 RID: 6275
 	public VRMap rightHand;
 
-	// Token: 0x0400183D RID: 6205
+	// Token: 0x04001884 RID: 6276
 	public VRMap leftHand;
 
-	// Token: 0x0400183E RID: 6206
+	// Token: 0x04001885 RID: 6277
 	public VRMapThumb leftThumb;
 
-	// Token: 0x0400183F RID: 6207
+	// Token: 0x04001886 RID: 6278
 	public VRMapIndex leftIndex;
 
-	// Token: 0x04001840 RID: 6208
+	// Token: 0x04001887 RID: 6279
 	public VRMapMiddle leftMiddle;
 
-	// Token: 0x04001841 RID: 6209
+	// Token: 0x04001888 RID: 6280
 	public VRMapThumb rightThumb;
 
-	// Token: 0x04001842 RID: 6210
+	// Token: 0x04001889 RID: 6281
 	public VRMapIndex rightIndex;
 
-	// Token: 0x04001843 RID: 6211
+	// Token: 0x0400188A RID: 6282
 	public VRMapMiddle rightMiddle;
 
-	// Token: 0x04001844 RID: 6212
+	// Token: 0x0400188B RID: 6283
 	public CrittersLoudNoise leftHandNoise;
 
-	// Token: 0x04001845 RID: 6213
+	// Token: 0x0400188C RID: 6284
 	public CrittersLoudNoise rightHandNoise;
 
-	// Token: 0x04001846 RID: 6214
+	// Token: 0x0400188D RID: 6285
 	public CrittersLoudNoise speakingNoise;
 
-	// Token: 0x04001847 RID: 6215
+	// Token: 0x0400188E RID: 6286
 	private int previousGrabbedRope = -1;
 
-	// Token: 0x04001848 RID: 6216
+	// Token: 0x0400188F RID: 6287
 	private int previousGrabbedRopeBoneIndex;
 
-	// Token: 0x04001849 RID: 6217
+	// Token: 0x04001890 RID: 6288
 	private bool previousGrabbedRopeWasLeft;
 
-	// Token: 0x0400184A RID: 6218
+	// Token: 0x04001891 RID: 6289
 	private bool previousGrabbedRopeWasBody;
 
-	// Token: 0x0400184B RID: 6219
+	// Token: 0x04001892 RID: 6290
 	private GorillaRopeSwing currentRopeSwing;
 
-	// Token: 0x0400184C RID: 6220
+	// Token: 0x04001893 RID: 6291
 	private Transform currentHoldParent;
 
-	// Token: 0x0400184D RID: 6221
+	// Token: 0x04001894 RID: 6292
 	private Transform currentRopeSwingTarget;
 
-	// Token: 0x0400184E RID: 6222
+	// Token: 0x04001895 RID: 6293
 	private float lastRopeGrabTimer;
 
-	// Token: 0x0400184F RID: 6223
+	// Token: 0x04001896 RID: 6294
 	private bool shouldLerpToRope;
 
-	// Token: 0x04001850 RID: 6224
+	// Token: 0x04001897 RID: 6295
 	[NonSerialized]
 	public int grabbedRopeIndex = -1;
 
-	// Token: 0x04001851 RID: 6225
+	// Token: 0x04001898 RID: 6296
 	[NonSerialized]
 	public int grabbedRopeBoneIndex;
 
-	// Token: 0x04001852 RID: 6226
+	// Token: 0x04001899 RID: 6297
 	[NonSerialized]
 	public bool grabbedRopeIsLeft;
 
-	// Token: 0x04001853 RID: 6227
+	// Token: 0x0400189A RID: 6298
 	[NonSerialized]
 	public bool grabbedRopeIsBody;
 
-	// Token: 0x04001854 RID: 6228
+	// Token: 0x0400189B RID: 6299
 	[NonSerialized]
 	public bool grabbedRopeIsPhotonView;
 
-	// Token: 0x04001855 RID: 6229
+	// Token: 0x0400189C RID: 6300
 	[NonSerialized]
 	public Vector3 grabbedRopeOffset = Vector3.zero;
 
-	// Token: 0x04001856 RID: 6230
+	// Token: 0x0400189D RID: 6301
 	private int prevMovingSurfaceID = -1;
 
-	// Token: 0x04001857 RID: 6231
+	// Token: 0x0400189E RID: 6302
 	private bool movingSurfaceWasLeft;
 
-	// Token: 0x04001858 RID: 6232
+	// Token: 0x0400189F RID: 6303
 	private bool movingSurfaceWasBody;
 
-	// Token: 0x04001859 RID: 6233
+	// Token: 0x040018A0 RID: 6304
 	private bool movingSurfaceWasMonkeBlock;
 
-	// Token: 0x0400185A RID: 6234
+	// Token: 0x040018A1 RID: 6305
 	[NonSerialized]
 	public int mountedMovingSurfaceId = -1;
 
-	// Token: 0x0400185B RID: 6235
+	// Token: 0x040018A2 RID: 6306
 	[NonSerialized]
 	private BuilderPiece mountedMonkeBlock;
 
-	// Token: 0x0400185C RID: 6236
+	// Token: 0x040018A3 RID: 6307
 	[NonSerialized]
 	private MovingSurface mountedMovingSurface;
 
-	// Token: 0x0400185D RID: 6237
+	// Token: 0x040018A4 RID: 6308
 	[NonSerialized]
 	public bool mountedMovingSurfaceIsLeft;
 
-	// Token: 0x0400185E RID: 6238
+	// Token: 0x040018A5 RID: 6309
 	[NonSerialized]
 	public bool mountedMovingSurfaceIsBody;
 
-	// Token: 0x0400185F RID: 6239
+	// Token: 0x040018A6 RID: 6310
 	[NonSerialized]
 	public bool movingSurfaceIsMonkeBlock;
 
-	// Token: 0x04001860 RID: 6240
+	// Token: 0x040018A7 RID: 6311
 	[NonSerialized]
 	public Vector3 mountedMonkeBlockOffset = Vector3.zero;
 
-	// Token: 0x04001861 RID: 6241
+	// Token: 0x040018A8 RID: 6312
 	private float lastMountedSurfaceTimer;
 
-	// Token: 0x04001862 RID: 6242
+	// Token: 0x040018A9 RID: 6313
 	private bool shouldLerpToMovingSurface;
 
-	// Token: 0x04001863 RID: 6243
+	// Token: 0x040018AA RID: 6314
 	[Tooltip("- False in 'Gorilla Player Networked.prefab'.\n- True in 'Local VRRig.prefab/Local Gorilla Player'.\n- False in 'Local VRRig.prefab/Actual Gorilla'")]
 	public bool isOfflineVRRig;
 
-	// Token: 0x04001864 RID: 6244
+	// Token: 0x040018AB RID: 6315
 	public GameObject mainCamera;
 
-	// Token: 0x04001865 RID: 6245
+	// Token: 0x040018AC RID: 6316
 	public Transform playerOffsetTransform;
 
-	// Token: 0x04001866 RID: 6246
+	// Token: 0x040018AD RID: 6317
 	public int SDKIndex;
 
-	// Token: 0x04001867 RID: 6247
+	// Token: 0x040018AE RID: 6318
 	public bool isMyPlayer;
 
-	// Token: 0x04001868 RID: 6248
+	// Token: 0x040018AF RID: 6319
 	public AudioSource leftHandPlayer;
 
-	// Token: 0x04001869 RID: 6249
+	// Token: 0x040018B0 RID: 6320
 	public AudioSource rightHandPlayer;
 
-	// Token: 0x0400186A RID: 6250
+	// Token: 0x040018B1 RID: 6321
 	public AudioSource tagSound;
 
-	// Token: 0x0400186B RID: 6251
+	// Token: 0x040018B2 RID: 6322
 	[SerializeField]
 	private float ratio;
 
-	// Token: 0x0400186C RID: 6252
+	// Token: 0x040018B3 RID: 6323
 	public Transform headConstraint;
 
-	// Token: 0x0400186D RID: 6253
+	// Token: 0x040018B4 RID: 6324
 	public Vector3 headBodyOffset = Vector3.zero;
 
-	// Token: 0x0400186E RID: 6254
+	// Token: 0x040018B5 RID: 6325
 	public GameObject headMesh;
 
-	// Token: 0x0400186F RID: 6255
+	// Token: 0x040018B6 RID: 6326
 	private NetworkVector3 netSyncPos = new NetworkVector3();
 
-	// Token: 0x04001870 RID: 6256
+	// Token: 0x040018B7 RID: 6327
 	public Vector3 jobPos;
 
-	// Token: 0x04001871 RID: 6257
+	// Token: 0x040018B8 RID: 6328
 	public Quaternion syncRotation;
 
-	// Token: 0x04001872 RID: 6258
+	// Token: 0x040018B9 RID: 6329
 	public Quaternion jobRotation;
 
-	// Token: 0x04001873 RID: 6259
+	// Token: 0x040018BA RID: 6330
 	public AudioClip[] clipToPlay;
 
-	// Token: 0x04001874 RID: 6260
+	// Token: 0x040018BB RID: 6331
 	public AudioClip[] handTapSound;
 
-	// Token: 0x04001875 RID: 6261
+	// Token: 0x040018BC RID: 6332
 	public int currentMatIndex;
 
-	// Token: 0x04001876 RID: 6262
+	// Token: 0x040018BD RID: 6333
 	public int setMatIndex;
 
-	// Token: 0x04001877 RID: 6263
+	// Token: 0x040018BE RID: 6334
 	public float lerpValueFingers;
 
-	// Token: 0x04001878 RID: 6264
+	// Token: 0x040018BF RID: 6335
 	public float lerpValueBody;
 
-	// Token: 0x04001879 RID: 6265
+	// Token: 0x040018C0 RID: 6336
 	public GameObject backpack;
 
-	// Token: 0x0400187A RID: 6266
+	// Token: 0x040018C1 RID: 6337
 	public Transform leftHandTransform;
 
-	// Token: 0x0400187B RID: 6267
+	// Token: 0x040018C2 RID: 6338
 	public Transform rightHandTransform;
 
-	// Token: 0x0400187C RID: 6268
+	// Token: 0x040018C3 RID: 6339
 	public Transform bodyTransform;
 
-	// Token: 0x0400187D RID: 6269
+	// Token: 0x040018C4 RID: 6340
 	public SkinnedMeshRenderer mainSkin;
 
-	// Token: 0x0400187E RID: 6270
+	// Token: 0x040018C5 RID: 6341
 	public GorillaSkin defaultSkin;
 
-	// Token: 0x0400187F RID: 6271
+	// Token: 0x040018C6 RID: 6342
 	public MeshRenderer faceSkin;
 
-	// Token: 0x04001880 RID: 6272
+	// Token: 0x040018C7 RID: 6343
 	public XRaySkeleton skeleton;
 
-	// Token: 0x04001881 RID: 6273
+	// Token: 0x040018C8 RID: 6344
 	public GorillaBodyRenderer bodyRenderer;
 
-	// Token: 0x04001882 RID: 6274
+	// Token: 0x040018C9 RID: 6345
 	public ZoneEntity zoneEntity;
 
-	// Token: 0x04001883 RID: 6275
+	// Token: 0x040018CA RID: 6346
 	public Material myDefaultSkinMaterialInstance;
 
-	// Token: 0x04001884 RID: 6276
+	// Token: 0x040018CB RID: 6347
 	public Material scoreboardMaterial;
 
-	// Token: 0x04001885 RID: 6277
+	// Token: 0x040018CC RID: 6348
 	public GameObject spectatorSkin;
 
-	// Token: 0x04001886 RID: 6278
+	// Token: 0x040018CD RID: 6349
 	public int handSync;
 
-	// Token: 0x04001887 RID: 6279
+	// Token: 0x040018CE RID: 6350
 	public Material[] materialsToChangeTo;
 
-	// Token: 0x04001888 RID: 6280
+	// Token: 0x040018CF RID: 6351
 	public float red;
 
-	// Token: 0x04001889 RID: 6281
+	// Token: 0x040018D0 RID: 6352
 	public float green;
 
-	// Token: 0x0400188A RID: 6282
+	// Token: 0x040018D1 RID: 6353
 	public float blue;
 
-	// Token: 0x0400188B RID: 6283
+	// Token: 0x040018D2 RID: 6354
 	public TextMeshPro playerText1;
 
-	// Token: 0x0400188C RID: 6284
+	// Token: 0x040018D3 RID: 6355
 	public TextMeshPro playerText2;
 
-	// Token: 0x0400188D RID: 6285
+	// Token: 0x040018D4 RID: 6356
 	public string playerNameVisible;
 
-	// Token: 0x0400188E RID: 6286
+	// Token: 0x040018D5 RID: 6357
 	[Tooltip("- True in 'Gorilla Player Networked.prefab'.\n- True in 'Local VRRig.prefab/Local Gorilla Player'.\n- False in 'Local VRRig.prefab/Actual Gorilla'")]
 	public bool showName;
 
-	// Token: 0x0400188F RID: 6287
+	// Token: 0x040018D6 RID: 6358
 	public CosmeticItemRegistry cosmeticsObjectRegistry = new CosmeticItemRegistry();
 
-	// Token: 0x04001890 RID: 6288
+	// Token: 0x040018D7 RID: 6359
 	[FormerlySerializedAs("cosmetics")]
 	public GameObject[] _cosmetics;
 
-	// Token: 0x04001891 RID: 6289
+	// Token: 0x040018D8 RID: 6360
 	[FormerlySerializedAs("overrideCosmetics")]
 	public GameObject[] _overrideCosmetics;
 
-	// Token: 0x04001892 RID: 6290
+	// Token: 0x040018D9 RID: 6361
 	private int taggedById;
 
-	// Token: 0x04001893 RID: 6291
+	// Token: 0x040018DA RID: 6362
 	public string concatStringOfCosmeticsAllowed = "";
 
-	// Token: 0x04001894 RID: 6292
+	// Token: 0x040018DB RID: 6363
 	private bool initializedCosmetics;
 
-	// Token: 0x04001895 RID: 6293
+	// Token: 0x040018DC RID: 6364
 	public CosmeticsController.CosmeticSet cosmeticSet;
 
-	// Token: 0x04001896 RID: 6294
+	// Token: 0x040018DD RID: 6365
 	public CosmeticsController.CosmeticSet tryOnSet;
 
-	// Token: 0x04001897 RID: 6295
+	// Token: 0x040018DE RID: 6366
 	public CosmeticsController.CosmeticSet mergedSet;
 
-	// Token: 0x04001898 RID: 6296
+	// Token: 0x040018DF RID: 6367
 	public CosmeticsController.CosmeticSet prevSet;
 
-	// Token: 0x04001899 RID: 6297
+	// Token: 0x040018E0 RID: 6368
 	private int cosmeticRetries = 2;
 
-	// Token: 0x0400189A RID: 6298
+	// Token: 0x040018E1 RID: 6369
 	private int currentCosmeticTries;
 
-	// Token: 0x0400189C RID: 6300
+	// Token: 0x040018E3 RID: 6371
 	public SizeManager sizeManager;
 
-	// Token: 0x0400189D RID: 6301
+	// Token: 0x040018E4 RID: 6372
 	public float pitchScale = 0.3f;
 
-	// Token: 0x0400189E RID: 6302
+	// Token: 0x040018E5 RID: 6373
 	public float pitchOffset = 1f;
 
-	// Token: 0x0400189F RID: 6303
+	// Token: 0x040018E6 RID: 6374
 	[NonSerialized]
 	public bool IsHaunted;
 
-	// Token: 0x040018A0 RID: 6304
+	// Token: 0x040018E7 RID: 6375
 	public float HauntedVoicePitch = 0.5f;
 
-	// Token: 0x040018A1 RID: 6305
+	// Token: 0x040018E8 RID: 6376
 	public float HauntedHearingVolume = 0.15f;
 
-	// Token: 0x040018A2 RID: 6306
+	// Token: 0x040018E9 RID: 6377
 	[NonSerialized]
 	public bool UsingHauntedRing;
 
-	// Token: 0x040018A3 RID: 6307
+	// Token: 0x040018EA RID: 6378
 	[NonSerialized]
 	public float HauntedRingVoicePitch;
 
-	// Token: 0x040018A4 RID: 6308
+	// Token: 0x040018EB RID: 6379
 	public FriendshipBracelet friendshipBraceletLeftHand;
 
-	// Token: 0x040018A5 RID: 6309
+	// Token: 0x040018EC RID: 6380
 	public NonCosmeticHandItem nonCosmeticLeftHandItem;
 
-	// Token: 0x040018A6 RID: 6310
+	// Token: 0x040018ED RID: 6381
 	public FriendshipBracelet friendshipBraceletRightHand;
 
-	// Token: 0x040018A7 RID: 6311
+	// Token: 0x040018EE RID: 6382
 	public NonCosmeticHandItem nonCosmeticRightHandItem;
 
-	// Token: 0x040018A8 RID: 6312
+	// Token: 0x040018EF RID: 6383
 	public HoverboardVisual hoverboardVisual;
 
-	// Token: 0x040018A9 RID: 6313
+	// Token: 0x040018F0 RID: 6384
+	private int hoverboardEnabledCount;
+
+	// Token: 0x040018F1 RID: 6385
 	public HoldableHand bodyHolds;
 
-	// Token: 0x040018AA RID: 6314
+	// Token: 0x040018F2 RID: 6386
 	public HoldableHand leftHolds;
 
-	// Token: 0x040018AB RID: 6315
+	// Token: 0x040018F3 RID: 6387
 	public HoldableHand rightHolds;
 
-	// Token: 0x040018AC RID: 6316
+	// Token: 0x040018F4 RID: 6388
 	public GorillaClimbable leftHandHoldsPlayer;
 
-	// Token: 0x040018AD RID: 6317
+	// Token: 0x040018F5 RID: 6389
 	public GorillaClimbable rightHandHoldsPlayer;
 
-	// Token: 0x040018AE RID: 6318
+	// Token: 0x040018F6 RID: 6390
 	public GameObject nameTagAnchor;
 
-	// Token: 0x040018AF RID: 6319
+	// Token: 0x040018F7 RID: 6391
 	public GameObject frozenEffect;
 
-	// Token: 0x040018B0 RID: 6320
+	// Token: 0x040018F8 RID: 6392
 	public GameObject iceCubeLeft;
 
-	// Token: 0x040018B1 RID: 6321
+	// Token: 0x040018F9 RID: 6393
 	public GameObject iceCubeRight;
 
-	// Token: 0x040018B2 RID: 6322
+	// Token: 0x040018FA RID: 6394
 	public float frozenEffectMaxY;
 
-	// Token: 0x040018B3 RID: 6323
+	// Token: 0x040018FB RID: 6395
 	public float frozenEffectMaxHorizontalScale = 0.8f;
 
-	// Token: 0x040018B4 RID: 6324
+	// Token: 0x040018FC RID: 6396
 	public GameObject FPVEffectsParent;
 
-	// Token: 0x040018B5 RID: 6325
+	// Token: 0x040018FD RID: 6397
 	public List<CosmeticEffectsOnPlayers.CosmeticEffect> TemporaryCosmeticEffects = new List<CosmeticEffectsOnPlayers.CosmeticEffect>();
 
-	// Token: 0x040018B6 RID: 6326
+	// Token: 0x040018FE RID: 6398
 	public VRRigReliableState reliableState;
 
-	// Token: 0x040018B7 RID: 6327
+	// Token: 0x040018FF RID: 6399
 	[SerializeField]
 	private Transform MouthPosition;
 
-	// Token: 0x040018BB RID: 6331
+	// Token: 0x04001903 RID: 6403
 	internal RigContainer rigContainer;
 
-	// Token: 0x040018BC RID: 6332
+	// Token: 0x04001904 RID: 6404
 	private Vector3 remoteVelocity;
 
-	// Token: 0x040018BD RID: 6333
+	// Token: 0x04001905 RID: 6405
 	private double remoteLatestTimestamp;
 
-	// Token: 0x040018BE RID: 6334
+	// Token: 0x04001906 RID: 6406
 	private Vector3 remoteCorrectionNeeded;
 
-	// Token: 0x040018BF RID: 6335
+	// Token: 0x04001907 RID: 6407
 	private const float REMOTE_CORRECTION_RATE = 5f;
 
-	// Token: 0x040018C0 RID: 6336
+	// Token: 0x04001908 RID: 6408
 	private const bool USE_NEW_NETCODE = false;
 
-	// Token: 0x040018C1 RID: 6337
+	// Token: 0x04001909 RID: 6409
 	private float stealthTimer;
 
-	// Token: 0x040018C2 RID: 6338
+	// Token: 0x0400190A RID: 6410
 	private GorillaAmbushManager stealthManager;
 
-	// Token: 0x040018C3 RID: 6339
+	// Token: 0x0400190B RID: 6411
 	private LayerChanger layerChanger;
 
-	// Token: 0x040018C4 RID: 6340
+	// Token: 0x0400190C RID: 6412
 	private float frozenEffectMinY;
 
-	// Token: 0x040018C5 RID: 6341
+	// Token: 0x0400190D RID: 6413
 	private float frozenEffectMinHorizontalScale;
 
-	// Token: 0x040018C6 RID: 6342
+	// Token: 0x0400190E RID: 6414
 	private float frozenTimeElapsed;
 
-	// Token: 0x040018C7 RID: 6343
+	// Token: 0x0400190F RID: 6415
 	public TagEffectPack CosmeticEffectPack;
 
-	// Token: 0x040018C8 RID: 6344
+	// Token: 0x04001910 RID: 6416
 	private GorillaSnapTurn GorillaSnapTurningComp;
 
-	// Token: 0x040018C9 RID: 6345
+	// Token: 0x04001911 RID: 6417
 	private bool turningCompInitialized;
 
-	// Token: 0x040018CA RID: 6346
+	// Token: 0x04001912 RID: 6418
 	private string turnType = "NONE";
 
-	// Token: 0x040018CB RID: 6347
+	// Token: 0x04001913 RID: 6419
 	private int turnFactor;
 
-	// Token: 0x040018CC RID: 6348
+	// Token: 0x04001914 RID: 6420
 	private int fps;
 
-	// Token: 0x040018CD RID: 6349
+	// Token: 0x04001915 RID: 6421
 	private VRRig.PartyMemberStatus partyMemberStatus;
 
-	// Token: 0x040018CE RID: 6350
+	// Token: 0x04001916 RID: 6422
 	public static readonly GTBitOps.BitWriteInfo[] WearablePackedStatesBitWriteInfos = new GTBitOps.BitWriteInfo[]
 	{
 		new GTBitOps.BitWriteInfo(0, 1),
@@ -3818,402 +3830,405 @@ public class VRRig : MonoBehaviour, IWrappedSerializable, INetworkStruct, IPreDi
 		new GTBitOps.BitWriteInfo(9, 2)
 	};
 
-	// Token: 0x040018CF RID: 6351
+	// Token: 0x04001917 RID: 6423
 	public bool inTryOnRoom;
 
-	// Token: 0x040018D0 RID: 6352
+	// Token: 0x04001918 RID: 6424
 	public bool muted;
 
-	// Token: 0x040018D1 RID: 6353
+	// Token: 0x04001919 RID: 6425
 	private float lastScaleFactor = 1f;
 
-	// Token: 0x040018D2 RID: 6354
+	// Token: 0x0400191A RID: 6426
 	private float scaleMultiplier = 1f;
 
-	// Token: 0x040018D3 RID: 6355
+	// Token: 0x0400191B RID: 6427
 	private float nativeScale = 1f;
 
-	// Token: 0x040018D4 RID: 6356
+	// Token: 0x0400191C RID: 6428
 	private float timeSpawned;
 
-	// Token: 0x040018D5 RID: 6357
+	// Token: 0x0400191D RID: 6429
 	public float doNotLerpConstant = 1f;
 
-	// Token: 0x040018D6 RID: 6358
+	// Token: 0x0400191E RID: 6430
 	public string tempString;
 
-	// Token: 0x040018D7 RID: 6359
+	// Token: 0x0400191F RID: 6431
 	private Player tempPlayer;
 
-	// Token: 0x040018D8 RID: 6360
+	// Token: 0x04001920 RID: 6432
 	internal NetPlayer creator;
 
-	// Token: 0x040018D9 RID: 6361
+	// Token: 0x04001921 RID: 6433
 	private float[] speedArray;
 
-	// Token: 0x040018DA RID: 6362
+	// Token: 0x04001922 RID: 6434
 	private double handLerpValues;
 
-	// Token: 0x040018DB RID: 6363
+	// Token: 0x04001923 RID: 6435
 	private bool initialized;
 
-	// Token: 0x040018DC RID: 6364
+	// Token: 0x04001924 RID: 6436
 	[FormerlySerializedAs("battleBalloons")]
 	public PaintbrawlBalloons paintbrawlBalloons;
 
-	// Token: 0x040018DD RID: 6365
+	// Token: 0x04001925 RID: 6437
 	private int tempInt;
 
-	// Token: 0x040018DE RID: 6366
+	// Token: 0x04001926 RID: 6438
 	public BodyDockPositions myBodyDockPositions;
 
-	// Token: 0x040018DF RID: 6367
+	// Token: 0x04001927 RID: 6439
 	public ParticleSystem lavaParticleSystem;
 
-	// Token: 0x040018E0 RID: 6368
+	// Token: 0x04001928 RID: 6440
 	public ParticleSystem rockParticleSystem;
 
-	// Token: 0x040018E1 RID: 6369
+	// Token: 0x04001929 RID: 6441
 	public ParticleSystem iceParticleSystem;
 
-	// Token: 0x040018E2 RID: 6370
+	// Token: 0x0400192A RID: 6442
 	public ParticleSystem snowFlakeParticleSystem;
 
-	// Token: 0x040018E3 RID: 6371
+	// Token: 0x0400192B RID: 6443
 	public string tempItemName;
 
-	// Token: 0x040018E4 RID: 6372
+	// Token: 0x0400192C RID: 6444
 	public CosmeticsController.CosmeticItem tempItem;
 
-	// Token: 0x040018E5 RID: 6373
+	// Token: 0x0400192D RID: 6445
 	public string tempItemId;
 
-	// Token: 0x040018E6 RID: 6374
+	// Token: 0x0400192E RID: 6446
 	public int tempItemCost;
 
-	// Token: 0x040018E7 RID: 6375
+	// Token: 0x0400192F RID: 6447
 	public int leftHandHoldableStatus;
 
-	// Token: 0x040018E8 RID: 6376
+	// Token: 0x04001930 RID: 6448
 	public int rightHandHoldableStatus;
 
-	// Token: 0x040018E9 RID: 6377
+	// Token: 0x04001931 RID: 6449
 	[Tooltip("This has to match the drumsAS array in DrumsItem.cs.")]
 	[SerializeReference]
 	public AudioSource[] musicDrums;
 
-	// Token: 0x040018EA RID: 6378
+	// Token: 0x04001932 RID: 6450
 	private List<TransferrableObject> instrumentSelfOnly = new List<TransferrableObject>();
 
-	// Token: 0x040018EB RID: 6379
+	// Token: 0x04001933 RID: 6451
 	public AudioSource geodeCrackingSound;
 
-	// Token: 0x040018EC RID: 6380
+	// Token: 0x04001934 RID: 6452
 	public float bonkTime;
 
-	// Token: 0x040018ED RID: 6381
+	// Token: 0x04001935 RID: 6453
 	public float bonkCooldown = 2f;
 
-	// Token: 0x040018EE RID: 6382
+	// Token: 0x04001936 RID: 6454
 	private VRRig tempVRRig;
 
-	// Token: 0x040018EF RID: 6383
+	// Token: 0x04001937 RID: 6455
 	public GameObject huntComputer;
 
-	// Token: 0x040018F0 RID: 6384
+	// Token: 0x04001938 RID: 6456
 	public GameObject builderResizeWatch;
 
-	// Token: 0x040018F1 RID: 6385
+	// Token: 0x04001939 RID: 6457
 	public BuilderArmShelf builderArmShelfLeft;
 
-	// Token: 0x040018F2 RID: 6386
+	// Token: 0x0400193A RID: 6458
 	public BuilderArmShelf builderArmShelfRight;
 
-	// Token: 0x040018F3 RID: 6387
+	// Token: 0x0400193B RID: 6459
 	public GameObject guardianEjectWatch;
 
-	// Token: 0x040018F4 RID: 6388
+	// Token: 0x0400193C RID: 6460
+	public GameObject vStumpReturnWatch;
+
+	// Token: 0x0400193D RID: 6461
 	public ProjectileWeapon projectileWeapon;
 
-	// Token: 0x040018F5 RID: 6389
+	// Token: 0x0400193E RID: 6462
 	private PhotonVoiceView myPhotonVoiceView;
 
-	// Token: 0x040018F6 RID: 6390
+	// Token: 0x0400193F RID: 6463
 	private VRRig senderRig;
 
-	// Token: 0x040018F7 RID: 6391
+	// Token: 0x04001940 RID: 6464
 	private bool isInitialized;
 
-	// Token: 0x040018F8 RID: 6392
+	// Token: 0x04001941 RID: 6465
 	private CircularBuffer<VRRig.VelocityTime> velocityHistoryList = new CircularBuffer<VRRig.VelocityTime>(200);
 
-	// Token: 0x040018F9 RID: 6393
+	// Token: 0x04001942 RID: 6466
 	public int velocityHistoryMaxLength = 200;
 
-	// Token: 0x040018FA RID: 6394
+	// Token: 0x04001943 RID: 6467
 	private Vector3 lastPosition;
 
-	// Token: 0x040018FB RID: 6395
+	// Token: 0x04001944 RID: 6468
 	public const int splashLimitCount = 4;
 
-	// Token: 0x040018FC RID: 6396
+	// Token: 0x04001945 RID: 6469
 	public const float splashLimitCooldown = 0.5f;
 
-	// Token: 0x040018FD RID: 6397
+	// Token: 0x04001946 RID: 6470
 	private float[] splashEffectTimes = new float[4];
 
-	// Token: 0x040018FE RID: 6398
+	// Token: 0x04001947 RID: 6471
 	internal AudioSource voiceAudio;
 
-	// Token: 0x040018FF RID: 6399
+	// Token: 0x04001948 RID: 6472
 	public bool remoteUseReplacementVoice;
 
-	// Token: 0x04001900 RID: 6400
+	// Token: 0x04001949 RID: 6473
 	public bool localUseReplacementVoice;
 
-	// Token: 0x04001901 RID: 6401
+	// Token: 0x0400194A RID: 6474
 	private MicWrapper currentMicWrapper;
 
-	// Token: 0x04001902 RID: 6402
+	// Token: 0x0400194B RID: 6475
 	private IAudioDesc audioDesc;
 
-	// Token: 0x04001903 RID: 6403
+	// Token: 0x0400194C RID: 6476
 	private float speakingLoudness;
 
-	// Token: 0x04001904 RID: 6404
+	// Token: 0x0400194D RID: 6477
 	public bool shouldSendSpeakingLoudness = true;
 
-	// Token: 0x04001905 RID: 6405
+	// Token: 0x0400194E RID: 6478
 	public float replacementVoiceLoudnessThreshold = 0.05f;
 
-	// Token: 0x04001906 RID: 6406
+	// Token: 0x0400194F RID: 6479
 	public int replacementVoiceDetectionDelay = 128;
 
-	// Token: 0x04001907 RID: 6407
+	// Token: 0x04001950 RID: 6480
 	private GorillaMouthFlap myMouthFlap;
 
-	// Token: 0x04001908 RID: 6408
+	// Token: 0x04001951 RID: 6481
 	private GorillaSpeakerLoudness mySpeakerLoudness;
 
-	// Token: 0x04001909 RID: 6409
+	// Token: 0x04001952 RID: 6482
 	public ReplacementVoice myReplacementVoice;
 
-	// Token: 0x0400190A RID: 6410
+	// Token: 0x04001953 RID: 6483
 	private GorillaEyeExpressions myEyeExpressions;
 
-	// Token: 0x0400190B RID: 6411
+	// Token: 0x04001954 RID: 6484
 	[SerializeField]
 	internal NetworkView netView;
 
-	// Token: 0x0400190C RID: 6412
+	// Token: 0x04001955 RID: 6485
 	[SerializeField]
 	internal VRRigSerializer rigSerializer;
 
-	// Token: 0x0400190D RID: 6413
+	// Token: 0x04001956 RID: 6486
 	public NetPlayer OwningNetPlayer;
 
-	// Token: 0x0400190E RID: 6414
+	// Token: 0x04001957 RID: 6487
 	[SerializeField]
 	private FXSystemSettings sharedFXSettings;
 
-	// Token: 0x0400190F RID: 6415
+	// Token: 0x04001958 RID: 6488
 	[NonSerialized]
 	public FXSystemSettings fxSettings;
 
-	// Token: 0x04001910 RID: 6416
+	// Token: 0x04001959 RID: 6489
 	[SerializeField]
 	private float tapPointDistance = 0.035f;
 
-	// Token: 0x04001911 RID: 6417
+	// Token: 0x0400195A RID: 6490
 	[SerializeField]
 	private float handSpeedToVolumeModifier = 0.05f;
 
-	// Token: 0x04001912 RID: 6418
+	// Token: 0x0400195B RID: 6491
 	[SerializeField]
 	private HandEffectContext _leftHandEffect;
 
-	// Token: 0x04001913 RID: 6419
+	// Token: 0x0400195C RID: 6492
 	[SerializeField]
 	private HandEffectContext _rightHandEffect;
 
-	// Token: 0x04001914 RID: 6420
+	// Token: 0x0400195D RID: 6493
 	private bool _rigBuildFullyInitialized;
 
-	// Token: 0x04001915 RID: 6421
+	// Token: 0x0400195E RID: 6494
 	[SerializeField]
 	private Transform renderTransform;
 
-	// Token: 0x04001916 RID: 6422
+	// Token: 0x0400195F RID: 6495
 	private bool playerWasHaunted;
 
-	// Token: 0x04001917 RID: 6423
+	// Token: 0x04001960 RID: 6496
 	private float nonHauntedVolume;
 
-	// Token: 0x04001918 RID: 6424
+	// Token: 0x04001961 RID: 6497
 	[SerializeField]
 	private AnimationCurve voicePitchForRelativeScale;
 
-	// Token: 0x04001919 RID: 6425
+	// Token: 0x04001962 RID: 6498
 	private Vector3 LocalTrajectoryOverridePosition;
 
-	// Token: 0x0400191A RID: 6426
+	// Token: 0x04001963 RID: 6499
 	private Vector3 LocalTrajectoryOverrideVelocity;
 
-	// Token: 0x0400191B RID: 6427
+	// Token: 0x04001964 RID: 6500
 	private float LocalTrajectoryOverrideBlend;
 
-	// Token: 0x0400191C RID: 6428
+	// Token: 0x04001965 RID: 6501
 	[SerializeField]
 	private float LocalTrajectoryOverrideDuration = 1f;
 
-	// Token: 0x0400191D RID: 6429
+	// Token: 0x04001966 RID: 6502
 	private bool localOverrideIsBody;
 
-	// Token: 0x0400191E RID: 6430
+	// Token: 0x04001967 RID: 6503
 	private bool localOverrideIsLeftHand;
 
-	// Token: 0x0400191F RID: 6431
+	// Token: 0x04001968 RID: 6504
 	private Transform localOverrideGrabbingHand;
 
-	// Token: 0x04001920 RID: 6432
+	// Token: 0x04001969 RID: 6505
 	private float localGrabOverrideBlend;
 
-	// Token: 0x04001921 RID: 6433
+	// Token: 0x0400196A RID: 6506
 	[SerializeField]
 	private float LocalGrabOverrideDuration = 0.25f;
 
-	// Token: 0x04001922 RID: 6434
+	// Token: 0x0400196B RID: 6507
 	private float[] voiceSampleBuffer = new float[128];
 
-	// Token: 0x04001923 RID: 6435
+	// Token: 0x0400196C RID: 6508
 	private const int CHECK_LOUDNESS_FREQ_FRAMES = 10;
 
-	// Token: 0x04001924 RID: 6436
+	// Token: 0x0400196D RID: 6509
 	private CallbackContainer<ICallBack> lateUpdateCallbacks = new CallbackContainer<ICallBack>(5);
 
-	// Token: 0x04001925 RID: 6437
+	// Token: 0x0400196E RID: 6510
 	private bool IsInvisibleToLocalPlayer;
 
-	// Token: 0x04001926 RID: 6438
+	// Token: 0x0400196F RID: 6511
 	private const int remoteUseReplacementVoice_BIT = 512;
 
-	// Token: 0x04001927 RID: 6439
+	// Token: 0x04001970 RID: 6512
 	private const int grabbedRope_BIT = 1024;
 
-	// Token: 0x04001928 RID: 6440
+	// Token: 0x04001971 RID: 6513
 	private const int grabbedRopeIsPhotonView_BIT = 2048;
 
-	// Token: 0x04001929 RID: 6441
+	// Token: 0x04001972 RID: 6514
 	private const int isHoldingHoverboard_BIT = 8192;
 
-	// Token: 0x0400192A RID: 6442
+	// Token: 0x04001973 RID: 6515
 	private const int isHoverboardLeftHanded_BIT = 16384;
 
-	// Token: 0x0400192B RID: 6443
+	// Token: 0x04001974 RID: 6516
 	private const int isOnMovingSurface_BIT = 32768;
 
-	// Token: 0x0400192C RID: 6444
+	// Token: 0x04001975 RID: 6517
 	private Vector3 tempVec;
 
-	// Token: 0x0400192D RID: 6445
+	// Token: 0x04001976 RID: 6518
 	private Quaternion tempQuat;
 
-	// Token: 0x0400192E RID: 6446
+	// Token: 0x04001977 RID: 6519
 	public Color playerColor;
 
-	// Token: 0x0400192F RID: 6447
+	// Token: 0x04001978 RID: 6520
 	public bool colorInitialized;
 
-	// Token: 0x04001930 RID: 6448
+	// Token: 0x04001979 RID: 6521
 	private Action<Color> onColorInitialized;
 
-	// Token: 0x04001933 RID: 6451
+	// Token: 0x0400197C RID: 6524
 	private int currentQuestScore;
 
-	// Token: 0x04001934 RID: 6452
+	// Token: 0x0400197D RID: 6525
 	private bool _scoreUpdated;
 
-	// Token: 0x04001935 RID: 6453
+	// Token: 0x0400197E RID: 6526
 	private CallLimiter updateQuestCallLimit = new CallLimiter(1, 0.5f, 0.5f);
 
-	// Token: 0x04001936 RID: 6454
+	// Token: 0x0400197F RID: 6527
 	public const float maxThrowVelocity = 20f;
 
-	// Token: 0x04001937 RID: 6455
+	// Token: 0x04001980 RID: 6528
 	private RaycastHit[] rayCastNonAllocColliders = new RaycastHit[5];
 
-	// Token: 0x04001938 RID: 6456
+	// Token: 0x04001981 RID: 6529
 	private bool inDuplicationZone;
 
-	// Token: 0x04001939 RID: 6457
+	// Token: 0x04001982 RID: 6530
 	private RigDuplicationZone duplicationZone;
 
-	// Token: 0x0400193A RID: 6458
+	// Token: 0x04001983 RID: 6531
 	private bool pendingCosmeticUpdate = true;
 
-	// Token: 0x0400193B RID: 6459
+	// Token: 0x04001984 RID: 6532
 	private string rawCosmeticString = "";
 
-	// Token: 0x0400193D RID: 6461
+	// Token: 0x04001986 RID: 6534
 	public List<HandEffectsOverrideCosmetic> CosmeticHandEffectsOverride_Right = new List<HandEffectsOverrideCosmetic>();
 
-	// Token: 0x0400193E RID: 6462
+	// Token: 0x04001987 RID: 6535
 	public List<HandEffectsOverrideCosmetic> CosmeticHandEffectsOverride_Left = new List<HandEffectsOverrideCosmetic>();
 
-	// Token: 0x0400193F RID: 6463
+	// Token: 0x04001988 RID: 6536
 	private int loudnessCheckFrame;
 
-	// Token: 0x04001940 RID: 6464
+	// Token: 0x04001989 RID: 6537
 	private float frameScale;
 
-	// Token: 0x04001941 RID: 6465
+	// Token: 0x0400198A RID: 6538
 	private const bool SHOW_SCREENS = false;
 
-	// Token: 0x04001942 RID: 6466
+	// Token: 0x0400198B RID: 6539
 	private static VRRig gLocalRig;
 
-	// Token: 0x020003B0 RID: 944
+	// Token: 0x020003BB RID: 955
 	public enum PartyMemberStatus
 	{
-		// Token: 0x04001945 RID: 6469
+		// Token: 0x0400198E RID: 6542
 		NeedsUpdate,
-		// Token: 0x04001946 RID: 6470
+		// Token: 0x0400198F RID: 6543
 		InLocalParty,
-		// Token: 0x04001947 RID: 6471
+		// Token: 0x04001990 RID: 6544
 		NotInLocalParty
 	}
 
-	// Token: 0x020003B1 RID: 945
+	// Token: 0x020003BC RID: 956
 	public enum WearablePackedStateSlots
 	{
-		// Token: 0x04001949 RID: 6473
+		// Token: 0x04001992 RID: 6546
 		Hat,
-		// Token: 0x0400194A RID: 6474
+		// Token: 0x04001993 RID: 6547
 		LeftHand,
-		// Token: 0x0400194B RID: 6475
+		// Token: 0x04001994 RID: 6548
 		RightHand,
-		// Token: 0x0400194C RID: 6476
+		// Token: 0x04001995 RID: 6549
 		Face,
-		// Token: 0x0400194D RID: 6477
+		// Token: 0x04001996 RID: 6550
 		Pants1,
-		// Token: 0x0400194E RID: 6478
+		// Token: 0x04001997 RID: 6551
 		Pants2
 	}
 
-	// Token: 0x020003B2 RID: 946
+	// Token: 0x020003BD RID: 957
 	public struct VelocityTime
 	{
-		// Token: 0x060016DE RID: 5854 RVA: 0x00070016 File Offset: 0x0006E216
+		// Token: 0x0600172B RID: 5931 RVA: 0x0003FBF1 File Offset: 0x0003DDF1
 		public VelocityTime(Vector3 velocity, double velTime)
 		{
 			this.vel = velocity;
 			this.time = velTime;
 		}
 
-		// Token: 0x0400194F RID: 6479
+		// Token: 0x04001998 RID: 6552
 		public Vector3 vel;
 
-		// Token: 0x04001950 RID: 6480
+		// Token: 0x04001999 RID: 6553
 		public double time;
 	}
 }

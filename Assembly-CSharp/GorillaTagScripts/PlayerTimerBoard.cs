@@ -7,27 +7,27 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009CC RID: 2508
+	// Token: 0x020009F2 RID: 2546
 	public class PlayerTimerBoard : MonoBehaviour
 	{
-		// Token: 0x17000654 RID: 1620
-		// (get) Token: 0x06003E8A RID: 16010 RVA: 0x00128589 File Offset: 0x00126789
-		// (set) Token: 0x06003E8B RID: 16011 RVA: 0x00128591 File Offset: 0x00126791
+		// Token: 0x1700066C RID: 1644
+		// (get) Token: 0x06003FA2 RID: 16290 RVA: 0x00059957 File Offset: 0x00057B57
+		// (set) Token: 0x06003FA3 RID: 16291 RVA: 0x0005995F File Offset: 0x00057B5F
 		public bool IsDirty { get; set; } = true;
 
-		// Token: 0x06003E8C RID: 16012 RVA: 0x0012859A File Offset: 0x0012679A
+		// Token: 0x06003FA4 RID: 16292 RVA: 0x00059968 File Offset: 0x00057B68
 		private void Start()
 		{
 			this.TryInit();
 		}
 
-		// Token: 0x06003E8D RID: 16013 RVA: 0x0012859A File Offset: 0x0012679A
+		// Token: 0x06003FA5 RID: 16293 RVA: 0x00059968 File Offset: 0x00057B68
 		private void OnEnable()
 		{
 			this.TryInit();
 		}
 
-		// Token: 0x06003E8E RID: 16014 RVA: 0x001285A2 File Offset: 0x001267A2
+		// Token: 0x06003FA6 RID: 16294 RVA: 0x00059970 File Offset: 0x00057B70
 		private void TryInit()
 		{
 			if (this.isInitialized)
@@ -42,7 +42,7 @@ namespace GorillaTagScripts
 			this.isInitialized = true;
 		}
 
-		// Token: 0x06003E8F RID: 16015 RVA: 0x001285CD File Offset: 0x001267CD
+		// Token: 0x06003FA7 RID: 16295 RVA: 0x0005999B File Offset: 0x00057B9B
 		private void OnDisable()
 		{
 			if (PlayerTimerManager.instance != null)
@@ -52,7 +52,7 @@ namespace GorillaTagScripts
 			this.isInitialized = false;
 		}
 
-		// Token: 0x06003E90 RID: 16016 RVA: 0x001285EE File Offset: 0x001267EE
+		// Token: 0x06003FA8 RID: 16296 RVA: 0x000599BC File Offset: 0x00057BBC
 		public void SetSleepState(bool awake)
 		{
 			this.playerColumn.enabled = awake;
@@ -63,13 +63,13 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E91 RID: 16017 RVA: 0x00128622 File Offset: 0x00126822
+		// Token: 0x06003FA9 RID: 16297 RVA: 0x000599F0 File Offset: 0x00057BF0
 		public void SortLines()
 		{
 			this.lines.Sort(new Comparison<PlayerTimerBoardLine>(PlayerTimerBoardLine.CompareByTotalTime));
 		}
 
-		// Token: 0x06003E92 RID: 16018 RVA: 0x0012863C File Offset: 0x0012683C
+		// Token: 0x06003FAA RID: 16298 RVA: 0x001696C8 File Offset: 0x001678C8
 		public void RedrawPlayerLines()
 		{
 			this.stringBuilder.Clear();
@@ -104,37 +104,37 @@ namespace GorillaTagScripts
 			this.IsDirty = false;
 		}
 
-		// Token: 0x04003FD0 RID: 16336
+		// Token: 0x040040AA RID: 16554
 		[SerializeField]
 		private GameObject linesParent;
 
-		// Token: 0x04003FD1 RID: 16337
+		// Token: 0x040040AB RID: 16555
 		public List<PlayerTimerBoardLine> lines;
 
-		// Token: 0x04003FD2 RID: 16338
+		// Token: 0x040040AC RID: 16556
 		public TextMeshPro notInRoomText;
 
-		// Token: 0x04003FD3 RID: 16339
+		// Token: 0x040040AD RID: 16557
 		public TextMeshPro playerColumn;
 
-		// Token: 0x04003FD4 RID: 16340
+		// Token: 0x040040AE RID: 16558
 		public TextMeshPro timeColumn;
 
-		// Token: 0x04003FD5 RID: 16341
+		// Token: 0x040040AF RID: 16559
 		[SerializeField]
 		private int startingYValue;
 
-		// Token: 0x04003FD6 RID: 16342
+		// Token: 0x040040B0 RID: 16560
 		[SerializeField]
 		private int lineHeight;
 
-		// Token: 0x04003FD7 RID: 16343
+		// Token: 0x040040B1 RID: 16561
 		private StringBuilder stringBuilder = new StringBuilder(220);
 
-		// Token: 0x04003FD8 RID: 16344
+		// Token: 0x040040B2 RID: 16562
 		private StringBuilder stringBuilderTime = new StringBuilder(220);
 
-		// Token: 0x04003FD9 RID: 16345
+		// Token: 0x040040B3 RID: 16563
 		private bool isInitialized;
 	}
 }

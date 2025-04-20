@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace GorillaTag.Reactions
 {
-	// Token: 0x02000BC2 RID: 3010
+	// Token: 0x02000BF0 RID: 3056
 	public class FlameThrowerParticleCollisionHandler : MonoBehaviour
 	{
-		// Token: 0x06004C13 RID: 19475 RVA: 0x001722BC File Offset: 0x001704BC
+		// Token: 0x06004D5F RID: 19807 RVA: 0x001AAD74 File Offset: 0x001A8F74
 		protected void OnEnable()
 		{
 			if (GorillaComputer.instance == null)
@@ -52,7 +52,7 @@ namespace GorillaTag.Reactions
 			}
 		}
 
-		// Token: 0x06004C14 RID: 19476 RVA: 0x00172434 File Offset: 0x00170634
+		// Token: 0x06004D60 RID: 19808 RVA: 0x001AAEEC File Offset: 0x001A90EC
 		protected void OnParticleCollision(GameObject other)
 		{
 			if (this._maxParticleHitReactionRate < 1E-05f || !FireManager.hasInstance)
@@ -80,36 +80,36 @@ namespace GorillaTag.Reactions
 			this._lastCollisionTime = num;
 		}
 
-		// Token: 0x04004DD9 RID: 19929
+		// Token: 0x04004ECF RID: 20175
 		[Tooltip("The defaults are numbers for the flamethrower hair dryer.")]
 		private readonly float _maxParticleHitReactionRate = 2f;
 
-		// Token: 0x04004DDA RID: 19930
+		// Token: 0x04004ED0 RID: 20176
 		[Tooltip("Must be in the global object pool and have a tag.")]
 		[SerializeField]
 		private GameObject _prefabToSpawn;
 
-		// Token: 0x04004DDB RID: 19931
+		// Token: 0x04004ED1 RID: 20177
 		[Tooltip("How much to extinguish any hit fire by.")]
 		[SerializeField]
 		private float _extinguishAmount;
 
-		// Token: 0x04004DDC RID: 19932
+		// Token: 0x04004ED2 RID: 20178
 		private ParticleSystem _particleSystem;
 
-		// Token: 0x04004DDD RID: 19933
+		// Token: 0x04004ED3 RID: 20179
 		private List<ParticleCollisionEvent> _collisionEvents;
 
-		// Token: 0x04004DDE RID: 19934
+		// Token: 0x04004ED4 RID: 20180
 		private bool _hasPrefabToSpawn;
 
-		// Token: 0x04004DDF RID: 19935
+		// Token: 0x04004ED5 RID: 20181
 		private bool _isPrefabInPool;
 
-		// Token: 0x04004DE0 RID: 19936
+		// Token: 0x04004ED6 RID: 20182
 		private double _lastCollisionTime;
 
-		// Token: 0x04004DE1 RID: 19937
+		// Token: 0x04004ED7 RID: 20183
 		private SinglePool _pool;
 	}
 }

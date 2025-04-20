@@ -4,19 +4,19 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x020002FD RID: 765
+// Token: 0x02000308 RID: 776
 public class CustomDebugUI : MonoBehaviour
 {
-	// Token: 0x0600123E RID: 4670 RVA: 0x000571A6 File Offset: 0x000553A6
+	// Token: 0x0600128A RID: 4746 RVA: 0x0003CB80 File Offset: 0x0003AD80
 	private void Awake()
 	{
 		CustomDebugUI.instance = this;
 	}
 
-	// Token: 0x0600123F RID: 4671 RVA: 0x000571B0 File Offset: 0x000553B0
+	// Token: 0x0600128B RID: 4747 RVA: 0x000B1754 File Offset: 0x000AF954
 	public RectTransform AddTextField(string label, int targetCanvas = 0)
 	{
-		RectTransform component = Object.Instantiate<RectTransform>(this.textPrefab).GetComponent<RectTransform>();
+		RectTransform component = UnityEngine.Object.Instantiate<RectTransform>(this.textPrefab).GetComponent<RectTransform>();
 		component.GetComponentInChildren<InputField>().text = label;
 		DebugUIBuilder obj = DebugUIBuilder.instance;
 		typeof(DebugUIBuilder).GetMethod("AddRect", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(obj, new object[]
@@ -27,7 +27,7 @@ public class CustomDebugUI : MonoBehaviour
 		return component;
 	}
 
-	// Token: 0x06001240 RID: 4672 RVA: 0x00057214 File Offset: 0x00055414
+	// Token: 0x0600128C RID: 4748 RVA: 0x000B17B8 File Offset: 0x000AF9B8
 	public void RemoveFromCanvas(RectTransform element, int targetCanvas = 0)
 	{
 		DebugUIBuilder obj = DebugUIBuilder.instance;
@@ -42,13 +42,13 @@ public class CustomDebugUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400143A RID: 5178
+	// Token: 0x04001482 RID: 5250
 	[SerializeField]
 	private RectTransform textPrefab;
 
-	// Token: 0x0400143B RID: 5179
+	// Token: 0x04001483 RID: 5251
 	public static CustomDebugUI instance;
 
-	// Token: 0x0400143C RID: 5180
+	// Token: 0x04001484 RID: 5252
 	private const BindingFlags privateFlags = BindingFlags.Instance | BindingFlags.NonPublic;
 }

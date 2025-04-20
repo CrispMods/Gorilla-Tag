@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace com.AnotherAxiom.Paddleball
 {
-	// Token: 0x02000B24 RID: 2852
+	// Token: 0x02000B51 RID: 2897
 	public class Paddleball : ArcadeGame
 	{
-		// Token: 0x06004716 RID: 18198 RVA: 0x001521AE File Offset: 0x001503AE
+		// Token: 0x0600485F RID: 18527 RVA: 0x0005F223 File Offset: 0x0005D423
 		protected override void Awake()
 		{
 			base.Awake();
@@ -17,7 +17,7 @@ namespace com.AnotherAxiom.Paddleball
 			this.byteToYPosFactor = 1f / this.yPosToByteFactor;
 		}
 
-		// Token: 0x06004717 RID: 18199 RVA: 0x001521E8 File Offset: 0x001503E8
+		// Token: 0x06004860 RID: 18528 RVA: 0x0018E790 File Offset: 0x0018C990
 		private void Start()
 		{
 			this.whiteWinScreen.SetActive(false);
@@ -37,7 +37,7 @@ namespace com.AnotherAxiom.Paddleball
 			this.UpdateScore();
 		}
 
-		// Token: 0x06004718 RID: 18200 RVA: 0x001522AC File Offset: 0x001504AC
+		// Token: 0x06004861 RID: 18529 RVA: 0x0018E854 File Offset: 0x0018CA54
 		private void Update()
 		{
 			if (this.currentScreenMode == Paddleball.ScreenMode.Gameplay)
@@ -166,7 +166,7 @@ namespace com.AnotherAxiom.Paddleball
 			}
 		}
 
-		// Token: 0x06004719 RID: 18201 RVA: 0x00152914 File Offset: 0x00150B14
+		// Token: 0x06004862 RID: 18530 RVA: 0x0018EEBC File Offset: 0x0018D0BC
 		private void UpdateScore()
 		{
 			if (this.scoreFormat == null)
@@ -178,19 +178,19 @@ namespace com.AnotherAxiom.Paddleball
 			this.scoreDisplay.text = string.Format(this.scoreFormat, this.scoreL, this.scoreR);
 		}
 
-		// Token: 0x0600471A RID: 18202 RVA: 0x0015297E File Offset: 0x00150B7E
+		// Token: 0x06004863 RID: 18531 RVA: 0x0005F25A File Offset: 0x0005D45A
 		private float ByteToYPos(byte Y)
 		{
 			return (float)Y / this.yPosToByteFactor - this.tableSizeBall.y;
 		}
 
-		// Token: 0x0600471B RID: 18203 RVA: 0x00152995 File Offset: 0x00150B95
+		// Token: 0x06004864 RID: 18532 RVA: 0x0005F271 File Offset: 0x0005D471
 		private byte YPosToByte(float Y)
 		{
 			return (byte)Mathf.RoundToInt((Y + this.tableSizeBall.y) * this.yPosToByteFactor);
 		}
 
-		// Token: 0x0600471C RID: 18204 RVA: 0x001529B4 File Offset: 0x00150BB4
+		// Token: 0x06004865 RID: 18533 RVA: 0x0018EF28 File Offset: 0x0018D128
 		public override byte[] GetNetworkState()
 		{
 			this.netStateCur.P0LocY = this.YPosToByte(this.p[0].transform.localPosition.y);
@@ -214,7 +214,7 @@ namespace com.AnotherAxiom.Paddleball
 			return this.netStateBuffer;
 		}
 
-		// Token: 0x0600471D RID: 18205 RVA: 0x00152B68 File Offset: 0x00150D68
+		// Token: 0x06004866 RID: 18534 RVA: 0x0018F0DC File Offset: 0x0018D2DC
 		public override void SetNetworkState(byte[] b)
 		{
 			Paddleball.PaddleballNetState paddleballNetState = (Paddleball.PaddleballNetState)ArcadeGame.UnwrapNetState(b);
@@ -242,17 +242,17 @@ namespace com.AnotherAxiom.Paddleball
 			}
 		}
 
-		// Token: 0x0600471E RID: 18206 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004867 RID: 18535 RVA: 0x00030607 File Offset: 0x0002E807
 		protected override void ButtonUp(int player, ArcadeButtons button)
 		{
 		}
 
-		// Token: 0x0600471F RID: 18207 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004868 RID: 18536 RVA: 0x00030607 File Offset: 0x0002E807
 		protected override void ButtonDown(int player, ArcadeButtons button)
 		{
 		}
 
-		// Token: 0x06004720 RID: 18208 RVA: 0x00152CE4 File Offset: 0x00150EE4
+		// Token: 0x06004869 RID: 18537 RVA: 0x0018F258 File Offset: 0x0018D458
 		private void ChangeScreen(Paddleball.ScreenMode mode)
 		{
 			if (this.currentScreenMode == mode)
@@ -304,199 +304,199 @@ namespace com.AnotherAxiom.Paddleball
 			}
 		}
 
-		// Token: 0x06004721 RID: 18209 RVA: 0x00152E1B File Offset: 0x0015101B
+		// Token: 0x0600486A RID: 18538 RVA: 0x0005F28D File Offset: 0x0005D48D
 		public override void OnTimeout()
 		{
 			this.ChangeScreen(Paddleball.ScreenMode.Title);
 		}
 
-		// Token: 0x06004722 RID: 18210 RVA: 0x00152E24 File Offset: 0x00151024
+		// Token: 0x0600486B RID: 18539 RVA: 0x0005F296 File Offset: 0x0005D496
 		public override void ReadPlayerDataPUN(int player, PhotonStream stream, PhotonMessageInfo info)
 		{
 			this.requestedPos[player] = this.ByteToYPos((byte)stream.ReceiveNext());
 		}
 
-		// Token: 0x06004723 RID: 18211 RVA: 0x00152E3F File Offset: 0x0015103F
+		// Token: 0x0600486C RID: 18540 RVA: 0x0005F2B1 File Offset: 0x0005D4B1
 		public override void WritePlayerDataPUN(int player, PhotonStream stream, PhotonMessageInfo info)
 		{
 			stream.SendNext(this.YPosToByte(this.requestedPos[player]));
 		}
 
-		// Token: 0x040048A0 RID: 18592
+		// Token: 0x04004995 RID: 18837
 		[SerializeField]
 		private PaddleballPaddle[] p;
 
-		// Token: 0x040048A1 RID: 18593
+		// Token: 0x04004996 RID: 18838
 		private float[] requestedPos = new float[4];
 
-		// Token: 0x040048A2 RID: 18594
+		// Token: 0x04004997 RID: 18839
 		private float[] officialPos = new float[4];
 
-		// Token: 0x040048A3 RID: 18595
+		// Token: 0x04004998 RID: 18840
 		[SerializeField]
 		private Transform ball;
 
-		// Token: 0x040048A4 RID: 18596
+		// Token: 0x04004999 RID: 18841
 		[SerializeField]
 		private Vector2 ballTrajectory;
 
-		// Token: 0x040048A5 RID: 18597
+		// Token: 0x0400499A RID: 18842
 		[SerializeField]
 		private float paddleSpeed = 1f;
 
-		// Token: 0x040048A6 RID: 18598
+		// Token: 0x0400499B RID: 18843
 		[SerializeField]
 		private float initialBallSpeed = 1f;
 
-		// Token: 0x040048A7 RID: 18599
+		// Token: 0x0400499C RID: 18844
 		[SerializeField]
 		private float ballSpeedBoost = 0.02f;
 
-		// Token: 0x040048A8 RID: 18600
+		// Token: 0x0400499D RID: 18845
 		private float gameBallSpeed = 1f;
 
-		// Token: 0x040048A9 RID: 18601
+		// Token: 0x0400499E RID: 18846
 		[SerializeField]
 		private Vector2 tableSizeBall;
 
-		// Token: 0x040048AA RID: 18602
+		// Token: 0x0400499F RID: 18847
 		[SerializeField]
 		private Vector2 tableSizePaddle;
 
-		// Token: 0x040048AB RID: 18603
+		// Token: 0x040049A0 RID: 18848
 		[SerializeField]
 		private GameObject blackWinScreen;
 
-		// Token: 0x040048AC RID: 18604
+		// Token: 0x040049A1 RID: 18849
 		[SerializeField]
 		private GameObject whiteWinScreen;
 
-		// Token: 0x040048AD RID: 18605
+		// Token: 0x040049A2 RID: 18850
 		[SerializeField]
 		private GameObject titleScreen;
 
-		// Token: 0x040048AE RID: 18606
+		// Token: 0x040049A3 RID: 18851
 		[SerializeField]
 		private float winScreenDuration;
 
-		// Token: 0x040048AF RID: 18607
+		// Token: 0x040049A4 RID: 18852
 		private float returnToTitleAfterTimestamp;
 
-		// Token: 0x040048B0 RID: 18608
+		// Token: 0x040049A5 RID: 18853
 		private int scoreL;
 
-		// Token: 0x040048B1 RID: 18609
+		// Token: 0x040049A6 RID: 18854
 		private int scoreR;
 
-		// Token: 0x040048B2 RID: 18610
+		// Token: 0x040049A7 RID: 18855
 		private string scoreFormat;
 
-		// Token: 0x040048B3 RID: 18611
+		// Token: 0x040049A8 RID: 18856
 		[SerializeField]
 		private TMP_Text scoreDisplay;
 
-		// Token: 0x040048B4 RID: 18612
+		// Token: 0x040049A9 RID: 18857
 		private float[] paddleIdle;
 
-		// Token: 0x040048B5 RID: 18613
+		// Token: 0x040049AA RID: 18858
 		private Paddleball.ScreenMode currentScreenMode;
 
-		// Token: 0x040048B6 RID: 18614
+		// Token: 0x040049AB RID: 18859
 		private const int AUDIO_WALLBOUNCE = 0;
 
-		// Token: 0x040048B7 RID: 18615
+		// Token: 0x040049AC RID: 18860
 		private const int AUDIO_PADDLEBOUNCE = 1;
 
-		// Token: 0x040048B8 RID: 18616
+		// Token: 0x040049AD RID: 18861
 		private const int AUDIO_SCORE = 2;
 
-		// Token: 0x040048B9 RID: 18617
+		// Token: 0x040049AE RID: 18862
 		private const int AUDIO_WIN = 3;
 
-		// Token: 0x040048BA RID: 18618
+		// Token: 0x040049AF RID: 18863
 		private const int AUDIO_PLAYERJOIN = 4;
 
-		// Token: 0x040048BB RID: 18619
+		// Token: 0x040049B0 RID: 18864
 		private const int VAR_REQUESTEDPOS = 0;
 
-		// Token: 0x040048BC RID: 18620
+		// Token: 0x040049B1 RID: 18865
 		private const int MAXSCORE = 10;
 
-		// Token: 0x040048BD RID: 18621
+		// Token: 0x040049B2 RID: 18866
 		private float yPosToByteFactor;
 
-		// Token: 0x040048BE RID: 18622
+		// Token: 0x040049B3 RID: 18867
 		private float byteToYPosFactor;
 
-		// Token: 0x040048BF RID: 18623
+		// Token: 0x040049B4 RID: 18868
 		private const float directionToByteFactor = 127.5f;
 
-		// Token: 0x040048C0 RID: 18624
+		// Token: 0x040049B5 RID: 18869
 		private const float byteToDirectionFactor = 0.007843138f;
 
-		// Token: 0x040048C1 RID: 18625
+		// Token: 0x040049B6 RID: 18870
 		private Paddleball.PaddleballNetState netStateLast;
 
-		// Token: 0x040048C2 RID: 18626
+		// Token: 0x040049B7 RID: 18871
 		private Paddleball.PaddleballNetState netStateCur;
 
-		// Token: 0x02000B25 RID: 2853
+		// Token: 0x02000B52 RID: 2898
 		private enum ScreenMode
 		{
-			// Token: 0x040048C4 RID: 18628
+			// Token: 0x040049B9 RID: 18873
 			Title,
-			// Token: 0x040048C5 RID: 18629
+			// Token: 0x040049BA RID: 18874
 			Gameplay,
-			// Token: 0x040048C6 RID: 18630
+			// Token: 0x040049BB RID: 18875
 			WhiteWin,
-			// Token: 0x040048C7 RID: 18631
+			// Token: 0x040049BC RID: 18876
 			BlackWin
 		}
 
-		// Token: 0x02000B26 RID: 2854
+		// Token: 0x02000B53 RID: 2899
 		[Serializable]
 		private struct PaddleballNetState : IEquatable<Paddleball.PaddleballNetState>
 		{
-			// Token: 0x06004725 RID: 18213 RVA: 0x00152EB4 File Offset: 0x001510B4
+			// Token: 0x0600486E RID: 18542 RVA: 0x0018F3E8 File Offset: 0x0018D5E8
 			public bool Equals(Paddleball.PaddleballNetState other)
 			{
 				return this.P0LocY == other.P0LocY && this.P1LocY == other.P1LocY && this.P2LocY == other.P2LocY && this.P3LocY == other.P3LocY && this.BallLocX.Approx(other.BallLocX, 1E-06f) && this.BallLocY == other.BallLocY && this.BallTrajectoryX == other.BallTrajectoryX && this.BallTrajectoryY == other.BallTrajectoryY && this.BallSpeed.Approx(other.BallSpeed, 1E-06f) && this.ScoreLeft == other.ScoreLeft && this.ScoreRight == other.ScoreRight && this.ScreenMode == other.ScreenMode;
 			}
 
-			// Token: 0x040048C8 RID: 18632
+			// Token: 0x040049BD RID: 18877
 			public byte P0LocY;
 
-			// Token: 0x040048C9 RID: 18633
+			// Token: 0x040049BE RID: 18878
 			public byte P1LocY;
 
-			// Token: 0x040048CA RID: 18634
+			// Token: 0x040049BF RID: 18879
 			public byte P2LocY;
 
-			// Token: 0x040048CB RID: 18635
+			// Token: 0x040049C0 RID: 18880
 			public byte P3LocY;
 
-			// Token: 0x040048CC RID: 18636
+			// Token: 0x040049C1 RID: 18881
 			public float BallLocX;
 
-			// Token: 0x040048CD RID: 18637
+			// Token: 0x040049C2 RID: 18882
 			public byte BallLocY;
 
-			// Token: 0x040048CE RID: 18638
+			// Token: 0x040049C3 RID: 18883
 			public byte BallTrajectoryX;
 
-			// Token: 0x040048CF RID: 18639
+			// Token: 0x040049C4 RID: 18884
 			public byte BallTrajectoryY;
 
-			// Token: 0x040048D0 RID: 18640
+			// Token: 0x040049C5 RID: 18885
 			public float BallSpeed;
 
-			// Token: 0x040048D1 RID: 18641
+			// Token: 0x040049C6 RID: 18886
 			public int ScoreLeft;
 
-			// Token: 0x040048D2 RID: 18642
+			// Token: 0x040049C7 RID: 18887
 			public int ScoreRight;
 
-			// Token: 0x040048D3 RID: 18643
+			// Token: 0x040049C8 RID: 18888
 			public int ScreenMode;
 		}
 	}

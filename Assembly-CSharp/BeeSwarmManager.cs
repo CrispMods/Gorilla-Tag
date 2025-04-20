@@ -2,70 +2,70 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020000E7 RID: 231
+// Token: 0x020000F1 RID: 241
 public class BeeSwarmManager : MonoBehaviour
 {
-	// Token: 0x1700006F RID: 111
-	// (get) Token: 0x060005DD RID: 1501 RVA: 0x00023086 File Offset: 0x00021286
-	// (set) Token: 0x060005DE RID: 1502 RVA: 0x0002308E File Offset: 0x0002128E
+	// Token: 0x17000074 RID: 116
+	// (get) Token: 0x0600061E RID: 1566 RVA: 0x0003494C File Offset: 0x00032B4C
+	// (set) Token: 0x0600061F RID: 1567 RVA: 0x00034954 File Offset: 0x00032B54
 	public BeePerchPoint BeeHive { get; private set; }
 
-	// Token: 0x17000070 RID: 112
-	// (get) Token: 0x060005DF RID: 1503 RVA: 0x00023097 File Offset: 0x00021297
-	// (set) Token: 0x060005E0 RID: 1504 RVA: 0x0002309F File Offset: 0x0002129F
+	// Token: 0x17000075 RID: 117
+	// (get) Token: 0x06000620 RID: 1568 RVA: 0x0003495D File Offset: 0x00032B5D
+	// (set) Token: 0x06000621 RID: 1569 RVA: 0x00034965 File Offset: 0x00032B65
 	public float BeeSpeed { get; private set; }
 
-	// Token: 0x17000071 RID: 113
-	// (get) Token: 0x060005E1 RID: 1505 RVA: 0x000230A8 File Offset: 0x000212A8
-	// (set) Token: 0x060005E2 RID: 1506 RVA: 0x000230B0 File Offset: 0x000212B0
+	// Token: 0x17000076 RID: 118
+	// (get) Token: 0x06000622 RID: 1570 RVA: 0x0003496E File Offset: 0x00032B6E
+	// (set) Token: 0x06000623 RID: 1571 RVA: 0x00034976 File Offset: 0x00032B76
 	public float BeeMaxTravelTime { get; private set; }
 
-	// Token: 0x17000072 RID: 114
-	// (get) Token: 0x060005E3 RID: 1507 RVA: 0x000230B9 File Offset: 0x000212B9
-	// (set) Token: 0x060005E4 RID: 1508 RVA: 0x000230C1 File Offset: 0x000212C1
+	// Token: 0x17000077 RID: 119
+	// (get) Token: 0x06000624 RID: 1572 RVA: 0x0003497F File Offset: 0x00032B7F
+	// (set) Token: 0x06000625 RID: 1573 RVA: 0x00034987 File Offset: 0x00032B87
 	public float BeeAcceleration { get; private set; }
 
-	// Token: 0x17000073 RID: 115
-	// (get) Token: 0x060005E5 RID: 1509 RVA: 0x000230CA File Offset: 0x000212CA
-	// (set) Token: 0x060005E6 RID: 1510 RVA: 0x000230D2 File Offset: 0x000212D2
+	// Token: 0x17000078 RID: 120
+	// (get) Token: 0x06000626 RID: 1574 RVA: 0x00034990 File Offset: 0x00032B90
+	// (set) Token: 0x06000627 RID: 1575 RVA: 0x00034998 File Offset: 0x00032B98
 	public float BeeJitterStrength { get; private set; }
 
-	// Token: 0x17000074 RID: 116
-	// (get) Token: 0x060005E7 RID: 1511 RVA: 0x000230DB File Offset: 0x000212DB
-	// (set) Token: 0x060005E8 RID: 1512 RVA: 0x000230E3 File Offset: 0x000212E3
+	// Token: 0x17000079 RID: 121
+	// (get) Token: 0x06000628 RID: 1576 RVA: 0x000349A1 File Offset: 0x00032BA1
+	// (set) Token: 0x06000629 RID: 1577 RVA: 0x000349A9 File Offset: 0x00032BA9
 	public float BeeJitterDamping { get; private set; }
 
-	// Token: 0x17000075 RID: 117
-	// (get) Token: 0x060005E9 RID: 1513 RVA: 0x000230EC File Offset: 0x000212EC
-	// (set) Token: 0x060005EA RID: 1514 RVA: 0x000230F4 File Offset: 0x000212F4
+	// Token: 0x1700007A RID: 122
+	// (get) Token: 0x0600062A RID: 1578 RVA: 0x000349B2 File Offset: 0x00032BB2
+	// (set) Token: 0x0600062B RID: 1579 RVA: 0x000349BA File Offset: 0x00032BBA
 	public float BeeMaxJitterRadius { get; private set; }
 
-	// Token: 0x17000076 RID: 118
-	// (get) Token: 0x060005EB RID: 1515 RVA: 0x000230FD File Offset: 0x000212FD
-	// (set) Token: 0x060005EC RID: 1516 RVA: 0x00023105 File Offset: 0x00021305
+	// Token: 0x1700007B RID: 123
+	// (get) Token: 0x0600062C RID: 1580 RVA: 0x000349C3 File Offset: 0x00032BC3
+	// (set) Token: 0x0600062D RID: 1581 RVA: 0x000349CB File Offset: 0x00032BCB
 	public float BeeNearDestinationRadius { get; private set; }
 
-	// Token: 0x17000077 RID: 119
-	// (get) Token: 0x060005ED RID: 1517 RVA: 0x0002310E File Offset: 0x0002130E
-	// (set) Token: 0x060005EE RID: 1518 RVA: 0x00023116 File Offset: 0x00021316
+	// Token: 0x1700007C RID: 124
+	// (get) Token: 0x0600062E RID: 1582 RVA: 0x000349D4 File Offset: 0x00032BD4
+	// (set) Token: 0x0600062F RID: 1583 RVA: 0x000349DC File Offset: 0x00032BDC
 	public float AvoidPointRadius { get; private set; }
 
-	// Token: 0x17000078 RID: 120
-	// (get) Token: 0x060005EF RID: 1519 RVA: 0x0002311F File Offset: 0x0002131F
-	// (set) Token: 0x060005F0 RID: 1520 RVA: 0x00023127 File Offset: 0x00021327
+	// Token: 0x1700007D RID: 125
+	// (get) Token: 0x06000630 RID: 1584 RVA: 0x000349E5 File Offset: 0x00032BE5
+	// (set) Token: 0x06000631 RID: 1585 RVA: 0x000349ED File Offset: 0x00032BED
 	public float BeeMinFlowerDuration { get; private set; }
 
-	// Token: 0x17000079 RID: 121
-	// (get) Token: 0x060005F1 RID: 1521 RVA: 0x00023130 File Offset: 0x00021330
-	// (set) Token: 0x060005F2 RID: 1522 RVA: 0x00023138 File Offset: 0x00021338
+	// Token: 0x1700007E RID: 126
+	// (get) Token: 0x06000632 RID: 1586 RVA: 0x000349F6 File Offset: 0x00032BF6
+	// (set) Token: 0x06000633 RID: 1587 RVA: 0x000349FE File Offset: 0x00032BFE
 	public float BeeMaxFlowerDuration { get; private set; }
 
-	// Token: 0x1700007A RID: 122
-	// (get) Token: 0x060005F3 RID: 1523 RVA: 0x00023141 File Offset: 0x00021341
-	// (set) Token: 0x060005F4 RID: 1524 RVA: 0x00023149 File Offset: 0x00021349
+	// Token: 0x1700007F RID: 127
+	// (get) Token: 0x06000634 RID: 1588 RVA: 0x00034A07 File Offset: 0x00032C07
+	// (set) Token: 0x06000635 RID: 1589 RVA: 0x00034A0F File Offset: 0x00032C0F
 	public float GeneralBuzzRange { get; private set; }
 
-	// Token: 0x060005F5 RID: 1525 RVA: 0x00023154 File Offset: 0x00021354
+	// Token: 0x06000636 RID: 1590 RVA: 0x000858CC File Offset: 0x00083ACC
 	private void Awake()
 	{
 		this.bees = new List<AnimatedBee>(this.numBees);
@@ -78,7 +78,7 @@ public class BeeSwarmManager : MonoBehaviour
 		this.playerCamera = Camera.main.transform;
 	}
 
-	// Token: 0x060005F6 RID: 1526 RVA: 0x000231B8 File Offset: 0x000213B8
+	// Token: 0x06000637 RID: 1591 RVA: 0x00085930 File Offset: 0x00083B30
 	private void Start()
 	{
 		foreach (XSceneRef xsceneRef in this.flowerSections)
@@ -96,13 +96,13 @@ public class BeeSwarmManager : MonoBehaviour
 		RandomTimedSeedManager.instance.AddCallbackOnSeedChanged(new Action(this.OnSeedChange));
 	}
 
-	// Token: 0x060005F7 RID: 1527 RVA: 0x00023238 File Offset: 0x00021438
+	// Token: 0x06000638 RID: 1592 RVA: 0x00034A18 File Offset: 0x00032C18
 	private void OnDestroy()
 	{
 		RandomTimedSeedManager.instance.RemoveCallbackOnSeedChanged(new Action(this.OnSeedChange));
 	}
 
-	// Token: 0x060005F8 RID: 1528 RVA: 0x00023250 File Offset: 0x00021450
+	// Token: 0x06000639 RID: 1593 RVA: 0x000859B0 File Offset: 0x00083BB0
 	private void Update()
 	{
 		Vector3 position = this.playerCamera.transform.position;
@@ -140,7 +140,7 @@ public class BeeSwarmManager : MonoBehaviour
 		this.generalBeeBuzz.enabled = false;
 	}
 
-	// Token: 0x060005F9 RID: 1529 RVA: 0x00023380 File Offset: 0x00021580
+	// Token: 0x0600063A RID: 1594 RVA: 0x00085AE0 File Offset: 0x00083CE0
 	private void OnSeedChange()
 	{
 		SRand srand = new SRand(RandomTimedSeedManager.instance.seed);
@@ -163,7 +163,7 @@ public class BeeSwarmManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005FA RID: 1530 RVA: 0x00023474 File Offset: 0x00021674
+	// Token: 0x0600063B RID: 1595 RVA: 0x00085BD4 File Offset: 0x00083DD4
 	private void PickPoints(int n, List<BeePerchPoint> pickBuffer, List<BeePerchPoint> allPerchPoints, ref SRand rand, List<BeePerchPoint> resultBuffer)
 	{
 		resultBuffer.Add(this.BeeHive);
@@ -181,54 +181,54 @@ public class BeeSwarmManager : MonoBehaviour
 		pickBuffer.RemoveRange(pickBuffer.Count - n, n);
 	}
 
-	// Token: 0x060005FB RID: 1531 RVA: 0x000234F5 File Offset: 0x000216F5
+	// Token: 0x0600063C RID: 1596 RVA: 0x00034A30 File Offset: 0x00032C30
 	public static void RegisterAvoidPoint(GameObject obj)
 	{
 		BeeSwarmManager.avoidPoints.Add(obj);
 	}
 
-	// Token: 0x060005FC RID: 1532 RVA: 0x00023502 File Offset: 0x00021702
+	// Token: 0x0600063D RID: 1597 RVA: 0x00034A3D File Offset: 0x00032C3D
 	public static void UnregisterAvoidPoint(GameObject obj)
 	{
 		BeeSwarmManager.avoidPoints.Remove(obj);
 	}
 
-	// Token: 0x04000715 RID: 1813
+	// Token: 0x04000756 RID: 1878
 	[SerializeField]
 	private XSceneRef[] flowerSections;
 
-	// Token: 0x04000716 RID: 1814
+	// Token: 0x04000757 RID: 1879
 	[SerializeField]
 	private int loopSizePerBee;
 
-	// Token: 0x04000717 RID: 1815
+	// Token: 0x04000758 RID: 1880
 	[SerializeField]
 	private int numBees;
 
-	// Token: 0x04000718 RID: 1816
+	// Token: 0x04000759 RID: 1881
 	[SerializeField]
 	private MeshRenderer beePrefab;
 
-	// Token: 0x04000719 RID: 1817
+	// Token: 0x0400075A RID: 1882
 	[SerializeField]
 	private AudioSource nearbyBeeBuzz;
 
-	// Token: 0x0400071A RID: 1818
+	// Token: 0x0400075B RID: 1883
 	[SerializeField]
 	private AudioSource generalBeeBuzz;
 
-	// Token: 0x0400071B RID: 1819
+	// Token: 0x0400075C RID: 1884
 	private GameObject[] flowerSectionsResolved;
 
-	// Token: 0x04000728 RID: 1832
+	// Token: 0x04000769 RID: 1897
 	private List<AnimatedBee> bees;
 
-	// Token: 0x04000729 RID: 1833
+	// Token: 0x0400076A RID: 1898
 	private Transform playerCamera;
 
-	// Token: 0x0400072A RID: 1834
+	// Token: 0x0400076B RID: 1899
 	private List<BeePerchPoint> allPerchPoints = new List<BeePerchPoint>();
 
-	// Token: 0x0400072B RID: 1835
+	// Token: 0x0400076C RID: 1900
 	public static readonly List<GameObject> avoidPoints = new List<GameObject>();
 }

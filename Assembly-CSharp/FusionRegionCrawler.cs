@@ -7,11 +7,11 @@ using Fusion.Photon.Realtime;
 using Fusion.Sockets;
 using UnityEngine;
 
-// Token: 0x02000260 RID: 608
+// Token: 0x0200026B RID: 619
 public class FusionRegionCrawler : MonoBehaviour, INetworkRunnerCallbacks
 {
-	// Token: 0x1700016C RID: 364
-	// (get) Token: 0x06000E2C RID: 3628 RVA: 0x00047B18 File Offset: 0x00045D18
+	// Token: 0x17000173 RID: 371
+	// (get) Token: 0x06000E77 RID: 3703 RVA: 0x0003A40F File Offset: 0x0003860F
 	public int PlayerCountGlobal
 	{
 		get
@@ -20,7 +20,7 @@ public class FusionRegionCrawler : MonoBehaviour, INetworkRunnerCallbacks
 		}
 	}
 
-	// Token: 0x06000E2D RID: 3629 RVA: 0x00047B20 File Offset: 0x00045D20
+	// Token: 0x06000E78 RID: 3704 RVA: 0x0003A417 File Offset: 0x00038617
 	public void Start()
 	{
 		this.regionRunner = base.gameObject.AddComponent<NetworkRunner>();
@@ -31,7 +31,7 @@ public class FusionRegionCrawler : MonoBehaviour, INetworkRunnerCallbacks
 		base.StartCoroutine(this.OccasionalUpdate());
 	}
 
-	// Token: 0x06000E2E RID: 3630 RVA: 0x00047B55 File Offset: 0x00045D55
+	// Token: 0x06000E79 RID: 3705 RVA: 0x0003A44C File Offset: 0x0003864C
 	public IEnumerator OccasionalUpdate()
 	{
 		while (this.refreshPlayerCountAutomatically)
@@ -42,7 +42,7 @@ public class FusionRegionCrawler : MonoBehaviour, INetworkRunnerCallbacks
 		yield break;
 	}
 
-	// Token: 0x06000E2F RID: 3631 RVA: 0x00047B64 File Offset: 0x00045D64
+	// Token: 0x06000E7A RID: 3706 RVA: 0x0003A45B File Offset: 0x0003865B
 	public IEnumerator UpdatePlayerCount()
 	{
 		int tempGlobalPlayerCount = 0;
@@ -73,7 +73,7 @@ public class FusionRegionCrawler : MonoBehaviour, INetworkRunnerCallbacks
 		yield break;
 	}
 
-	// Token: 0x06000E30 RID: 3632 RVA: 0x00047B73 File Offset: 0x00045D73
+	// Token: 0x06000E7B RID: 3707 RVA: 0x0003A46A File Offset: 0x0003866A
 	public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList)
 	{
 		if (this.waitingForSessionListUpdate)
@@ -83,126 +83,126 @@ public class FusionRegionCrawler : MonoBehaviour, INetworkRunnerCallbacks
 		}
 	}
 
-	// Token: 0x06000E31 RID: 3633 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E7C RID: 3708 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnPlayerJoined(NetworkRunner runner, PlayerRef player)
 	{
 	}
 
-	// Token: 0x06000E32 RID: 3634 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E7D RID: 3709 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnPlayerLeft(NetworkRunner runner, PlayerRef player)
 	{
 	}
 
-	// Token: 0x06000E33 RID: 3635 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E7E RID: 3710 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnInput(NetworkRunner runner, NetworkInput input)
 	{
 	}
 
-	// Token: 0x06000E34 RID: 3636 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E7F RID: 3711 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input)
 	{
 	}
 
-	// Token: 0x06000E35 RID: 3637 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E80 RID: 3712 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)
 	{
 	}
 
-	// Token: 0x06000E36 RID: 3638 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E81 RID: 3713 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnConnectedToServer(NetworkRunner runner)
 	{
 	}
 
-	// Token: 0x06000E37 RID: 3639 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E82 RID: 3714 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token)
 	{
 	}
 
-	// Token: 0x06000E38 RID: 3640 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E83 RID: 3715 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason)
 	{
 	}
 
-	// Token: 0x06000E39 RID: 3641 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E84 RID: 3716 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message)
 	{
 	}
 
-	// Token: 0x06000E3A RID: 3642 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E85 RID: 3717 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList)
 	{
 	}
 
-	// Token: 0x06000E3B RID: 3643 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E86 RID: 3718 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnCustomAuthenticationResponse(NetworkRunner runner, Dictionary<string, object> data)
 	{
 	}
 
-	// Token: 0x06000E3C RID: 3644 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E87 RID: 3719 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken)
 	{
 	}
 
-	// Token: 0x06000E3D RID: 3645 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E88 RID: 3720 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnSceneLoadDone(NetworkRunner runner)
 	{
 	}
 
-	// Token: 0x06000E3E RID: 3646 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E89 RID: 3721 RVA: 0x00030607 File Offset: 0x0002E807
 	void INetworkRunnerCallbacks.OnSceneLoadStart(NetworkRunner runner)
 	{
 	}
 
-	// Token: 0x06000E3F RID: 3647 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E8A RID: 3722 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnObjectExitAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player)
 	{
 	}
 
-	// Token: 0x06000E40 RID: 3648 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E8B RID: 3723 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnObjectEnterAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player)
 	{
 	}
 
-	// Token: 0x06000E41 RID: 3649 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E8C RID: 3724 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason)
 	{
 	}
 
-	// Token: 0x06000E42 RID: 3650 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E8D RID: 3725 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ReliableKey key, ArraySegment<byte> data)
 	{
 	}
 
-	// Token: 0x06000E43 RID: 3651 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E8E RID: 3726 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnReliableDataProgress(NetworkRunner runner, PlayerRef player, ReliableKey key, float progress)
 	{
 	}
 
-	// Token: 0x040010EF RID: 4335
+	// Token: 0x04001135 RID: 4405
 	public FusionRegionCrawler.PlayerCountUpdated OnPlayerCountUpdated;
 
-	// Token: 0x040010F0 RID: 4336
+	// Token: 0x04001136 RID: 4406
 	private NetworkRunner regionRunner;
 
-	// Token: 0x040010F1 RID: 4337
+	// Token: 0x04001137 RID: 4407
 	private List<SessionInfo> sessionInfoCache;
 
-	// Token: 0x040010F2 RID: 4338
+	// Token: 0x04001138 RID: 4408
 	private bool waitingForSessionListUpdate;
 
-	// Token: 0x040010F3 RID: 4339
+	// Token: 0x04001139 RID: 4409
 	private int globalPlayerCount;
 
-	// Token: 0x040010F4 RID: 4340
+	// Token: 0x0400113A RID: 4410
 	private float UpdateFrequency = 10f;
 
-	// Token: 0x040010F5 RID: 4341
+	// Token: 0x0400113B RID: 4411
 	private bool refreshPlayerCountAutomatically = true;
 
-	// Token: 0x040010F6 RID: 4342
+	// Token: 0x0400113C RID: 4412
 	private int tempSessionPlayerCount;
 
-	// Token: 0x02000261 RID: 609
-	// (Invoke) Token: 0x06000E46 RID: 3654
+	// Token: 0x0200026C RID: 620
+	// (Invoke) Token: 0x06000E91 RID: 3729
 	public delegate void PlayerCountUpdated(int playerCount);
 }

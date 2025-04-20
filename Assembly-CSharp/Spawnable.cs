@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// Token: 0x02000353 RID: 851
+// Token: 0x0200035E RID: 862
 [Serializable]
 public class Spawnable : ISerializationCallbackReceiver
 {
-	// Token: 0x060013C7 RID: 5063 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001413 RID: 5139 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnBeforeSerialize()
 	{
 	}
 
-	// Token: 0x060013C8 RID: 5064 RVA: 0x0006137C File Offset: 0x0005F57C
+	// Token: 0x06001414 RID: 5140 RVA: 0x000BACBC File Offset: 0x000B8EBC
 	public void OnAfterDeserialize()
 	{
 		if (this.ClassificationLabel != "")
@@ -30,7 +30,7 @@ public class Spawnable : ISerializationCallbackReceiver
 		}
 	}
 
-	// Token: 0x060013CA RID: 5066 RVA: 0x000613F0 File Offset: 0x0005F5F0
+	// Token: 0x06001416 RID: 5142 RVA: 0x000BAD1C File Offset: 0x000B8F1C
 	[CompilerGenerated]
 	internal static int <OnAfterDeserialize>g__IndexOf|4_0(string label, IEnumerable<string> collection)
 	{
@@ -49,13 +49,13 @@ public class Spawnable : ISerializationCallbackReceiver
 		return -1;
 	}
 
-	// Token: 0x040015F1 RID: 5617
+	// Token: 0x04001639 RID: 5689
 	public SimpleResizable ResizablePrefab;
 
-	// Token: 0x040015F2 RID: 5618
+	// Token: 0x0400163A RID: 5690
 	public string ClassificationLabel = "";
 
-	// Token: 0x040015F3 RID: 5619
+	// Token: 0x0400163B RID: 5691
 	[SerializeField]
 	private int _editorClassificationIndex;
 }

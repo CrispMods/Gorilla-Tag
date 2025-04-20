@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x02000221 RID: 545
+// Token: 0x0200022C RID: 556
 [Serializable]
 public class ScenePerformanceData
 {
-	// Token: 0x06000C96 RID: 3222 RVA: 0x000429F8 File Offset: 0x00040BF8
+	// Token: 0x06000CE1 RID: 3297 RVA: 0x000A0AC8 File Offset: 0x0009ECC8
 	public ScenePerformanceData(string mapName, int gorillaCount, int droppedFrames, int msHigh, int medianMS, int medianFPS, int medianDrawCalls, List<int> msCaptures)
 	{
 		this._mapName = mapName;
@@ -18,27 +18,27 @@ public class ScenePerformanceData
 		this._msCaptures = new List<int>(msCaptures);
 	}
 
-	// Token: 0x04000FF4 RID: 4084
+	// Token: 0x0400103A RID: 4154
 	public string _mapName;
 
-	// Token: 0x04000FF5 RID: 4085
+	// Token: 0x0400103B RID: 4155
 	public int _gorillaCount;
 
-	// Token: 0x04000FF6 RID: 4086
+	// Token: 0x0400103C RID: 4156
 	public int _droppedFrames;
 
-	// Token: 0x04000FF7 RID: 4087
+	// Token: 0x0400103D RID: 4157
 	public int _msHigh;
 
-	// Token: 0x04000FF8 RID: 4088
+	// Token: 0x0400103E RID: 4158
 	public int _medianMS;
 
-	// Token: 0x04000FF9 RID: 4089
+	// Token: 0x0400103F RID: 4159
 	public int _medianFPS;
 
-	// Token: 0x04000FFA RID: 4090
+	// Token: 0x04001040 RID: 4160
 	public int _medianDrawCallCount;
 
-	// Token: 0x04000FFB RID: 4091
+	// Token: 0x04001041 RID: 4161
 	public List<int> _msCaptures;
 }

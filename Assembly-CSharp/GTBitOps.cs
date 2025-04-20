@@ -1,66 +1,66 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 
-// Token: 0x020001B1 RID: 433
+// Token: 0x020001BC RID: 444
 public static class GTBitOps
 {
-	// Token: 0x06000A27 RID: 2599 RVA: 0x0003794A File Offset: 0x00035B4A
+	// Token: 0x06000A73 RID: 2675 RVA: 0x00037535 File Offset: 0x00035735
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int GetValueMask(int count)
 	{
 		return (1 << count) - 1;
 	}
 
-	// Token: 0x06000A28 RID: 2600 RVA: 0x00037954 File Offset: 0x00035B54
+	// Token: 0x06000A74 RID: 2676 RVA: 0x0003753F File Offset: 0x0003573F
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int GetClearMask(int index, int valueMask)
 	{
 		return ~(valueMask << index);
 	}
 
-	// Token: 0x06000A29 RID: 2601 RVA: 0x0003795D File Offset: 0x00035B5D
+	// Token: 0x06000A75 RID: 2677 RVA: 0x00037548 File Offset: 0x00035748
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int GetClearMaskByCount(int index, int count)
 	{
 		return ~((1 << count) - 1 << index);
 	}
 
-	// Token: 0x06000A2A RID: 2602 RVA: 0x0003796D File Offset: 0x00035B6D
+	// Token: 0x06000A76 RID: 2678 RVA: 0x00037558 File Offset: 0x00035758
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int ReadBits(int bits, int index, int valueMask)
 	{
 		return bits >> index & valueMask;
 	}
 
-	// Token: 0x06000A2B RID: 2603 RVA: 0x00037977 File Offset: 0x00035B77
+	// Token: 0x06000A77 RID: 2679 RVA: 0x00037562 File Offset: 0x00035762
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int ReadBits(int bits, GTBitOps.BitWriteInfo info)
 	{
 		return bits >> info.index & info.valueMask;
 	}
 
-	// Token: 0x06000A2C RID: 2604 RVA: 0x0003798B File Offset: 0x00035B8B
+	// Token: 0x06000A78 RID: 2680 RVA: 0x00037576 File Offset: 0x00035776
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int ReadBitsByCount(int bits, int index, int count)
 	{
 		return bits >> index & (1 << count) - 1;
 	}
 
-	// Token: 0x06000A2D RID: 2605 RVA: 0x0003799C File Offset: 0x00035B9C
+	// Token: 0x06000A79 RID: 2681 RVA: 0x00037587 File Offset: 0x00035787
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool ReadBit(int bits, int index)
 	{
 		return (bits >> index & 1) == 1;
 	}
 
-	// Token: 0x06000A2E RID: 2606 RVA: 0x000379A9 File Offset: 0x00035BA9
+	// Token: 0x06000A7A RID: 2682 RVA: 0x00037594 File Offset: 0x00035794
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void WriteBits(ref int bits, GTBitOps.BitWriteInfo info, int value)
 	{
 		bits = ((bits & info.clearMask) | (value & info.valueMask) << info.index);
 	}
 
-	// Token: 0x06000A2F RID: 2607 RVA: 0x000379C9 File Offset: 0x00035BC9
+	// Token: 0x06000A7B RID: 2683 RVA: 0x000375B4 File Offset: 0x000357B4
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int WriteBits(int bits, GTBitOps.BitWriteInfo info, int value)
 	{
@@ -68,14 +68,14 @@ public static class GTBitOps
 		return bits;
 	}
 
-	// Token: 0x06000A30 RID: 2608 RVA: 0x000379D5 File Offset: 0x00035BD5
+	// Token: 0x06000A7C RID: 2684 RVA: 0x000375C0 File Offset: 0x000357C0
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void WriteBits(ref int bits, int index, int valueMask, int clearMask, int value)
 	{
 		bits = ((bits & clearMask) | (value & valueMask) << index);
 	}
 
-	// Token: 0x06000A31 RID: 2609 RVA: 0x000379E7 File Offset: 0x00035BE7
+	// Token: 0x06000A7D RID: 2685 RVA: 0x000375D2 File Offset: 0x000357D2
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int WriteBits(int bits, int index, int valueMask, int clearMask, int value)
 	{
@@ -83,14 +83,14 @@ public static class GTBitOps
 		return bits;
 	}
 
-	// Token: 0x06000A32 RID: 2610 RVA: 0x000379F6 File Offset: 0x00035BF6
+	// Token: 0x06000A7E RID: 2686 RVA: 0x000375E1 File Offset: 0x000357E1
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void WriteBitsByCount(ref int bits, int index, int count, int value)
 	{
 		bits = ((bits & ~((1 << count) - 1 << index)) | (value & (1 << count) - 1) << index);
 	}
 
-	// Token: 0x06000A33 RID: 2611 RVA: 0x00037A1B File Offset: 0x00035C1B
+	// Token: 0x06000A7F RID: 2687 RVA: 0x00037606 File Offset: 0x00035806
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int WriteBitsByCount(int bits, int index, int count, int value)
 	{
@@ -98,14 +98,14 @@ public static class GTBitOps
 		return bits;
 	}
 
-	// Token: 0x06000A34 RID: 2612 RVA: 0x00037A28 File Offset: 0x00035C28
+	// Token: 0x06000A80 RID: 2688 RVA: 0x00037613 File Offset: 0x00035813
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void WriteBit(ref int bits, int index, bool value)
 	{
 		bits = ((bits & ~(1 << index)) | (value ? 1 : 0) << index);
 	}
 
-	// Token: 0x06000A35 RID: 2613 RVA: 0x00037A43 File Offset: 0x00035C43
+	// Token: 0x06000A81 RID: 2689 RVA: 0x0003762E File Offset: 0x0003582E
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int WriteBit(int bits, int index, bool value)
 	{
@@ -113,16 +113,16 @@ public static class GTBitOps
 		return bits;
 	}
 
-	// Token: 0x06000A36 RID: 2614 RVA: 0x00037A4F File Offset: 0x00035C4F
+	// Token: 0x06000A82 RID: 2690 RVA: 0x0003763A File Offset: 0x0003583A
 	public static string ToBinaryString(int number)
 	{
 		return Convert.ToString(number, 2).PadLeft(32, '0');
 	}
 
-	// Token: 0x020001B2 RID: 434
+	// Token: 0x020001BD RID: 445
 	public readonly struct BitWriteInfo
 	{
-		// Token: 0x06000A37 RID: 2615 RVA: 0x00037A61 File Offset: 0x00035C61
+		// Token: 0x06000A83 RID: 2691 RVA: 0x0003764C File Offset: 0x0003584C
 		public BitWriteInfo(int index, int count)
 		{
 			this.index = index;
@@ -130,13 +130,13 @@ public static class GTBitOps
 			this.clearMask = GTBitOps.GetClearMask(index, this.valueMask);
 		}
 
-		// Token: 0x04000C88 RID: 3208
+		// Token: 0x04000CCE RID: 3278
 		public readonly int index;
 
-		// Token: 0x04000C89 RID: 3209
+		// Token: 0x04000CCF RID: 3279
 		public readonly int valueMask;
 
-		// Token: 0x04000C8A RID: 3210
+		// Token: 0x04000CD0 RID: 3280
 		public readonly int clearMask;
 	}
 }

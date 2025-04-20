@@ -2,12 +2,12 @@
 using GorillaTag;
 using UnityEngine;
 
-// Token: 0x02000822 RID: 2082
+// Token: 0x0200083C RID: 2108
 [GTStripGameObjectFromBuild("!QATESTING")]
 public class TestScript : MonoBehaviour
 {
-	// Token: 0x17000549 RID: 1353
-	// (get) Token: 0x060032F9 RID: 13049 RVA: 0x00002076 File Offset: 0x00000276
+	// Token: 0x17000557 RID: 1367
+	// (get) Token: 0x060033B4 RID: 13236 RVA: 0x00030498 File Offset: 0x0002E698
 	public int callbackOrder
 	{
 		get
@@ -16,6 +16,6 @@ public class TestScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04003676 RID: 13942
+	// Token: 0x04003732 RID: 14130
 	public GameObject testDelete;
 }

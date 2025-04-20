@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000132 RID: 306
+// Token: 0x0200013C RID: 316
 public static class ApplicationQuittingState
 {
-	// Token: 0x170000C5 RID: 197
-	// (get) Token: 0x0600081B RID: 2075 RVA: 0x0002CAF3 File Offset: 0x0002ACF3
-	// (set) Token: 0x0600081C RID: 2076 RVA: 0x0002CAFA File Offset: 0x0002ACFA
+	// Token: 0x170000CA RID: 202
+	// (get) Token: 0x0600085F RID: 2143 RVA: 0x00035ED8 File Offset: 0x000340D8
+	// (set) Token: 0x06000860 RID: 2144 RVA: 0x00035EDF File Offset: 0x000340DF
 	public static bool IsQuitting { get; private set; }
 
-	// Token: 0x0600081D RID: 2077 RVA: 0x0002CB02 File Offset: 0x0002AD02
+	// Token: 0x06000861 RID: 2145 RVA: 0x00035EE7 File Offset: 0x000340E7
 	[RuntimeInitializeOnLoadMethod]
 	private static void Init()
 	{
 		Application.quitting += ApplicationQuittingState.HandleApplicationQuitting;
 	}
 
-	// Token: 0x0600081E RID: 2078 RVA: 0x0002CB15 File Offset: 0x0002AD15
+	// Token: 0x06000862 RID: 2146 RVA: 0x00035EFA File Offset: 0x000340FA
 	private static void HandleApplicationQuitting()
 	{
 		ApplicationQuittingState.IsQuitting = true;

@@ -2,22 +2,22 @@
 
 namespace BoingKit
 {
-	// Token: 0x02000CCB RID: 3275
+	// Token: 0x02000CFC RID: 3324
 	public class BoingReactor : BoingBehavior
 	{
-		// Token: 0x06005298 RID: 21144 RVA: 0x00194471 File Offset: 0x00192671
+		// Token: 0x060053FA RID: 21498 RVA: 0x0006672A File Offset: 0x0006492A
 		protected override void Register()
 		{
 			BoingManager.Register(this);
 		}
 
-		// Token: 0x06005299 RID: 21145 RVA: 0x00194479 File Offset: 0x00192679
+		// Token: 0x060053FB RID: 21499 RVA: 0x00066732 File Offset: 0x00064932
 		protected override void Unregister()
 		{
 			BoingManager.Unregister(this);
 		}
 
-		// Token: 0x0600529A RID: 21146 RVA: 0x00194481 File Offset: 0x00192681
+		// Token: 0x060053FC RID: 21500 RVA: 0x0006673A File Offset: 0x0006493A
 		public override void PrepareExecute()
 		{
 			base.PrepareExecute(true);

@@ -4,10 +4,10 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000665 RID: 1637
+// Token: 0x02000644 RID: 1604
 public class GorillaPlayerLineButton : MonoBehaviour
 {
-	// Token: 0x06002882 RID: 10370 RVA: 0x000C6DA2 File Offset: 0x000C4FA2
+	// Token: 0x060027AD RID: 10157 RVA: 0x0004B005 File Offset: 0x00049205
 	private void OnEnable()
 	{
 		if (Application.isEditor)
@@ -16,7 +16,7 @@ public class GorillaPlayerLineButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002883 RID: 10371 RVA: 0x000C6DB8 File Offset: 0x000C4FB8
+	// Token: 0x060027AE RID: 10158 RVA: 0x0004B01B File Offset: 0x0004921B
 	private void OnDisable()
 	{
 		if (Application.isEditor)
@@ -25,7 +25,7 @@ public class GorillaPlayerLineButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002884 RID: 10372 RVA: 0x000C6DC7 File Offset: 0x000C4FC7
+	// Token: 0x060027AF RID: 10159 RVA: 0x0004B02A File Offset: 0x0004922A
 	private IEnumerator TestPressCheck()
 	{
 		for (;;)
@@ -44,7 +44,7 @@ public class GorillaPlayerLineButton : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06002885 RID: 10373 RVA: 0x000C6DD8 File Offset: 0x000C4FD8
+	// Token: 0x060027B0 RID: 10160 RVA: 0x0010DC94 File Offset: 0x0010BE94
 	private void OnTriggerEnter(Collider collider)
 	{
 		if (base.enabled && this.touchTime + this.debounceTime < Time.time && collider.GetComponentInParent<GorillaTriggerColliderHandIndicator>() != null)
@@ -83,7 +83,7 @@ public class GorillaPlayerLineButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002886 RID: 10374 RVA: 0x000C6F48 File Offset: 0x000C5148
+	// Token: 0x060027B1 RID: 10161 RVA: 0x0004B039 File Offset: 0x00049239
 	private void OnTriggerExit(Collider other)
 	{
 		if (this.buttonType != GorillaPlayerLineButton.ButtonType.Mute && other.GetComponentInParent<GorillaTriggerColliderHandIndicator>() != null)
@@ -92,7 +92,7 @@ public class GorillaPlayerLineButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002887 RID: 10375 RVA: 0x000C6F70 File Offset: 0x000C5170
+	// Token: 0x060027B2 RID: 10162 RVA: 0x0010DE04 File Offset: 0x0010C004
 	public void UpdateColor()
 	{
 		if (this.isOn)
@@ -111,62 +111,62 @@ public class GorillaPlayerLineButton : MonoBehaviour
 		this.myText.text = this.offText;
 	}
 
-	// Token: 0x04002D6A RID: 11626
+	// Token: 0x04002CD0 RID: 11472
 	public GorillaPlayerScoreboardLine parentLine;
 
-	// Token: 0x04002D6B RID: 11627
+	// Token: 0x04002CD1 RID: 11473
 	public GorillaPlayerLineButton.ButtonType buttonType;
 
-	// Token: 0x04002D6C RID: 11628
+	// Token: 0x04002CD2 RID: 11474
 	public bool isOn;
 
-	// Token: 0x04002D6D RID: 11629
+	// Token: 0x04002CD3 RID: 11475
 	public bool isAutoOn;
 
-	// Token: 0x04002D6E RID: 11630
+	// Token: 0x04002CD4 RID: 11476
 	public Material offMaterial;
 
-	// Token: 0x04002D6F RID: 11631
+	// Token: 0x04002CD5 RID: 11477
 	public Material onMaterial;
 
-	// Token: 0x04002D70 RID: 11632
+	// Token: 0x04002CD6 RID: 11478
 	public Material autoOnMaterial;
 
-	// Token: 0x04002D71 RID: 11633
+	// Token: 0x04002CD7 RID: 11479
 	public string offText;
 
-	// Token: 0x04002D72 RID: 11634
+	// Token: 0x04002CD8 RID: 11480
 	public string onText;
 
-	// Token: 0x04002D73 RID: 11635
+	// Token: 0x04002CD9 RID: 11481
 	public string autoOnText;
 
-	// Token: 0x04002D74 RID: 11636
+	// Token: 0x04002CDA RID: 11482
 	public Text myText;
 
-	// Token: 0x04002D75 RID: 11637
+	// Token: 0x04002CDB RID: 11483
 	public float debounceTime = 0.25f;
 
-	// Token: 0x04002D76 RID: 11638
+	// Token: 0x04002CDC RID: 11484
 	public float touchTime;
 
-	// Token: 0x04002D77 RID: 11639
+	// Token: 0x04002CDD RID: 11485
 	public bool testPress;
 
-	// Token: 0x02000666 RID: 1638
+	// Token: 0x02000645 RID: 1605
 	public enum ButtonType
 	{
-		// Token: 0x04002D79 RID: 11641
+		// Token: 0x04002CDF RID: 11487
 		HateSpeech,
-		// Token: 0x04002D7A RID: 11642
+		// Token: 0x04002CE0 RID: 11488
 		Cheating,
-		// Token: 0x04002D7B RID: 11643
+		// Token: 0x04002CE1 RID: 11489
 		Toxicity,
-		// Token: 0x04002D7C RID: 11644
+		// Token: 0x04002CE2 RID: 11490
 		Mute,
-		// Token: 0x04002D7D RID: 11645
+		// Token: 0x04002CE3 RID: 11491
 		Report,
-		// Token: 0x04002D7E RID: 11646
+		// Token: 0x04002CE4 RID: 11492
 		Cancel
 	}
 }

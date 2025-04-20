@@ -2,10 +2,10 @@
 using GorillaTag.Rendering;
 using UnityEngine;
 
-// Token: 0x0200047C RID: 1148
+// Token: 0x02000488 RID: 1160
 public class GorillaTriggerBoxShaderSettings : GorillaTriggerBox
 {
-	// Token: 0x06001BDF RID: 7135 RVA: 0x00087D23 File Offset: 0x00085F23
+	// Token: 0x06001C33 RID: 7219 RVA: 0x00043650 File Offset: 0x00041850
 	private void Awake()
 	{
 		if (this.sameSceneSettingsRef != null)
@@ -16,7 +16,7 @@ public class GorillaTriggerBoxShaderSettings : GorillaTriggerBox
 		this.settingsRef.TryResolve<ZoneShaderSettings>(out this.settings);
 	}
 
-	// Token: 0x06001BE0 RID: 7136 RVA: 0x00087D54 File Offset: 0x00085F54
+	// Token: 0x06001C34 RID: 7220 RVA: 0x000DBB6C File Offset: 0x000D9D6C
 	public override void OnBoxTriggered()
 	{
 		if (this.settings == null)
@@ -38,14 +38,14 @@ public class GorillaTriggerBoxShaderSettings : GorillaTriggerBox
 		ZoneShaderSettings.ActivateDefaultSettings();
 	}
 
-	// Token: 0x04001EEB RID: 7915
+	// Token: 0x04001F3A RID: 7994
 	[SerializeField]
 	private XSceneRef settingsRef;
 
-	// Token: 0x04001EEC RID: 7916
+	// Token: 0x04001F3B RID: 7995
 	[SerializeField]
 	private ZoneShaderSettings sameSceneSettingsRef;
 
-	// Token: 0x04001EED RID: 7917
+	// Token: 0x04001F3C RID: 7996
 	private ZoneShaderSettings settings;
 }

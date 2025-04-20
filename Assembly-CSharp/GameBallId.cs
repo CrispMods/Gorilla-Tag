@@ -1,48 +1,48 @@
 ﻿using System;
 
-// Token: 0x0200048E RID: 1166
+// Token: 0x0200049A RID: 1178
 public struct GameBallId
 {
-	// Token: 0x06001C2B RID: 7211 RVA: 0x00088B3D File Offset: 0x00086D3D
+	// Token: 0x06001C7F RID: 7295 RVA: 0x00043AD2 File Offset: 0x00041CD2
 	public GameBallId(int index)
 	{
 		this.index = index;
 	}
 
-	// Token: 0x06001C2C RID: 7212 RVA: 0x00088B46 File Offset: 0x00086D46
+	// Token: 0x06001C80 RID: 7296 RVA: 0x00043ADB File Offset: 0x00041CDB
 	public bool IsValid()
 	{
 		return this.index != -1;
 	}
 
-	// Token: 0x06001C2D RID: 7213 RVA: 0x00088B54 File Offset: 0x00086D54
+	// Token: 0x06001C81 RID: 7297 RVA: 0x00043AE9 File Offset: 0x00041CE9
 	public static bool operator ==(GameBallId obj1, GameBallId obj2)
 	{
 		return obj1.index == obj2.index;
 	}
 
-	// Token: 0x06001C2E RID: 7214 RVA: 0x00088B64 File Offset: 0x00086D64
+	// Token: 0x06001C82 RID: 7298 RVA: 0x00043AF9 File Offset: 0x00041CF9
 	public static bool operator !=(GameBallId obj1, GameBallId obj2)
 	{
 		return obj1.index != obj2.index;
 	}
 
-	// Token: 0x06001C2F RID: 7215 RVA: 0x00088B78 File Offset: 0x00086D78
+	// Token: 0x06001C83 RID: 7299 RVA: 0x000DC500 File Offset: 0x000DA700
 	public override bool Equals(object obj)
 	{
 		GameBallId gameBallId = (GameBallId)obj;
 		return this.index == gameBallId.index;
 	}
 
-	// Token: 0x06001C30 RID: 7216 RVA: 0x00088B9A File Offset: 0x00086D9A
+	// Token: 0x06001C84 RID: 7300 RVA: 0x00043B0C File Offset: 0x00041D0C
 	public override int GetHashCode()
 	{
 		return this.index.GetHashCode();
 	}
 
-	// Token: 0x04001F3B RID: 7995
+	// Token: 0x04001F8A RID: 8074
 	public static GameBallId Invalid = new GameBallId(-1);
 
-	// Token: 0x04001F3C RID: 7996
+	// Token: 0x04001F8B RID: 8075
 	public int index;
 }

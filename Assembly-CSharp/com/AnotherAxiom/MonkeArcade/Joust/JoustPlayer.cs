@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace com.AnotherAxiom.MonkeArcade.Joust
 {
-	// Token: 0x02000B29 RID: 2857
+	// Token: 0x02000B56 RID: 2902
 	public class JoustPlayer : MonoBehaviour
 	{
-		// Token: 0x17000750 RID: 1872
-		// (get) Token: 0x06004730 RID: 18224 RVA: 0x001530A9 File Offset: 0x001512A9
-		// (set) Token: 0x06004731 RID: 18225 RVA: 0x001530B1 File Offset: 0x001512B1
+		// Token: 0x1700076C RID: 1900
+		// (get) Token: 0x06004879 RID: 18553 RVA: 0x0005F324 File Offset: 0x0005D524
+		// (set) Token: 0x0600487A RID: 18554 RVA: 0x0005F32C File Offset: 0x0005D52C
 		public float HorizontalSpeed
 		{
 			get
@@ -21,7 +21,7 @@ namespace com.AnotherAxiom.MonkeArcade.Joust
 			}
 		}
 
-		// Token: 0x06004732 RID: 18226 RVA: 0x001530BC File Offset: 0x001512BC
+		// Token: 0x0600487B RID: 18555 RVA: 0x0018F588 File Offset: 0x0018D788
 		private void LateUpdate()
 		{
 			this.velocity.x = this.HSpeed * 0.001f;
@@ -60,22 +60,22 @@ namespace com.AnotherAxiom.MonkeArcade.Joust
 			}
 		}
 
-		// Token: 0x06004733 RID: 18227 RVA: 0x001532A2 File Offset: 0x001514A2
+		// Token: 0x0600487C RID: 18556 RVA: 0x0005F335 File Offset: 0x0005D535
 		public void Flap()
 		{
 			this.flap = true;
 		}
 
-		// Token: 0x040048D6 RID: 18646
+		// Token: 0x040049CB RID: 18891
 		private Vector2 velocity;
 
-		// Token: 0x040048D7 RID: 18647
+		// Token: 0x040049CC RID: 18892
 		private RaycastHit2D[] raycastHitResults = new RaycastHit2D[8];
 
-		// Token: 0x040048D8 RID: 18648
+		// Token: 0x040049CD RID: 18893
 		private float HSpeed;
 
-		// Token: 0x040048D9 RID: 18649
+		// Token: 0x040049CE RID: 18894
 		private bool flap;
 	}
 }

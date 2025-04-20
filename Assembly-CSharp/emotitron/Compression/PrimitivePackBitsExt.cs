@@ -2,10 +2,10 @@
 
 namespace emotitron.Compression
 {
-	// Token: 0x02000C69 RID: 3177
+	// Token: 0x02000C9A RID: 3226
 	public static class PrimitivePackBitsExt
 	{
-		// Token: 0x06004FAB RID: 20395 RVA: 0x00185B70 File Offset: 0x00183D70
+		// Token: 0x0600510B RID: 20747 RVA: 0x001BD5D4 File Offset: 0x001BB7D4
 		public static ulong WritePackedBits(this ulong buffer, uint value, ref int bitposition, int bits)
 		{
 			int bits2 = ((uint)bits).UsedBitCount();
@@ -15,7 +15,7 @@ namespace emotitron.Compression
 			return buffer;
 		}
 
-		// Token: 0x06004FAC RID: 20396 RVA: 0x00185BA4 File Offset: 0x00183DA4
+		// Token: 0x0600510C RID: 20748 RVA: 0x001BD608 File Offset: 0x001BB808
 		public static uint WritePackedBits(this uint buffer, ushort value, ref int bitposition, int bits)
 		{
 			int bits2 = ((uint)bits).UsedBitCount();
@@ -25,7 +25,7 @@ namespace emotitron.Compression
 			return buffer;
 		}
 
-		// Token: 0x06004FAD RID: 20397 RVA: 0x00185BD8 File Offset: 0x00183DD8
+		// Token: 0x0600510D RID: 20749 RVA: 0x001BD63C File Offset: 0x001BB83C
 		public static ushort WritePackedBits(this ushort buffer, byte value, ref int bitposition, int bits)
 		{
 			int bits2 = ((uint)bits).UsedBitCount();
@@ -35,7 +35,7 @@ namespace emotitron.Compression
 			return buffer;
 		}
 
-		// Token: 0x06004FAE RID: 20398 RVA: 0x00185C0C File Offset: 0x00183E0C
+		// Token: 0x0600510E RID: 20750 RVA: 0x001BD670 File Offset: 0x001BB870
 		public static ulong ReadPackedBits(this ulong buffer, ref int bitposition, int bits)
 		{
 			int bits2 = bits.UsedBitCount();
@@ -43,7 +43,7 @@ namespace emotitron.Compression
 			return buffer.Read(ref bitposition, bits3);
 		}
 
-		// Token: 0x06004FAF RID: 20399 RVA: 0x00185C34 File Offset: 0x00183E34
+		// Token: 0x0600510F RID: 20751 RVA: 0x001BD698 File Offset: 0x001BB898
 		public static ulong ReadPackedBits(this uint buffer, ref int bitposition, int bits)
 		{
 			int bits2 = bits.UsedBitCount();
@@ -51,7 +51,7 @@ namespace emotitron.Compression
 			return (ulong)buffer.Read(ref bitposition, bits3);
 		}
 
-		// Token: 0x06004FB0 RID: 20400 RVA: 0x00185C5C File Offset: 0x00183E5C
+		// Token: 0x06005110 RID: 20752 RVA: 0x001BD6C0 File Offset: 0x001BB8C0
 		public static ulong ReadPackedBits(this ushort buffer, ref int bitposition, int bits)
 		{
 			int bits2 = bits.UsedBitCount();
@@ -59,7 +59,7 @@ namespace emotitron.Compression
 			return (ulong)buffer.Read(ref bitposition, bits3);
 		}
 
-		// Token: 0x06004FB1 RID: 20401 RVA: 0x00185C84 File Offset: 0x00183E84
+		// Token: 0x06005111 RID: 20753 RVA: 0x001BD6E8 File Offset: 0x001BB8E8
 		public static ulong WriteSignedPackedBits(this ulong buffer, int value, ref int bitposition, int bits)
 		{
 			uint value2 = (uint)(value << 1 ^ value >> 31);
@@ -67,7 +67,7 @@ namespace emotitron.Compression
 			return buffer;
 		}
 
-		// Token: 0x06004FB2 RID: 20402 RVA: 0x00185CA8 File Offset: 0x00183EA8
+		// Token: 0x06005112 RID: 20754 RVA: 0x001BD70C File Offset: 0x001BB90C
 		public static uint WriteSignedPackedBits(this uint buffer, short value, ref int bitposition, int bits)
 		{
 			uint num = (uint)((int)value << 1 ^ value >> 31);
@@ -75,7 +75,7 @@ namespace emotitron.Compression
 			return buffer;
 		}
 
-		// Token: 0x06004FB3 RID: 20403 RVA: 0x00185CCC File Offset: 0x00183ECC
+		// Token: 0x06005113 RID: 20755 RVA: 0x001BD730 File Offset: 0x001BB930
 		public static ushort WriteSignedPackedBits(this ushort buffer, sbyte value, ref int bitposition, int bits)
 		{
 			uint num = (uint)((int)value << 1 ^ value >> 31);
@@ -83,21 +83,21 @@ namespace emotitron.Compression
 			return buffer;
 		}
 
-		// Token: 0x06004FB4 RID: 20404 RVA: 0x00185CF0 File Offset: 0x00183EF0
+		// Token: 0x06005114 RID: 20756 RVA: 0x001BD754 File Offset: 0x001BB954
 		public static int ReadSignedPackedBits(this ulong buffer, ref int bitposition, int bits)
 		{
 			uint num = (uint)buffer.ReadPackedBits(ref bitposition, bits);
 			return (int)((ulong)(num >> 1) ^ (ulong)((long)(-(long)(num & 1U))));
 		}
 
-		// Token: 0x06004FB5 RID: 20405 RVA: 0x00185D14 File Offset: 0x00183F14
+		// Token: 0x06005115 RID: 20757 RVA: 0x001BD778 File Offset: 0x001BB978
 		public static short ReadSignedPackedBits(this uint buffer, ref int bitposition, int bits)
 		{
 			uint num = (uint)buffer.ReadPackedBits(ref bitposition, bits);
 			return (short)((int)((ulong)(num >> 1) ^ (ulong)((long)(-(long)(num & 1U)))));
 		}
 
-		// Token: 0x06004FB6 RID: 20406 RVA: 0x00185D38 File Offset: 0x00183F38
+		// Token: 0x06005116 RID: 20758 RVA: 0x001BD79C File Offset: 0x001BB99C
 		public static sbyte ReadSignedPackedBits(this ushort buffer, ref int bitposition, int bits)
 		{
 			uint num = (uint)buffer.ReadPackedBits(ref bitposition, bits);

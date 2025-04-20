@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x02000176 RID: 374
+// Token: 0x02000181 RID: 385
 public abstract class ProjectileWeapon : TransferrableObject
 {
-	// Token: 0x06000953 RID: 2387
+	// Token: 0x060009A0 RID: 2464
 	protected abstract Vector3 GetLaunchPosition();
 
-	// Token: 0x06000954 RID: 2388
+	// Token: 0x060009A1 RID: 2465
 	protected abstract Vector3 GetLaunchVelocity();
 
-	// Token: 0x06000955 RID: 2389 RVA: 0x00031DE3 File Offset: 0x0002FFE3
+	// Token: 0x060009A2 RID: 2466 RVA: 0x00036CDB File Offset: 0x00034EDB
 	internal override void OnEnable()
 	{
 		base.OnEnable();
@@ -26,7 +25,7 @@ public abstract class ProjectileWeapon : TransferrableObject
 		}
 	}
 
-	// Token: 0x06000956 RID: 2390 RVA: 0x00031E20 File Offset: 0x00030020
+	// Token: 0x060009A3 RID: 2467 RVA: 0x00092370 File Offset: 0x00090570
 	protected void LaunchProjectile()
 	{
 		int hash = PoolUtils.GameObjHashCode(this.projectilePrefab);
@@ -43,15 +42,10 @@ public abstract class ProjectileWeapon : TransferrableObject
 		SlingshotProjectile component = gameObject.GetComponent<SlingshotProjectile>();
 		if (NetworkSystem.Instance.InRoom)
 		{
-			int num2 = ProjectileTracker.IncrementLocalPlayerProjectileCount();
-			if (this.activeProjectiles.ContainsKey(num2))
-			{
-				this.activeProjectiles.Remove(num2);
-			}
-			this.activeProjectiles.Add(num2, component);
-			component.Launch(launchPosition, launchVelocity, NetworkSystem.Instance.LocalPlayer, blueTeam, orangeTeam, num2, num, false, default(Color));
+			int projectileCount = ProjectileTracker.AddAndIncrementLocalProjectile(component, launchVelocity, launchPosition, num);
+			component.Launch(launchPosition, launchVelocity, NetworkSystem.Instance.LocalPlayer, blueTeam, orangeTeam, projectileCount, num, false, default(Color));
 			TransferrableObject.PositionState currentState = this.currentState;
-			RoomSystem.SendLaunchProjectile(launchPosition, launchVelocity, RoomSystem.ProjectileSource.ProjectileWeapon, num2, false, byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
+			RoomSystem.SendLaunchProjectile(launchPosition, launchVelocity, RoomSystem.ProjectileSource.ProjectileWeapon, projectileCount, false, byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
 			this.PlayLaunchSfx();
 		}
 		else
@@ -62,8 +56,8 @@ public abstract class ProjectileWeapon : TransferrableObject
 		PlayerGameEvents.LaunchedProjectile(this.projectilePrefab.name);
 	}
 
-	// Token: 0x06000957 RID: 2391 RVA: 0x00031F84 File Offset: 0x00030184
-	internal void LaunchNetworkedProjectile(Vector3 location, Vector3 velocity, RoomSystem.ProjectileSource projectileSource, int projectileCounter, float scale, bool shouldOverrideColor, Color color, PhotonMessageInfoWrapped info)
+	// Token: 0x060009A4 RID: 2468 RVA: 0x000924AC File Offset: 0x000906AC
+	internal SlingshotProjectile LaunchNetworkedProjectile(Vector3 location, Vector3 velocity, RoomSystem.ProjectileSource projectileSource, int projectileCounter, float scale, bool shouldOverrideColor, Color color, PhotonMessageInfoWrapped info)
 	{
 		GameObject gameObject = null;
 		SlingshotProjectile slingshotProjectile = null;
@@ -76,7 +70,7 @@ public abstract class ProjectileWeapon : TransferrableObject
 			{
 				if (this.currentState == TransferrableObject.PositionState.OnChest || this.currentState == TransferrableObject.PositionState.None)
 				{
-					return;
+					return null;
 				}
 				hash = PoolUtils.GameObjHashCode(this.projectilePrefab);
 				num = PoolUtils.GameObjHashCode(this.projectileTrail);
@@ -90,11 +84,6 @@ public abstract class ProjectileWeapon : TransferrableObject
 			{
 				this.AttachTrail(num, slingshotProjectile.gameObject, location, blueTeam, orangeTeam);
 			}
-			if (this.activeProjectiles.ContainsKey(projectileCounter))
-			{
-				this.activeProjectiles.Remove(projectileCounter);
-			}
-			this.activeProjectiles.Add(projectileCounter, slingshotProjectile);
 			slingshotProjectile.Launch(location, velocity, player, blueTeam, orangeTeam, projectileCounter, scale, shouldOverrideColor, color);
 			this.PlayLaunchSfx();
 		}
@@ -104,29 +93,18 @@ public abstract class ProjectileWeapon : TransferrableObject
 			if (slingshotProjectile != null && slingshotProjectile)
 			{
 				slingshotProjectile.transform.position = Vector3.zero;
-				this.activeProjectiles.Remove(projectileCounter);
 				slingshotProjectile.Deactivate();
+				slingshotProjectile = null;
 			}
 			else if (gameObject.IsNotNull())
 			{
 				ObjectPools.instance.Destroy(gameObject);
 			}
 		}
+		return slingshotProjectile;
 	}
 
-	// Token: 0x06000958 RID: 2392 RVA: 0x000320D0 File Offset: 0x000302D0
-	public void DestroyProjectile(int projectileCount, Vector3 worldPosition)
-	{
-		SlingshotProjectile slingshotProjectile;
-		if (this.activeProjectiles.TryGetValue(projectileCount, out slingshotProjectile))
-		{
-			slingshotProjectile.transform.position = worldPosition;
-			this.activeProjectiles.Remove(projectileCount);
-			slingshotProjectile.Deactivate();
-		}
-	}
-
-	// Token: 0x06000959 RID: 2393 RVA: 0x0003210C File Offset: 0x0003030C
+	// Token: 0x060009A5 RID: 2469 RVA: 0x000925C8 File Offset: 0x000907C8
 	protected void GetIsOnTeams(out bool blueTeam, out bool orangeTeam)
 	{
 		NetPlayer player = base.OwningPlayer();
@@ -143,7 +121,7 @@ public abstract class ProjectileWeapon : TransferrableObject
 		}
 	}
 
-	// Token: 0x0600095A RID: 2394 RVA: 0x0003215C File Offset: 0x0003035C
+	// Token: 0x060009A6 RID: 2470 RVA: 0x00092618 File Offset: 0x00090818
 	private void AttachTrail(int trailHash, GameObject newProjectile, Vector3 location, bool blueTeam, bool orangeTeam)
 	{
 		GameObject gameObject = ObjectPools.instance.Instantiate(trailHash);
@@ -156,29 +134,26 @@ public abstract class ProjectileWeapon : TransferrableObject
 		component.AttachTrail(newProjectile, blueTeam, orangeTeam);
 	}
 
-	// Token: 0x0600095B RID: 2395 RVA: 0x000321A4 File Offset: 0x000303A4
+	// Token: 0x060009A7 RID: 2471 RVA: 0x00092660 File Offset: 0x00090860
 	private void PlayLaunchSfx()
 	{
 		if (this.shootSfx != null && this.shootSfxClips != null && this.shootSfxClips.Length != 0)
 		{
-			this.shootSfx.GTPlayOneShot(this.shootSfxClips[Random.Range(0, this.shootSfxClips.Length)], 1f);
+			this.shootSfx.GTPlayOneShot(this.shootSfxClips[UnityEngine.Random.Range(0, this.shootSfxClips.Length)], 1f);
 		}
 	}
 
-	// Token: 0x04000B4C RID: 2892
+	// Token: 0x04000B93 RID: 2963
 	[SerializeField]
 	protected GameObject projectilePrefab;
 
-	// Token: 0x04000B4D RID: 2893
+	// Token: 0x04000B94 RID: 2964
 	[SerializeField]
 	private GameObject projectileTrail;
 
-	// Token: 0x04000B4E RID: 2894
+	// Token: 0x04000B95 RID: 2965
 	public AudioClip[] shootSfxClips;
 
-	// Token: 0x04000B4F RID: 2895
+	// Token: 0x04000B96 RID: 2966
 	public AudioSource shootSfx;
-
-	// Token: 0x04000B50 RID: 2896
-	private Dictionary<int, SlingshotProjectile> activeProjectiles = new Dictionary<int, SlingshotProjectile>();
 }

@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x02000868 RID: 2152
+// Token: 0x02000884 RID: 2180
 public static class OnEnterPlaySystem
 {
-	// Token: 0x0600342A RID: 13354 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060034F6 RID: 13558 RVA: 0x00030607 File Offset: 0x0002E807
 	public static void AddCallback(Action callback)
 	{
 	}

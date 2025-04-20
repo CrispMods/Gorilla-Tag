@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020004B4 RID: 1204
+// Token: 0x020004C1 RID: 1217
 public class BuilderZoneRenderers : MonoBehaviour
 {
-	// Token: 0x06001D26 RID: 7462 RVA: 0x0008DFE0 File Offset: 0x0008C1E0
+	// Token: 0x06001D7F RID: 7551 RVA: 0x000E1284 File Offset: 0x000DF484
 	private void Start()
 	{
 		this.allRenderers.Clear();
@@ -20,7 +20,7 @@ public class BuilderZoneRenderers : MonoBehaviour
 		this.OnZoneChanged();
 	}
 
-	// Token: 0x06001D27 RID: 7463 RVA: 0x0008E090 File Offset: 0x0008C290
+	// Token: 0x06001D80 RID: 7552 RVA: 0x000442DD File Offset: 0x000424DD
 	private void OnDestroy()
 	{
 		if (ZoneManagement.instance != null)
@@ -30,7 +30,7 @@ public class BuilderZoneRenderers : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D28 RID: 7464 RVA: 0x0008E0C8 File Offset: 0x0008C2C8
+	// Token: 0x06001D81 RID: 7553 RVA: 0x000E1334 File Offset: 0x000DF534
 	private void OnZoneChanged()
 	{
 		bool flag = ZoneManagement.instance.IsZoneActive(GTZone.monkeBlocks);
@@ -65,18 +65,18 @@ public class BuilderZoneRenderers : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400202C RID: 8236
+	// Token: 0x0400207F RID: 8319
 	public List<Renderer> renderers;
 
-	// Token: 0x0400202D RID: 8237
+	// Token: 0x04002080 RID: 8320
 	public List<Canvas> canvases;
 
-	// Token: 0x0400202E RID: 8238
+	// Token: 0x04002081 RID: 8321
 	public List<GameObject> rootObjects;
 
-	// Token: 0x0400202F RID: 8239
+	// Token: 0x04002082 RID: 8322
 	private bool inBuilderZone;
 
-	// Token: 0x04002030 RID: 8240
+	// Token: 0x04002083 RID: 8323
 	private List<Renderer> allRenderers = new List<Renderer>(200);
 }

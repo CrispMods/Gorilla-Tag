@@ -2,10 +2,10 @@
 using System.Linq;
 using UnityEngine;
 
-// Token: 0x020008A8 RID: 2216
+// Token: 0x020008C4 RID: 2244
 public class Firework : MonoBehaviour
 {
-	// Token: 0x060035B5 RID: 13749 RVA: 0x000FE91E File Offset: 0x000FCB1E
+	// Token: 0x0600367D RID: 13949 RVA: 0x00053EBD File Offset: 0x000520BD
 	private void Launch()
 	{
 		if (!Application.isPlaying)
@@ -18,7 +18,7 @@ public class Firework : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060035B6 RID: 13750 RVA: 0x000FE944 File Offset: 0x000FCB44
+	// Token: 0x0600367E RID: 13950 RVA: 0x001447B0 File Offset: 0x001429B0
 	private void OnValidate()
 	{
 		if (!this._controller)
@@ -43,7 +43,7 @@ public class Firework : MonoBehaviour
 		this._controller.fireworks = array;
 	}
 
-	// Token: 0x060035B7 RID: 13751 RVA: 0x000FE9D4 File Offset: 0x000FCBD4
+	// Token: 0x0600367F RID: 13951 RVA: 0x00053EE0 File Offset: 0x000520E0
 	private void OnDrawGizmos()
 	{
 		if (!this._controller)
@@ -53,7 +53,7 @@ public class Firework : MonoBehaviour
 		this._controller.RenderGizmo(this, Color.cyan);
 	}
 
-	// Token: 0x060035B8 RID: 13752 RVA: 0x000FE9F5 File Offset: 0x000FCBF5
+	// Token: 0x06003680 RID: 13952 RVA: 0x00053F01 File Offset: 0x00052101
 	private void OnDrawGizmosSelected()
 	{
 		if (!this._controller)
@@ -63,46 +63,46 @@ public class Firework : MonoBehaviour
 		this._controller.RenderGizmo(this, Color.yellow);
 	}
 
-	// Token: 0x040037D5 RID: 14293
+	// Token: 0x04003896 RID: 14486
 	[SerializeField]
 	private FireworksController _controller;
 
-	// Token: 0x040037D6 RID: 14294
+	// Token: 0x04003897 RID: 14487
 	[Space]
 	public Transform origin;
 
-	// Token: 0x040037D7 RID: 14295
+	// Token: 0x04003898 RID: 14488
 	public Transform target;
 
-	// Token: 0x040037D8 RID: 14296
+	// Token: 0x04003899 RID: 14489
 	[Space]
 	public Color colorOrigin = Color.cyan;
 
-	// Token: 0x040037D9 RID: 14297
+	// Token: 0x0400389A RID: 14490
 	public Color colorTarget = Color.magenta;
 
-	// Token: 0x040037DA RID: 14298
+	// Token: 0x0400389B RID: 14491
 	[Space]
 	public AudioSource sourceOrigin;
 
-	// Token: 0x040037DB RID: 14299
+	// Token: 0x0400389C RID: 14492
 	public AudioSource sourceTarget;
 
-	// Token: 0x040037DC RID: 14300
+	// Token: 0x0400389D RID: 14493
 	[Space]
 	public ParticleSystem trail;
 
-	// Token: 0x040037DD RID: 14301
+	// Token: 0x0400389E RID: 14494
 	[Space]
 	public ParticleSystem[] explosions;
 
-	// Token: 0x040037DE RID: 14302
+	// Token: 0x0400389F RID: 14495
 	[Space]
 	public bool doTrail = true;
 
-	// Token: 0x040037DF RID: 14303
+	// Token: 0x040038A0 RID: 14496
 	public bool doTrailAudio = true;
 
-	// Token: 0x040037E0 RID: 14304
+	// Token: 0x040038A1 RID: 14497
 	public bool doExplosion = true;
 }

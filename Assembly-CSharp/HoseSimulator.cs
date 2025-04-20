@@ -4,25 +4,25 @@ using GorillaTag;
 using GorillaTag.CosmeticSystem;
 using UnityEngine;
 
-// Token: 0x02000169 RID: 361
+// Token: 0x02000174 RID: 372
 public class HoseSimulator : MonoBehaviour, ISpawnable
 {
-	// Token: 0x170000E0 RID: 224
-	// (get) Token: 0x06000905 RID: 2309 RVA: 0x00030C8E File Offset: 0x0002EE8E
-	// (set) Token: 0x06000906 RID: 2310 RVA: 0x00030C96 File Offset: 0x0002EE96
+	// Token: 0x170000E7 RID: 231
+	// (get) Token: 0x06000952 RID: 2386 RVA: 0x0003693D File Offset: 0x00034B3D
+	// (set) Token: 0x06000953 RID: 2387 RVA: 0x00036945 File Offset: 0x00034B45
 	bool ISpawnable.IsSpawned { get; set; }
 
-	// Token: 0x170000E1 RID: 225
-	// (get) Token: 0x06000907 RID: 2311 RVA: 0x00030C9F File Offset: 0x0002EE9F
-	// (set) Token: 0x06000908 RID: 2312 RVA: 0x00030CA7 File Offset: 0x0002EEA7
+	// Token: 0x170000E8 RID: 232
+	// (get) Token: 0x06000954 RID: 2388 RVA: 0x0003694E File Offset: 0x00034B4E
+	// (set) Token: 0x06000955 RID: 2389 RVA: 0x00036956 File Offset: 0x00034B56
 	ECosmeticSelectSide ISpawnable.CosmeticSelectedSide { get; set; }
 
-	// Token: 0x06000909 RID: 2313 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000956 RID: 2390 RVA: 0x00030607 File Offset: 0x0002E807
 	void ISpawnable.OnDespawn()
 	{
 	}
 
-	// Token: 0x0600090A RID: 2314 RVA: 0x00030CB0 File Offset: 0x0002EEB0
+	// Token: 0x06000957 RID: 2391 RVA: 0x000915C0 File Offset: 0x0008F7C0
 	void ISpawnable.OnSpawn(VRRig rig)
 	{
 		this.anchors = rig.cosmeticReferences.Get(this.startAnchorRef).GetComponent<HoseSimulatorAnchors>();
@@ -43,7 +43,7 @@ public class HoseSimulator : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x0600090B RID: 2315 RVA: 0x00030D78 File Offset: 0x0002EF78
+	// Token: 0x06000958 RID: 2392 RVA: 0x00091688 File Offset: 0x0008F888
 	private void LateUpdate()
 	{
 		if (this.myHoldable.InLeftHand())
@@ -100,7 +100,7 @@ public class HoseSimulator : MonoBehaviour, ISpawnable
 		this.firstUpdate = false;
 	}
 
-	// Token: 0x0600090C RID: 2316 RVA: 0x000310A6 File Offset: 0x0002F2A6
+	// Token: 0x06000959 RID: 2393 RVA: 0x0003695F File Offset: 0x00034B5F
 	private void OnDrawGizmosSelected()
 	{
 		if (this.hoseBonePositions != null)
@@ -110,71 +110,71 @@ public class HoseSimulator : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x04000AF4 RID: 2804
+	// Token: 0x04000B3B RID: 2875
 	[SerializeField]
 	private SkinnedMeshRenderer skinnedMeshRenderer;
 
-	// Token: 0x04000AF5 RID: 2805
+	// Token: 0x04000B3C RID: 2876
 	[SerializeField]
 	private Vector3 localBoundsOverride;
 
-	// Token: 0x04000AF6 RID: 2806
+	// Token: 0x04000B3D RID: 2877
 	[SerializeField]
 	private Transform[] miscBones;
 
-	// Token: 0x04000AF7 RID: 2807
+	// Token: 0x04000B3E RID: 2878
 	[SerializeField]
 	private Transform[] hoseBones;
 
-	// Token: 0x04000AF8 RID: 2808
+	// Token: 0x04000B3F RID: 2879
 	[SerializeField]
 	private float[] hoseBoneMaxDisplacement;
 
-	// Token: 0x04000AF9 RID: 2809
+	// Token: 0x04000B40 RID: 2880
 	[SerializeField]
 	private CosmeticRefID startAnchorRef;
 
-	// Token: 0x04000AFA RID: 2810
+	// Token: 0x04000B41 RID: 2881
 	private Transform startAnchor;
 
-	// Token: 0x04000AFB RID: 2811
+	// Token: 0x04000B42 RID: 2882
 	[SerializeField]
 	private float startStiffness = 0.5f;
 
-	// Token: 0x04000AFC RID: 2812
+	// Token: 0x04000B43 RID: 2883
 	[SerializeField]
 	private Transform endAnchor;
 
-	// Token: 0x04000AFD RID: 2813
+	// Token: 0x04000B44 RID: 2884
 	[SerializeField]
 	private float endStiffness = 0.5f;
 
-	// Token: 0x04000AFE RID: 2814
+	// Token: 0x04000B45 RID: 2885
 	private Vector3[] hoseBonePositions;
 
-	// Token: 0x04000AFF RID: 2815
+	// Token: 0x04000B46 RID: 2886
 	private Vector3[] hoseBoneVelocities;
 
-	// Token: 0x04000B00 RID: 2816
+	// Token: 0x04000B47 RID: 2887
 	[SerializeField]
 	private float damping = 0.97f;
 
-	// Token: 0x04000B01 RID: 2817
+	// Token: 0x04000B48 RID: 2888
 	private float[] hoseSectionLengths;
 
-	// Token: 0x04000B02 RID: 2818
+	// Token: 0x04000B49 RID: 2889
 	private float totalHoseLength;
 
-	// Token: 0x04000B03 RID: 2819
+	// Token: 0x04000B4A RID: 2890
 	private bool firstUpdate = true;
 
-	// Token: 0x04000B04 RID: 2820
+	// Token: 0x04000B4B RID: 2891
 	private HoseSimulatorAnchors anchors;
 
-	// Token: 0x04000B05 RID: 2821
+	// Token: 0x04000B4C RID: 2892
 	[SerializeField]
 	private TransferrableObject myHoldable;
 
-	// Token: 0x04000B06 RID: 2822
+	// Token: 0x04000B4D RID: 2893
 	private bool isLeftHanded;
 }

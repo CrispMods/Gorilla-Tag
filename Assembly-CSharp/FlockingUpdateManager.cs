@@ -2,38 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000520 RID: 1312
+// Token: 0x0200052D RID: 1325
 public class FlockingUpdateManager : MonoBehaviour
 {
-	// Token: 0x06001FC9 RID: 8137 RVA: 0x000A0804 File Offset: 0x0009EA04
+	// Token: 0x06002022 RID: 8226 RVA: 0x00045D23 File Offset: 0x00043F23
 	protected void Awake()
 	{
 		if (FlockingUpdateManager.hasInstance && FlockingUpdateManager.instance != null && FlockingUpdateManager.instance != this)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 			return;
 		}
 		FlockingUpdateManager.SetInstance(this);
 	}
 
-	// Token: 0x06001FCA RID: 8138 RVA: 0x000A0834 File Offset: 0x0009EA34
+	// Token: 0x06002023 RID: 8227 RVA: 0x00045D53 File Offset: 0x00043F53
 	public static void CreateManager()
 	{
 		FlockingUpdateManager.SetInstance(new GameObject("FlockingUpdateManager").AddComponent<FlockingUpdateManager>());
 	}
 
-	// Token: 0x06001FCB RID: 8139 RVA: 0x000A084A File Offset: 0x0009EA4A
+	// Token: 0x06002024 RID: 8228 RVA: 0x00045D69 File Offset: 0x00043F69
 	private static void SetInstance(FlockingUpdateManager manager)
 	{
 		FlockingUpdateManager.instance = manager;
 		FlockingUpdateManager.hasInstance = true;
 		if (Application.isPlaying)
 		{
-			Object.DontDestroyOnLoad(manager);
+			UnityEngine.Object.DontDestroyOnLoad(manager);
 		}
 	}
 
-	// Token: 0x06001FCC RID: 8140 RVA: 0x000A0865 File Offset: 0x0009EA65
+	// Token: 0x06002025 RID: 8229 RVA: 0x00045D84 File Offset: 0x00043F84
 	public static void RegisterFlocking(Flocking flocking)
 	{
 		if (!FlockingUpdateManager.hasInstance)
@@ -46,7 +46,7 @@ public class FlockingUpdateManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001FCD RID: 8141 RVA: 0x000A088B File Offset: 0x0009EA8B
+	// Token: 0x06002026 RID: 8230 RVA: 0x00045DAA File Offset: 0x00043FAA
 	public static void UnregisterFlocking(Flocking flocking)
 	{
 		if (!FlockingUpdateManager.hasInstance)
@@ -59,7 +59,7 @@ public class FlockingUpdateManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001FCE RID: 8142 RVA: 0x000A08B4 File Offset: 0x0009EAB4
+	// Token: 0x06002027 RID: 8231 RVA: 0x000F2084 File Offset: 0x000F0284
 	public void Update()
 	{
 		for (int i = 0; i < FlockingUpdateManager.allFlockings.Count; i++)
@@ -68,12 +68,12 @@ public class FlockingUpdateManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040023DC RID: 9180
+	// Token: 0x0400242F RID: 9263
 	public static FlockingUpdateManager instance;
 
-	// Token: 0x040023DD RID: 9181
+	// Token: 0x04002430 RID: 9264
 	public static bool hasInstance = false;
 
-	// Token: 0x040023DE RID: 9182
+	// Token: 0x04002431 RID: 9265
 	public static List<Flocking> allFlockings = new List<Flocking>();
 }

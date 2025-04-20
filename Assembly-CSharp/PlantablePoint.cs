@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001D3 RID: 467
+// Token: 0x020001DE RID: 478
 public class PlantablePoint : MonoBehaviour
 {
-	// Token: 0x06000AEA RID: 2794 RVA: 0x0003B0C6 File Offset: 0x000392C6
+	// Token: 0x06000B36 RID: 2870 RVA: 0x00037D2B File Offset: 0x00035F2B
 	private void OnTriggerEnter(Collider other)
 	{
 		if ((this.floorMask & 1 << other.gameObject.layer) != 0)
@@ -13,7 +13,7 @@ public class PlantablePoint : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AEB RID: 2795 RVA: 0x0003B0F2 File Offset: 0x000392F2
+	// Token: 0x06000B37 RID: 2871 RVA: 0x00037D57 File Offset: 0x00035F57
 	public void OnTriggerExit(Collider other)
 	{
 		if ((this.floorMask & 1 << other.gameObject.layer) != 0)
@@ -22,12 +22,12 @@ public class PlantablePoint : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000D51 RID: 3409
+	// Token: 0x04000D97 RID: 3479
 	public bool shouldBeSet;
 
-	// Token: 0x04000D52 RID: 3410
+	// Token: 0x04000D98 RID: 3480
 	public LayerMask floorMask;
 
-	// Token: 0x04000D53 RID: 3411
+	// Token: 0x04000D99 RID: 3481
 	public PlantableObject plantableObject;
 }

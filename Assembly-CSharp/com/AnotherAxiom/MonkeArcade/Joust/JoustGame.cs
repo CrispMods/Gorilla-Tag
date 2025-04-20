@@ -3,21 +3,21 @@ using UnityEngine;
 
 namespace com.AnotherAxiom.MonkeArcade.Joust
 {
-	// Token: 0x02000B28 RID: 2856
+	// Token: 0x02000B55 RID: 2901
 	public class JoustGame : ArcadeGame
 	{
-		// Token: 0x06004728 RID: 18216 RVA: 0x00152F9E File Offset: 0x0015119E
+		// Token: 0x06004871 RID: 18545 RVA: 0x0005F2D4 File Offset: 0x0005D4D4
 		public override byte[] GetNetworkState()
 		{
 			return new byte[0];
 		}
 
-		// Token: 0x06004729 RID: 18217 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004872 RID: 18546 RVA: 0x00030607 File Offset: 0x0002E807
 		public override void SetNetworkState(byte[] obj)
 		{
 		}
 
-		// Token: 0x0600472A RID: 18218 RVA: 0x00152FA6 File Offset: 0x001511A6
+		// Token: 0x06004873 RID: 18547 RVA: 0x0005F2DC File Offset: 0x0005D4DC
 		protected override void ButtonDown(int player, ArcadeButtons button)
 		{
 			if (button != ArcadeButtons.GRAB)
@@ -34,7 +34,7 @@ namespace com.AnotherAxiom.MonkeArcade.Joust
 			}
 		}
 
-		// Token: 0x0600472B RID: 18219 RVA: 0x00152FD5 File Offset: 0x001511D5
+		// Token: 0x06004874 RID: 18548 RVA: 0x0005F30B File Offset: 0x0005D50B
 		protected override void ButtonUp(int player, ArcadeButtons button)
 		{
 			if (button == ArcadeButtons.GRAB)
@@ -43,7 +43,7 @@ namespace com.AnotherAxiom.MonkeArcade.Joust
 			}
 		}
 
-		// Token: 0x0600472C RID: 18220 RVA: 0x00152FF0 File Offset: 0x001511F0
+		// Token: 0x06004875 RID: 18549 RVA: 0x0018F4CC File Offset: 0x0018D6CC
 		private void Start()
 		{
 			for (int i = 0; i < this.joustPlayers.Length; i++)
@@ -52,7 +52,7 @@ namespace com.AnotherAxiom.MonkeArcade.Joust
 			}
 		}
 
-		// Token: 0x0600472D RID: 18221 RVA: 0x00153024 File Offset: 0x00151224
+		// Token: 0x06004876 RID: 18550 RVA: 0x0018F500 File Offset: 0x0018D700
 		private void Update()
 		{
 			for (int i = 0; i < this.joustPlayers.Length; i++)
@@ -65,12 +65,12 @@ namespace com.AnotherAxiom.MonkeArcade.Joust
 			}
 		}
 
-		// Token: 0x0600472E RID: 18222 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004877 RID: 18551 RVA: 0x00030607 File Offset: 0x0002E807
 		public override void OnTimeout()
 		{
 		}
 
-		// Token: 0x040048D5 RID: 18645
+		// Token: 0x040049CA RID: 18890
 		[SerializeField]
 		private JoustPlayer[] joustPlayers;
 	}

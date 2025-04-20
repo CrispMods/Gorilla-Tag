@@ -3,10 +3,10 @@ using Fusion;
 using GorillaGameModes;
 using Photon.Pun;
 
-// Token: 0x02000460 RID: 1120
+// Token: 0x0200046C RID: 1132
 public class CasualGameMode : GorillaGameManager
 {
-	// Token: 0x06001B79 RID: 7033 RVA: 0x000872EF File Offset: 0x000854EF
+	// Token: 0x06001BCD RID: 7117 RVA: 0x000430F0 File Offset: 0x000412F0
 	public override int MyMatIndex(NetPlayer player)
 	{
 		if (this.GetMyMaterial == null)
@@ -16,49 +16,49 @@ public class CasualGameMode : GorillaGameManager
 		return this.GetMyMaterial(player);
 	}
 
-	// Token: 0x06001B7A RID: 7034 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001BCE RID: 7118 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnSerializeRead(object newData)
 	{
 	}
 
-	// Token: 0x06001B7B RID: 7035 RVA: 0x00042E31 File Offset: 0x00041031
+	// Token: 0x06001BCF RID: 7119 RVA: 0x0003924B File Offset: 0x0003744B
 	public override object OnSerializeWrite()
 	{
 		return null;
 	}
 
-	// Token: 0x06001B7C RID: 7036 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001BD0 RID: 7120 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnSerializeRead(PhotonStream stream, PhotonMessageInfo info)
 	{
 	}
 
-	// Token: 0x06001B7D RID: 7037 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001BD1 RID: 7121 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnSerializeWrite(PhotonStream stream, PhotonMessageInfo info)
 	{
 	}
 
-	// Token: 0x06001B7E RID: 7038 RVA: 0x00002076 File Offset: 0x00000276
+	// Token: 0x06001BD2 RID: 7122 RVA: 0x00030498 File Offset: 0x0002E698
 	public override GameModeType GameType()
 	{
 		return GameModeType.Casual;
 	}
 
-	// Token: 0x06001B7F RID: 7039 RVA: 0x00087307 File Offset: 0x00085507
+	// Token: 0x06001BD3 RID: 7123 RVA: 0x00043108 File Offset: 0x00041308
 	public override void AddFusionDataBehaviour(NetworkObject behaviour)
 	{
 		behaviour.AddBehaviour<CasualGameModeData>();
 	}
 
-	// Token: 0x06001B80 RID: 7040 RVA: 0x00087310 File Offset: 0x00085510
+	// Token: 0x06001BD4 RID: 7124 RVA: 0x00043111 File Offset: 0x00041311
 	public override string GameModeName()
 	{
 		return "CASUAL";
 	}
 
-	// Token: 0x04001E7A RID: 7802
+	// Token: 0x04001EC9 RID: 7881
 	public CasualGameMode.MyMatDelegate GetMyMaterial;
 
-	// Token: 0x02000461 RID: 1121
-	// (Invoke) Token: 0x06001B83 RID: 7043
+	// Token: 0x0200046D RID: 1133
+	// (Invoke) Token: 0x06001BD7 RID: 7127
 	public delegate int MyMatDelegate(NetPlayer player);
 }

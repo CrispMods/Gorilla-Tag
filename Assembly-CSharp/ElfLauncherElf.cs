@@ -2,16 +2,16 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x02000153 RID: 339
+// Token: 0x0200015D RID: 349
 public class ElfLauncherElf : MonoBehaviour
 {
-	// Token: 0x060008A4 RID: 2212 RVA: 0x0002F61B File Offset: 0x0002D81B
+	// Token: 0x060008E8 RID: 2280 RVA: 0x00036555 File Offset: 0x00034755
 	private void OnEnable()
 	{
 		base.StartCoroutine(this.ReturnToPoolAfterDelayCo());
 	}
 
-	// Token: 0x060008A5 RID: 2213 RVA: 0x0002F62A File Offset: 0x0002D82A
+	// Token: 0x060008E9 RID: 2281 RVA: 0x00036564 File Offset: 0x00034764
 	private IEnumerator ReturnToPoolAfterDelayCo()
 	{
 		yield return new WaitForSeconds(this.destroyAfterDuration);
@@ -19,7 +19,7 @@ public class ElfLauncherElf : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060008A6 RID: 2214 RVA: 0x0002F639 File Offset: 0x0002D839
+	// Token: 0x060008EA RID: 2282 RVA: 0x00036573 File Offset: 0x00034773
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (this.bounceAudioCoolingDownUntilTimestamp > Time.time)
@@ -30,28 +30,28 @@ public class ElfLauncherElf : MonoBehaviour
 		this.bounceAudioCoolingDownUntilTimestamp = Time.time + this.bounceAudioCooldownDuration;
 	}
 
-	// Token: 0x060008A7 RID: 2215 RVA: 0x0002F666 File Offset: 0x0002D866
+	// Token: 0x060008EB RID: 2283 RVA: 0x000365A0 File Offset: 0x000347A0
 	private void FixedUpdate()
 	{
 		this.rb.AddForce(base.transform.lossyScale.x * Physics.gravity, ForceMode.Acceleration);
 	}
 
-	// Token: 0x04000A5C RID: 2652
+	// Token: 0x04000A9F RID: 2719
 	[SerializeField]
 	private Rigidbody rb;
 
-	// Token: 0x04000A5D RID: 2653
+	// Token: 0x04000AA0 RID: 2720
 	[SerializeField]
 	private SoundBankPlayer bounceAudio;
 
-	// Token: 0x04000A5E RID: 2654
+	// Token: 0x04000AA1 RID: 2721
 	[SerializeField]
 	private float bounceAudioCooldownDuration;
 
-	// Token: 0x04000A5F RID: 2655
+	// Token: 0x04000AA2 RID: 2722
 	[SerializeField]
 	private float destroyAfterDuration;
 
-	// Token: 0x04000A60 RID: 2656
+	// Token: 0x04000AA3 RID: 2723
 	private float bounceAudioCoolingDownUntilTimestamp;
 }

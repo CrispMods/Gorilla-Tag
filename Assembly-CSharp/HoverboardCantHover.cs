@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005C3 RID: 1475
+// Token: 0x020005D1 RID: 1489
 public class HoverboardCantHover : MonoBehaviour
 {
-	// Token: 0x060024A0 RID: 9376 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002502 RID: 9474 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Start()
 	{
 	}
 
-	// Token: 0x060024A1 RID: 9377 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002503 RID: 9475 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Update()
 	{
 	}

@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x0200005F RID: 95
+// Token: 0x02000065 RID: 101
 public class CrittersStickyTrap : CrittersToolThrowable
 {
-	// Token: 0x06000258 RID: 600 RVA: 0x0000F353 File Offset: 0x0000D553
+	// Token: 0x06000285 RID: 645 RVA: 0x00031F6C File Offset: 0x0003016C
 	public override void Initialize()
 	{
 		base.Initialize();
-		base.TogglePhysics(!this.isStuck);
+		this.TogglePhysics(!this.isStuck);
 	}
 
-	// Token: 0x06000259 RID: 601 RVA: 0x0000F36A File Offset: 0x0000D56A
+	// Token: 0x06000286 RID: 646 RVA: 0x00031F83 File Offset: 0x00030183
 	public override void OnDisable()
 	{
 		base.OnDisable();
 		this.isStuck = false;
 	}
 
-	// Token: 0x0600025A RID: 602 RVA: 0x0000F37C File Offset: 0x0000D57C
+	// Token: 0x06000287 RID: 647 RVA: 0x000741B0 File Offset: 0x000723B0
 	public override void SetImpulse()
 	{
 		if (this.isOnPlayer || this.isSceneActor)
@@ -29,7 +29,7 @@ public class CrittersStickyTrap : CrittersToolThrowable
 		}
 		this.localLastImpulse = this.lastImpulseTime;
 		base.MoveActor(this.lastImpulsePosition, this.lastImpulseQuaternion, this.parentActorId >= 0, false, true);
-		base.TogglePhysics(this.usesRB && this.parentActorId == -1 && !this.isStuck);
+		this.TogglePhysics(this.usesRB && this.parentActorId == -1 && !this.isStuck);
 		if (!this.rb.isKinematic)
 		{
 			this.rb.velocity = this.lastImpulseVelocity;
@@ -37,7 +37,7 @@ public class CrittersStickyTrap : CrittersToolThrowable
 		}
 	}
 
-	// Token: 0x0600025B RID: 603 RVA: 0x0000F418 File Offset: 0x0000D618
+	// Token: 0x06000288 RID: 648 RVA: 0x0007424C File Offset: 0x0007244C
 	protected override void OnImpact(Vector3 hitPosition, Vector3 hitNormal)
 	{
 		if (CrittersManager.instance.LocalAuthority())
@@ -47,6 +47,7 @@ public class CrittersStickyTrap : CrittersToolThrowable
 				this.rb.isKinematic = true;
 				this.isStuck = true;
 				this.updatedSinceLastFrame = true;
+				base.UpdateImpulses(false, true);
 			}
 			CrittersStickyGoo crittersStickyGoo = (CrittersStickyGoo)CrittersManager.instance.SpawnActor(CrittersActor.CrittersActorType.StickyGoo, this.subStickyGooIndex);
 			if (crittersStickyGoo == null)
@@ -62,13 +63,13 @@ public class CrittersStickyTrap : CrittersToolThrowable
 		}
 	}
 
-	// Token: 0x0600025C RID: 604 RVA: 0x0000C486 File Offset: 0x0000A686
+	// Token: 0x06000289 RID: 649 RVA: 0x000319AE File Offset: 0x0002FBAE
 	protected override void OnImpactCritter(CrittersPawn impactedCritter)
 	{
 		this.OnImpact(impactedCritter.transform.position, impactedCritter.transform.up);
 	}
 
-	// Token: 0x0600025D RID: 605 RVA: 0x0000F4E9 File Offset: 0x0000D6E9
+	// Token: 0x0600028A RID: 650 RVA: 0x00031F92 File Offset: 0x00030192
 	protected override void OnPickedUp()
 	{
 		if (this.isStuck)
@@ -78,14 +79,14 @@ public class CrittersStickyTrap : CrittersToolThrowable
 		}
 	}
 
-	// Token: 0x0600025E RID: 606 RVA: 0x0000F501 File Offset: 0x0000D701
+	// Token: 0x0600028B RID: 651 RVA: 0x00031FAA File Offset: 0x000301AA
 	public override void SendDataByCrittersActorType(PhotonStream stream)
 	{
 		base.SendDataByCrittersActorType(stream);
 		stream.SendNext(this.isStuck);
 	}
 
-	// Token: 0x0600025F RID: 607 RVA: 0x0000F51C File Offset: 0x0000D71C
+	// Token: 0x0600028C RID: 652 RVA: 0x00074328 File Offset: 0x00072528
 	public override bool UpdateSpecificActor(PhotonStream stream)
 	{
 		bool flag;
@@ -94,11 +95,11 @@ public class CrittersStickyTrap : CrittersToolThrowable
 			return false;
 		}
 		this.isStuck = flag;
-		base.TogglePhysics(!this.isStuck);
+		this.TogglePhysics(!this.isStuck);
 		return true;
 	}
 
-	// Token: 0x06000260 RID: 608 RVA: 0x0000F559 File Offset: 0x0000D759
+	// Token: 0x0600028D RID: 653 RVA: 0x00031FC4 File Offset: 0x000301C4
 	public override int AddActorDataToList(ref List<object> objList)
 	{
 		base.AddActorDataToList(ref objList);
@@ -106,13 +107,13 @@ public class CrittersStickyTrap : CrittersToolThrowable
 		return this.TotalActorDataLength();
 	}
 
-	// Token: 0x06000261 RID: 609 RVA: 0x00008238 File Offset: 0x00006438
+	// Token: 0x0600028E RID: 654 RVA: 0x00031114 File Offset: 0x0002F314
 	public override int TotalActorDataLength()
 	{
 		return base.BaseActorDataLength() + 1;
 	}
 
-	// Token: 0x06000262 RID: 610 RVA: 0x0000F57C File Offset: 0x0000D77C
+	// Token: 0x0600028F RID: 655 RVA: 0x00074368 File Offset: 0x00072568
 	public override int UpdateFromRPC(object[] data, int startingIndex)
 	{
 		startingIndex += base.UpdateFromRPC(data, startingIndex);
@@ -122,17 +123,17 @@ public class CrittersStickyTrap : CrittersToolThrowable
 			return this.TotalActorDataLength();
 		}
 		this.isStuck = flag;
-		base.TogglePhysics(!this.isStuck);
+		this.TogglePhysics(!this.isStuck);
 		return this.TotalActorDataLength();
 	}
 
-	// Token: 0x040002DB RID: 731
+	// Token: 0x0400030A RID: 778
 	[Header("Sticky Trap")]
 	public bool stickOnImpact = true;
 
-	// Token: 0x040002DC RID: 732
+	// Token: 0x0400030B RID: 779
 	public int subStickyGooIndex = -1;
 
-	// Token: 0x040002DD RID: 733
+	// Token: 0x0400030C RID: 780
 	private bool isStuck;
 }

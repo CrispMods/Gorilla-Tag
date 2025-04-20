@@ -5,16 +5,16 @@ using UnityEngine.Events;
 
 namespace GorillaTagScripts.Builder
 {
-	// Token: 0x02000A04 RID: 2564
+	// Token: 0x02000A31 RID: 2609
 	public class BuilderPieceTimer : MonoBehaviour, IBuilderPieceComponent, ITickSystemTick
 	{
-		// Token: 0x0600402A RID: 16426 RVA: 0x00130BAF File Offset: 0x0012EDAF
+		// Token: 0x0600416F RID: 16751 RVA: 0x0005AC33 File Offset: 0x00058E33
 		private void Awake()
 		{
 			this.buttonTrigger.TriggeredEvent.AddListener(new UnityAction(this.OnButtonPressed));
 		}
 
-		// Token: 0x0600402B RID: 16427 RVA: 0x00130BCD File Offset: 0x0012EDCD
+		// Token: 0x06004170 RID: 16752 RVA: 0x0005AC51 File Offset: 0x00058E51
 		private void OnDestroy()
 		{
 			if (this.buttonTrigger != null)
@@ -23,7 +23,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x0600402C RID: 16428 RVA: 0x00130BFC File Offset: 0x0012EDFC
+		// Token: 0x06004171 RID: 16753 RVA: 0x00171944 File Offset: 0x0016FB44
 		private void OnButtonPressed()
 		{
 			if (this.myPiece.state != BuilderPiece.State.AttachedAndPlaced)
@@ -49,7 +49,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x0600402D RID: 16429 RVA: 0x00130CB4 File Offset: 0x0012EEB4
+		// Token: 0x06004172 RID: 16754 RVA: 0x001719FC File Offset: 0x0016FBFC
 		private void OnTimerStopped(int actorNum, int timeDelta)
 		{
 			if (this.isStart && !this.isBoth)
@@ -73,7 +73,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x0600402E RID: 16430 RVA: 0x00130D63 File Offset: 0x0012EF63
+		// Token: 0x06004173 RID: 16755 RVA: 0x0005AC7D File Offset: 0x00058E7D
 		private void OnLocalTimerStarted()
 		{
 			if (this.isBoth)
@@ -86,7 +86,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x0600402F RID: 16431 RVA: 0x00130D90 File Offset: 0x0012EF90
+		// Token: 0x06004174 RID: 16756 RVA: 0x00171AAC File Offset: 0x0016FCAC
 		private void OnZoneChanged()
 		{
 			bool active = ZoneManagement.instance.IsZoneActive(GTZone.monkeBlocks);
@@ -96,7 +96,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004030 RID: 16432 RVA: 0x00130DCC File Offset: 0x0012EFCC
+		// Token: 0x06004175 RID: 16757 RVA: 0x00171AE8 File Offset: 0x0016FCE8
 		public void OnPieceCreate(int pieceType, int pieceId)
 		{
 			this.latestTime = double.MaxValue;
@@ -109,7 +109,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004031 RID: 16433 RVA: 0x00130E32 File Offset: 0x0012F032
+		// Token: 0x06004176 RID: 16758 RVA: 0x0005ACA9 File Offset: 0x00058EA9
 		public void OnPieceDestroy()
 		{
 			if (this.displayText != null)
@@ -119,12 +119,12 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004032 RID: 16434 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004177 RID: 16759 RVA: 0x00030607 File Offset: 0x0002E807
 		public void OnPiecePlacementDeserialized()
 		{
 		}
 
-		// Token: 0x06004033 RID: 16435 RVA: 0x00130E68 File Offset: 0x0012F068
+		// Token: 0x06004178 RID: 16760 RVA: 0x00171B50 File Offset: 0x0016FD50
 		public void OnPieceActivate()
 		{
 			this.lastTriggeredTime = 0f;
@@ -144,7 +144,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004034 RID: 16436 RVA: 0x00130F14 File Offset: 0x0012F114
+		// Token: 0x06004179 RID: 16761 RVA: 0x00171BFC File Offset: 0x0016FDFC
 		public void OnPieceDeactivate()
 		{
 			if (PlayerTimerManager.instance != null)
@@ -162,12 +162,12 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x17000669 RID: 1641
-		// (get) Token: 0x06004035 RID: 16437 RVA: 0x00130F90 File Offset: 0x0012F190
-		// (set) Token: 0x06004036 RID: 16438 RVA: 0x00130F98 File Offset: 0x0012F198
+		// Token: 0x17000685 RID: 1669
+		// (get) Token: 0x0600417A RID: 16762 RVA: 0x0005ACDF File Offset: 0x00058EDF
+		// (set) Token: 0x0600417B RID: 16763 RVA: 0x0005ACE7 File Offset: 0x00058EE7
 		public bool TickRunning { get; set; }
 
-		// Token: 0x06004037 RID: 16439 RVA: 0x00130FA4 File Offset: 0x0012F1A4
+		// Token: 0x0600417C RID: 16764 RVA: 0x00171C78 File Offset: 0x0016FE78
 		public void Tick()
 		{
 			if (this.displayText != null)
@@ -178,41 +178,41 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x04004147 RID: 16711
+		// Token: 0x04004241 RID: 16961
 		[SerializeField]
 		private BuilderPiece myPiece;
 
-		// Token: 0x04004148 RID: 16712
+		// Token: 0x04004242 RID: 16962
 		[SerializeField]
 		private bool isStart;
 
-		// Token: 0x04004149 RID: 16713
+		// Token: 0x04004243 RID: 16963
 		[SerializeField]
 		private bool isBoth;
 
-		// Token: 0x0400414A RID: 16714
+		// Token: 0x04004244 RID: 16964
 		[SerializeField]
 		private BuilderSmallHandTrigger buttonTrigger;
 
-		// Token: 0x0400414B RID: 16715
+		// Token: 0x04004245 RID: 16965
 		[SerializeField]
 		private SoundBankPlayer activateSoundBank;
 
-		// Token: 0x0400414C RID: 16716
+		// Token: 0x04004246 RID: 16966
 		[SerializeField]
 		private SoundBankPlayer stopSoundBank;
 
-		// Token: 0x0400414D RID: 16717
+		// Token: 0x04004247 RID: 16967
 		[SerializeField]
 		private float debounceTime = 0.5f;
 
-		// Token: 0x0400414E RID: 16718
+		// Token: 0x04004248 RID: 16968
 		private float lastTriggeredTime;
 
-		// Token: 0x0400414F RID: 16719
+		// Token: 0x04004249 RID: 16969
 		private double latestTime = 3.4028234663852886E+38;
 
-		// Token: 0x04004150 RID: 16720
+		// Token: 0x0400424A RID: 16970
 		[SerializeField]
 		private TMP_Text displayText;
 	}

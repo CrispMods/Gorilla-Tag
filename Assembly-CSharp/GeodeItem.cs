@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-// Token: 0x020003E0 RID: 992
+// Token: 0x020003EB RID: 1003
 public class GeodeItem : TransferrableObject
 {
-	// Token: 0x0600180B RID: 6155 RVA: 0x000751E9 File Offset: 0x000733E9
+	// Token: 0x06001858 RID: 6232 RVA: 0x00040828 File Offset: 0x0003EA28
 	public override void OnSpawn(VRRig rig)
 	{
 		base.OnSpawn(rig);
@@ -16,7 +16,7 @@ public class GeodeItem : TransferrableObject
 		this.effectsHaveBeenPlayed = false;
 	}
 
-	// Token: 0x0600180C RID: 6156 RVA: 0x0007520B File Offset: 0x0007340B
+	// Token: 0x06001859 RID: 6233 RVA: 0x0004084A File Offset: 0x0003EA4A
 	protected override void Start()
 	{
 		base.Start();
@@ -25,7 +25,7 @@ public class GeodeItem : TransferrableObject
 		this.InitToDefault();
 	}
 
-	// Token: 0x0600180D RID: 6157 RVA: 0x00075227 File Offset: 0x00073427
+	// Token: 0x0600185A RID: 6234 RVA: 0x00040866 File Offset: 0x0003EA66
 	public override void ResetToDefaultState()
 	{
 		base.ResetToDefaultState();
@@ -33,13 +33,13 @@ public class GeodeItem : TransferrableObject
 		this.itemState = TransferrableObject.ItemStates.State0;
 	}
 
-	// Token: 0x0600180E RID: 6158 RVA: 0x0007523C File Offset: 0x0007343C
+	// Token: 0x0600185B RID: 6235 RVA: 0x0004087B File Offset: 0x0003EA7B
 	public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		return base.OnRelease(zoneReleased, releasingHand) && this.itemState != TransferrableObject.ItemStates.State0 && !base.InHand();
 	}
 
-	// Token: 0x0600180F RID: 6159 RVA: 0x00075260 File Offset: 0x00073460
+	// Token: 0x0600185C RID: 6236 RVA: 0x0004089F File Offset: 0x0003EA9F
 	public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 	{
 		base.OnGrab(pointGrabbed, grabbingHand);
@@ -51,7 +51,7 @@ public class GeodeItem : TransferrableObject
 		onGeodeGrabbed.Invoke(this);
 	}
 
-	// Token: 0x06001810 RID: 6160 RVA: 0x0007527C File Offset: 0x0007347C
+	// Token: 0x0600185D RID: 6237 RVA: 0x000CBA5C File Offset: 0x000C9C5C
 	private void InitToDefault()
 	{
 		this.cooldownRemaining = 0f;
@@ -68,7 +68,7 @@ public class GeodeItem : TransferrableObject
 		this.hitLastFrame = false;
 	}
 
-	// Token: 0x06001811 RID: 6161 RVA: 0x000752E4 File Offset: 0x000734E4
+	// Token: 0x0600185E RID: 6238 RVA: 0x000CBAC4 File Offset: 0x000C9CC4
 	protected override void LateUpdateLocal()
 	{
 		base.LateUpdateLocal();
@@ -109,7 +109,7 @@ public class GeodeItem : TransferrableObject
 		this.index = (this.randomizeGeode ? this.RandomPickCrackedGeode() : 0);
 	}
 
-	// Token: 0x06001812 RID: 6162 RVA: 0x0007540C File Offset: 0x0007360C
+	// Token: 0x0600185F RID: 6239 RVA: 0x000408BA File Offset: 0x0003EABA
 	protected override void LateUpdateShared()
 	{
 		base.LateUpdateShared();
@@ -121,7 +121,7 @@ public class GeodeItem : TransferrableObject
 		this.prevItemState = this.currentItemState;
 	}
 
-	// Token: 0x06001813 RID: 6163 RVA: 0x00075440 File Offset: 0x00073640
+	// Token: 0x06001860 RID: 6240 RVA: 0x000CBBEC File Offset: 0x000C9DEC
 	private void OnItemStateChanged()
 	{
 		if (this.itemState == TransferrableObject.ItemStates.State0)
@@ -153,85 +153,85 @@ public class GeodeItem : TransferrableObject
 		}
 	}
 
-	// Token: 0x06001814 RID: 6164 RVA: 0x00075539 File Offset: 0x00073739
+	// Token: 0x06001861 RID: 6241 RVA: 0x000408EE File Offset: 0x0003EAEE
 	private int RandomPickCrackedGeode()
 	{
-		return Random.Range(0, this.geodeCrackedMeshes.Length);
+		return UnityEngine.Random.Range(0, this.geodeCrackedMeshes.Length);
 	}
 
-	// Token: 0x04001AB6 RID: 6838
+	// Token: 0x04001AFF RID: 6911
 	[Tooltip("This GameObject will activate when the geode hits the ground with enough force.")]
 	public GameObject effectsGameObject;
 
-	// Token: 0x04001AB7 RID: 6839
+	// Token: 0x04001B00 RID: 6912
 	public LayerMask collisionLayerMask;
 
-	// Token: 0x04001AB8 RID: 6840
+	// Token: 0x04001B01 RID: 6913
 	[Tooltip("Used to calculate velocity of the geode.")]
 	public GorillaVelocityEstimator velocityEstimator;
 
-	// Token: 0x04001AB9 RID: 6841
+	// Token: 0x04001B02 RID: 6914
 	public float cooldown = 5f;
 
-	// Token: 0x04001ABA RID: 6842
+	// Token: 0x04001B03 RID: 6915
 	[Tooltip("The velocity of the geode must be greater than this value to activate the effect.")]
 	public float minHitVelocity = 0.2f;
 
-	// Token: 0x04001ABB RID: 6843
+	// Token: 0x04001B04 RID: 6916
 	[Tooltip("Geode's full mesh before cracking")]
 	public GameObject geodeFullMesh;
 
-	// Token: 0x04001ABC RID: 6844
+	// Token: 0x04001B05 RID: 6917
 	[Tooltip("Geode's cracked open half different meshes, picked randomly")]
 	public GameObject[] geodeCrackedMeshes;
 
-	// Token: 0x04001ABD RID: 6845
+	// Token: 0x04001B06 RID: 6918
 	[Tooltip("The distance between te geode and the layer mask to detect whether it hits it")]
 	public float rayCastMaxDistance = 0.2f;
 
-	// Token: 0x04001ABE RID: 6846
+	// Token: 0x04001B07 RID: 6919
 	[FormerlySerializedAs("collisionRadius")]
 	public float sphereRayRadius = 0.05f;
 
-	// Token: 0x04001ABF RID: 6847
+	// Token: 0x04001B08 RID: 6920
 	[DebugReadout]
 	private float cooldownRemaining;
 
-	// Token: 0x04001AC0 RID: 6848
+	// Token: 0x04001B09 RID: 6921
 	[DebugReadout]
 	private bool hitLastFrame;
 
-	// Token: 0x04001AC1 RID: 6849
+	// Token: 0x04001B0A RID: 6922
 	[SerializeField]
 	private AudioSource audioSource;
 
-	// Token: 0x04001AC2 RID: 6850
+	// Token: 0x04001B0B RID: 6923
 	public bool randomizeGeode = true;
 
-	// Token: 0x04001AC3 RID: 6851
+	// Token: 0x04001B0C RID: 6924
 	public UnityEvent<GeodeItem> OnGeodeCracked;
 
-	// Token: 0x04001AC4 RID: 6852
+	// Token: 0x04001B0D RID: 6925
 	public UnityEvent<GeodeItem> OnGeodeGrabbed;
 
-	// Token: 0x04001AC5 RID: 6853
+	// Token: 0x04001B0E RID: 6926
 	private bool hasEffectsGameObject;
 
-	// Token: 0x04001AC6 RID: 6854
+	// Token: 0x04001B0F RID: 6927
 	private bool effectsHaveBeenPlayed;
 
-	// Token: 0x04001AC7 RID: 6855
+	// Token: 0x04001B10 RID: 6928
 	private RaycastHit hit;
 
-	// Token: 0x04001AC8 RID: 6856
+	// Token: 0x04001B11 RID: 6929
 	private RaycastHit[] collidersHit = new RaycastHit[20];
 
-	// Token: 0x04001AC9 RID: 6857
+	// Token: 0x04001B12 RID: 6930
 	private TransferrableObject.ItemStates currentItemState;
 
-	// Token: 0x04001ACA RID: 6858
+	// Token: 0x04001B13 RID: 6931
 	private TransferrableObject.ItemStates prevItemState;
 
-	// Token: 0x04001ACB RID: 6859
+	// Token: 0x04001B14 RID: 6932
 	private int index;
 }

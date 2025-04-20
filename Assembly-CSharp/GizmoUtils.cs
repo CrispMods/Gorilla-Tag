@@ -4,10 +4,10 @@ using System.Diagnostics;
 using Drawing;
 using UnityEngine;
 
-// Token: 0x0200084E RID: 2126
+// Token: 0x02000868 RID: 2152
 public static class GizmoUtils
 {
-	// Token: 0x060033A0 RID: 13216 RVA: 0x000F6608 File Offset: 0x000F4808
+	// Token: 0x0600345B RID: 13403 RVA: 0x0013DD80 File Offset: 0x0013BF80
 	[Conditional("UNITY_EDITOR")]
 	public unsafe static void DrawGizmo(this Collider c, Color color = default(Color))
 	{
@@ -55,12 +55,12 @@ public static class GizmoUtils
 		}
 	}
 
-	// Token: 0x060033A1 RID: 13217 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600345C RID: 13404 RVA: 0x00030607 File Offset: 0x0002E807
 	[Conditional("UNITY_EDITOR")]
 	public static void DrawWireCubeTRS(Vector3 t, Quaternion r, Vector3 s)
 	{
 	}
 
-	// Token: 0x040036ED RID: 14061
+	// Token: 0x040037A9 RID: 14249
 	private static readonly Dictionary<Collider, Color> gColliderToColor = new Dictionary<Collider, Color>(64);
 }

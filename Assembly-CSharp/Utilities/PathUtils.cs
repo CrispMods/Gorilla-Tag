@@ -2,10 +2,10 @@
 
 namespace Utilities
 {
-	// Token: 0x02000964 RID: 2404
+	// Token: 0x0200098A RID: 2442
 	public static class PathUtils
 	{
-		// Token: 0x06003A9D RID: 15005 RVA: 0x0010DBF4 File Offset: 0x0010BDF4
+		// Token: 0x06003BB5 RID: 15285 RVA: 0x001516E4 File Offset: 0x0014F8E4
 		public static string Resolve(params string[] subPaths)
 		{
 			if (subPaths == null || subPaths.Length == 0)
@@ -16,14 +16,14 @@ namespace Utilities
 			return Uri.UnescapeDataString(new Uri(string.Join("/", value)).AbsolutePath);
 		}
 
-		// Token: 0x04003BB1 RID: 15281
+		// Token: 0x04003C8B RID: 15499
 		private static readonly char[] kPathSeps = new char[]
 		{
 			'\\',
 			'/'
 		};
 
-		// Token: 0x04003BB2 RID: 15282
+		// Token: 0x04003C8C RID: 15500
 		private const string kFwdSlash = "/";
 	}
 }

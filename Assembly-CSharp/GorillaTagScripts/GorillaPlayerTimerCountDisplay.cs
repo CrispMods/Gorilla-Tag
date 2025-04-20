@@ -5,22 +5,22 @@ using UnityEngine.Events;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009C1 RID: 2497
+	// Token: 0x020009E7 RID: 2535
 	public class GorillaPlayerTimerCountDisplay : MonoBehaviour, ITickSystemTick
 	{
-		// Token: 0x06003E2A RID: 15914 RVA: 0x00126D90 File Offset: 0x00124F90
+		// Token: 0x06003F42 RID: 16194 RVA: 0x000593E5 File Offset: 0x000575E5
 		private void Start()
 		{
 			this.TryInit();
 		}
 
-		// Token: 0x06003E2B RID: 15915 RVA: 0x00126D90 File Offset: 0x00124F90
+		// Token: 0x06003F43 RID: 16195 RVA: 0x000593E5 File Offset: 0x000575E5
 		private void OnEnable()
 		{
 			this.TryInit();
 		}
 
-		// Token: 0x06003E2C RID: 15916 RVA: 0x00126D98 File Offset: 0x00124F98
+		// Token: 0x06003F44 RID: 16196 RVA: 0x00168444 File Offset: 0x00166644
 		private void TryInit()
 		{
 			if (this.isInitialized)
@@ -41,7 +41,7 @@ namespace GorillaTagScripts
 			this.isInitialized = true;
 		}
 
-		// Token: 0x06003E2D RID: 15917 RVA: 0x00126E24 File Offset: 0x00125024
+		// Token: 0x06003F45 RID: 16197 RVA: 0x001684D0 File Offset: 0x001666D0
 		private void OnDisable()
 		{
 			if (PlayerTimerManager.instance != null)
@@ -56,7 +56,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E2E RID: 15918 RVA: 0x00126E89 File Offset: 0x00125089
+		// Token: 0x06003F46 RID: 16198 RVA: 0x000593ED File Offset: 0x000575ED
 		private void OnLocalTimerStarted()
 		{
 			if (!this.TickRunning)
@@ -65,7 +65,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E2F RID: 15919 RVA: 0x00126E9C File Offset: 0x0012509C
+		// Token: 0x06003F47 RID: 16199 RVA: 0x00168538 File Offset: 0x00166738
 		private void OnTimerStopped(int actorNum, int timeDelta)
 		{
 			if (actorNum == NetworkSystem.Instance.LocalPlayer.ActorNumber)
@@ -79,29 +79,29 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E30 RID: 15920 RVA: 0x00126F00 File Offset: 0x00125100
+		// Token: 0x06003F48 RID: 16200 RVA: 0x0016859C File Offset: 0x0016679C
 		private void UpdateLatestTime()
 		{
 			float timeForPlayer = PlayerTimerManager.instance.GetTimeForPlayer(NetworkSystem.Instance.LocalPlayer.ActorNumber);
 			this.displayText.text = "TIME: " + TimeSpan.FromSeconds((double)timeForPlayer).ToString("mm\\:ss\\:f");
 		}
 
-		// Token: 0x1700064C RID: 1612
-		// (get) Token: 0x06003E31 RID: 15921 RVA: 0x00126F50 File Offset: 0x00125150
-		// (set) Token: 0x06003E32 RID: 15922 RVA: 0x00126F58 File Offset: 0x00125158
+		// Token: 0x17000664 RID: 1636
+		// (get) Token: 0x06003F49 RID: 16201 RVA: 0x000593FD File Offset: 0x000575FD
+		// (set) Token: 0x06003F4A RID: 16202 RVA: 0x00059405 File Offset: 0x00057605
 		public bool TickRunning { get; set; }
 
-		// Token: 0x06003E33 RID: 15923 RVA: 0x00126F61 File Offset: 0x00125161
+		// Token: 0x06003F4B RID: 16203 RVA: 0x0005940E File Offset: 0x0005760E
 		public void Tick()
 		{
 			this.UpdateLatestTime();
 		}
 
-		// Token: 0x04003F6D RID: 16237
+		// Token: 0x04004047 RID: 16455
 		[SerializeField]
 		private TMP_Text displayText;
 
-		// Token: 0x04003F6E RID: 16238
+		// Token: 0x04004048 RID: 16456
 		private bool isInitialized;
 	}
 }

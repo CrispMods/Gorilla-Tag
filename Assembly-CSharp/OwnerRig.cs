@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000625 RID: 1573
+// Token: 0x02000604 RID: 1540
 public class OwnerRig : MonoBehaviour, IVariable<VRRig>, IVariable, IRigAware
 {
-	// Token: 0x0600272E RID: 10030 RVA: 0x000C0A0B File Offset: 0x000BEC0B
+	// Token: 0x06002659 RID: 9817 RVA: 0x0004A188 File Offset: 0x00048388
 	public void TryFindRig()
 	{
 		this._rig = base.GetComponentInParent<VRRig>();
@@ -15,37 +15,37 @@ public class OwnerRig : MonoBehaviour, IVariable<VRRig>, IVariable, IRigAware
 		this._rig = base.GetComponentInChildren<VRRig>();
 	}
 
-	// Token: 0x0600272F RID: 10031 RVA: 0x000C0A34 File Offset: 0x000BEC34
+	// Token: 0x0600265A RID: 9818 RVA: 0x0004A1B1 File Offset: 0x000483B1
 	public VRRig Get()
 	{
 		return this._rig;
 	}
 
-	// Token: 0x06002730 RID: 10032 RVA: 0x000C0A3C File Offset: 0x000BEC3C
+	// Token: 0x0600265B RID: 9819 RVA: 0x0004A1B9 File Offset: 0x000483B9
 	public void Set(VRRig value)
 	{
 		this._rig = value;
 	}
 
-	// Token: 0x06002731 RID: 10033 RVA: 0x000C0A45 File Offset: 0x000BEC45
+	// Token: 0x0600265C RID: 9820 RVA: 0x0004A1C2 File Offset: 0x000483C2
 	public void Set(GameObject obj)
 	{
 		this._rig = ((obj != null) ? obj.GetComponentInParent<VRRig>() : null);
 	}
 
-	// Token: 0x06002732 RID: 10034 RVA: 0x000C0A3C File Offset: 0x000BEC3C
+	// Token: 0x0600265D RID: 9821 RVA: 0x0004A1B9 File Offset: 0x000483B9
 	void IRigAware.SetRig(VRRig rig)
 	{
 		this._rig = rig;
 	}
 
-	// Token: 0x06002733 RID: 10035 RVA: 0x000C0A5F File Offset: 0x000BEC5F
+	// Token: 0x0600265E RID: 9822 RVA: 0x0004A1DC File Offset: 0x000483DC
 	public static implicit operator bool(OwnerRig or)
 	{
 		return or != null && !(or == null) && or._rig != null && !(or._rig == null);
 	}
 
-	// Token: 0x06002734 RID: 10036 RVA: 0x000C0A8C File Offset: 0x000BEC8C
+	// Token: 0x0600265F RID: 9823 RVA: 0x0004A209 File Offset: 0x00048409
 	public static implicit operator VRRig(OwnerRig or)
 	{
 		if (!or)
@@ -55,7 +55,7 @@ public class OwnerRig : MonoBehaviour, IVariable<VRRig>, IVariable, IRigAware
 		return or._rig;
 	}
 
-	// Token: 0x04002AF6 RID: 10998
+	// Token: 0x04002A5C RID: 10844
 	[SerializeField]
 	private VRRig _rig;
 }

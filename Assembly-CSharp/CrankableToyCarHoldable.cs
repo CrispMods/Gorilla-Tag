@@ -5,17 +5,17 @@ using GorillaLocomotion.Climbing;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000149 RID: 329
+// Token: 0x02000153 RID: 339
 public class CrankableToyCarHoldable : TransferrableObject
 {
-	// Token: 0x0600085C RID: 2140 RVA: 0x0002DD96 File Offset: 0x0002BF96
+	// Token: 0x060008A0 RID: 2208 RVA: 0x0003614E File Offset: 0x0003434E
 	protected override void Start()
 	{
 		base.Start();
 		this.crank.SetOnCrankedCallback(new Action<float>(this.OnCranked));
 	}
 
-	// Token: 0x0600085D RID: 2141 RVA: 0x0002DDB8 File Offset: 0x0002BFB8
+	// Token: 0x060008A1 RID: 2209 RVA: 0x0008EE64 File Offset: 0x0008D064
 	internal override void OnEnable()
 	{
 		base.OnEnable();
@@ -40,7 +40,7 @@ public class CrankableToyCarHoldable : TransferrableObject
 		this.itemState &= (TransferrableObject.ItemStates)(-2);
 	}
 
-	// Token: 0x0600085E RID: 2142 RVA: 0x0002DEA3 File Offset: 0x0002C0A3
+	// Token: 0x060008A2 RID: 2210 RVA: 0x0003616D File Offset: 0x0003436D
 	internal override void OnDisable()
 	{
 		base.OnDisable();
@@ -50,7 +50,7 @@ public class CrankableToyCarHoldable : TransferrableObject
 		}
 	}
 
-	// Token: 0x0600085F RID: 2143 RVA: 0x0002DEC4 File Offset: 0x0002C0C4
+	// Token: 0x060008A3 RID: 2211 RVA: 0x0008EF50 File Offset: 0x0008D150
 	protected override void LateUpdateReplicated()
 	{
 		base.LateUpdateReplicated();
@@ -68,7 +68,7 @@ public class CrankableToyCarHoldable : TransferrableObject
 		}
 	}
 
-	// Token: 0x06000860 RID: 2144 RVA: 0x0002DF18 File Offset: 0x0002C118
+	// Token: 0x060008A4 RID: 2212 RVA: 0x0008EFA4 File Offset: 0x0008D1A4
 	private void OnCranked(float deltaAngle)
 	{
 		this.currentCrankStrength += Mathf.Abs(deltaAngle);
@@ -100,7 +100,7 @@ public class CrankableToyCarHoldable : TransferrableObject
 		}
 	}
 
-	// Token: 0x06000861 RID: 2145 RVA: 0x0002E02C File Offset: 0x0002C22C
+	// Token: 0x060008A5 RID: 2213 RVA: 0x0008F0B8 File Offset: 0x0008D2B8
 	public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		if (!base.OnRelease(zoneReleased, releasingHand))
@@ -136,7 +136,7 @@ public class CrankableToyCarHoldable : TransferrableObject
 		return true;
 	}
 
-	// Token: 0x06000862 RID: 2146 RVA: 0x0002E15B File Offset: 0x0002C35B
+	// Token: 0x060008A6 RID: 2214 RVA: 0x0003618E File Offset: 0x0003438E
 	private void DeployCarLocal(Vector3 launchPos, Quaternion launchRot, Vector3 releaseVel, float lifetime, bool isRemote = false)
 	{
 		if (!this.disabledWhileDeployed.activeSelf)
@@ -146,7 +146,7 @@ public class CrankableToyCarHoldable : TransferrableObject
 		this.deployedCar.Deploy(this, launchPos, launchRot, releaseVel, lifetime, isRemote);
 	}
 
-	// Token: 0x06000863 RID: 2147 RVA: 0x0002E180 File Offset: 0x0002C380
+	// Token: 0x060008A7 RID: 2215 RVA: 0x0008F1E8 File Offset: 0x0008D3E8
 	private void OnDeployRPC(int sender, int receiver, object[] args, PhotonMessageInfoWrapped info)
 	{
 		if (!this || sender != receiver || info.senderID != this.ownerRig.creator.ActorNumber)
@@ -170,7 +170,7 @@ public class CrankableToyCarHoldable : TransferrableObject
 		}
 	}
 
-	// Token: 0x06000864 RID: 2148 RVA: 0x0002E235 File Offset: 0x0002C435
+	// Token: 0x060008A8 RID: 2216 RVA: 0x000361B1 File Offset: 0x000343B1
 	public void OnCarDeployed()
 	{
 		this.itemState |= TransferrableObject.ItemStates.State0;
@@ -178,7 +178,7 @@ public class CrankableToyCarHoldable : TransferrableObject
 		this.disabledWhileDeployed.SetActive(false);
 	}
 
-	// Token: 0x06000865 RID: 2149 RVA: 0x0002E25D File Offset: 0x0002C45D
+	// Token: 0x060008A9 RID: 2217 RVA: 0x000361D9 File Offset: 0x000343D9
 	public void OnCarReturned()
 	{
 		this.itemState &= (TransferrableObject.ItemStates)(-2);
@@ -187,76 +187,76 @@ public class CrankableToyCarHoldable : TransferrableObject
 		this.clickSound.RestartSequence();
 	}
 
-	// Token: 0x040009ED RID: 2541
+	// Token: 0x04000A30 RID: 2608
 	[SerializeField]
 	private TransferrableObjectHoldablePart_Crank crank;
 
-	// Token: 0x040009EE RID: 2542
+	// Token: 0x04000A31 RID: 2609
 	[SerializeField]
 	private CrankableToyCarDeployed deployedCar;
 
-	// Token: 0x040009EF RID: 2543
+	// Token: 0x04000A32 RID: 2610
 	[SerializeField]
 	private GameObject deployablePart;
 
-	// Token: 0x040009F0 RID: 2544
+	// Token: 0x04000A33 RID: 2611
 	[SerializeField]
 	private GameObject disabledWhileDeployed;
 
-	// Token: 0x040009F1 RID: 2545
+	// Token: 0x04000A34 RID: 2612
 	[SerializeField]
 	private float crankAnglePerClick;
 
-	// Token: 0x040009F2 RID: 2546
+	// Token: 0x04000A35 RID: 2613
 	[SerializeField]
 	private float maxCrankStrength;
 
-	// Token: 0x040009F3 RID: 2547
+	// Token: 0x04000A36 RID: 2614
 	[SerializeField]
 	private float minClickPitch;
 
-	// Token: 0x040009F4 RID: 2548
+	// Token: 0x04000A37 RID: 2615
 	[SerializeField]
 	private float maxClickPitch;
 
-	// Token: 0x040009F5 RID: 2549
+	// Token: 0x04000A38 RID: 2616
 	[SerializeField]
 	private float minLifetime;
 
-	// Token: 0x040009F6 RID: 2550
+	// Token: 0x04000A39 RID: 2617
 	[SerializeField]
 	private float maxLifetime;
 
-	// Token: 0x040009F7 RID: 2551
+	// Token: 0x04000A3A RID: 2618
 	[SerializeField]
 	private SoundBankPlayer clickSound;
 
-	// Token: 0x040009F8 RID: 2552
+	// Token: 0x04000A3B RID: 2619
 	[SerializeField]
 	private SoundBankPlayer overCrankedSound;
 
-	// Token: 0x040009F9 RID: 2553
+	// Token: 0x04000A3C RID: 2620
 	[SerializeField]
 	private float crankHapticStrength = 0.1f;
 
-	// Token: 0x040009FA RID: 2554
+	// Token: 0x04000A3D RID: 2621
 	[SerializeField]
 	private float crankHapticDuration = 0.05f;
 
-	// Token: 0x040009FB RID: 2555
+	// Token: 0x04000A3E RID: 2622
 	[SerializeField]
 	private float overcrankHapticStrength = 0.8f;
 
-	// Token: 0x040009FC RID: 2556
+	// Token: 0x04000A3F RID: 2623
 	[SerializeField]
 	private float overcrankHapticDuration = 0.05f;
 
-	// Token: 0x040009FD RID: 2557
+	// Token: 0x04000A40 RID: 2624
 	private float currentCrankStrength;
 
-	// Token: 0x040009FE RID: 2558
+	// Token: 0x04000A41 RID: 2625
 	private float currentCrankClickAmount;
 
-	// Token: 0x040009FF RID: 2559
+	// Token: 0x04000A42 RID: 2626
 	private RubberDuckEvents _events;
 }

@@ -3,21 +3,21 @@ using Cinemachine.Utility;
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x02000156 RID: 342
+// Token: 0x02000160 RID: 352
 public class FakeWheelDriver : MonoBehaviour
 {
-	// Token: 0x170000CE RID: 206
-	// (get) Token: 0x060008B3 RID: 2227 RVA: 0x0002F7C1 File Offset: 0x0002D9C1
-	// (set) Token: 0x060008B4 RID: 2228 RVA: 0x0002F7C9 File Offset: 0x0002D9C9
+	// Token: 0x170000D3 RID: 211
+	// (get) Token: 0x060008F7 RID: 2295 RVA: 0x000365FE File Offset: 0x000347FE
+	// (set) Token: 0x060008F8 RID: 2296 RVA: 0x00036606 File Offset: 0x00034806
 	public bool hasCollision { get; private set; }
 
-	// Token: 0x060008B5 RID: 2229 RVA: 0x0002F7D2 File Offset: 0x0002D9D2
+	// Token: 0x060008F9 RID: 2297 RVA: 0x0003660F File Offset: 0x0003480F
 	public void SetThrust(Vector3 thrust)
 	{
 		this.thrust = thrust;
 	}
 
-	// Token: 0x060008B6 RID: 2230 RVA: 0x0002F7DC File Offset: 0x0002D9DC
+	// Token: 0x060008FA RID: 2298 RVA: 0x000903E0 File Offset: 0x0008E5E0
 	private void OnCollisionStay(Collision collision)
 	{
 		int num = 0;
@@ -38,7 +38,7 @@ public class FakeWheelDriver : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008B7 RID: 2231 RVA: 0x0002F868 File Offset: 0x0002DA68
+	// Token: 0x060008FB RID: 2299 RVA: 0x0009046C File Offset: 0x0008E66C
 	private void FixedUpdate()
 	{
 		if (this.hasCollision)
@@ -62,29 +62,29 @@ public class FakeWheelDriver : MonoBehaviour
 		this.hasCollision = false;
 	}
 
-	// Token: 0x04000A6D RID: 2669
+	// Token: 0x04000AB0 RID: 2736
 	[SerializeField]
 	private Rigidbody myRigidBody;
 
-	// Token: 0x04000A6E RID: 2670
+	// Token: 0x04000AB1 RID: 2737
 	[SerializeField]
 	private Vector3 thrust;
 
-	// Token: 0x04000A6F RID: 2671
+	// Token: 0x04000AB2 RID: 2738
 	[SerializeField]
 	private Collider wheelCollider;
 
-	// Token: 0x04000A70 RID: 2672
+	// Token: 0x04000AB3 RID: 2739
 	[SerializeField]
 	private float maxSpeed;
 
-	// Token: 0x04000A71 RID: 2673
+	// Token: 0x04000AB4 RID: 2740
 	[SerializeField]
 	private float lateralFrictionForce;
 
-	// Token: 0x04000A73 RID: 2675
+	// Token: 0x04000AB6 RID: 2742
 	private Vector3 collisionPoint;
 
-	// Token: 0x04000A74 RID: 2676
+	// Token: 0x04000AB7 RID: 2743
 	private Vector3 collisionNormal;
 }

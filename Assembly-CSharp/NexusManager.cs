@@ -6,10 +6,10 @@ using NexusSDK;
 using UnityEngine;
 using UnityEngine.Networking;
 
-// Token: 0x02000410 RID: 1040
+// Token: 0x0200041B RID: 1051
 public class NexusManager : MonoBehaviour
 {
-	// Token: 0x060019C0 RID: 6592 RVA: 0x0007EFDF File Offset: 0x0007D1DF
+	// Token: 0x06001A0D RID: 6669 RVA: 0x00041928 File Offset: 0x0003FB28
 	private void Awake()
 	{
 		if (NexusManager.instance == null)
@@ -17,16 +17,16 @@ public class NexusManager : MonoBehaviour
 			NexusManager.instance = this;
 			return;
 		}
-		Object.Destroy(this);
+		UnityEngine.Object.Destroy(this);
 	}
 
-	// Token: 0x060019C1 RID: 6593 RVA: 0x0007EFFB File Offset: 0x0007D1FB
+	// Token: 0x06001A0E RID: 6670 RVA: 0x00041944 File Offset: 0x0003FB44
 	private void Start()
 	{
 		SDKInitializer.Init(this.apiKey, this.environment);
 	}
 
-	// Token: 0x060019C2 RID: 6594 RVA: 0x0007F00E File Offset: 0x0007D20E
+	// Token: 0x06001A0F RID: 6671 RVA: 0x00041957 File Offset: 0x0003FB57
 	public static IEnumerator GetMembers(NexusManager.GetMembersRequest RequestParams, Action<AttributionAPI.GetMembers200Response> onSuccess, Action<string> onFailure)
 	{
 		string text = SDKInitializer.ApiBaseUrl + "/manage/members";
@@ -66,7 +66,7 @@ public class NexusManager : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060019C3 RID: 6595 RVA: 0x0007F02C File Offset: 0x0007D22C
+	// Token: 0x06001A10 RID: 6672 RVA: 0x000D46B8 File Offset: 0x000D28B8
 	public void VerifyCreatorCode(string code, Action<Member> onSuccess, Action onFailure)
 	{
 		NexusManager.GetMemberByCodeRequest requestParams = new NexusManager.GetMemberByCodeRequest
@@ -76,7 +76,7 @@ public class NexusManager : MonoBehaviour
 		base.StartCoroutine(NexusManager.GetMemberByCode(requestParams, onSuccess, onFailure));
 	}
 
-	// Token: 0x060019C4 RID: 6596 RVA: 0x0007F05A File Offset: 0x0007D25A
+	// Token: 0x06001A11 RID: 6673 RVA: 0x00041974 File Offset: 0x0003FB74
 	public static IEnumerator GetMemberByCode(NexusManager.GetMemberByCodeRequest RequestParams, Action<Member> onSuccess, Action onFailure)
 	{
 		string text = SDKInitializer.ApiBaseUrl + "/manage/members/{memberCode}";
@@ -109,45 +109,45 @@ public class NexusManager : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04001CAF RID: 7343
+	// Token: 0x04001CF8 RID: 7416
 	private string apiKey = "nexus_pk_4c18dcb1531846c7abad4cb00c5242bb";
 
-	// Token: 0x04001CB0 RID: 7344
+	// Token: 0x04001CF9 RID: 7417
 	private string environment = "production";
 
-	// Token: 0x04001CB1 RID: 7345
+	// Token: 0x04001CFA RID: 7418
 	public static NexusManager instance;
 
-	// Token: 0x04001CB2 RID: 7346
+	// Token: 0x04001CFB RID: 7419
 	private Member[] validatedMembers;
 
-	// Token: 0x02000411 RID: 1041
+	// Token: 0x0200041C RID: 1052
 	[Serializable]
 	public struct GetMemberByCodeRequest
 	{
-		// Token: 0x170002CD RID: 717
-		// (get) Token: 0x060019C6 RID: 6598 RVA: 0x0007F095 File Offset: 0x0007D295
-		// (set) Token: 0x060019C7 RID: 6599 RVA: 0x0007F09D File Offset: 0x0007D29D
+		// Token: 0x170002D4 RID: 724
+		// (get) Token: 0x06001A13 RID: 6675 RVA: 0x000419AF File Offset: 0x0003FBAF
+		// (set) Token: 0x06001A14 RID: 6676 RVA: 0x000419B7 File Offset: 0x0003FBB7
 		public string memberCode { readonly get; set; }
 
-		// Token: 0x170002CE RID: 718
-		// (get) Token: 0x060019C8 RID: 6600 RVA: 0x0007F0A6 File Offset: 0x0007D2A6
-		// (set) Token: 0x060019C9 RID: 6601 RVA: 0x0007F0AE File Offset: 0x0007D2AE
+		// Token: 0x170002D5 RID: 725
+		// (get) Token: 0x06001A15 RID: 6677 RVA: 0x000419C0 File Offset: 0x0003FBC0
+		// (set) Token: 0x06001A16 RID: 6678 RVA: 0x000419C8 File Offset: 0x0003FBC8
 		public string groupId { readonly get; set; }
 	}
 
-	// Token: 0x02000412 RID: 1042
+	// Token: 0x0200041D RID: 1053
 	[Serializable]
 	public struct GetMembersRequest
 	{
-		// Token: 0x170002CF RID: 719
-		// (get) Token: 0x060019CA RID: 6602 RVA: 0x0007F0B7 File Offset: 0x0007D2B7
-		// (set) Token: 0x060019CB RID: 6603 RVA: 0x0007F0BF File Offset: 0x0007D2BF
+		// Token: 0x170002D6 RID: 726
+		// (get) Token: 0x06001A17 RID: 6679 RVA: 0x000419D1 File Offset: 0x0003FBD1
+		// (set) Token: 0x06001A18 RID: 6680 RVA: 0x000419D9 File Offset: 0x0003FBD9
 		public int page { readonly get; set; }
 
-		// Token: 0x170002D0 RID: 720
-		// (get) Token: 0x060019CC RID: 6604 RVA: 0x0007F0C8 File Offset: 0x0007D2C8
-		// (set) Token: 0x060019CD RID: 6605 RVA: 0x0007F0D0 File Offset: 0x0007D2D0
+		// Token: 0x170002D7 RID: 727
+		// (get) Token: 0x06001A19 RID: 6681 RVA: 0x000419E2 File Offset: 0x0003FBE2
+		// (set) Token: 0x06001A1A RID: 6682 RVA: 0x000419EA File Offset: 0x0003FBEA
 		public int pageSize { readonly get; set; }
 	}
 }

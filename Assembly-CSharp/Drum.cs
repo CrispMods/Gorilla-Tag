@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003DB RID: 987
+// Token: 0x020003E6 RID: 998
 public class Drum : MonoBehaviour
 {
-	// Token: 0x04001A85 RID: 6789
+	// Token: 0x04001ACE RID: 6862
 	public bool disabler;
 
-	// Token: 0x04001A86 RID: 6790
+	// Token: 0x04001ACF RID: 6863
 	public AudioSource mySource;
 
-	// Token: 0x04001A87 RID: 6791
+	// Token: 0x04001AD0 RID: 6864
 	public int myIndex;
 }

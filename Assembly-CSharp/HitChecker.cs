@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020003E1 RID: 993
+// Token: 0x020003EC RID: 1004
 public class HitChecker : MonoBehaviour
 {
-	// Token: 0x06001816 RID: 6166 RVA: 0x000755A0 File Offset: 0x000737A0
+	// Token: 0x06001863 RID: 6243 RVA: 0x000CBD3C File Offset: 0x000C9F3C
 	public static void CheckHandHit(ref int collidersHitCount, LayerMask layerMask, float sphereRadius, ref RaycastHit nullHit, ref RaycastHit[] raycastHits, ref List<RaycastHit> raycastHitList, ref Vector3 spherecastSweep, ref GorillaTriggerColliderHandIndicator handIndicator)
 	{
 		spherecastSweep = handIndicator.transform.position - handIndicator.lastPosition;
@@ -31,7 +31,7 @@ public class HitChecker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001817 RID: 6167 RVA: 0x00075680 File Offset: 0x00073880
+	// Token: 0x06001864 RID: 6244 RVA: 0x000CBE1C File Offset: 0x000CA01C
 	public static bool CheckHandIn(ref bool anyHit, ref Collider[] colliderHit, float sphereRadius, int layerMask, ref GorillaTriggerColliderHandIndicator handIndicator, ref List<Collider> collidersToBeIn)
 	{
 		anyHit = (Physics.OverlapSphereNonAlloc(handIndicator.transform.position, sphereRadius, colliderHit, layerMask, QueryTriggerInteraction.Collide) > 0);
@@ -50,7 +50,7 @@ public class HitChecker : MonoBehaviour
 		return anyHit;
 	}
 
-	// Token: 0x06001818 RID: 6168 RVA: 0x000756D4 File Offset: 0x000738D4
+	// Token: 0x06001865 RID: 6245 RVA: 0x000408FE File Offset: 0x0003EAFE
 	public static int RayCastHitCompare(RaycastHit a, RaycastHit b)
 	{
 		if (a.distance < b.distance)

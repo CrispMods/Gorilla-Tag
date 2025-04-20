@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001C9 RID: 457
+// Token: 0x020001D4 RID: 468
 public class MirrorCameraScript : MonoBehaviour
 {
-	// Token: 0x06000AA3 RID: 2723 RVA: 0x00039B91 File Offset: 0x00037D91
+	// Token: 0x06000AEF RID: 2799 RVA: 0x00037B10 File Offset: 0x00035D10
 	private void Start()
 	{
 		if (this.mainCamera == null)
@@ -14,7 +14,7 @@ public class MirrorCameraScript : MonoBehaviour
 		GorillaTagger.Instance.MirrorCameraCullingMask.AddCallback(new Action<int>(this.MirrorCullingMaskChanged), true);
 	}
 
-	// Token: 0x06000AA4 RID: 2724 RVA: 0x00039BC8 File Offset: 0x00037DC8
+	// Token: 0x06000AF0 RID: 2800 RVA: 0x00037B47 File Offset: 0x00035D47
 	private void OnDestroy()
 	{
 		if (GorillaTagger.Instance != null)
@@ -23,13 +23,13 @@ public class MirrorCameraScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AA5 RID: 2725 RVA: 0x00039BF2 File Offset: 0x00037DF2
+	// Token: 0x06000AF1 RID: 2801 RVA: 0x00037B71 File Offset: 0x00035D71
 	private void MirrorCullingMaskChanged(int newMask)
 	{
 		this.mirrorCamera.cullingMask = newMask;
 	}
 
-	// Token: 0x06000AA6 RID: 2726 RVA: 0x00039C00 File Offset: 0x00037E00
+	// Token: 0x06000AF2 RID: 2802 RVA: 0x00099250 File Offset: 0x00097450
 	private void LateUpdate()
 	{
 		Vector3 position = base.transform.position;
@@ -57,7 +57,7 @@ public class MirrorCameraScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AA7 RID: 2727 RVA: 0x00039DB4 File Offset: 0x00037FB4
+	// Token: 0x06000AF3 RID: 2803 RVA: 0x00099404 File Offset: 0x00097604
 	private void CalculateReflectionMatrix(ref Matrix4x4 reflectionMatrix, Vector4 plane)
 	{
 		reflectionMatrix.m00 = 1f - 2f * plane[0] * plane[0];
@@ -78,7 +78,7 @@ public class MirrorCameraScript : MonoBehaviour
 		reflectionMatrix.m33 = 1f;
 	}
 
-	// Token: 0x06000AA8 RID: 2728 RVA: 0x00039F5C File Offset: 0x0003815C
+	// Token: 0x06000AF4 RID: 2804 RVA: 0x000995AC File Offset: 0x000977AC
 	private Vector4 CameraSpacePlane(Camera cam, Vector3 pos, Vector3 normal, float sideSign)
 	{
 		Vector3 point = pos + normal * 0.07f;
@@ -88,9 +88,9 @@ public class MirrorCameraScript : MonoBehaviour
 		return new Vector4(vector.x, vector.y, vector.z, -Vector3.Dot(lhs, vector));
 	}
 
-	// Token: 0x04000D1B RID: 3355
+	// Token: 0x04000D61 RID: 3425
 	public Camera mainCamera;
 
-	// Token: 0x04000D1C RID: 3356
+	// Token: 0x04000D62 RID: 3426
 	public Camera mirrorCamera;
 }

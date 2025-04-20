@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A3E RID: 2622
+	// Token: 0x02000A6B RID: 2667
 	public class DistanceGrabbable : OVRGrabbable
 	{
-		// Token: 0x1700068E RID: 1678
-		// (get) Token: 0x0600415A RID: 16730 RVA: 0x00135B4F File Offset: 0x00133D4F
-		// (set) Token: 0x0600415B RID: 16731 RVA: 0x00135B57 File Offset: 0x00133D57
+		// Token: 0x170006AA RID: 1706
+		// (get) Token: 0x0600429F RID: 17055 RVA: 0x0005B873 File Offset: 0x00059A73
+		// (set) Token: 0x060042A0 RID: 17056 RVA: 0x0005B87B File Offset: 0x00059A7B
 		public bool InRange
 		{
 			get
@@ -22,9 +22,9 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x1700068F RID: 1679
-		// (get) Token: 0x0600415C RID: 16732 RVA: 0x00135B66 File Offset: 0x00133D66
-		// (set) Token: 0x0600415D RID: 16733 RVA: 0x00135B6E File Offset: 0x00133D6E
+		// Token: 0x170006AB RID: 1707
+		// (get) Token: 0x060042A1 RID: 17057 RVA: 0x0005B88A File Offset: 0x00059A8A
+		// (set) Token: 0x060042A2 RID: 17058 RVA: 0x0005B892 File Offset: 0x00059A92
 		public bool Targeted
 		{
 			get
@@ -38,19 +38,19 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x0600415E RID: 16734 RVA: 0x00135B80 File Offset: 0x00133D80
+		// Token: 0x060042A3 RID: 17059 RVA: 0x00175B28 File Offset: 0x00173D28
 		protected override void Start()
 		{
 			base.Start();
 			this.m_crosshair = base.gameObject.GetComponentInChildren<GrabbableCrosshair>();
 			this.m_renderer = base.gameObject.GetComponent<Renderer>();
-			this.m_crosshairManager = Object.FindObjectOfType<GrabManager>();
+			this.m_crosshairManager = UnityEngine.Object.FindObjectOfType<GrabManager>();
 			this.m_mpb = new MaterialPropertyBlock();
 			this.RefreshCrosshair();
 			this.m_renderer.SetPropertyBlock(this.m_mpb);
 		}
 
-		// Token: 0x0600415F RID: 16735 RVA: 0x00135BE4 File Offset: 0x00133DE4
+		// Token: 0x060042A4 RID: 17060 RVA: 0x00175B8C File Offset: 0x00173D8C
 		private void RefreshCrosshair()
 		{
 			if (this.m_crosshair)
@@ -87,25 +87,25 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x04004279 RID: 17017
+		// Token: 0x04004373 RID: 17267
 		public string m_materialColorField;
 
-		// Token: 0x0400427A RID: 17018
+		// Token: 0x04004374 RID: 17268
 		private GrabbableCrosshair m_crosshair;
 
-		// Token: 0x0400427B RID: 17019
+		// Token: 0x04004375 RID: 17269
 		private GrabManager m_crosshairManager;
 
-		// Token: 0x0400427C RID: 17020
+		// Token: 0x04004376 RID: 17270
 		private Renderer m_renderer;
 
-		// Token: 0x0400427D RID: 17021
+		// Token: 0x04004377 RID: 17271
 		private MaterialPropertyBlock m_mpb;
 
-		// Token: 0x0400427E RID: 17022
+		// Token: 0x04004378 RID: 17272
 		private bool m_inRange;
 
-		// Token: 0x0400427F RID: 17023
+		// Token: 0x04004379 RID: 17273
 		private bool m_targeted;
 	}
 }

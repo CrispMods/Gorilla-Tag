@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009A8 RID: 2472
+	// Token: 0x020009CE RID: 2510
 	public class BuilderTestTools : MonoBehaviour
 	{
-		// Token: 0x06003D36 RID: 15670 RVA: 0x00037516 File Offset: 0x00035716
+		// Token: 0x06003E4E RID: 15950 RVA: 0x000373D8 File Offset: 0x000355D8
 		public void Awake()
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 		}
 	}
 }

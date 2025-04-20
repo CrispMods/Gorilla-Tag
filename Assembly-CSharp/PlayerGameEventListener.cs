@@ -2,22 +2,22 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x02000110 RID: 272
+// Token: 0x0200011A RID: 282
 public class PlayerGameEventListener : MonoBehaviour
 {
-	// Token: 0x0600074D RID: 1869 RVA: 0x00029462 File Offset: 0x00027662
+	// Token: 0x0600078E RID: 1934 RVA: 0x00035669 File Offset: 0x00033869
 	private void OnEnable()
 	{
 		this.SubscribeToEvents();
 	}
 
-	// Token: 0x0600074E RID: 1870 RVA: 0x0002946A File Offset: 0x0002766A
+	// Token: 0x0600078F RID: 1935 RVA: 0x00035671 File Offset: 0x00033871
 	private void OnDisable()
 	{
 		this.UnsubscribeFromEvents();
 	}
 
-	// Token: 0x0600074F RID: 1871 RVA: 0x00029474 File Offset: 0x00027674
+	// Token: 0x06000790 RID: 1936 RVA: 0x0008AF9C File Offset: 0x0008919C
 	private void SubscribeToEvents()
 	{
 		switch (this.eventType)
@@ -65,7 +65,7 @@ public class PlayerGameEventListener : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000750 RID: 1872 RVA: 0x000295A8 File Offset: 0x000277A8
+	// Token: 0x06000791 RID: 1937 RVA: 0x0008B0D0 File Offset: 0x000892D0
 	private void UnsubscribeFromEvents()
 	{
 		switch (this.eventType)
@@ -113,13 +113,13 @@ public class PlayerGameEventListener : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000751 RID: 1873 RVA: 0x000296D9 File Offset: 0x000278D9
+	// Token: 0x06000792 RID: 1938 RVA: 0x00035679 File Offset: 0x00033879
 	private void OnGameMoveEventTriggered(float distance, float speed)
 	{
 		Debug.LogError("Movement events not supported - please implement");
 	}
 
-	// Token: 0x06000752 RID: 1874 RVA: 0x000296E8 File Offset: 0x000278E8
+	// Token: 0x06000793 RID: 1939 RVA: 0x0008B204 File Offset: 0x00089404
 	public void OnGameEventTriggered(string eventName)
 	{
 		if (!string.IsNullOrEmpty(this.filter) && !eventName.StartsWith(this.filter))
@@ -139,23 +139,23 @@ public class PlayerGameEventListener : MonoBehaviour
 		unityEvent.Invoke();
 	}
 
-	// Token: 0x040008AF RID: 2223
+	// Token: 0x040008F0 RID: 2288
 	[SerializeField]
 	private PlayerGameEvents.EventType eventType;
 
-	// Token: 0x040008B0 RID: 2224
+	// Token: 0x040008F1 RID: 2289
 	[Tooltip("Cooldown in seconds")]
 	[SerializeField]
 	private string filter;
 
-	// Token: 0x040008B1 RID: 2225
+	// Token: 0x040008F2 RID: 2290
 	[SerializeField]
 	private float cooldown = 1f;
 
-	// Token: 0x040008B2 RID: 2226
+	// Token: 0x040008F3 RID: 2291
 	[SerializeField]
 	private UnityEvent onGameEvent;
 
-	// Token: 0x040008B3 RID: 2227
+	// Token: 0x040008F4 RID: 2292
 	private float _cooldownEnd;
 }

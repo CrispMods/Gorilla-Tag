@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B9D RID: 2973
+	// Token: 0x02000BCA RID: 3018
 	public class DrinkableHoldable : TransferrableObject
 	{
-		// Token: 0x06004AF0 RID: 19184 RVA: 0x0016A90C File Offset: 0x00168B0C
+		// Token: 0x06004C3B RID: 19515 RVA: 0x001A3E70 File Offset: 0x001A2070
 		internal override void OnEnable()
 		{
 			base.OnEnable();
@@ -17,7 +17,7 @@ namespace GorillaTag
 			this.myByteArray = new byte[32];
 		}
 
-		// Token: 0x06004AF1 RID: 19185 RVA: 0x0016A960 File Offset: 0x00168B60
+		// Token: 0x06004C3C RID: 19516 RVA: 0x001A3EC4 File Offset: 0x001A20C4
 		protected override void LateUpdateLocal()
 		{
 			if (!this.containerLiquid.isActiveAndEnabled || !GorillaParent.hasInstance || !GorillaComputer.hasInstance)
@@ -71,7 +71,7 @@ namespace GorillaTag
 			base.LateUpdateLocal();
 		}
 
-		// Token: 0x06004AF2 RID: 19186 RVA: 0x0016AB5C File Offset: 0x00168D5C
+		// Token: 0x06004C3D RID: 19517 RVA: 0x001A40C0 File Offset: 0x001A22C0
 		protected override void LateUpdateReplicated()
 		{
 			base.LateUpdateReplicated();
@@ -79,7 +79,7 @@ namespace GorillaTag
 			this.UnpackValuesNonstatic(itemState, out this.lastTimeSipSoundPlayed, out this.containerLiquid.fillAmount, out this.coolingDown);
 		}
 
-		// Token: 0x06004AF3 RID: 19187 RVA: 0x0016AB95 File Offset: 0x00168D95
+		// Token: 0x06004C3E RID: 19518 RVA: 0x000622AB File Offset: 0x000604AB
 		protected override void LateUpdateShared()
 		{
 			base.LateUpdateShared();
@@ -90,7 +90,7 @@ namespace GorillaTag
 			this.wasCoolingDown = this.coolingDown;
 		}
 
-		// Token: 0x06004AF4 RID: 19188 RVA: 0x0016ABC4 File Offset: 0x00168DC4
+		// Token: 0x06004C3F RID: 19519 RVA: 0x001A40FC File Offset: 0x001A22FC
 		private static int PackValues(float cooldownStartTime, float fillAmount, bool coolingDown)
 		{
 			byte[] array = new byte[32];
@@ -101,7 +101,7 @@ namespace GorillaTag
 			return BitConverter.ToInt32(array, 0);
 		}
 
-		// Token: 0x06004AF5 RID: 19189 RVA: 0x0016AC18 File Offset: 0x00168E18
+		// Token: 0x06004C40 RID: 19520 RVA: 0x001A4150 File Offset: 0x001A2350
 		private void UnpackValuesNonstatic(in int packed, out float cooldownStartTime, out float fillAmount, out bool coolingDown)
 		{
 			DrinkableHoldable.GetBytes(packed, ref this.myByteArray);
@@ -111,7 +111,7 @@ namespace GorillaTag
 			fillAmount = this.myByteArray.Read(ref num, 6) / 63f;
 		}
 
-		// Token: 0x06004AF6 RID: 19190 RVA: 0x0016AC7C File Offset: 0x00168E7C
+		// Token: 0x06004C41 RID: 19521 RVA: 0x001A41B4 File Offset: 0x001A23B4
 		public static void GetBytes(int value, ref byte[] bytes)
 		{
 			for (int i = 0; i < bytes.Length; i++)
@@ -120,7 +120,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004AF7 RID: 19191 RVA: 0x0016ACAC File Offset: 0x00168EAC
+		// Token: 0x06004C42 RID: 19522 RVA: 0x001A41E4 File Offset: 0x001A23E4
 		private static void UnpackValuesStatic(in int packed, out float cooldownStartTime, out float fillAmount, out bool coolingDown)
 		{
 			byte[] bytes = BitConverter.GetBytes(packed);
@@ -130,44 +130,44 @@ namespace GorillaTag
 			fillAmount = bytes.Read(ref num, 6) / 63f;
 		}
 
-		// Token: 0x04004C67 RID: 19559
+		// Token: 0x04004D5D RID: 19805
 		[AssignInCorePrefab]
 		public ContainerLiquid containerLiquid;
 
-		// Token: 0x04004C68 RID: 19560
+		// Token: 0x04004D5E RID: 19806
 		[AssignInCorePrefab]
 		[SoundBankInfo]
 		public SoundBankPlayer sipSoundBankPlayer;
 
-		// Token: 0x04004C69 RID: 19561
+		// Token: 0x04004D5F RID: 19807
 		[AssignInCorePrefab]
 		public float sipRate = 0.1f;
 
-		// Token: 0x04004C6A RID: 19562
+		// Token: 0x04004D60 RID: 19808
 		[AssignInCorePrefab]
 		public float sipSoundCooldown = 0.5f;
 
-		// Token: 0x04004C6B RID: 19563
+		// Token: 0x04004D61 RID: 19809
 		[AssignInCorePrefab]
 		public Vector3 headToMouthOffset = new Vector3(0f, 0.0208f, 0.171f);
 
-		// Token: 0x04004C6C RID: 19564
+		// Token: 0x04004D62 RID: 19810
 		[AssignInCorePrefab]
 		public float sipRadius = 0.15f;
 
-		// Token: 0x04004C6D RID: 19565
+		// Token: 0x04004D63 RID: 19811
 		private float lastTimeSipSoundPlayed;
 
-		// Token: 0x04004C6E RID: 19566
+		// Token: 0x04004D64 RID: 19812
 		private bool wasSipping;
 
-		// Token: 0x04004C6F RID: 19567
+		// Token: 0x04004D65 RID: 19813
 		private bool coolingDown;
 
-		// Token: 0x04004C70 RID: 19568
+		// Token: 0x04004D66 RID: 19814
 		private bool wasCoolingDown;
 
-		// Token: 0x04004C71 RID: 19569
+		// Token: 0x04004D67 RID: 19815
 		private byte[] myByteArray;
 	}
 }

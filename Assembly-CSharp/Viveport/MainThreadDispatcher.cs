@@ -5,20 +5,20 @@ using UnityEngine;
 
 namespace Viveport
 {
-	// Token: 0x020008F6 RID: 2294
+	// Token: 0x02000913 RID: 2323
 	public class MainThreadDispatcher : MonoBehaviour
 	{
-		// Token: 0x0600371E RID: 14110 RVA: 0x00104F49 File Offset: 0x00103149
+		// Token: 0x060037EF RID: 14319 RVA: 0x00054FE9 File Offset: 0x000531E9
 		private void Awake()
 		{
 			if (MainThreadDispatcher.instance == null)
 			{
 				MainThreadDispatcher.instance = this;
-				Object.DontDestroyOnLoad(base.gameObject);
+				UnityEngine.Object.DontDestroyOnLoad(base.gameObject);
 			}
 		}
 
-		// Token: 0x0600371F RID: 14111 RVA: 0x00104F6C File Offset: 0x0010316C
+		// Token: 0x060037F0 RID: 14320 RVA: 0x00149D98 File Offset: 0x00147F98
 		public void Update()
 		{
 			Queue<Action> obj = MainThreadDispatcher.actions;
@@ -31,7 +31,7 @@ namespace Viveport
 			}
 		}
 
-		// Token: 0x06003720 RID: 14112 RVA: 0x00104FC4 File Offset: 0x001031C4
+		// Token: 0x060037F1 RID: 14321 RVA: 0x00055009 File Offset: 0x00053209
 		public static MainThreadDispatcher Instance()
 		{
 			if (MainThreadDispatcher.instance == null)
@@ -41,13 +41,13 @@ namespace Viveport
 			return MainThreadDispatcher.instance;
 		}
 
-		// Token: 0x06003721 RID: 14113 RVA: 0x00104FE3 File Offset: 0x001031E3
+		// Token: 0x060037F2 RID: 14322 RVA: 0x00055028 File Offset: 0x00053228
 		private void OnDestroy()
 		{
 			MainThreadDispatcher.instance = null;
 		}
 
-		// Token: 0x06003722 RID: 14114 RVA: 0x00104FEC File Offset: 0x001031EC
+		// Token: 0x060037F3 RID: 14323 RVA: 0x00149DF0 File Offset: 0x00147FF0
 		public void Enqueue(IEnumerator action)
 		{
 			Queue<Action> obj = MainThreadDispatcher.actions;
@@ -60,37 +60,37 @@ namespace Viveport
 			}
 		}
 
-		// Token: 0x06003723 RID: 14115 RVA: 0x00105050 File Offset: 0x00103250
+		// Token: 0x060037F4 RID: 14324 RVA: 0x00055030 File Offset: 0x00053230
 		public void Enqueue(Action action)
 		{
 			this.Enqueue(this.ActionWrapper(action));
 		}
 
-		// Token: 0x06003724 RID: 14116 RVA: 0x0010505F File Offset: 0x0010325F
+		// Token: 0x060037F5 RID: 14325 RVA: 0x0005503F File Offset: 0x0005323F
 		public void Enqueue<T1>(Action<T1> action, T1 param1)
 		{
 			this.Enqueue(this.ActionWrapper<T1>(action, param1));
 		}
 
-		// Token: 0x06003725 RID: 14117 RVA: 0x0010506F File Offset: 0x0010326F
+		// Token: 0x060037F6 RID: 14326 RVA: 0x0005504F File Offset: 0x0005324F
 		public void Enqueue<T1, T2>(Action<T1, T2> action, T1 param1, T2 param2)
 		{
 			this.Enqueue(this.ActionWrapper<T1, T2>(action, param1, param2));
 		}
 
-		// Token: 0x06003726 RID: 14118 RVA: 0x00105080 File Offset: 0x00103280
+		// Token: 0x060037F7 RID: 14327 RVA: 0x00055060 File Offset: 0x00053260
 		public void Enqueue<T1, T2, T3>(Action<T1, T2, T3> action, T1 param1, T2 param2, T3 param3)
 		{
 			this.Enqueue(this.ActionWrapper<T1, T2, T3>(action, param1, param2, param3));
 		}
 
-		// Token: 0x06003727 RID: 14119 RVA: 0x00105093 File Offset: 0x00103293
+		// Token: 0x060037F8 RID: 14328 RVA: 0x00055073 File Offset: 0x00053273
 		public void Enqueue<T1, T2, T3, T4>(Action<T1, T2, T3, T4> action, T1 param1, T2 param2, T3 param3, T4 param4)
 		{
 			this.Enqueue(this.ActionWrapper<T1, T2, T3, T4>(action, param1, param2, param3, param4));
 		}
 
-		// Token: 0x06003728 RID: 14120 RVA: 0x001050A8 File Offset: 0x001032A8
+		// Token: 0x060037F9 RID: 14329 RVA: 0x00055088 File Offset: 0x00053288
 		private IEnumerator ActionWrapper(Action action)
 		{
 			action();
@@ -98,7 +98,7 @@ namespace Viveport
 			yield break;
 		}
 
-		// Token: 0x06003729 RID: 14121 RVA: 0x001050B7 File Offset: 0x001032B7
+		// Token: 0x060037FA RID: 14330 RVA: 0x00055097 File Offset: 0x00053297
 		private IEnumerator ActionWrapper<T1>(Action<T1> action, T1 param1)
 		{
 			action(param1);
@@ -106,7 +106,7 @@ namespace Viveport
 			yield break;
 		}
 
-		// Token: 0x0600372A RID: 14122 RVA: 0x001050CD File Offset: 0x001032CD
+		// Token: 0x060037FB RID: 14331 RVA: 0x000550AD File Offset: 0x000532AD
 		private IEnumerator ActionWrapper<T1, T2>(Action<T1, T2> action, T1 param1, T2 param2)
 		{
 			action(param1, param2);
@@ -114,7 +114,7 @@ namespace Viveport
 			yield break;
 		}
 
-		// Token: 0x0600372B RID: 14123 RVA: 0x001050EA File Offset: 0x001032EA
+		// Token: 0x060037FC RID: 14332 RVA: 0x000550CA File Offset: 0x000532CA
 		private IEnumerator ActionWrapper<T1, T2, T3>(Action<T1, T2, T3> action, T1 param1, T2 param2, T3 param3)
 		{
 			action(param1, param2, param3);
@@ -122,7 +122,7 @@ namespace Viveport
 			yield break;
 		}
 
-		// Token: 0x0600372C RID: 14124 RVA: 0x0010510F File Offset: 0x0010330F
+		// Token: 0x060037FD RID: 14333 RVA: 0x000550EF File Offset: 0x000532EF
 		private IEnumerator ActionWrapper<T1, T2, T3, T4>(Action<T1, T2, T3, T4> action, T1 param1, T2 param2, T3 param3, T4 param4)
 		{
 			action(param1, param2, param3, param4);
@@ -130,10 +130,10 @@ namespace Viveport
 			yield break;
 		}
 
-		// Token: 0x04003A1F RID: 14879
+		// Token: 0x04003AE4 RID: 15076
 		private static readonly Queue<Action> actions = new Queue<Action>();
 
-		// Token: 0x04003A20 RID: 14880
+		// Token: 0x04003AE5 RID: 15077
 		private static MainThreadDispatcher instance = null;
 	}
 }

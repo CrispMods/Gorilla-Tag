@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008B2 RID: 2226
+// Token: 0x020008CE RID: 2254
 [CreateAssetMenu(fileName = "New TeleportNode Definition", menuName = "Teleportation/TeleportNode Definition", order = 1)]
 public class TeleportNodeDefinition : ScriptableObject
 {
-	// Token: 0x17000583 RID: 1411
-	// (get) Token: 0x060035DE RID: 13790 RVA: 0x000FF3A8 File Offset: 0x000FD5A8
+	// Token: 0x17000594 RID: 1428
+	// (get) Token: 0x060036A6 RID: 13990 RVA: 0x000540BE File Offset: 0x000522BE
 	public TeleportNode Forward
 	{
 		get
@@ -15,8 +15,8 @@ public class TeleportNodeDefinition : ScriptableObject
 		}
 	}
 
-	// Token: 0x17000584 RID: 1412
-	// (get) Token: 0x060035DF RID: 13791 RVA: 0x000FF3B0 File Offset: 0x000FD5B0
+	// Token: 0x17000595 RID: 1429
+	// (get) Token: 0x060036A7 RID: 13991 RVA: 0x000540C6 File Offset: 0x000522C6
 	public TeleportNode Backward
 	{
 		get
@@ -25,25 +25,25 @@ public class TeleportNodeDefinition : ScriptableObject
 		}
 	}
 
-	// Token: 0x060035E0 RID: 13792 RVA: 0x000FF3B8 File Offset: 0x000FD5B8
+	// Token: 0x060036A8 RID: 13992 RVA: 0x000540CE File Offset: 0x000522CE
 	public void SetForward(TeleportNode node)
 	{
 		Debug.Log("registered fwd node " + node.name);
 		this.forward = node;
 	}
 
-	// Token: 0x060035E1 RID: 13793 RVA: 0x000FF3D6 File Offset: 0x000FD5D6
+	// Token: 0x060036A9 RID: 13993 RVA: 0x000540EC File Offset: 0x000522EC
 	public void SetBackward(TeleportNode node)
 	{
 		Debug.Log("registered bkwd node " + node.name);
 		this.backward = node;
 	}
 
-	// Token: 0x04003810 RID: 14352
+	// Token: 0x040038D1 RID: 14545
 	[SerializeField]
 	private TeleportNode forward;
 
-	// Token: 0x04003811 RID: 14353
+	// Token: 0x040038D2 RID: 14546
 	[SerializeField]
 	private TeleportNode backward;
 }

@@ -5,12 +5,12 @@ using Fusion.CodeGen;
 using UnityEngine;
 using UnityEngine.Scripting;
 
-// Token: 0x0200025D RID: 605
+// Token: 0x02000268 RID: 616
 [NetworkBehaviourWeaved(0)]
 public class FusionPlayerProperties : NetworkBehaviour
 {
-	// Token: 0x17000168 RID: 360
-	// (get) Token: 0x06000E17 RID: 3607 RVA: 0x000476B0 File Offset: 0x000458B0
+	// Token: 0x1700016F RID: 367
+	// (get) Token: 0x06000E62 RID: 3682 RVA: 0x000A4498 File Offset: 0x000A2698
 	[Capacity(10)]
 	private NetworkDictionary<PlayerRef, FusionPlayerProperties.PlayerInfo> netPlayerAttributes
 	{
@@ -20,8 +20,8 @@ public class FusionPlayerProperties : NetworkBehaviour
 		}
 	}
 
-	// Token: 0x17000169 RID: 361
-	// (get) Token: 0x06000E18 RID: 3608 RVA: 0x000476C8 File Offset: 0x000458C8
+	// Token: 0x17000170 RID: 368
+	// (get) Token: 0x06000E63 RID: 3683 RVA: 0x000A44B0 File Offset: 0x000A26B0
 	public FusionPlayerProperties.PlayerInfo PlayerProperties
 	{
 		get
@@ -30,7 +30,7 @@ public class FusionPlayerProperties : NetworkBehaviour
 		}
 	}
 
-	// Token: 0x06000E19 RID: 3609 RVA: 0x000476EE File Offset: 0x000458EE
+	// Token: 0x06000E64 RID: 3684 RVA: 0x0003A38F File Offset: 0x0003858F
 	private void OnAttributesChanged()
 	{
 		FusionPlayerProperties.PlayerAttributeOnChanged playerAttributeOnChanged = this.playerAttributeOnChanged;
@@ -41,7 +41,7 @@ public class FusionPlayerProperties : NetworkBehaviour
 		playerAttributeOnChanged();
 	}
 
-	// Token: 0x06000E1A RID: 3610 RVA: 0x00047700 File Offset: 0x00045900
+	// Token: 0x06000E65 RID: 3685 RVA: 0x000A44D8 File Offset: 0x000A26D8
 	[Rpc(RpcSources.All, RpcTargets.All, InvokeLocal = true, TickAligned = true)]
 	public unsafe void RPC_UpdatePlayerAttributes(FusionPlayerProperties.PlayerInfo newInfo, RpcInfo info = default(RpcInfo))
 	{
@@ -95,7 +95,7 @@ public class FusionPlayerProperties : NetworkBehaviour
 		this.netPlayerAttributes.Set(source, newInfo);
 	}
 
-	// Token: 0x06000E1B RID: 3611 RVA: 0x000478FD File Offset: 0x00045AFD
+	// Token: 0x06000E66 RID: 3686 RVA: 0x0003A3A1 File Offset: 0x000385A1
 	public override void Spawned()
 	{
 		Debug.Log("Player props SPAWNED!");
@@ -105,19 +105,19 @@ public class FusionPlayerProperties : NetworkBehaviour
 		}
 	}
 
-	// Token: 0x06000E1C RID: 3612 RVA: 0x00047924 File Offset: 0x00045B24
+	// Token: 0x06000E67 RID: 3687 RVA: 0x000A46D8 File Offset: 0x000A28D8
 	public string GetDisplayName(PlayerRef player)
 	{
 		return this.netPlayerAttributes[player].NickName.Value;
 	}
 
-	// Token: 0x06000E1D RID: 3613 RVA: 0x00047950 File Offset: 0x00045B50
+	// Token: 0x06000E68 RID: 3688 RVA: 0x000A4704 File Offset: 0x000A2904
 	public string GetLocalDisplayName()
 	{
 		return this.netPlayerAttributes[base.Runner.LocalPlayer].NickName.Value;
 	}
 
-	// Token: 0x06000E1E RID: 3614 RVA: 0x00047988 File Offset: 0x00045B88
+	// Token: 0x06000E69 RID: 3689 RVA: 0x000A473C File Offset: 0x000A293C
 	public bool GetProperty(PlayerRef player, string propertyName, out string propertyValue)
 	{
 		NetworkString<_32> networkString;
@@ -130,13 +130,13 @@ public class FusionPlayerProperties : NetworkBehaviour
 		return false;
 	}
 
-	// Token: 0x06000E1F RID: 3615 RVA: 0x000479D0 File Offset: 0x00045BD0
+	// Token: 0x06000E6A RID: 3690 RVA: 0x000A4784 File Offset: 0x000A2984
 	public bool PlayerHasEntry(PlayerRef player)
 	{
 		return this.netPlayerAttributes.ContainsKey(player);
 	}
 
-	// Token: 0x06000E20 RID: 3616 RVA: 0x000479EC File Offset: 0x00045BEC
+	// Token: 0x06000E6B RID: 3691 RVA: 0x000A47A0 File Offset: 0x000A29A0
 	public void RemovePlayerEntry(PlayerRef player)
 	{
 		if (base.Object.HasStateAuthority)
@@ -147,19 +147,19 @@ public class FusionPlayerProperties : NetworkBehaviour
 		}
 	}
 
-	// Token: 0x06000E22 RID: 3618 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E6D RID: 3693 RVA: 0x00030607 File Offset: 0x0002E807
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
 	}
 
-	// Token: 0x06000E23 RID: 3619 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E6E RID: 3694 RVA: 0x00030607 File Offset: 0x0002E807
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
 	}
 
-	// Token: 0x06000E24 RID: 3620 RVA: 0x00047A54 File Offset: 0x00045C54
+	// Token: 0x06000E6F RID: 3695 RVA: 0x000A4800 File Offset: 0x000A2A00
 	[NetworkRpcWeavedInvoker(1, 7, 7)]
 	[Preserve]
 	[WeaverGenerated]
@@ -175,17 +175,17 @@ public class FusionPlayerProperties : NetworkBehaviour
 		((FusionPlayerProperties)behaviour).RPC_UpdatePlayerAttributes(newInfo, info);
 	}
 
-	// Token: 0x040010EC RID: 4332
+	// Token: 0x04001132 RID: 4402
 	public FusionPlayerProperties.PlayerAttributeOnChanged playerAttributeOnChanged;
 
-	// Token: 0x0200025E RID: 606
+	// Token: 0x02000269 RID: 617
 	[NetworkStructWeaved(240)]
 	[StructLayout(LayoutKind.Explicit, Size = 960)]
 	public struct PlayerInfo : INetworkStruct
 	{
-		// Token: 0x1700016A RID: 362
-		// (get) Token: 0x06000E25 RID: 3621 RVA: 0x00047ACB File Offset: 0x00045CCB
-		// (set) Token: 0x06000E26 RID: 3622 RVA: 0x00047ADD File Offset: 0x00045CDD
+		// Token: 0x17000171 RID: 369
+		// (get) Token: 0x06000E70 RID: 3696 RVA: 0x0003A3CD File Offset: 0x000385CD
+		// (set) Token: 0x06000E71 RID: 3697 RVA: 0x0003A3DF File Offset: 0x000385DF
 		[Networked]
 		public unsafe NetworkString<_32> NickName
 		{
@@ -199,8 +199,8 @@ public class FusionPlayerProperties : NetworkBehaviour
 			}
 		}
 
-		// Token: 0x1700016B RID: 363
-		// (get) Token: 0x06000E27 RID: 3623 RVA: 0x00047AF0 File Offset: 0x00045CF0
+		// Token: 0x17000172 RID: 370
+		// (get) Token: 0x06000E72 RID: 3698 RVA: 0x0003A3F2 File Offset: 0x000385F2
 		[Networked]
 		public unsafe NetworkDictionary<NetworkString<_32>, NetworkString<_32>> properties
 		{
@@ -210,14 +210,14 @@ public class FusionPlayerProperties : NetworkBehaviour
 			}
 		}
 
-		// Token: 0x040010ED RID: 4333
+		// Token: 0x04001133 RID: 4403
 		[FixedBufferProperty(typeof(NetworkString<_32>), typeof(UnityValueSurrogate@ReaderWriter@Fusion_NetworkString), 0, order = -2147483647)]
 		[WeaverGenerated]
 		[SerializeField]
 		[FieldOffset(0)]
 		private FixedStorage@33 _NickName;
 
-		// Token: 0x040010EE RID: 4334
+		// Token: 0x04001134 RID: 4404
 		[FixedBufferProperty(typeof(NetworkDictionary<NetworkString<_32>, NetworkString<_32>>), typeof(UnityDictionarySurrogate@ReaderWriter@Fusion_NetworkString`1<Fusion__32>@ReaderWriter@Fusion_NetworkString), 3, order = -2147483647)]
 		[WeaverGenerated]
 		[SerializeField]
@@ -225,7 +225,7 @@ public class FusionPlayerProperties : NetworkBehaviour
 		private FixedStorage@207 _properties;
 	}
 
-	// Token: 0x0200025F RID: 607
-	// (Invoke) Token: 0x06000E29 RID: 3625
+	// Token: 0x0200026A RID: 618
+	// (Invoke) Token: 0x06000E74 RID: 3700
 	public delegate void PlayerAttributeOnChanged();
 }

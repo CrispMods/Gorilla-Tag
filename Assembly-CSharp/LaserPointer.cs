@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020002BE RID: 702
+// Token: 0x020002C9 RID: 713
 public class LaserPointer : OVRCursor
 {
-	// Token: 0x170001E5 RID: 485
-	// (get) Token: 0x060010EA RID: 4330 RVA: 0x00051B4F File Offset: 0x0004FD4F
-	// (set) Token: 0x060010E9 RID: 4329 RVA: 0x00051B1B File Offset: 0x0004FD1B
+	// Token: 0x170001EC RID: 492
+	// (get) Token: 0x06001136 RID: 4406 RVA: 0x0003BB8A File Offset: 0x00039D8A
+	// (set) Token: 0x06001135 RID: 4405 RVA: 0x0003BB56 File Offset: 0x00039D56
 	public LaserPointer.LaserBeamBehavior laserBeamBehavior
 	{
 		get
@@ -25,13 +25,13 @@ public class LaserPointer : OVRCursor
 		}
 	}
 
-	// Token: 0x060010EB RID: 4331 RVA: 0x00051B57 File Offset: 0x0004FD57
+	// Token: 0x06001137 RID: 4407 RVA: 0x0003BB92 File Offset: 0x00039D92
 	private void Awake()
 	{
 		this.lineRenderer = base.GetComponent<LineRenderer>();
 	}
 
-	// Token: 0x060010EC RID: 4332 RVA: 0x00051B65 File Offset: 0x0004FD65
+	// Token: 0x06001138 RID: 4408 RVA: 0x0003BBA0 File Offset: 0x00039DA0
 	private void Start()
 	{
 		if (this.cursorVisual)
@@ -42,7 +42,7 @@ public class LaserPointer : OVRCursor
 		OVRManager.InputFocusLost += this.OnInputFocusLost;
 	}
 
-	// Token: 0x060010ED RID: 4333 RVA: 0x00051BA2 File Offset: 0x0004FDA2
+	// Token: 0x06001139 RID: 4409 RVA: 0x0003BBDD File Offset: 0x00039DDD
 	public override void SetCursorStartDest(Vector3 start, Vector3 dest, Vector3 normal)
 	{
 		this._startPoint = start;
@@ -50,7 +50,7 @@ public class LaserPointer : OVRCursor
 		this._hitTarget = true;
 	}
 
-	// Token: 0x060010EE RID: 4334 RVA: 0x00051BB9 File Offset: 0x0004FDB9
+	// Token: 0x0600113A RID: 4410 RVA: 0x0003BBF4 File Offset: 0x00039DF4
 	public override void SetCursorRay(Transform t)
 	{
 		this._startPoint = t.position;
@@ -58,7 +58,7 @@ public class LaserPointer : OVRCursor
 		this._hitTarget = false;
 	}
 
-	// Token: 0x060010EF RID: 4335 RVA: 0x00051BDC File Offset: 0x0004FDDC
+	// Token: 0x0600113B RID: 4411 RVA: 0x000AD150 File Offset: 0x000AB350
 	private void LateUpdate()
 	{
 		this.lineRenderer.SetPosition(0, this._startPoint);
@@ -84,7 +84,7 @@ public class LaserPointer : OVRCursor
 		}
 	}
 
-	// Token: 0x060010F0 RID: 4336 RVA: 0x00051CC4 File Offset: 0x0004FEC4
+	// Token: 0x0600113C RID: 4412 RVA: 0x000AD238 File Offset: 0x000AB438
 	private void UpdateLaserBeam(Vector3 start, Vector3 end)
 	{
 		if (this.laserBeamBehavior == LaserPointer.LaserBeamBehavior.Off)
@@ -116,7 +116,7 @@ public class LaserPointer : OVRCursor
 		}
 	}
 
-	// Token: 0x060010F1 RID: 4337 RVA: 0x00051D5C File Offset: 0x0004FF5C
+	// Token: 0x0600113D RID: 4413 RVA: 0x0003BC15 File Offset: 0x00039E15
 	private void OnDisable()
 	{
 		if (this.cursorVisual)
@@ -125,7 +125,7 @@ public class LaserPointer : OVRCursor
 		}
 	}
 
-	// Token: 0x060010F2 RID: 4338 RVA: 0x00051D77 File Offset: 0x0004FF77
+	// Token: 0x0600113E RID: 4414 RVA: 0x0003BC30 File Offset: 0x00039E30
 	public void OnInputFocusLost()
 	{
 		if (base.gameObject && base.gameObject.activeInHierarchy)
@@ -135,7 +135,7 @@ public class LaserPointer : OVRCursor
 		}
 	}
 
-	// Token: 0x060010F3 RID: 4339 RVA: 0x00051DA6 File Offset: 0x0004FFA6
+	// Token: 0x0600113F RID: 4415 RVA: 0x0003BC5F File Offset: 0x00039E5F
 	public void OnInputFocusAcquired()
 	{
 		if (this.m_restoreOnInputAcquired && base.gameObject)
@@ -145,48 +145,48 @@ public class LaserPointer : OVRCursor
 		}
 	}
 
-	// Token: 0x060010F4 RID: 4340 RVA: 0x00051DD0 File Offset: 0x0004FFD0
+	// Token: 0x06001140 RID: 4416 RVA: 0x0003BC89 File Offset: 0x00039E89
 	private void OnDestroy()
 	{
 		OVRManager.InputFocusAcquired -= this.OnInputFocusAcquired;
 		OVRManager.InputFocusLost -= this.OnInputFocusLost;
 	}
 
-	// Token: 0x040012E8 RID: 4840
+	// Token: 0x04001330 RID: 4912
 	public GameObject cursorVisual;
 
-	// Token: 0x040012E9 RID: 4841
+	// Token: 0x04001331 RID: 4913
 	public float maxLength = 10f;
 
-	// Token: 0x040012EA RID: 4842
+	// Token: 0x04001332 RID: 4914
 	private LaserPointer.LaserBeamBehavior _laserBeamBehavior;
 
-	// Token: 0x040012EB RID: 4843
+	// Token: 0x04001333 RID: 4915
 	private bool m_restoreOnInputAcquired;
 
-	// Token: 0x040012EC RID: 4844
+	// Token: 0x04001334 RID: 4916
 	private Vector3 _startPoint;
 
-	// Token: 0x040012ED RID: 4845
+	// Token: 0x04001335 RID: 4917
 	private Vector3 _forward;
 
-	// Token: 0x040012EE RID: 4846
+	// Token: 0x04001336 RID: 4918
 	private Vector3 _endPoint;
 
-	// Token: 0x040012EF RID: 4847
+	// Token: 0x04001337 RID: 4919
 	private bool _hitTarget;
 
-	// Token: 0x040012F0 RID: 4848
+	// Token: 0x04001338 RID: 4920
 	private LineRenderer lineRenderer;
 
-	// Token: 0x020002BF RID: 703
+	// Token: 0x020002CA RID: 714
 	public enum LaserBeamBehavior
 	{
-		// Token: 0x040012F2 RID: 4850
+		// Token: 0x0400133A RID: 4922
 		On,
-		// Token: 0x040012F3 RID: 4851
+		// Token: 0x0400133B RID: 4923
 		Off,
-		// Token: 0x040012F4 RID: 4852
+		// Token: 0x0400133C RID: 4924
 		OnWhenHitTarget
 	}
 }

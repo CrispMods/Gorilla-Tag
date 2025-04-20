@@ -2,17 +2,17 @@
 using GorillaExtensions;
 using Photon.Pun;
 
-// Token: 0x02000065 RID: 101
+// Token: 0x0200006B RID: 107
 public struct CritterAppearance
 {
-	// Token: 0x06000285 RID: 645 RVA: 0x00010AC7 File Offset: 0x0000ECC7
+	// Token: 0x060002B3 RID: 691 RVA: 0x00032172 File Offset: 0x00030372
 	public CritterAppearance(string hatName, float size = 1f)
 	{
 		this.hatName = hatName;
 		this.size = size;
 	}
 
-	// Token: 0x06000286 RID: 646 RVA: 0x00010AD8 File Offset: 0x0000ECD8
+	// Token: 0x060002B4 RID: 692 RVA: 0x000757C4 File Offset: 0x000739C4
 	public object[] WriteToRPCData()
 	{
 		object[] array = new object[]
@@ -31,20 +31,20 @@ public struct CritterAppearance
 		return array;
 	}
 
-	// Token: 0x06000287 RID: 647 RVA: 0x00010B2F File Offset: 0x0000ED2F
+	// Token: 0x060002B5 RID: 693 RVA: 0x00032182 File Offset: 0x00030382
 	public static int DataLength()
 	{
 		return 2;
 	}
 
-	// Token: 0x06000288 RID: 648 RVA: 0x00010B34 File Offset: 0x0000ED34
+	// Token: 0x060002B6 RID: 694 RVA: 0x0007581C File Offset: 0x00073A1C
 	public static bool ValidateData(object[] data)
 	{
 		float num;
-		return data.Length == CritterAppearance.DataLength() && CrittersManager.ValidateDataType<float>(data[1], out num) && num >= 0f && !float.IsNaN(num) && !float.IsInfinity(num);
+		return data != null && data.Length == CritterAppearance.DataLength() && CrittersManager.ValidateDataType<float>(data[1], out num) && num >= 0f && !float.IsNaN(num) && !float.IsInfinity(num);
 	}
 
-	// Token: 0x06000289 RID: 649 RVA: 0x00010B78 File Offset: 0x0000ED78
+	// Token: 0x060002B7 RID: 695 RVA: 0x00075864 File Offset: 0x00073A64
 	public static CritterAppearance ReadFromRPCData(object[] data)
 	{
 		string text;
@@ -60,7 +60,7 @@ public struct CritterAppearance
 		return new CritterAppearance((string)data[0], value.GetFinite());
 	}
 
-	// Token: 0x0600028A RID: 650 RVA: 0x00010BD0 File Offset: 0x0000EDD0
+	// Token: 0x060002B8 RID: 696 RVA: 0x000758BC File Offset: 0x00073ABC
 	public static CritterAppearance ReadFromPhotonStream(PhotonStream data)
 	{
 		string text = (string)data.ReceiveNext();
@@ -68,15 +68,15 @@ public struct CritterAppearance
 		return new CritterAppearance(text, num);
 	}
 
-	// Token: 0x0600028B RID: 651 RVA: 0x00010BFA File Offset: 0x0000EDFA
+	// Token: 0x060002B9 RID: 697 RVA: 0x00032185 File Offset: 0x00030385
 	public override string ToString()
 	{
 		return string.Format("Size: {0} Hat: {1}", this.size, this.hatName);
 	}
 
-	// Token: 0x04000335 RID: 821
+	// Token: 0x04000367 RID: 871
 	public float size;
 
-	// Token: 0x04000336 RID: 822
+	// Token: 0x04000368 RID: 872
 	public string hatName;
 }

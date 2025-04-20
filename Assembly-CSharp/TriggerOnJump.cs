@@ -5,10 +5,10 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x0200017E RID: 382
+// Token: 0x02000189 RID: 393
 public class TriggerOnJump : MonoBehaviour, ITickSystemTick
 {
-	// Token: 0x06000990 RID: 2448 RVA: 0x00032CE8 File Offset: 0x00030EE8
+	// Token: 0x060009DC RID: 2524 RVA: 0x00092F58 File Offset: 0x00091158
 	private void OnEnable()
 	{
 		if (this.myRig.IsNull())
@@ -33,7 +33,7 @@ public class TriggerOnJump : MonoBehaviour, ITickSystemTick
 		}
 	}
 
-	// Token: 0x06000991 RID: 2449 RVA: 0x00032E10 File Offset: 0x00031010
+	// Token: 0x060009DD RID: 2525 RVA: 0x00093080 File Offset: 0x00091280
 	private void OnDisable()
 	{
 		TickSystem<object>.RemoveCallbackTarget(this);
@@ -44,12 +44,12 @@ public class TriggerOnJump : MonoBehaviour, ITickSystemTick
 		if (this._events != null)
 		{
 			this._events.Activate -= this.OnActivate;
-			Object.Destroy(this._events);
+			UnityEngine.Object.Destroy(this._events);
 			this._events = null;
 		}
 	}
 
-	// Token: 0x06000992 RID: 2450 RVA: 0x00032E89 File Offset: 0x00031089
+	// Token: 0x060009DE RID: 2526 RVA: 0x00036F5B File Offset: 0x0003515B
 	private void OnActivate(int sender, int target, object[] args, PhotonMessageInfoWrapped info)
 	{
 		GorillaNot.IncrementRPCCall(info, "OnJumpActivate");
@@ -64,7 +64,7 @@ public class TriggerOnJump : MonoBehaviour, ITickSystemTick
 		this.onJumping.Invoke();
 	}
 
-	// Token: 0x06000993 RID: 2451 RVA: 0x00032EC4 File Offset: 0x000310C4
+	// Token: 0x060009DF RID: 2527 RVA: 0x000930FC File Offset: 0x000912FC
 	public void Tick()
 	{
 		GTPlayer instance = GTPlayer.Instance;
@@ -98,45 +98,45 @@ public class TriggerOnJump : MonoBehaviour, ITickSystemTick
 		}
 	}
 
-	// Token: 0x170000F2 RID: 242
-	// (get) Token: 0x06000994 RID: 2452 RVA: 0x00032FD0 File Offset: 0x000311D0
-	// (set) Token: 0x06000995 RID: 2453 RVA: 0x00032FD8 File Offset: 0x000311D8
+	// Token: 0x170000F9 RID: 249
+	// (get) Token: 0x060009E0 RID: 2528 RVA: 0x00036F93 File Offset: 0x00035193
+	// (set) Token: 0x060009E1 RID: 2529 RVA: 0x00036F9B File Offset: 0x0003519B
 	public bool TickRunning { get; set; }
 
-	// Token: 0x04000B8E RID: 2958
+	// Token: 0x04000BD4 RID: 3028
 	[SerializeField]
 	private float minJumpStrength = 1f;
 
-	// Token: 0x04000B8F RID: 2959
+	// Token: 0x04000BD5 RID: 3029
 	[SerializeField]
 	private float minJumpVertical = 1f;
 
-	// Token: 0x04000B90 RID: 2960
+	// Token: 0x04000BD6 RID: 3030
 	[SerializeField]
 	private float cooldownTime = 1f;
 
-	// Token: 0x04000B91 RID: 2961
+	// Token: 0x04000BD7 RID: 3031
 	[SerializeField]
 	private UnityEvent onJumping;
 
-	// Token: 0x04000B92 RID: 2962
+	// Token: 0x04000BD8 RID: 3032
 	private RubberDuckEvents _events;
 
-	// Token: 0x04000B93 RID: 2963
+	// Token: 0x04000BD9 RID: 3033
 	private bool playerOnGround;
 
-	// Token: 0x04000B94 RID: 2964
+	// Token: 0x04000BDA RID: 3034
 	private float minJumpTime = 0.05f;
 
-	// Token: 0x04000B95 RID: 2965
+	// Token: 0x04000BDB RID: 3035
 	private bool waitingForGrounding;
 
-	// Token: 0x04000B96 RID: 2966
+	// Token: 0x04000BDC RID: 3036
 	private float jumpStartTime;
 
-	// Token: 0x04000B97 RID: 2967
+	// Token: 0x04000BDD RID: 3037
 	private float lastActivationTime;
 
-	// Token: 0x04000B98 RID: 2968
+	// Token: 0x04000BDE RID: 3038
 	private VRRig myRig;
 }

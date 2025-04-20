@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020007B1 RID: 1969
+// Token: 0x020007C9 RID: 1993
 public class PostVRRigPhysicsSynch : MonoBehaviour
 {
-	// Token: 0x06003085 RID: 12421 RVA: 0x000E9AAA File Offset: 0x000E7CAA
+	// Token: 0x06003137 RID: 12599 RVA: 0x0005094E File Offset: 0x0004EB4E
 	private void LateUpdate()
 	{
 		Physics.SyncTransforms();

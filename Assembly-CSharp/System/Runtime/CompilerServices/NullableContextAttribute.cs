@@ -9,7 +9,7 @@ namespace System.Runtime.CompilerServices
 	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Method | AttributeTargets.Interface | AttributeTargets.Delegate, AllowMultiple = false, Inherited = false)]
 	internal sealed class NullableContextAttribute : Attribute
 	{
-		// Token: 0x06000014 RID: 20 RVA: 0x0000227D File Offset: 0x0000047D
+		// Token: 0x06000014 RID: 20 RVA: 0x00030561 File Offset: 0x0002E761
 		public NullableContextAttribute(byte A_1)
 		{
 			this.Flag = A_1;

@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.XR;
 using Valve.VR;
 
-// Token: 0x02000505 RID: 1285
+// Token: 0x02000512 RID: 1298
 public class ControllerInputPoller : MonoBehaviour
 {
-	// Token: 0x1700032A RID: 810
-	// (get) Token: 0x06001F27 RID: 7975 RVA: 0x0009D676 File Offset: 0x0009B876
-	// (set) Token: 0x06001F28 RID: 7976 RVA: 0x0009D67E File Offset: 0x0009B87E
+	// Token: 0x17000331 RID: 817
+	// (get) Token: 0x06001F80 RID: 8064 RVA: 0x000454A7 File Offset: 0x000436A7
+	// (set) Token: 0x06001F81 RID: 8065 RVA: 0x000454AF File Offset: 0x000436AF
 	public GorillaControllerType controllerType { get; private set; }
 
-	// Token: 0x06001F29 RID: 7977 RVA: 0x0009D687 File Offset: 0x0009B887
+	// Token: 0x06001F82 RID: 8066 RVA: 0x000454B8 File Offset: 0x000436B8
 	private void Awake()
 	{
 		if (ControllerInputPoller.instance == null)
@@ -22,11 +22,11 @@ public class ControllerInputPoller : MonoBehaviour
 		}
 		if (ControllerInputPoller.instance != this)
 		{
-			Object.Destroy(base.gameObject);
+			UnityEngine.Object.Destroy(base.gameObject);
 		}
 	}
 
-	// Token: 0x06001F2A RID: 7978 RVA: 0x0009D6BC File Offset: 0x0009B8BC
+	// Token: 0x06001F83 RID: 8067 RVA: 0x000EF72C File Offset: 0x000ED92C
 	public static void AddUpdateCallback(Action callback)
 	{
 		if (!ControllerInputPoller.instance.didModifyOnUpdate)
@@ -38,7 +38,7 @@ public class ControllerInputPoller : MonoBehaviour
 		ControllerInputPoller.instance.onUpdateNext.Add(callback);
 	}
 
-	// Token: 0x06001F2B RID: 7979 RVA: 0x0009D724 File Offset: 0x0009B924
+	// Token: 0x06001F84 RID: 8068 RVA: 0x000EF794 File Offset: 0x000ED994
 	public static void RemoveUpdateCallback(Action callback)
 	{
 		if (!ControllerInputPoller.instance.didModifyOnUpdate)
@@ -50,7 +50,7 @@ public class ControllerInputPoller : MonoBehaviour
 		ControllerInputPoller.instance.onUpdateNext.Remove(callback);
 	}
 
-	// Token: 0x06001F2C RID: 7980 RVA: 0x0009D790 File Offset: 0x0009B990
+	// Token: 0x06001F85 RID: 8069 RVA: 0x000EF800 File Offset: 0x000EDA00
 	private void Update()
 	{
 		InputDevice inputDevice = this.leftControllerDevice;
@@ -137,7 +137,7 @@ public class ControllerInputPoller : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001F2D RID: 7981 RVA: 0x0009DC50 File Offset: 0x0009BE50
+	// Token: 0x06001F86 RID: 8070 RVA: 0x000EFCC0 File Offset: 0x000EDEC0
 	private void CalculateGrabState(float grabValue, ref bool grab, ref bool grabRelease, ref bool grabMomentary, ref bool grabReleaseMomentary, float grabThreshold, float grabReleaseThreshold)
 	{
 		bool flag = grabValue >= grabThreshold;
@@ -148,7 +148,7 @@ public class ControllerInputPoller : MonoBehaviour
 		grabRelease = flag2;
 	}
 
-	// Token: 0x06001F2E RID: 7982 RVA: 0x0009DC97 File Offset: 0x0009BE97
+	// Token: 0x06001F87 RID: 8071 RVA: 0x000454EC File Offset: 0x000436EC
 	public static bool GetGrab(XRNode node)
 	{
 		if (node == XRNode.LeftHand)
@@ -158,7 +158,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return node == XRNode.RightHand && ControllerInputPoller.instance.rightGrab;
 	}
 
-	// Token: 0x06001F2F RID: 7983 RVA: 0x0009DCBC File Offset: 0x0009BEBC
+	// Token: 0x06001F88 RID: 8072 RVA: 0x00045511 File Offset: 0x00043711
 	public static bool GetGrabRelease(XRNode node)
 	{
 		if (node == XRNode.LeftHand)
@@ -168,7 +168,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return node == XRNode.RightHand && ControllerInputPoller.instance.rightGrabRelease;
 	}
 
-	// Token: 0x06001F30 RID: 7984 RVA: 0x0009DCE1 File Offset: 0x0009BEE1
+	// Token: 0x06001F89 RID: 8073 RVA: 0x00045536 File Offset: 0x00043736
 	public static bool GetGrabMomentary(XRNode node)
 	{
 		if (node == XRNode.LeftHand)
@@ -178,7 +178,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return node == XRNode.RightHand && ControllerInputPoller.instance.rightGrabMomentary;
 	}
 
-	// Token: 0x06001F31 RID: 7985 RVA: 0x0009DD06 File Offset: 0x0009BF06
+	// Token: 0x06001F8A RID: 8074 RVA: 0x0004555B File Offset: 0x0004375B
 	public static bool GetGrabReleaseMomentary(XRNode node)
 	{
 		if (node == XRNode.LeftHand)
@@ -188,7 +188,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return node == XRNode.RightHand && ControllerInputPoller.instance.rightGrabReleaseMomentary;
 	}
 
-	// Token: 0x06001F32 RID: 7986 RVA: 0x0009DD2B File Offset: 0x0009BF2B
+	// Token: 0x06001F8B RID: 8075 RVA: 0x00045580 File Offset: 0x00043780
 	public static Vector2 Primary2DAxis(XRNode node)
 	{
 		if (node == XRNode.LeftHand)
@@ -198,7 +198,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return ControllerInputPoller.instance.rightControllerPrimary2DAxis;
 	}
 
-	// Token: 0x06001F33 RID: 7987 RVA: 0x0009DD4A File Offset: 0x0009BF4A
+	// Token: 0x06001F8C RID: 8076 RVA: 0x0004559F File Offset: 0x0004379F
 	public static bool PrimaryButtonPress(XRNode node)
 	{
 		if (node == XRNode.LeftHand)
@@ -208,7 +208,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return node == XRNode.RightHand && ControllerInputPoller.instance.rightControllerPrimaryButton;
 	}
 
-	// Token: 0x06001F34 RID: 7988 RVA: 0x0009DD6F File Offset: 0x0009BF6F
+	// Token: 0x06001F8D RID: 8077 RVA: 0x000455C4 File Offset: 0x000437C4
 	public static bool SecondaryButtonPress(XRNode node)
 	{
 		if (node == XRNode.LeftHand)
@@ -218,7 +218,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return node == XRNode.RightHand && ControllerInputPoller.instance.rightControllerSecondaryButton;
 	}
 
-	// Token: 0x06001F35 RID: 7989 RVA: 0x0009DD94 File Offset: 0x0009BF94
+	// Token: 0x06001F8E RID: 8078 RVA: 0x000455E9 File Offset: 0x000437E9
 	public static bool PrimaryButtonTouch(XRNode node)
 	{
 		if (node == XRNode.LeftHand)
@@ -228,7 +228,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return node == XRNode.RightHand && ControllerInputPoller.instance.rightControllerPrimaryButtonTouch;
 	}
 
-	// Token: 0x06001F36 RID: 7990 RVA: 0x0009DDB9 File Offset: 0x0009BFB9
+	// Token: 0x06001F8F RID: 8079 RVA: 0x0004560E File Offset: 0x0004380E
 	public static bool SecondaryButtonTouch(XRNode node)
 	{
 		if (node == XRNode.LeftHand)
@@ -238,7 +238,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return node == XRNode.RightHand && ControllerInputPoller.instance.rightControllerSecondaryButtonTouch;
 	}
 
-	// Token: 0x06001F37 RID: 7991 RVA: 0x0009DDDE File Offset: 0x0009BFDE
+	// Token: 0x06001F90 RID: 8080 RVA: 0x00045633 File Offset: 0x00043833
 	public static float GripFloat(XRNode node)
 	{
 		if (node == XRNode.LeftHand)
@@ -252,7 +252,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return 0f;
 	}
 
-	// Token: 0x06001F38 RID: 7992 RVA: 0x0009DE07 File Offset: 0x0009C007
+	// Token: 0x06001F91 RID: 8081 RVA: 0x0004565C File Offset: 0x0004385C
 	public static float TriggerFloat(XRNode node)
 	{
 		if (node == XRNode.LeftHand)
@@ -266,7 +266,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return 0f;
 	}
 
-	// Token: 0x06001F39 RID: 7993 RVA: 0x0009DE30 File Offset: 0x0009C030
+	// Token: 0x06001F92 RID: 8082 RVA: 0x00045685 File Offset: 0x00043885
 	public static float TriggerTouch(XRNode node)
 	{
 		if (node == XRNode.LeftHand)
@@ -280,7 +280,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return 0f;
 	}
 
-	// Token: 0x06001F3A RID: 7994 RVA: 0x0009DE59 File Offset: 0x0009C059
+	// Token: 0x06001F93 RID: 8083 RVA: 0x000456AE File Offset: 0x000438AE
 	public static Vector3 DevicePosition(XRNode node)
 	{
 		if (node == XRNode.Head)
@@ -298,7 +298,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return Vector3.zero;
 	}
 
-	// Token: 0x06001F3B RID: 7995 RVA: 0x0009DE93 File Offset: 0x0009C093
+	// Token: 0x06001F94 RID: 8084 RVA: 0x000456E8 File Offset: 0x000438E8
 	public static Quaternion DeviceRotation(XRNode node)
 	{
 		if (node == XRNode.Head)
@@ -316,7 +316,7 @@ public class ControllerInputPoller : MonoBehaviour
 		return Quaternion.identity;
 	}
 
-	// Token: 0x06001F3C RID: 7996 RVA: 0x0009DED0 File Offset: 0x0009C0D0
+	// Token: 0x06001F95 RID: 8085 RVA: 0x000EFD08 File Offset: 0x000EDF08
 	public static bool PositionValid(XRNode node)
 	{
 		if (node == XRNode.Head)
@@ -337,118 +337,118 @@ public class ControllerInputPoller : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x040022F2 RID: 8946
+	// Token: 0x04002345 RID: 9029
 	[OnEnterPlay_SetNull]
 	public static volatile ControllerInputPoller instance;
 
-	// Token: 0x040022F3 RID: 8947
+	// Token: 0x04002346 RID: 9030
 	public float leftControllerIndexFloat;
 
-	// Token: 0x040022F4 RID: 8948
+	// Token: 0x04002347 RID: 9031
 	public float leftControllerGripFloat;
 
-	// Token: 0x040022F5 RID: 8949
+	// Token: 0x04002348 RID: 9032
 	public float rightControllerIndexFloat;
 
-	// Token: 0x040022F6 RID: 8950
+	// Token: 0x04002349 RID: 9033
 	public float rightControllerGripFloat;
 
-	// Token: 0x040022F7 RID: 8951
+	// Token: 0x0400234A RID: 9034
 	public float leftControllerIndexTouch;
 
-	// Token: 0x040022F8 RID: 8952
+	// Token: 0x0400234B RID: 9035
 	public float rightControllerIndexTouch;
 
-	// Token: 0x040022F9 RID: 8953
+	// Token: 0x0400234C RID: 9036
 	public float rightStickLRFloat;
 
-	// Token: 0x040022FA RID: 8954
+	// Token: 0x0400234D RID: 9037
 	public Vector3 leftControllerPosition;
 
-	// Token: 0x040022FB RID: 8955
+	// Token: 0x0400234E RID: 9038
 	public Vector3 rightControllerPosition;
 
-	// Token: 0x040022FC RID: 8956
+	// Token: 0x0400234F RID: 9039
 	public Vector3 headPosition;
 
-	// Token: 0x040022FD RID: 8957
+	// Token: 0x04002350 RID: 9040
 	public Quaternion leftControllerRotation;
 
-	// Token: 0x040022FE RID: 8958
+	// Token: 0x04002351 RID: 9041
 	public Quaternion rightControllerRotation;
 
-	// Token: 0x040022FF RID: 8959
+	// Token: 0x04002352 RID: 9042
 	public Quaternion headRotation;
 
-	// Token: 0x04002300 RID: 8960
+	// Token: 0x04002353 RID: 9043
 	public InputDevice leftControllerDevice;
 
-	// Token: 0x04002301 RID: 8961
+	// Token: 0x04002354 RID: 9044
 	public InputDevice rightControllerDevice;
 
-	// Token: 0x04002302 RID: 8962
+	// Token: 0x04002355 RID: 9045
 	public InputDevice headDevice;
 
-	// Token: 0x04002303 RID: 8963
+	// Token: 0x04002356 RID: 9046
 	public bool leftControllerPrimaryButton;
 
-	// Token: 0x04002304 RID: 8964
+	// Token: 0x04002357 RID: 9047
 	public bool leftControllerSecondaryButton;
 
-	// Token: 0x04002305 RID: 8965
+	// Token: 0x04002358 RID: 9048
 	public bool rightControllerPrimaryButton;
 
-	// Token: 0x04002306 RID: 8966
+	// Token: 0x04002359 RID: 9049
 	public bool rightControllerSecondaryButton;
 
-	// Token: 0x04002307 RID: 8967
+	// Token: 0x0400235A RID: 9050
 	public bool leftControllerPrimaryButtonTouch;
 
-	// Token: 0x04002308 RID: 8968
+	// Token: 0x0400235B RID: 9051
 	public bool leftControllerSecondaryButtonTouch;
 
-	// Token: 0x04002309 RID: 8969
+	// Token: 0x0400235C RID: 9052
 	public bool rightControllerPrimaryButtonTouch;
 
-	// Token: 0x0400230A RID: 8970
+	// Token: 0x0400235D RID: 9053
 	public bool rightControllerSecondaryButtonTouch;
 
-	// Token: 0x0400230B RID: 8971
+	// Token: 0x0400235E RID: 9054
 	public bool leftGrab;
 
-	// Token: 0x0400230C RID: 8972
+	// Token: 0x0400235F RID: 9055
 	public bool leftGrabRelease;
 
-	// Token: 0x0400230D RID: 8973
+	// Token: 0x04002360 RID: 9056
 	public bool rightGrab;
 
-	// Token: 0x0400230E RID: 8974
+	// Token: 0x04002361 RID: 9057
 	public bool rightGrabRelease;
 
-	// Token: 0x0400230F RID: 8975
+	// Token: 0x04002362 RID: 9058
 	public bool leftGrabMomentary;
 
-	// Token: 0x04002310 RID: 8976
+	// Token: 0x04002363 RID: 9059
 	public bool leftGrabReleaseMomentary;
 
-	// Token: 0x04002311 RID: 8977
+	// Token: 0x04002364 RID: 9060
 	public bool rightGrabMomentary;
 
-	// Token: 0x04002312 RID: 8978
+	// Token: 0x04002365 RID: 9061
 	public bool rightGrabReleaseMomentary;
 
-	// Token: 0x04002314 RID: 8980
+	// Token: 0x04002367 RID: 9063
 	public Vector2 leftControllerPrimary2DAxis;
 
-	// Token: 0x04002315 RID: 8981
+	// Token: 0x04002368 RID: 9064
 	public Vector2 rightControllerPrimary2DAxis;
 
-	// Token: 0x04002316 RID: 8982
+	// Token: 0x04002369 RID: 9065
 	private List<Action> onUpdate = new List<Action>();
 
-	// Token: 0x04002317 RID: 8983
+	// Token: 0x0400236A RID: 9066
 	private List<Action> onUpdateNext = new List<Action>();
 
-	// Token: 0x04002318 RID: 8984
+	// Token: 0x0400236B RID: 9067
 	private bool didModifyOnUpdate;
 }

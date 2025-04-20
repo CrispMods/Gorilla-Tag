@@ -3,23 +3,23 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-// Token: 0x02000438 RID: 1080
+// Token: 0x02000444 RID: 1092
 public class GumBubble : LerpComponent
 {
-	// Token: 0x06001A97 RID: 6807 RVA: 0x000830B5 File Offset: 0x000812B5
+	// Token: 0x06001AEB RID: 6891 RVA: 0x000423E5 File Offset: 0x000405E5
 	private void Awake()
 	{
 		base.enabled = false;
 		base.gameObject.SetActive(false);
 	}
 
-	// Token: 0x06001A98 RID: 6808 RVA: 0x000830CA File Offset: 0x000812CA
+	// Token: 0x06001AEC RID: 6892 RVA: 0x000423FA File Offset: 0x000405FA
 	public void InflateDelayed()
 	{
 		this.InflateDelayed(this._delayInflate);
 	}
 
-	// Token: 0x06001A99 RID: 6809 RVA: 0x000830D8 File Offset: 0x000812D8
+	// Token: 0x06001AED RID: 6893 RVA: 0x00042408 File Offset: 0x00040608
 	public void InflateDelayed(float delay)
 	{
 		if (delay < 0f)
@@ -29,7 +29,7 @@ public class GumBubble : LerpComponent
 		base.Invoke("Inflate", delay);
 	}
 
-	// Token: 0x06001A9A RID: 6810 RVA: 0x000830F8 File Offset: 0x000812F8
+	// Token: 0x06001AEE RID: 6894 RVA: 0x000D81A8 File Offset: 0x000D63A8
 	public void Inflate()
 	{
 		base.gameObject.SetActive(true);
@@ -52,7 +52,7 @@ public class GumBubble : LerpComponent
 		unityEvent.Invoke();
 	}
 
-	// Token: 0x06001A9B RID: 6811 RVA: 0x0008317C File Offset: 0x0008137C
+	// Token: 0x06001AEF RID: 6895 RVA: 0x000D822C File Offset: 0x000D642C
 	public void Pop()
 	{
 		this._lerp = 0f;
@@ -72,7 +72,7 @@ public class GumBubble : LerpComponent
 		base.gameObject.SetActive(false);
 	}
 
-	// Token: 0x06001A9C RID: 6812 RVA: 0x00083200 File Offset: 0x00081400
+	// Token: 0x06001AF0 RID: 6896 RVA: 0x000D82B0 File Offset: 0x000D64B0
 	private void Update()
 	{
 		float t = Mathf.Clamp01(this._sinceInflate / this._lerpLength);
@@ -92,7 +92,7 @@ public class GumBubble : LerpComponent
 		}
 	}
 
-	// Token: 0x06001A9D RID: 6813 RVA: 0x00083294 File Offset: 0x00081494
+	// Token: 0x06001AF1 RID: 6897 RVA: 0x000D8344 File Offset: 0x000D6544
 	protected override void OnLerp(float t)
 	{
 		if (!this.target)
@@ -107,51 +107,51 @@ public class GumBubble : LerpComponent
 		this.target.localScale = this.targetScale * this._lerpCurve.Evaluate(t);
 	}
 
-	// Token: 0x04001D5C RID: 7516
+	// Token: 0x04001DAB RID: 7595
 	public Transform target;
 
-	// Token: 0x04001D5D RID: 7517
+	// Token: 0x04001DAC RID: 7596
 	public Vector3 targetScale = Vector3.one;
 
-	// Token: 0x04001D5E RID: 7518
+	// Token: 0x04001DAD RID: 7597
 	[SerializeField]
 	private AnimationCurve _lerpCurve;
 
-	// Token: 0x04001D5F RID: 7519
+	// Token: 0x04001DAE RID: 7598
 	public AudioSource audioSource;
 
-	// Token: 0x04001D60 RID: 7520
+	// Token: 0x04001DAF RID: 7599
 	[SerializeField]
 	private AudioClip _sfxInflate;
 
-	// Token: 0x04001D61 RID: 7521
+	// Token: 0x04001DB0 RID: 7600
 	[SerializeField]
 	private AudioClip _sfxPop;
 
-	// Token: 0x04001D62 RID: 7522
+	// Token: 0x04001DB1 RID: 7601
 	[SerializeField]
 	private float _delayInflate = 1.16f;
 
-	// Token: 0x04001D63 RID: 7523
+	// Token: 0x04001DB2 RID: 7602
 	[FormerlySerializedAs("_popDelay")]
 	[SerializeField]
 	private float _delayPop = 0.5f;
 
-	// Token: 0x04001D64 RID: 7524
+	// Token: 0x04001DB3 RID: 7603
 	[SerializeField]
 	private bool _animating;
 
-	// Token: 0x04001D65 RID: 7525
+	// Token: 0x04001DB4 RID: 7604
 	public UnityEvent onPop;
 
-	// Token: 0x04001D66 RID: 7526
+	// Token: 0x04001DB5 RID: 7605
 	public UnityEvent onInflate;
 
-	// Token: 0x04001D67 RID: 7527
+	// Token: 0x04001DB6 RID: 7606
 	[NonSerialized]
 	private bool _done;
 
-	// Token: 0x04001D68 RID: 7528
+	// Token: 0x04001DB7 RID: 7607
 	[NonSerialized]
 	private TimeSince _sinceInflate;
 }

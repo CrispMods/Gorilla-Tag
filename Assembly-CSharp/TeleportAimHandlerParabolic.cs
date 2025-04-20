@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020002D1 RID: 721
+// Token: 0x020002DC RID: 732
 public class TeleportAimHandlerParabolic : TeleportAimHandler
 {
-	// Token: 0x06001172 RID: 4466 RVA: 0x000535FC File Offset: 0x000517FC
+	// Token: 0x060011BE RID: 4542 RVA: 0x000AE700 File Offset: 0x000AC900
 	public override void GetPoints(List<Vector3> points)
 	{
 		Ray ray;
@@ -24,24 +24,24 @@ public class TeleportAimHandlerParabolic : TeleportAimHandler
 		while (vector.y - ray.origin.y > this.MinimumElevation && (ray.origin - vector).sqrMagnitude <= num);
 	}
 
-	// Token: 0x0400135B RID: 4955
+	// Token: 0x040013A3 RID: 5027
 	[Tooltip("Maximum range for aiming.")]
 	public float Range;
 
-	// Token: 0x0400135C RID: 4956
+	// Token: 0x040013A4 RID: 5028
 	[Tooltip("The MinimumElevation is relative to the AimPosition.")]
 	public float MinimumElevation = -100f;
 
-	// Token: 0x0400135D RID: 4957
+	// Token: 0x040013A5 RID: 5029
 	[Tooltip("The Gravity is used in conjunction with AimVelocity and the aim direction to simulate a projectile.")]
 	public float Gravity = -9.8f;
 
-	// Token: 0x0400135E RID: 4958
+	// Token: 0x040013A6 RID: 5030
 	[Tooltip("The AimVelocity is the initial speed of the faked projectile.")]
 	[Range(0.001f, 50f)]
 	public float AimVelocity = 1f;
 
-	// Token: 0x0400135F RID: 4959
+	// Token: 0x040013A7 RID: 5031
 	[Tooltip("The AimStep is the how much to subdivide the iteration.")]
 	[Range(0.001f, 1f)]
 	public float AimStep = 1f;

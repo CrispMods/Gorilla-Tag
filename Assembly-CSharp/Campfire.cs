@@ -1,18 +1,18 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004FA RID: 1274
+// Token: 0x02000507 RID: 1287
 public class Campfire : MonoBehaviour, IGorillaSliceableSimple
 {
-	// Token: 0x06001EE1 RID: 7905 RVA: 0x0009C68C File Offset: 0x0009A88C
+	// Token: 0x06001F3A RID: 7994 RVA: 0x000EEA74 File Offset: 0x000ECC74
 	private void Start()
 	{
 		this.lastAngleBottom = 0f;
 		this.lastAngleMiddle = 0f;
 		this.lastAngleTop = 0f;
-		this.perlinBottom = (float)Random.Range(0, 100);
-		this.perlinMiddle = (float)Random.Range(200, 300);
-		this.perlinTop = (float)Random.Range(400, 500);
+		this.perlinBottom = (float)UnityEngine.Random.Range(0, 100);
+		this.perlinMiddle = (float)UnityEngine.Random.Range(200, 300);
+		this.perlinTop = (float)UnityEngine.Random.Range(400, 500);
 		this.startingRotationBottom = this.baseFire.localEulerAngles.x;
 		this.startingRotationMiddle = this.middleFire.localEulerAngles.x;
 		this.startingRotationTop = this.topFire.localEulerAngles.x;
@@ -24,19 +24,19 @@ public class Campfire : MonoBehaviour, IGorillaSliceableSimple
 		this.lastTime = Time.time;
 	}
 
-	// Token: 0x06001EE2 RID: 7906 RVA: 0x0000F862 File Offset: 0x0000DA62
+	// Token: 0x06001F3B RID: 7995 RVA: 0x000320BF File Offset: 0x000302BF
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.LateUpdate);
 	}
 
-	// Token: 0x06001EE3 RID: 7907 RVA: 0x0000F86B File Offset: 0x0000DA6B
+	// Token: 0x06001F3C RID: 7996 RVA: 0x000320C8 File Offset: 0x000302C8
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.LateUpdate);
 	}
 
-	// Token: 0x06001EE4 RID: 7908 RVA: 0x0009C778 File Offset: 0x0009A978
+	// Token: 0x06001F3D RID: 7997 RVA: 0x000EEB60 File Offset: 0x000ECD60
 	public void SliceUpdate()
 	{
 		if (BetterDayNightManager.instance == null)
@@ -76,7 +76,7 @@ public class Campfire : MonoBehaviour, IGorillaSliceableSimple
 		this.lastTime = Time.time;
 	}
 
-	// Token: 0x06001EE5 RID: 7909 RVA: 0x0009C97C File Offset: 0x0009AB7C
+	// Token: 0x06001F3E RID: 7998 RVA: 0x000EED64 File Offset: 0x000ECF64
 	private void Flap(ref float perlinValue, float perlinStep, ref float lastAngle, ref Transform flameTransform, float range, float multiplier, ref bool isMerged)
 	{
 		perlinValue += perlinStep;
@@ -108,7 +108,7 @@ public class Campfire : MonoBehaviour, IGorillaSliceableSimple
 		flameTransform.localEulerAngles = this.tempVec;
 	}
 
-	// Token: 0x06001EE6 RID: 7910 RVA: 0x0009CAC4 File Offset: 0x0009ACC4
+	// Token: 0x06001F3F RID: 7999 RVA: 0x000EEEAC File Offset: 0x000ED0AC
 	private void ReturnToOff(ref Transform startTransform, float targetAngle, ref bool isMerged)
 	{
 		this.tempVec.x = targetAngle;
@@ -135,114 +135,114 @@ public class Campfire : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06001EE8 RID: 7912 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x06001F41 RID: 8001 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x04002294 RID: 8852
+	// Token: 0x040022E7 RID: 8935
 	public Transform baseFire;
 
-	// Token: 0x04002295 RID: 8853
+	// Token: 0x040022E8 RID: 8936
 	public Transform middleFire;
 
-	// Token: 0x04002296 RID: 8854
+	// Token: 0x040022E9 RID: 8937
 	public Transform topFire;
 
-	// Token: 0x04002297 RID: 8855
+	// Token: 0x040022EA RID: 8938
 	public float baseMultiplier;
 
-	// Token: 0x04002298 RID: 8856
+	// Token: 0x040022EB RID: 8939
 	public float middleMultiplier;
 
-	// Token: 0x04002299 RID: 8857
+	// Token: 0x040022EC RID: 8940
 	public float topMultiplier;
 
-	// Token: 0x0400229A RID: 8858
+	// Token: 0x040022ED RID: 8941
 	public float bottomRange;
 
-	// Token: 0x0400229B RID: 8859
+	// Token: 0x040022EE RID: 8942
 	public float middleRange;
 
-	// Token: 0x0400229C RID: 8860
+	// Token: 0x040022EF RID: 8943
 	public float topRange;
 
-	// Token: 0x0400229D RID: 8861
+	// Token: 0x040022F0 RID: 8944
 	private float lastAngleBottom;
 
-	// Token: 0x0400229E RID: 8862
+	// Token: 0x040022F1 RID: 8945
 	private float lastAngleMiddle;
 
-	// Token: 0x0400229F RID: 8863
+	// Token: 0x040022F2 RID: 8946
 	private float lastAngleTop;
 
-	// Token: 0x040022A0 RID: 8864
+	// Token: 0x040022F3 RID: 8947
 	public float perlinStepBottom;
 
-	// Token: 0x040022A1 RID: 8865
+	// Token: 0x040022F4 RID: 8948
 	public float perlinStepMiddle;
 
-	// Token: 0x040022A2 RID: 8866
+	// Token: 0x040022F5 RID: 8949
 	public float perlinStepTop;
 
-	// Token: 0x040022A3 RID: 8867
+	// Token: 0x040022F6 RID: 8950
 	private float perlinBottom;
 
-	// Token: 0x040022A4 RID: 8868
+	// Token: 0x040022F7 RID: 8951
 	private float perlinMiddle;
 
-	// Token: 0x040022A5 RID: 8869
+	// Token: 0x040022F8 RID: 8952
 	private float perlinTop;
 
-	// Token: 0x040022A6 RID: 8870
+	// Token: 0x040022F9 RID: 8953
 	public float startingRotationBottom;
 
-	// Token: 0x040022A7 RID: 8871
+	// Token: 0x040022FA RID: 8954
 	public float startingRotationMiddle;
 
-	// Token: 0x040022A8 RID: 8872
+	// Token: 0x040022FB RID: 8955
 	public float startingRotationTop;
 
-	// Token: 0x040022A9 RID: 8873
+	// Token: 0x040022FC RID: 8956
 	public float slerp = 0.01f;
 
-	// Token: 0x040022AA RID: 8874
+	// Token: 0x040022FD RID: 8957
 	private bool mergedBottom;
 
-	// Token: 0x040022AB RID: 8875
+	// Token: 0x040022FE RID: 8958
 	private bool mergedMiddle;
 
-	// Token: 0x040022AC RID: 8876
+	// Token: 0x040022FF RID: 8959
 	private bool mergedTop;
 
-	// Token: 0x040022AD RID: 8877
+	// Token: 0x04002300 RID: 8960
 	public string lastTimeOfDay;
 
-	// Token: 0x040022AE RID: 8878
+	// Token: 0x04002301 RID: 8961
 	public Material mat;
 
-	// Token: 0x040022AF RID: 8879
+	// Token: 0x04002302 RID: 8962
 	private float h;
 
-	// Token: 0x040022B0 RID: 8880
+	// Token: 0x04002303 RID: 8963
 	private float s;
 
-	// Token: 0x040022B1 RID: 8881
+	// Token: 0x04002304 RID: 8964
 	private float v;
 
-	// Token: 0x040022B2 RID: 8882
+	// Token: 0x04002305 RID: 8965
 	public int overrideDayNight;
 
-	// Token: 0x040022B3 RID: 8883
+	// Token: 0x04002306 RID: 8966
 	private Vector3 tempVec;
 
-	// Token: 0x040022B4 RID: 8884
+	// Token: 0x04002307 RID: 8967
 	public bool[] isActive;
 
-	// Token: 0x040022B5 RID: 8885
+	// Token: 0x04002308 RID: 8968
 	public bool wasActive;
 
-	// Token: 0x040022B6 RID: 8886
+	// Token: 0x04002309 RID: 8969
 	private float lastTime;
 }

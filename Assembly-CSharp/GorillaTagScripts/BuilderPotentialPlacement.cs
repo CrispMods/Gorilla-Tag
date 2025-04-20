@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x02000991 RID: 2449
+	// Token: 0x020009B7 RID: 2487
 	public struct BuilderPotentialPlacement
 	{
-		// Token: 0x06003BFD RID: 15357 RVA: 0x00114BE4 File Offset: 0x00112DE4
+		// Token: 0x06003D15 RID: 15637 RVA: 0x001578D8 File Offset: 0x00155AD8
 		public void Reset()
 		{
 			this.attachPiece = null;
@@ -23,46 +23,46 @@ namespace GorillaTagScripts
 			this.bumpOffsetZ = 0;
 		}
 
-		// Token: 0x04003D30 RID: 15664
+		// Token: 0x04003E0A RID: 15882
 		public BuilderPiece attachPiece;
 
-		// Token: 0x04003D31 RID: 15665
+		// Token: 0x04003E0B RID: 15883
 		public BuilderPiece parentPiece;
 
-		// Token: 0x04003D32 RID: 15666
+		// Token: 0x04003E0C RID: 15884
 		public int attachIndex;
 
-		// Token: 0x04003D33 RID: 15667
+		// Token: 0x04003E0D RID: 15885
 		public int parentAttachIndex;
 
-		// Token: 0x04003D34 RID: 15668
+		// Token: 0x04003E0E RID: 15886
 		public Vector3 localPosition;
 
-		// Token: 0x04003D35 RID: 15669
+		// Token: 0x04003E0F RID: 15887
 		public Quaternion localRotation;
 
-		// Token: 0x04003D36 RID: 15670
+		// Token: 0x04003E10 RID: 15888
 		public Vector3 attachPlaneNormal;
 
-		// Token: 0x04003D37 RID: 15671
+		// Token: 0x04003E11 RID: 15889
 		public float attachDistance;
 
-		// Token: 0x04003D38 RID: 15672
+		// Token: 0x04003E12 RID: 15890
 		public float score;
 
-		// Token: 0x04003D39 RID: 15673
+		// Token: 0x04003E13 RID: 15891
 		public SnapBounds attachBounds;
 
-		// Token: 0x04003D3A RID: 15674
+		// Token: 0x04003E14 RID: 15892
 		public SnapBounds parentAttachBounds;
 
-		// Token: 0x04003D3B RID: 15675
+		// Token: 0x04003E15 RID: 15893
 		public byte twist;
 
-		// Token: 0x04003D3C RID: 15676
+		// Token: 0x04003E16 RID: 15894
 		public sbyte bumpOffsetX;
 
-		// Token: 0x04003D3D RID: 15677
+		// Token: 0x04003E17 RID: 15895
 		public sbyte bumpOffsetZ;
 	}
 }

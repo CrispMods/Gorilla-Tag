@@ -1,13 +1,13 @@
 ﻿using System;
 using Fusion;
 
-// Token: 0x02000466 RID: 1126
+// Token: 0x02000472 RID: 1138
 [NetworkBehaviourWeaved(23)]
 public class HuntGameModeData : FusionGameModeData
 {
-	// Token: 0x17000304 RID: 772
-	// (get) Token: 0x06001B94 RID: 7060 RVA: 0x000873FF File Offset: 0x000855FF
-	// (set) Token: 0x06001B95 RID: 7061 RVA: 0x0008740C File Offset: 0x0008560C
+	// Token: 0x1700030B RID: 779
+	// (get) Token: 0x06001BE8 RID: 7144 RVA: 0x000431E6 File Offset: 0x000413E6
+	// (set) Token: 0x06001BE9 RID: 7145 RVA: 0x000431F3 File Offset: 0x000413F3
 	public override object Data
 	{
 		get
@@ -20,9 +20,9 @@ public class HuntGameModeData : FusionGameModeData
 		}
 	}
 
-	// Token: 0x17000305 RID: 773
-	// (get) Token: 0x06001B96 RID: 7062 RVA: 0x0008741A File Offset: 0x0008561A
-	// (set) Token: 0x06001B97 RID: 7063 RVA: 0x00087444 File Offset: 0x00085644
+	// Token: 0x1700030C RID: 780
+	// (get) Token: 0x06001BEA RID: 7146 RVA: 0x00043201 File Offset: 0x00041401
+	// (set) Token: 0x06001BEB RID: 7147 RVA: 0x0004322B File Offset: 0x0004142B
 	[Networked]
 	[NetworkedWeaved(0, 23)]
 	private unsafe HuntData huntdata
@@ -45,7 +45,7 @@ public class HuntGameModeData : FusionGameModeData
 		}
 	}
 
-	// Token: 0x06001B99 RID: 7065 RVA: 0x0008746F File Offset: 0x0008566F
+	// Token: 0x06001BED RID: 7149 RVA: 0x00043256 File Offset: 0x00041456
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -53,7 +53,7 @@ public class HuntGameModeData : FusionGameModeData
 		this.huntdata = this._huntdata;
 	}
 
-	// Token: 0x06001B9A RID: 7066 RVA: 0x00087487 File Offset: 0x00085687
+	// Token: 0x06001BEE RID: 7150 RVA: 0x0004326E File Offset: 0x0004146E
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -61,7 +61,7 @@ public class HuntGameModeData : FusionGameModeData
 		this._huntdata = this.huntdata;
 	}
 
-	// Token: 0x04001E82 RID: 7810
+	// Token: 0x04001ED1 RID: 7889
 	[WeaverGenerated]
 	[DefaultForProperty("huntdata", 0, 23)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]

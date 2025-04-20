@@ -4,22 +4,22 @@ using System.Linq;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x0200050B RID: 1291
+// Token: 0x02000518 RID: 1304
 public class CosmeticCritterManager : NetworkSceneObject
 {
-	// Token: 0x06001F5C RID: 8028 RVA: 0x0009E39C File Offset: 0x0009C59C
+	// Token: 0x06001FB5 RID: 8117 RVA: 0x0004581C File Offset: 0x00043A1C
 	public void RegisterComponent(CosmeticCritterSpawner spawner)
 	{
 		this.critterSpawners.Add(spawner);
 	}
 
-	// Token: 0x06001F5D RID: 8029 RVA: 0x0009E3AB File Offset: 0x0009C5AB
+	// Token: 0x06001FB6 RID: 8118 RVA: 0x0004582B File Offset: 0x00043A2B
 	public void UnregisterComponent(CosmeticCritterSpawner spawner)
 	{
 		this.critterSpawners.Remove(spawner);
 	}
 
-	// Token: 0x06001F5E RID: 8030 RVA: 0x0009E3BA File Offset: 0x0009C5BA
+	// Token: 0x06001FB7 RID: 8119 RVA: 0x0004583A File Offset: 0x00043A3A
 	public void RegisterComponent(CosmeticCritterCatcher catcher)
 	{
 		if (catcher.isLocal)
@@ -30,14 +30,14 @@ public class CosmeticCritterManager : NetworkSceneObject
 		this.remoteCritterCatchers.Add(catcher);
 	}
 
-	// Token: 0x06001F5F RID: 8031 RVA: 0x0009E3DF File Offset: 0x0009C5DF
+	// Token: 0x06001FB8 RID: 8120 RVA: 0x0004585F File Offset: 0x00043A5F
 	public void UnregisterComponent(CosmeticCritterCatcher catcher)
 	{
 		this.localCritterCatchers.Remove(catcher);
 		this.remoteCritterCatchers.Remove(catcher);
 	}
 
-	// Token: 0x06001F60 RID: 8032 RVA: 0x0009E3FC File Offset: 0x0009C5FC
+	// Token: 0x06001FB9 RID: 8121 RVA: 0x000F0120 File Offset: 0x000EE320
 	private void Awake()
 	{
 		if (CosmeticCritterManager.Instance != null && CosmeticCritterManager.Instance != this)
@@ -52,7 +52,7 @@ public class CosmeticCritterManager : NetworkSceneObject
 		this.crittersBySeed = new Dictionary<int, CosmeticCritter>();
 	}
 
-	// Token: 0x06001F61 RID: 8033 RVA: 0x0009E45C File Offset: 0x0009C65C
+	// Token: 0x06001FBA RID: 8122 RVA: 0x0004587B File Offset: 0x00043A7B
 	private void DestroyCritter(CosmeticCritter critter)
 	{
 		UnityEngine.Object.Destroy(critter.gameObject);
@@ -63,7 +63,7 @@ public class CosmeticCritterManager : NetworkSceneObject
 		this.crittersBySeed.Remove(critter.Seed);
 	}
 
-	// Token: 0x06001F62 RID: 8034 RVA: 0x0009E494 File Offset: 0x0009C694
+	// Token: 0x06001FBB RID: 8123 RVA: 0x000F0180 File Offset: 0x000EE380
 	private void Update()
 	{
 		if (PhotonNetwork.IsMasterClient || !PhotonNetwork.InRoom)
@@ -72,7 +72,7 @@ public class CosmeticCritterManager : NetworkSceneObject
 			{
 				if (cosmeticCritterSpawner.CanSpawn())
 				{
-					int num = Random.Range(0, int.MaxValue);
+					int num = UnityEngine.Random.Range(0, int.MaxValue);
 					CosmeticCritter value;
 					if (cosmeticCritterSpawner.TrySpawn(num, out value))
 					{
@@ -102,18 +102,18 @@ public class CosmeticCritterManager : NetworkSceneObject
 		}
 	}
 
-	// Token: 0x04002331 RID: 9009
+	// Token: 0x04002384 RID: 9092
 	public static CosmeticCritterManager Instance;
 
-	// Token: 0x04002332 RID: 9010
+	// Token: 0x04002385 RID: 9093
 	private HashSet<CosmeticCritterSpawner> critterSpawners;
 
-	// Token: 0x04002333 RID: 9011
+	// Token: 0x04002386 RID: 9094
 	private HashSet<CosmeticCritterCatcher> localCritterCatchers;
 
-	// Token: 0x04002334 RID: 9012
+	// Token: 0x04002387 RID: 9095
 	private HashSet<CosmeticCritterCatcher> remoteCritterCatchers;
 
-	// Token: 0x04002335 RID: 9013
+	// Token: 0x04002388 RID: 9096
 	private Dictionary<int, CosmeticCritter> crittersBySeed;
 }

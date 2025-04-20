@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000092 RID: 146
+// Token: 0x0200009C RID: 156
 public class Pendulum : MonoBehaviour
 {
-	// Token: 0x060003B3 RID: 947 RVA: 0x000165F4 File Offset: 0x000147F4
+	// Token: 0x060003EF RID: 1007 RVA: 0x0007A71C File Offset: 0x0007891C
 	private void Start()
 	{
 		this.pendulum = (this.ClockPendulum = base.gameObject.GetComponent<Transform>());
 	}
 
-	// Token: 0x060003B4 RID: 948 RVA: 0x0001661C File Offset: 0x0001481C
+	// Token: 0x060003F0 RID: 1008 RVA: 0x0007A744 File Offset: 0x00078944
 	private void Update()
 	{
 		if (this.pendulum)
@@ -21,15 +21,15 @@ public class Pendulum : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000430 RID: 1072
+	// Token: 0x04000470 RID: 1136
 	public float MaxAngleDeflection = 10f;
 
-	// Token: 0x04000431 RID: 1073
+	// Token: 0x04000471 RID: 1137
 	public float SpeedOfPendulum = 1f;
 
-	// Token: 0x04000432 RID: 1074
+	// Token: 0x04000472 RID: 1138
 	public Transform ClockPendulum;
 
-	// Token: 0x04000433 RID: 1075
+	// Token: 0x04000473 RID: 1139
 	private Transform pendulum;
 }

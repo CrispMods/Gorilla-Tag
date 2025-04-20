@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B84 RID: 2948
+	// Token: 0x02000BB1 RID: 2993
 	[IncludeMyAttributes]
 	public class AssignInCorePrefabAttribute : Attribute
 	{

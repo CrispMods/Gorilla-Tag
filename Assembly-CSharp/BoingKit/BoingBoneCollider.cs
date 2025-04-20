@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace BoingKit
 {
-	// Token: 0x02000CAD RID: 3245
+	// Token: 0x02000CDE RID: 3294
 	public class BoingBoneCollider : MonoBehaviour
 	{
-		// Token: 0x17000844 RID: 2116
-		// (get) Token: 0x060051F1 RID: 20977 RVA: 0x00191CC4 File Offset: 0x0018FEC4
+		// Token: 0x17000862 RID: 2146
+		// (get) Token: 0x06005353 RID: 21331 RVA: 0x001C8180 File Offset: 0x001C6380
 		public Bounds Bounds
 		{
 			get
@@ -32,7 +32,7 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x060051F2 RID: 20978 RVA: 0x00191DD4 File Offset: 0x0018FFD4
+		// Token: 0x06005354 RID: 21332 RVA: 0x001C8290 File Offset: 0x001C6490
 		public bool Collide(Vector3 boneCenter, float boneRadius, out Vector3 push)
 		{
 			switch (this.Shape)
@@ -66,7 +66,7 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x060051F3 RID: 20979 RVA: 0x00191EF8 File Offset: 0x001900F8
+		// Token: 0x06005355 RID: 21333 RVA: 0x001C83B4 File Offset: 0x001C65B4
 		public void OnValidate()
 		{
 			this.Radius = Mathf.Max(0f, this.Radius);
@@ -75,13 +75,13 @@ namespace BoingKit
 			this.Dimensions.z = Mathf.Max(0f, this.Dimensions.z);
 		}
 
-		// Token: 0x060051F4 RID: 20980 RVA: 0x00191F7B File Offset: 0x0019017B
+		// Token: 0x06005356 RID: 21334 RVA: 0x0006608B File Offset: 0x0006428B
 		public void OnDrawGizmos()
 		{
 			this.DrawGizmos();
 		}
 
-		// Token: 0x060051F5 RID: 20981 RVA: 0x00191F84 File Offset: 0x00190184
+		// Token: 0x06005357 RID: 21335 RVA: 0x001C8438 File Offset: 0x001C6638
 		public void DrawGizmos()
 		{
 			switch (this.Shape)
@@ -143,26 +143,26 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x0400542C RID: 21548
+		// Token: 0x04005538 RID: 21816
 		public BoingBoneCollider.Type Shape;
 
-		// Token: 0x0400542D RID: 21549
+		// Token: 0x04005539 RID: 21817
 		public float Radius = 0.1f;
 
-		// Token: 0x0400542E RID: 21550
+		// Token: 0x0400553A RID: 21818
 		public float Height = 0.25f;
 
-		// Token: 0x0400542F RID: 21551
+		// Token: 0x0400553B RID: 21819
 		public Vector3 Dimensions = new Vector3(0.1f, 0.1f, 0.1f);
 
-		// Token: 0x02000CAE RID: 3246
+		// Token: 0x02000CDF RID: 3295
 		public enum Type
 		{
-			// Token: 0x04005431 RID: 21553
+			// Token: 0x0400553D RID: 21821
 			Sphere,
-			// Token: 0x04005432 RID: 21554
+			// Token: 0x0400553E RID: 21822
 			Capsule,
-			// Token: 0x04005433 RID: 21555
+			// Token: 0x0400553F RID: 21823
 			Box
 		}
 	}

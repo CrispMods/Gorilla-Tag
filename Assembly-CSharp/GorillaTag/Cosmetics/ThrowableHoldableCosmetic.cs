@@ -7,10 +7,10 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C2F RID: 3119
+	// Token: 0x02000C5F RID: 3167
 	public class ThrowableHoldableCosmetic : TransferrableObject
 	{
-		// Token: 0x06004DE3 RID: 19939 RVA: 0x0017DC20 File Offset: 0x0017BE20
+		// Token: 0x06004F3B RID: 20283 RVA: 0x001B61DC File Offset: 0x001B43DC
 		internal override void OnEnable()
 		{
 			base.OnEnable();
@@ -29,7 +29,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DE4 RID: 19940 RVA: 0x0017DCE2 File Offset: 0x0017BEE2
+		// Token: 0x06004F3C RID: 20284 RVA: 0x00063BBA File Offset: 0x00061DBA
 		protected override void Awake()
 		{
 			base.Awake();
@@ -37,7 +37,7 @@ namespace GorillaTag.Cosmetics
 			this.playersEffect = base.GetComponentInChildren<CosmeticEffectsOnPlayers>();
 		}
 
-		// Token: 0x06004DE5 RID: 19941 RVA: 0x0017DD07 File Offset: 0x0017BF07
+		// Token: 0x06004F3D RID: 20285 RVA: 0x00063BDF File Offset: 0x00061DDF
 		public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 		{
 			if (!this.disableWhenThrown.gameObject.activeSelf)
@@ -47,7 +47,7 @@ namespace GorillaTag.Cosmetics
 			base.OnGrab(pointGrabbed, grabbingHand);
 		}
 
-		// Token: 0x06004DE6 RID: 19942 RVA: 0x0017DD24 File Offset: 0x0017BF24
+		// Token: 0x06004F3E RID: 20286 RVA: 0x001B62A0 File Offset: 0x001B44A0
 		public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 		{
 			if (!base.OnRelease(zoneReleased, releasingHand))
@@ -76,7 +76,7 @@ namespace GorillaTag.Cosmetics
 			return true;
 		}
 
-		// Token: 0x06004DE7 RID: 19943 RVA: 0x0017DE30 File Offset: 0x0017C030
+		// Token: 0x06004F3F RID: 20287 RVA: 0x001B63AC File Offset: 0x001B45AC
 		internal override void OnDisable()
 		{
 			base.OnDisable();
@@ -88,7 +88,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DE8 RID: 19944 RVA: 0x0017DE88 File Offset: 0x0017C088
+		// Token: 0x06004F40 RID: 20288 RVA: 0x001B6404 File Offset: 0x001B4604
 		private void OnThrowEvent(int sender, int target, object[] args, PhotonMessageInfoWrapped info)
 		{
 			if (sender != target)
@@ -142,7 +142,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DE9 RID: 19945 RVA: 0x0017DF94 File Offset: 0x0017C194
+		// Token: 0x06004F41 RID: 20289 RVA: 0x001B6510 File Offset: 0x001B4710
 		private void OnThrowLocal(Vector3 startPos, Quaternion rotation, Vector3 velocity, float playerScale)
 		{
 			this.disableWhenThrown.SetActive(false);
@@ -167,7 +167,7 @@ namespace GorillaTag.Cosmetics
 			component.Launch(startPos, rotation, velocity, playerScale);
 		}
 
-		// Token: 0x06004DEA RID: 19946 RVA: 0x0017E041 File Offset: 0x0017C241
+		// Token: 0x06004F42 RID: 20290 RVA: 0x00063BFC File Offset: 0x00061DFC
 		private void HitStart(FirecrackerProjectile firecracker, Vector3 contactPos)
 		{
 			if (firecracker == null)
@@ -181,7 +181,7 @@ namespace GorillaTag.Cosmetics
 			this.playersEffect.ApplyAllEffectsByDistance(contactPos);
 		}
 
-		// Token: 0x06004DEB RID: 19947 RVA: 0x0017E068 File Offset: 0x0017C268
+		// Token: 0x06004F43 RID: 20291 RVA: 0x001B65C0 File Offset: 0x001B47C0
 		private void HitComplete(IProjectile projectile)
 		{
 			if (projectile == null)
@@ -207,24 +207,24 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x040050E7 RID: 20711
+		// Token: 0x040051ED RID: 20973
 		[SerializeField]
 		private GameObject firecrackerProjectilePrefab;
 
-		// Token: 0x040050E8 RID: 20712
+		// Token: 0x040051EE RID: 20974
 		[SerializeField]
 		private GameObject disableWhenThrown;
 
-		// Token: 0x040050E9 RID: 20713
+		// Token: 0x040051EF RID: 20975
 		private CallLimiter firecrackerCallLimiter = new CallLimiter(10, 3f, 0.5f);
 
-		// Token: 0x040050EA RID: 20714
+		// Token: 0x040051F0 RID: 20976
 		private CosmeticEffectsOnPlayers playersEffect;
 
-		// Token: 0x040050EB RID: 20715
+		// Token: 0x040051F1 RID: 20977
 		private int firecrackerProjectileHash;
 
-		// Token: 0x040050EC RID: 20716
+		// Token: 0x040051F2 RID: 20978
 		private RubberDuckEvents _events;
 	}
 }

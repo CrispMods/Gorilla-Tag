@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using Sirenix.OdinInspector;
 
-// Token: 0x020006B9 RID: 1721
+// Token: 0x020006CE RID: 1742
 [Conditional("UNITY_EDITOR")]
 [IncludeMyAttributes]
 public class HideAlwaysAttribute : Attribute

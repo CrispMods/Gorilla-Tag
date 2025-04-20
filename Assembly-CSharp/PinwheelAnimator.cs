@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000CE RID: 206
+// Token: 0x020000D8 RID: 216
 public class PinwheelAnimator : MonoBehaviour
 {
-	// Token: 0x06000560 RID: 1376 RVA: 0x0001FF2A File Offset: 0x0001E12A
+	// Token: 0x060005A1 RID: 1441 RVA: 0x000341B9 File Offset: 0x000323B9
 	protected void OnEnable()
 	{
 		this.oldPos = this.spinnerTransform.position;
 		this.spinSpeed = 0f;
 	}
 
-	// Token: 0x06000561 RID: 1377 RVA: 0x0001FF48 File Offset: 0x0001E148
+	// Token: 0x060005A2 RID: 1442 RVA: 0x00082F0C File Offset: 0x0008110C
 	protected void LateUpdate()
 	{
 		Vector3 position = this.spinnerTransform.position;
@@ -23,22 +23,22 @@ public class PinwheelAnimator : MonoBehaviour
 		this.oldPos = position;
 	}
 
-	// Token: 0x0400063C RID: 1596
+	// Token: 0x0400067D RID: 1661
 	public Transform spinnerTransform;
 
-	// Token: 0x0400063D RID: 1597
+	// Token: 0x0400067E RID: 1662
 	[Tooltip("In revolutions per second.")]
 	public float maxSpinSpeed = 4f;
 
-	// Token: 0x0400063E RID: 1598
+	// Token: 0x0400067F RID: 1663
 	public float spinSpeedMultiplier = 5f;
 
-	// Token: 0x0400063F RID: 1599
+	// Token: 0x04000680 RID: 1664
 	public float damping = 0.5f;
 
-	// Token: 0x04000640 RID: 1600
+	// Token: 0x04000681 RID: 1665
 	private Vector3 oldPos;
 
-	// Token: 0x04000641 RID: 1601
+	// Token: 0x04000682 RID: 1666
 	private float spinSpeed;
 }

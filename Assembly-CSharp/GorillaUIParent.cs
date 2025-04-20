@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005A5 RID: 1445
+// Token: 0x020005B3 RID: 1459
 public class GorillaUIParent : MonoBehaviour
 {
-	// Token: 0x060023E2 RID: 9186 RVA: 0x000B3051 File Offset: 0x000B1251
+	// Token: 0x06002442 RID: 9282 RVA: 0x000487ED File Offset: 0x000469ED
 	private void Awake()
 	{
 		if (GorillaUIParent.instance == null)
@@ -14,11 +14,11 @@ public class GorillaUIParent : MonoBehaviour
 		}
 		if (GorillaUIParent.instance != this)
 		{
-			Object.Destroy(base.gameObject);
+			UnityEngine.Object.Destroy(base.gameObject);
 		}
 	}
 
-	// Token: 0x040027E2 RID: 10210
+	// Token: 0x0400283E RID: 10302
 	[OnEnterPlay_SetNull]
 	public static volatile GorillaUIParent instance;
 }

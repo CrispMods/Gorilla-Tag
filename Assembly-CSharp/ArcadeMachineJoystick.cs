@@ -7,12 +7,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class ArcadeMachineJoystick : HandHold, ISnapTurnOverride, IRequestableOwnershipGuardCallbacks
 {
 	// Token: 0x17000004 RID: 4
-	// (get) Token: 0x06000017 RID: 23 RVA: 0x000022B3 File Offset: 0x000004B3
-	// (set) Token: 0x06000018 RID: 24 RVA: 0x000022BB File Offset: 0x000004BB
+	// (get) Token: 0x06000017 RID: 23 RVA: 0x00030597 File Offset: 0x0002E797
+	// (set) Token: 0x06000018 RID: 24 RVA: 0x0003059F File Offset: 0x0002E79F
 	public bool heldByLocalPlayer { get; private set; }
 
 	// Token: 0x17000005 RID: 5
-	// (get) Token: 0x06000019 RID: 25 RVA: 0x000022C4 File Offset: 0x000004C4
+	// (get) Token: 0x06000019 RID: 25 RVA: 0x000305A8 File Offset: 0x0002E7A8
 	public bool IsHeldRightHanded
 	{
 		get
@@ -22,16 +22,16 @@ public class ArcadeMachineJoystick : HandHold, ISnapTurnOverride, IRequestableOw
 	}
 
 	// Token: 0x17000006 RID: 6
-	// (get) Token: 0x0600001A RID: 26 RVA: 0x000022D9 File Offset: 0x000004D9
-	// (set) Token: 0x0600001B RID: 27 RVA: 0x000022E1 File Offset: 0x000004E1
+	// (get) Token: 0x0600001A RID: 26 RVA: 0x000305BD File Offset: 0x0002E7BD
+	// (set) Token: 0x0600001B RID: 27 RVA: 0x000305C5 File Offset: 0x0002E7C5
 	public ArcadeButtons currentButtonState { get; private set; }
 
 	// Token: 0x17000007 RID: 7
-	// (get) Token: 0x0600001C RID: 28 RVA: 0x000022EA File Offset: 0x000004EA
-	// (set) Token: 0x0600001D RID: 29 RVA: 0x000022F2 File Offset: 0x000004F2
+	// (get) Token: 0x0600001C RID: 28 RVA: 0x000305CE File Offset: 0x0002E7CE
+	// (set) Token: 0x0600001D RID: 29 RVA: 0x000305D6 File Offset: 0x0002E7D6
 	public int player { get; private set; }
 
-	// Token: 0x0600001E RID: 30 RVA: 0x000022FB File Offset: 0x000004FB
+	// Token: 0x0600001E RID: 30 RVA: 0x000305DF File Offset: 0x0002E7DF
 	public void Init(ArcadeMachine machine, int player)
 	{
 		this.machine = machine;
@@ -40,7 +40,7 @@ public class ArcadeMachineJoystick : HandHold, ISnapTurnOverride, IRequestableOw
 		this.guard.AddCallbackTarget(this);
 	}
 
-	// Token: 0x0600001F RID: 31 RVA: 0x00002324 File Offset: 0x00000524
+	// Token: 0x0600001F RID: 31 RVA: 0x00067964 File Offset: 0x00065B64
 	public void BindController(bool rightHand)
 	{
 		this.xrNode = (rightHand ? XRNode.RightHand : XRNode.LeftHand);
@@ -69,18 +69,18 @@ public class ArcadeMachineJoystick : HandHold, ISnapTurnOverride, IRequestableOw
 		PlayerGameEvents.MiscEvent("PlayArcadeGame");
 	}
 
-	// Token: 0x06000020 RID: 32 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000020 RID: 32 RVA: 0x00030607 File Offset: 0x0002E807
 	private void OnOwnershipSuccess()
 	{
 	}
 
-	// Token: 0x06000021 RID: 33 RVA: 0x000023F6 File Offset: 0x000005F6
+	// Token: 0x06000021 RID: 33 RVA: 0x00030609 File Offset: 0x0002E809
 	private void OnOwnershipFail()
 	{
 		this.ForceRelease();
 	}
 
-	// Token: 0x06000022 RID: 34 RVA: 0x000023FE File Offset: 0x000005FE
+	// Token: 0x06000022 RID: 34 RVA: 0x00030611 File Offset: 0x0002E811
 	public void UnbindController()
 	{
 		this.heldByLocalPlayer = false;
@@ -93,7 +93,7 @@ public class ArcadeMachineJoystick : HandHold, ISnapTurnOverride, IRequestableOw
 		ControllerInputPoller.RemoveUpdateCallback(new Action(this.OnInputUpdate));
 	}
 
-	// Token: 0x06000023 RID: 35 RVA: 0x0000243C File Offset: 0x0000063C
+	// Token: 0x06000023 RID: 35 RVA: 0x00067A34 File Offset: 0x00065C34
 	private void OnInputUpdate()
 	{
 		ArcadeButtons arcadeButtons = (ArcadeButtons)0;
@@ -136,7 +136,7 @@ public class ArcadeMachineJoystick : HandHold, ISnapTurnOverride, IRequestableOw
 		this.currentButtonState = arcadeButtons;
 	}
 
-	// Token: 0x06000024 RID: 36 RVA: 0x00002528 File Offset: 0x00000728
+	// Token: 0x06000024 RID: 36 RVA: 0x00067B20 File Offset: 0x00065D20
 	public void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (info.Sender != info.photonView.Owner)
@@ -152,38 +152,38 @@ public class ArcadeMachineJoystick : HandHold, ISnapTurnOverride, IRequestableOw
 		this.machine.ReadPlayerDataPUN(this.player, stream, info);
 	}
 
-	// Token: 0x06000025 RID: 37 RVA: 0x00002598 File Offset: 0x00000798
+	// Token: 0x06000025 RID: 37 RVA: 0x0003064C File Offset: 0x0002E84C
 	public void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		stream.SendNext((int)this.currentButtonState);
 		this.machine.WritePlayerDataPUN(this.player, stream, info);
 	}
 
-	// Token: 0x06000026 RID: 38 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000026 RID: 38 RVA: 0x00030607 File Offset: 0x0002E807
 	public void ReceiveRemoteState(ArcadeButtons newState)
 	{
 	}
 
-	// Token: 0x06000027 RID: 39 RVA: 0x000025BE File Offset: 0x000007BE
+	// Token: 0x06000027 RID: 39 RVA: 0x00030672 File Offset: 0x0002E872
 	public bool TurnOverrideActive()
 	{
 		return this.snapTurnOverride;
 	}
 
-	// Token: 0x06000028 RID: 40 RVA: 0x000025C6 File Offset: 0x000007C6
+	// Token: 0x06000028 RID: 40 RVA: 0x0003067A File Offset: 0x0002E87A
 	public override bool CanBeGrabbed(GorillaGrabber grabber)
 	{
 		return !this.machine.IsControllerInUse(this.player);
 	}
 
-	// Token: 0x06000029 RID: 41 RVA: 0x000025DC File Offset: 0x000007DC
+	// Token: 0x06000029 RID: 41 RVA: 0x00030690 File Offset: 0x0002E890
 	public void ForceRelease()
 	{
 		this.heldByLocalPlayer = false;
 		this.currentButtonState = (ArcadeButtons)0;
 	}
 
-	// Token: 0x0600002A RID: 42 RVA: 0x000025EC File Offset: 0x000007EC
+	// Token: 0x0600002A RID: 42 RVA: 0x000306A0 File Offset: 0x0002E8A0
 	public void OnOwnershipTransferred(NetPlayer toPlayer, NetPlayer fromPlayer)
 	{
 		if (this.heldByLocalPlayer && (toPlayer == null || !toPlayer.IsLocal))
@@ -192,24 +192,24 @@ public class ArcadeMachineJoystick : HandHold, ISnapTurnOverride, IRequestableOw
 		}
 	}
 
-	// Token: 0x0600002B RID: 43 RVA: 0x00002607 File Offset: 0x00000807
+	// Token: 0x0600002B RID: 43 RVA: 0x000306BB File Offset: 0x0002E8BB
 	public bool OnOwnershipRequest(NetPlayer fromPlayer)
 	{
 		return !this.heldByLocalPlayer;
 	}
 
-	// Token: 0x0600002C RID: 44 RVA: 0x00002607 File Offset: 0x00000807
+	// Token: 0x0600002C RID: 44 RVA: 0x000306BB File Offset: 0x0002E8BB
 	public bool OnMasterClientAssistedTakeoverRequest(NetPlayer fromPlayer, NetPlayer toPlayer)
 	{
 		return !this.heldByLocalPlayer;
 	}
 
-	// Token: 0x0600002D RID: 45 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600002D RID: 45 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnMyOwnerLeft()
 	{
 	}
 
-	// Token: 0x0600002E RID: 46 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600002E RID: 46 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnMyCreatorLeft()
 	{
 	}

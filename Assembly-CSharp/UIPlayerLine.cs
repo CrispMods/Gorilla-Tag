@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000823 RID: 2083
+// Token: 0x0200083D RID: 2109
 public class UIPlayerLine : MonoBehaviour
 {
 }

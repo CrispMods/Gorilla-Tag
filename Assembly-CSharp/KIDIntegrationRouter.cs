@@ -7,10 +7,10 @@ using KID.Client;
 using KID.Model;
 using UnityEngine;
 
-// Token: 0x020006FD RID: 1789
+// Token: 0x02000712 RID: 1810
 internal static class KIDIntegrationRouter
 {
-	// Token: 0x06002C55 RID: 11349 RVA: 0x000DB0DA File Offset: 0x000D92DA
+	// Token: 0x06002CEB RID: 11499 RVA: 0x0004E7CA File Offset: 0x0004C9CA
 	public static AgeGateAPIsApi GetKIDAgeGateAPI()
 	{
 		if (KIDIntegrationRouter._kIDAgeGateAPI == null || KIDIntegrationRouter._kIDAgeGateAPI.Configuration.AccessToken != KIDIntegrationRouter._kIDConfiguration.AccessToken)
@@ -20,7 +20,7 @@ internal static class KIDIntegrationRouter
 		return KIDIntegrationRouter._kIDAgeGateAPI;
 	}
 
-	// Token: 0x06002C56 RID: 11350 RVA: 0x000DB117 File Offset: 0x000D9317
+	// Token: 0x06002CEC RID: 11500 RVA: 0x0004E807 File Offset: 0x0004CA07
 	public static ChallengeAPIsApi GetKIDChallengeAPI()
 	{
 		if (KIDIntegrationRouter._kIDChallengeAPI == null || KIDIntegrationRouter._kIDChallengeAPI.Configuration.AccessToken != KIDIntegrationRouter._kIDConfiguration.AccessToken)
@@ -30,7 +30,7 @@ internal static class KIDIntegrationRouter
 		return KIDIntegrationRouter._kIDChallengeAPI;
 	}
 
-	// Token: 0x06002C57 RID: 11351 RVA: 0x000DB154 File Offset: 0x000D9354
+	// Token: 0x06002CED RID: 11501 RVA: 0x0004E844 File Offset: 0x0004CA44
 	public static SessionAPIsApi GetKIDSessionAPI()
 	{
 		if (KIDIntegrationRouter._kIDSessionAPI == null || KIDIntegrationRouter._kIDSessionAPI.Configuration.AccessToken != KIDIntegrationRouter._kIDConfiguration.AccessToken)
@@ -40,7 +40,7 @@ internal static class KIDIntegrationRouter
 		return KIDIntegrationRouter._kIDSessionAPI;
 	}
 
-	// Token: 0x06002C58 RID: 11352 RVA: 0x000DB194 File Offset: 0x000D9394
+	// Token: 0x06002CEE RID: 11502 RVA: 0x00125CC8 File Offset: 0x00123EC8
 	public static Task<bool> RefreshToken()
 	{
 		KIDIntegrationRouter.<RefreshToken>d__9 <RefreshToken>d__;
@@ -50,7 +50,7 @@ internal static class KIDIntegrationRouter
 		return <RefreshToken>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C59 RID: 11353 RVA: 0x000DB1D0 File Offset: 0x000D93D0
+	// Token: 0x06002CEF RID: 11503 RVA: 0x00125D04 File Offset: 0x00123F04
 	public static Task<bool> AuthenticateKIDClient()
 	{
 		KIDIntegrationRouter.<AuthenticateKIDClient>d__10 <AuthenticateKIDClient>d__;
@@ -60,7 +60,7 @@ internal static class KIDIntegrationRouter
 		return <AuthenticateKIDClient>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C5A RID: 11354 RVA: 0x000DB20C File Offset: 0x000D940C
+	// Token: 0x06002CF0 RID: 11504 RVA: 0x00125D40 File Offset: 0x00123F40
 	public static CheckAgeGateRequest CreateAgeGateRequest(DateTime dateOfBirth)
 	{
 		if (dateOfBirth == default(DateTime))
@@ -70,7 +70,7 @@ internal static class KIDIntegrationRouter
 		return new CheckAgeGateRequest(KIDManager.Location, dateOfBirth);
 	}
 
-	// Token: 0x06002C5B RID: 11355 RVA: 0x000DB23C File Offset: 0x000D943C
+	// Token: 0x06002CF1 RID: 11505 RVA: 0x00125D70 File Offset: 0x00123F70
 	private static Configuration GetKIDConfig()
 	{
 		if (string.IsNullOrEmpty(KIDManager.KidAccessToken) || string.IsNullOrEmpty(KIDManager.KidRefreshToken) || string.IsNullOrEmpty(KIDManager.KidBasePath) || string.IsNullOrEmpty(KIDManager.Location))
@@ -98,7 +98,7 @@ internal static class KIDIntegrationRouter
 		return KIDIntegrationRouter._kIDConfiguration;
 	}
 
-	// Token: 0x06002C5C RID: 11356 RVA: 0x000DB30E File Offset: 0x000D950E
+	// Token: 0x06002CF2 RID: 11506 RVA: 0x0004E881 File Offset: 0x0004CA81
 	private static AuthAPIsApi GetKIDAuthAPI()
 	{
 		if (KIDIntegrationRouter._kIDAuthAPI == null || KIDIntegrationRouter._kIDAuthAPI.Configuration.AccessToken != KIDIntegrationRouter._kIDConfiguration.AccessToken)
@@ -108,27 +108,27 @@ internal static class KIDIntegrationRouter
 		return KIDIntegrationRouter._kIDAuthAPI;
 	}
 
-	// Token: 0x06002C5D RID: 11357 RVA: 0x000DB34B File Offset: 0x000D954B
+	// Token: 0x06002CF3 RID: 11507 RVA: 0x0004E8BE File Offset: 0x0004CABE
 	private static CreateClientAuthTokenRequest GetClientAuthToken()
 	{
 		return new CreateClientAuthTokenRequest(PlayFabAuthenticator.instance.GetPlayFabPlayerId());
 	}
 
-	// Token: 0x040031B1 RID: 12721
+	// Token: 0x0400324E RID: 12878
 	private const string DATE_FORMAT = "yyyy-MM-dd";
 
-	// Token: 0x040031B2 RID: 12722
+	// Token: 0x0400324F RID: 12879
 	private static Configuration _kIDConfiguration;
 
-	// Token: 0x040031B3 RID: 12723
+	// Token: 0x04003250 RID: 12880
 	private static AuthAPIsApi _kIDAuthAPI;
 
-	// Token: 0x040031B4 RID: 12724
+	// Token: 0x04003251 RID: 12881
 	private static AgeGateAPIsApi _kIDAgeGateAPI;
 
-	// Token: 0x040031B5 RID: 12725
+	// Token: 0x04003252 RID: 12882
 	private static ChallengeAPIsApi _kIDChallengeAPI;
 
-	// Token: 0x040031B6 RID: 12726
+	// Token: 0x04003253 RID: 12883
 	private static SessionAPIsApi _kIDSessionAPI;
 }

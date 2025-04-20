@@ -2,25 +2,28 @@
 
 namespace Constants
 {
-	// Token: 0x0200095A RID: 2394
+	// Token: 0x02000977 RID: 2423
 	public static class Network
 	{
-		// Token: 0x04003B9F RID: 15263
+		// Token: 0x04003C64 RID: 15460
 		public const byte ROOM_SYSTEM = 3;
 
-		// Token: 0x04003BA0 RID: 15264
+		// Token: 0x04003C65 RID: 15461
 		public const byte COSMETIC_PURCHASE = 9;
 
-		// Token: 0x04003BA1 RID: 15265
+		// Token: 0x04003C66 RID: 15462
 		public const byte REPORT_PLAYER = 50;
 
-		// Token: 0x04003BA2 RID: 15266
+		// Token: 0x04003C67 RID: 15463
 		public const byte REPORT_MUTE = 51;
 
-		// Token: 0x04003BA3 RID: 15267
+		// Token: 0x04003C68 RID: 15464
 		public const byte COSMETIC_EVENT = 176;
 
-		// Token: 0x04003BA4 RID: 15268
+		// Token: 0x04003C69 RID: 15465
 		public const byte COSMETICS_LOOKUP = 199;
+
+		// Token: 0x04003C6A RID: 15466
+		public const double MAX_PHOTON_SERVER_TIME = 4294967.295;
 	}
 }

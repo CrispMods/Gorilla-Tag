@@ -1,16 +1,16 @@
 ﻿using System;
 
-// Token: 0x02000284 RID: 644
+// Token: 0x0200028F RID: 655
 public enum NetJoinResult
 {
-	// Token: 0x040011C0 RID: 4544
+	// Token: 0x04001208 RID: 4616
 	Success,
-	// Token: 0x040011C1 RID: 4545
+	// Token: 0x04001209 RID: 4617
 	FallbackCreated,
-	// Token: 0x040011C2 RID: 4546
+	// Token: 0x0400120A RID: 4618
 	Failed_Full,
-	// Token: 0x040011C3 RID: 4547
+	// Token: 0x0400120B RID: 4619
 	AlreadyInRoom,
-	// Token: 0x040011C4 RID: 4548
+	// Token: 0x0400120C RID: 4620
 	Failed_Other
 }

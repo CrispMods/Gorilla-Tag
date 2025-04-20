@@ -5,20 +5,20 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.XR;
 
-// Token: 0x020000BD RID: 189
+// Token: 0x020000C7 RID: 199
 public class FingerFlagWearable : MonoBehaviour, ISpawnable
 {
-	// Token: 0x1700005C RID: 92
-	// (get) Token: 0x060004E0 RID: 1248 RVA: 0x0001D22D File Offset: 0x0001B42D
-	// (set) Token: 0x060004E1 RID: 1249 RVA: 0x0001D235 File Offset: 0x0001B435
+	// Token: 0x17000061 RID: 97
+	// (get) Token: 0x0600051C RID: 1308 RVA: 0x00033CD3 File Offset: 0x00031ED3
+	// (set) Token: 0x0600051D RID: 1309 RVA: 0x00033CDB File Offset: 0x00031EDB
 	bool ISpawnable.IsSpawned { get; set; }
 
-	// Token: 0x1700005D RID: 93
-	// (get) Token: 0x060004E2 RID: 1250 RVA: 0x0001D23E File Offset: 0x0001B43E
-	// (set) Token: 0x060004E3 RID: 1251 RVA: 0x0001D246 File Offset: 0x0001B446
+	// Token: 0x17000062 RID: 98
+	// (get) Token: 0x0600051E RID: 1310 RVA: 0x00033CE4 File Offset: 0x00031EE4
+	// (set) Token: 0x0600051F RID: 1311 RVA: 0x00033CEC File Offset: 0x00031EEC
 	ECosmeticSelectSide ISpawnable.CosmeticSelectedSide { get; set; }
 
-	// Token: 0x060004E4 RID: 1252 RVA: 0x0001D24F File Offset: 0x0001B44F
+	// Token: 0x06000520 RID: 1312 RVA: 0x00033CF5 File Offset: 0x00031EF5
 	void ISpawnable.OnSpawn(VRRig rig)
 	{
 		this.myRig = base.GetComponentInParent<VRRig>(true);
@@ -28,12 +28,12 @@ public class FingerFlagWearable : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x060004E5 RID: 1253 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000521 RID: 1313 RVA: 0x00030607 File Offset: 0x0002E807
 	void ISpawnable.OnDespawn()
 	{
 	}
 
-	// Token: 0x060004E6 RID: 1254 RVA: 0x0001D278 File Offset: 0x0001B478
+	// Token: 0x06000522 RID: 1314 RVA: 0x000805F4 File Offset: 0x0007E7F4
 	protected void OnEnable()
 	{
 		int num = this.attachedToLeftHand ? 1 : 2;
@@ -41,7 +41,7 @@ public class FingerFlagWearable : MonoBehaviour, ISpawnable
 		this.OnExtendStateChanged(false);
 	}
 
-	// Token: 0x060004E7 RID: 1255 RVA: 0x0001D2B0 File Offset: 0x0001B4B0
+	// Token: 0x06000523 RID: 1315 RVA: 0x0008062C File Offset: 0x0007E82C
 	private void UpdateLocal()
 	{
 		int node = this.attachedToLeftHand ? 4 : 5;
@@ -56,7 +56,7 @@ public class FingerFlagWearable : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x060004E8 RID: 1256 RVA: 0x0001D330 File Offset: 0x0001B530
+	// Token: 0x06000524 RID: 1316 RVA: 0x000806AC File Offset: 0x0007E8AC
 	private void UpdateShared()
 	{
 		if (this.extended != this.networkedExtended)
@@ -77,7 +77,7 @@ public class FingerFlagWearable : MonoBehaviour, ISpawnable
 		this.UpdateAnimation();
 	}
 
-	// Token: 0x060004E9 RID: 1257 RVA: 0x0001D3BE File Offset: 0x0001B5BE
+	// Token: 0x06000525 RID: 1317 RVA: 0x00033D1D File Offset: 0x00031F1D
 	private void UpdateReplicated()
 	{
 		if (this.myRig != null && !this.myRig.isOfflineVRRig)
@@ -86,13 +86,13 @@ public class FingerFlagWearable : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x060004EA RID: 1258 RVA: 0x0001D3F7 File Offset: 0x0001B5F7
+	// Token: 0x06000526 RID: 1318 RVA: 0x00033D56 File Offset: 0x00031F56
 	public bool IsMyItem()
 	{
 		return this.myRig != null && this.myRig.isOfflineVRRig;
 	}
 
-	// Token: 0x060004EB RID: 1259 RVA: 0x0001D414 File Offset: 0x0001B614
+	// Token: 0x06000527 RID: 1319 RVA: 0x00033D73 File Offset: 0x00031F73
 	protected void LateUpdate()
 	{
 		if (this.IsMyItem())
@@ -106,7 +106,7 @@ public class FingerFlagWearable : MonoBehaviour, ISpawnable
 		this.UpdateShared();
 	}
 
-	// Token: 0x060004EC RID: 1260 RVA: 0x0001D434 File Offset: 0x0001B634
+	// Token: 0x06000528 RID: 1320 RVA: 0x0008073C File Offset: 0x0007E93C
 	private void UpdateAnimation()
 	{
 		float num = this.extended ? this.extendSpeed : (-this.retractSpeed);
@@ -114,7 +114,7 @@ public class FingerFlagWearable : MonoBehaviour, ISpawnable
 		this.animator.SetFloat(this.retractExtendTimeAnimParam, this.retractExtendTime);
 	}
 
-	// Token: 0x060004ED RID: 1261 RVA: 0x0001D48C File Offset: 0x0001B68C
+	// Token: 0x06000529 RID: 1321 RVA: 0x00080794 File Offset: 0x0007E994
 	private void OnExtendStateChanged(bool playAudio)
 	{
 		this.audioSource.clip = (this.extended ? this.extendAudioClip : this.retractAudioClip);
@@ -128,77 +128,77 @@ public class FingerFlagWearable : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x040005A8 RID: 1448
+	// Token: 0x040005E8 RID: 1512
 	[Header("Wearable Settings")]
 	public bool attachedToLeftHand = true;
 
-	// Token: 0x040005A9 RID: 1449
+	// Token: 0x040005E9 RID: 1513
 	[Header("Bones")]
 	public Transform pinkyRingBone;
 
-	// Token: 0x040005AA RID: 1450
+	// Token: 0x040005EA RID: 1514
 	public Transform thumbRingBone;
 
-	// Token: 0x040005AB RID: 1451
+	// Token: 0x040005EB RID: 1515
 	public Transform[] clothBones;
 
-	// Token: 0x040005AC RID: 1452
+	// Token: 0x040005EC RID: 1516
 	public Transform[] clothRigidbodies;
 
-	// Token: 0x040005AD RID: 1453
+	// Token: 0x040005ED RID: 1517
 	[Header("Animation")]
 	public Animator animator;
 
-	// Token: 0x040005AE RID: 1454
+	// Token: 0x040005EE RID: 1518
 	public float extendSpeed = 1.5f;
 
-	// Token: 0x040005AF RID: 1455
+	// Token: 0x040005EF RID: 1519
 	public float retractSpeed = 2.25f;
 
-	// Token: 0x040005B0 RID: 1456
+	// Token: 0x040005F0 RID: 1520
 	[Header("Audio")]
 	public AudioSource audioSource;
 
-	// Token: 0x040005B1 RID: 1457
+	// Token: 0x040005F1 RID: 1521
 	public AudioClip extendAudioClip;
 
-	// Token: 0x040005B2 RID: 1458
+	// Token: 0x040005F2 RID: 1522
 	public AudioClip retractAudioClip;
 
-	// Token: 0x040005B3 RID: 1459
+	// Token: 0x040005F3 RID: 1523
 	[Header("Vibration")]
 	public float extendVibrationDuration = 0.05f;
 
-	// Token: 0x040005B4 RID: 1460
+	// Token: 0x040005F4 RID: 1524
 	public float extendVibrationStrength = 0.2f;
 
-	// Token: 0x040005B5 RID: 1461
+	// Token: 0x040005F5 RID: 1525
 	public float retractVibrationDuration = 0.05f;
 
-	// Token: 0x040005B6 RID: 1462
+	// Token: 0x040005F6 RID: 1526
 	public float retractVibrationStrength = 0.2f;
 
-	// Token: 0x040005B7 RID: 1463
+	// Token: 0x040005F7 RID: 1527
 	private readonly int retractExtendTimeAnimParam = Animator.StringToHash("retractExtendTime");
 
-	// Token: 0x040005B8 RID: 1464
+	// Token: 0x040005F8 RID: 1528
 	private bool networkedExtended;
 
-	// Token: 0x040005B9 RID: 1465
+	// Token: 0x040005F9 RID: 1529
 	private bool extended;
 
-	// Token: 0x040005BA RID: 1466
+	// Token: 0x040005FA RID: 1530
 	private bool fullyRetracted;
 
-	// Token: 0x040005BB RID: 1467
+	// Token: 0x040005FB RID: 1531
 	private float retractExtendTime;
 
-	// Token: 0x040005BC RID: 1468
+	// Token: 0x040005FC RID: 1532
 	private InputDevice inputDevice;
 
-	// Token: 0x040005BD RID: 1469
+	// Token: 0x040005FD RID: 1533
 	private VRRig myRig;
 
-	// Token: 0x040005BE RID: 1470
+	// Token: 0x040005FE RID: 1534
 	private int stateBitIndex;
 }

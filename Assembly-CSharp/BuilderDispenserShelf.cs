@@ -5,10 +5,10 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x020004BD RID: 1213
+// Token: 0x020004CA RID: 1226
 public class BuilderDispenserShelf : MonoBehaviour
 {
-	// Token: 0x06001D68 RID: 7528 RVA: 0x0008F7C3 File Offset: 0x0008D9C3
+	// Token: 0x06001DC1 RID: 7617 RVA: 0x00044560 File Offset: 0x00042760
 	private void BuildDispenserPool()
 	{
 		this.dispenserPool = new List<BuilderDispenser>(12);
@@ -16,7 +16,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		this.AddToDispenserPool(6);
 	}
 
-	// Token: 0x06001D69 RID: 7529 RVA: 0x0008F7E8 File Offset: 0x0008D9E8
+	// Token: 0x06001DC2 RID: 7618 RVA: 0x000E27DC File Offset: 0x000E09DC
 	private void AddToDispenserPool(int count)
 	{
 		if (this.dispenserPrefab == null)
@@ -25,7 +25,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		}
 		for (int i = 0; i < count; i++)
 		{
-			BuilderDispenser builderDispenser = Object.Instantiate<BuilderDispenser>(this.dispenserPrefab, this.shelfCenter);
+			BuilderDispenser builderDispenser = UnityEngine.Object.Instantiate<BuilderDispenser>(this.dispenserPrefab, this.shelfCenter);
 			builderDispenser.gameObject.SetActive(false);
 			builderDispenser.table = this.table;
 			builderDispenser.shelfID = this.shelfID;
@@ -33,7 +33,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D6A RID: 7530 RVA: 0x0008F854 File Offset: 0x0008DA54
+	// Token: 0x06001DC3 RID: 7619 RVA: 0x000E2848 File Offset: 0x000E0A48
 	private void ActivateDispensers()
 	{
 		this.piecesInSet.Clear();
@@ -74,7 +74,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		this.dispenserToUpdate = 0;
 	}
 
-	// Token: 0x06001D6B RID: 7531 RVA: 0x0008FA00 File Offset: 0x0008DC00
+	// Token: 0x06001DC4 RID: 7620 RVA: 0x000E29F4 File Offset: 0x000E0BF4
 	public void Setup()
 	{
 		this.InitIfNeeded();
@@ -85,7 +85,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D6C RID: 7532 RVA: 0x0008FA68 File Offset: 0x0008DC68
+	// Token: 0x06001DC5 RID: 7621 RVA: 0x000E2A5C File Offset: 0x000E0C5C
 	private void InitIfNeeded()
 	{
 		if (this.initialized)
@@ -100,7 +100,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		this.initialized = true;
 	}
 
-	// Token: 0x06001D6D RID: 7533 RVA: 0x0008FACF File Offset: 0x0008DCCF
+	// Token: 0x06001DC6 RID: 7622 RVA: 0x00044582 File Offset: 0x00042782
 	private void OnDestroy()
 	{
 		if (this.setSelector != null)
@@ -109,7 +109,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D6E RID: 7534 RVA: 0x0008FAFB File Offset: 0x0008DCFB
+	// Token: 0x06001DC7 RID: 7623 RVA: 0x000445AE File Offset: 0x000427AE
 	public void OnSelectedSetChange(int setId)
 	{
 		if (this.table.GetTableState() != BuilderTable.TableState.Ready)
@@ -119,7 +119,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		this.table.RequestShelfSelection(this.shelfID, setId, false);
 	}
 
-	// Token: 0x06001D6F RID: 7535 RVA: 0x0008FB20 File Offset: 0x0008DD20
+	// Token: 0x06001DC8 RID: 7624 RVA: 0x000E2AC4 File Offset: 0x000E0CC4
 	public void SetSelection(int setId)
 	{
 		this.setSelector.SetSelection(setId);
@@ -143,13 +143,13 @@ public class BuilderDispenserShelf : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D70 RID: 7536 RVA: 0x0008FBA4 File Offset: 0x0008DDA4
+	// Token: 0x06001DC9 RID: 7625 RVA: 0x000445D2 File Offset: 0x000427D2
 	public int GetSelectedSetID()
 	{
 		return this.setSelector.GetSelectedSet().GetIntIdentifier();
 	}
 
-	// Token: 0x06001D71 RID: 7537 RVA: 0x0008FBB8 File Offset: 0x0008DDB8
+	// Token: 0x06001DCA RID: 7626 RVA: 0x000E2B48 File Offset: 0x000E0D48
 	private void ImmediateShelfSwap()
 	{
 		foreach (BuilderDispenser builderDispenser in this.activeDispensers)
@@ -159,7 +159,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		this.ActivateDispensers();
 	}
 
-	// Token: 0x06001D72 RID: 7538 RVA: 0x0008FC10 File Offset: 0x0008DE10
+	// Token: 0x06001DCB RID: 7627 RVA: 0x000E2BA0 File Offset: 0x000E0DA0
 	private void StartShelfSwap()
 	{
 		this.dispenserToClear = 0;
@@ -173,7 +173,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		this.animatingShelf = true;
 	}
 
-	// Token: 0x06001D73 RID: 7539 RVA: 0x0008FCA4 File Offset: 0x0008DEA4
+	// Token: 0x06001DCC RID: 7628 RVA: 0x000E2C34 File Offset: 0x000E0E34
 	public void UpdateShelf()
 	{
 		if (this.animatingShelf && (double)Time.time > this.timeToClearShelf)
@@ -197,7 +197,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D74 RID: 7540 RVA: 0x0008FD34 File Offset: 0x0008DF34
+	// Token: 0x06001DCD RID: 7629 RVA: 0x000E2CC4 File Offset: 0x000E0EC4
 	public void UpdateShelfSliced()
 	{
 		if (!PhotonNetwork.LocalPlayer.IsMasterClient)
@@ -232,13 +232,13 @@ public class BuilderDispenserShelf : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D75 RID: 7541 RVA: 0x0008FDED File Offset: 0x0008DFED
+	// Token: 0x06001DCE RID: 7630 RVA: 0x000445E4 File Offset: 0x000427E4
 	public void VerifySetSelection()
 	{
 		this.shouldVerifySetSelection = true;
 	}
 
-	// Token: 0x06001D76 RID: 7542 RVA: 0x0008FDF8 File Offset: 0x0008DFF8
+	// Token: 0x06001DCF RID: 7631 RVA: 0x000E2D80 File Offset: 0x000E0F80
 	public void OnShelfPieceCreated(BuilderPiece piece, bool playfx)
 	{
 		if (this.playSpawnSetSound && playfx)
@@ -252,7 +252,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D77 RID: 7543 RVA: 0x0008FE74 File Offset: 0x0008E074
+	// Token: 0x06001DD0 RID: 7632 RVA: 0x000E2DFC File Offset: 0x000E0FFC
 	public void OnShelfPieceRecycled(BuilderPiece piece)
 	{
 		foreach (BuilderDispenser builderDispenser in this.activeDispensers)
@@ -261,7 +261,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D78 RID: 7544 RVA: 0x0008FEC8 File Offset: 0x0008E0C8
+	// Token: 0x06001DD1 RID: 7633 RVA: 0x000E2E50 File Offset: 0x000E1050
 	public void OnClearTable()
 	{
 		if (!this.initialized)
@@ -280,7 +280,7 @@ public class BuilderDispenserShelf : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D79 RID: 7545 RVA: 0x0008FF44 File Offset: 0x0008E144
+	// Token: 0x06001DD2 RID: 7634 RVA: 0x000E2ECC File Offset: 0x000E10CC
 	public void ClearShelf()
 	{
 		foreach (BuilderDispenser builderDispenser in this.activeDispensers)
@@ -289,76 +289,76 @@ public class BuilderDispenserShelf : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400207E RID: 8318
+	// Token: 0x040020D1 RID: 8401
 	[Header("Set Selection")]
 	[SerializeField]
 	private BuilderSetSelector setSelector;
 
-	// Token: 0x0400207F RID: 8319
+	// Token: 0x040020D2 RID: 8402
 	public List<BuilderPieceSet.BuilderPieceCategory> _includedCategories;
 
-	// Token: 0x04002080 RID: 8320
+	// Token: 0x040020D3 RID: 8403
 	[Header("Dispenser Shelf Properties")]
 	public Transform shelfCenter;
 
-	// Token: 0x04002081 RID: 8321
+	// Token: 0x040020D4 RID: 8404
 	public float shelfWidth = 1.4f;
 
-	// Token: 0x04002082 RID: 8322
+	// Token: 0x040020D5 RID: 8405
 	public Animation resetAnimation;
 
-	// Token: 0x04002083 RID: 8323
+	// Token: 0x040020D6 RID: 8406
 	[SerializeField]
 	private SoundBankPlayer resetSoundBank;
 
-	// Token: 0x04002084 RID: 8324
+	// Token: 0x040020D7 RID: 8407
 	[SerializeField]
 	private AudioClip spawnNewSetSound;
 
-	// Token: 0x04002085 RID: 8325
+	// Token: 0x040020D8 RID: 8408
 	[SerializeField]
 	private AudioSource audioSource;
 
-	// Token: 0x04002086 RID: 8326
+	// Token: 0x040020D9 RID: 8409
 	private bool playSpawnSetSound;
 
-	// Token: 0x04002087 RID: 8327
+	// Token: 0x040020DA RID: 8410
 	[HideInInspector]
 	public BuilderTable table;
 
-	// Token: 0x04002088 RID: 8328
+	// Token: 0x040020DB RID: 8411
 	public int shelfID = -1;
 
-	// Token: 0x04002089 RID: 8329
+	// Token: 0x040020DC RID: 8412
 	private BuilderPieceSet currentSet;
 
-	// Token: 0x0400208A RID: 8330
+	// Token: 0x040020DD RID: 8413
 	private bool initialized;
 
-	// Token: 0x0400208B RID: 8331
+	// Token: 0x040020DE RID: 8414
 	public BuilderDispenser dispenserPrefab;
 
-	// Token: 0x0400208C RID: 8332
+	// Token: 0x040020DF RID: 8415
 	private List<BuilderDispenser> dispenserPool;
 
-	// Token: 0x0400208D RID: 8333
+	// Token: 0x040020E0 RID: 8416
 	private List<BuilderDispenser> activeDispensers;
 
-	// Token: 0x0400208E RID: 8334
+	// Token: 0x040020E1 RID: 8417
 	private List<BuilderPieceSet.PieceInfo> piecesInSet = new List<BuilderPieceSet.PieceInfo>(10);
 
-	// Token: 0x0400208F RID: 8335
+	// Token: 0x040020E2 RID: 8418
 	private bool animatingShelf;
 
-	// Token: 0x04002090 RID: 8336
+	// Token: 0x040020E3 RID: 8419
 	private double timeToClearShelf = double.MaxValue;
 
-	// Token: 0x04002091 RID: 8337
+	// Token: 0x040020E4 RID: 8420
 	private int dispenserToClear;
 
-	// Token: 0x04002092 RID: 8338
+	// Token: 0x040020E5 RID: 8421
 	private int dispenserToUpdate;
 
-	// Token: 0x04002093 RID: 8339
+	// Token: 0x040020E6 RID: 8422
 	private bool shouldVerifySetSelection;
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A45 RID: 2629
+	// Token: 0x02000A72 RID: 2674
 	public class ButtonController : Interactable
 	{
-		// Token: 0x17000691 RID: 1681
-		// (get) Token: 0x0600417E RID: 16766 RVA: 0x001367CE File Offset: 0x001349CE
+		// Token: 0x170006AD RID: 1709
+		// (get) Token: 0x060042C3 RID: 17091 RVA: 0x0005B9B0 File Offset: 0x00059BB0
 		public override int ValidToolTagsMask
 		{
 			get
@@ -17,8 +17,8 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x17000692 RID: 1682
-		// (get) Token: 0x0600417F RID: 16767 RVA: 0x001367D6 File Offset: 0x001349D6
+		// Token: 0x170006AE RID: 1710
+		// (get) Token: 0x060042C4 RID: 17092 RVA: 0x0005B9B8 File Offset: 0x00059BB8
 		public Vector3 LocalButtonDirection
 		{
 			get
@@ -27,12 +27,12 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x17000693 RID: 1683
-		// (get) Token: 0x06004180 RID: 16768 RVA: 0x001367DE File Offset: 0x001349DE
-		// (set) Token: 0x06004181 RID: 16769 RVA: 0x001367E6 File Offset: 0x001349E6
+		// Token: 0x170006AF RID: 1711
+		// (get) Token: 0x060042C5 RID: 17093 RVA: 0x0005B9C0 File Offset: 0x00059BC0
+		// (set) Token: 0x060042C6 RID: 17094 RVA: 0x0005B9C8 File Offset: 0x00059BC8
 		public InteractableState CurrentButtonState { get; private set; }
 
-		// Token: 0x06004182 RID: 16770 RVA: 0x001367F0 File Offset: 0x001349F0
+		// Token: 0x060042C7 RID: 17095 RVA: 0x0017666C File Offset: 0x0017486C
 		protected override void Awake()
 		{
 			base.Awake();
@@ -45,7 +45,7 @@ namespace OculusSampleFramework
 			this._actionZoneCollider = this._actionZone.GetComponent<ColliderZone>();
 		}
 
-		// Token: 0x06004183 RID: 16771 RVA: 0x00136860 File Offset: 0x00134A60
+		// Token: 0x060042C8 RID: 17096 RVA: 0x001766DC File Offset: 0x001748DC
 		private void FireInteractionEventsOnDepth(InteractableCollisionDepth oldDepth, InteractableTool collidingTool, InteractionType interactionType)
 		{
 			switch (oldDepth)
@@ -64,7 +64,7 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x06004184 RID: 16772 RVA: 0x001368D0 File Offset: 0x00134AD0
+		// Token: 0x060042C9 RID: 17097 RVA: 0x0017674C File Offset: 0x0017494C
 		public override void UpdateCollisionDepth(InteractableTool interactableTool, InteractableCollisionDepth oldCollisionDepth, InteractableCollisionDepth newCollisionDepth)
 		{
 			bool isFarFieldTool = interactableTool.IsFarFieldTool;
@@ -146,7 +146,7 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x06004185 RID: 16773 RVA: 0x00136AF8 File Offset: 0x00134CF8
+		// Token: 0x060042CA RID: 17098 RVA: 0x00176974 File Offset: 0x00174B74
 		private InteractableState GetUpcomingStateNearField(InteractableState oldState, InteractableCollisionDepth newCollisionDepth, bool toolIsInActionZone, bool toolIsInContactZone, bool toolIsInProximity, bool validContact, bool onPositiveSideOfInteractable)
 		{
 			InteractableState result = oldState;
@@ -203,7 +203,7 @@ namespace OculusSampleFramework
 			return result;
 		}
 
-		// Token: 0x06004186 RID: 16774 RVA: 0x00136B90 File Offset: 0x00134D90
+		// Token: 0x060042CB RID: 17099 RVA: 0x00176A0C File Offset: 0x00174C0C
 		public void ForceResetButton()
 		{
 			InteractableState currentButtonState = this.CurrentButtonState;
@@ -216,7 +216,7 @@ namespace OculusSampleFramework
 			interactableStateChanged.Invoke(new InteractableStateArgs(this, null, this.CurrentButtonState, currentButtonState, new ColliderZoneArgs(base.ContactCollider, (float)Time.frameCount, null, InteractionType.Exit)));
 		}
 
-		// Token: 0x06004187 RID: 16775 RVA: 0x00136BDC File Offset: 0x00134DDC
+		// Token: 0x060042CC RID: 17100 RVA: 0x00176A58 File Offset: 0x00174C58
 		private bool IsValidContact(InteractableTool collidingTool, Vector3 buttonDirection)
 		{
 			if (this._contactTests == null || collidingTool.IsFarFieldTool)
@@ -241,13 +241,13 @@ namespace OculusSampleFramework
 			return true;
 		}
 
-		// Token: 0x06004188 RID: 16776 RVA: 0x00136C30 File Offset: 0x00134E30
+		// Token: 0x060042CD RID: 17101 RVA: 0x00176AAC File Offset: 0x00174CAC
 		private bool PassEntryTest(InteractableTool collidingTool, Vector3 buttonDirection)
 		{
 			return Vector3.Dot(collidingTool.Velocity.normalized, buttonDirection) >= 0.8f;
 		}
 
-		// Token: 0x06004189 RID: 16777 RVA: 0x00136C5C File Offset: 0x00134E5C
+		// Token: 0x060042CE RID: 17102 RVA: 0x00176AD8 File Offset: 0x00174CD8
 		private bool PassPerpTest(InteractableTool collidingTool, Vector3 buttonDirection)
 		{
 			Vector3 vector = collidingTool.ToolTransform.right;
@@ -258,63 +258,63 @@ namespace OculusSampleFramework
 			return Vector3.Dot(vector, buttonDirection) >= 0.5f;
 		}
 
-		// Token: 0x0400429C RID: 17052
+		// Token: 0x04004396 RID: 17302
 		private const float ENTRY_DOT_THRESHOLD = 0.8f;
 
-		// Token: 0x0400429D RID: 17053
+		// Token: 0x04004397 RID: 17303
 		private const float PERP_DOT_THRESHOLD = 0.5f;
 
-		// Token: 0x0400429E RID: 17054
+		// Token: 0x04004398 RID: 17304
 		[SerializeField]
 		private GameObject _proximityZone;
 
-		// Token: 0x0400429F RID: 17055
+		// Token: 0x04004399 RID: 17305
 		[SerializeField]
 		private GameObject _contactZone;
 
-		// Token: 0x040042A0 RID: 17056
+		// Token: 0x0400439A RID: 17306
 		[SerializeField]
 		private GameObject _actionZone;
 
-		// Token: 0x040042A1 RID: 17057
+		// Token: 0x0400439B RID: 17307
 		[SerializeField]
 		private ButtonController.ContactTest[] _contactTests;
 
-		// Token: 0x040042A2 RID: 17058
+		// Token: 0x0400439C RID: 17308
 		[SerializeField]
 		private Transform _buttonPlaneCenter;
 
-		// Token: 0x040042A3 RID: 17059
+		// Token: 0x0400439D RID: 17309
 		[SerializeField]
 		private bool _makeSureToolIsOnPositiveSide = true;
 
-		// Token: 0x040042A4 RID: 17060
+		// Token: 0x0400439E RID: 17310
 		[SerializeField]
 		private Vector3 _localButtonDirection = Vector3.down;
 
-		// Token: 0x040042A5 RID: 17061
+		// Token: 0x0400439F RID: 17311
 		[SerializeField]
 		private InteractableToolTags[] _allValidToolsTags = new InteractableToolTags[]
 		{
 			InteractableToolTags.All
 		};
 
-		// Token: 0x040042A6 RID: 17062
+		// Token: 0x040043A0 RID: 17312
 		private int _toolTagsMask;
 
-		// Token: 0x040042A7 RID: 17063
+		// Token: 0x040043A1 RID: 17313
 		[SerializeField]
 		private bool _allowMultipleNearFieldInteraction;
 
-		// Token: 0x040042A9 RID: 17065
+		// Token: 0x040043A3 RID: 17315
 		private Dictionary<InteractableTool, InteractableState> _toolToState = new Dictionary<InteractableTool, InteractableState>();
 
-		// Token: 0x02000A46 RID: 2630
+		// Token: 0x02000A73 RID: 2675
 		public enum ContactTest
 		{
-			// Token: 0x040042AB RID: 17067
+			// Token: 0x040043A5 RID: 17317
 			PerpenTest,
-			// Token: 0x040042AC RID: 17068
+			// Token: 0x040043A6 RID: 17318
 			BackwardsPress
 		}
 	}

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000047 RID: 71
+// Token: 0x0200004C RID: 76
 public class CrittersFoodSettings : CrittersActorSettings
 {
-	// Token: 0x06000162 RID: 354 RVA: 0x000093DC File Offset: 0x000075DC
+	// Token: 0x0600017B RID: 379 RVA: 0x0006E800 File Offset: 0x0006CA00
 	public override void UpdateActorSettings()
 	{
 		base.UpdateActorSettings();
@@ -18,21 +18,21 @@ public class CrittersFoodSettings : CrittersActorSettings
 		crittersFood.SpawnData(this._maxFood, this._currentFood, this._startingSize);
 	}
 
-	// Token: 0x040001AB RID: 427
+	// Token: 0x040001D0 RID: 464
 	public float _maxFood;
 
-	// Token: 0x040001AC RID: 428
+	// Token: 0x040001D1 RID: 465
 	public float _currentFood;
 
-	// Token: 0x040001AD RID: 429
+	// Token: 0x040001D2 RID: 466
 	public float _startingSize;
 
-	// Token: 0x040001AE RID: 430
+	// Token: 0x040001D3 RID: 467
 	public float _currentSize;
 
-	// Token: 0x040001AF RID: 431
+	// Token: 0x040001D4 RID: 468
 	public Transform _food;
 
-	// Token: 0x040001B0 RID: 432
+	// Token: 0x040001D5 RID: 469
 	public bool _disableWhenEmpty;
 }

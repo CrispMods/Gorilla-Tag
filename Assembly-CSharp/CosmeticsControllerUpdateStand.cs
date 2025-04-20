@@ -3,10 +3,10 @@ using System.Collections;
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x020003C6 RID: 966
+// Token: 0x020003D1 RID: 977
 public class CosmeticsControllerUpdateStand : MonoBehaviour
 {
-	// Token: 0x06001745 RID: 5957 RVA: 0x00071CE0 File Offset: 0x0006FEE0
+	// Token: 0x06001792 RID: 6034 RVA: 0x000C8E58 File Offset: 0x000C7058
 	public GameObject ReturnChildWithCosmeticNameMatch(Transform parentTransform)
 	{
 		GameObject gameObject = null;
@@ -29,42 +29,42 @@ public class CosmeticsControllerUpdateStand : MonoBehaviour
 		return gameObject;
 	}
 
-	// Token: 0x040019F7 RID: 6647
+	// Token: 0x04001A40 RID: 6720
 	public CosmeticsController cosmeticsController;
 
-	// Token: 0x040019F8 RID: 6648
+	// Token: 0x04001A41 RID: 6721
 	public bool FailEntitlement;
 
-	// Token: 0x040019F9 RID: 6649
+	// Token: 0x04001A42 RID: 6722
 	public bool PlayerUnlocked;
 
-	// Token: 0x040019FA RID: 6650
+	// Token: 0x04001A43 RID: 6723
 	public bool ItemNotGrantedYet;
 
-	// Token: 0x040019FB RID: 6651
+	// Token: 0x04001A44 RID: 6724
 	public bool ItemSuccessfullyGranted;
 
-	// Token: 0x040019FC RID: 6652
+	// Token: 0x04001A45 RID: 6725
 	public bool AttemptToConsumeEntitlement;
 
-	// Token: 0x040019FD RID: 6653
+	// Token: 0x04001A46 RID: 6726
 	public bool EntitlementSuccessfullyConsumed;
 
-	// Token: 0x040019FE RID: 6654
+	// Token: 0x04001A47 RID: 6727
 	public bool LockSuccessfullyCleared;
 
-	// Token: 0x040019FF RID: 6655
+	// Token: 0x04001A48 RID: 6728
 	public bool RunDebug;
 
-	// Token: 0x04001A00 RID: 6656
+	// Token: 0x04001A49 RID: 6729
 	public Transform textParent;
 
-	// Token: 0x04001A01 RID: 6657
+	// Token: 0x04001A4A RID: 6730
 	private CosmeticsController.CosmeticItem outItem;
 
-	// Token: 0x04001A02 RID: 6658
+	// Token: 0x04001A4B RID: 6731
 	public HeadModel[] inventoryHeadModels;
 
-	// Token: 0x04001A03 RID: 6659
+	// Token: 0x04001A4C RID: 6732
 	public string headModelsPrefabPath;
 }

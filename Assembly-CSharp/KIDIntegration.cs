@@ -10,11 +10,11 @@ using KID.Client;
 using KID.Model;
 using UnityEngine;
 
-// Token: 0x020006E9 RID: 1769
+// Token: 0x020006FE RID: 1790
 public class KIDIntegration
 {
-	// Token: 0x170004A5 RID: 1189
-	// (get) Token: 0x06002BFD RID: 11261 RVA: 0x000D8520 File Offset: 0x000D6720
+	// Token: 0x170004B2 RID: 1202
+	// (get) Token: 0x06002C93 RID: 11411 RVA: 0x00123424 File Offset: 0x00121624
 	public float ChallengeTimeoutRemaining
 	{
 		get
@@ -33,13 +33,13 @@ public class KIDIntegration
 		}
 	}
 
-	// Token: 0x170004A6 RID: 1190
-	// (get) Token: 0x06002BFE RID: 11262 RVA: 0x000D8562 File Offset: 0x000D6762
-	// (set) Token: 0x06002BFF RID: 11263 RVA: 0x000D8569 File Offset: 0x000D6769
+	// Token: 0x170004B3 RID: 1203
+	// (get) Token: 0x06002C94 RID: 11412 RVA: 0x0004E4C9 File Offset: 0x0004C6C9
+	// (set) Token: 0x06002C95 RID: 11413 RVA: 0x0004E4D0 File Offset: 0x0004C6D0
 	public static AwaitChallengeResponse.StatusEnum ChallengeStatus { get; private set; } = AwaitChallengeResponse.StatusEnum.INPROGRESS;
 
-	// Token: 0x170004A7 RID: 1191
-	// (get) Token: 0x06002C00 RID: 11264 RVA: 0x000D8571 File Offset: 0x000D6771
+	// Token: 0x170004B4 RID: 1204
+	// (get) Token: 0x06002C96 RID: 11414 RVA: 0x0004E4D8 File Offset: 0x0004C6D8
 	public static bool HasFoundSession
 	{
 		get
@@ -48,18 +48,18 @@ public class KIDIntegration
 		}
 	}
 
-	// Token: 0x170004A8 RID: 1192
-	// (get) Token: 0x06002C01 RID: 11265 RVA: 0x000D857B File Offset: 0x000D677B
-	// (set) Token: 0x06002C02 RID: 11266 RVA: 0x000D8582 File Offset: 0x000D6782
+	// Token: 0x170004B5 RID: 1205
+	// (get) Token: 0x06002C97 RID: 11415 RVA: 0x0004E4E2 File Offset: 0x0004C6E2
+	// (set) Token: 0x06002C98 RID: 11416 RVA: 0x0004E4E9 File Offset: 0x0004C6E9
 	public static bool IsReady { get; private set; }
 
-	// Token: 0x170004A9 RID: 1193
-	// (get) Token: 0x06002C03 RID: 11267 RVA: 0x000D858A File Offset: 0x000D678A
-	// (set) Token: 0x06002C04 RID: 11268 RVA: 0x000D8591 File Offset: 0x000D6791
+	// Token: 0x170004B6 RID: 1206
+	// (get) Token: 0x06002C99 RID: 11417 RVA: 0x0004E4F1 File Offset: 0x0004C6F1
+	// (set) Token: 0x06002C9A RID: 11418 RVA: 0x0004E4F8 File Offset: 0x0004C6F8
 	public static bool HasSetAge { get; private set; }
 
-	// Token: 0x170004AA RID: 1194
-	// (get) Token: 0x06002C05 RID: 11269 RVA: 0x000D8599 File Offset: 0x000D6799
+	// Token: 0x170004B7 RID: 1207
+	// (get) Token: 0x06002C9B RID: 11419 RVA: 0x0004E500 File Offset: 0x0004C700
 	public static string GetSessionIdPlayerPrefRef
 	{
 		get
@@ -72,9 +72,9 @@ public class KIDIntegration
 		}
 	}
 
-	// Token: 0x170004AB RID: 1195
-	// (get) Token: 0x06002C06 RID: 11270 RVA: 0x000D85C7 File Offset: 0x000D67C7
-	// (set) Token: 0x06002C07 RID: 11271 RVA: 0x000D85CE File Offset: 0x000D67CE
+	// Token: 0x170004B8 RID: 1208
+	// (get) Token: 0x06002C9C RID: 11420 RVA: 0x0004E52E File Offset: 0x0004C72E
+	// (set) Token: 0x06002C9D RID: 11421 RVA: 0x0004E535 File Offset: 0x0004C735
 	private static Session CurrentSession
 	{
 		get
@@ -91,8 +91,8 @@ public class KIDIntegration
 		}
 	}
 
-	// Token: 0x170004AC RID: 1196
-	// (get) Token: 0x06002C08 RID: 11272 RVA: 0x000D85E4 File Offset: 0x000D67E4
+	// Token: 0x170004B9 RID: 1209
+	// (get) Token: 0x06002C9E RID: 11422 RVA: 0x0004E54B File Offset: 0x0004C74B
 	private static string GetChallengeIdPlayerPrefRef
 	{
 		get
@@ -105,14 +105,14 @@ public class KIDIntegration
 		}
 	}
 
-	// Token: 0x06002C09 RID: 11273 RVA: 0x000D8612 File Offset: 0x000D6812
+	// Token: 0x06002C9F RID: 11423 RVA: 0x0004E579 File Offset: 0x0004C779
 	public KIDIntegration(Action sessionUpdatedCallback, CancellationToken cancellationToken)
 	{
 		this._cancellationToken = cancellationToken;
 		this._sessionUpdatedCallback = sessionUpdatedCallback;
 	}
 
-	// Token: 0x06002C0A RID: 11274 RVA: 0x000D8634 File Offset: 0x000D6834
+	// Token: 0x06002CA0 RID: 11424 RVA: 0x00123468 File Offset: 0x00121668
 	public void InitialiseKIDSystem()
 	{
 		KIDIntegration.<InitialiseKIDSystem>d__53 <InitialiseKIDSystem>d__;
@@ -122,7 +122,7 @@ public class KIDIntegration
 		<InitialiseKIDSystem>d__.<>t__builder.Start<KIDIntegration.<InitialiseKIDSystem>d__53>(ref <InitialiseKIDSystem>d__);
 	}
 
-	// Token: 0x06002C0B RID: 11275 RVA: 0x000D866C File Offset: 0x000D686C
+	// Token: 0x06002CA1 RID: 11425 RVA: 0x001234A0 File Offset: 0x001216A0
 	[return: TupleElementNames(new string[]
 	{
 		"updateResult",
@@ -139,7 +139,7 @@ public class KIDIntegration
 		return <TryGetSession>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C0C RID: 11276 RVA: 0x000D86B8 File Offset: 0x000D68B8
+	// Token: 0x06002CA2 RID: 11426 RVA: 0x001234EC File Offset: 0x001216EC
 	public static Task<R> AsyncKidRequestWithBackoff<R>(Func<Task<R>> webRequest, int timeoutMs = 10000, CancellationToken cancellationToken = default(CancellationToken))
 	{
 		KIDIntegration.<AsyncKidRequestWithBackoff>d__55<R> <AsyncKidRequestWithBackoff>d__;
@@ -152,7 +152,7 @@ public class KIDIntegration
 		return <AsyncKidRequestWithBackoff>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C0D RID: 11277 RVA: 0x000D870C File Offset: 0x000D690C
+	// Token: 0x06002CA3 RID: 11427 RVA: 0x00123540 File Offset: 0x00121740
 	private static int GetRetryAfterMsOr(ApiException exception, int defaultMs)
 	{
 		if (exception.Headers == null || !exception.Headers.ContainsKey("Retry-After"))
@@ -168,7 +168,7 @@ public class KIDIntegration
 		return defaultMs;
 	}
 
-	// Token: 0x06002C0E RID: 11278 RVA: 0x000D8760 File Offset: 0x000D6960
+	// Token: 0x06002CA4 RID: 11428 RVA: 0x00123594 File Offset: 0x00121794
 	private Task<ValueTuple<bool, Guid>> TryGetPastChallenge()
 	{
 		KIDIntegration.<TryGetPastChallenge>d__57 <TryGetPastChallenge>d__;
@@ -179,7 +179,7 @@ public class KIDIntegration
 		return <TryGetPastChallenge>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C0F RID: 11279 RVA: 0x000D87A4 File Offset: 0x000D69A4
+	// Token: 0x06002CA5 RID: 11429 RVA: 0x001235D8 File Offset: 0x001217D8
 	private Task TriggerChallenge(DateTime birthday)
 	{
 		KIDIntegration.<TriggerChallenge>d__58 <TriggerChallenge>d__;
@@ -191,7 +191,7 @@ public class KIDIntegration
 		return <TriggerChallenge>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C10 RID: 11280 RVA: 0x000D87F0 File Offset: 0x000D69F0
+	// Token: 0x06002CA6 RID: 11430 RVA: 0x00123624 File Offset: 0x00121824
 	private Task WaitForChallengeResult(Guid challengeId)
 	{
 		KIDIntegration.<WaitForChallengeResult>d__59 <WaitForChallengeResult>d__;
@@ -203,19 +203,19 @@ public class KIDIntegration
 		return <WaitForChallengeResult>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C11 RID: 11281 RVA: 0x000D883B File Offset: 0x000D6A3B
+	// Token: 0x06002CA7 RID: 11431 RVA: 0x0004E59A File Offset: 0x0004C79A
 	public static void RegisterOnInitialisationComplete(Action onComplete)
 	{
 		KIDIntegration._onKIDInitialisationComplete = (Action)Delegate.Combine(KIDIntegration._onKIDInitialisationComplete, onComplete);
 	}
 
-	// Token: 0x06002C12 RID: 11282 RVA: 0x000D8852 File Offset: 0x000D6A52
+	// Token: 0x06002CA8 RID: 11432 RVA: 0x0004E5B1 File Offset: 0x0004C7B1
 	public static void UnregisterOnInitialisationComplete(Action onComplete)
 	{
 		KIDIntegration._onKIDInitialisationComplete = (Action)Delegate.Remove(KIDIntegration._onKIDInitialisationComplete, onComplete);
 	}
 
-	// Token: 0x06002C13 RID: 11283 RVA: 0x000D886C File Offset: 0x000D6A6C
+	// Token: 0x06002CA9 RID: 11433 RVA: 0x00123670 File Offset: 0x00121870
 	public static Task LoadStoredPermissions()
 	{
 		KIDIntegration.<LoadStoredPermissions>d__62 <LoadStoredPermissions>d__;
@@ -225,19 +225,19 @@ public class KIDIntegration
 		return <LoadStoredPermissions>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C14 RID: 11284 RVA: 0x000D88A7 File Offset: 0x000D6AA7
+	// Token: 0x06002CAA RID: 11434 RVA: 0x0004E5C8 File Offset: 0x0004C7C8
 	public static string GetETAG()
 	{
 		return PlayerPrefs.GetString("kIDSessionETAG");
 	}
 
-	// Token: 0x06002C15 RID: 11285 RVA: 0x000D88B3 File Offset: 0x000D6AB3
+	// Token: 0x06002CAB RID: 11435 RVA: 0x0004E5D4 File Offset: 0x0004C7D4
 	public static List<SKIDPermissionData> GetAllPermissionsData()
 	{
 		return KIDIntegration._permissionsList.Values.ToList<SKIDPermissionData>();
 	}
 
-	// Token: 0x06002C16 RID: 11286 RVA: 0x000D88C4 File Offset: 0x000D6AC4
+	// Token: 0x06002CAC RID: 11436 RVA: 0x001236AC File Offset: 0x001218AC
 	[return: TupleElementNames(new string[]
 	{
 		"enabled",
@@ -254,7 +254,7 @@ public class KIDIntegration
 		return new ValueTuple<bool, Permission.ManagedByEnum>(permissionDataByName.Value.PermissionEnabled, permissionDataByName.Value.PermissionData.ManagedBy);
 	}
 
-	// Token: 0x06002C17 RID: 11287 RVA: 0x000D8920 File Offset: 0x000D6B20
+	// Token: 0x06002CAD RID: 11437 RVA: 0x00123708 File Offset: 0x00121908
 	[return: TupleElementNames(new string[]
 	{
 		"enabled",
@@ -271,7 +271,7 @@ public class KIDIntegration
 		return new ValueTuple<bool, Permission.ManagedByEnum>(permissionDataByName.Value.PermissionEnabled, permissionDataByName.Value.PermissionData.ManagedBy);
 	}
 
-	// Token: 0x06002C18 RID: 11288 RVA: 0x000D897C File Offset: 0x000D6B7C
+	// Token: 0x06002CAE RID: 11438 RVA: 0x00123764 File Offset: 0x00121964
 	[return: TupleElementNames(new string[]
 	{
 		"enabled",
@@ -288,7 +288,7 @@ public class KIDIntegration
 		return new ValueTuple<bool, Permission.ManagedByEnum>(permissionDataByName.Value.PermissionEnabled, permissionDataByName.Value.PermissionData.ManagedBy);
 	}
 
-	// Token: 0x06002C19 RID: 11289 RVA: 0x000D89D8 File Offset: 0x000D6BD8
+	// Token: 0x06002CAF RID: 11439 RVA: 0x001237C0 File Offset: 0x001219C0
 	public void AgeGateVerificationFlow()
 	{
 		KIDIntegration.<AgeGateVerificationFlow>d__68 <AgeGateVerificationFlow>d__;
@@ -298,7 +298,7 @@ public class KIDIntegration
 		<AgeGateVerificationFlow>d__.<>t__builder.Start<KIDIntegration.<AgeGateVerificationFlow>d__68>(ref <AgeGateVerificationFlow>d__);
 	}
 
-	// Token: 0x06002C1A RID: 11290 RVA: 0x000D8A10 File Offset: 0x000D6C10
+	// Token: 0x06002CB0 RID: 11440 RVA: 0x001237F8 File Offset: 0x001219F8
 	public Task StartKidFlow()
 	{
 		KIDIntegration.<StartKidFlow>d__69 <StartKidFlow>d__;
@@ -309,7 +309,7 @@ public class KIDIntegration
 		return <StartKidFlow>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C1B RID: 11291 RVA: 0x000D8A54 File Offset: 0x000D6C54
+	// Token: 0x06002CB1 RID: 11441 RVA: 0x0012383C File Offset: 0x00121A3C
 	public Task<KIDIntegration.EKIDSessionUpdateType> RequestUpdateSession()
 	{
 		KIDIntegration.<RequestUpdateSession>d__70 <RequestUpdateSession>d__;
@@ -320,7 +320,7 @@ public class KIDIntegration
 		return <RequestUpdateSession>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C1C RID: 11292 RVA: 0x000D8A98 File Offset: 0x000D6C98
+	// Token: 0x06002CB2 RID: 11442 RVA: 0x00123880 File Offset: 0x00121A80
 	public void RequestNewChallenge()
 	{
 		int userAge = KIDAgeGate.UserAge;
@@ -328,33 +328,33 @@ public class KIDIntegration
 		this.TriggerChallenge(birthday);
 	}
 
-	// Token: 0x06002C1D RID: 11293 RVA: 0x000D8AC4 File Offset: 0x000D6CC4
+	// Token: 0x06002CB3 RID: 11443 RVA: 0x001238AC File Offset: 0x00121AAC
 	public void RestartChallengeAwait()
 	{
 		Guid challengeId = this._kIDChallenge.ChallengeId;
 		this.WaitForChallengeResult(challengeId);
 	}
 
-	// Token: 0x06002C1E RID: 11294 RVA: 0x000D8AE5 File Offset: 0x000D6CE5
+	// Token: 0x06002CB4 RID: 11444 RVA: 0x0004E5E5 File Offset: 0x0004C7E5
 	public AgeStatusType GetActiveAccountType()
 	{
 		return this._activeAccountStatus;
 	}
 
-	// Token: 0x06002C1F RID: 11295 RVA: 0x000D8AED File Offset: 0x000D6CED
+	// Token: 0x06002CB5 RID: 11445 RVA: 0x0004E5ED File Offset: 0x0004C7ED
 	public string GetOneTimePasscode()
 	{
 		Challenge kIDChallenge = this._kIDChallenge;
 		return ((kIDChallenge != null) ? kIDChallenge.OneTimePassword : null) ?? "INVALID PASSCODE";
 	}
 
-	// Token: 0x06002C20 RID: 11296 RVA: 0x000D85C7 File Offset: 0x000D67C7
+	// Token: 0x06002CB6 RID: 11446 RVA: 0x0004E52E File Offset: 0x0004C72E
 	public Session GetKidSession()
 	{
 		return KIDIntegration._kIDSession;
 	}
 
-	// Token: 0x06002C21 RID: 11297 RVA: 0x000D8B0C File Offset: 0x000D6D0C
+	// Token: 0x06002CB7 RID: 11447 RVA: 0x001238D0 File Offset: 0x00121AD0
 	public int GetAgeFromDateOfBirth()
 	{
 		if (KIDIntegration._kIDSession != null)
@@ -376,7 +376,7 @@ public class KIDIntegration
 		return -1;
 	}
 
-	// Token: 0x06002C22 RID: 11298 RVA: 0x000D8B77 File Offset: 0x000D6D77
+	// Token: 0x06002CB8 RID: 11448 RVA: 0x0004E60A File Offset: 0x0004C80A
 	public void RestartKid()
 	{
 		this._isSettingAge = false;
@@ -384,13 +384,13 @@ public class KIDIntegration
 		this.ClearSession();
 	}
 
-	// Token: 0x06002C23 RID: 11299 RVA: 0x000D8B8C File Offset: 0x000D6D8C
+	// Token: 0x06002CB9 RID: 11449 RVA: 0x0004E61F File Offset: 0x0004C81F
 	public static void NotifyHasSetAge()
 	{
 		KIDIntegration.HasSetAge = true;
 	}
 
-	// Token: 0x06002C24 RID: 11300 RVA: 0x000D8B94 File Offset: 0x000D6D94
+	// Token: 0x06002CBA RID: 11450 RVA: 0x0012393C File Offset: 0x00121B3C
 	private static SKIDPermissionData? GetPermissionDataByName(string permissionName)
 	{
 		if (!KIDIntegration._permissionsList.ContainsKey(permissionName))
@@ -400,7 +400,7 @@ public class KIDIntegration
 		return new SKIDPermissionData?(KIDIntegration._permissionsList[permissionName]);
 	}
 
-	// Token: 0x06002C25 RID: 11301 RVA: 0x000D8BC8 File Offset: 0x000D6DC8
+	// Token: 0x06002CBB RID: 11451 RVA: 0x00123970 File Offset: 0x00121B70
 	private void ClearSession()
 	{
 		PlayerPrefs.DeleteKey(KIDIntegration.GetSessionIdPlayerPrefRef);
@@ -414,7 +414,7 @@ public class KIDIntegration
 		this.DeleteStoredPermissions();
 	}
 
-	// Token: 0x06002C26 RID: 11302 RVA: 0x000D8C20 File Offset: 0x000D6E20
+	// Token: 0x06002CBC RID: 11452 RVA: 0x001239C8 File Offset: 0x00121BC8
 	private Task UpdateSession(Session newSession)
 	{
 		KIDIntegration.<UpdateSession>d__81 <UpdateSession>d__;
@@ -426,7 +426,7 @@ public class KIDIntegration
 		return <UpdateSession>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C27 RID: 11303 RVA: 0x000D8C6C File Offset: 0x000D6E6C
+	// Token: 0x06002CBD RID: 11453 RVA: 0x00123A14 File Offset: 0x00121C14
 	private void UpdateSessionPermissions(List<Permission> permissions, bool debug = false)
 	{
 		StringBuilder stringBuilder = new StringBuilder();
@@ -446,7 +446,7 @@ public class KIDIntegration
 		}
 	}
 
-	// Token: 0x06002C28 RID: 11304 RVA: 0x000D8D78 File Offset: 0x000D6F78
+	// Token: 0x06002CBE RID: 11454 RVA: 0x00123B20 File Offset: 0x00121D20
 	private void ClearSessionPermissions()
 	{
 		Dictionary<string, SKIDPermissionData> dictionary = new Dictionary<string, SKIDPermissionData>();
@@ -457,7 +457,7 @@ public class KIDIntegration
 		KIDIntegration._permissionsList = dictionary;
 	}
 
-	// Token: 0x06002C29 RID: 11305 RVA: 0x000D8E00 File Offset: 0x000D7000
+	// Token: 0x06002CBF RID: 11455 RVA: 0x00123BA8 File Offset: 0x00121DA8
 	private void SaveStoredPermissions()
 	{
 		if (KIDIntegration.CurrentSession == null)
@@ -478,7 +478,7 @@ public class KIDIntegration
 		PlayerPrefs.SetString("kid-permission-csv", text);
 	}
 
-	// Token: 0x06002C2A RID: 11306 RVA: 0x000D8EE0 File Offset: 0x000D70E0
+	// Token: 0x06002CC0 RID: 11456 RVA: 0x00123C88 File Offset: 0x00121E88
 	private void DeleteStoredPermissions()
 	{
 		PlayerPrefs.DeleteKey("kIDSessionETAG");
@@ -502,7 +502,7 @@ public class KIDIntegration
 		}
 	}
 
-	// Token: 0x06002C2B RID: 11307 RVA: 0x000D8F80 File Offset: 0x000D7180
+	// Token: 0x06002CC1 RID: 11457 RVA: 0x00123D28 File Offset: 0x00121F28
 	private Task SetDefaultKIDPermissions()
 	{
 		KIDIntegration.<SetDefaultKIDPermissions>d__86 <SetDefaultKIDPermissions>d__;
@@ -513,7 +513,7 @@ public class KIDIntegration
 		return <SetDefaultKIDPermissions>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C2C RID: 11308 RVA: 0x000D8FC4 File Offset: 0x000D71C4
+	// Token: 0x06002CC2 RID: 11458 RVA: 0x00123D6C File Offset: 0x00121F6C
 	private void UpdateSessionWithDefaults()
 	{
 		if (KIDIntegration._defaultPermissionsList == null || KIDIntegration._defaultPermissionsList.Count == 0)
@@ -531,7 +531,7 @@ public class KIDIntegration
 		this.SaveStoredPermissions();
 	}
 
-	// Token: 0x06002C2D RID: 11309 RVA: 0x000D9090 File Offset: 0x000D7290
+	// Token: 0x06002CC3 RID: 11459 RVA: 0x00123E38 File Offset: 0x00122038
 	private void UpdateDefaultPermissions(List<Permission> defaultPermissions)
 	{
 		foreach (Permission permission in defaultPermissions)
@@ -545,7 +545,7 @@ public class KIDIntegration
 		this.SaveDefaultPermissions(defaultPermissions);
 	}
 
-	// Token: 0x06002C2E RID: 11310 RVA: 0x000D912C File Offset: 0x000D732C
+	// Token: 0x06002CC4 RID: 11460 RVA: 0x00123ED4 File Offset: 0x001220D4
 	private void SaveDefaultPermissions(List<Permission> defaultPermissions)
 	{
 		string text = "";
@@ -576,7 +576,7 @@ public class KIDIntegration
 		PlayerPrefs.SetString("kid-default-permission-csv", text);
 	}
 
-	// Token: 0x06002C2F RID: 11311 RVA: 0x000D9234 File Offset: 0x000D7434
+	// Token: 0x06002CC5 RID: 11461 RVA: 0x00123FDC File Offset: 0x001221DC
 	private bool LoadDefaultPermissions()
 	{
 		string @string = PlayerPrefs.GetString("kid-default-permission-csv");
@@ -625,98 +625,98 @@ public class KIDIntegration
 		return array.Length != 0;
 	}
 
-	// Token: 0x0400313A RID: 12602
+	// Token: 0x040031D7 RID: 12759
 	public const string SESSION_ID_PREFIX_PLAYER_PREF = "kIDSessionID-";
 
-	// Token: 0x0400313B RID: 12603
+	// Token: 0x040031D8 RID: 12760
 	public const string SESSION_ETAG_PLAYER_PREF = "kIDSessionETAG";
 
-	// Token: 0x0400313C RID: 12604
+	// Token: 0x040031D9 RID: 12761
 	public const string INVALID_PASSCODE_RESPONSE = "INVALID PASSCODE";
 
-	// Token: 0x0400313D RID: 12605
+	// Token: 0x040031DA RID: 12762
 	private const string CHALLENEGE_ID_PREFIX_PLAYER_PREF = "ageGateChallenge-";
 
-	// Token: 0x0400313E RID: 12606
+	// Token: 0x040031DB RID: 12763
 	private const string KID_PERMISSIONS_CSV = "kid-permission-csv";
 
-	// Token: 0x0400313F RID: 12607
+	// Token: 0x040031DC RID: 12764
 	private const string KID_DEFAULT_PERMISSIONS_CSV = "kid-default-permission-csv";
 
-	// Token: 0x04003140 RID: 12608
+	// Token: 0x040031DD RID: 12765
 	private const string KID_PERMISSIONS_ENABLED_KEY = "-enabled";
 
-	// Token: 0x04003141 RID: 12609
+	// Token: 0x040031DE RID: 12766
 	private const string KID_PERMISSIONS_MANAGED_BY_KEY = "-managed-by";
 
-	// Token: 0x04003142 RID: 12610
+	// Token: 0x040031DF RID: 12767
 	private const int CHALLENGE_TOTAL_TIMEOUT_SEC = 900;
 
-	// Token: 0x04003143 RID: 12611
+	// Token: 0x040031E0 RID: 12768
 	private const int CHALLENGE_REQUEST_TIMEOUT_SEC = 0;
 
-	// Token: 0x04003144 RID: 12612
+	// Token: 0x040031E1 RID: 12769
 	private const int CHALLENGE_TIME_BETWEEN_REQUESTS_SEC = 30;
 
-	// Token: 0x04003145 RID: 12613
+	// Token: 0x040031E2 RID: 12770
 	public const string VOICE_CHAT_PERMISSION_NAME = "voice-chat";
 
-	// Token: 0x04003146 RID: 12614
+	// Token: 0x040031E3 RID: 12771
 	public const string CUSTOM_USERNAME_PERMISSION_NAME = "custom-username";
 
-	// Token: 0x04003147 RID: 12615
+	// Token: 0x040031E4 RID: 12772
 	public const string PRIVATE_ROOM_PERMISSION_NAME = "join-groups";
 
-	// Token: 0x04003148 RID: 12616
+	// Token: 0x040031E5 RID: 12773
 	private Action _sessionUpdatedCallback;
 
-	// Token: 0x04003149 RID: 12617
+	// Token: 0x040031E6 RID: 12774
 	private static Action _onKIDInitialisationComplete;
 
-	// Token: 0x0400314A RID: 12618
+	// Token: 0x040031E7 RID: 12775
 	private bool _isSettingAge;
 
-	// Token: 0x0400314B RID: 12619
+	// Token: 0x040031E8 RID: 12776
 	private double _timeoutTime;
 
-	// Token: 0x0400314C RID: 12620
+	// Token: 0x040031E9 RID: 12777
 	private double _timeoutOverride;
 
-	// Token: 0x0400314D RID: 12621
+	// Token: 0x040031EA RID: 12778
 	private Challenge _kIDChallenge;
 
-	// Token: 0x0400314E RID: 12622
+	// Token: 0x040031EB RID: 12779
 	private Guid _sessionId = Guid.Empty;
 
-	// Token: 0x0400314F RID: 12623
+	// Token: 0x040031EC RID: 12780
 	private AgeStatusType _activeAccountStatus;
 
-	// Token: 0x04003150 RID: 12624
+	// Token: 0x040031ED RID: 12781
 	private CancellationToken _cancellationToken;
 
-	// Token: 0x04003151 RID: 12625
+	// Token: 0x040031EE RID: 12782
 	private static string sessionIdPlayerPrefRef;
 
-	// Token: 0x04003152 RID: 12626
+	// Token: 0x040031EF RID: 12783
 	private static string challengeIdPlayerPrefRef;
 
-	// Token: 0x04003153 RID: 12627
+	// Token: 0x040031F0 RID: 12784
 	private static Session _kIDSession;
 
-	// Token: 0x04003154 RID: 12628
+	// Token: 0x040031F1 RID: 12785
 	private static Dictionary<string, SKIDPermissionData> _permissionsList = new Dictionary<string, SKIDPermissionData>();
 
-	// Token: 0x04003155 RID: 12629
+	// Token: 0x040031F2 RID: 12786
 	private static Dictionary<string, SKIDPermissionData> _defaultPermissionsList = new Dictionary<string, SKIDPermissionData>();
 
-	// Token: 0x020006EA RID: 1770
+	// Token: 0x020006FF RID: 1791
 	public enum EKIDSessionUpdateType
 	{
-		// Token: 0x0400315A RID: 12634
+		// Token: 0x040031F7 RID: 12791
 		Success = 1,
-		// Token: 0x0400315B RID: 12635
+		// Token: 0x040031F8 RID: 12792
 		Fail,
-		// Token: 0x0400315C RID: 12636
+		// Token: 0x040031F9 RID: 12793
 		Not_Modified
 	}
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WASD : MonoBehaviour
 {
 	// Token: 0x17000008 RID: 8
-	// (get) Token: 0x06000085 RID: 133 RVA: 0x00004A65 File Offset: 0x00002C65
+	// (get) Token: 0x06000085 RID: 133 RVA: 0x000309D6 File Offset: 0x0002EBD6
 	public Vector3 Velocity
 	{
 		get
@@ -14,7 +14,7 @@ public class WASD : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000086 RID: 134 RVA: 0x00004A70 File Offset: 0x00002C70
+	// Token: 0x06000086 RID: 134 RVA: 0x00069CD8 File Offset: 0x00067ED8
 	public void Update()
 	{
 		Vector3 zero = Vector3.zero;

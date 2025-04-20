@@ -3,13 +3,13 @@ using Fusion;
 using UnityEngine;
 using UnityEngine.Scripting;
 
-// Token: 0x0200045F RID: 1119
+// Token: 0x0200046B RID: 1131
 [NetworkBehaviourWeaved(31)]
 public class BattleGameModeData : FusionGameModeData
 {
-	// Token: 0x170002FD RID: 765
-	// (get) Token: 0x06001B6F RID: 7023 RVA: 0x00086FB7 File Offset: 0x000851B7
-	// (set) Token: 0x06001B70 RID: 7024 RVA: 0x00086FE1 File Offset: 0x000851E1
+	// Token: 0x17000304 RID: 772
+	// (get) Token: 0x06001BC3 RID: 7107 RVA: 0x00043028 File Offset: 0x00041228
+	// (set) Token: 0x06001BC4 RID: 7108 RVA: 0x00043052 File Offset: 0x00041252
 	[Networked]
 	[NetworkedWeaved(0, 31)]
 	private unsafe PaintbrawlData PaintbrawlData
@@ -32,9 +32,9 @@ public class BattleGameModeData : FusionGameModeData
 		}
 	}
 
-	// Token: 0x170002FE RID: 766
-	// (get) Token: 0x06001B71 RID: 7025 RVA: 0x0008700C File Offset: 0x0008520C
-	// (set) Token: 0x06001B72 RID: 7026 RVA: 0x00087019 File Offset: 0x00085219
+	// Token: 0x17000305 RID: 773
+	// (get) Token: 0x06001BC5 RID: 7109 RVA: 0x0004307D File Offset: 0x0004127D
+	// (set) Token: 0x06001BC6 RID: 7110 RVA: 0x0004308A File Offset: 0x0004128A
 	public override object Data
 	{
 		get
@@ -47,14 +47,14 @@ public class BattleGameModeData : FusionGameModeData
 		}
 	}
 
-	// Token: 0x06001B73 RID: 7027 RVA: 0x00087027 File Offset: 0x00085227
+	// Token: 0x06001BC7 RID: 7111 RVA: 0x00043098 File Offset: 0x00041298
 	public override void Spawned()
 	{
 		this.serializer = base.GetComponent<GameModeSerializer>();
 		this.battleTarget = (GorillaPaintbrawlManager)this.serializer.GameModeInstance;
 	}
 
-	// Token: 0x06001B74 RID: 7028 RVA: 0x0008704C File Offset: 0x0008524C
+	// Token: 0x06001BC8 RID: 7112 RVA: 0x000DB44C File Offset: 0x000D964C
 	[Rpc]
 	public unsafe void RPC_ReportSlinshotHit(int taggedPlayerID, Vector3 hitLocation, int projectileCount, RpcInfo rpcInfo = default(RpcInfo))
 	{
@@ -109,7 +109,7 @@ public class BattleGameModeData : FusionGameModeData
 		this.battleTarget.ReportSlingshotHit(player, hitLocation, projectileCount, photonMessageInfoWrapped);
 	}
 
-	// Token: 0x06001B76 RID: 7030 RVA: 0x00087213 File Offset: 0x00085413
+	// Token: 0x06001BCA RID: 7114 RVA: 0x000430C4 File Offset: 0x000412C4
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -117,7 +117,7 @@ public class BattleGameModeData : FusionGameModeData
 		this.PaintbrawlData = this._PaintbrawlData;
 	}
 
-	// Token: 0x06001B77 RID: 7031 RVA: 0x0008722B File Offset: 0x0008542B
+	// Token: 0x06001BCB RID: 7115 RVA: 0x000430DC File Offset: 0x000412DC
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -125,7 +125,7 @@ public class BattleGameModeData : FusionGameModeData
 		this._PaintbrawlData = this.PaintbrawlData;
 	}
 
-	// Token: 0x06001B78 RID: 7032 RVA: 0x00087240 File Offset: 0x00085440
+	// Token: 0x06001BCC RID: 7116 RVA: 0x000DB60C File Offset: 0x000D980C
 	[NetworkRpcWeavedInvoker(1, 7, 7)]
 	[Preserve]
 	[WeaverGenerated]
@@ -147,15 +147,15 @@ public class BattleGameModeData : FusionGameModeData
 		((BattleGameModeData)behaviour).RPC_ReportSlinshotHit(taggedPlayerID, hitLocation, projectileCount, rpcInfo);
 	}
 
-	// Token: 0x04001E77 RID: 7799
+	// Token: 0x04001EC6 RID: 7878
 	[WeaverGenerated]
 	[DefaultForProperty("PaintbrawlData", 0, 31)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
 	private PaintbrawlData _PaintbrawlData;
 
-	// Token: 0x04001E78 RID: 7800
+	// Token: 0x04001EC7 RID: 7879
 	private GorillaPaintbrawlManager battleTarget;
 
-	// Token: 0x04001E79 RID: 7801
+	// Token: 0x04001EC8 RID: 7880
 	private GameModeSerializer serializer;
 }

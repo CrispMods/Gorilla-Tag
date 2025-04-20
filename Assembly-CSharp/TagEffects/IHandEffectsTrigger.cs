@@ -3,63 +3,63 @@ using UnityEngine;
 
 namespace TagEffects
 {
-	// Token: 0x02000B2B RID: 2859
+	// Token: 0x02000B58 RID: 2904
 	public interface IHandEffectsTrigger
 	{
-		// Token: 0x1700075A RID: 1882
-		// (get) Token: 0x06004747 RID: 18247
+		// Token: 0x17000776 RID: 1910
+		// (get) Token: 0x06004890 RID: 18576
 		IHandEffectsTrigger.Mode EffectMode { get; }
 
-		// Token: 0x1700075B RID: 1883
-		// (get) Token: 0x06004748 RID: 18248
+		// Token: 0x17000777 RID: 1911
+		// (get) Token: 0x06004891 RID: 18577
 		Transform Transform { get; }
 
-		// Token: 0x1700075C RID: 1884
-		// (get) Token: 0x06004749 RID: 18249
+		// Token: 0x17000778 RID: 1912
+		// (get) Token: 0x06004892 RID: 18578
 		VRRig Rig { get; }
 
-		// Token: 0x1700075D RID: 1885
-		// (get) Token: 0x0600474A RID: 18250
+		// Token: 0x17000779 RID: 1913
+		// (get) Token: 0x06004893 RID: 18579
 		bool FingersDown { get; }
 
-		// Token: 0x1700075E RID: 1886
-		// (get) Token: 0x0600474B RID: 18251
+		// Token: 0x1700077A RID: 1914
+		// (get) Token: 0x06004894 RID: 18580
 		bool FingersUp { get; }
 
-		// Token: 0x1700075F RID: 1887
-		// (get) Token: 0x0600474C RID: 18252
+		// Token: 0x1700077B RID: 1915
+		// (get) Token: 0x06004895 RID: 18581
 		Vector3 Velocity { get; }
 
-		// Token: 0x17000760 RID: 1888
-		// (get) Token: 0x0600474D RID: 18253
+		// Token: 0x1700077C RID: 1916
+		// (get) Token: 0x06004896 RID: 18582
 		bool RightHand { get; }
 
-		// Token: 0x17000761 RID: 1889
-		// (get) Token: 0x0600474E RID: 18254
+		// Token: 0x1700077D RID: 1917
+		// (get) Token: 0x06004897 RID: 18583
 		TagEffectPack CosmeticEffectPack { get; }
 
-		// Token: 0x17000762 RID: 1890
-		// (get) Token: 0x0600474F RID: 18255
+		// Token: 0x1700077E RID: 1918
+		// (get) Token: 0x06004898 RID: 18584
 		bool Static { get; }
 
-		// Token: 0x06004750 RID: 18256
+		// Token: 0x06004899 RID: 18585
 		void OnTriggerEntered(IHandEffectsTrigger other);
 
-		// Token: 0x06004751 RID: 18257
+		// Token: 0x0600489A RID: 18586
 		bool InTriggerZone(IHandEffectsTrigger t);
 
-		// Token: 0x02000B2C RID: 2860
+		// Token: 0x02000B59 RID: 2905
 		public enum Mode
 		{
-			// Token: 0x040048E3 RID: 18659
+			// Token: 0x040049D8 RID: 18904
 			HighFive,
-			// Token: 0x040048E4 RID: 18660
+			// Token: 0x040049D9 RID: 18905
 			FistBump,
-			// Token: 0x040048E5 RID: 18661
+			// Token: 0x040049DA RID: 18906
 			Tag3P,
-			// Token: 0x040048E6 RID: 18662
+			// Token: 0x040049DB RID: 18907
 			Tag1P,
-			// Token: 0x040048E7 RID: 18663
+			// Token: 0x040049DC RID: 18908
 			HighFive_And_FistBump
 		}
 	}

@@ -4,16 +4,16 @@ using GorillaExtensions;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000075 RID: 117
+// Token: 0x0200007C RID: 124
 public class ReleaseFoodWhenUpsideDown : MonoBehaviour
 {
-	// Token: 0x060002F4 RID: 756 RVA: 0x000124DD File Offset: 0x000106DD
+	// Token: 0x06000325 RID: 805 RVA: 0x000326FE File Offset: 0x000308FE
 	private void Awake()
 	{
 		this.latch = false;
 	}
 
-	// Token: 0x060002F5 RID: 757 RVA: 0x000124E8 File Offset: 0x000106E8
+	// Token: 0x06000326 RID: 806 RVA: 0x00076C98 File Offset: 0x00074E98
 	private void Update()
 	{
 		if (!CrittersManager.instance.LocalAuthority())
@@ -52,33 +52,33 @@ public class ReleaseFoodWhenUpsideDown : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400038F RID: 911
+	// Token: 0x040003C3 RID: 963
 	public CrittersFoodDispenser dispenser;
 
-	// Token: 0x04000390 RID: 912
+	// Token: 0x040003C4 RID: 964
 	public float angle = 30f;
 
-	// Token: 0x04000391 RID: 913
+	// Token: 0x040003C5 RID: 965
 	private bool latch;
 
-	// Token: 0x04000392 RID: 914
+	// Token: 0x040003C6 RID: 966
 	public Transform spawnPoint;
 
-	// Token: 0x04000393 RID: 915
+	// Token: 0x040003C7 RID: 967
 	public float maxFood;
 
-	// Token: 0x04000394 RID: 916
+	// Token: 0x040003C8 RID: 968
 	public float startingFood;
 
-	// Token: 0x04000395 RID: 917
+	// Token: 0x040003C9 RID: 969
 	public float startingSize;
 
-	// Token: 0x04000396 RID: 918
+	// Token: 0x040003CA RID: 970
 	public int foodSubIndex;
 
-	// Token: 0x04000397 RID: 919
+	// Token: 0x040003CB RID: 971
 	public float spawnDelay = 0.6f;
 
-	// Token: 0x04000398 RID: 920
+	// Token: 0x040003CC RID: 972
 	private double nextSpawnTime;
 }

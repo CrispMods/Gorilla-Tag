@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x020006CF RID: 1743
+// Token: 0x020006E4 RID: 1764
 public class ProximityReactor : MonoBehaviour
 {
-	// Token: 0x17000490 RID: 1168
-	// (get) Token: 0x06002B1C RID: 11036 RVA: 0x000D57BD File Offset: 0x000D39BD
+	// Token: 0x1700049D RID: 1181
+	// (get) Token: 0x06002BB2 RID: 11186 RVA: 0x0004D916 File Offset: 0x0004BB16
 	public float proximityRange
 	{
 		get
@@ -15,8 +15,8 @@ public class ProximityReactor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000491 RID: 1169
-	// (get) Token: 0x06002B1D RID: 11037 RVA: 0x000D57CC File Offset: 0x000D39CC
+	// Token: 0x1700049E RID: 1182
+	// (get) Token: 0x06002BB3 RID: 11187 RVA: 0x0004D925 File Offset: 0x0004BB25
 	public float distance
 	{
 		get
@@ -25,8 +25,8 @@ public class ProximityReactor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000492 RID: 1170
-	// (get) Token: 0x06002B1E RID: 11038 RVA: 0x000D57D4 File Offset: 0x000D39D4
+	// Token: 0x1700049F RID: 1183
+	// (get) Token: 0x06002BB4 RID: 11188 RVA: 0x0004D92D File Offset: 0x0004BB2D
 	public float distanceLinear
 	{
 		get
@@ -35,7 +35,7 @@ public class ProximityReactor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002B1F RID: 11039 RVA: 0x000D57DC File Offset: 0x000D39DC
+	// Token: 0x06002BB5 RID: 11189 RVA: 0x001212D0 File Offset: 0x0011F4D0
 	public void SetRigFrom()
 	{
 		VRRig componentInParent = base.GetComponentInParent<VRRig>(true);
@@ -45,7 +45,7 @@ public class ProximityReactor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002B20 RID: 11040 RVA: 0x000D5808 File Offset: 0x000D3A08
+	// Token: 0x06002BB6 RID: 11190 RVA: 0x001212FC File Offset: 0x0011F4FC
 	public void SetRigTo()
 	{
 		VRRig componentInParent = base.GetComponentInParent<VRRig>(true);
@@ -55,32 +55,32 @@ public class ProximityReactor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002B21 RID: 11041 RVA: 0x000D5832 File Offset: 0x000D3A32
+	// Token: 0x06002BB7 RID: 11191 RVA: 0x0004D935 File Offset: 0x0004BB35
 	public void SetTransformFrom(Transform t)
 	{
 		this.from = t;
 	}
 
-	// Token: 0x06002B22 RID: 11042 RVA: 0x000D583B File Offset: 0x000D3A3B
+	// Token: 0x06002BB8 RID: 11192 RVA: 0x0004D93E File Offset: 0x0004BB3E
 	public void SetTransformTo(Transform t)
 	{
 		this.to = t;
 	}
 
-	// Token: 0x06002B23 RID: 11043 RVA: 0x000D5844 File Offset: 0x000D3A44
+	// Token: 0x06002BB9 RID: 11193 RVA: 0x0004D947 File Offset: 0x0004BB47
 	private void Setup()
 	{
 		this._distance = 0f;
 		this._distanceLinear = 0f;
 	}
 
-	// Token: 0x06002B24 RID: 11044 RVA: 0x000D585C File Offset: 0x000D3A5C
+	// Token: 0x06002BBA RID: 11194 RVA: 0x0004D95F File Offset: 0x0004BB5F
 	private void OnEnable()
 	{
 		this.Setup();
 	}
 
-	// Token: 0x06002B25 RID: 11045 RVA: 0x000D5864 File Offset: 0x000D3A64
+	// Token: 0x06002BBB RID: 11195 RVA: 0x00121328 File Offset: 0x0011F528
 	private void Update()
 	{
 		if (!this.from || !this.to)
@@ -129,39 +129,39 @@ public class ProximityReactor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400309C RID: 12444
+	// Token: 0x04003139 RID: 12601
 	public Transform from;
 
-	// Token: 0x0400309D RID: 12445
+	// Token: 0x0400313A RID: 12602
 	public Transform to;
 
-	// Token: 0x0400309E RID: 12446
+	// Token: 0x0400313B RID: 12603
 	[Space]
 	public float proximityMin;
 
-	// Token: 0x0400309F RID: 12447
+	// Token: 0x0400313C RID: 12604
 	public float proximityMax = 1f;
 
-	// Token: 0x040030A0 RID: 12448
+	// Token: 0x0400313D RID: 12605
 	[Space]
 	[NonSerialized]
 	private float _distance;
 
-	// Token: 0x040030A1 RID: 12449
+	// Token: 0x0400313E RID: 12606
 	[NonSerialized]
 	private float _distanceLinear;
 
-	// Token: 0x040030A2 RID: 12450
+	// Token: 0x0400313F RID: 12607
 	[Space]
 	public UnityEvent<float> onProximityChanged;
 
-	// Token: 0x040030A3 RID: 12451
+	// Token: 0x04003140 RID: 12608
 	public UnityEvent<float> onProximityChangedLinear;
 
-	// Token: 0x040030A4 RID: 12452
+	// Token: 0x04003141 RID: 12609
 	[Space]
 	public UnityEvent<float> onBelowMinProximity;
 
-	// Token: 0x040030A5 RID: 12453
+	// Token: 0x04003142 RID: 12610
 	public UnityEvent<float> onAboveMaxProximity;
 }

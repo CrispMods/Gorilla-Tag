@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008E7 RID: 2279
+// Token: 0x02000903 RID: 2307
 [Serializable]
 public class VoiceLoudnessReactorTransformRotationTarget
 {
-	// Token: 0x17000592 RID: 1426
-	// (get) Token: 0x060036C6 RID: 14022 RVA: 0x00103C28 File Offset: 0x00101E28
-	// (set) Token: 0x060036C7 RID: 14023 RVA: 0x00103C30 File Offset: 0x00101E30
+	// Token: 0x170005A3 RID: 1443
+	// (get) Token: 0x0600378E RID: 14222 RVA: 0x00054B11 File Offset: 0x00052D11
+	// (set) Token: 0x0600378F RID: 14223 RVA: 0x00054B19 File Offset: 0x00052D19
 	public Quaternion Initial
 	{
 		get
@@ -20,18 +20,18 @@ public class VoiceLoudnessReactorTransformRotationTarget
 		}
 	}
 
-	// Token: 0x040039BB RID: 14779
+	// Token: 0x04003A7C RID: 14972
 	public Transform transform;
 
-	// Token: 0x040039BC RID: 14780
+	// Token: 0x04003A7D RID: 14973
 	private Quaternion initial;
 
-	// Token: 0x040039BD RID: 14781
+	// Token: 0x04003A7E RID: 14974
 	public Quaternion Max = Quaternion.identity;
 
-	// Token: 0x040039BE RID: 14782
+	// Token: 0x04003A7F RID: 14975
 	public float Scale = 1f;
 
-	// Token: 0x040039BF RID: 14783
+	// Token: 0x04003A80 RID: 14976
 	public bool UseSmoothedLoudness;
 }

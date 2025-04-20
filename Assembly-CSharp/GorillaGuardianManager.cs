@@ -6,15 +6,15 @@ using GorillaLocomotion;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x0200055E RID: 1374
+// Token: 0x0200056C RID: 1388
 public class GorillaGuardianManager : GorillaGameManager
 {
-	// Token: 0x17000373 RID: 883
-	// (get) Token: 0x060021BC RID: 8636 RVA: 0x000A6E5F File Offset: 0x000A505F
-	// (set) Token: 0x060021BD RID: 8637 RVA: 0x000A6E67 File Offset: 0x000A5067
+	// Token: 0x1700037B RID: 891
+	// (get) Token: 0x0600221A RID: 8730 RVA: 0x00047334 File Offset: 0x00045534
+	// (set) Token: 0x0600221B RID: 8731 RVA: 0x0004733C File Offset: 0x0004553C
 	public bool isPlaying { get; private set; }
 
-	// Token: 0x060021BE RID: 8638 RVA: 0x000A6E70 File Offset: 0x000A5070
+	// Token: 0x0600221C RID: 8732 RVA: 0x000F71A4 File Offset: 0x000F53A4
 	public override void StartPlaying()
 	{
 		base.StartPlaying();
@@ -28,7 +28,7 @@ public class GorillaGuardianManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060021BF RID: 8639 RVA: 0x000A6ED4 File Offset: 0x000A50D4
+	// Token: 0x0600221D RID: 8733 RVA: 0x000F7208 File Offset: 0x000F5408
 	public override void StopPlaying()
 	{
 		base.StopPlaying();
@@ -42,48 +42,48 @@ public class GorillaGuardianManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060021C0 RID: 8640 RVA: 0x000A6F38 File Offset: 0x000A5138
+	// Token: 0x0600221E RID: 8734 RVA: 0x00047345 File Offset: 0x00045545
 	public override void Reset()
 	{
 		base.Reset();
 	}
 
-	// Token: 0x060021C1 RID: 8641 RVA: 0x000A6F40 File Offset: 0x000A5140
+	// Token: 0x0600221F RID: 8735 RVA: 0x0004734D File Offset: 0x0004554D
 	internal override void NetworkLinkSetup(GameModeSerializer netSerializer)
 	{
 		base.NetworkLinkSetup(netSerializer);
 		netSerializer.AddRPCComponent<GuardianRPCs>();
 	}
 
-	// Token: 0x060021C2 RID: 8642 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002220 RID: 8736 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void AddFusionDataBehaviour(NetworkObject behaviour)
 	{
 	}
 
-	// Token: 0x060021C3 RID: 8643 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002221 RID: 8737 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnSerializeRead(object newData)
 	{
 	}
 
-	// Token: 0x060021C4 RID: 8644 RVA: 0x00042E31 File Offset: 0x00041031
+	// Token: 0x06002222 RID: 8738 RVA: 0x0003924B File Offset: 0x0003744B
 	public override object OnSerializeWrite()
 	{
 		return null;
 	}
 
-	// Token: 0x060021C5 RID: 8645 RVA: 0x000A6F50 File Offset: 0x000A5150
+	// Token: 0x06002223 RID: 8739 RVA: 0x0004735D File Offset: 0x0004555D
 	public override bool LocalCanTag(NetPlayer myPlayer, NetPlayer otherPlayer)
 	{
 		return this.IsPlayerGuardian(myPlayer) && !this.IsHoldingPlayer();
 	}
 
-	// Token: 0x060021C6 RID: 8646 RVA: 0x000A6F66 File Offset: 0x000A5166
+	// Token: 0x06002224 RID: 8740 RVA: 0x00047373 File Offset: 0x00045573
 	public override bool CanJoinFrienship(NetPlayer player)
 	{
 		return player != null && !this.IsPlayerGuardian(player);
 	}
 
-	// Token: 0x060021C7 RID: 8647 RVA: 0x000A6F78 File Offset: 0x000A5178
+	// Token: 0x06002225 RID: 8741 RVA: 0x000F726C File Offset: 0x000F546C
 	public bool IsPlayerGuardian(NetPlayer player)
 	{
 		using (List<GorillaGuardianZoneManager>.Enumerator enumerator = GorillaGuardianZoneManager.zoneManagers.GetEnumerator())
@@ -99,7 +99,7 @@ public class GorillaGuardianManager : GorillaGameManager
 		return false;
 	}
 
-	// Token: 0x060021C8 RID: 8648 RVA: 0x000A6FD4 File Offset: 0x000A51D4
+	// Token: 0x06002226 RID: 8742 RVA: 0x00047384 File Offset: 0x00045584
 	public void RequestEjectGuardian(NetPlayer player)
 	{
 		if (PhotonNetwork.IsMasterClient)
@@ -110,7 +110,7 @@ public class GorillaGuardianManager : GorillaGameManager
 		GorillaGameModes.GameMode.ActiveNetworkHandler.SendRPC("GuardianRequestEject", false, Array.Empty<object>());
 	}
 
-	// Token: 0x060021C9 RID: 8649 RVA: 0x000A6FFC File Offset: 0x000A51FC
+	// Token: 0x06002227 RID: 8743 RVA: 0x000F72C8 File Offset: 0x000F54C8
 	public void EjectGuardian(NetPlayer player)
 	{
 		foreach (GorillaGuardianZoneManager gorillaGuardianZoneManager in GorillaGuardianZoneManager.zoneManagers)
@@ -122,7 +122,7 @@ public class GorillaGuardianManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060021CA RID: 8650 RVA: 0x000A7058 File Offset: 0x000A5258
+	// Token: 0x06002228 RID: 8744 RVA: 0x000F7324 File Offset: 0x000F5524
 	public void LaunchPlayer(NetPlayer launcher, Vector3 velocity)
 	{
 		RigContainer rigContainer;
@@ -141,7 +141,7 @@ public class GorillaGuardianManager : GorillaGameManager
 		GTPlayer.Instance.DoLaunch(velocity);
 	}
 
-	// Token: 0x060021CB RID: 8651 RVA: 0x000A70DC File Offset: 0x000A52DC
+	// Token: 0x06002229 RID: 8745 RVA: 0x000F73A8 File Offset: 0x000F55A8
 	public override void LocalTag(NetPlayer taggedPlayer, NetPlayer taggingPlayer, bool bodyHit, bool leftHand)
 	{
 		base.LocalTag(taggedPlayer, taggingPlayer, bodyHit, leftHand);
@@ -167,7 +167,7 @@ public class GorillaGuardianManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060021CC RID: 8652 RVA: 0x000A71A0 File Offset: 0x000A53A0
+	// Token: 0x0600222A RID: 8746 RVA: 0x000F746C File Offset: 0x000F566C
 	private bool CheckSlap(NetPlayer slapper, NetPlayer target, bool leftHand, out Vector3 velocity)
 	{
 		velocity = Vector3.zero;
@@ -214,7 +214,7 @@ public class GorillaGuardianManager : GorillaGameManager
 		return true;
 	}
 
-	// Token: 0x060021CD RID: 8653 RVA: 0x000A731C File Offset: 0x000A551C
+	// Token: 0x0600222B RID: 8747 RVA: 0x000F75E8 File Offset: 0x000F57E8
 	public override void HandleHandTap(NetPlayer tappingPlayer, Tappable hitTappable, bool leftHand, Vector3 handVelocity, Vector3 tapSurfaceNormal)
 	{
 		base.HandleHandTap(tappingPlayer, hitTappable, leftHand, handVelocity, tapSurfaceNormal);
@@ -279,25 +279,25 @@ public class GorillaGuardianManager : GorillaGameManager
 		});
 	}
 
-	// Token: 0x060021CE RID: 8654 RVA: 0x000A758E File Offset: 0x000A578E
+	// Token: 0x0600222C RID: 8748 RVA: 0x000473AA File Offset: 0x000455AA
 	private bool CheckLaunchRetriggerDelay(VRRig launchedRig)
 	{
 		return launchedRig.fxSettings.callSettings[7].CallLimitSettings.CheckCallTime(Time.time);
 	}
 
-	// Token: 0x060021CF RID: 8655 RVA: 0x000A75AC File Offset: 0x000A57AC
+	// Token: 0x0600222D RID: 8749 RVA: 0x000473C8 File Offset: 0x000455C8
 	private bool IsHoldingPlayer()
 	{
 		return this.IsHoldingPlayer(true) || this.IsHoldingPlayer(false);
 	}
 
-	// Token: 0x060021D0 RID: 8656 RVA: 0x000A75C0 File Offset: 0x000A57C0
+	// Token: 0x0600222E RID: 8750 RVA: 0x000F785C File Offset: 0x000F5A5C
 	private bool IsHoldingPlayer(bool leftHand)
 	{
 		return (leftHand && EquipmentInteractor.instance.leftHandHeldEquipment != null && EquipmentInteractor.instance.leftHandHeldEquipment is HoldableHand) || (!leftHand && EquipmentInteractor.instance.rightHandHeldEquipment != null && EquipmentInteractor.instance.rightHandHeldEquipment is HoldableHand);
 	}
 
-	// Token: 0x060021D1 RID: 8657 RVA: 0x000A761C File Offset: 0x000A581C
+	// Token: 0x0600222F RID: 8751 RVA: 0x000F78B8 File Offset: 0x000F5AB8
 	private bool IsRigBeingHeld(VRRig rig)
 	{
 		if (EquipmentInteractor.instance.leftHandHeldEquipment != null)
@@ -319,127 +319,127 @@ public class GorillaGuardianManager : GorillaGameManager
 		return false;
 	}
 
-	// Token: 0x060021D2 RID: 8658 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002230 RID: 8752 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnSerializeWrite(PhotonStream stream, PhotonMessageInfo info)
 	{
 	}
 
-	// Token: 0x060021D3 RID: 8659 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002231 RID: 8753 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnSerializeRead(PhotonStream stream, PhotonMessageInfo info)
 	{
 	}
 
-	// Token: 0x060021D4 RID: 8660 RVA: 0x000A7690 File Offset: 0x000A5890
+	// Token: 0x06002232 RID: 8754 RVA: 0x000473DC File Offset: 0x000455DC
 	public override GameModeType GameType()
 	{
 		return GameModeType.Guardian;
 	}
 
-	// Token: 0x060021D5 RID: 8661 RVA: 0x000A7693 File Offset: 0x000A5893
+	// Token: 0x06002233 RID: 8755 RVA: 0x000473DF File Offset: 0x000455DF
 	public override string GameModeName()
 	{
 		return "GUARDIAN";
 	}
 
-	// Token: 0x060021D6 RID: 8662 RVA: 0x000A769A File Offset: 0x000A589A
+	// Token: 0x06002234 RID: 8756 RVA: 0x000473E6 File Offset: 0x000455E6
 	public void PlaySlapEffect(Vector3 location, Vector3 direction)
 	{
 		this.LocalPlaySlapEffect(location, direction);
 	}
 
-	// Token: 0x060021D7 RID: 8663 RVA: 0x000A76A4 File Offset: 0x000A58A4
+	// Token: 0x06002235 RID: 8757 RVA: 0x000473F0 File Offset: 0x000455F0
 	private void LocalPlaySlapEffect(Vector3 location, Vector3 direction)
 	{
 		ObjectPools.instance.Instantiate(this.slapImpactPrefab, location, Quaternion.LookRotation(direction));
 	}
 
-	// Token: 0x060021D8 RID: 8664 RVA: 0x000A76BE File Offset: 0x000A58BE
+	// Token: 0x06002236 RID: 8758 RVA: 0x0004740A File Offset: 0x0004560A
 	public void PlaySlamEffect(Vector3 location, Vector3 direction)
 	{
 		this.LocalPlaySlamEffect(location, direction);
 	}
 
-	// Token: 0x060021D9 RID: 8665 RVA: 0x000A76C8 File Offset: 0x000A58C8
+	// Token: 0x06002237 RID: 8759 RVA: 0x00047414 File Offset: 0x00045614
 	private void LocalPlaySlamEffect(Vector3 location, Vector3 direction)
 	{
 		ObjectPools.instance.Instantiate(this.slamImpactPrefab, location, Quaternion.LookRotation(direction));
 	}
 
-	// Token: 0x04002553 RID: 9555
+	// Token: 0x040025AB RID: 9643
 	[Space]
 	[SerializeField]
 	private float slapFrontAlignmentThreshold = 0.7f;
 
-	// Token: 0x04002554 RID: 9556
+	// Token: 0x040025AC RID: 9644
 	[SerializeField]
 	private float slapBackAlignmentThreshold = 0.7f;
 
-	// Token: 0x04002555 RID: 9557
+	// Token: 0x040025AD RID: 9645
 	[SerializeField]
 	private float launchMinimumStrength = 6f;
 
-	// Token: 0x04002556 RID: 9558
+	// Token: 0x040025AE RID: 9646
 	[SerializeField]
 	private float launchStrengthMultiplier = 1f;
 
-	// Token: 0x04002557 RID: 9559
+	// Token: 0x040025AF RID: 9647
 	[SerializeField]
 	private float launchGroundHeadCheckDist = 1.2f;
 
-	// Token: 0x04002558 RID: 9560
+	// Token: 0x040025B0 RID: 9648
 	[SerializeField]
 	private float launchGroundHandCheckDist = 0.4f;
 
-	// Token: 0x04002559 RID: 9561
+	// Token: 0x040025B1 RID: 9649
 	[SerializeField]
 	private float launchGroundKickup = 3f;
 
-	// Token: 0x0400255A RID: 9562
+	// Token: 0x040025B2 RID: 9650
 	[Space]
 	[SerializeField]
 	private float slamTriggerTapSpeed = 7f;
 
-	// Token: 0x0400255B RID: 9563
+	// Token: 0x040025B3 RID: 9651
 	[SerializeField]
 	private float slamMaxTapSpeed = 16f;
 
-	// Token: 0x0400255C RID: 9564
+	// Token: 0x040025B4 RID: 9652
 	[SerializeField]
 	private float slamTriggerAngle = 0.7f;
 
-	// Token: 0x0400255D RID: 9565
+	// Token: 0x040025B5 RID: 9653
 	[SerializeField]
 	private float slamRadius = 2.4f;
 
-	// Token: 0x0400255E RID: 9566
+	// Token: 0x040025B6 RID: 9654
 	[SerializeField]
 	private float slamMinStrengthMultiplier = 3f;
 
-	// Token: 0x0400255F RID: 9567
+	// Token: 0x040025B7 RID: 9655
 	[SerializeField]
 	private float slamMaxStrengthMultiplier = 10f;
 
-	// Token: 0x04002560 RID: 9568
+	// Token: 0x040025B8 RID: 9656
 	[Space]
 	[SerializeField]
 	private GameObject slapImpactPrefab;
 
-	// Token: 0x04002561 RID: 9569
+	// Token: 0x040025B9 RID: 9657
 	[SerializeField]
 	private GameObject slamImpactPrefab;
 
-	// Token: 0x04002562 RID: 9570
+	// Token: 0x040025BA RID: 9658
 	[Space]
 	[SerializeField]
 	private float hapticStrength = 1f;
 
-	// Token: 0x04002563 RID: 9571
+	// Token: 0x040025BB RID: 9659
 	[SerializeField]
 	private float hapticDuration = 1f;
 
-	// Token: 0x04002565 RID: 9573
+	// Token: 0x040025BD RID: 9661
 	private float requiredGuardianDistance = 10f;
 
-	// Token: 0x04002566 RID: 9574
+	// Token: 0x040025BE RID: 9662
 	private float maxLaunchVelocity = 20f;
 }

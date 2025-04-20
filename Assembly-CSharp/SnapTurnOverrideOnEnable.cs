@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-// Token: 0x0200089B RID: 2203
+// Token: 0x020008B7 RID: 2231
 public class SnapTurnOverrideOnEnable : MonoBehaviour, ISnapTurnOverride
 {
-	// Token: 0x06003557 RID: 13655 RVA: 0x000FE194 File Offset: 0x000FC394
+	// Token: 0x0600361F RID: 13855 RVA: 0x00144504 File Offset: 0x00142704
 	private void OnEnable()
 	{
 		if (this.snapTurn == null && GorillaTagger.Instance != null)
@@ -19,7 +19,7 @@ public class SnapTurnOverrideOnEnable : MonoBehaviour, ISnapTurnOverride
 		}
 	}
 
-	// Token: 0x06003558 RID: 13656 RVA: 0x000FE1ED File Offset: 0x000FC3ED
+	// Token: 0x06003620 RID: 13856 RVA: 0x000539DA File Offset: 0x00051BDA
 	private void OnDisable()
 	{
 		if (this.snapTurnOverride)
@@ -29,15 +29,15 @@ public class SnapTurnOverrideOnEnable : MonoBehaviour, ISnapTurnOverride
 		}
 	}
 
-	// Token: 0x06003559 RID: 13657 RVA: 0x000FE20A File Offset: 0x000FC40A
+	// Token: 0x06003621 RID: 13857 RVA: 0x000539F7 File Offset: 0x00051BF7
 	bool ISnapTurnOverride.TurnOverrideActive()
 	{
 		return this.snapTurnOverride;
 	}
 
-	// Token: 0x040037B8 RID: 14264
+	// Token: 0x04003879 RID: 14457
 	private GorillaSnapTurn snapTurn;
 
-	// Token: 0x040037B9 RID: 14265
+	// Token: 0x0400387A RID: 14458
 	private bool snapTurnOverride;
 }

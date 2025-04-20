@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000562 RID: 1378
+// Token: 0x02000570 RID: 1392
 public class GorillaHandNode : MonoBehaviour
 {
-	// Token: 0x17000375 RID: 885
-	// (get) Token: 0x060021FE RID: 8702 RVA: 0x000A84D0 File Offset: 0x000A66D0
+	// Token: 0x1700037D RID: 893
+	// (get) Token: 0x0600225C RID: 8796 RVA: 0x000475D3 File Offset: 0x000457D3
 	public bool isGripping
 	{
 		get
@@ -14,8 +14,8 @@ public class GorillaHandNode : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000376 RID: 886
-	// (get) Token: 0x060021FF RID: 8703 RVA: 0x000A84D8 File Offset: 0x000A66D8
+	// Token: 0x1700037E RID: 894
+	// (get) Token: 0x0600225D RID: 8797 RVA: 0x000475DB File Offset: 0x000457DB
 	public bool isLeftHand
 	{
 		get
@@ -24,8 +24,8 @@ public class GorillaHandNode : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000377 RID: 887
-	// (get) Token: 0x06002200 RID: 8704 RVA: 0x000A84E0 File Offset: 0x000A66E0
+	// Token: 0x1700037F RID: 895
+	// (get) Token: 0x0600225E RID: 8798 RVA: 0x000475E3 File Offset: 0x000457E3
 	public bool isRightHand
 	{
 		get
@@ -34,13 +34,13 @@ public class GorillaHandNode : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002201 RID: 8705 RVA: 0x000A84E8 File Offset: 0x000A66E8
+	// Token: 0x0600225F RID: 8799 RVA: 0x000475EB File Offset: 0x000457EB
 	private void Awake()
 	{
 		this.Setup();
 	}
 
-	// Token: 0x06002202 RID: 8706 RVA: 0x000A84F0 File Offset: 0x000A66F0
+	// Token: 0x06002260 RID: 8800 RVA: 0x000F8570 File Offset: 0x000F6770
 	private bool PollGrip()
 	{
 		if (this.rig == null)
@@ -53,7 +53,7 @@ public class GorillaHandNode : MonoBehaviour
 		return flag && flag2 && flag3;
 	}
 
-	// Token: 0x06002203 RID: 8707 RVA: 0x000A8544 File Offset: 0x000A6744
+	// Token: 0x06002261 RID: 8801 RVA: 0x000F85C4 File Offset: 0x000F67C4
 	private void Setup()
 	{
 		if (this.rig == null)
@@ -92,64 +92,64 @@ public class GorillaHandNode : MonoBehaviour
 		this.collider.excludeLayers = ~num;
 	}
 
-	// Token: 0x06002204 RID: 8708 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002262 RID: 8802 RVA: 0x00030607 File Offset: 0x0002E807
 	private void OnTriggerStay(Collider other)
 	{
 	}
 
-	// Token: 0x06002205 RID: 8709 RVA: 0x000A8703 File Offset: 0x000A6903
+	// Token: 0x06002263 RID: 8803 RVA: 0x000475F3 File Offset: 0x000457F3
 	private float PollIndex()
 	{
 		return Mathf.Clamp01(this.vrIndex.calcT / 0.88f);
 	}
 
-	// Token: 0x06002206 RID: 8710 RVA: 0x000A871B File Offset: 0x000A691B
+	// Token: 0x06002264 RID: 8804 RVA: 0x0004760B File Offset: 0x0004580B
 	private float PollMiddle()
 	{
 		return this.vrIndex.calcT;
 	}
 
-	// Token: 0x06002207 RID: 8711 RVA: 0x000A871B File Offset: 0x000A691B
+	// Token: 0x06002265 RID: 8805 RVA: 0x0004760B File Offset: 0x0004580B
 	private float PollThumb()
 	{
 		return this.vrIndex.calcT;
 	}
 
-	// Token: 0x04002581 RID: 9601
+	// Token: 0x040025D9 RID: 9689
 	public VRRig rig;
 
-	// Token: 0x04002582 RID: 9602
+	// Token: 0x040025DA RID: 9690
 	public Collider collider;
 
-	// Token: 0x04002583 RID: 9603
+	// Token: 0x040025DB RID: 9691
 	public Rigidbody rigidbody;
 
-	// Token: 0x04002584 RID: 9604
+	// Token: 0x040025DC RID: 9692
 	[Space]
 	[NonSerialized]
 	public VRMapIndex vrIndex;
 
-	// Token: 0x04002585 RID: 9605
+	// Token: 0x040025DD RID: 9693
 	[NonSerialized]
 	public VRMapThumb vrThumb;
 
-	// Token: 0x04002586 RID: 9606
+	// Token: 0x040025DE RID: 9694
 	[NonSerialized]
 	public VRMapMiddle vrMiddle;
 
-	// Token: 0x04002587 RID: 9607
+	// Token: 0x040025DF RID: 9695
 	[Space]
 	public GorillaHandSocket attachedToSocket;
 
-	// Token: 0x04002588 RID: 9608
+	// Token: 0x040025E0 RID: 9696
 	[Space]
 	[SerializeField]
 	private bool _isLeftHand;
 
-	// Token: 0x04002589 RID: 9609
+	// Token: 0x040025E1 RID: 9697
 	[SerializeField]
 	private bool _isRightHand;
 
-	// Token: 0x0400258A RID: 9610
+	// Token: 0x040025E2 RID: 9698
 	public bool ignoreSockets;
 }

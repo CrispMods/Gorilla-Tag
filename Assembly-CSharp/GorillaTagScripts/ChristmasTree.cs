@@ -7,11 +7,11 @@ using UnityEngine.Events;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009A9 RID: 2473
+	// Token: 0x020009CF RID: 2511
 	[NetworkBehaviourWeaved(1)]
 	public class ChristmasTree : NetworkComponent
 	{
-		// Token: 0x06003D38 RID: 15672 RVA: 0x00121418 File Offset: 0x0011F618
+		// Token: 0x06003E50 RID: 15952 RVA: 0x00163690 File Offset: 0x00161890
 		protected override void Awake()
 		{
 			base.Awake();
@@ -31,7 +31,7 @@ namespace GorillaTagScripts
 			this.isActive = false;
 		}
 
-		// Token: 0x06003D39 RID: 15673 RVA: 0x001214B9 File Offset: 0x0011F6B9
+		// Token: 0x06003E51 RID: 15953 RVA: 0x0005880F File Offset: 0x00056A0F
 		private void Update()
 		{
 			if (this.spinTheTop && this.topOrnament)
@@ -40,7 +40,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D3A RID: 15674 RVA: 0x001214F8 File Offset: 0x0011F6F8
+		// Token: 0x06003E52 RID: 15954 RVA: 0x00163734 File Offset: 0x00161934
 		private void OnDestroy()
 		{
 			NetworkBehaviourUtils.InternalOnDestroy(this);
@@ -51,7 +51,7 @@ namespace GorillaTagScripts
 			this.attachPointsList.Clear();
 		}
 
-		// Token: 0x06003D3B RID: 15675 RVA: 0x00121578 File Offset: 0x0011F778
+		// Token: 0x06003E53 RID: 15955 RVA: 0x001637B4 File Offset: 0x001619B4
 		private void UpdateHangers()
 		{
 			if (this.attachPointsList.Count == 0)
@@ -78,7 +78,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D3C RID: 15676 RVA: 0x001215F8 File Offset: 0x0011F7F8
+		// Token: 0x06003E54 RID: 15956 RVA: 0x00163834 File Offset: 0x00161A34
 		private void updateLight(bool enable)
 		{
 			this.isActive = enable;
@@ -89,9 +89,9 @@ namespace GorillaTagScripts
 			this.spinTheTop = enable;
 		}
 
-		// Token: 0x17000635 RID: 1589
-		// (get) Token: 0x06003D3D RID: 15677 RVA: 0x0012164F File Offset: 0x0011F84F
-		// (set) Token: 0x06003D3E RID: 15678 RVA: 0x00121679 File Offset: 0x0011F879
+		// Token: 0x1700064D RID: 1613
+		// (get) Token: 0x06003E55 RID: 15957 RVA: 0x0005884D File Offset: 0x00056A4D
+		// (set) Token: 0x06003E56 RID: 15958 RVA: 0x00058877 File Offset: 0x00056A77
 		[Networked]
 		[NetworkedWeaved(0, 1)]
 		private unsafe NetworkBool Data
@@ -114,13 +114,13 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D3F RID: 15679 RVA: 0x001216A4 File Offset: 0x0011F8A4
+		// Token: 0x06003E57 RID: 15959 RVA: 0x000588A2 File Offset: 0x00056AA2
 		public override void WriteDataFusion()
 		{
 			this.Data = this.isActive;
 		}
 
-		// Token: 0x06003D40 RID: 15680 RVA: 0x001216B7 File Offset: 0x0011F8B7
+		// Token: 0x06003E58 RID: 15960 RVA: 0x000588B5 File Offset: 0x00056AB5
 		public override void ReadDataFusion()
 		{
 			this.wasActive = this.isActive;
@@ -131,7 +131,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D41 RID: 15681 RVA: 0x001216F0 File Offset: 0x0011F8F0
+		// Token: 0x06003E59 RID: 15961 RVA: 0x000588EE File Offset: 0x00056AEE
 		protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 		{
 			if (!info.Sender.IsMasterClient)
@@ -141,7 +141,7 @@ namespace GorillaTagScripts
 			stream.SendNext(this.isActive);
 		}
 
-		// Token: 0x06003D42 RID: 15682 RVA: 0x00121714 File Offset: 0x0011F914
+		// Token: 0x06003E5A RID: 15962 RVA: 0x0016388C File Offset: 0x00161A8C
 		protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 		{
 			if (!info.Sender.IsMasterClient)
@@ -156,7 +156,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D44 RID: 15684 RVA: 0x00121784 File Offset: 0x0011F984
+		// Token: 0x06003E5C RID: 15964 RVA: 0x0005892D File Offset: 0x00056B2D
 		[WeaverGenerated]
 		public override void CopyBackingFieldsToState(bool A_1)
 		{
@@ -164,7 +164,7 @@ namespace GorillaTagScripts
 			this.Data = this._Data;
 		}
 
-		// Token: 0x06003D45 RID: 15685 RVA: 0x0012179C File Offset: 0x0011F99C
+		// Token: 0x06003E5D RID: 15965 RVA: 0x00058945 File Offset: 0x00056B45
 		[WeaverGenerated]
 		public override void CopyStateToBackingFields()
 		{
@@ -172,42 +172,42 @@ namespace GorillaTagScripts
 			this._Data = this.Data;
 		}
 
-		// Token: 0x04003E9E RID: 16030
+		// Token: 0x04003F78 RID: 16248
 		public GameObject hangers;
 
-		// Token: 0x04003E9F RID: 16031
+		// Token: 0x04003F79 RID: 16249
 		public GameObject lights;
 
-		// Token: 0x04003EA0 RID: 16032
+		// Token: 0x04003F7A RID: 16250
 		public GameObject topOrnament;
 
-		// Token: 0x04003EA1 RID: 16033
+		// Token: 0x04003F7B RID: 16251
 		public float spinSpeed = 60f;
 
-		// Token: 0x04003EA2 RID: 16034
+		// Token: 0x04003F7C RID: 16252
 		private readonly List<AttachPoint> attachPointsList = new List<AttachPoint>();
 
-		// Token: 0x04003EA3 RID: 16035
+		// Token: 0x04003F7D RID: 16253
 		private MeshRenderer[] lightRenderers;
 
-		// Token: 0x04003EA4 RID: 16036
+		// Token: 0x04003F7E RID: 16254
 		private bool wasActive;
 
-		// Token: 0x04003EA5 RID: 16037
+		// Token: 0x04003F7F RID: 16255
 		private bool isActive;
 
-		// Token: 0x04003EA6 RID: 16038
+		// Token: 0x04003F80 RID: 16256
 		private bool spinTheTop;
 
-		// Token: 0x04003EA7 RID: 16039
+		// Token: 0x04003F81 RID: 16257
 		[SerializeField]
 		private Material lightsOffMaterial;
 
-		// Token: 0x04003EA8 RID: 16040
+		// Token: 0x04003F82 RID: 16258
 		[SerializeField]
 		private Material[] lightsOnMaterials;
 
-		// Token: 0x04003EA9 RID: 16041
+		// Token: 0x04003F83 RID: 16259
 		[WeaverGenerated]
 		[DefaultForProperty("Data", 0, 1)]
 		[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]

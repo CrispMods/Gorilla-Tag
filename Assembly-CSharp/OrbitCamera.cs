@@ -5,12 +5,12 @@ using UnityEngine;
 // Token: 0x02000019 RID: 25
 public class OrbitCamera : MonoBehaviour
 {
-	// Token: 0x0600005B RID: 91 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600005B RID: 91 RVA: 0x00030607 File Offset: 0x0002E807
 	public void Start()
 	{
 	}
 
-	// Token: 0x0600005C RID: 92 RVA: 0x00003590 File Offset: 0x00001790
+	// Token: 0x0600005C RID: 92 RVA: 0x00068934 File Offset: 0x00066B34
 	public void Update()
 	{
 		this.m_phase += OrbitCamera.kOrbitSpeed * MathUtil.TwoPi * Time.deltaTime;

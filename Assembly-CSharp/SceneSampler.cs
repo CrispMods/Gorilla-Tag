@@ -2,16 +2,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// Token: 0x02000323 RID: 803
+// Token: 0x0200032E RID: 814
 public class SceneSampler : MonoBehaviour
 {
-	// Token: 0x06001312 RID: 4882 RVA: 0x0005CFAC File Offset: 0x0005B1AC
+	// Token: 0x0600135E RID: 4958 RVA: 0x0003D2C1 File Offset: 0x0003B4C1
 	private void Awake()
 	{
-		Object.DontDestroyOnLoad(base.gameObject);
+		UnityEngine.Object.DontDestroyOnLoad(base.gameObject);
 	}
 
-	// Token: 0x06001313 RID: 4883 RVA: 0x0005CFBC File Offset: 0x0005B1BC
+	// Token: 0x0600135F RID: 4959 RVA: 0x000B6E10 File Offset: 0x000B5010
 	private void Update()
 	{
 		bool active = OVRInput.GetActiveController() == OVRInput.Controller.Touch || OVRInput.GetActiveController() == OVRInput.Controller.LTouch || OVRInput.GetActiveController() == OVRInput.Controller.RTouch;
@@ -30,9 +30,9 @@ public class SceneSampler : MonoBehaviour
 		this.displayText.transform.rotation = Quaternion.LookRotation(vector - Camera.main.transform.position);
 	}
 
-	// Token: 0x04001514 RID: 5396
+	// Token: 0x0400155C RID: 5468
 	private int currentSceneIndex;
 
-	// Token: 0x04001515 RID: 5397
+	// Token: 0x0400155D RID: 5469
 	public GameObject displayText;
 }

@@ -2,10 +2,10 @@
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-// Token: 0x020001FB RID: 507
+// Token: 0x02000206 RID: 518
 public static class GTPosRotScaleToString
 {
-	// Token: 0x06000BE1 RID: 3041 RVA: 0x0003F00C File Offset: 0x0003D20C
+	// Token: 0x06000C2C RID: 3116 RVA: 0x0009D99C File Offset: 0x0009BB9C
 	public static string ToString(Vector3 pos, Vector3 rot, Vector3 scale, bool isWorldSpace, string parentPath = null)
 	{
 		string text = isWorldSpace ? "WorldPRS" : "LocalPRS";
@@ -26,19 +26,19 @@ public static class GTPosRotScaleToString
 		return str + " }";
 	}
 
-	// Token: 0x06000BE2 RID: 3042 RVA: 0x0003F095 File Offset: 0x0003D295
+	// Token: 0x06000C2D RID: 3117 RVA: 0x000387FB File Offset: 0x000369FB
 	private static string ValToStr(Vector3 v)
 	{
 		return string.Format("({0:R}, {1:R}, {2:R})", v.x, v.y, v.z);
 	}
 
-	// Token: 0x06000BE3 RID: 3043 RVA: 0x0003F0C2 File Offset: 0x0003D2C2
+	// Token: 0x06000C2E RID: 3118 RVA: 0x00038828 File Offset: 0x00036A28
 	public static bool ParseIsWorldSpace(string input)
 	{
 		return input.Contains("WorldPRS");
 	}
 
-	// Token: 0x06000BE4 RID: 3044 RVA: 0x0003F0D0 File Offset: 0x0003D2D0
+	// Token: 0x06000C2F RID: 3119 RVA: 0x0009DA28 File Offset: 0x0009BC28
 	public static string ParseParentPath(string input)
 	{
 		MatchCollection matchCollection = Regex.Matches(input, "parent\\s*=\\s*\"(?<parent>.*?)\"");
@@ -49,31 +49,31 @@ public static class GTPosRotScaleToString
 		return matchCollection[0].Groups["parent"].Value;
 	}
 
-	// Token: 0x06000BE5 RID: 3045 RVA: 0x0003F10F File Offset: 0x0003D30F
+	// Token: 0x06000C30 RID: 3120 RVA: 0x00038835 File Offset: 0x00036A35
 	public static bool TryParsePos(string input, out Vector3 v)
 	{
 		return GTPosRotScaleToString.TryParseVec3_internal(GTRegex.k_Pos, input, out v);
 	}
 
-	// Token: 0x06000BE6 RID: 3046 RVA: 0x0003F11D File Offset: 0x0003D31D
+	// Token: 0x06000C31 RID: 3121 RVA: 0x00038843 File Offset: 0x00036A43
 	public static bool TryParseRot(string input, out Vector3 v)
 	{
 		return GTPosRotScaleToString.TryParseVec3_internal(GTRegex.k_Rot, input, out v);
 	}
 
-	// Token: 0x06000BE7 RID: 3047 RVA: 0x0003F12B File Offset: 0x0003D32B
+	// Token: 0x06000C32 RID: 3122 RVA: 0x00038851 File Offset: 0x00036A51
 	public static bool TryParseScale(string input, out Vector3 v)
 	{
 		return GTPosRotScaleToString.TryParseVec3_internal(GTRegex.k_Scale, input, out v) || GTPosRotScaleToString.TryParseVec3_internal(GTRegex.k_Vec3, input, out v);
 	}
 
-	// Token: 0x06000BE8 RID: 3048 RVA: 0x0003F149 File Offset: 0x0003D349
+	// Token: 0x06000C33 RID: 3123 RVA: 0x0003886F File Offset: 0x00036A6F
 	public static bool TryParseVec3(string input, out Vector3 v)
 	{
 		return GTPosRotScaleToString.TryParseVec3_internal(GTRegex.k_Vec3, input, out v);
 	}
 
-	// Token: 0x06000BE9 RID: 3049 RVA: 0x0003F158 File Offset: 0x0003D358
+	// Token: 0x06000C34 RID: 3124 RVA: 0x0009DA68 File Offset: 0x0009BC68
 	private static bool TryParseVec3_internal(Regex regex, string input, out Vector3 v)
 	{
 		v = Vector3.zero;
@@ -86,7 +86,7 @@ public static class GTPosRotScaleToString
 		return true;
 	}
 
-	// Token: 0x06000BEA RID: 3050 RVA: 0x0003F198 File Offset: 0x0003D398
+	// Token: 0x06000C35 RID: 3125 RVA: 0x0009DAA8 File Offset: 0x0009BCA8
 	private static Vector3 StringToVector3(Match match)
 	{
 		float x = float.Parse(match.Groups["x"].Value);
@@ -95,9 +95,9 @@ public static class GTPosRotScaleToString
 		return new Vector3(x, y, z);
 	}
 
-	// Token: 0x04000E3D RID: 3645
+	// Token: 0x04000E83 RID: 3715
 	public const string k_LocalPRSLabel = "LocalPRS";
 
-	// Token: 0x04000E3E RID: 3646
+	// Token: 0x04000E84 RID: 3716
 	public const string k_WorldPRSLabel = "WorldPRS";
 }

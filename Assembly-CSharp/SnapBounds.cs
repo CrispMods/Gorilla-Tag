@@ -2,32 +2,32 @@
 using System.IO;
 using UnityEngine;
 
-// Token: 0x020004CC RID: 1228
+// Token: 0x020004D9 RID: 1241
 [Serializable]
 public struct SnapBounds
 {
-	// Token: 0x06001DBE RID: 7614 RVA: 0x00091726 File Offset: 0x0008F926
+	// Token: 0x06001E17 RID: 7703 RVA: 0x0004487D File Offset: 0x00042A7D
 	public SnapBounds(Vector2Int min, Vector2Int max)
 	{
 		this.min = min;
 		this.max = max;
 	}
 
-	// Token: 0x06001DBF RID: 7615 RVA: 0x00091736 File Offset: 0x0008F936
+	// Token: 0x06001E18 RID: 7704 RVA: 0x0004488D File Offset: 0x00042A8D
 	public SnapBounds(int minX, int minY, int maxX, int maxY)
 	{
 		this.min = new Vector2Int(minX, minY);
 		this.max = new Vector2Int(maxX, maxY);
 	}
 
-	// Token: 0x06001DC0 RID: 7616 RVA: 0x00091753 File Offset: 0x0008F953
+	// Token: 0x06001E19 RID: 7705 RVA: 0x000448AA File Offset: 0x00042AAA
 	public void Clear()
 	{
 		this.min = new Vector2Int(int.MinValue, int.MinValue);
 		this.max = new Vector2Int(int.MinValue, int.MinValue);
 	}
 
-	// Token: 0x06001DC1 RID: 7617 RVA: 0x00091780 File Offset: 0x0008F980
+	// Token: 0x06001E1A RID: 7706 RVA: 0x000E4420 File Offset: 0x000E2620
 	public void Write(BinaryWriter writer)
 	{
 		writer.Write(this.min.x);
@@ -36,7 +36,7 @@ public struct SnapBounds
 		writer.Write(this.max.y);
 	}
 
-	// Token: 0x06001DC2 RID: 7618 RVA: 0x000917D4 File Offset: 0x0008F9D4
+	// Token: 0x06001E1B RID: 7707 RVA: 0x000E4474 File Offset: 0x000E2674
 	public void Read(BinaryReader reader)
 	{
 		this.min.x = reader.ReadInt32();
@@ -45,9 +45,9 @@ public struct SnapBounds
 		this.max.y = reader.ReadInt32();
 	}
 
-	// Token: 0x040020D7 RID: 8407
+	// Token: 0x0400212A RID: 8490
 	public Vector2Int min;
 
-	// Token: 0x040020D8 RID: 8408
+	// Token: 0x0400212B RID: 8491
 	public Vector2Int max;
 }

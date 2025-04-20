@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace GorillaNetworking.Store
 {
-	// Token: 0x02000AFC RID: 2812
+	// Token: 0x02000B29 RID: 2857
 	public class StoreBundleData : ScriptableObject
 	{
-		// Token: 0x06004653 RID: 18003 RVA: 0x0014D980 File Offset: 0x0014BB80
+		// Token: 0x0600479B RID: 18331 RVA: 0x0018A6C0 File Offset: 0x001888C0
 		public void OnValidate()
 		{
 			if (this.playfabBundleID.Contains(' '))
@@ -19,16 +19,16 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x040047D9 RID: 18393
+		// Token: 0x040048CE RID: 18638
 		public string playfabBundleID = "NULL";
 
-		// Token: 0x040047DA RID: 18394
+		// Token: 0x040048CF RID: 18639
 		public string bundleSKU = "NULL SKU";
 
-		// Token: 0x040047DB RID: 18395
+		// Token: 0x040048D0 RID: 18640
 		public Sprite bundleImage;
 
-		// Token: 0x040047DC RID: 18396
+		// Token: 0x040048D1 RID: 18641
 		public string bundleDescriptionText = "THE NULL_BUNDLE PACK WITH 10,000 SHINY ROCKS IN THIS LIMITED TIME DLC!";
 	}
 }

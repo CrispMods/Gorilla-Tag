@@ -5,25 +5,25 @@ using GorillaTag;
 using GorillaTag.CosmeticSystem;
 using UnityEngine;
 
-// Token: 0x0200016C RID: 364
+// Token: 0x02000177 RID: 375
 public class LeafBlowerEffects : MonoBehaviour, ISpawnable
 {
-	// Token: 0x170000E2 RID: 226
-	// (get) Token: 0x06000911 RID: 2321 RVA: 0x0003110D File Offset: 0x0002F30D
-	// (set) Token: 0x06000912 RID: 2322 RVA: 0x00031115 File Offset: 0x0002F315
+	// Token: 0x170000E9 RID: 233
+	// (get) Token: 0x0600095E RID: 2398 RVA: 0x000369C6 File Offset: 0x00034BC6
+	// (set) Token: 0x0600095F RID: 2399 RVA: 0x000369CE File Offset: 0x00034BCE
 	bool ISpawnable.IsSpawned { get; set; }
 
-	// Token: 0x170000E3 RID: 227
-	// (get) Token: 0x06000913 RID: 2323 RVA: 0x0003111E File Offset: 0x0002F31E
-	// (set) Token: 0x06000914 RID: 2324 RVA: 0x00031126 File Offset: 0x0002F326
+	// Token: 0x170000EA RID: 234
+	// (get) Token: 0x06000960 RID: 2400 RVA: 0x000369D7 File Offset: 0x00034BD7
+	// (set) Token: 0x06000961 RID: 2401 RVA: 0x000369DF File Offset: 0x00034BDF
 	ECosmeticSelectSide ISpawnable.CosmeticSelectedSide { get; set; }
 
-	// Token: 0x06000915 RID: 2325 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000962 RID: 2402 RVA: 0x00030607 File Offset: 0x0002E807
 	void ISpawnable.OnDespawn()
 	{
 	}
 
-	// Token: 0x06000916 RID: 2326 RVA: 0x00031130 File Offset: 0x0002F330
+	// Token: 0x06000963 RID: 2403 RVA: 0x000919B8 File Offset: 0x0008FBB8
 	void ISpawnable.OnSpawn(VRRig rig)
 	{
 		this.headToleranceAngleCos = Mathf.Cos(0.017453292f * this.headToleranceAngle);
@@ -31,26 +31,26 @@ public class LeafBlowerEffects : MonoBehaviour, ISpawnable
 		this.fan = rig.cosmeticReferences.Get(this.fanRef).GetComponent<CosmeticFan>();
 	}
 
-	// Token: 0x06000917 RID: 2327 RVA: 0x00031187 File Offset: 0x0002F387
+	// Token: 0x06000964 RID: 2404 RVA: 0x000369E8 File Offset: 0x00034BE8
 	public void StartFan()
 	{
 		this.fan.Run();
 	}
 
-	// Token: 0x06000918 RID: 2328 RVA: 0x00031194 File Offset: 0x0002F394
+	// Token: 0x06000965 RID: 2405 RVA: 0x000369F5 File Offset: 0x00034BF5
 	public void StopFan()
 	{
 		this.fan.Stop();
 	}
 
-	// Token: 0x06000919 RID: 2329 RVA: 0x000311A1 File Offset: 0x0002F3A1
+	// Token: 0x06000966 RID: 2406 RVA: 0x00036A02 File Offset: 0x00034C02
 	public void UpdateEffects()
 	{
 		this.ProjectParticles();
 		this.BlowFaces();
 	}
 
-	// Token: 0x0600091A RID: 2330 RVA: 0x000311B0 File Offset: 0x0002F3B0
+	// Token: 0x06000967 RID: 2407 RVA: 0x00091A10 File Offset: 0x0008FC10
 	public void ProjectParticles()
 	{
 		RaycastHit raycastHit;
@@ -96,14 +96,14 @@ public class LeafBlowerEffects : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x0600091B RID: 2331 RVA: 0x00031362 File Offset: 0x0002F562
+	// Token: 0x06000968 RID: 2408 RVA: 0x00036A10 File Offset: 0x00034C10
 	public void StopEffects()
 	{
 		this.angledHitParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 		this.squareHitParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 	}
 
-	// Token: 0x0600091C RID: 2332 RVA: 0x00031380 File Offset: 0x0002F580
+	// Token: 0x06000969 RID: 2409 RVA: 0x00091BC4 File Offset: 0x0008FDC4
 	public void BlowFaces()
 	{
 		Vector3 position = this.gunBarrel.transform.position;
@@ -123,7 +123,7 @@ public class LeafBlowerEffects : MonoBehaviour, ISpawnable
 		this.TryBlowFace(VRRig.LocalRig, position, forward);
 	}
 
-	// Token: 0x0600091D RID: 2333 RVA: 0x00031418 File Offset: 0x0002F618
+	// Token: 0x0600096A RID: 2410 RVA: 0x00091C5C File Offset: 0x0008FE5C
 	private void TryBlowFace(VRRig rig, Vector3 origin, Vector3 directionNormalized)
 	{
 		Transform rigTarget = rig.head.rigTarget;
@@ -144,48 +144,48 @@ public class LeafBlowerEffects : MonoBehaviour, ISpawnable
 		rig.GetComponent<GorillaMouthFlap>().EnableLeafBlower();
 	}
 
-	// Token: 0x04000B0D RID: 2829
+	// Token: 0x04000B54 RID: 2900
 	[SerializeField]
 	private GameObject gunBarrel;
 
-	// Token: 0x04000B0E RID: 2830
+	// Token: 0x04000B55 RID: 2901
 	[SerializeField]
 	private float projectionRange;
 
-	// Token: 0x04000B0F RID: 2831
+	// Token: 0x04000B56 RID: 2902
 	[SerializeField]
 	private float projectionWidth;
 
-	// Token: 0x04000B10 RID: 2832
+	// Token: 0x04000B57 RID: 2903
 	[SerializeField]
 	private float headToleranceAngle;
 
-	// Token: 0x04000B11 RID: 2833
+	// Token: 0x04000B58 RID: 2904
 	[SerializeField]
 	private LayerMask raycastLayers;
 
-	// Token: 0x04000B12 RID: 2834
+	// Token: 0x04000B59 RID: 2905
 	[SerializeField]
 	private ParticleSystem angledHitParticleSystem;
 
-	// Token: 0x04000B13 RID: 2835
+	// Token: 0x04000B5A RID: 2906
 	[SerializeField]
 	private ParticleSystem squareHitParticleSystem;
 
-	// Token: 0x04000B14 RID: 2836
+	// Token: 0x04000B5B RID: 2907
 	[SerializeField]
 	private float squareHitAngle;
 
-	// Token: 0x04000B15 RID: 2837
+	// Token: 0x04000B5C RID: 2908
 	[SerializeField]
 	private CosmeticRefID fanRef;
 
-	// Token: 0x04000B16 RID: 2838
+	// Token: 0x04000B5D RID: 2909
 	private float headToleranceAngleCos;
 
-	// Token: 0x04000B17 RID: 2839
+	// Token: 0x04000B5E RID: 2910
 	private float squareHitAngleCos;
 
-	// Token: 0x04000B18 RID: 2840
+	// Token: 0x04000B5F RID: 2911
 	private CosmeticFan fan;
 }

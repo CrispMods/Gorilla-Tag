@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006B6 RID: 1718
+// Token: 0x020006CB RID: 1739
 public static class GradientHelper
 {
-	// Token: 0x06002A86 RID: 10886 RVA: 0x000D3C1C File Offset: 0x000D1E1C
+	// Token: 0x06002B1C RID: 11036 RVA: 0x0011FEC0 File Offset: 0x0011E0C0
 	public static Gradient FromColor(Color color)
 	{
 		float a = color.a;

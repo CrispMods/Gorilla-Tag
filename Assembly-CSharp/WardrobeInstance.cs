@@ -2,24 +2,24 @@
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x02000432 RID: 1074
+// Token: 0x0200043E RID: 1086
 public class WardrobeInstance : MonoBehaviour
 {
-	// Token: 0x06001A85 RID: 6789 RVA: 0x00082E8B File Offset: 0x0008108B
+	// Token: 0x06001AD9 RID: 6873 RVA: 0x000422DB File Offset: 0x000404DB
 	public void Start()
 	{
 		CosmeticsController.instance.AddWardrobeInstance(this);
 	}
 
-	// Token: 0x06001A86 RID: 6790 RVA: 0x00082E9A File Offset: 0x0008109A
+	// Token: 0x06001ADA RID: 6874 RVA: 0x000422EA File Offset: 0x000404EA
 	public void OnDestroy()
 	{
 		CosmeticsController.instance.RemoveWardrobeInstance(this);
 	}
 
-	// Token: 0x04001D4E RID: 7502
+	// Token: 0x04001D9D RID: 7581
 	public WardrobeItemButton[] wardrobeItemButtons;
 
-	// Token: 0x04001D4F RID: 7503
+	// Token: 0x04001D9E RID: 7582
 	public HeadModel selfDoll;
 }

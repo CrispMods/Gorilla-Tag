@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020008B9 RID: 2233
+// Token: 0x020008D5 RID: 2261
 public class RandomLocalColliders : MonoBehaviour
 {
-	// Token: 0x060035FE RID: 13822 RVA: 0x000FFA13 File Offset: 0x000FDC13
+	// Token: 0x060036C6 RID: 14022 RVA: 0x0005420F File Offset: 0x0005240F
 	private void Start()
 	{
 		this.colliders = new List<Collider>();
 		this.seekFreq = RandomLocalColliders.rand.NextFloat(this.minseekFreq, this.maxseekFreq);
 	}
 
-	// Token: 0x060035FF RID: 13823 RVA: 0x000FFA3C File Offset: 0x000FDC3C
+	// Token: 0x060036C7 RID: 14023 RVA: 0x00145524 File Offset: 0x00143724
 	private void Update()
 	{
 		this.timeSinceSeek += Time.deltaTime;
@@ -24,7 +24,7 @@ public class RandomLocalColliders : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003600 RID: 13824 RVA: 0x000FFA98 File Offset: 0x000FDC98
+	// Token: 0x060036C8 RID: 14024 RVA: 0x00145580 File Offset: 0x00143780
 	private void seek()
 	{
 		float num = Mathf.Max(new float[]
@@ -46,35 +46,35 @@ public class RandomLocalColliders : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04003827 RID: 14375
+	// Token: 0x040038E8 RID: 14568
 	private static SRand rand = new SRand("RandomLocalColliders");
 
-	// Token: 0x04003828 RID: 14376
+	// Token: 0x040038E9 RID: 14569
 	[SerializeField]
 	private float minseekFreq = 3f;
 
-	// Token: 0x04003829 RID: 14377
+	// Token: 0x040038EA RID: 14570
 	[SerializeField]
 	private float maxseekFreq = 6f;
 
-	// Token: 0x0400382A RID: 14378
+	// Token: 0x040038EB RID: 14571
 	[SerializeField]
 	private float minRadias = 1f;
 
-	// Token: 0x0400382B RID: 14379
+	// Token: 0x040038EC RID: 14572
 	[SerializeField]
 	private float maxRadias = 10f;
 
-	// Token: 0x0400382C RID: 14380
+	// Token: 0x040038ED RID: 14573
 	[SerializeField]
 	private LightningDispatcherEvent colliderFound;
 
-	// Token: 0x0400382D RID: 14381
+	// Token: 0x040038EE RID: 14574
 	private List<Collider> colliders;
 
-	// Token: 0x0400382E RID: 14382
+	// Token: 0x040038EF RID: 14575
 	private float timeSinceSeek;
 
-	// Token: 0x0400382F RID: 14383
+	// Token: 0x040038F0 RID: 14576
 	private float seekFreq;
 }

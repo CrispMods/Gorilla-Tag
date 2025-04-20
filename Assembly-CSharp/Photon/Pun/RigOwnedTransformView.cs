@@ -4,22 +4,22 @@ using UnityEngine;
 
 namespace Photon.Pun
 {
-	// Token: 0x0200096F RID: 2415
+	// Token: 0x02000995 RID: 2453
 	[HelpURL("https://doc.photonengine.com/en-us/pun/v2/gameplay/synchronization-and-state")]
 	public class RigOwnedTransformView : MonoBehaviourPun, IPunObservable
 	{
-		// Token: 0x1700061E RID: 1566
-		// (get) Token: 0x06003AE7 RID: 15079 RVA: 0x0010EF03 File Offset: 0x0010D103
-		// (set) Token: 0x06003AE8 RID: 15080 RVA: 0x0010EF0B File Offset: 0x0010D10B
+		// Token: 0x17000636 RID: 1590
+		// (get) Token: 0x06003BFF RID: 15359 RVA: 0x000572A9 File Offset: 0x000554A9
+		// (set) Token: 0x06003C00 RID: 15360 RVA: 0x000572B1 File Offset: 0x000554B1
 		public bool IsMine { get; private set; }
 
-		// Token: 0x06003AE9 RID: 15081 RVA: 0x0010EF14 File Offset: 0x0010D114
+		// Token: 0x06003C01 RID: 15361 RVA: 0x000572BA File Offset: 0x000554BA
 		public void SetIsMine(bool isMine)
 		{
 			this.IsMine = isMine;
 		}
 
-		// Token: 0x06003AEA RID: 15082 RVA: 0x0010EF1D File Offset: 0x0010D11D
+		// Token: 0x06003C02 RID: 15362 RVA: 0x000572C3 File Offset: 0x000554C3
 		public void Awake()
 		{
 			this.m_StoredPosition = base.transform.localPosition;
@@ -28,19 +28,19 @@ namespace Photon.Pun
 			this.m_NetworkRotation = Quaternion.identity;
 		}
 
-		// Token: 0x06003AEB RID: 15083 RVA: 0x0010EF51 File Offset: 0x0010D151
+		// Token: 0x06003C03 RID: 15363 RVA: 0x000572F7 File Offset: 0x000554F7
 		private void Reset()
 		{
 			this.m_UseLocal = true;
 		}
 
-		// Token: 0x06003AEC RID: 15084 RVA: 0x0010EF5A File Offset: 0x0010D15A
+		// Token: 0x06003C04 RID: 15364 RVA: 0x00057300 File Offset: 0x00055500
 		private void OnEnable()
 		{
 			this.m_firstTake = true;
 		}
 
-		// Token: 0x06003AED RID: 15085 RVA: 0x0010EF64 File Offset: 0x0010D164
+		// Token: 0x06003C05 RID: 15365 RVA: 0x00152704 File Offset: 0x00150904
 		public void Update()
 		{
 			Transform transform = base.transform;
@@ -57,19 +57,19 @@ namespace Photon.Pun
 			}
 		}
 
-		// Token: 0x06003AEE RID: 15086 RVA: 0x0010F058 File Offset: 0x0010D258
+		// Token: 0x06003C06 RID: 15366 RVA: 0x001527F8 File Offset: 0x001509F8
 		private bool IsValid(Vector3 v)
 		{
 			return !float.IsNaN(v.x) && !float.IsNaN(v.y) && !float.IsNaN(v.z) && !float.IsInfinity(v.x) && !float.IsInfinity(v.y) && !float.IsInfinity(v.z);
 		}
 
-		// Token: 0x06003AEF RID: 15087 RVA: 0x0010F0B8 File Offset: 0x0010D2B8
+		// Token: 0x06003C07 RID: 15367 RVA: 0x00152858 File Offset: 0x00150A58
 		private bool IsValid(Quaternion q)
 		{
 			return !float.IsNaN(q.x) && !float.IsNaN(q.y) && !float.IsNaN(q.z) && !float.IsNaN(q.w) && !float.IsInfinity(q.x) && !float.IsInfinity(q.y) && !float.IsInfinity(q.z) && !float.IsInfinity(q.w);
 		}
 
-		// Token: 0x06003AF0 RID: 15088 RVA: 0x0010F130 File Offset: 0x0010D330
+		// Token: 0x06003C08 RID: 15368 RVA: 0x001528D0 File Offset: 0x00150AD0
 		public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 		{
 			if (info.Sender != info.photonView.Owner)
@@ -185,47 +185,47 @@ namespace Photon.Pun
 			}
 		}
 
-		// Token: 0x06003AF1 RID: 15089 RVA: 0x0010EF5A File Offset: 0x0010D15A
+		// Token: 0x06003C09 RID: 15369 RVA: 0x00057300 File Offset: 0x00055500
 		public void GTAddition_DoTeleport()
 		{
 			this.m_firstTake = true;
 		}
 
-		// Token: 0x04003BEB RID: 15339
+		// Token: 0x04003CC5 RID: 15557
 		private float m_Distance;
 
-		// Token: 0x04003BEC RID: 15340
+		// Token: 0x04003CC6 RID: 15558
 		private float m_Angle;
 
-		// Token: 0x04003BED RID: 15341
+		// Token: 0x04003CC7 RID: 15559
 		private Vector3 m_Direction;
 
-		// Token: 0x04003BEE RID: 15342
+		// Token: 0x04003CC8 RID: 15560
 		private Vector3 m_NetworkPosition;
 
-		// Token: 0x04003BEF RID: 15343
+		// Token: 0x04003CC9 RID: 15561
 		private Vector3 m_StoredPosition;
 
-		// Token: 0x04003BF0 RID: 15344
+		// Token: 0x04003CCA RID: 15562
 		private Vector3 m_networkScale;
 
-		// Token: 0x04003BF1 RID: 15345
+		// Token: 0x04003CCB RID: 15563
 		private Quaternion m_NetworkRotation;
 
-		// Token: 0x04003BF2 RID: 15346
+		// Token: 0x04003CCC RID: 15564
 		public bool m_SynchronizePosition = true;
 
-		// Token: 0x04003BF3 RID: 15347
+		// Token: 0x04003CCD RID: 15565
 		public bool m_SynchronizeRotation = true;
 
-		// Token: 0x04003BF4 RID: 15348
+		// Token: 0x04003CCE RID: 15566
 		public bool m_SynchronizeScale;
 
-		// Token: 0x04003BF5 RID: 15349
+		// Token: 0x04003CCF RID: 15567
 		[Tooltip("Indicates if localPosition and localRotation should be used. Scale ignores this setting, and always uses localScale to avoid issues with lossyScale.")]
 		public bool m_UseLocal;
 
-		// Token: 0x04003BF6 RID: 15350
+		// Token: 0x04003CD0 RID: 15568
 		private bool m_firstTake;
 	}
 }

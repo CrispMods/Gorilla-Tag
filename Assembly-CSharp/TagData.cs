@@ -4,13 +4,13 @@ using Fusion;
 using Fusion.CodeGen;
 using UnityEngine;
 
-// Token: 0x02000467 RID: 1127
+// Token: 0x02000473 RID: 1139
 [NetworkStructWeaved(12)]
 [StructLayout(LayoutKind.Explicit, Size = 48)]
 public struct TagData : INetworkStruct
 {
-	// Token: 0x17000306 RID: 774
-	// (get) Token: 0x06001B9B RID: 7067 RVA: 0x0008749C File Offset: 0x0008569C
+	// Token: 0x1700030D RID: 781
+	// (get) Token: 0x06001BEF RID: 7151 RVA: 0x00043282 File Offset: 0x00041482
 	[Networked]
 	[Capacity(10)]
 	public NetworkArray<int> infectedPlayerList
@@ -21,16 +21,16 @@ public struct TagData : INetworkStruct
 		}
 	}
 
-	// Token: 0x17000307 RID: 775
-	// (get) Token: 0x06001B9C RID: 7068 RVA: 0x000874C3 File Offset: 0x000856C3
-	// (set) Token: 0x06001B9D RID: 7069 RVA: 0x000874CB File Offset: 0x000856CB
+	// Token: 0x1700030E RID: 782
+	// (get) Token: 0x06001BF0 RID: 7152 RVA: 0x0004329E File Offset: 0x0004149E
+	// (set) Token: 0x06001BF1 RID: 7153 RVA: 0x000432A6 File Offset: 0x000414A6
 	public int currentItID { readonly get; set; }
 
-	// Token: 0x04001E84 RID: 7812
+	// Token: 0x04001ED3 RID: 7891
 	[FieldOffset(4)]
 	public NetworkBool isCurrentlyTag;
 
-	// Token: 0x04001E85 RID: 7813
+	// Token: 0x04001ED4 RID: 7892
 	[FixedBufferProperty(typeof(NetworkArray<int>), typeof(UnityArraySurrogate@ReaderWriter@System_Int32), 10, order = -2147483647)]
 	[WeaverGenerated]
 	[SerializeField]

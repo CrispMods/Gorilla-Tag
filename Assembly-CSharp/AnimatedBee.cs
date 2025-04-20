@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x020000E0 RID: 224
+// Token: 0x020000EA RID: 234
 public struct AnimatedBee
 {
-	// Token: 0x060005CA RID: 1482 RVA: 0x000220A4 File Offset: 0x000202A4
+	// Token: 0x0600060B RID: 1547 RVA: 0x000849E8 File Offset: 0x00082BE8
 	public void UpdateVisual(float syncTime, BeeSwarmManager manager)
 	{
 		if (this.destinationCache == null)
@@ -25,7 +25,7 @@ public struct AnimatedBee
 		this.velocity = Vector3.MoveTowards(this.velocity * manager.BeeJitterDamping, target, manager.BeeAcceleration * Time.deltaTime);
 		if ((this.oldPosition - vector2).IsLongerThan(manager.BeeNearDestinationRadius))
 		{
-			this.velocity += Random.insideUnitSphere * manager.BeeJitterStrength * Time.deltaTime;
+			this.velocity += UnityEngine.Random.insideUnitSphere * manager.BeeJitterStrength * Time.deltaTime;
 		}
 		Vector3 vector3 = this.oldPosition + this.velocity * Time.deltaTime;
 		if ((vector3 - vector).IsLongerThan(manager.BeeMaxJitterRadius))
@@ -55,7 +55,7 @@ public struct AnimatedBee
 		this.oldSyncTime = syncTime;
 	}
 
-	// Token: 0x060005CB RID: 1483 RVA: 0x00022304 File Offset: 0x00020504
+	// Token: 0x0600060C RID: 1548 RVA: 0x00084C48 File Offset: 0x00082E48
 	public void GetPositionAndDestinationAtTime(float syncTime, out Vector3 idealPosition, out Vector3 destination)
 	{
 		if (syncTime > this.destinationB.syncEndTime || syncTime < this.destinationA.syncTime)
@@ -89,13 +89,13 @@ public struct AnimatedBee
 		idealPosition = Vector3.Lerp(this.destinationA.destination.GetPoint(), destination, t);
 	}
 
-	// Token: 0x060005CC RID: 1484 RVA: 0x00022426 File Offset: 0x00020626
+	// Token: 0x0600060D RID: 1549 RVA: 0x00034850 File Offset: 0x00032A50
 	public void InitVisual(MeshRenderer prefab, BeeSwarmManager manager)
 	{
-		this.visual = Object.Instantiate<MeshRenderer>(prefab, manager.transform);
+		this.visual = UnityEngine.Object.Instantiate<MeshRenderer>(prefab, manager.transform);
 	}
 
-	// Token: 0x060005CD RID: 1485 RVA: 0x0002243C File Offset: 0x0002063C
+	// Token: 0x0600060E RID: 1550 RVA: 0x00084D6C File Offset: 0x00082F6C
 	public void InitRouteTimestamps()
 	{
 		this.destinationB.syncEndTime = -1f;
@@ -133,7 +133,7 @@ public struct AnimatedBee
 		});
 	}
 
-	// Token: 0x060005CE RID: 1486 RVA: 0x00022618 File Offset: 0x00020818
+	// Token: 0x0600060F RID: 1551 RVA: 0x00084F48 File Offset: 0x00083148
 	public void InitRoute(List<BeePerchPoint> route, List<float> holdTimes, BeeSwarmManager manager)
 	{
 		this.route = route;
@@ -149,52 +149,52 @@ public struct AnimatedBee
 		this.loopDuration = num + (route[0].transform.position - route[route.Count - 1].transform.position).magnitude * manager.BeeSpeed + holdTimes[0];
 	}
 
-	// Token: 0x040006E7 RID: 1767
+	// Token: 0x04000728 RID: 1832
 	private List<AnimatedBee.TimedDestination> destinationCache;
 
-	// Token: 0x040006E8 RID: 1768
+	// Token: 0x04000729 RID: 1833
 	private AnimatedBee.TimedDestination destinationA;
 
-	// Token: 0x040006E9 RID: 1769
+	// Token: 0x0400072A RID: 1834
 	private AnimatedBee.TimedDestination destinationB;
 
-	// Token: 0x040006EA RID: 1770
+	// Token: 0x0400072B RID: 1835
 	private float loopDuration;
 
-	// Token: 0x040006EB RID: 1771
+	// Token: 0x0400072C RID: 1836
 	private Vector3 oldPosition;
 
-	// Token: 0x040006EC RID: 1772
+	// Token: 0x0400072D RID: 1837
 	private Vector3 velocity;
 
-	// Token: 0x040006ED RID: 1773
+	// Token: 0x0400072E RID: 1838
 	public MeshRenderer visual;
 
-	// Token: 0x040006EE RID: 1774
+	// Token: 0x0400072F RID: 1839
 	private float oldSyncTime;
 
-	// Token: 0x040006EF RID: 1775
+	// Token: 0x04000730 RID: 1840
 	private List<BeePerchPoint> route;
 
-	// Token: 0x040006F0 RID: 1776
+	// Token: 0x04000731 RID: 1841
 	private List<float> holdTimes;
 
-	// Token: 0x040006F1 RID: 1777
+	// Token: 0x04000732 RID: 1842
 	private float speed;
 
-	// Token: 0x040006F2 RID: 1778
+	// Token: 0x04000733 RID: 1843
 	private float maxTravelTime;
 
-	// Token: 0x020000E1 RID: 225
+	// Token: 0x020000EB RID: 235
 	private struct TimedDestination
 	{
-		// Token: 0x040006F3 RID: 1779
+		// Token: 0x04000734 RID: 1844
 		public float syncTime;
 
-		// Token: 0x040006F4 RID: 1780
+		// Token: 0x04000735 RID: 1845
 		public float syncEndTime;
 
-		// Token: 0x040006F5 RID: 1781
+		// Token: 0x04000736 RID: 1846
 		public BeePerchPoint destination;
 	}
 }

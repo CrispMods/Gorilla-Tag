@@ -7,11 +7,11 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009A1 RID: 2465
+	// Token: 0x020009C7 RID: 2503
 	[BurstCompile]
 	public struct BuilderFindPotentialSnaps : IJobParallelFor
 	{
-		// Token: 0x06003CE6 RID: 15590 RVA: 0x0011E688 File Offset: 0x0011C888
+		// Token: 0x06003DFE RID: 15870 RVA: 0x00160AC0 File Offset: 0x0015ECC0
 		public void Execute(int index)
 		{
 			BuilderGridPlaneData builderGridPlaneData = this.gridPlanes[index];
@@ -26,7 +26,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003CE7 RID: 15591 RVA: 0x0011E6E8 File Offset: 0x0011C8E8
+		// Token: 0x06003DFF RID: 15871 RVA: 0x00160B20 File Offset: 0x0015ED20
 		public bool TryPlaceGridPlaneOnGridPlane(ref BuilderGridPlaneData gridPlane, ref BuilderGridPlaneData checkGridPlane, ref BuilderPotentialPlacementData potentialPlacement)
 		{
 			if (checkGridPlane.male == gridPlane.male)
@@ -183,57 +183,57 @@ namespace GorillaTagScripts
 			return true;
 		}
 
-		// Token: 0x06003CE8 RID: 15592 RVA: 0x0011AB3E File Offset: 0x00118D3E
+		// Token: 0x06003E00 RID: 15872 RVA: 0x00058297 File Offset: 0x00056497
 		private Vector2Int Rotate90(Vector2Int v, int offsetX, int offsetY)
 		{
 			return new Vector2Int(v.y * -1 + offsetY, v.x);
 		}
 
-		// Token: 0x06003CE9 RID: 15593 RVA: 0x0011AB57 File Offset: 0x00118D57
+		// Token: 0x06003E01 RID: 15873 RVA: 0x000582B0 File Offset: 0x000564B0
 		private Vector2Int Rotate270(Vector2Int v, int offsetX, int offsetY)
 		{
 			return new Vector2Int(v.y, v.x * -1 + offsetX);
 		}
 
-		// Token: 0x06003CEA RID: 15594 RVA: 0x0011AB70 File Offset: 0x00118D70
+		// Token: 0x06003E02 RID: 15874 RVA: 0x000582C9 File Offset: 0x000564C9
 		private Vector2Int Rotate180(Vector2Int v, int offsetX, int offsetY)
 		{
 			return new Vector2Int(v.x * -1 + offsetX, v.y * -1 + offsetY);
 		}
 
-		// Token: 0x04003E45 RID: 15941
+		// Token: 0x04003F1F RID: 16159
 		[ReadOnly]
 		public float gridSize;
 
-		// Token: 0x04003E46 RID: 15942
+		// Token: 0x04003F20 RID: 16160
 		[ReadOnly]
 		public BuilderTable.SnapParams currSnapParams;
 
-		// Token: 0x04003E47 RID: 15943
+		// Token: 0x04003F21 RID: 16161
 		[ReadOnly]
 		public NativeList<BuilderGridPlaneData> gridPlanes;
 
-		// Token: 0x04003E48 RID: 15944
+		// Token: 0x04003F22 RID: 16162
 		[ReadOnly]
 		public NativeList<BuilderGridPlaneData> checkGridPlanes;
 
-		// Token: 0x04003E49 RID: 15945
+		// Token: 0x04003F23 RID: 16163
 		[ReadOnly]
 		public Vector3 worldToLocalPos;
 
-		// Token: 0x04003E4A RID: 15946
+		// Token: 0x04003F24 RID: 16164
 		[ReadOnly]
 		public Quaternion worldToLocalRot;
 
-		// Token: 0x04003E4B RID: 15947
+		// Token: 0x04003F25 RID: 16165
 		[ReadOnly]
 		public Vector3 localToWorldPos;
 
-		// Token: 0x04003E4C RID: 15948
+		// Token: 0x04003F26 RID: 16166
 		[ReadOnly]
 		public Quaternion localToWorldRot;
 
-		// Token: 0x04003E4D RID: 15949
+		// Token: 0x04003F27 RID: 16167
 		public NativeQueue<BuilderPotentialPlacementData>.ParallelWriter potentialPlacements;
 	}
 }

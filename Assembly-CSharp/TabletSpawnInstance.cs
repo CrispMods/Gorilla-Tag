@@ -1,21 +1,21 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000233 RID: 563
+// Token: 0x0200023E RID: 574
 public class TabletSpawnInstance : IDisposable
 {
-	// Token: 0x14000022 RID: 34
-	// (add) Token: 0x06000CD6 RID: 3286 RVA: 0x0004342C File Offset: 0x0004162C
-	// (remove) Token: 0x06000CD7 RID: 3287 RVA: 0x00043464 File Offset: 0x00041664
+	// Token: 0x14000023 RID: 35
+	// (add) Token: 0x06000D21 RID: 3361 RVA: 0x000A1200 File Offset: 0x0009F400
+	// (remove) Token: 0x06000D22 RID: 3362 RVA: 0x000A1238 File Offset: 0x0009F438
 	public event Action onGrabbed;
 
-	// Token: 0x14000023 RID: 35
-	// (add) Token: 0x06000CD8 RID: 3288 RVA: 0x0004349C File Offset: 0x0004169C
-	// (remove) Token: 0x06000CD9 RID: 3289 RVA: 0x000434D4 File Offset: 0x000416D4
+	// Token: 0x14000024 RID: 36
+	// (add) Token: 0x06000D23 RID: 3363 RVA: 0x000A1270 File Offset: 0x0009F470
+	// (remove) Token: 0x06000D24 RID: 3364 RVA: 0x000A12A8 File Offset: 0x0009F4A8
 	public event Action onReleased;
 
-	// Token: 0x17000141 RID: 321
-	// (get) Token: 0x06000CDA RID: 3290 RVA: 0x00043509 File Offset: 0x00041709
+	// Token: 0x17000148 RID: 328
+	// (get) Token: 0x06000D25 RID: 3365 RVA: 0x0003939E File Offset: 0x0003759E
 	public LckDirectGrabbable directGrabbable
 	{
 		get
@@ -24,7 +24,7 @@ public class TabletSpawnInstance : IDisposable
 		}
 	}
 
-	// Token: 0x06000CDB RID: 3291 RVA: 0x00043516 File Offset: 0x00041716
+	// Token: 0x06000D26 RID: 3366 RVA: 0x000393AB File Offset: 0x000375AB
 	public bool ResetLocalPose()
 	{
 		if (this._cameraSpawnInstanceTransform == null)
@@ -36,7 +36,7 @@ public class TabletSpawnInstance : IDisposable
 		return true;
 	}
 
-	// Token: 0x06000CDC RID: 3292 RVA: 0x00043549 File Offset: 0x00041749
+	// Token: 0x06000D27 RID: 3367 RVA: 0x000393DE File Offset: 0x000375DE
 	public bool ResetParent()
 	{
 		if (this._cameraSpawnInstanceTransform == null)
@@ -47,7 +47,7 @@ public class TabletSpawnInstance : IDisposable
 		return true;
 	}
 
-	// Token: 0x06000CDD RID: 3293 RVA: 0x0004356D File Offset: 0x0004176D
+	// Token: 0x06000D28 RID: 3368 RVA: 0x00039402 File Offset: 0x00037602
 	public bool SetParent(Transform transform)
 	{
 		if (this._cameraSpawnInstanceTransform == null)
@@ -58,9 +58,9 @@ public class TabletSpawnInstance : IDisposable
 		return true;
 	}
 
-	// Token: 0x17000142 RID: 322
-	// (get) Token: 0x06000CDE RID: 3294 RVA: 0x0004358C File Offset: 0x0004178C
-	// (set) Token: 0x06000CDF RID: 3295 RVA: 0x00043594 File Offset: 0x00041794
+	// Token: 0x17000149 RID: 329
+	// (get) Token: 0x06000D29 RID: 3369 RVA: 0x00039421 File Offset: 0x00037621
+	// (set) Token: 0x06000D2A RID: 3370 RVA: 0x00039429 File Offset: 0x00037629
 	public bool cameraActive
 	{
 		get
@@ -77,9 +77,9 @@ public class TabletSpawnInstance : IDisposable
 		}
 	}
 
-	// Token: 0x17000143 RID: 323
-	// (get) Token: 0x06000CE0 RID: 3296 RVA: 0x000435BC File Offset: 0x000417BC
-	// (set) Token: 0x06000CE1 RID: 3297 RVA: 0x000435C4 File Offset: 0x000417C4
+	// Token: 0x1700014A RID: 330
+	// (get) Token: 0x06000D2B RID: 3371 RVA: 0x00039451 File Offset: 0x00037651
+	// (set) Token: 0x06000D2C RID: 3372 RVA: 0x00039459 File Offset: 0x00037659
 	public bool uiVisible
 	{
 		get
@@ -96,8 +96,8 @@ public class TabletSpawnInstance : IDisposable
 		}
 	}
 
-	// Token: 0x17000144 RID: 324
-	// (get) Token: 0x06000CE2 RID: 3298 RVA: 0x000435EC File Offset: 0x000417EC
+	// Token: 0x1700014B RID: 331
+	// (get) Token: 0x06000D2D RID: 3373 RVA: 0x00039481 File Offset: 0x00037681
 	public bool isSpawned
 	{
 		get
@@ -106,19 +106,19 @@ public class TabletSpawnInstance : IDisposable
 		}
 	}
 
-	// Token: 0x06000CE3 RID: 3299 RVA: 0x000435FA File Offset: 0x000417FA
+	// Token: 0x06000D2E RID: 3374 RVA: 0x0003948F File Offset: 0x0003768F
 	public TabletSpawnInstance(GameObject cameraSpawnPrefab, Transform cameraSpawnParentTransform)
 	{
 		this._cameraSpawnPrefab = cameraSpawnPrefab;
 		this._cameraSpawnParentTransform = cameraSpawnParentTransform;
 	}
 
-	// Token: 0x06000CE4 RID: 3300 RVA: 0x00043610 File Offset: 0x00041810
+	// Token: 0x06000D2F RID: 3375 RVA: 0x000A12E0 File Offset: 0x0009F4E0
 	public void SpawnCamera()
 	{
 		if (!this.isSpawned)
 		{
-			this._cameraGameObjectInstance = Object.Instantiate<GameObject>(this._cameraSpawnPrefab, this._cameraSpawnParentTransform);
+			this._cameraGameObjectInstance = UnityEngine.Object.Instantiate<GameObject>(this._cameraSpawnPrefab, this._cameraSpawnParentTransform);
 			this._lckSocialCameraManager = this._cameraGameObjectInstance.GetComponent<LckSocialCameraManager>();
 			this._lckSocialCameraManager.lckDirectGrabbable.onGrabbed += delegate()
 			{
@@ -144,8 +144,8 @@ public class TabletSpawnInstance : IDisposable
 		this.cameraActive = this.cameraActive;
 	}
 
-	// Token: 0x17000145 RID: 325
-	// (get) Token: 0x06000CE5 RID: 3301 RVA: 0x000436AE File Offset: 0x000418AE
+	// Token: 0x1700014C RID: 332
+	// (get) Token: 0x06000D30 RID: 3376 RVA: 0x000394A5 File Offset: 0x000376A5
 	public Vector3 position
 	{
 		get
@@ -158,8 +158,8 @@ public class TabletSpawnInstance : IDisposable
 		}
 	}
 
-	// Token: 0x17000146 RID: 326
-	// (get) Token: 0x06000CE6 RID: 3302 RVA: 0x000436CF File Offset: 0x000418CF
+	// Token: 0x1700014D RID: 333
+	// (get) Token: 0x06000D31 RID: 3377 RVA: 0x000394C6 File Offset: 0x000376C6
 	public Quaternion rotation
 	{
 		get
@@ -172,7 +172,7 @@ public class TabletSpawnInstance : IDisposable
 		}
 	}
 
-	// Token: 0x06000CE7 RID: 3303 RVA: 0x000436F0 File Offset: 0x000418F0
+	// Token: 0x06000D32 RID: 3378 RVA: 0x000394E7 File Offset: 0x000376E7
 	public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
 	{
 		if (this._cameraSpawnInstanceTransform == null)
@@ -182,7 +182,7 @@ public class TabletSpawnInstance : IDisposable
 		this._cameraSpawnInstanceTransform.SetPositionAndRotation(position, rotation);
 	}
 
-	// Token: 0x06000CE8 RID: 3304 RVA: 0x0004370E File Offset: 0x0004190E
+	// Token: 0x06000D33 RID: 3379 RVA: 0x00039505 File Offset: 0x00037705
 	public void SetLocalScale(Vector3 scale)
 	{
 		if (this._cameraSpawnInstanceTransform == null)
@@ -192,37 +192,37 @@ public class TabletSpawnInstance : IDisposable
 		this._cameraSpawnInstanceTransform.localScale = scale;
 	}
 
-	// Token: 0x06000CE9 RID: 3305 RVA: 0x0004372B File Offset: 0x0004192B
+	// Token: 0x06000D34 RID: 3380 RVA: 0x00039522 File Offset: 0x00037722
 	public void Dispose()
 	{
 		if (this._cameraGameObjectInstance != null)
 		{
-			Object.Destroy(this._cameraGameObjectInstance);
+			UnityEngine.Object.Destroy(this._cameraGameObjectInstance);
 			this._cameraGameObjectInstance = null;
 		}
 	}
 
-	// Token: 0x0400103A RID: 4154
+	// Token: 0x04001080 RID: 4224
 	private GameObject _cameraGameObjectInstance;
 
-	// Token: 0x0400103B RID: 4155
+	// Token: 0x04001081 RID: 4225
 	private GameObject _cameraSpawnPrefab;
 
-	// Token: 0x0400103C RID: 4156
+	// Token: 0x04001082 RID: 4226
 	private GameEvents _GtCamera;
 
-	// Token: 0x0400103D RID: 4157
+	// Token: 0x04001083 RID: 4227
 	private Transform _cameraSpawnParentTransform;
 
-	// Token: 0x0400103E RID: 4158
+	// Token: 0x04001084 RID: 4228
 	private Transform _cameraSpawnInstanceTransform;
 
-	// Token: 0x0400103F RID: 4159
+	// Token: 0x04001085 RID: 4229
 	private LckSocialCameraManager _lckSocialCameraManager;
 
-	// Token: 0x04001040 RID: 4160
+	// Token: 0x04001086 RID: 4230
 	private bool _cameraActive;
 
-	// Token: 0x04001041 RID: 4161
+	// Token: 0x04001087 RID: 4231
 	private bool _uiVisible;
 }

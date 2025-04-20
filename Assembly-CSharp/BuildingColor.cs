@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000A5 RID: 165
+// Token: 0x020000AF RID: 175
 public class BuildingColor : MonoBehaviour
 {
-	// Token: 0x0600043D RID: 1085 RVA: 0x00019874 File Offset: 0x00017A74
+	// Token: 0x06000479 RID: 1145 RVA: 0x0007D2E8 File Offset: 0x0007B4E8
 	private void Start()
 	{
 		Renderer component = base.GetComponent<Renderer>();
@@ -12,15 +12,15 @@ public class BuildingColor : MonoBehaviour
 		component.material.SetColor("_Color", value);
 	}
 
-	// Token: 0x040004F1 RID: 1265
+	// Token: 0x04000531 RID: 1329
 	[Range(0f, 178f)]
 	public float Red;
 
-	// Token: 0x040004F2 RID: 1266
+	// Token: 0x04000532 RID: 1330
 	[Range(0f, 178f)]
 	public float Green;
 
-	// Token: 0x040004F3 RID: 1267
+	// Token: 0x04000533 RID: 1331
 	[Range(0f, 178f)]
 	public float Blue;
 }

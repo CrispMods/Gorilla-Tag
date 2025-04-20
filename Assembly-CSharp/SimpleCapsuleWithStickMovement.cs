@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020002CE RID: 718
+// Token: 0x020002D9 RID: 729
 public class SimpleCapsuleWithStickMovement : MonoBehaviour
 {
-	// Token: 0x1400003B RID: 59
-	// (add) Token: 0x06001161 RID: 4449 RVA: 0x000531BC File Offset: 0x000513BC
-	// (remove) Token: 0x06001162 RID: 4450 RVA: 0x000531F4 File Offset: 0x000513F4
+	// Token: 0x1400003C RID: 60
+	// (add) Token: 0x060011AD RID: 4525 RVA: 0x000AE368 File Offset: 0x000AC568
+	// (remove) Token: 0x060011AE RID: 4526 RVA: 0x000AE3A0 File Offset: 0x000AC5A0
 	public event Action CameraUpdated;
 
-	// Token: 0x1400003C RID: 60
-	// (add) Token: 0x06001163 RID: 4451 RVA: 0x0005322C File Offset: 0x0005142C
-	// (remove) Token: 0x06001164 RID: 4452 RVA: 0x00053264 File Offset: 0x00051464
+	// Token: 0x1400003D RID: 61
+	// (add) Token: 0x060011AF RID: 4527 RVA: 0x000AE3D8 File Offset: 0x000AC5D8
+	// (remove) Token: 0x060011B0 RID: 4528 RVA: 0x000AE410 File Offset: 0x000AC610
 	public event Action PreCharacterMove;
 
-	// Token: 0x06001165 RID: 4453 RVA: 0x00053299 File Offset: 0x00051499
+	// Token: 0x060011B1 RID: 4529 RVA: 0x0003BFEA File Offset: 0x0003A1EA
 	private void Awake()
 	{
 		this._rigidbody = base.GetComponent<Rigidbody>();
@@ -24,12 +24,12 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001166 RID: 4454 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060011B2 RID: 4530 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Start()
 	{
 	}
 
-	// Token: 0x06001167 RID: 4455 RVA: 0x000532C4 File Offset: 0x000514C4
+	// Token: 0x060011B3 RID: 4531 RVA: 0x000AE448 File Offset: 0x000AC648
 	private void FixedUpdate()
 	{
 		if (this.CameraUpdated != null)
@@ -54,7 +54,7 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001168 RID: 4456 RVA: 0x00053324 File Offset: 0x00051524
+	// Token: 0x060011B4 RID: 4532 RVA: 0x000AE4A8 File Offset: 0x000AC6A8
 	private void RotatePlayerToHMD()
 	{
 		Transform trackingSpace = this.CameraRig.trackingSpace;
@@ -66,7 +66,7 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 		trackingSpace.rotation = rotation;
 	}
 
-	// Token: 0x06001169 RID: 4457 RVA: 0x00053390 File Offset: 0x00051590
+	// Token: 0x060011B5 RID: 4533 RVA: 0x000AE514 File Offset: 0x000AC714
 	private void StickMovement()
 	{
 		Vector3 eulerAngles = this.CameraRig.centerEyeAnchor.rotation.eulerAngles;
@@ -79,7 +79,7 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 		this._rigidbody.MovePosition(this._rigidbody.position + a * this.Speed * Time.fixedDeltaTime);
 	}
 
-	// Token: 0x0600116A RID: 4458 RVA: 0x00053454 File Offset: 0x00051654
+	// Token: 0x060011B6 RID: 4534 RVA: 0x000AE5D8 File Offset: 0x000AC7D8
 	private void SnapTurn()
 	{
 		if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft, OVRInput.Controller.Active) || (this.RotationEitherThumbstick && OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft, OVRInput.Controller.Active)))
@@ -106,30 +106,30 @@ public class SimpleCapsuleWithStickMovement : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400134F RID: 4943
+	// Token: 0x04001397 RID: 5015
 	public bool EnableLinearMovement = true;
 
-	// Token: 0x04001350 RID: 4944
+	// Token: 0x04001398 RID: 5016
 	public bool EnableRotation = true;
 
-	// Token: 0x04001351 RID: 4945
+	// Token: 0x04001399 RID: 5017
 	public bool HMDRotatesPlayer = true;
 
-	// Token: 0x04001352 RID: 4946
+	// Token: 0x0400139A RID: 5018
 	public bool RotationEitherThumbstick;
 
-	// Token: 0x04001353 RID: 4947
+	// Token: 0x0400139B RID: 5019
 	public float RotationAngle = 45f;
 
-	// Token: 0x04001354 RID: 4948
+	// Token: 0x0400139C RID: 5020
 	public float Speed;
 
-	// Token: 0x04001355 RID: 4949
+	// Token: 0x0400139D RID: 5021
 	public OVRCameraRig CameraRig;
 
-	// Token: 0x04001356 RID: 4950
+	// Token: 0x0400139E RID: 5022
 	private bool ReadyToSnapTurn;
 
-	// Token: 0x04001357 RID: 4951
+	// Token: 0x0400139F RID: 5023
 	private Rigidbody _rigidbody;
 }

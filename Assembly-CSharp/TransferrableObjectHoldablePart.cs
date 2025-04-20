@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x02000399 RID: 921
+// Token: 0x020003A4 RID: 932
 public class TransferrableObjectHoldablePart : HoldableObject
 {
-	// Token: 0x06001579 RID: 5497 RVA: 0x000688F4 File Offset: 0x00066AF4
+	// Token: 0x060015C5 RID: 5573 RVA: 0x000C0EC4 File Offset: 0x000BF0C4
 	private void Update()
 	{
 		VRRig rig;
@@ -41,17 +41,17 @@ public class TransferrableObjectHoldablePart : HoldableObject
 		}
 	}
 
-	// Token: 0x0600157A RID: 5498 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060015C6 RID: 5574 RVA: 0x00030607 File Offset: 0x0002E807
 	protected virtual void UpdateHeld(VRRig rig, bool isHeldLeftHand)
 	{
 	}
 
-	// Token: 0x0600157B RID: 5499 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060015C7 RID: 5575 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnHover(InteractionPoint pointHovered, GameObject hoveringHand)
 	{
 	}
 
-	// Token: 0x0600157C RID: 5500 RVA: 0x000689C0 File Offset: 0x00066BC0
+	// Token: 0x060015C8 RID: 5576 RVA: 0x000C0F90 File Offset: 0x000BF190
 	public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 	{
 		this.isHeld = true;
@@ -66,7 +66,7 @@ public class TransferrableObjectHoldablePart : HoldableObject
 		unityEvent.Invoke();
 	}
 
-	// Token: 0x0600157D RID: 5501 RVA: 0x00068A27 File Offset: 0x00066C27
+	// Token: 0x060015C9 RID: 5577 RVA: 0x0003EAD7 File Offset: 0x0003CCD7
 	public override void DropItemCleanup()
 	{
 		this.isHeld = false;
@@ -74,7 +74,7 @@ public class TransferrableObjectHoldablePart : HoldableObject
 		this.transferrableParentObject.itemState &= ~this.heldBit;
 	}
 
-	// Token: 0x0600157E RID: 5502 RVA: 0x00068A50 File Offset: 0x00066C50
+	// Token: 0x060015CA RID: 5578 RVA: 0x000C0FF8 File Offset: 0x000BF1F8
 	public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		if (EquipmentInteractor.instance.rightHandHeldEquipment == this && releasingHand != EquipmentInteractor.instance.rightHand)
@@ -97,26 +97,26 @@ public class TransferrableObjectHoldablePart : HoldableObject
 		return true;
 	}
 
-	// Token: 0x040017C4 RID: 6084
+	// Token: 0x0400180B RID: 6155
 	[SerializeField]
 	protected TransferrableObject transferrableParentObject;
 
-	// Token: 0x040017C5 RID: 6085
+	// Token: 0x0400180C RID: 6156
 	[SerializeField]
 	private TransferrableObject.ItemStates heldBit = TransferrableObject.ItemStates.Part0Held;
 
-	// Token: 0x040017C6 RID: 6086
+	// Token: 0x0400180D RID: 6157
 	private bool isHeld;
 
-	// Token: 0x040017C7 RID: 6087
+	// Token: 0x0400180E RID: 6158
 	protected bool isHeldLeftHand;
 
-	// Token: 0x040017C8 RID: 6088
+	// Token: 0x0400180F RID: 6159
 	public UnityEvent onGrab;
 
-	// Token: 0x040017C9 RID: 6089
+	// Token: 0x04001810 RID: 6160
 	public UnityEvent onRelease;
 
-	// Token: 0x040017CA RID: 6090
+	// Token: 0x04001811 RID: 6161
 	public UnityEvent onDrop;
 }

@@ -7,11 +7,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.XR;
 
-// Token: 0x02000842 RID: 2114
+// Token: 0x0200085C RID: 2140
 public class DebugHudStats : MonoBehaviour
 {
-	// Token: 0x17000557 RID: 1367
-	// (get) Token: 0x06003387 RID: 13191 RVA: 0x000F5E93 File Offset: 0x000F4093
+	// Token: 0x17000565 RID: 1381
+	// (get) Token: 0x06003442 RID: 13378 RVA: 0x00052585 File Offset: 0x00050785
 	public static DebugHudStats Instance
 	{
 		get
@@ -20,12 +20,12 @@ public class DebugHudStats : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003388 RID: 13192 RVA: 0x000F5E9A File Offset: 0x000F409A
+	// Token: 0x06003443 RID: 13379 RVA: 0x0005258C File Offset: 0x0005078C
 	private void Awake()
 	{
 		if (DebugHudStats._instance != null && DebugHudStats._instance != this)
 		{
-			Object.Destroy(base.gameObject);
+			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		else
 		{
@@ -34,7 +34,7 @@ public class DebugHudStats : MonoBehaviour
 		base.gameObject.SetActive(false);
 	}
 
-	// Token: 0x06003389 RID: 13193 RVA: 0x000F5ED5 File Offset: 0x000F40D5
+	// Token: 0x06003444 RID: 13380 RVA: 0x000525C7 File Offset: 0x000507C7
 	private void OnDestroy()
 	{
 		if (DebugHudStats._instance == this)
@@ -43,7 +43,7 @@ public class DebugHudStats : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600338A RID: 13194 RVA: 0x000F5EEC File Offset: 0x000F40EC
+	// Token: 0x06003445 RID: 13381 RVA: 0x0013D858 File Offset: 0x0013BA58
 	private void Update()
 	{
 		bool flag = ControllerInputPoller.SecondaryButtonPress(XRNode.LeftHand);
@@ -174,7 +174,7 @@ public class DebugHudStats : MonoBehaviour
 		this.updateTimer = 0f;
 	}
 
-	// Token: 0x0600338B RID: 13195 RVA: 0x000F63B1 File Offset: 0x000F45B1
+	// Token: 0x06003446 RID: 13382 RVA: 0x000525DC File Offset: 0x000507DC
 	private void OnPlayerSwam(float distance, float speed)
 	{
 		if (distance > 0.005f)
@@ -183,7 +183,7 @@ public class DebugHudStats : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600338C RID: 13196 RVA: 0x000F63C9 File Offset: 0x000F45C9
+	// Token: 0x06003447 RID: 13383 RVA: 0x000525F4 File Offset: 0x000507F4
 	private void OnPlayerMoved(float distance, float speed)
 	{
 		if (distance > 0.005f)
@@ -192,19 +192,19 @@ public class DebugHudStats : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600338D RID: 13197 RVA: 0x000F63E1 File Offset: 0x000F45E1
+	// Token: 0x06003448 RID: 13384 RVA: 0x0005260C File Offset: 0x0005080C
 	private void OnEnable()
 	{
 		Application.logMessageReceived += this.LogMessageReceived;
 	}
 
-	// Token: 0x0600338E RID: 13198 RVA: 0x000F63F4 File Offset: 0x000F45F4
+	// Token: 0x06003449 RID: 13385 RVA: 0x0005261F File Offset: 0x0005081F
 	private void OnDisable()
 	{
 		Application.logMessageReceived -= this.LogMessageReceived;
 	}
 
-	// Token: 0x0600338F RID: 13199 RVA: 0x000F6407 File Offset: 0x000F4607
+	// Token: 0x0600344A RID: 13386 RVA: 0x00052632 File Offset: 0x00050832
 	private void LogMessageReceived(string condition, string stackTrace, LogType type)
 	{
 		this.logMessages.Add(this.getColorStringFromLogType(type) + condition + "</color>");
@@ -214,7 +214,7 @@ public class DebugHudStats : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003390 RID: 13200 RVA: 0x000F6440 File Offset: 0x000F4640
+	// Token: 0x0600344B RID: 13387 RVA: 0x0005266B File Offset: 0x0005086B
 	private string getColorStringFromLogType(LogType type)
 	{
 		switch (type)
@@ -229,7 +229,7 @@ public class DebugHudStats : MonoBehaviour
 		return "<color=\"white\">";
 	}
 
-	// Token: 0x06003391 RID: 13201 RVA: 0x000F6470 File Offset: 0x000F4670
+	// Token: 0x0600344C RID: 13388 RVA: 0x0013DD20 File Offset: 0x0013BF20
 	private void OnZoneChanged(ZoneData[] zoneData)
 	{
 		this.zones = string.Empty;
@@ -242,91 +242,91 @@ public class DebugHudStats : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040036C1 RID: 14017
+	// Token: 0x0400377D RID: 14205
 	private const int FPS_THRESHOLD = 89;
 
-	// Token: 0x040036C2 RID: 14018
+	// Token: 0x0400377E RID: 14206
 	private static DebugHudStats _instance;
 
-	// Token: 0x040036C3 RID: 14019
+	// Token: 0x0400377F RID: 14207
 	[SerializeField]
-	private TMP_Text text;
+	public TMP_Text text;
 
-	// Token: 0x040036C4 RID: 14020
+	// Token: 0x04003780 RID: 14208
 	[SerializeField]
 	private TMP_Text fpsWarning;
 
-	// Token: 0x040036C5 RID: 14021
+	// Token: 0x04003781 RID: 14209
 	[SerializeField]
 	private float delayUpdateRate = 0.25f;
 
-	// Token: 0x040036C6 RID: 14022
+	// Token: 0x04003782 RID: 14210
 	private float updateTimer;
 
-	// Token: 0x040036C7 RID: 14023
+	// Token: 0x04003783 RID: 14211
 	public float sessionAnytrackingLost;
 
-	// Token: 0x040036C8 RID: 14024
+	// Token: 0x04003784 RID: 14212
 	public float last30SecondsTrackingLost;
 
-	// Token: 0x040036C9 RID: 14025
+	// Token: 0x04003785 RID: 14213
 	private float firstAwake;
 
-	// Token: 0x040036CA RID: 14026
+	// Token: 0x04003786 RID: 14214
 	private bool leftHandTracked;
 
-	// Token: 0x040036CB RID: 14027
+	// Token: 0x04003787 RID: 14215
 	private bool rightHandTracked;
 
-	// Token: 0x040036CC RID: 14028
+	// Token: 0x04003788 RID: 14216
 	private StringBuilder builder;
 
-	// Token: 0x040036CD RID: 14029
+	// Token: 0x04003789 RID: 14217
 	private Vector3 averagedVelocity;
 
-	// Token: 0x040036CE RID: 14030
+	// Token: 0x0400378A RID: 14218
 	private Vector3 groundVelocity;
 
-	// Token: 0x040036CF RID: 14031
+	// Token: 0x0400378B RID: 14219
 	private Vector3 centerHeadPos;
 
-	// Token: 0x040036D0 RID: 14032
+	// Token: 0x0400378C RID: 14220
 	private float distanceMoved;
 
-	// Token: 0x040036D1 RID: 14033
+	// Token: 0x0400378D RID: 14221
 	private float distanceSwam;
 
-	// Token: 0x040036D2 RID: 14034
+	// Token: 0x0400378E RID: 14222
 	private List<string> logMessages = new List<string>();
 
-	// Token: 0x040036D3 RID: 14035
+	// Token: 0x0400378F RID: 14223
 	private bool buttonDown;
 
-	// Token: 0x040036D4 RID: 14036
+	// Token: 0x04003790 RID: 14224
 	private bool showLog;
 
-	// Token: 0x040036D5 RID: 14037
+	// Token: 0x04003791 RID: 14225
 	private int lowFps;
 
-	// Token: 0x040036D6 RID: 14038
+	// Token: 0x04003792 RID: 14226
 	private string zones;
 
-	// Token: 0x040036D7 RID: 14039
+	// Token: 0x04003793 RID: 14227
 	private GroupJoinZoneAB lastGroupJoinZone;
 
-	// Token: 0x040036D8 RID: 14040
+	// Token: 0x04003794 RID: 14228
 	private DebugHudStats.State currentState = DebugHudStats.State.Active;
 
-	// Token: 0x02000843 RID: 2115
+	// Token: 0x0200085D RID: 2141
 	private enum State
 	{
-		// Token: 0x040036DA RID: 14042
+		// Token: 0x04003796 RID: 14230
 		Inactive,
-		// Token: 0x040036DB RID: 14043
+		// Token: 0x04003797 RID: 14231
 		Active,
-		// Token: 0x040036DC RID: 14044
+		// Token: 0x04003798 RID: 14232
 		ShowLog,
-		// Token: 0x040036DD RID: 14045
+		// Token: 0x04003799 RID: 14233
 		ShowStats
 	}
 }

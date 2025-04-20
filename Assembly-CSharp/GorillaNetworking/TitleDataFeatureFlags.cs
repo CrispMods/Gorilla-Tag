@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using Newtonsoft.Json;
 using PlayFab;
 using UnityEngine;
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000ACE RID: 2766
+	// Token: 0x02000AFB RID: 2811
 	public class TitleDataFeatureFlags
 	{
-		// Token: 0x17000717 RID: 1815
-		// (get) Token: 0x06004533 RID: 17715 RVA: 0x00148B0C File Offset: 0x00146D0C
-		// (set) Token: 0x06004534 RID: 17716 RVA: 0x00148B14 File Offset: 0x00146D14
+		// Token: 0x17000733 RID: 1843
+		// (get) Token: 0x0600467B RID: 18043 RVA: 0x0005DF65 File Offset: 0x0005C165
+		// (set) Token: 0x0600467C RID: 18044 RVA: 0x0005DF6D File Offset: 0x0005C16D
 		public bool ready { get; private set; }
 
-		// Token: 0x06004535 RID: 17717 RVA: 0x00148B1D File Offset: 0x00146D1D
+		// Token: 0x0600467D RID: 18045 RVA: 0x0005DF76 File Offset: 0x0005C176
 		public void FetchFeatureFlags()
 		{
 			PlayFabTitleDataCache.Instance.GetTitleData(this.TitleDataKey, delegate(string json)
@@ -45,21 +46,21 @@ namespace GorillaNetworking
 			});
 		}
 
-		// Token: 0x06004536 RID: 17718 RVA: 0x00148B48 File Offset: 0x00146D48
-		public bool IsEnabledForUser(string flagName, string entityId)
+		// Token: 0x0600467E RID: 18046 RVA: 0x00186320 File Offset: 0x00184520
+		public bool IsEnabledForUser(string flagName)
 		{
+			string playFabPlayerId = PlayFabAuthenticator.instance.GetPlayFabPlayerId();
 			Debug.Log(string.Concat(new string[]
 			{
 				"GorillaServer: Checking flag ",
 				flagName,
 				" for ",
-				entityId,
+				playFabPlayerId,
 				"\nFlag values:\n",
 				JsonConvert.SerializeObject(this.flagValueByName),
 				"\n\nDefaults:\n",
 				JsonConvert.SerializeObject(this.defaults)
 			}));
-			string playFabPlayerId = PlayFabAuthenticator.instance.GetPlayFabPlayerId();
 			List<string> list;
 			if (this.flagValueByUser.TryGetValue(flagName, out list) && list != null && list.Contains(playFabPlayerId))
 			{
@@ -83,15 +84,15 @@ namespace GorillaNetworking
 				Debug.Log("GorillaServer: " + flagName + " is on (>=100%).");
 				return true;
 			}
-			int num2 = new Random(entityId.GetHashCode()).Next(0, 100);
-			Debug.Log(string.Format("GorillaServer: Partial rollout, seed = {0} flag value = {1}", num2, num2 <= num));
-			return num2 <= num;
+			uint num2 = XXHash32.Compute(Encoding.UTF8.GetBytes(playFabPlayerId), 0U) % 100U;
+			Debug.Log(string.Format("GorillaServer: Partial rollout, seed = {0} flag value = {1}", num2, (ulong)num2 < (ulong)((long)num)));
+			return (ulong)num2 < (ulong)((long)num);
 		}
 
-		// Token: 0x040046A7 RID: 18087
+		// Token: 0x0400479E RID: 18334
 		public string TitleDataKey = "DeployFeatureFlags";
 
-		// Token: 0x040046A9 RID: 18089
+		// Token: 0x040047A0 RID: 18336
 		public Dictionary<string, bool> defaults = new Dictionary<string, bool>
 		{
 			{
@@ -121,13 +122,25 @@ namespace GorillaNetworking
 			{
 				"2024-08-KIDIntegrationV1",
 				true
+			},
+			{
+				"2025-04-CosmeticsAuthenticationV2-SetData",
+				false
+			},
+			{
+				"2025-04-CosmeticsAuthenticationV2-ReadData",
+				false
+			},
+			{
+				"2025-04-CosmeticsAuthenticationV2-Compat",
+				true
 			}
 		};
 
-		// Token: 0x040046AA RID: 18090
+		// Token: 0x040047A1 RID: 18337
 		private Dictionary<string, int> flagValueByName = new Dictionary<string, int>();
 
-		// Token: 0x040046AB RID: 18091
+		// Token: 0x040047A2 RID: 18338
 		private Dictionary<string, List<string>> flagValueByUser = new Dictionary<string, List<string>>();
 	}
 }

@@ -5,17 +5,17 @@ using Viveport.Internal;
 
 namespace Viveport
 {
-	// Token: 0x02000907 RID: 2311
+	// Token: 0x02000924 RID: 2340
 	public class User
 	{
-		// Token: 0x06003776 RID: 14198 RVA: 0x001059B1 File Offset: 0x00103BB1
+		// Token: 0x06003847 RID: 14407 RVA: 0x0005524C File Offset: 0x0005344C
 		[MonoPInvokeCallback(typeof(StatusCallback))]
 		private static void IsReadyIl2cppCallback(int errorCode)
 		{
 			User.isReadyIl2cppCallback(errorCode);
 		}
 
-		// Token: 0x06003777 RID: 14199 RVA: 0x001059C0 File Offset: 0x00103BC0
+		// Token: 0x06003848 RID: 14408 RVA: 0x0014A59C File Offset: 0x0014879C
 		public static int IsReady(StatusCallback callback)
 		{
 			if (callback == null)
@@ -31,7 +31,7 @@ namespace Viveport
 			return User.IsReady(new StatusCallback(User.IsReadyIl2cppCallback));
 		}
 
-		// Token: 0x06003778 RID: 14200 RVA: 0x00105A30 File Offset: 0x00103C30
+		// Token: 0x06003849 RID: 14409 RVA: 0x0014A60C File Offset: 0x0014880C
 		public static string GetUserId()
 		{
 			StringBuilder stringBuilder = new StringBuilder(256);
@@ -46,7 +46,7 @@ namespace Viveport
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x06003779 RID: 14201 RVA: 0x00105A70 File Offset: 0x00103C70
+		// Token: 0x0600384A RID: 14410 RVA: 0x0014A64C File Offset: 0x0014884C
 		public static string GetUserName()
 		{
 			StringBuilder stringBuilder = new StringBuilder(256);
@@ -61,7 +61,7 @@ namespace Viveport
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x0600377A RID: 14202 RVA: 0x00105AB0 File Offset: 0x00103CB0
+		// Token: 0x0600384B RID: 14411 RVA: 0x0014A68C File Offset: 0x0014888C
 		public static string GetUserAvatarUrl()
 		{
 			StringBuilder stringBuilder = new StringBuilder(512);
@@ -76,16 +76,16 @@ namespace Viveport
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x04003A5D RID: 14941
+		// Token: 0x04003B22 RID: 15138
 		private static StatusCallback isReadyIl2cppCallback;
 
-		// Token: 0x04003A5E RID: 14942
+		// Token: 0x04003B23 RID: 15139
 		private const int MaxIdLength = 256;
 
-		// Token: 0x04003A5F RID: 14943
+		// Token: 0x04003B24 RID: 15140
 		private const int MaxNameLength = 256;
 
-		// Token: 0x04003A60 RID: 14944
+		// Token: 0x04003B25 RID: 15141
 		private const int MaxUrlLength = 512;
 	}
 }

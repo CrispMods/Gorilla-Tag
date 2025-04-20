@@ -2,14 +2,14 @@
 
 namespace Viveport.Internal
 {
-	// Token: 0x02000929 RID: 2345
+	// Token: 0x02000946 RID: 2374
 	internal enum ELeaderboardUploadScoreMethod
 	{
-		// Token: 0x04003ADC RID: 15068
+		// Token: 0x04003BA1 RID: 15265
 		k_ELeaderboardUploadScoreMethodNone,
-		// Token: 0x04003ADD RID: 15069
+		// Token: 0x04003BA2 RID: 15266
 		k_ELeaderboardUploadScoreMethodKeepBest,
-		// Token: 0x04003ADE RID: 15070
+		// Token: 0x04003BA3 RID: 15267
 		k_ELeaderboardUploadScoreMethodForceUpdate
 	}
 }

@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x020002DB RID: 731
+// Token: 0x020002E6 RID: 742
 public abstract class TeleportOrientationHandler : TeleportSupport
 {
-	// Token: 0x060011A4 RID: 4516 RVA: 0x00054018 File Offset: 0x00052218
+	// Token: 0x060011F0 RID: 4592 RVA: 0x0003C329 File Offset: 0x0003A529
 	protected TeleportOrientationHandler()
 	{
 		this._updateOrientationAction = delegate()
@@ -15,13 +15,13 @@ public abstract class TeleportOrientationHandler : TeleportSupport
 		this._updateAimDataAction = new Action<LocomotionTeleport.AimData>(this.UpdateAimData);
 	}
 
-	// Token: 0x060011A5 RID: 4517 RVA: 0x00054044 File Offset: 0x00052244
+	// Token: 0x060011F1 RID: 4593 RVA: 0x0003C355 File Offset: 0x0003A555
 	private void UpdateAimData(LocomotionTeleport.AimData aimData)
 	{
 		this.AimData = aimData;
 	}
 
-	// Token: 0x060011A6 RID: 4518 RVA: 0x0005404D File Offset: 0x0005224D
+	// Token: 0x060011F2 RID: 4594 RVA: 0x0003C35E File Offset: 0x0003A55E
 	protected override void AddEventHandlers()
 	{
 		base.AddEventHandlers();
@@ -29,7 +29,7 @@ public abstract class TeleportOrientationHandler : TeleportSupport
 		base.LocomotionTeleport.UpdateAimData += this._updateAimDataAction;
 	}
 
-	// Token: 0x060011A7 RID: 4519 RVA: 0x00054077 File Offset: 0x00052277
+	// Token: 0x060011F3 RID: 4595 RVA: 0x0003C388 File Offset: 0x0003A588
 	protected override void RemoveEventHandlers()
 	{
 		base.RemoveEventHandlers();
@@ -37,7 +37,7 @@ public abstract class TeleportOrientationHandler : TeleportSupport
 		base.LocomotionTeleport.UpdateAimData -= this._updateAimDataAction;
 	}
 
-	// Token: 0x060011A8 RID: 4520 RVA: 0x000540A1 File Offset: 0x000522A1
+	// Token: 0x060011F4 RID: 4596 RVA: 0x0003C3B2 File Offset: 0x0003A5B2
 	private IEnumerator UpdateOrientationCoroutine()
 	{
 		this.InitializeTeleportDestination();
@@ -52,13 +52,13 @@ public abstract class TeleportOrientationHandler : TeleportSupport
 		yield break;
 	}
 
-	// Token: 0x060011A9 RID: 4521
+	// Token: 0x060011F5 RID: 4597
 	protected abstract void InitializeTeleportDestination();
 
-	// Token: 0x060011AA RID: 4522
+	// Token: 0x060011F6 RID: 4598
 	protected abstract void UpdateTeleportDestination();
 
-	// Token: 0x060011AB RID: 4523 RVA: 0x000540B0 File Offset: 0x000522B0
+	// Token: 0x060011F7 RID: 4599 RVA: 0x0003C3C1 File Offset: 0x0003A5C1
 	protected Quaternion GetLandingOrientation(TeleportOrientationHandler.OrientationModes mode, Quaternion rotation)
 	{
 		if (mode != TeleportOrientationHandler.OrientationModes.HeadRelative)
@@ -68,21 +68,21 @@ public abstract class TeleportOrientationHandler : TeleportSupport
 		return rotation;
 	}
 
-	// Token: 0x04001392 RID: 5010
+	// Token: 0x040013DA RID: 5082
 	private readonly Action _updateOrientationAction;
 
-	// Token: 0x04001393 RID: 5011
+	// Token: 0x040013DB RID: 5083
 	private readonly Action<LocomotionTeleport.AimData> _updateAimDataAction;
 
-	// Token: 0x04001394 RID: 5012
+	// Token: 0x040013DC RID: 5084
 	protected LocomotionTeleport.AimData AimData;
 
-	// Token: 0x020002DC RID: 732
+	// Token: 0x020002E7 RID: 743
 	public enum OrientationModes
 	{
-		// Token: 0x04001396 RID: 5014
+		// Token: 0x040013DE RID: 5086
 		HeadRelative,
-		// Token: 0x04001397 RID: 5015
+		// Token: 0x040013DF RID: 5087
 		ForwardFacing
 	}
 }

@@ -3,10 +3,10 @@ using Cinemachine;
 using GorillaLocomotion;
 using UnityEngine;
 
-// Token: 0x0200046D RID: 1133
+// Token: 0x02000479 RID: 1145
 public class GorillaCameraFollow : MonoBehaviour
 {
-	// Token: 0x06001BB8 RID: 7096 RVA: 0x00087888 File Offset: 0x00085A88
+	// Token: 0x06001C0C RID: 7180 RVA: 0x000DB8C8 File Offset: 0x000D9AC8
 	private void Start()
 	{
 		if (Application.platform == RuntimePlatform.Android)
@@ -23,7 +23,7 @@ public class GorillaCameraFollow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001BB9 RID: 7097 RVA: 0x00087910 File Offset: 0x00085B10
+	// Token: 0x06001C0D RID: 7181 RVA: 0x000DB950 File Offset: 0x000D9B50
 	private void LateUpdate()
 	{
 		if (this.cinemachineFollow != null)
@@ -36,33 +36,33 @@ public class GorillaCameraFollow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001E95 RID: 7829
+	// Token: 0x04001EE4 RID: 7908
 	public Transform playerHead;
 
-	// Token: 0x04001E96 RID: 7830
+	// Token: 0x04001EE5 RID: 7909
 	public GameObject cameraParent;
 
-	// Token: 0x04001E97 RID: 7831
+	// Token: 0x04001EE6 RID: 7910
 	public Vector3 headOffset;
 
-	// Token: 0x04001E98 RID: 7832
+	// Token: 0x04001EE7 RID: 7911
 	public Vector3 eulerRotationOffset;
 
-	// Token: 0x04001E99 RID: 7833
+	// Token: 0x04001EE8 RID: 7912
 	public CinemachineVirtualCamera cinemachineCamera;
 
-	// Token: 0x04001E9A RID: 7834
+	// Token: 0x04001EE9 RID: 7913
 	private Cinemachine3rdPersonFollow cinemachineFollow;
 
-	// Token: 0x04001E9B RID: 7835
+	// Token: 0x04001EEA RID: 7914
 	private float baseCameraRadius = 0.2f;
 
-	// Token: 0x04001E9C RID: 7836
+	// Token: 0x04001EEB RID: 7915
 	private float baseFollowDistance = 2f;
 
-	// Token: 0x04001E9D RID: 7837
+	// Token: 0x04001EEC RID: 7916
 	private float baseVerticalArmLength = 0.4f;
 
-	// Token: 0x04001E9E RID: 7838
+	// Token: 0x04001EED RID: 7917
 	private Vector3 baseShoulderOffset = new Vector3(0.5f, -0.4f, 0f);
 }

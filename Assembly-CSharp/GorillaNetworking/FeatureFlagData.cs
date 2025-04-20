@@ -3,20 +3,20 @@ using System.Collections.Generic;
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000ACC RID: 2764
+	// Token: 0x02000AF9 RID: 2809
 	[Serializable]
 	internal class FeatureFlagData
 	{
-		// Token: 0x040046A2 RID: 18082
+		// Token: 0x04004799 RID: 18329
 		public string name;
 
-		// Token: 0x040046A3 RID: 18083
+		// Token: 0x0400479A RID: 18330
 		public int value;
 
-		// Token: 0x040046A4 RID: 18084
+		// Token: 0x0400479B RID: 18331
 		public string valueType;
 
-		// Token: 0x040046A5 RID: 18085
+		// Token: 0x0400479C RID: 18332
 		public List<string> alwaysOnForUsers;
 	}
 }

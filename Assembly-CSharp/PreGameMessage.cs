@@ -4,28 +4,28 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
-// Token: 0x02000702 RID: 1794
+// Token: 0x02000717 RID: 1815
 public class PreGameMessage : MonoBehaviour
 {
-	// Token: 0x06002C89 RID: 11401 RVA: 0x000DBCF6 File Offset: 0x000D9EF6
+	// Token: 0x06002D1F RID: 11551 RVA: 0x0004EADB File Offset: 0x0004CCDB
 	private void Awake()
 	{
 		this.controllerBehaviour = base.GetComponentInChildren<ControllerBehaviour>(true);
 	}
 
-	// Token: 0x06002C8A RID: 11402 RVA: 0x000DBD05 File Offset: 0x000D9F05
+	// Token: 0x06002D20 RID: 11552 RVA: 0x0004EAEA File Offset: 0x0004CCEA
 	private void OnEnable()
 	{
 		this.controllerBehaviour.OnAction += this.PostUpdate;
 	}
 
-	// Token: 0x06002C8B RID: 11403 RVA: 0x000DBD1E File Offset: 0x000D9F1E
+	// Token: 0x06002D21 RID: 11553 RVA: 0x0004EB03 File Offset: 0x0004CD03
 	private void OnDisable()
 	{
 		this.controllerBehaviour.OnAction -= this.PostUpdate;
 	}
 
-	// Token: 0x06002C8C RID: 11404 RVA: 0x000DBD38 File Offset: 0x000D9F38
+	// Token: 0x06002D22 RID: 11554 RVA: 0x001265C8 File Offset: 0x001247C8
 	public void ShowMessage(string messageTitle, string messageBody, string messageConfirmation, Action onConfirmationAction, float bodyFontSize = 0.5f, float buttonHideTimer = 0f)
 	{
 		this._alternativeAction = null;
@@ -47,7 +47,7 @@ public class PreGameMessage : MonoBehaviour
 		PrivateUIRoom.AddUI(this._uiParent.transform);
 	}
 
-	// Token: 0x06002C8D RID: 11405 RVA: 0x000DBDDC File Offset: 0x000D9FDC
+	// Token: 0x06002D23 RID: 11555 RVA: 0x0012666C File Offset: 0x0012486C
 	public void ShowMessage(string messageTitle, string messageBody, string messageConfirmationButton, string messageAlternativeButton, Action onConfirmationAction, Action onAlternativeAction, float bodyFontSize = 0.5f)
 	{
 		this._confirmButtonRoot.SetActive(false);
@@ -71,7 +71,7 @@ public class PreGameMessage : MonoBehaviour
 		PrivateUIRoom.AddUI(this._uiParent.transform);
 	}
 
-	// Token: 0x06002C8E RID: 11406 RVA: 0x000DBEB4 File Offset: 0x000DA0B4
+	// Token: 0x06002D24 RID: 11556 RVA: 0x00126744 File Offset: 0x00124944
 	public Task ShowMessageWithAwait(string messageTitle, string messageBody, string messageConfirmation, Action onConfirmationAction, float bodyFontSize = 0.5f, float buttonHideTimer = 0f)
 	{
 		PreGameMessage.<ShowMessageWithAwait>d__22 <ShowMessageWithAwait>d__;
@@ -87,7 +87,7 @@ public class PreGameMessage : MonoBehaviour
 		return <ShowMessageWithAwait>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C8F RID: 11407 RVA: 0x000DBF24 File Offset: 0x000DA124
+	// Token: 0x06002D25 RID: 11557 RVA: 0x001267B4 File Offset: 0x001249B4
 	public void UpdateMessage(string newMessageBody, string newConfirmButton)
 	{
 		this._messageBodyTxt.text = newMessageBody;
@@ -103,13 +103,13 @@ public class PreGameMessage : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002C90 RID: 11408 RVA: 0x000DBF7C File Offset: 0x000DA17C
+	// Token: 0x06002D26 RID: 11558 RVA: 0x0004EB1C File Offset: 0x0004CD1C
 	public void CloseMessage()
 	{
 		PrivateUIRoom.RemoveUI(this._uiParent.transform);
 	}
 
-	// Token: 0x06002C91 RID: 11409 RVA: 0x000DBF90 File Offset: 0x000DA190
+	// Token: 0x06002D27 RID: 11559 RVA: 0x0012680C File Offset: 0x00124A0C
 	private Task WaitForCompletion()
 	{
 		PreGameMessage.<WaitForCompletion>d__25 <WaitForCompletion>d__;
@@ -120,7 +120,7 @@ public class PreGameMessage : MonoBehaviour
 		return <WaitForCompletion>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002C92 RID: 11410 RVA: 0x000DBFD4 File Offset: 0x000DA1D4
+	// Token: 0x06002D28 RID: 11560 RVA: 0x00126850 File Offset: 0x00124A50
 	private void PostUpdate()
 	{
 		bool isLeftStick = this.controllerBehaviour.IsLeftStick;
@@ -184,7 +184,7 @@ public class PreGameMessage : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002C93 RID: 11411 RVA: 0x000DC2AE File Offset: 0x000DA4AE
+	// Token: 0x06002D29 RID: 11561 RVA: 0x0004EB2E File Offset: 0x0004CD2E
 	private void OnConfirmedPressed()
 	{
 		PrivateUIRoom.RemoveUI(this._uiParent.transform);
@@ -197,7 +197,7 @@ public class PreGameMessage : MonoBehaviour
 		confirmationAction();
 	}
 
-	// Token: 0x06002C94 RID: 11412 RVA: 0x000DC2D7 File Offset: 0x000DA4D7
+	// Token: 0x06002D2A RID: 11562 RVA: 0x0004EB57 File Offset: 0x0004CD57
 	private void OnAlternativePressed()
 	{
 		PrivateUIRoom.RemoveUI(this._uiParent.transform);
@@ -210,66 +210,66 @@ public class PreGameMessage : MonoBehaviour
 		alternativeAction();
 	}
 
-	// Token: 0x040031D0 RID: 12752
+	// Token: 0x0400326D RID: 12909
 	[SerializeField]
 	private GameObject _uiParent;
 
-	// Token: 0x040031D1 RID: 12753
+	// Token: 0x0400326E RID: 12910
 	[SerializeField]
 	private TMP_Text _messageTitleTxt;
 
-	// Token: 0x040031D2 RID: 12754
+	// Token: 0x0400326F RID: 12911
 	[SerializeField]
 	private TMP_Text _messageBodyTxt;
 
-	// Token: 0x040031D3 RID: 12755
+	// Token: 0x04003270 RID: 12912
 	[SerializeField]
 	private GameObject _confirmButtonRoot;
 
-	// Token: 0x040031D4 RID: 12756
+	// Token: 0x04003271 RID: 12913
 	[SerializeField]
 	private GameObject _multiButtonRoot;
 
-	// Token: 0x040031D5 RID: 12757
+	// Token: 0x04003272 RID: 12914
 	[SerializeField]
 	private TMP_Text _messageConfirmationTxt;
 
-	// Token: 0x040031D6 RID: 12758
+	// Token: 0x04003273 RID: 12915
 	[SerializeField]
 	private TMP_Text _messageAlternativeConfirmationTxt;
 
-	// Token: 0x040031D7 RID: 12759
+	// Token: 0x04003274 RID: 12916
 	[SerializeField]
 	private TMP_Text _messageAlternativeButtonTxt;
 
-	// Token: 0x040031D8 RID: 12760
+	// Token: 0x04003275 RID: 12917
 	private Action _confirmationAction;
 
-	// Token: 0x040031D9 RID: 12761
+	// Token: 0x04003276 RID: 12918
 	private Action _alternativeAction;
 
-	// Token: 0x040031DA RID: 12762
+	// Token: 0x04003277 RID: 12919
 	private bool _hasCompleted;
 
-	// Token: 0x040031DB RID: 12763
+	// Token: 0x04003278 RID: 12920
 	private float progress;
 
-	// Token: 0x040031DC RID: 12764
+	// Token: 0x04003279 RID: 12921
 	[SerializeField]
 	private float holdTime;
 
-	// Token: 0x040031DD RID: 12765
+	// Token: 0x0400327A RID: 12922
 	[SerializeField]
 	private LineRenderer progressBar;
 
-	// Token: 0x040031DE RID: 12766
+	// Token: 0x0400327B RID: 12923
 	[SerializeField]
 	private LineRenderer progressBarL;
 
-	// Token: 0x040031DF RID: 12767
+	// Token: 0x0400327C RID: 12924
 	[SerializeField]
 	private LineRenderer progressBarR;
 
-	// Token: 0x040031E0 RID: 12768
+	// Token: 0x0400327D RID: 12925
 	private ControllerBehaviour controllerBehaviour;
 }

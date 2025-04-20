@@ -2,28 +2,28 @@
 using GorillaTagScripts;
 using UnityEngine;
 
-// Token: 0x020004B8 RID: 1208
+// Token: 0x020004C5 RID: 1221
 public class BuilderArmShelf : MonoBehaviour
 {
-	// Token: 0x06001D35 RID: 7477 RVA: 0x0008E560 File Offset: 0x0008C760
+	// Token: 0x06001D8E RID: 7566 RVA: 0x0004435A File Offset: 0x0004255A
 	private void Start()
 	{
 		this.ownerRig = base.GetComponentInParent<VRRig>();
 	}
 
-	// Token: 0x06001D36 RID: 7478 RVA: 0x0008E56E File Offset: 0x0008C76E
+	// Token: 0x06001D8F RID: 7567 RVA: 0x00044368 File Offset: 0x00042568
 	public bool IsOwnedLocally()
 	{
 		return this.ownerRig != null && this.ownerRig.isLocal;
 	}
 
-	// Token: 0x06001D37 RID: 7479 RVA: 0x0008E58B File Offset: 0x0008C78B
+	// Token: 0x06001D90 RID: 7568 RVA: 0x00044385 File Offset: 0x00042585
 	public bool CanAttachToArmPiece()
 	{
 		return this.ownerRig != null && this.ownerRig.scaleFactor >= 1f;
 	}
 
-	// Token: 0x06001D38 RID: 7480 RVA: 0x0008E5B4 File Offset: 0x0008C7B4
+	// Token: 0x06001D91 RID: 7569 RVA: 0x000E1784 File Offset: 0x000DF984
 	public void DropAttachedPieces()
 	{
 		if (this.ownerRig != null && this.piece != null)
@@ -46,13 +46,13 @@ public class BuilderArmShelf : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400204B RID: 8267
+	// Token: 0x0400209E RID: 8350
 	[HideInInspector]
 	public BuilderPiece piece;
 
-	// Token: 0x0400204C RID: 8268
+	// Token: 0x0400209F RID: 8351
 	public Transform pieceAnchor;
 
-	// Token: 0x0400204D RID: 8269
+	// Token: 0x040020A0 RID: 8352
 	private VRRig ownerRig;
 }

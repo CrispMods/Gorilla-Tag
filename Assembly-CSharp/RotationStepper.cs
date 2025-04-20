@@ -5,14 +5,14 @@ using UnityEngine;
 // Token: 0x02000023 RID: 35
 public class RotationStepper : MonoBehaviour
 {
-	// Token: 0x0600007F RID: 127 RVA: 0x0000492D File Offset: 0x00002B2D
+	// Token: 0x0600007F RID: 127 RVA: 0x00030999 File Offset: 0x0002EB99
 	public void OnEnable()
 	{
 		this.m_phase = 0f;
-		Random.InitState(0);
+		UnityEngine.Random.InitState(0);
 	}
 
-	// Token: 0x06000080 RID: 128 RVA: 0x00004940 File Offset: 0x00002B40
+	// Token: 0x06000080 RID: 128 RVA: 0x00069BDC File Offset: 0x00067DDC
 	public void Update()
 	{
 		this.m_phase += this.Frequency * Time.deltaTime;
@@ -28,8 +28,8 @@ public class RotationStepper : MonoBehaviour
 		}
 		while (this.m_phase >= 1f)
 		{
-			Random.InitState(Time.frameCount);
-			base.transform.rotation = Random.rotationUniform;
+			UnityEngine.Random.InitState(Time.frameCount);
+			base.transform.rotation = UnityEngine.Random.rotationUniform;
 			this.m_phase -= 1f;
 		}
 	}

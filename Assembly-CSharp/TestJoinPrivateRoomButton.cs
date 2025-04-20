@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000821 RID: 2081
+// Token: 0x0200083B RID: 2107
 public class TestJoinPrivateRoomButton : MonoBehaviour
 {
 }

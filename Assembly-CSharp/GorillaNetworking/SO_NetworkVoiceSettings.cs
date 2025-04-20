@@ -7,98 +7,98 @@ using UnityEngine;
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000A83 RID: 2691
+	// Token: 0x02000AB0 RID: 2736
 	[CreateAssetMenu(fileName = "VoiceSettings", menuName = "Gorilla Tag/VoiceSettings")]
 	public class SO_NetworkVoiceSettings : ScriptableObject
 	{
-		// Token: 0x04004446 RID: 17478
+		// Token: 0x04004540 RID: 17728
 		[Header("Voice settings")]
 		public bool AutoConnectAndJoin = true;
 
-		// Token: 0x04004447 RID: 17479
+		// Token: 0x04004541 RID: 17729
 		public bool AutoLeaveAndDisconnect = true;
 
-		// Token: 0x04004448 RID: 17480
+		// Token: 0x04004542 RID: 17730
 		public bool WorkInOfflineMode = true;
 
-		// Token: 0x04004449 RID: 17481
+		// Token: 0x04004543 RID: 17731
 		public DebugLevel LogLevel = DebugLevel.ERROR;
 
-		// Token: 0x0400444A RID: 17482
+		// Token: 0x04004544 RID: 17732
 		public DebugLevel GlobalRecordersLogLevel = DebugLevel.INFO;
 
-		// Token: 0x0400444B RID: 17483
+		// Token: 0x04004545 RID: 17733
 		public DebugLevel GlobalSpeakersLogLevel = DebugLevel.INFO;
 
-		// Token: 0x0400444C RID: 17484
+		// Token: 0x04004546 RID: 17734
 		public bool CreateSpeakerIfNotFound;
 
-		// Token: 0x0400444D RID: 17485
+		// Token: 0x04004547 RID: 17735
 		public int UpdateInterval = 50;
 
-		// Token: 0x0400444E RID: 17486
+		// Token: 0x04004548 RID: 17736
 		public bool SupportLogger;
 
-		// Token: 0x0400444F RID: 17487
+		// Token: 0x04004549 RID: 17737
 		public int BackgroundTimeout = 60000;
 
-		// Token: 0x04004450 RID: 17488
+		// Token: 0x0400454A RID: 17738
 		[Header("Recorder Settings")]
 		public bool RecordOnlyWhenEnabled;
 
-		// Token: 0x04004451 RID: 17489
+		// Token: 0x0400454B RID: 17739
 		public bool RecordOnlyWhenJoined = true;
 
-		// Token: 0x04004452 RID: 17490
+		// Token: 0x0400454C RID: 17740
 		public bool StopRecordingWhenPaused;
 
-		// Token: 0x04004453 RID: 17491
+		// Token: 0x0400454D RID: 17741
 		public bool TransmitEnabled = true;
 
-		// Token: 0x04004454 RID: 17492
+		// Token: 0x0400454E RID: 17742
 		public bool AutoStart = true;
 
-		// Token: 0x04004455 RID: 17493
+		// Token: 0x0400454F RID: 17743
 		public bool Encrypt;
 
-		// Token: 0x04004456 RID: 17494
+		// Token: 0x04004550 RID: 17744
 		public byte InterestGroup;
 
-		// Token: 0x04004457 RID: 17495
+		// Token: 0x04004551 RID: 17745
 		public bool DebugEcho;
 
-		// Token: 0x04004458 RID: 17496
+		// Token: 0x04004552 RID: 17746
 		public bool ReliableMode;
 
-		// Token: 0x04004459 RID: 17497
+		// Token: 0x04004553 RID: 17747
 		[Header("Recorder Codec Parameters")]
 		public OpusCodec.FrameDuration FrameDuration = OpusCodec.FrameDuration.Frame60ms;
 
-		// Token: 0x0400445A RID: 17498
+		// Token: 0x04004554 RID: 17748
 		public SamplingRate SamplingRate = SamplingRate.Sampling16000;
 
-		// Token: 0x0400445B RID: 17499
+		// Token: 0x04004555 RID: 17749
 		[Range(6000f, 510000f)]
 		public int Bitrate = 20000;
 
-		// Token: 0x0400445C RID: 17500
+		// Token: 0x04004556 RID: 17750
 		[Header("Recorder Audio Source Settings")]
 		public Recorder.InputSourceType InputSourceType;
 
-		// Token: 0x0400445D RID: 17501
+		// Token: 0x04004557 RID: 17751
 		public Recorder.MicType MicrophoneType;
 
-		// Token: 0x0400445E RID: 17502
+		// Token: 0x04004558 RID: 17752
 		public bool UseFallback = true;
 
-		// Token: 0x0400445F RID: 17503
+		// Token: 0x04004559 RID: 17753
 		public bool Detect = true;
 
-		// Token: 0x04004460 RID: 17504
+		// Token: 0x0400455A RID: 17754
 		[Range(0f, 1f)]
 		public float Threshold = 0.07f;
 
-		// Token: 0x04004461 RID: 17505
+		// Token: 0x0400455B RID: 17755
 		public int Delay = 500;
 	}
 }

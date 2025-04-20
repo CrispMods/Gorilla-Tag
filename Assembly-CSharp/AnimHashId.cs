@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000827 RID: 2087
+// Token: 0x02000841 RID: 2113
 [Serializable]
 public struct AnimHashId
 {
-	// Token: 0x1700054A RID: 1354
-	// (get) Token: 0x06003305 RID: 13061 RVA: 0x000F4219 File Offset: 0x000F2419
+	// Token: 0x17000558 RID: 1368
+	// (get) Token: 0x060033C0 RID: 13248 RVA: 0x000520AA File Offset: 0x000502AA
 	public string text
 	{
 		get
@@ -15,8 +15,8 @@ public struct AnimHashId
 		}
 	}
 
-	// Token: 0x1700054B RID: 1355
-	// (get) Token: 0x06003306 RID: 13062 RVA: 0x000F4221 File Offset: 0x000F2421
+	// Token: 0x17000559 RID: 1369
+	// (get) Token: 0x060033C1 RID: 13249 RVA: 0x000520B2 File Offset: 0x000502B2
 	public int hash
 	{
 		get
@@ -25,42 +25,42 @@ public struct AnimHashId
 		}
 	}
 
-	// Token: 0x06003307 RID: 13063 RVA: 0x000F4229 File Offset: 0x000F2429
+	// Token: 0x060033C2 RID: 13250 RVA: 0x000520BA File Offset: 0x000502BA
 	public AnimHashId(string text)
 	{
 		this._text = text;
 		this._hash = Animator.StringToHash(text);
 	}
 
-	// Token: 0x06003308 RID: 13064 RVA: 0x000F4219 File Offset: 0x000F2419
+	// Token: 0x060033C3 RID: 13251 RVA: 0x000520AA File Offset: 0x000502AA
 	public override string ToString()
 	{
 		return this._text;
 	}
 
-	// Token: 0x06003309 RID: 13065 RVA: 0x000F4221 File Offset: 0x000F2421
+	// Token: 0x060033C4 RID: 13252 RVA: 0x000520B2 File Offset: 0x000502B2
 	public override int GetHashCode()
 	{
 		return this._hash;
 	}
 
-	// Token: 0x0600330A RID: 13066 RVA: 0x000F4221 File Offset: 0x000F2421
+	// Token: 0x060033C5 RID: 13253 RVA: 0x000520B2 File Offset: 0x000502B2
 	public static implicit operator int(AnimHashId h)
 	{
 		return h._hash;
 	}
 
-	// Token: 0x0600330B RID: 13067 RVA: 0x000F423E File Offset: 0x000F243E
+	// Token: 0x060033C6 RID: 13254 RVA: 0x000520CF File Offset: 0x000502CF
 	public static implicit operator AnimHashId(string s)
 	{
 		return new AnimHashId(s);
 	}
 
-	// Token: 0x0400367D RID: 13949
+	// Token: 0x04003739 RID: 14137
 	[SerializeField]
 	private string _text;
 
-	// Token: 0x0400367E RID: 13950
+	// Token: 0x0400373A RID: 14138
 	[NonSerialized]
 	private int _hash;
 }

@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000776 RID: 1910
+// Token: 0x0200078E RID: 1934
 public struct LuaCam
 {
-	// Token: 0x0400330F RID: 13071
+	// Token: 0x040033B9 RID: 13241
 	public Vector3 position;
 
-	// Token: 0x04003310 RID: 13072
+	// Token: 0x040033BA RID: 13242
 	public Quaternion rotation;
 }

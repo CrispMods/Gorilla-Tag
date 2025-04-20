@@ -2,10 +2,10 @@
 using TMPro;
 using UnityEngine;
 
-// Token: 0x020004A6 RID: 1190
+// Token: 0x020004B2 RID: 1202
 public class MonkeBallShotclock : MonoBehaviour
 {
-	// Token: 0x06001CEB RID: 7403 RVA: 0x0008CF44 File Offset: 0x0008B144
+	// Token: 0x06001D3F RID: 7487 RVA: 0x000E0378 File Offset: 0x000DE578
 	private void Update()
 	{
 		if (this._time >= 0f)
@@ -19,7 +19,7 @@ public class MonkeBallShotclock : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001CEC RID: 7404 RVA: 0x0008CF98 File Offset: 0x0008B198
+	// Token: 0x06001D40 RID: 7488 RVA: 0x000E03CC File Offset: 0x000DE5CC
 	public void SetTime(int teamId, float time)
 	{
 		this._time = time;
@@ -35,7 +35,7 @@ public class MonkeBallShotclock : MonoBehaviour
 		this.UpdateTimeText(time);
 	}
 
-	// Token: 0x06001CED RID: 7405 RVA: 0x0008CFED File Offset: 0x0008B1ED
+	// Token: 0x06001D41 RID: 7489 RVA: 0x00044068 File Offset: 0x00042268
 	private void SetBackboard(Material teamMaterial)
 	{
 		if (this.backboard != null)
@@ -44,7 +44,7 @@ public class MonkeBallShotclock : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001CEE RID: 7406 RVA: 0x0008D00C File Offset: 0x0008B20C
+	// Token: 0x06001D42 RID: 7490 RVA: 0x000E0424 File Offset: 0x000DE624
 	private void UpdateTimeText(float time)
 	{
 		int num = Mathf.CeilToInt(time);
@@ -55,21 +55,21 @@ public class MonkeBallShotclock : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001FDB RID: 8155
+	// Token: 0x0400202A RID: 8234
 	public Renderer backboard;
 
-	// Token: 0x04001FDC RID: 8156
+	// Token: 0x0400202B RID: 8235
 	public Material[] teamMaterials;
 
-	// Token: 0x04001FDD RID: 8157
+	// Token: 0x0400202C RID: 8236
 	public Material neutralMaterial;
 
-	// Token: 0x04001FDE RID: 8158
+	// Token: 0x0400202D RID: 8237
 	public TextMeshPro timeRemainingLabel;
 
-	// Token: 0x04001FDF RID: 8159
+	// Token: 0x0400202E RID: 8238
 	private float _time;
 
-	// Token: 0x04001FE0 RID: 8160
+	// Token: 0x0400202F RID: 8239
 	private int _timeInt = -1;
 }

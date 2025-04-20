@@ -4,15 +4,15 @@ using System.Reflection;
 
 namespace BuildSafe
 {
-	// Token: 0x02000A29 RID: 2601
+	// Token: 0x02000A56 RID: 2646
 	public static class Reflection<T>
 	{
-		// Token: 0x1700067F RID: 1663
-		// (get) Token: 0x06004105 RID: 16645 RVA: 0x00134D4C File Offset: 0x00132F4C
+		// Token: 0x1700069B RID: 1691
+		// (get) Token: 0x0600424A RID: 16970 RVA: 0x0005B563 File Offset: 0x00059763
 		public static Type Type { get; } = typeof(T);
 
-		// Token: 0x17000680 RID: 1664
-		// (get) Token: 0x06004106 RID: 16646 RVA: 0x00134D53 File Offset: 0x00132F53
+		// Token: 0x1700069C RID: 1692
+		// (get) Token: 0x0600424B RID: 16971 RVA: 0x0005B56A File Offset: 0x0005976A
 		public static EventInfo[] Events
 		{
 			get
@@ -21,8 +21,8 @@ namespace BuildSafe
 			}
 		}
 
-		// Token: 0x17000681 RID: 1665
-		// (get) Token: 0x06004107 RID: 16647 RVA: 0x00134D5A File Offset: 0x00132F5A
+		// Token: 0x1700069D RID: 1693
+		// (get) Token: 0x0600424C RID: 16972 RVA: 0x0005B571 File Offset: 0x00059771
 		public static MethodInfo[] Methods
 		{
 			get
@@ -31,8 +31,8 @@ namespace BuildSafe
 			}
 		}
 
-		// Token: 0x17000682 RID: 1666
-		// (get) Token: 0x06004108 RID: 16648 RVA: 0x00134D61 File Offset: 0x00132F61
+		// Token: 0x1700069E RID: 1694
+		// (get) Token: 0x0600424D RID: 16973 RVA: 0x0005B578 File Offset: 0x00059778
 		public static FieldInfo[] Fields
 		{
 			get
@@ -41,8 +41,8 @@ namespace BuildSafe
 			}
 		}
 
-		// Token: 0x17000683 RID: 1667
-		// (get) Token: 0x06004109 RID: 16649 RVA: 0x00134D68 File Offset: 0x00132F68
+		// Token: 0x1700069F RID: 1695
+		// (get) Token: 0x0600424E RID: 16974 RVA: 0x0005B57F File Offset: 0x0005977F
 		public static PropertyInfo[] Properties
 		{
 			get
@@ -51,7 +51,7 @@ namespace BuildSafe
 			}
 		}
 
-		// Token: 0x0600410A RID: 16650 RVA: 0x00134D6F File Offset: 0x00132F6F
+		// Token: 0x0600424F RID: 16975 RVA: 0x0005B586 File Offset: 0x00059786
 		private static EventInfo[] PreFetchEvents()
 		{
 			if (Reflection<T>.gEventsCache != null)
@@ -61,7 +61,7 @@ namespace BuildSafe
 			return Reflection<T>.gEventsCache = Reflection<T>.Type.GetRuntimeEvents().ToArray<EventInfo>();
 		}
 
-		// Token: 0x0600410B RID: 16651 RVA: 0x00134D93 File Offset: 0x00132F93
+		// Token: 0x06004250 RID: 16976 RVA: 0x0005B5AA File Offset: 0x000597AA
 		private static PropertyInfo[] PreFetchProperties()
 		{
 			if (Reflection<T>.gPropertiesCache != null)
@@ -71,7 +71,7 @@ namespace BuildSafe
 			return Reflection<T>.gPropertiesCache = Reflection<T>.Type.GetRuntimeProperties().ToArray<PropertyInfo>();
 		}
 
-		// Token: 0x0600410C RID: 16652 RVA: 0x00134DB7 File Offset: 0x00132FB7
+		// Token: 0x06004251 RID: 16977 RVA: 0x0005B5CE File Offset: 0x000597CE
 		private static MethodInfo[] PreFetchMethods()
 		{
 			if (Reflection<T>.gMethodsCache != null)
@@ -81,7 +81,7 @@ namespace BuildSafe
 			return Reflection<T>.gMethodsCache = Reflection<T>.Type.GetRuntimeMethods().ToArray<MethodInfo>();
 		}
 
-		// Token: 0x0600410D RID: 16653 RVA: 0x00134DDB File Offset: 0x00132FDB
+		// Token: 0x06004252 RID: 16978 RVA: 0x0005B5F2 File Offset: 0x000597F2
 		private static FieldInfo[] PreFetchFields()
 		{
 			if (Reflection<T>.gFieldsCache != null)
@@ -91,19 +91,19 @@ namespace BuildSafe
 			return Reflection<T>.gFieldsCache = Reflection<T>.Type.GetRuntimeFields().ToArray<FieldInfo>();
 		}
 
-		// Token: 0x04004249 RID: 16969
+		// Token: 0x04004343 RID: 17219
 		private static Type gCachedType;
 
-		// Token: 0x0400424A RID: 16970
+		// Token: 0x04004344 RID: 17220
 		private static MethodInfo[] gMethodsCache;
 
-		// Token: 0x0400424B RID: 16971
+		// Token: 0x04004345 RID: 17221
 		private static FieldInfo[] gFieldsCache;
 
-		// Token: 0x0400424C RID: 16972
+		// Token: 0x04004346 RID: 17222
 		private static PropertyInfo[] gPropertiesCache;
 
-		// Token: 0x0400424D RID: 16973
+		// Token: 0x04004347 RID: 17223
 		private static EventInfo[] gEventsCache;
 	}
 }

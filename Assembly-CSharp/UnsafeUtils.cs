@@ -4,10 +4,10 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// Token: 0x02000891 RID: 2193
+// Token: 0x020008AD RID: 2221
 public static class UnsafeUtils
 {
-	// Token: 0x0600351F RID: 13599 RVA: 0x000FD584 File Offset: 0x000FB784
+	// Token: 0x060035EB RID: 13803 RVA: 0x00053686 File Offset: 0x00051886
 	public unsafe static ref readonly T[] GetInternalArray<T>(this List<T> list)
 	{
 		if (list == null)
@@ -17,7 +17,7 @@ public static class UnsafeUtils
 		return ref Unsafe.As<List<T>, StrongBox<T[]>>(ref list)->Value;
 	}
 
-	// Token: 0x06003520 RID: 13600 RVA: 0x000FD59C File Offset: 0x000FB79C
+	// Token: 0x060035EC RID: 13804 RVA: 0x0005369E File Offset: 0x0005189E
 	public unsafe static ref readonly T[] GetInvocationListUnsafe<T>(this T @delegate) where T : MulticastDelegate
 	{
 		if (@delegate == null)
@@ -27,69 +27,69 @@ public static class UnsafeUtils
 		return Unsafe.As<Delegate[], T[]>(ref Unsafe.As<T, UnsafeUtils._MultiDelegateFields>(ref @delegate)->delegates);
 	}
 
-	// Token: 0x02000892 RID: 2194
+	// Token: 0x020008AE RID: 2222
 	[StructLayout(LayoutKind.Sequential)]
 	private class _MultiDelegateFields : UnsafeUtils._DelegateFields
 	{
-		// Token: 0x0400379B RID: 14235
+		// Token: 0x0400385B RID: 14427
 		public Delegate[] delegates;
 	}
 
-	// Token: 0x02000893 RID: 2195
+	// Token: 0x020008AF RID: 2223
 	[StructLayout(LayoutKind.Sequential)]
 	private class _DelegateFields
 	{
-		// Token: 0x0400379C RID: 14236
+		// Token: 0x0400385C RID: 14428
 		public IntPtr method_ptr;
 
-		// Token: 0x0400379D RID: 14237
+		// Token: 0x0400385D RID: 14429
 		public IntPtr invoke_impl;
 
-		// Token: 0x0400379E RID: 14238
+		// Token: 0x0400385E RID: 14430
 		public object m_target;
 
-		// Token: 0x0400379F RID: 14239
+		// Token: 0x0400385F RID: 14431
 		public IntPtr method;
 
-		// Token: 0x040037A0 RID: 14240
+		// Token: 0x04003860 RID: 14432
 		public IntPtr delegate_trampoline;
 
-		// Token: 0x040037A1 RID: 14241
+		// Token: 0x04003861 RID: 14433
 		public IntPtr extra_arg;
 
-		// Token: 0x040037A2 RID: 14242
+		// Token: 0x04003862 RID: 14434
 		public IntPtr method_code;
 
-		// Token: 0x040037A3 RID: 14243
+		// Token: 0x04003863 RID: 14435
 		public IntPtr interp_method;
 
-		// Token: 0x040037A4 RID: 14244
+		// Token: 0x04003864 RID: 14436
 		public IntPtr interp_invoke_impl;
 
-		// Token: 0x040037A5 RID: 14245
+		// Token: 0x04003865 RID: 14437
 		public MethodInfo method_info;
 
-		// Token: 0x040037A6 RID: 14246
+		// Token: 0x04003866 RID: 14438
 		public MethodInfo original_method_info;
 
-		// Token: 0x040037A7 RID: 14247
+		// Token: 0x04003867 RID: 14439
 		public UnsafeUtils._DelegateData data;
 
-		// Token: 0x040037A8 RID: 14248
+		// Token: 0x04003868 RID: 14440
 		public bool method_is_virtual;
 	}
 
-	// Token: 0x02000894 RID: 2196
+	// Token: 0x020008B0 RID: 2224
 	[StructLayout(LayoutKind.Sequential)]
 	private class _DelegateData
 	{
-		// Token: 0x040037A9 RID: 14249
+		// Token: 0x04003869 RID: 14441
 		public Type target_type;
 
-		// Token: 0x040037AA RID: 14250
+		// Token: 0x0400386A RID: 14442
 		public string method_name;
 
-		// Token: 0x040037AB RID: 14251
+		// Token: 0x0400386B RID: 14443
 		public bool curried_first_arg;
 	}
 }

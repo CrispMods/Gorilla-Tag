@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C33 RID: 3123
+	// Token: 0x02000C64 RID: 3172
 	public class HeadlessHead : HoldableObject
 	{
-		// Token: 0x06004DFC RID: 19964 RVA: 0x0017E9EC File Offset: 0x0017CBEC
+		// Token: 0x06004F5C RID: 20316 RVA: 0x001B7418 File Offset: 0x001B5618
 		protected void Awake()
 		{
 			this.ownerRig = base.GetComponentInParent<VRRig>();
@@ -22,7 +22,7 @@ namespace GorillaTag.Cosmetics
 			this.hasFirstPersonRenderer = (this.firstPersonRenderer != null);
 		}
 
-		// Token: 0x06004DFD RID: 19965 RVA: 0x0017EA70 File Offset: 0x0017CC70
+		// Token: 0x06004F5D RID: 20317 RVA: 0x001B749C File Offset: 0x001B569C
 		protected void OnEnable()
 		{
 			if (this.ownerRig == null)
@@ -34,13 +34,13 @@ namespace GorillaTag.Cosmetics
 			this.ownerRig.bodyRenderer.SetCosmeticBodyType(GorillaBodyType.NoHead);
 		}
 
-		// Token: 0x06004DFE RID: 19966 RVA: 0x0017EAC9 File Offset: 0x0017CCC9
+		// Token: 0x06004F5E RID: 20318 RVA: 0x00063D05 File Offset: 0x00061F05
 		private void OnDisable()
 		{
 			this.ownerRig.bodyRenderer.SetCosmeticBodyType(GorillaBodyType.Default);
 		}
 
-		// Token: 0x06004DFF RID: 19967 RVA: 0x0017EADC File Offset: 0x0017CCDC
+		// Token: 0x06004F5F RID: 20319 RVA: 0x00063D18 File Offset: 0x00061F18
 		protected virtual void LateUpdate()
 		{
 			if (this.isLocal)
@@ -54,13 +54,13 @@ namespace GorillaTag.Cosmetics
 			this.LateUpdateShared();
 		}
 
-		// Token: 0x06004E00 RID: 19968 RVA: 0x0017EAFA File Offset: 0x0017CCFA
+		// Token: 0x06004F60 RID: 20320 RVA: 0x00063D36 File Offset: 0x00061F36
 		protected virtual void LateUpdateLocal()
 		{
 			this.ownerRig.WearablePackedStates = GTBitOps.WriteBits(this.ownerRig.WearablePackedStates, this.stateBitsWriteInfo, (this.isHeld ? 1 : 0) + (this.isHeldLeftHand ? 2 : 0));
 		}
 
-		// Token: 0x06004E01 RID: 19969 RVA: 0x0017EB38 File Offset: 0x0017CD38
+		// Token: 0x06004F61 RID: 20321 RVA: 0x001B74F8 File Offset: 0x001B56F8
 		protected virtual void LateUpdateReplicated()
 		{
 			int num = GTBitOps.ReadBits(this.ownerRig.WearablePackedStates, this.stateBitsWriteInfo.index, this.stateBitsWriteInfo.valueMask);
@@ -68,7 +68,7 @@ namespace GorillaTag.Cosmetics
 			this.isHeldLeftHand = ((num & 2) != 0);
 		}
 
-		// Token: 0x06004E02 RID: 19970 RVA: 0x0017EB84 File Offset: 0x0017CD84
+		// Token: 0x06004F62 RID: 20322 RVA: 0x001B7544 File Offset: 0x001B5744
 		protected virtual void LateUpdateShared()
 		{
 			if (this.isHeld != this.wasHeld || this.isHeldLeftHand != this.wasHeldLeftHand)
@@ -111,12 +111,12 @@ namespace GorillaTag.Cosmetics
 			this.wasHeldLeftHand = this.isHeldLeftHand;
 		}
 
-		// Token: 0x06004E03 RID: 19971 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004F63 RID: 20323 RVA: 0x00030607 File Offset: 0x0002E807
 		public override void OnHover(InteractionPoint pointHovered, GameObject hoveringHand)
 		{
 		}
 
-		// Token: 0x06004E04 RID: 19972 RVA: 0x0017ED8B File Offset: 0x0017CF8B
+		// Token: 0x06004F64 RID: 20324 RVA: 0x00063D72 File Offset: 0x00061F72
 		public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 		{
 			this.isHeld = true;
@@ -124,14 +124,14 @@ namespace GorillaTag.Cosmetics
 			EquipmentInteractor.instance.UpdateHandEquipment(this, this.isHeldLeftHand);
 		}
 
-		// Token: 0x06004E05 RID: 19973 RVA: 0x0017EDBF File Offset: 0x0017CFBF
+		// Token: 0x06004F65 RID: 20325 RVA: 0x00063DA6 File Offset: 0x00061FA6
 		public override void DropItemCleanup()
 		{
 			this.isHeld = false;
 			this.isHeldLeftHand = false;
 		}
 
-		// Token: 0x06004E06 RID: 19974 RVA: 0x0017EDD0 File Offset: 0x0017CFD0
+		// Token: 0x06004F66 RID: 20326 RVA: 0x001B774C File Offset: 0x001B594C
 		public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 		{
 			if (EquipmentInteractor.instance.rightHandHeldEquipment == this && releasingHand != EquipmentInteractor.instance.rightHand)
@@ -148,79 +148,79 @@ namespace GorillaTag.Cosmetics
 			return true;
 		}
 
-		// Token: 0x04005116 RID: 20758
+		// Token: 0x04005222 RID: 21026
 		[Tooltip("The slot this cosmetic resides.")]
 		public VRRig.WearablePackedStateSlots wearablePackedStateSlot = VRRig.WearablePackedStateSlots.Face;
 
-		// Token: 0x04005117 RID: 20759
+		// Token: 0x04005223 RID: 21027
 		[SerializeField]
 		private Vector3 offsetFromLeftHand = new Vector3(0f, 0.0208f, 0.171f);
 
-		// Token: 0x04005118 RID: 20760
+		// Token: 0x04005224 RID: 21028
 		[SerializeField]
 		private Vector3 offsetFromRightHand = new Vector3(0f, 0.0208f, 0.171f);
 
-		// Token: 0x04005119 RID: 20761
+		// Token: 0x04005225 RID: 21029
 		[SerializeField]
 		private Quaternion rotationFromLeftHand = Quaternion.Euler(14.063973f, 52.56744f, 10.067408f);
 
-		// Token: 0x0400511A RID: 20762
+		// Token: 0x04005226 RID: 21030
 		[SerializeField]
 		private Quaternion rotationFromRightHand = Quaternion.Euler(14.063973f, 52.56744f, 10.067408f);
 
-		// Token: 0x0400511B RID: 20763
+		// Token: 0x04005227 RID: 21031
 		private Vector3 baseLocalPosition;
 
-		// Token: 0x0400511C RID: 20764
+		// Token: 0x04005228 RID: 21032
 		private VRRig ownerRig;
 
-		// Token: 0x0400511D RID: 20765
+		// Token: 0x04005229 RID: 21033
 		private bool isLocal;
 
-		// Token: 0x0400511E RID: 20766
+		// Token: 0x0400522A RID: 21034
 		private bool isHeld;
 
-		// Token: 0x0400511F RID: 20767
+		// Token: 0x0400522B RID: 21035
 		private bool isHeldLeftHand;
 
-		// Token: 0x04005120 RID: 20768
+		// Token: 0x0400522C RID: 21036
 		private GTBitOps.BitWriteInfo stateBitsWriteInfo;
 
-		// Token: 0x04005121 RID: 20769
+		// Token: 0x0400522D RID: 21037
 		[SerializeField]
 		private MeshRenderer firstPersonRenderer;
 
-		// Token: 0x04005122 RID: 20770
+		// Token: 0x0400522E RID: 21038
 		[SerializeField]
 		private float firstPersonHiddenRadius;
 
-		// Token: 0x04005123 RID: 20771
+		// Token: 0x0400522F RID: 21039
 		[SerializeField]
 		private Transform firstPersonHideCenter;
 
-		// Token: 0x04005124 RID: 20772
+		// Token: 0x04005230 RID: 21040
 		[SerializeField]
 		private Transform holdAnchorPoint;
 
-		// Token: 0x04005125 RID: 20773
+		// Token: 0x04005231 RID: 21041
 		private bool hasFirstPersonRenderer;
 
-		// Token: 0x04005126 RID: 20774
+		// Token: 0x04005232 RID: 21042
 		private Vector3 blendingFromPosition;
 
-		// Token: 0x04005127 RID: 20775
+		// Token: 0x04005233 RID: 21043
 		private Quaternion blendingFromRotation;
 
-		// Token: 0x04005128 RID: 20776
+		// Token: 0x04005234 RID: 21044
 		private float blendFraction;
 
-		// Token: 0x04005129 RID: 20777
+		// Token: 0x04005235 RID: 21045
 		private bool wasHeld;
 
-		// Token: 0x0400512A RID: 20778
+		// Token: 0x04005236 RID: 21046
 		private bool wasHeldLeftHand;
 
-		// Token: 0x0400512B RID: 20779
+		// Token: 0x04005237 RID: 21047
 		[SerializeField]
 		private float blendDuration = 0.3f;
 	}

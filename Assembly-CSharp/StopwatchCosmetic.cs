@@ -2,11 +2,11 @@
 using GorillaTag;
 using UnityEngine;
 
-// Token: 0x02000446 RID: 1094
+// Token: 0x02000452 RID: 1106
 public class StopwatchCosmetic : TransferrableObject
 {
-	// Token: 0x170002ED RID: 749
-	// (get) Token: 0x06001AE8 RID: 6888 RVA: 0x00084645 File Offset: 0x00082845
+	// Token: 0x170002F4 RID: 756
+	// (get) Token: 0x06001B3C RID: 6972 RVA: 0x0004284B File Offset: 0x00040A4B
 	public bool isActivating
 	{
 		get
@@ -15,8 +15,8 @@ public class StopwatchCosmetic : TransferrableObject
 		}
 	}
 
-	// Token: 0x170002EE RID: 750
-	// (get) Token: 0x06001AE9 RID: 6889 RVA: 0x0008464D File Offset: 0x0008284D
+	// Token: 0x170002F5 RID: 757
+	// (get) Token: 0x06001B3D RID: 6973 RVA: 0x00042853 File Offset: 0x00040A53
 	public float activeTimeElapsed
 	{
 		get
@@ -25,7 +25,7 @@ public class StopwatchCosmetic : TransferrableObject
 		}
 	}
 
-	// Token: 0x06001AEA RID: 6890 RVA: 0x00084658 File Offset: 0x00082858
+	// Token: 0x06001B3E RID: 6974 RVA: 0x000D92D4 File Offset: 0x000D74D4
 	protected override void Awake()
 	{
 		base.Awake();
@@ -41,7 +41,7 @@ public class StopwatchCosmetic : TransferrableObject
 		this._watchReset = new Action<int, int, object[], PhotonMessageInfoWrapped>(this.OnWatchReset);
 	}
 
-	// Token: 0x06001AEB RID: 6891 RVA: 0x000846DC File Offset: 0x000828DC
+	// Token: 0x06001B3F RID: 6975 RVA: 0x000D9358 File Offset: 0x000D7558
 	internal override void OnEnable()
 	{
 		base.OnEnable();
@@ -56,7 +56,7 @@ public class StopwatchCosmetic : TransferrableObject
 		this._photonID = i.GetStaticHash();
 	}
 
-	// Token: 0x06001AEC RID: 6892 RVA: 0x00084737 File Offset: 0x00082937
+	// Token: 0x06001B40 RID: 6976 RVA: 0x0004285B File Offset: 0x00040A5B
 	internal override void OnDisable()
 	{
 		base.OnDisable();
@@ -64,7 +64,7 @@ public class StopwatchCosmetic : TransferrableObject
 		StopwatchCosmetic.gWatchToggleRPC -= this._watchToggle;
 	}
 
-	// Token: 0x06001AED RID: 6893 RVA: 0x0008476C File Offset: 0x0008296C
+	// Token: 0x06001B41 RID: 6977 RVA: 0x000D93B4 File Offset: 0x000D75B4
 	private void OnWatchToggle(int sender, int target, object[] args, PhotonMessageInfoWrapped info)
 	{
 		if (this._photonID == -1)
@@ -90,7 +90,7 @@ public class StopwatchCosmetic : TransferrableObject
 		this._watchFace.WatchToggle();
 	}
 
-	// Token: 0x06001AEE RID: 6894 RVA: 0x000847EC File Offset: 0x000829EC
+	// Token: 0x06001B42 RID: 6978 RVA: 0x000D9434 File Offset: 0x000D7634
 	private void OnWatchReset(int sender, int target, object[] args, PhotonMessageInfoWrapped info)
 	{
 		if (this._photonID == -1)
@@ -113,7 +113,7 @@ public class StopwatchCosmetic : TransferrableObject
 		this._watchFace.WatchReset();
 	}
 
-	// Token: 0x06001AEF RID: 6895 RVA: 0x0008484C File Offset: 0x00082A4C
+	// Token: 0x06001B43 RID: 6979 RVA: 0x000D9494 File Offset: 0x000D7694
 	private bool FetchMyViewID(out int viewID)
 	{
 		viewID = -1;
@@ -135,7 +135,7 @@ public class StopwatchCosmetic : TransferrableObject
 		return true;
 	}
 
-	// Token: 0x06001AF0 RID: 6896 RVA: 0x000848EB File Offset: 0x00082AEB
+	// Token: 0x06001B44 RID: 6980 RVA: 0x0004288D File Offset: 0x00040A8D
 	public bool PollActivated()
 	{
 		if (!this._activated)
@@ -146,7 +146,7 @@ public class StopwatchCosmetic : TransferrableObject
 		return true;
 	}
 
-	// Token: 0x06001AF1 RID: 6897 RVA: 0x00084900 File Offset: 0x00082B00
+	// Token: 0x06001B45 RID: 6981 RVA: 0x000D9534 File Offset: 0x000D7734
 	public override void TriggeredLateUpdate()
 	{
 		base.TriggeredLateUpdate();
@@ -165,7 +165,7 @@ public class StopwatchCosmetic : TransferrableObject
 		}
 	}
 
-	// Token: 0x06001AF2 RID: 6898 RVA: 0x00084973 File Offset: 0x00082B73
+	// Token: 0x06001B46 RID: 6982 RVA: 0x000428A1 File Offset: 0x00040AA1
 	public override void OnActivate()
 	{
 		if (!this.CanActivate())
@@ -180,7 +180,7 @@ public class StopwatchCosmetic : TransferrableObject
 		}
 	}
 
-	// Token: 0x06001AF3 RID: 6899 RVA: 0x000849A0 File Offset: 0x00082BA0
+	// Token: 0x06001B47 RID: 6983 RVA: 0x000D95A8 File Offset: 0x000D77A8
 	public override void OnDeactivate()
 	{
 		if (!this.CanDeactivate())
@@ -204,57 +204,57 @@ public class StopwatchCosmetic : TransferrableObject
 		this._activated = false;
 	}
 
-	// Token: 0x06001AF4 RID: 6900 RVA: 0x00084A29 File Offset: 0x00082C29
+	// Token: 0x06001B48 RID: 6984 RVA: 0x000428CC File Offset: 0x00040ACC
 	public override bool CanActivate()
 	{
 		return !this.disableActivation;
 	}
 
-	// Token: 0x06001AF5 RID: 6901 RVA: 0x00084A34 File Offset: 0x00082C34
+	// Token: 0x06001B49 RID: 6985 RVA: 0x000428D7 File Offset: 0x00040AD7
 	public override bool CanDeactivate()
 	{
 		return !this.disableDeactivation;
 	}
 
-	// Token: 0x04001DC7 RID: 7623
+	// Token: 0x04001E16 RID: 7702
 	[SerializeField]
 	private StopwatchFace _watchFace;
 
-	// Token: 0x04001DC8 RID: 7624
+	// Token: 0x04001E17 RID: 7703
 	[Space]
 	[NonSerialized]
 	private bool _isActivating;
 
-	// Token: 0x04001DC9 RID: 7625
+	// Token: 0x04001E18 RID: 7704
 	[NonSerialized]
 	private float _activeTimeElapsed;
 
-	// Token: 0x04001DCA RID: 7626
+	// Token: 0x04001E19 RID: 7705
 	[NonSerialized]
 	private bool _activated;
 
-	// Token: 0x04001DCB RID: 7627
+	// Token: 0x04001E1A RID: 7706
 	[Space]
 	[NonSerialized]
 	private int _photonID = -1;
 
-	// Token: 0x04001DCC RID: 7628
+	// Token: 0x04001E1B RID: 7707
 	private static PhotonEvent gWatchToggleRPC;
 
-	// Token: 0x04001DCD RID: 7629
+	// Token: 0x04001E1C RID: 7708
 	private static PhotonEvent gWatchResetRPC;
 
-	// Token: 0x04001DCE RID: 7630
+	// Token: 0x04001E1D RID: 7709
 	private Action<int, int, object[], PhotonMessageInfoWrapped> _watchToggle;
 
-	// Token: 0x04001DCF RID: 7631
+	// Token: 0x04001E1E RID: 7710
 	private Action<int, int, object[], PhotonMessageInfoWrapped> _watchReset;
 
-	// Token: 0x04001DD0 RID: 7632
+	// Token: 0x04001E1F RID: 7711
 	[DebugOption]
 	public bool disableActivation;
 
-	// Token: 0x04001DD1 RID: 7633
+	// Token: 0x04001E20 RID: 7712
 	[DebugOption]
 	public bool disableDeactivation;
 }

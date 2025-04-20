@@ -3,25 +3,25 @@ using UnityEngine;
 
 namespace GorillaLocomotion.Swimming
 {
-	// Token: 0x02000B4A RID: 2890
+	// Token: 0x02000B77 RID: 2935
 	public class WaterSplashOverride : MonoBehaviour
 	{
-		// Token: 0x04004ADC RID: 19164
+		// Token: 0x04004BD2 RID: 19410
 		public bool suppressWaterEffects;
 
-		// Token: 0x04004ADD RID: 19165
+		// Token: 0x04004BD3 RID: 19411
 		public bool playBigSplash;
 
-		// Token: 0x04004ADE RID: 19166
+		// Token: 0x04004BD4 RID: 19412
 		public bool playDrippingEffect = true;
 
-		// Token: 0x04004ADF RID: 19167
+		// Token: 0x04004BD5 RID: 19413
 		public bool scaleByPlayersScale;
 
-		// Token: 0x04004AE0 RID: 19168
+		// Token: 0x04004BD6 RID: 19414
 		public bool overrideBoundingRadius;
 
-		// Token: 0x04004AE1 RID: 19169
+		// Token: 0x04004BD7 RID: 19415
 		public float boundingRadiusOverride = 1f;
 	}
 }

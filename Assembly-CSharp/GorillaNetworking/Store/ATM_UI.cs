@@ -4,25 +4,25 @@ using UnityEngine.UI;
 
 namespace GorillaNetworking.Store
 {
-	// Token: 0x02000AF1 RID: 2801
+	// Token: 0x02000B1E RID: 2846
 	public class ATM_UI : MonoBehaviour
 	{
-		// Token: 0x040047A6 RID: 18342
+		// Token: 0x0400489B RID: 18587
 		public Text atmText;
 
-		// Token: 0x040047A7 RID: 18343
+		// Token: 0x0400489C RID: 18588
 		public GameObject creatorCodeObject;
 
-		// Token: 0x040047A8 RID: 18344
+		// Token: 0x0400489D RID: 18589
 		public Text creatorCodeTitle;
 
-		// Token: 0x040047A9 RID: 18345
+		// Token: 0x0400489E RID: 18590
 		public Text creatorCodeField;
 
-		// Token: 0x040047AA RID: 18346
+		// Token: 0x0400489F RID: 18591
 		public Text[] ATM_RightColumnButtonText;
 
-		// Token: 0x040047AB RID: 18347
+		// Token: 0x040048A0 RID: 18592
 		public Text[] ATM_RightColumnArrowText;
 	}
 }

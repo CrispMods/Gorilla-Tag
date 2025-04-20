@@ -4,10 +4,10 @@ using Oculus.Platform.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x020002FC RID: 764
+// Token: 0x02000307 RID: 775
 public class AppDeeplinkUI : MonoBehaviour
 {
-	// Token: 0x06001238 RID: 4664 RVA: 0x00056EA4 File Offset: 0x000550A4
+	// Token: 0x06001284 RID: 4740 RVA: 0x000B1460 File Offset: 0x000AF660
 	private void Start()
 	{
 		DebugUIBuilder instance = DebugUIBuilder.instance;
@@ -29,7 +29,7 @@ public class AppDeeplinkUI : MonoBehaviour
 		instance.Show();
 	}
 
-	// Token: 0x06001239 RID: 4665 RVA: 0x00056FB4 File Offset: 0x000551B4
+	// Token: 0x06001285 RID: 4741 RVA: 0x000B1570 File Offset: 0x000AF770
 	private void Update()
 	{
 		DebugUIBuilder instance = DebugUIBuilder.instance;
@@ -54,7 +54,7 @@ public class AppDeeplinkUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600123A RID: 4666 RVA: 0x0005708C File Offset: 0x0005528C
+	// Token: 0x06001286 RID: 4742 RVA: 0x000B1648 File Offset: 0x000AF848
 	private void LaunchUnrealDeeplinkSample()
 	{
 		Debug.Log(string.Format("LaunchOtherApp({0})", 4055411724486843UL));
@@ -63,7 +63,7 @@ public class AppDeeplinkUI : MonoBehaviour
 		Oculus.Platform.Application.LaunchOtherApp(4055411724486843UL, applicationOptions);
 	}
 
-	// Token: 0x0600123B RID: 4667 RVA: 0x000570E4 File Offset: 0x000552E4
+	// Token: 0x06001287 RID: 4743 RVA: 0x000B16A0 File Offset: 0x000AF8A0
 	private void LaunchSelf()
 	{
 		ulong num;
@@ -76,7 +76,7 @@ public class AppDeeplinkUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600123C RID: 4668 RVA: 0x00057138 File Offset: 0x00055338
+	// Token: 0x06001288 RID: 4744 RVA: 0x000B16F4 File Offset: 0x000AF8F4
 	private void LaunchOtherApp()
 	{
 		ulong num;
@@ -89,27 +89,27 @@ public class AppDeeplinkUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001432 RID: 5170
+	// Token: 0x0400147A RID: 5242
 	private const ulong UNITY_COMPANION_APP_ID = 3535750239844224UL;
 
-	// Token: 0x04001433 RID: 5171
+	// Token: 0x0400147B RID: 5243
 	private const ulong UNREAL_COMPANION_APP_ID = 4055411724486843UL;
 
-	// Token: 0x04001434 RID: 5172
+	// Token: 0x0400147C RID: 5244
 	private RectTransform deeplinkAppId;
 
-	// Token: 0x04001435 RID: 5173
+	// Token: 0x0400147D RID: 5245
 	private RectTransform deeplinkMessage;
 
-	// Token: 0x04001436 RID: 5174
+	// Token: 0x0400147E RID: 5246
 	private RectTransform uiLaunchType;
 
-	// Token: 0x04001437 RID: 5175
+	// Token: 0x0400147F RID: 5247
 	private RectTransform uiLaunchSource;
 
-	// Token: 0x04001438 RID: 5176
+	// Token: 0x04001480 RID: 5248
 	private RectTransform uiDeepLinkMessage;
 
-	// Token: 0x04001439 RID: 5177
+	// Token: 0x04001481 RID: 5249
 	private bool inMenu = true;
 }

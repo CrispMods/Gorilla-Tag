@@ -6,10 +6,10 @@ using Photon.Voice.Unity;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x020000CC RID: 204
+// Token: 0x020000D6 RID: 214
 public class PartyHornTransferableObject : TransferrableObject
 {
-	// Token: 0x06000558 RID: 1368 RVA: 0x0001FBB6 File Offset: 0x0001DDB6
+	// Token: 0x06000599 RID: 1433 RVA: 0x0003413E File Offset: 0x0003233E
 	internal override void OnEnable()
 	{
 		base.OnEnable();
@@ -17,20 +17,20 @@ public class PartyHornTransferableObject : TransferrableObject
 		this.InitToDefault();
 	}
 
-	// Token: 0x06000559 RID: 1369 RVA: 0x0001FBE3 File Offset: 0x0001DDE3
+	// Token: 0x0600059A RID: 1434 RVA: 0x0003416B File Offset: 0x0003236B
 	internal override void OnDisable()
 	{
 		base.OnDisable();
 	}
 
-	// Token: 0x0600055A RID: 1370 RVA: 0x0001FBEB File Offset: 0x0001DDEB
+	// Token: 0x0600059B RID: 1435 RVA: 0x00034173 File Offset: 0x00032373
 	public override void ResetToDefaultState()
 	{
 		base.ResetToDefaultState();
 		this.InitToDefault();
 	}
 
-	// Token: 0x0600055B RID: 1371 RVA: 0x0001FBFC File Offset: 0x0001DDFC
+	// Token: 0x0600059C RID: 1436 RVA: 0x00082C14 File Offset: 0x00080E14
 	protected Vector3 CalcMouthPiecePos()
 	{
 		Transform transform = base.transform;
@@ -46,7 +46,7 @@ public class PartyHornTransferableObject : TransferrableObject
 		return vector;
 	}
 
-	// Token: 0x0600055C RID: 1372 RVA: 0x0001FC58 File Offset: 0x0001DE58
+	// Token: 0x0600059D RID: 1437 RVA: 0x00082C70 File Offset: 0x00080E70
 	protected override void LateUpdateLocal()
 	{
 		base.LateUpdateLocal();
@@ -126,7 +126,7 @@ public class PartyHornTransferableObject : TransferrableObject
 		this.itemState = (flag ? TransferrableObject.ItemStates.State1 : this.itemState);
 	}
 
-	// Token: 0x0600055D RID: 1373 RVA: 0x0001FE28 File Offset: 0x0001E028
+	// Token: 0x0600059E RID: 1438 RVA: 0x00082E40 File Offset: 0x00081040
 	protected override void LateUpdateShared()
 	{
 		base.LateUpdateShared();
@@ -152,7 +152,7 @@ public class PartyHornTransferableObject : TransferrableObject
 		}
 	}
 
-	// Token: 0x0600055E RID: 1374 RVA: 0x0001FEA2 File Offset: 0x0001E0A2
+	// Token: 0x0600059F RID: 1439 RVA: 0x00034181 File Offset: 0x00032381
 	private void InitToDefault()
 	{
 		this.itemState = TransferrableObject.ItemStates.State0;
@@ -167,52 +167,52 @@ public class PartyHornTransferableObject : TransferrableObject
 		onCooldownReset.Invoke();
 	}
 
-	// Token: 0x0400062C RID: 1580
+	// Token: 0x0400066D RID: 1645
 	[Tooltip("This GameObject will activate when held to any gorilla's mouth.")]
 	public GameObject effectsGameObject;
 
-	// Token: 0x0400062D RID: 1581
+	// Token: 0x0400066E RID: 1646
 	public float cooldown = 2f;
 
-	// Token: 0x0400062E RID: 1582
+	// Token: 0x0400066F RID: 1647
 	public float mouthPieceZOffset = -0.18f;
 
-	// Token: 0x0400062F RID: 1583
+	// Token: 0x04000670 RID: 1648
 	public float mouthPieceRadius = 0.05f;
 
-	// Token: 0x04000630 RID: 1584
+	// Token: 0x04000671 RID: 1649
 	public Transform mouthPiece;
 
-	// Token: 0x04000631 RID: 1585
+	// Token: 0x04000672 RID: 1650
 	public Vector3 mouthOffset = new Vector3(0f, 0.02f, 0.17f);
 
-	// Token: 0x04000632 RID: 1586
+	// Token: 0x04000673 RID: 1651
 	public bool soundActivated;
 
-	// Token: 0x04000633 RID: 1587
+	// Token: 0x04000674 RID: 1652
 	public UnityEvent OnCooldownStart;
 
-	// Token: 0x04000634 RID: 1588
+	// Token: 0x04000675 RID: 1653
 	public UnityEvent OnCooldownReset;
 
-	// Token: 0x04000635 RID: 1589
+	// Token: 0x04000676 RID: 1654
 	private float cooldownRemaining;
 
-	// Token: 0x04000636 RID: 1590
+	// Token: 0x04000677 RID: 1655
 	private Transform localHead;
 
-	// Token: 0x04000637 RID: 1591
+	// Token: 0x04000678 RID: 1656
 	private PartyHornTransferableObject.PartyHornState partyHornStateLastFrame;
 
-	// Token: 0x04000638 RID: 1592
+	// Token: 0x04000679 RID: 1657
 	private bool localWasActivated;
 
-	// Token: 0x020000CD RID: 205
+	// Token: 0x020000D7 RID: 215
 	private enum PartyHornState
 	{
-		// Token: 0x0400063A RID: 1594
+		// Token: 0x0400067B RID: 1659
 		None = 1,
-		// Token: 0x0400063B RID: 1595
+		// Token: 0x0400067C RID: 1660
 		CoolingDown
 	}
 }

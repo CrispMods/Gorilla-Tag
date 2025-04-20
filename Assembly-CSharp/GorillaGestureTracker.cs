@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200015F RID: 351
+// Token: 0x0200016A RID: 362
 public class GorillaGestureTracker : MonoBehaviour
 {
-	// Token: 0x060008BC RID: 2236 RVA: 0x0002F967 File Offset: 0x0002DB67
+	// Token: 0x06000909 RID: 2313 RVA: 0x00036675 File Offset: 0x00034875
 	private void Awake()
 	{
 		this.Setup();
 	}
 
-	// Token: 0x060008BD RID: 2237 RVA: 0x0002F970 File Offset: 0x0002DB70
+	// Token: 0x0600090A RID: 2314 RVA: 0x00090564 File Offset: 0x0008E764
 	private void Setup()
 	{
 		if (this._rig.AsNull<VRRig>() == null)
@@ -75,14 +75,14 @@ public class GorillaGestureTracker : MonoBehaviour
 		this._setupDone = true;
 	}
 
-	// Token: 0x060008BE RID: 2238 RVA: 0x0002FBA4 File Offset: 0x0002DDA4
+	// Token: 0x0600090B RID: 2315 RVA: 0x0003667D File Offset: 0x0003487D
 	private void FixedUpdate()
 	{
 		this.PollNodes();
 		this.PollGestures();
 	}
 
-	// Token: 0x060008BF RID: 2239 RVA: 0x0002FBB4 File Offset: 0x0002DDB4
+	// Token: 0x0600090C RID: 2316 RVA: 0x00090798 File Offset: 0x0008E998
 	private void PollGestures()
 	{
 		if (this._gestures == null)
@@ -98,7 +98,7 @@ public class GorillaGestureTracker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008C0 RID: 2240 RVA: 0x0002FC04 File Offset: 0x0002DE04
+	// Token: 0x0600090D RID: 2317 RVA: 0x000907E8 File Offset: 0x0008E9E8
 	private void PollNodes()
 	{
 		this.PollFace(0);
@@ -120,7 +120,7 @@ public class GorillaGestureTracker : MonoBehaviour
 		this._flexes[8] = num4 + 1 + (num5 + 1) + (num6 + 1);
 	}
 
-	// Token: 0x060008C1 RID: 2241 RVA: 0x0002FC88 File Offset: 0x0002DE88
+	// Token: 0x0600090E RID: 2318 RVA: 0x0009086C File Offset: 0x0008EA6C
 	private void PollThumb(int i, out int flex)
 	{
 		VRMapThumb vrmapThumb = (VRMapThumb)this._vrNodes[i];
@@ -153,7 +153,7 @@ public class GorillaGestureTracker : MonoBehaviour
 		this._flexes[i] = flex;
 	}
 
-	// Token: 0x060008C2 RID: 2242 RVA: 0x0002FD38 File Offset: 0x0002DF38
+	// Token: 0x0600090F RID: 2319 RVA: 0x0009091C File Offset: 0x0008EB1C
 	private void PollIndex(int i, out int flex)
 	{
 		VRMapIndex vrmapIndex = (VRMapIndex)this._vrNodes[i];
@@ -176,7 +176,7 @@ public class GorillaGestureTracker : MonoBehaviour
 		this._flexes[i] = flex;
 	}
 
-	// Token: 0x060008C3 RID: 2243 RVA: 0x0002FDD4 File Offset: 0x0002DFD4
+	// Token: 0x06000910 RID: 2320 RVA: 0x000909B8 File Offset: 0x0008EBB8
 	private void PollMiddle(int i, out int flex)
 	{
 		VRMapMiddle vrmapMiddle = (VRMapMiddle)this._vrNodes[i];
@@ -199,7 +199,7 @@ public class GorillaGestureTracker : MonoBehaviour
 		this._flexes[i] = flex;
 	}
 
-	// Token: 0x060008C4 RID: 2244 RVA: 0x0002FE68 File Offset: 0x0002E068
+	// Token: 0x06000911 RID: 2321 RVA: 0x00090A4C File Offset: 0x0008EC4C
 	private void PollGesture(int hand, int i, float dt, ref bool[] results)
 	{
 		results[i] = false;
@@ -221,7 +221,7 @@ public class GorillaGestureTracker : MonoBehaviour
 		results[i] = (num == num2);
 	}
 
-	// Token: 0x060008C5 RID: 2245 RVA: 0x0002FF24 File Offset: 0x0002E124
+	// Token: 0x06000912 RID: 2322 RVA: 0x00090B08 File Offset: 0x0008ED08
 	private void TrackHand(int hand, GestureHandNode node, ref int tracked, ref int matches)
 	{
 		if (!node.track)
@@ -263,7 +263,7 @@ public class GorillaGestureTracker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008C6 RID: 2246 RVA: 0x0002FFB0 File Offset: 0x0002E1B0
+	// Token: 0x06000913 RID: 2323 RVA: 0x00090B94 File Offset: 0x0008ED94
 	private void TrackHandAxis(int axis, GestureNode node, ref int tracked, ref int matches)
 	{
 		if (!node.track)
@@ -311,7 +311,7 @@ public class GorillaGestureTracker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008C7 RID: 2247 RVA: 0x00030090 File Offset: 0x0002E290
+	// Token: 0x06000914 RID: 2324 RVA: 0x00090C74 File Offset: 0x0008EE74
 	private void TrackDigit(int digit, GestureDigitNode node, ref int tracked, ref int matches)
 	{
 		if (!node.track)
@@ -388,7 +388,7 @@ public class GorillaGestureTracker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008C8 RID: 2248 RVA: 0x000301E4 File Offset: 0x0002E3E4
+	// Token: 0x06000915 RID: 2325 RVA: 0x00090DC8 File Offset: 0x0008EFC8
 	private void PollFace(int index)
 	{
 		Transform transform = this._bones[index];
@@ -396,7 +396,7 @@ public class GorillaGestureTracker : MonoBehaviour
 		this._normals[index] = this._faceBasisAngles * transform.forward;
 	}
 
-	// Token: 0x060008C9 RID: 2249 RVA: 0x00030230 File Offset: 0x0002E430
+	// Token: 0x06000916 RID: 2326 RVA: 0x00090E14 File Offset: 0x0008F014
 	private void PollHandAxes(int hand)
 	{
 		bool flag = hand == 1;
@@ -417,153 +417,153 @@ public class GorillaGestureTracker : MonoBehaviour
 		this._normals[num3] = rotation * Vector3.up;
 	}
 
-	// Token: 0x04000A98 RID: 2712
+	// Token: 0x04000ADF RID: 2783
 	[SerializeField]
 	private VRRig _rig;
 
-	// Token: 0x04000A99 RID: 2713
+	// Token: 0x04000AE0 RID: 2784
 	[SerializeField]
 	private Transform _rigTransform;
 
-	// Token: 0x04000A9A RID: 2714
+	// Token: 0x04000AE1 RID: 2785
 	public const int N_FACE = 0;
 
-	// Token: 0x04000A9B RID: 2715
+	// Token: 0x04000AE2 RID: 2786
 	public const int R_HAND = 1;
 
-	// Token: 0x04000A9C RID: 2716
+	// Token: 0x04000AE3 RID: 2787
 	public const int R_PALM = 2;
 
-	// Token: 0x04000A9D RID: 2717
+	// Token: 0x04000AE4 RID: 2788
 	public const int R_WRIST = 3;
 
-	// Token: 0x04000A9E RID: 2718
+	// Token: 0x04000AE5 RID: 2789
 	public const int R_DIGITS = 4;
 
-	// Token: 0x04000A9F RID: 2719
+	// Token: 0x04000AE6 RID: 2790
 	public const int R_THUMB = 5;
 
-	// Token: 0x04000AA0 RID: 2720
+	// Token: 0x04000AE7 RID: 2791
 	public const int R_INDEX = 6;
 
-	// Token: 0x04000AA1 RID: 2721
+	// Token: 0x04000AE8 RID: 2792
 	public const int R_MIDDLE = 7;
 
-	// Token: 0x04000AA2 RID: 2722
+	// Token: 0x04000AE9 RID: 2793
 	public const int L_HAND = 8;
 
-	// Token: 0x04000AA3 RID: 2723
+	// Token: 0x04000AEA RID: 2794
 	public const int L_PALM = 9;
 
-	// Token: 0x04000AA4 RID: 2724
+	// Token: 0x04000AEB RID: 2795
 	public const int L_WRIST = 10;
 
-	// Token: 0x04000AA5 RID: 2725
+	// Token: 0x04000AEC RID: 2796
 	public const int L_DIGITS = 11;
 
-	// Token: 0x04000AA6 RID: 2726
+	// Token: 0x04000AED RID: 2797
 	public const int L_THUMB = 12;
 
-	// Token: 0x04000AA7 RID: 2727
+	// Token: 0x04000AEE RID: 2798
 	public const int L_INDEX = 13;
 
-	// Token: 0x04000AA8 RID: 2728
+	// Token: 0x04000AEF RID: 2799
 	public const int L_MIDDLE = 14;
 
-	// Token: 0x04000AA9 RID: 2729
+	// Token: 0x04000AF0 RID: 2800
 	public const int N_SIZE = 15;
 
-	// Token: 0x04000AAA RID: 2730
+	// Token: 0x04000AF1 RID: 2801
 	[Space]
 	[SerializeField]
 	private Vector3 _handBasisAngles = new Vector3(0f, 2f, 341f);
 
-	// Token: 0x04000AAB RID: 2731
+	// Token: 0x04000AF2 RID: 2802
 	[Space]
 	[SerializeField]
 	private Vector3 _faceBasisOffset = new Vector3(0f, 0.1f, 0.136f);
 
-	// Token: 0x04000AAC RID: 2732
+	// Token: 0x04000AF3 RID: 2803
 	[SerializeField]
 	private Quaternion _faceBasisAngles = Quaternion.Euler(-8f, 0f, 0f);
 
-	// Token: 0x04000AAD RID: 2733
+	// Token: 0x04000AF4 RID: 2804
 	[Space]
 	[SerializeField]
 	private bool _debug;
 
-	// Token: 0x04000AAE RID: 2734
+	// Token: 0x04000AF5 RID: 2805
 	[NonSerialized]
 	private bool _setupDone;
 
-	// Token: 0x04000AAF RID: 2735
+	// Token: 0x04000AF6 RID: 2806
 	public static uint TickRate = 24U;
 
-	// Token: 0x04000AB0 RID: 2736
+	// Token: 0x04000AF7 RID: 2807
 	[Space]
 	[SerializeField]
 	private Transform[] _bones = new Transform[15];
 
-	// Token: 0x04000AB1 RID: 2737
+	// Token: 0x04000AF8 RID: 2808
 	[NonSerialized]
 	private VRMap[] _vrNodes = new VRMap[15];
 
-	// Token: 0x04000AB2 RID: 2738
+	// Token: 0x04000AF9 RID: 2809
 	[NonSerialized]
 	private float[] _inputs = new float[15];
 
-	// Token: 0x04000AB3 RID: 2739
+	// Token: 0x04000AFA RID: 2810
 	[NonSerialized]
 	private int[] _flexes = new int[15];
 
-	// Token: 0x04000AB4 RID: 2740
+	// Token: 0x04000AFB RID: 2811
 	[NonSerialized]
 	private Vector3[] _normals = new Vector3[15];
 
-	// Token: 0x04000AB5 RID: 2741
+	// Token: 0x04000AFC RID: 2812
 	[NonSerialized]
 	private Vector3[] _positions = new Vector3[15];
 
-	// Token: 0x04000AB6 RID: 2742
+	// Token: 0x04000AFD RID: 2813
 	[Space]
 	[SerializeField]
 	private GorillaHandGesture[] _gestures = new GorillaHandGesture[0];
 
-	// Token: 0x04000AB7 RID: 2743
+	// Token: 0x04000AFE RID: 2814
 	[NonSerialized]
 	private bool[] _matchesR = new bool[0];
 
-	// Token: 0x04000AB8 RID: 2744
+	// Token: 0x04000AFF RID: 2815
 	[NonSerialized]
 	private bool[] _matchesL = new bool[0];
 
-	// Token: 0x04000AB9 RID: 2745
+	// Token: 0x04000B00 RID: 2816
 	private const int H_BENT = 0;
 
-	// Token: 0x04000ABA RID: 2746
+	// Token: 0x04000B01 RID: 2817
 	private const int H_OPEN = 3;
 
-	// Token: 0x04000ABB RID: 2747
+	// Token: 0x04000B02 RID: 2818
 	private const int H_CLOSED = 6;
 
-	// Token: 0x04000ABC RID: 2748
+	// Token: 0x04000B03 RID: 2819
 	private const int N_HAND = 0;
 
-	// Token: 0x04000ABD RID: 2749
+	// Token: 0x04000B04 RID: 2820
 	private const int A_PALM = 1;
 
-	// Token: 0x04000ABE RID: 2750
+	// Token: 0x04000B05 RID: 2821
 	private const int A_WRIST = 2;
 
-	// Token: 0x04000ABF RID: 2751
+	// Token: 0x04000B06 RID: 2822
 	private const int A_DIGITS = 3;
 
-	// Token: 0x04000AC0 RID: 2752
+	// Token: 0x04000B07 RID: 2823
 	private const int D_THUMB = 4;
 
-	// Token: 0x04000AC1 RID: 2753
+	// Token: 0x04000B08 RID: 2824
 	private const int D_INDEX = 5;
 
-	// Token: 0x04000AC2 RID: 2754
+	// Token: 0x04000B09 RID: 2825
 	private const int D_MIDDLE = 6;
 }

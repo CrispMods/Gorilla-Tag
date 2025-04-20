@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200064E RID: 1614
+// Token: 0x0200062D RID: 1581
 public class TransformFollowXScene : MonoBehaviour
 {
-	// Token: 0x06002804 RID: 10244 RVA: 0x000C3FCD File Offset: 0x000C21CD
+	// Token: 0x0600272F RID: 10031 RVA: 0x0004AC36 File Offset: 0x00048E36
 	private void Awake()
 	{
 		this.prevPos = base.transform.position;
 	}
 
-	// Token: 0x06002805 RID: 10245 RVA: 0x000C3FE0 File Offset: 0x000C21E0
+	// Token: 0x06002730 RID: 10032 RVA: 0x0004AC49 File Offset: 0x00048E49
 	private void Start()
 	{
 		this.refToFollow.TryResolve<Transform>(out this.transformToFollow);
 	}
 
-	// Token: 0x06002806 RID: 10246 RVA: 0x000C3FF4 File Offset: 0x000C21F4
+	// Token: 0x06002731 RID: 10033 RVA: 0x0010B284 File Offset: 0x00109484
 	private void LateUpdate()
 	{
 		this.prevPos = base.transform.position;
@@ -24,15 +24,15 @@ public class TransformFollowXScene : MonoBehaviour
 		base.transform.position = this.transformToFollow.position + this.transformToFollow.rotation * this.offset;
 	}
 
-	// Token: 0x04002BEC RID: 11244
+	// Token: 0x04002B52 RID: 11090
 	public XSceneRef refToFollow;
 
-	// Token: 0x04002BED RID: 11245
+	// Token: 0x04002B53 RID: 11091
 	private Transform transformToFollow;
 
-	// Token: 0x04002BEE RID: 11246
+	// Token: 0x04002B54 RID: 11092
 	public Vector3 offset;
 
-	// Token: 0x04002BEF RID: 11247
+	// Token: 0x04002B55 RID: 11093
 	public Vector3 prevPos;
 }

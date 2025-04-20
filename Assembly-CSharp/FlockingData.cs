@@ -5,18 +5,18 @@ using Fusion;
 using Fusion.CodeGen;
 using UnityEngine;
 
-// Token: 0x02000524 RID: 1316
+// Token: 0x02000531 RID: 1329
 [NetworkStructWeaved(337)]
 [StructLayout(LayoutKind.Explicit, Size = 1348)]
 public struct FlockingData : INetworkStruct
 {
-	// Token: 0x1700033B RID: 827
-	// (get) Token: 0x06001FE8 RID: 8168 RVA: 0x000A106C File Offset: 0x0009F26C
-	// (set) Token: 0x06001FE9 RID: 8169 RVA: 0x000A1074 File Offset: 0x0009F274
+	// Token: 0x17000342 RID: 834
+	// (get) Token: 0x06002041 RID: 8257 RVA: 0x00045F08 File Offset: 0x00044108
+	// (set) Token: 0x06002042 RID: 8258 RVA: 0x00045F10 File Offset: 0x00044110
 	public int count { readonly get; set; }
 
-	// Token: 0x1700033C RID: 828
-	// (get) Token: 0x06001FEA RID: 8170 RVA: 0x000A1080 File Offset: 0x0009F280
+	// Token: 0x17000343 RID: 835
+	// (get) Token: 0x06002043 RID: 8259 RVA: 0x00045F19 File Offset: 0x00044119
 	[Networked]
 	[Capacity(30)]
 	public NetworkLinkedList<Vector3> Positions
@@ -27,8 +27,8 @@ public struct FlockingData : INetworkStruct
 		}
 	}
 
-	// Token: 0x1700033D RID: 829
-	// (get) Token: 0x06001FEB RID: 8171 RVA: 0x000A10A8 File Offset: 0x0009F2A8
+	// Token: 0x17000344 RID: 836
+	// (get) Token: 0x06002044 RID: 8260 RVA: 0x00045F35 File Offset: 0x00044135
 	[Networked]
 	[Capacity(30)]
 	public NetworkLinkedList<Quaternion> Rotations
@@ -39,7 +39,7 @@ public struct FlockingData : INetworkStruct
 		}
 	}
 
-	// Token: 0x06001FEC RID: 8172 RVA: 0x000A10D0 File Offset: 0x0009F2D0
+	// Token: 0x06002045 RID: 8261 RVA: 0x000F2708 File Offset: 0x000F0908
 	public FlockingData(List<Flocking> items)
 	{
 		this.count = items.Count;
@@ -50,14 +50,14 @@ public struct FlockingData : INetworkStruct
 		}
 	}
 
-	// Token: 0x040023F3 RID: 9203
+	// Token: 0x04002446 RID: 9286
 	[FixedBufferProperty(typeof(NetworkLinkedList<Vector3>), typeof(UnityLinkedListSurrogate@ReaderWriter@UnityEngine_Vector3), 30, order = -2147483647)]
 	[WeaverGenerated]
 	[SerializeField]
 	[FieldOffset(4)]
 	private FixedStorage@153 _Positions;
 
-	// Token: 0x040023F4 RID: 9204
+	// Token: 0x04002447 RID: 9287
 	[FixedBufferProperty(typeof(NetworkLinkedList<Quaternion>), typeof(UnityLinkedListSurrogate@ReaderWriter@UnityEngine_Quaternion), 30, order = -2147483647)]
 	[WeaverGenerated]
 	[SerializeField]

@@ -1,27 +1,27 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000069 RID: 105
+// Token: 0x0200006F RID: 111
 public class DelayedDestroyObject : MonoBehaviour
 {
-	// Token: 0x06000299 RID: 665 RVA: 0x00010FF5 File Offset: 0x0000F1F5
+	// Token: 0x060002C7 RID: 711 RVA: 0x00032273 File Offset: 0x00030473
 	private void Start()
 	{
 		this._timeToDie = Time.time + this.lifetime;
 	}
 
-	// Token: 0x0600029A RID: 666 RVA: 0x00011009 File Offset: 0x0000F209
+	// Token: 0x060002C8 RID: 712 RVA: 0x00032287 File Offset: 0x00030487
 	private void LateUpdate()
 	{
 		if (Time.time >= this._timeToDie)
 		{
-			Object.Destroy(base.gameObject);
+			UnityEngine.Object.Destroy(base.gameObject);
 		}
 	}
 
-	// Token: 0x0400034D RID: 845
+	// Token: 0x0400037F RID: 895
 	public float lifetime = 10f;
 
-	// Token: 0x0400034E RID: 846
+	// Token: 0x04000380 RID: 896
 	private float _timeToDie;
 }

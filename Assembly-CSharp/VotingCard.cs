@@ -2,22 +2,22 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x0200010B RID: 267
+// Token: 0x02000115 RID: 277
 public class VotingCard : MonoBehaviour
 {
-	// Token: 0x06000726 RID: 1830 RVA: 0x00028ACE File Offset: 0x00026CCE
+	// Token: 0x06000767 RID: 1895 RVA: 0x0003548A File Offset: 0x0003368A
 	private void MoveToOffPosition()
 	{
 		this._card.transform.position = this._offPosition.position;
 	}
 
-	// Token: 0x06000727 RID: 1831 RVA: 0x00028AEB File Offset: 0x00026CEB
+	// Token: 0x06000768 RID: 1896 RVA: 0x000354A7 File Offset: 0x000336A7
 	private void MoveToOnPosition()
 	{
 		this._card.transform.position = this._onPosition.position;
 	}
 
-	// Token: 0x06000728 RID: 1832 RVA: 0x00028B08 File Offset: 0x00026D08
+	// Token: 0x06000769 RID: 1897 RVA: 0x0008A7D4 File Offset: 0x000889D4
 	public void SetVisible(bool showVote, bool instant)
 	{
 		if (this._isVisible != showVote)
@@ -44,7 +44,7 @@ public class VotingCard : MonoBehaviour
 		this._isVisible = showVote;
 	}
 
-	// Token: 0x06000729 RID: 1833 RVA: 0x00028BA9 File Offset: 0x00026DA9
+	// Token: 0x0600076A RID: 1898 RVA: 0x000354C4 File Offset: 0x000336C4
 	private IEnumerator DoActivate()
 	{
 		Vector3 from = this._offPosition.position;
@@ -61,22 +61,22 @@ public class VotingCard : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04000881 RID: 2177
+	// Token: 0x040008C2 RID: 2242
 	[SerializeField]
 	private GameObject _card;
 
-	// Token: 0x04000882 RID: 2178
+	// Token: 0x040008C3 RID: 2243
 	[SerializeField]
 	private Transform _offPosition;
 
-	// Token: 0x04000883 RID: 2179
+	// Token: 0x040008C4 RID: 2244
 	[SerializeField]
 	private Transform _onPosition;
 
-	// Token: 0x04000884 RID: 2180
+	// Token: 0x040008C5 RID: 2245
 	[SerializeField]
 	private float activationTime = 0.5f;
 
-	// Token: 0x04000885 RID: 2181
+	// Token: 0x040008C6 RID: 2246
 	private bool _isVisible;
 }

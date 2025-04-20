@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200040A RID: 1034
+// Token: 0x02000415 RID: 1045
 public class TransferrableObjectGripPosition : MonoBehaviour
 {
-	// Token: 0x06001993 RID: 6547 RVA: 0x0007E403 File Offset: 0x0007C603
+	// Token: 0x060019E0 RID: 6624 RVA: 0x00041646 File Offset: 0x0003F846
 	private void Awake()
 	{
 		if (this.parentObject == null)
@@ -14,17 +14,17 @@ public class TransferrableObjectGripPosition : MonoBehaviour
 		this.parentObject.AddGripPosition(this.attachmentType, this);
 	}
 
-	// Token: 0x06001994 RID: 6548 RVA: 0x0007E43B File Offset: 0x0007C63B
+	// Token: 0x060019E1 RID: 6625 RVA: 0x0004167E File Offset: 0x0003F87E
 	public SubGrabPoint CreateSubGrabPoint(SlotTransformOverride overrideContainer)
 	{
 		return new SubGrabPoint();
 	}
 
-	// Token: 0x04001C80 RID: 7296
+	// Token: 0x04001CC9 RID: 7369
 	[SerializeField]
 	private TransferrableItemSlotTransformOverride parentObject;
 
-	// Token: 0x04001C81 RID: 7297
+	// Token: 0x04001CCA RID: 7370
 	[SerializeField]
 	private TransferrableObject.PositionState attachmentType;
 }

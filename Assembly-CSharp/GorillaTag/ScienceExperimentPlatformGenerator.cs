@@ -8,17 +8,17 @@ using UnityEngine.Serialization;
 
 namespace GorillaTag
 {
-	// Token: 0x02000BAC RID: 2988
+	// Token: 0x02000BD8 RID: 3032
 	public class ScienceExperimentPlatformGenerator : MonoBehaviourPun, ITickSystemPost, IGuidedRefReceiverMono, IGuidedRefMonoBehaviour, IGuidedRefObject
 	{
-		// Token: 0x06004B87 RID: 19335 RVA: 0x0016F4FB File Offset: 0x0016D6FB
+		// Token: 0x06004CC7 RID: 19655 RVA: 0x000626BA File Offset: 0x000608BA
 		private void Awake()
 		{
 			((IGuidedRefObject)this).GuidedRefInitialize();
 			this.scienceExperimentManager = base.GetComponent<ScienceExperimentManager>();
 		}
 
-		// Token: 0x06004B88 RID: 19336 RVA: 0x0016F50F File Offset: 0x0016D70F
+		// Token: 0x06004CC8 RID: 19656 RVA: 0x000626CE File Offset: 0x000608CE
 		private void OnEnable()
 		{
 			if (((IGuidedRefReceiverMono)this).GuidedRefsWaitingToResolveCount > 0)
@@ -28,18 +28,18 @@ namespace GorillaTag
 			TickSystem<object>.AddPostTickCallback(this);
 		}
 
-		// Token: 0x06004B89 RID: 19337 RVA: 0x000C141F File Offset: 0x000BF61F
+		// Token: 0x06004CC9 RID: 19657 RVA: 0x0004A56E File Offset: 0x0004876E
 		protected void OnDisable()
 		{
 			TickSystem<object>.RemovePostTickCallback(this);
 		}
 
-		// Token: 0x170007D5 RID: 2005
-		// (get) Token: 0x06004B8A RID: 19338 RVA: 0x0016F521 File Offset: 0x0016D721
-		// (set) Token: 0x06004B8B RID: 19339 RVA: 0x0016F529 File Offset: 0x0016D729
+		// Token: 0x170007F1 RID: 2033
+		// (get) Token: 0x06004CCA RID: 19658 RVA: 0x000626E0 File Offset: 0x000608E0
+		// (set) Token: 0x06004CCB RID: 19659 RVA: 0x000626E8 File Offset: 0x000608E8
 		bool ITickSystemPost.PostTickRunning { get; set; }
 
-		// Token: 0x06004B8C RID: 19340 RVA: 0x0016F534 File Offset: 0x0016D734
+		// Token: 0x06004CCC RID: 19660 RVA: 0x001A8480 File Offset: 0x001A6680
 		void ITickSystemPost.PostTick()
 		{
 			double currentTime = PhotonNetwork.InRoom ? PhotonNetwork.Time : Time.unscaledTimeAsDouble;
@@ -49,7 +49,7 @@ namespace GorillaTag
 			this.UpdateActiveBubbles(currentTime);
 		}
 
-		// Token: 0x06004B8D RID: 19341 RVA: 0x0016F574 File Offset: 0x0016D774
+		// Token: 0x06004CCD RID: 19661 RVA: 0x001A84C0 File Offset: 0x001A66C0
 		private void RemoveExpiredBubbles(double currentTime)
 		{
 			for (int i = this.activeBubbles.Count - 1; i >= 0; i--)
@@ -62,7 +62,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B8E RID: 19342 RVA: 0x0016F5F0 File Offset: 0x0016D7F0
+		// Token: 0x06004CCE RID: 19662 RVA: 0x001A853C File Offset: 0x001A673C
 		private void SpawnNewBubbles(double currentTime)
 		{
 			if (base.photonView.IsMine && this.scienceExperimentManager.GameState == ScienceExperimentManager.RisingLiquidState.Rising)
@@ -78,7 +78,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B8F RID: 19343 RVA: 0x0016F680 File Offset: 0x0016D880
+		// Token: 0x06004CCF RID: 19663 RVA: 0x001A85CC File Offset: 0x001A67CC
 		private void UpdateActiveBubbles(double currentTime)
 		{
 			if (this.liquidSurfacePlane == null)
@@ -105,7 +105,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B90 RID: 19344 RVA: 0x0016F7E8 File Offset: 0x0016D9E8
+		// Token: 0x06004CD0 RID: 19664 RVA: 0x001A8734 File Offset: 0x001A6934
 		private void UpdateTrails(double currentTime)
 		{
 			if (base.photonView.IsMine)
@@ -151,7 +151,7 @@ namespace GorillaTag
 								num5 = Mathf.Max(num5, num4 + this.trailMaxTurnAngle);
 							}
 						}
-						Vector3 vector = Quaternion.AngleAxis(Random.Range(num4, num5), Vector3.up) * this.trailHeads[k].direction;
+						Vector3 vector = Quaternion.AngleAxis(UnityEngine.Random.Range(num4, num5), Vector3.up) * this.trailHeads[k].direction;
 						Vector3 vector2 = this.trailHeads[k].position + vector * this.trailDistanceBetweenSpawns * this.scaleFactor - this.liquidSurfacePlane.transform.position;
 						if (vector2.sqrMagnitude > this.surfaceRadiusSpawnRange.y * this.surfaceRadiusSpawnRange.y)
 						{
@@ -174,17 +174,17 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B91 RID: 19345 RVA: 0x0016FB80 File Offset: 0x0016DD80
+		// Token: 0x06004CD1 RID: 19665 RVA: 0x001A8ACC File Offset: 0x001A6CCC
 		private void SpawnRockAuthority(double currentTime, float lavaProgress)
 		{
 			if (base.photonView.IsMine)
 			{
 				float num = this.rockLifetimeMultiplierVsLavaProgress.Evaluate(lavaProgress);
 				float num2 = this.rockMaxSizeMultiplierVsLavaProgress.Evaluate(lavaProgress);
-				float num3 = Random.Range(this.lifetimeRange.x, this.lifetimeRange.y) * num;
-				float num4 = Random.Range(this.sizeRange.x, this.sizeRange.y * num2);
+				float num3 = UnityEngine.Random.Range(this.lifetimeRange.x, this.lifetimeRange.y) * num;
+				float num4 = UnityEngine.Random.Range(this.sizeRange.x, this.sizeRange.y * num2);
 				float d = this.spawnRadiusMultiplierVsLavaProgress.Evaluate(lavaProgress);
-				Vector2 vector = Random.insideUnitCircle.normalized * Random.Range(this.surfaceRadiusSpawnRange.x, this.surfaceRadiusSpawnRange.y) * d;
+				Vector2 vector = UnityEngine.Random.insideUnitCircle.normalized * UnityEngine.Random.Range(this.surfaceRadiusSpawnRange.x, this.surfaceRadiusSpawnRange.y) * d;
 				vector = this.GetSpawnPositionWithClearance(vector, num4 * this.scaleFactor, this.surfaceRadiusSpawnRange.y, this.liquidSurfacePlane.transform.position);
 				base.photonView.RPC("SpawnSodaBubbleRPC", RpcTarget.Others, new object[]
 				{
@@ -197,16 +197,16 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B92 RID: 19346 RVA: 0x0016FCB8 File Offset: 0x0016DEB8
+		// Token: 0x06004CD2 RID: 19666 RVA: 0x001A8C04 File Offset: 0x001A6E04
 		private void SpawnTrailAuthority(double currentTime, float lavaProgress)
 		{
 			if (base.photonView.IsMine)
 			{
 				float num = this.trailBubbleLifetimeVsProgress.Evaluate(this.scienceExperimentManager.RiseProgressLinear) * this.trailBubbleLifetimeMultiplier;
 				float num2 = this.trailBubbleSize;
-				Vector2 vector = Random.insideUnitCircle.normalized * Random.Range(this.surfaceRadiusSpawnRange.x, this.surfaceRadiusSpawnRange.y);
+				Vector2 vector = UnityEngine.Random.insideUnitCircle.normalized * UnityEngine.Random.Range(this.surfaceRadiusSpawnRange.x, this.surfaceRadiusSpawnRange.y);
 				vector = this.GetSpawnPositionWithClearance(vector, num2 * this.scaleFactor, this.surfaceRadiusSpawnRange.y, this.liquidSurfacePlane.transform.position);
-				Vector3 direction = Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.up) * Vector3.forward;
+				Vector3 direction = Quaternion.AngleAxis(UnityEngine.Random.Range(0f, 360f), Vector3.up) * Vector3.forward;
 				base.photonView.RPC("SpawnSodaBubbleRPC", RpcTarget.Others, new object[]
 				{
 					vector,
@@ -218,7 +218,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B93 RID: 19347 RVA: 0x0016FDC0 File Offset: 0x0016DFC0
+		// Token: 0x06004CD3 RID: 19667 RVA: 0x001A8D0C File Offset: 0x001A6F0C
 		private void SpawnSodaBubbleLocal(Vector2 surfacePosLocal, float spawnSize, float lifetime, double spawnTime, bool addAsTrail = false, Vector3 direction = default(Vector3))
 		{
 			if (this.activeBubbles.Count < this.maxBubbleCount)
@@ -243,7 +243,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B94 RID: 19348 RVA: 0x0016FEA8 File Offset: 0x0016E0A8
+		// Token: 0x06004CD4 RID: 19668 RVA: 0x001A8DF4 File Offset: 0x001A6FF4
 		[PunRPC]
 		public void SpawnSodaBubbleRPC(Vector2 surfacePosLocal, float spawnSize, float lifetime, double spawnTime, PhotonMessageInfo info)
 		{
@@ -264,7 +264,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B95 RID: 19349 RVA: 0x0016FFA8 File Offset: 0x0016E1A8
+		// Token: 0x06004CD5 RID: 19669 RVA: 0x001A8EF4 File Offset: 0x001A70F4
 		private Vector2 GetSpawnPositionWithClearance(Vector2 inputPosition, float inputSize, float maxDistance, Vector3 lavaSurfaceOrigin)
 		{
 			Vector2 vector = inputPosition;
@@ -295,25 +295,25 @@ namespace GorillaTag
 			return vector;
 		}
 
-		// Token: 0x06004B96 RID: 19350 RVA: 0x001700BB File Offset: 0x0016E2BB
+		// Token: 0x06004CD6 RID: 19670 RVA: 0x000626F1 File Offset: 0x000608F1
 		void IGuidedRefObject.GuidedRefInitialize()
 		{
 			GuidedRefHub.RegisterReceiverField<ScienceExperimentPlatformGenerator>(this, "liquidSurfacePlane", ref this.liquidSurfacePlane_gRef);
 			GuidedRefHub.ReceiverFullyRegistered<ScienceExperimentPlatformGenerator>(this);
 		}
 
-		// Token: 0x170007D6 RID: 2006
-		// (get) Token: 0x06004B97 RID: 19351 RVA: 0x001700D4 File Offset: 0x0016E2D4
-		// (set) Token: 0x06004B98 RID: 19352 RVA: 0x001700DC File Offset: 0x0016E2DC
+		// Token: 0x170007F2 RID: 2034
+		// (get) Token: 0x06004CD7 RID: 19671 RVA: 0x0006270A File Offset: 0x0006090A
+		// (set) Token: 0x06004CD8 RID: 19672 RVA: 0x00062712 File Offset: 0x00060912
 		int IGuidedRefReceiverMono.GuidedRefsWaitingToResolveCount { get; set; }
 
-		// Token: 0x06004B99 RID: 19353 RVA: 0x001700E5 File Offset: 0x0016E2E5
+		// Token: 0x06004CD9 RID: 19673 RVA: 0x0006271B File Offset: 0x0006091B
 		bool IGuidedRefReceiverMono.GuidedRefTryResolveReference(GuidedRefTryResolveInfo target)
 		{
 			return GuidedRefHub.TryResolveField<ScienceExperimentPlatformGenerator, Transform>(this, ref this.liquidSurfacePlane, this.liquidSurfacePlane_gRef, target);
 		}
 
-		// Token: 0x06004B9A RID: 19354 RVA: 0x001700FA File Offset: 0x0016E2FA
+		// Token: 0x06004CDA RID: 19674 RVA: 0x00062730 File Offset: 0x00060930
 		void IGuidedRefReceiverMono.OnAllGuidedRefsResolved()
 		{
 			if (!base.enabled)
@@ -323,199 +323,199 @@ namespace GorillaTag
 			TickSystem<object>.AddPostTickCallback(this);
 		}
 
-		// Token: 0x06004B9B RID: 19355 RVA: 0x000C141F File Offset: 0x000BF61F
+		// Token: 0x06004CDB RID: 19675 RVA: 0x0004A56E File Offset: 0x0004876E
 		void IGuidedRefReceiverMono.OnGuidedRefTargetDestroyed(int fieldId)
 		{
 			TickSystem<object>.RemovePostTickCallback(this);
 		}
 
-		// Token: 0x06004B9D RID: 19357 RVA: 0x00042E29 File Offset: 0x00041029
+		// Token: 0x06004CDD RID: 19677 RVA: 0x00039243 File Offset: 0x00037443
 		Transform IGuidedRefMonoBehaviour.get_transform()
 		{
 			return base.transform;
 		}
 
-		// Token: 0x06004B9E RID: 19358 RVA: 0x00015AA9 File Offset: 0x00013CA9
+		// Token: 0x06004CDE RID: 19678 RVA: 0x00032CAE File Offset: 0x00030EAE
 		int IGuidedRefObject.GetInstanceID()
 		{
 			return base.GetInstanceID();
 		}
 
-		// Token: 0x04004D2B RID: 19755
+		// Token: 0x04004E1E RID: 19998
 		[SerializeField]
 		private GameObject spawnedPrefab;
 
-		// Token: 0x04004D2C RID: 19756
+		// Token: 0x04004E1F RID: 19999
 		[SerializeField]
 		private float scaleFactor = 0.03f;
 
-		// Token: 0x04004D2D RID: 19757
+		// Token: 0x04004E20 RID: 20000
 		[Header("Random Bubbles")]
 		[SerializeField]
 		private Vector2 surfaceRadiusSpawnRange = new Vector2(0.1f, 0.7f);
 
-		// Token: 0x04004D2E RID: 19758
+		// Token: 0x04004E21 RID: 20001
 		[SerializeField]
 		private Vector2 lifetimeRange = new Vector2(5f, 10f);
 
-		// Token: 0x04004D2F RID: 19759
+		// Token: 0x04004E22 RID: 20002
 		[SerializeField]
 		private Vector2 sizeRange = new Vector2(0.5f, 2f);
 
-		// Token: 0x04004D30 RID: 19760
+		// Token: 0x04004E23 RID: 20003
 		[SerializeField]
 		private AnimationCurve rockCountVsLavaProgress = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04004D31 RID: 19761
+		// Token: 0x04004E24 RID: 20004
 		[SerializeField]
 		[FormerlySerializedAs("rockCountMultiplier")]
 		private float bubbleCountMultiplier = 80f;
 
-		// Token: 0x04004D32 RID: 19762
+		// Token: 0x04004E25 RID: 20005
 		[SerializeField]
 		private int maxBubbleCount = 100;
 
-		// Token: 0x04004D33 RID: 19763
+		// Token: 0x04004E26 RID: 20006
 		[SerializeField]
 		private AnimationCurve rockLifetimeMultiplierVsLavaProgress = AnimationCurve.Linear(0f, 1f, 1f, 1f);
 
-		// Token: 0x04004D34 RID: 19764
+		// Token: 0x04004E27 RID: 20007
 		[SerializeField]
 		private AnimationCurve rockMaxSizeMultiplierVsLavaProgress = AnimationCurve.Linear(0f, 1f, 1f, 1f);
 
-		// Token: 0x04004D35 RID: 19765
+		// Token: 0x04004E28 RID: 20008
 		[SerializeField]
 		private AnimationCurve spawnRadiusMultiplierVsLavaProgress = AnimationCurve.Linear(0f, 1f, 1f, 1f);
 
-		// Token: 0x04004D36 RID: 19766
+		// Token: 0x04004E29 RID: 20009
 		[SerializeField]
 		private AnimationCurve rockSizeVsLifetime = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04004D37 RID: 19767
+		// Token: 0x04004E2A RID: 20010
 		[Header("Bubble Trails")]
 		[SerializeField]
 		private AnimationCurve trailSpawnRateVsProgress = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04004D38 RID: 19768
+		// Token: 0x04004E2B RID: 20011
 		[SerializeField]
 		private float trailSpawnRateMultiplier = 1f;
 
-		// Token: 0x04004D39 RID: 19769
+		// Token: 0x04004E2C RID: 20012
 		[SerializeField]
 		private AnimationCurve trailBubbleLifetimeVsProgress = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04004D3A RID: 19770
+		// Token: 0x04004E2D RID: 20013
 		[SerializeField]
 		private AnimationCurve trailBubbleBoundaryRadiusVsProgress = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04004D3B RID: 19771
+		// Token: 0x04004E2E RID: 20014
 		[SerializeField]
 		private float trailBubbleLifetimeMultiplier = 6f;
 
-		// Token: 0x04004D3C RID: 19772
+		// Token: 0x04004E2F RID: 20015
 		[SerializeField]
 		private float trailDistanceBetweenSpawns = 3f;
 
-		// Token: 0x04004D3D RID: 19773
+		// Token: 0x04004E30 RID: 20016
 		[SerializeField]
 		private float trailMaxTurnAngle = 55f;
 
-		// Token: 0x04004D3E RID: 19774
+		// Token: 0x04004E31 RID: 20017
 		[SerializeField]
 		private float trailBubbleSize = 1.5f;
 
-		// Token: 0x04004D3F RID: 19775
+		// Token: 0x04004E32 RID: 20018
 		[SerializeField]
 		private AnimationCurve trailCountVsProgress = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04004D40 RID: 19776
+		// Token: 0x04004E33 RID: 20019
 		[SerializeField]
 		private float trailCountMultiplier = 12f;
 
-		// Token: 0x04004D41 RID: 19777
+		// Token: 0x04004E34 RID: 20020
 		[SerializeField]
 		private Vector2 trailEdgeAvoidanceSpawnsMinMax = new Vector2(3f, 1f);
 
-		// Token: 0x04004D42 RID: 19778
+		// Token: 0x04004E35 RID: 20021
 		[Header("Feedback Effects")]
 		[SerializeField]
 		private float bubblePopAnticipationTime = 2f;
 
-		// Token: 0x04004D43 RID: 19779
+		// Token: 0x04004E36 RID: 20022
 		[SerializeField]
 		private float bubblePopWobbleFrequency = 25f;
 
-		// Token: 0x04004D44 RID: 19780
+		// Token: 0x04004E37 RID: 20023
 		[SerializeField]
 		private float bubblePopWobbleAmplitude = 0.01f;
 
-		// Token: 0x04004D45 RID: 19781
+		// Token: 0x04004E38 RID: 20024
 		[SerializeField]
 		private Transform liquidSurfacePlane;
 
-		// Token: 0x04004D46 RID: 19782
+		// Token: 0x04004E39 RID: 20025
 		[SerializeField]
 		private GuidedRefReceiverFieldInfo liquidSurfacePlane_gRef = new GuidedRefReceiverFieldInfo(true);
 
-		// Token: 0x04004D47 RID: 19783
+		// Token: 0x04004E3A RID: 20026
 		private List<ScienceExperimentPlatformGenerator.BubbleData> activeBubbles = new List<ScienceExperimentPlatformGenerator.BubbleData>();
 
-		// Token: 0x04004D48 RID: 19784
+		// Token: 0x04004E3B RID: 20027
 		private List<ScienceExperimentPlatformGenerator.BubbleData> trailHeads = new List<ScienceExperimentPlatformGenerator.BubbleData>();
 
-		// Token: 0x04004D49 RID: 19785
+		// Token: 0x04004E3C RID: 20028
 		private List<ScienceExperimentPlatformGenerator.BubbleSpawnDebug> bubbleSpawnDebug = new List<ScienceExperimentPlatformGenerator.BubbleSpawnDebug>();
 
-		// Token: 0x04004D4A RID: 19786
+		// Token: 0x04004E3D RID: 20029
 		private ScienceExperimentManager scienceExperimentManager;
 
-		// Token: 0x02000BAD RID: 2989
+		// Token: 0x02000BD9 RID: 3033
 		private struct BubbleData
 		{
-			// Token: 0x04004D4D RID: 19789
+			// Token: 0x04004E40 RID: 20032
 			public Vector3 position;
 
-			// Token: 0x04004D4E RID: 19790
+			// Token: 0x04004E41 RID: 20033
 			public Vector3 direction;
 
-			// Token: 0x04004D4F RID: 19791
+			// Token: 0x04004E42 RID: 20034
 			public float spawnSize;
 
-			// Token: 0x04004D50 RID: 19792
+			// Token: 0x04004E43 RID: 20035
 			public float lifetime;
 
-			// Token: 0x04004D51 RID: 19793
+			// Token: 0x04004E44 RID: 20036
 			public double spawnTime;
 
-			// Token: 0x04004D52 RID: 19794
+			// Token: 0x04004E45 RID: 20037
 			public bool isTrail;
 
-			// Token: 0x04004D53 RID: 19795
+			// Token: 0x04004E46 RID: 20038
 			public SodaBubble bubble;
 		}
 
-		// Token: 0x02000BAE RID: 2990
+		// Token: 0x02000BDA RID: 3034
 		private struct BubbleSpawnDebug
 		{
-			// Token: 0x04004D54 RID: 19796
+			// Token: 0x04004E47 RID: 20039
 			public Vector3 initialPosition;
 
-			// Token: 0x04004D55 RID: 19797
+			// Token: 0x04004E48 RID: 20040
 			public Vector3 initialDirection;
 
-			// Token: 0x04004D56 RID: 19798
+			// Token: 0x04004E49 RID: 20041
 			public Vector3 spawnPosition;
 
-			// Token: 0x04004D57 RID: 19799
+			// Token: 0x04004E4A RID: 20042
 			public float minAngle;
 
-			// Token: 0x04004D58 RID: 19800
+			// Token: 0x04004E4B RID: 20043
 			public float maxAngle;
 
-			// Token: 0x04004D59 RID: 19801
+			// Token: 0x04004E4C RID: 20044
 			public float edgeCorrectionAngle;
 
-			// Token: 0x04004D5A RID: 19802
+			// Token: 0x04004E4D RID: 20045
 			public double spawnTime;
 		}
 	}

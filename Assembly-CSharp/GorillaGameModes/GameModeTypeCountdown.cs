@@ -3,14 +3,14 @@ using GameObjectScheduling;
 
 namespace GorillaGameModes
 {
-	// Token: 0x0200096B RID: 2411
+	// Token: 0x02000991 RID: 2449
 	[Serializable]
 	public struct GameModeTypeCountdown
 	{
-		// Token: 0x04003BDB RID: 15323
+		// Token: 0x04003CB5 RID: 15541
 		public GameModeType mode;
 
-		// Token: 0x04003BDC RID: 15324
+		// Token: 0x04003CB6 RID: 15542
 		public CountdownTextDate countdownTextDate;
 	}
 }

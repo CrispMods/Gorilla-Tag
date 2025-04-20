@@ -2,16 +2,16 @@
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x0200086B RID: 2155
+// Token: 0x02000887 RID: 2183
 public class OnExitPlay_Set : OnExitPlay_Attribute
 {
-	// Token: 0x0600342E RID: 13358 RVA: 0x000F87B5 File Offset: 0x000F69B5
+	// Token: 0x060034FA RID: 13562 RVA: 0x00052ED1 File Offset: 0x000510D1
 	public OnExitPlay_Set(object value)
 	{
 		this.value = value;
 	}
 
-	// Token: 0x0600342F RID: 13359 RVA: 0x000F87C4 File Offset: 0x000F69C4
+	// Token: 0x060034FB RID: 13563 RVA: 0x00052EE0 File Offset: 0x000510E0
 	public override void OnEnterPlay(FieldInfo field)
 	{
 		if (!field.IsStatic)
@@ -22,6 +22,6 @@ public class OnExitPlay_Set : OnExitPlay_Attribute
 		field.SetValue(null, this.value);
 	}
 
-	// Token: 0x0400371C RID: 14108
+	// Token: 0x040037DC RID: 14300
 	private object value;
 }

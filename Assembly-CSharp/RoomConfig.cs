@@ -5,11 +5,11 @@ using ExitGames.Client.Photon;
 using Fusion;
 using Photon.Realtime;
 
-// Token: 0x02000296 RID: 662
+// Token: 0x020002A1 RID: 673
 public class RoomConfig
 {
-	// Token: 0x170001C5 RID: 453
-	// (get) Token: 0x06001003 RID: 4099 RVA: 0x0004D3CC File Offset: 0x0004B5CC
+	// Token: 0x170001CC RID: 460
+	// (get) Token: 0x0600104F RID: 4175 RVA: 0x0003B34B File Offset: 0x0003954B
 	public bool IsJoiningWithFriends
 	{
 		get
@@ -18,7 +18,7 @@ public class RoomConfig
 		}
 	}
 
-	// Token: 0x06001004 RID: 4100 RVA: 0x0004D3E4 File Offset: 0x0004B5E4
+	// Token: 0x06001050 RID: 4176 RVA: 0x000A9220 File Offset: 0x000A7420
 	public void SetFriendIDs(List<string> friendIDs)
 	{
 		for (int i = 0; i < friendIDs.Count; i++)
@@ -36,7 +36,7 @@ public class RoomConfig
 		}
 	}
 
-	// Token: 0x06001005 RID: 4101 RVA: 0x0004D456 File Offset: 0x0004B656
+	// Token: 0x06001051 RID: 4177 RVA: 0x0003B361 File Offset: 0x00039561
 	public void ClearExpectedUsers()
 	{
 		if (this.joinFriendIDs == null || this.joinFriendIDs.Length == 0)
@@ -46,7 +46,7 @@ public class RoomConfig
 		this.joinFriendIDs = new string[0];
 	}
 
-	// Token: 0x06001006 RID: 4102 RVA: 0x0004D478 File Offset: 0x0004B678
+	// Token: 0x06001052 RID: 4178 RVA: 0x000A9294 File Offset: 0x000A7494
 	public RoomOptions ToPUNOpts()
 	{
 		return new RoomOptions
@@ -60,14 +60,14 @@ public class RoomConfig
 		};
 	}
 
-	// Token: 0x06001007 RID: 4103 RVA: 0x0004D4CD File Offset: 0x0004B6CD
+	// Token: 0x06001053 RID: 4179 RVA: 0x0003B381 File Offset: 0x00039581
 	public void SetFusionOpts(NetworkRunner runnerInst)
 	{
 		runnerInst.SessionInfo.IsVisible = this.isPublic;
 		runnerInst.SessionInfo.IsOpen = this.isJoinable;
 	}
 
-	// Token: 0x06001008 RID: 4104 RVA: 0x0004D4F1 File Offset: 0x0004B6F1
+	// Token: 0x06001054 RID: 4180 RVA: 0x0003B3A5 File Offset: 0x000395A5
 	public static RoomConfig SPConfig()
 	{
 		return new RoomConfig
@@ -78,7 +78,7 @@ public class RoomConfig
 		};
 	}
 
-	// Token: 0x06001009 RID: 4105 RVA: 0x0004D50D File Offset: 0x0004B70D
+	// Token: 0x06001055 RID: 4181 RVA: 0x0003B3C1 File Offset: 0x000395C1
 	public static RoomConfig AnyPublicConfig()
 	{
 		return new RoomConfig
@@ -90,7 +90,7 @@ public class RoomConfig
 		};
 	}
 
-	// Token: 0x0600100A RID: 4106 RVA: 0x0004D534 File Offset: 0x0004B734
+	// Token: 0x06001056 RID: 4182 RVA: 0x000A92EC File Offset: 0x000A74EC
 	private string[] AutoCustomLobbyProps()
 	{
 		string[] array = new string[this.CustomProps.Count];
@@ -103,27 +103,27 @@ public class RoomConfig
 		return array;
 	}
 
-	// Token: 0x04001216 RID: 4630
+	// Token: 0x0400125E RID: 4702
 	public const string Room_GameModePropKey = "gameMode";
 
-	// Token: 0x04001217 RID: 4631
+	// Token: 0x0400125F RID: 4703
 	public const string Room_PlatformPropKey = "platform";
 
-	// Token: 0x04001218 RID: 4632
+	// Token: 0x04001260 RID: 4704
 	public bool isPublic;
 
-	// Token: 0x04001219 RID: 4633
+	// Token: 0x04001261 RID: 4705
 	public bool isJoinable;
 
-	// Token: 0x0400121A RID: 4634
+	// Token: 0x04001262 RID: 4706
 	public byte MaxPlayers;
 
-	// Token: 0x0400121B RID: 4635
-	public Hashtable CustomProps = new Hashtable();
+	// Token: 0x04001263 RID: 4707
+	public ExitGames.Client.Photon.Hashtable CustomProps = new ExitGames.Client.Photon.Hashtable();
 
-	// Token: 0x0400121C RID: 4636
+	// Token: 0x04001264 RID: 4708
 	public bool createIfMissing;
 
-	// Token: 0x0400121D RID: 4637
+	// Token: 0x04001265 RID: 4709
 	public string[] joinFriendIDs;
 }

@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.XR;
 
-// Token: 0x020003B8 RID: 952
+// Token: 0x020003C3 RID: 963
 [Serializable]
 public class VRMapThumb : VRMap
 {
-	// Token: 0x060016F8 RID: 5880 RVA: 0x00070818 File Offset: 0x0006EA18
+	// Token: 0x06001745 RID: 5957 RVA: 0x000C7BE0 File Offset: 0x000C5DE0
 	public override void MapMyFinger(float lerpValue)
 	{
 		this.calcT = 0f;
@@ -35,7 +35,7 @@ public class VRMapThumb : VRMap
 		this.LerpFinger(lerpValue, false);
 	}
 
-	// Token: 0x060016F9 RID: 5881 RVA: 0x0007090C File Offset: 0x0006EB0C
+	// Token: 0x06001746 RID: 5958 RVA: 0x000C7CD4 File Offset: 0x000C5ED4
 	public override void LerpFinger(float lerpValue, bool isOther)
 	{
 		if (isOther)
@@ -63,60 +63,60 @@ public class VRMapThumb : VRMap
 		}
 	}
 
-	// Token: 0x04001995 RID: 6549
+	// Token: 0x040019DE RID: 6622
 	public InputFeatureUsage inputAxis;
 
-	// Token: 0x04001996 RID: 6550
+	// Token: 0x040019DF RID: 6623
 	public bool primaryButtonTouch;
 
-	// Token: 0x04001997 RID: 6551
+	// Token: 0x040019E0 RID: 6624
 	public bool primaryButtonPress;
 
-	// Token: 0x04001998 RID: 6552
+	// Token: 0x040019E1 RID: 6625
 	public bool secondaryButtonTouch;
 
-	// Token: 0x04001999 RID: 6553
+	// Token: 0x040019E2 RID: 6626
 	public bool secondaryButtonPress;
 
-	// Token: 0x0400199A RID: 6554
+	// Token: 0x040019E3 RID: 6627
 	public Transform fingerBone1;
 
-	// Token: 0x0400199B RID: 6555
+	// Token: 0x040019E4 RID: 6628
 	public Transform fingerBone2;
 
-	// Token: 0x0400199C RID: 6556
+	// Token: 0x040019E5 RID: 6629
 	public Vector3 closedAngle1;
 
-	// Token: 0x0400199D RID: 6557
+	// Token: 0x040019E6 RID: 6630
 	public Vector3 closedAngle2;
 
-	// Token: 0x0400199E RID: 6558
+	// Token: 0x040019E7 RID: 6631
 	public Vector3 startingAngle1;
 
-	// Token: 0x0400199F RID: 6559
+	// Token: 0x040019E8 RID: 6632
 	public Vector3 startingAngle2;
 
-	// Token: 0x040019A0 RID: 6560
+	// Token: 0x040019E9 RID: 6633
 	public Quaternion[] angle1Table;
 
-	// Token: 0x040019A1 RID: 6561
+	// Token: 0x040019EA RID: 6634
 	public Quaternion[] angle2Table;
 
-	// Token: 0x040019A2 RID: 6562
+	// Token: 0x040019EB RID: 6635
 	private float currentAngle1;
 
-	// Token: 0x040019A3 RID: 6563
+	// Token: 0x040019EC RID: 6636
 	private float currentAngle2;
 
-	// Token: 0x040019A4 RID: 6564
+	// Token: 0x040019ED RID: 6637
 	private int lastAngle1;
 
-	// Token: 0x040019A5 RID: 6565
+	// Token: 0x040019EE RID: 6638
 	private int lastAngle2;
 
-	// Token: 0x040019A6 RID: 6566
+	// Token: 0x040019EF RID: 6639
 	private InputDevice tempDevice;
 
-	// Token: 0x040019A7 RID: 6567
+	// Token: 0x040019F0 RID: 6640
 	private int myTempInt;
 }

@@ -2,14 +2,14 @@
 
 namespace emotitron.Compression
 {
-	// Token: 0x02000C70 RID: 3184
+	// Token: 0x02000CA1 RID: 3233
 	public enum LiteIntCompressType
 	{
-		// Token: 0x040052E1 RID: 21217
+		// Token: 0x040053ED RID: 21485
 		PackSigned,
-		// Token: 0x040052E2 RID: 21218
+		// Token: 0x040053EE RID: 21486
 		PackUnsigned,
-		// Token: 0x040052E3 RID: 21219
+		// Token: 0x040053EF RID: 21487
 		Range
 	}
 }

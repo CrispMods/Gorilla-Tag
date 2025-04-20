@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000160 RID: 352
+// Token: 0x0200016B RID: 363
 [CreateAssetMenu(fileName = "New Hand Gesture", menuName = "Gorilla/Hand Gesture")]
 public class GorillaHandGesture : ScriptableObject
 {
-	// Token: 0x170000CF RID: 207
-	// (get) Token: 0x060008CC RID: 2252 RVA: 0x000303D8 File Offset: 0x0002E5D8
-	// (set) Token: 0x060008CD RID: 2253 RVA: 0x000303E7 File Offset: 0x0002E5E7
+	// Token: 0x170000D6 RID: 214
+	// (get) Token: 0x06000919 RID: 2329 RVA: 0x00036694 File Offset: 0x00034894
+	// (set) Token: 0x0600091A RID: 2330 RVA: 0x000366A3 File Offset: 0x000348A3
 	public GestureHandNode hand
 	{
 		get
@@ -20,9 +20,9 @@ public class GorillaHandGesture : ScriptableObject
 		}
 	}
 
-	// Token: 0x170000D0 RID: 208
-	// (get) Token: 0x060008CE RID: 2254 RVA: 0x000303F2 File Offset: 0x0002E5F2
-	// (set) Token: 0x060008CF RID: 2255 RVA: 0x000303FC File Offset: 0x0002E5FC
+	// Token: 0x170000D7 RID: 215
+	// (get) Token: 0x0600091B RID: 2331 RVA: 0x000366AE File Offset: 0x000348AE
+	// (set) Token: 0x0600091C RID: 2332 RVA: 0x000366B8 File Offset: 0x000348B8
 	public GestureNode palm
 	{
 		get
@@ -35,9 +35,9 @@ public class GorillaHandGesture : ScriptableObject
 		}
 	}
 
-	// Token: 0x170000D1 RID: 209
-	// (get) Token: 0x060008D0 RID: 2256 RVA: 0x00030407 File Offset: 0x0002E607
-	// (set) Token: 0x060008D1 RID: 2257 RVA: 0x00030411 File Offset: 0x0002E611
+	// Token: 0x170000D8 RID: 216
+	// (get) Token: 0x0600091D RID: 2333 RVA: 0x000366C3 File Offset: 0x000348C3
+	// (set) Token: 0x0600091E RID: 2334 RVA: 0x000366CD File Offset: 0x000348CD
 	public GestureNode wrist
 	{
 		get
@@ -50,9 +50,9 @@ public class GorillaHandGesture : ScriptableObject
 		}
 	}
 
-	// Token: 0x170000D2 RID: 210
-	// (get) Token: 0x060008D2 RID: 2258 RVA: 0x0003041C File Offset: 0x0002E61C
-	// (set) Token: 0x060008D3 RID: 2259 RVA: 0x00030426 File Offset: 0x0002E626
+	// Token: 0x170000D9 RID: 217
+	// (get) Token: 0x0600091F RID: 2335 RVA: 0x000366D8 File Offset: 0x000348D8
+	// (set) Token: 0x06000920 RID: 2336 RVA: 0x000366E2 File Offset: 0x000348E2
 	public GestureNode digits
 	{
 		get
@@ -65,9 +65,9 @@ public class GorillaHandGesture : ScriptableObject
 		}
 	}
 
-	// Token: 0x170000D3 RID: 211
-	// (get) Token: 0x060008D4 RID: 2260 RVA: 0x00030431 File Offset: 0x0002E631
-	// (set) Token: 0x060008D5 RID: 2261 RVA: 0x00030440 File Offset: 0x0002E640
+	// Token: 0x170000DA RID: 218
+	// (get) Token: 0x06000921 RID: 2337 RVA: 0x000366ED File Offset: 0x000348ED
+	// (set) Token: 0x06000922 RID: 2338 RVA: 0x000366FC File Offset: 0x000348FC
 	public GestureDigitNode thumb
 	{
 		get
@@ -80,9 +80,9 @@ public class GorillaHandGesture : ScriptableObject
 		}
 	}
 
-	// Token: 0x170000D4 RID: 212
-	// (get) Token: 0x060008D6 RID: 2262 RVA: 0x0003044B File Offset: 0x0002E64B
-	// (set) Token: 0x060008D7 RID: 2263 RVA: 0x0003045A File Offset: 0x0002E65A
+	// Token: 0x170000DB RID: 219
+	// (get) Token: 0x06000923 RID: 2339 RVA: 0x00036707 File Offset: 0x00034907
+	// (set) Token: 0x06000924 RID: 2340 RVA: 0x00036716 File Offset: 0x00034916
 	public GestureDigitNode index
 	{
 		get
@@ -95,9 +95,9 @@ public class GorillaHandGesture : ScriptableObject
 		}
 	}
 
-	// Token: 0x170000D5 RID: 213
-	// (get) Token: 0x060008D8 RID: 2264 RVA: 0x00030465 File Offset: 0x0002E665
-	// (set) Token: 0x060008D9 RID: 2265 RVA: 0x00030474 File Offset: 0x0002E674
+	// Token: 0x170000DC RID: 220
+	// (get) Token: 0x06000925 RID: 2341 RVA: 0x00036721 File Offset: 0x00034921
+	// (set) Token: 0x06000926 RID: 2342 RVA: 0x00036730 File Offset: 0x00034930
 	public GestureDigitNode middle
 	{
 		get
@@ -110,7 +110,7 @@ public class GorillaHandGesture : ScriptableObject
 		}
 	}
 
-	// Token: 0x060008DA RID: 2266 RVA: 0x0003047F File Offset: 0x0002E67F
+	// Token: 0x06000927 RID: 2343 RVA: 0x0003673B File Offset: 0x0003493B
 	private static GestureNode[] InitNodes()
 	{
 		return new GestureNode[]
@@ -125,9 +125,9 @@ public class GorillaHandGesture : ScriptableObject
 		};
 	}
 
-	// Token: 0x04000AC3 RID: 2755
+	// Token: 0x04000B0A RID: 2826
 	public bool track = true;
 
-	// Token: 0x04000AC4 RID: 2756
+	// Token: 0x04000B0B RID: 2827
 	public GestureNode[] nodes = GorillaHandGesture.InitNodes();
 }

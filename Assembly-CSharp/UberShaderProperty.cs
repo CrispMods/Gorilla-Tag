@@ -3,11 +3,11 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-// Token: 0x02000650 RID: 1616
+// Token: 0x0200062F RID: 1583
 [Serializable]
 public class UberShaderProperty
 {
-	// Token: 0x06002814 RID: 10260 RVA: 0x000C4ACC File Offset: 0x000C2CCC
+	// Token: 0x0600273F RID: 10047 RVA: 0x0010BD10 File Offset: 0x00109F10
 	public T GetValue<T>(Material target)
 	{
 		switch (this.type)
@@ -28,7 +28,7 @@ public class UberShaderProperty
 		}
 	}
 
-	// Token: 0x06002815 RID: 10261 RVA: 0x000C4B64 File Offset: 0x000C2D64
+	// Token: 0x06002740 RID: 10048 RVA: 0x0010BDA8 File Offset: 0x00109FA8
 	public void SetValue<T>(Material target, T value)
 	{
 		switch (this.type)
@@ -75,7 +75,7 @@ public class UberShaderProperty
 		target.DisableKeyword(this.keyword);
 	}
 
-	// Token: 0x06002816 RID: 10262 RVA: 0x000C4C50 File Offset: 0x000C2E50
+	// Token: 0x06002741 RID: 10049 RVA: 0x0010BE94 File Offset: 0x0010A094
 	public void Enable(Material target)
 	{
 		ShaderPropertyType shaderPropertyType = this.type;
@@ -96,7 +96,7 @@ public class UberShaderProperty
 		}
 	}
 
-	// Token: 0x06002817 RID: 10263 RVA: 0x000C4CA0 File Offset: 0x000C2EA0
+	// Token: 0x06002742 RID: 10050 RVA: 0x0010BEE4 File Offset: 0x0010A0E4
 	public void Disable(Material target)
 	{
 		ShaderPropertyType shaderPropertyType = this.type;
@@ -117,7 +117,7 @@ public class UberShaderProperty
 		}
 	}
 
-	// Token: 0x06002818 RID: 10264 RVA: 0x000C4CF0 File Offset: 0x000C2EF0
+	// Token: 0x06002743 RID: 10051 RVA: 0x0004ACA7 File Offset: 0x00048EA7
 	public bool TryGetKeywordState(Material target, out bool enabled)
 	{
 		enabled = false;
@@ -129,37 +129,37 @@ public class UberShaderProperty
 		return true;
 	}
 
-	// Token: 0x06002819 RID: 10265 RVA: 0x000C4D0E File Offset: 0x000C2F0E
+	// Token: 0x06002744 RID: 10052 RVA: 0x0004ACC5 File Offset: 0x00048EC5
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private unsafe static TOut ValueAs<TIn, TOut>(TIn value)
 	{
 		return *Unsafe.As<TIn, TOut>(ref value);
 	}
 
-	// Token: 0x04002C9D RID: 11421
+	// Token: 0x04002C03 RID: 11267
 	public int index;
 
-	// Token: 0x04002C9E RID: 11422
+	// Token: 0x04002C04 RID: 11268
 	public int nameID;
 
-	// Token: 0x04002C9F RID: 11423
+	// Token: 0x04002C05 RID: 11269
 	public string name;
 
-	// Token: 0x04002CA0 RID: 11424
+	// Token: 0x04002C06 RID: 11270
 	public ShaderPropertyType type;
 
-	// Token: 0x04002CA1 RID: 11425
+	// Token: 0x04002C07 RID: 11271
 	public ShaderPropertyFlags flags;
 
-	// Token: 0x04002CA2 RID: 11426
+	// Token: 0x04002C08 RID: 11272
 	public Vector2 rangeLimits;
 
-	// Token: 0x04002CA3 RID: 11427
+	// Token: 0x04002C09 RID: 11273
 	public string[] attributes;
 
-	// Token: 0x04002CA4 RID: 11428
+	// Token: 0x04002C0A RID: 11274
 	public bool isKeywordToggle;
 
-	// Token: 0x04002CA5 RID: 11429
+	// Token: 0x04002C0B RID: 11275
 	public string keyword;
 }

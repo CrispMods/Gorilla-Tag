@@ -10,16 +10,16 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-// Token: 0x02000559 RID: 1369
+// Token: 0x02000567 RID: 1383
 public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSystemTick, IWrappedSerializable, INetworkStruct
 {
-	// Token: 0x1400004E RID: 78
-	// (add) Token: 0x06002171 RID: 8561 RVA: 0x000A66B0 File Offset: 0x000A48B0
-	// (remove) Token: 0x06002172 RID: 8562 RVA: 0x000A66E4 File Offset: 0x000A48E4
+	// Token: 0x1400004F RID: 79
+	// (add) Token: 0x060021CF RID: 8655 RVA: 0x000F6CF8 File Offset: 0x000F4EF8
+	// (remove) Token: 0x060021D0 RID: 8656 RVA: 0x000F6D2C File Offset: 0x000F4F2C
 	public static event GorillaGameManager.OnTouchDelegate OnTouch;
 
-	// Token: 0x1700036F RID: 879
-	// (get) Token: 0x06002173 RID: 8563 RVA: 0x000A6717 File Offset: 0x000A4917
+	// Token: 0x17000377 RID: 887
+	// (get) Token: 0x060021D1 RID: 8657 RVA: 0x0004702F File Offset: 0x0004522F
 	public static GorillaGameManager instance
 	{
 		get
@@ -28,27 +28,27 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		}
 	}
 
-	// Token: 0x17000370 RID: 880
-	// (get) Token: 0x06002174 RID: 8564 RVA: 0x000A671E File Offset: 0x000A491E
-	// (set) Token: 0x06002175 RID: 8565 RVA: 0x000A6726 File Offset: 0x000A4926
+	// Token: 0x17000378 RID: 888
+	// (get) Token: 0x060021D2 RID: 8658 RVA: 0x00047036 File Offset: 0x00045236
+	// (set) Token: 0x060021D3 RID: 8659 RVA: 0x0004703E File Offset: 0x0004523E
 	bool ITickSystemTick.TickRunning { get; set; }
 
-	// Token: 0x06002176 RID: 8566 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060021D4 RID: 8660 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void Awake()
 	{
 	}
 
-	// Token: 0x06002177 RID: 8567 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060021D5 RID: 8661 RVA: 0x00030607 File Offset: 0x0002E807
 	private new void OnEnable()
 	{
 	}
 
-	// Token: 0x06002178 RID: 8568 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060021D6 RID: 8662 RVA: 0x00030607 File Offset: 0x0002E807
 	private new void OnDisable()
 	{
 	}
 
-	// Token: 0x06002179 RID: 8569 RVA: 0x000A6730 File Offset: 0x000A4930
+	// Token: 0x060021D7 RID: 8663 RVA: 0x000F6D60 File Offset: 0x000F4F60
 	public virtual void Tick()
 	{
 		if (this.lastCheck + this.checkCooldown < Time.time)
@@ -63,69 +63,69 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		}
 	}
 
-	// Token: 0x0600217A RID: 8570 RVA: 0x000A677D File Offset: 0x000A497D
+	// Token: 0x060021D8 RID: 8664 RVA: 0x00047047 File Offset: 0x00045247
 	public virtual void InfrequentUpdate()
 	{
 		GorillaGameModes.GameMode.RefreshPlayers();
 		this.currentNetPlayerArray = NetworkSystem.Instance.AllNetPlayers;
 	}
 
-	// Token: 0x0600217B RID: 8571 RVA: 0x000A6794 File Offset: 0x000A4994
+	// Token: 0x060021D9 RID: 8665 RVA: 0x0004705E File Offset: 0x0004525E
 	public virtual string GameModeName()
 	{
 		return "NONE";
 	}
 
-	// Token: 0x0600217C RID: 8572 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060021DA RID: 8666 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void LocalTag(NetPlayer taggedPlayer, NetPlayer taggingPlayer, bool bodyHit, bool leftHand)
 	{
 	}
 
-	// Token: 0x0600217D RID: 8573 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060021DB RID: 8667 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void ReportTag(NetPlayer taggedPlayer, NetPlayer taggingPlayer)
 	{
 	}
 
-	// Token: 0x0600217E RID: 8574 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060021DC RID: 8668 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void HitPlayer(NetPlayer player)
 	{
 	}
 
-	// Token: 0x0600217F RID: 8575 RVA: 0x00002076 File Offset: 0x00000276
+	// Token: 0x060021DD RID: 8669 RVA: 0x00030498 File Offset: 0x0002E698
 	public virtual bool CanAffectPlayer(NetPlayer player, bool thisFrame)
 	{
 		return false;
 	}
 
-	// Token: 0x06002180 RID: 8576 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060021DE RID: 8670 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void HandleHandTap(NetPlayer tappingPlayer, Tappable hitTappable, bool leftHand, Vector3 handVelocity, Vector3 tapSurfaceNormal)
 	{
 	}
 
-	// Token: 0x06002181 RID: 8577 RVA: 0x000444E2 File Offset: 0x000426E2
+	// Token: 0x060021DF RID: 8671 RVA: 0x00039846 File Offset: 0x00037A46
 	public virtual bool CanJoinFrienship(NetPlayer player)
 	{
 		return true;
 	}
 
-	// Token: 0x06002182 RID: 8578 RVA: 0x000A679B File Offset: 0x000A499B
+	// Token: 0x060021E0 RID: 8672 RVA: 0x00047065 File Offset: 0x00045265
 	public virtual void HandleRoundComplete()
 	{
 		PlayerGameEvents.GameModeCompleteRound();
 	}
 
-	// Token: 0x06002183 RID: 8579 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060021E1 RID: 8673 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void NewVRRig(NetPlayer player, int vrrigPhotonViewID, bool didTutorial)
 	{
 	}
 
-	// Token: 0x06002184 RID: 8580 RVA: 0x00002076 File Offset: 0x00000276
+	// Token: 0x060021E2 RID: 8674 RVA: 0x00030498 File Offset: 0x0002E698
 	public virtual bool LocalCanTag(NetPlayer myPlayer, NetPlayer otherPlayer)
 	{
 		return false;
 	}
 
-	// Token: 0x06002185 RID: 8581 RVA: 0x000A67A2 File Offset: 0x000A49A2
+	// Token: 0x060021E3 RID: 8675 RVA: 0x0004706C File Offset: 0x0004526C
 	public virtual VRRig FindPlayerVRRig(NetPlayer player)
 	{
 		this.returnRig = null;
@@ -141,7 +141,7 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		return this.returnRig;
 	}
 
-	// Token: 0x06002186 RID: 8582 RVA: 0x000A67E4 File Offset: 0x000A49E4
+	// Token: 0x060021E4 RID: 8676 RVA: 0x000F6DB0 File Offset: 0x000F4FB0
 	public static VRRig StaticFindRigForPlayer(NetPlayer player)
 	{
 		VRRig result = null;
@@ -157,7 +157,7 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		return result;
 	}
 
-	// Token: 0x06002187 RID: 8583 RVA: 0x000A6825 File Offset: 0x000A4A25
+	// Token: 0x060021E5 RID: 8677 RVA: 0x000470AB File Offset: 0x000452AB
 	public virtual float[] LocalPlayerSpeed()
 	{
 		this.playerSpeed[0] = this.slowJumpLimit;
@@ -165,7 +165,7 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		return this.playerSpeed;
 	}
 
-	// Token: 0x06002188 RID: 8584 RVA: 0x000A684C File Offset: 0x000A4A4C
+	// Token: 0x060021E6 RID: 8678 RVA: 0x000F6DF4 File Offset: 0x000F4FF4
 	public virtual void UpdatePlayerAppearance(VRRig rig)
 	{
 		ScienceExperimentManager instance = ScienceExperimentManager.instance;
@@ -179,25 +179,25 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		rig.ChangeMaterialLocal(materialIndex2);
 	}
 
-	// Token: 0x06002189 RID: 8585 RVA: 0x00002076 File Offset: 0x00000276
+	// Token: 0x060021E7 RID: 8679 RVA: 0x00030498 File Offset: 0x0002E698
 	public virtual int MyMatIndex(NetPlayer forPlayer)
 	{
 		return 0;
 	}
 
-	// Token: 0x0600218A RID: 8586 RVA: 0x000A689B File Offset: 0x000A4A9B
+	// Token: 0x060021E8 RID: 8680 RVA: 0x000470CF File Offset: 0x000452CF
 	public virtual int SpecialHandFX(NetPlayer player, RigContainer rigContainer)
 	{
 		return -1;
 	}
 
-	// Token: 0x0600218B RID: 8587 RVA: 0x000A689E File Offset: 0x000A4A9E
+	// Token: 0x060021E9 RID: 8681 RVA: 0x000470D2 File Offset: 0x000452D2
 	public virtual bool ValidGameMode()
 	{
 		return NetworkSystem.Instance.InRoom && NetworkSystem.Instance.GameModeString.Contains(this.GameTypeName());
 	}
 
-	// Token: 0x0600218C RID: 8588 RVA: 0x000A68C6 File Offset: 0x000A4AC6
+	// Token: 0x060021EA RID: 8682 RVA: 0x000470FA File Offset: 0x000452FA
 	public static void OnInstanceReady(Action action)
 	{
 		GorillaParent.OnReplicatedClientReady(delegate
@@ -211,13 +211,13 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		});
 	}
 
-	// Token: 0x0600218D RID: 8589 RVA: 0x000A68E4 File Offset: 0x000A4AE4
+	// Token: 0x060021EB RID: 8683 RVA: 0x00047118 File Offset: 0x00045318
 	public static void ReplicatedClientReady()
 	{
 		GorillaGameManager.replicatedClientReady = true;
 	}
 
-	// Token: 0x0600218E RID: 8590 RVA: 0x000A68EC File Offset: 0x000A4AEC
+	// Token: 0x060021EC RID: 8684 RVA: 0x00047120 File Offset: 0x00045320
 	public static void OnReplicatedClientReady(Action action)
 	{
 		if (GorillaGameManager.replicatedClientReady)
@@ -228,8 +228,8 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		GorillaGameManager.onReplicatedClientReady = (Action)Delegate.Combine(GorillaGameManager.onReplicatedClientReady, action);
 	}
 
-	// Token: 0x17000371 RID: 881
-	// (get) Token: 0x0600218F RID: 8591 RVA: 0x000A6911 File Offset: 0x000A4B11
+	// Token: 0x17000379 RID: 889
+	// (get) Token: 0x060021ED RID: 8685 RVA: 0x00047145 File Offset: 0x00045345
 	internal GameModeSerializer Serializer
 	{
 		get
@@ -238,13 +238,13 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		}
 	}
 
-	// Token: 0x06002190 RID: 8592 RVA: 0x000A6919 File Offset: 0x000A4B19
+	// Token: 0x060021EE RID: 8686 RVA: 0x0004714D File Offset: 0x0004534D
 	internal virtual void NetworkLinkSetup(GameModeSerializer netSerializer)
 	{
 		this.serializer = netSerializer;
 	}
 
-	// Token: 0x06002191 RID: 8593 RVA: 0x000A6922 File Offset: 0x000A4B22
+	// Token: 0x060021EF RID: 8687 RVA: 0x00047156 File Offset: 0x00045356
 	internal virtual void NetworkLinkDestroyed(GameModeSerializer netSerializer)
 	{
 		if (this.serializer == netSerializer)
@@ -253,36 +253,36 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		}
 	}
 
-	// Token: 0x06002192 RID: 8594
+	// Token: 0x060021F0 RID: 8688
 	public abstract GameModeType GameType();
 
-	// Token: 0x06002193 RID: 8595 RVA: 0x000A693C File Offset: 0x000A4B3C
+	// Token: 0x060021F1 RID: 8689 RVA: 0x000F6E44 File Offset: 0x000F5044
 	public string GameTypeName()
 	{
 		return this.GameType().ToString();
 	}
 
-	// Token: 0x06002194 RID: 8596
+	// Token: 0x060021F2 RID: 8690
 	public abstract void AddFusionDataBehaviour(NetworkObject behaviour);
 
-	// Token: 0x06002195 RID: 8597
+	// Token: 0x060021F3 RID: 8691
 	public abstract void OnSerializeRead(object newData);
 
-	// Token: 0x06002196 RID: 8598
+	// Token: 0x060021F4 RID: 8692
 	public abstract object OnSerializeWrite();
 
-	// Token: 0x06002197 RID: 8599
+	// Token: 0x060021F5 RID: 8693
 	public abstract void OnSerializeRead(PhotonStream stream, PhotonMessageInfo info);
 
-	// Token: 0x06002198 RID: 8600
+	// Token: 0x060021F6 RID: 8694
 	public abstract void OnSerializeWrite(PhotonStream stream, PhotonMessageInfo info);
 
-	// Token: 0x06002199 RID: 8601 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060021F7 RID: 8695 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void Reset()
 	{
 	}
 
-	// Token: 0x0600219A RID: 8602 RVA: 0x000A6960 File Offset: 0x000A4B60
+	// Token: 0x060021F8 RID: 8696 RVA: 0x000F6E68 File Offset: 0x000F5068
 	public virtual void StartPlaying()
 	{
 		TickSystem<object>.AddTickCallback(this);
@@ -292,7 +292,7 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		this.currentNetPlayerArray = NetworkSystem.Instance.AllNetPlayers;
 	}
 
-	// Token: 0x0600219B RID: 8603 RVA: 0x000A69C8 File Offset: 0x000A4BC8
+	// Token: 0x060021F9 RID: 8697 RVA: 0x000F6ED0 File Offset: 0x000F50D0
 	public virtual void StopPlaying()
 	{
 		TickSystem<object>.RemoveTickCallback(this);
@@ -302,22 +302,22 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		this.lastCheck = 0f;
 	}
 
-	// Token: 0x0600219C RID: 8604 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060021FA RID: 8698 RVA: 0x00030607 File Offset: 0x0002E807
 	public new virtual void OnMasterClientSwitched(Player newMaster)
 	{
 	}
 
-	// Token: 0x0600219D RID: 8605 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060021FB RID: 8699 RVA: 0x00030607 File Offset: 0x0002E807
 	public new virtual void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
 	{
 	}
 
-	// Token: 0x0600219E RID: 8606 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060021FC RID: 8700 RVA: 0x00030607 File Offset: 0x0002E807
 	public new virtual void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
 	{
 	}
 
-	// Token: 0x0600219F RID: 8607 RVA: 0x000A6A2B File Offset: 0x000A4C2B
+	// Token: 0x060021FD RID: 8701 RVA: 0x0004716D File Offset: 0x0004536D
 	public virtual void OnPlayerLeftRoom(NetPlayer otherPlayer)
 	{
 		this.currentNetPlayerArray = NetworkSystem.Instance.AllNetPlayers;
@@ -327,18 +327,18 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		}
 	}
 
-	// Token: 0x060021A0 RID: 8608 RVA: 0x000A6A62 File Offset: 0x000A4C62
+	// Token: 0x060021FE RID: 8702 RVA: 0x000471A4 File Offset: 0x000453A4
 	public virtual void OnPlayerEnteredRoom(NetPlayer newPlayer)
 	{
 		this.currentNetPlayerArray = NetworkSystem.Instance.AllNetPlayers;
 	}
 
-	// Token: 0x060021A1 RID: 8609 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060021FF RID: 8703 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void OnMasterClientSwitched(NetPlayer newMaster)
 	{
 	}
 
-	// Token: 0x060021A2 RID: 8610 RVA: 0x000A6A74 File Offset: 0x000A4C74
+	// Token: 0x06002200 RID: 8704 RVA: 0x000F6F34 File Offset: 0x000F5134
 	internal static void ForceStopGame_DisconnectAndDestroy()
 	{
 		Application.Quit();
@@ -347,16 +347,16 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		{
 			instance.ReturnToSinglePlayer();
 		}
-		Object.DestroyImmediate(PhotonNetworkController.Instance);
-		Object.DestroyImmediate(GTPlayer.Instance);
-		GameObject[] array = Object.FindObjectsOfType<GameObject>();
+		UnityEngine.Object.DestroyImmediate(PhotonNetworkController.Instance);
+		UnityEngine.Object.DestroyImmediate(GTPlayer.Instance);
+		GameObject[] array = UnityEngine.Object.FindObjectsOfType<GameObject>();
 		for (int i = 0; i < array.Length; i++)
 		{
-			Object.Destroy(array[i]);
+			UnityEngine.Object.Destroy(array[i]);
 		}
 	}
 
-	// Token: 0x060021A3 RID: 8611 RVA: 0x000A6ACC File Offset: 0x000A4CCC
+	// Token: 0x06002201 RID: 8705 RVA: 0x000F6F8C File Offset: 0x000F518C
 	public void AddLastTagged(NetPlayer taggedPlayer, NetPlayer taggingPlayer)
 	{
 		if (this.lastTaggedActorNr.ContainsKey(taggedPlayer.ActorNumber))
@@ -367,7 +367,7 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		this.lastTaggedActorNr.Add(taggedPlayer.ActorNumber, taggingPlayer.ActorNumber);
 	}
 
-	// Token: 0x060021A4 RID: 8612 RVA: 0x000A6B1C File Offset: 0x000A4D1C
+	// Token: 0x06002202 RID: 8706 RVA: 0x000F6FDC File Offset: 0x000F51DC
 	public void WriteLastTagged(PhotonStream stream)
 	{
 		stream.SendNext(this.lastTaggedActorNr.Count);
@@ -378,7 +378,7 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		}
 	}
 
-	// Token: 0x060021A5 RID: 8613 RVA: 0x000A6BA4 File Offset: 0x000A4DA4
+	// Token: 0x06002203 RID: 8707 RVA: 0x000F7064 File Offset: 0x000F5264
 	public void ReadLastTagged(PhotonStream stream)
 	{
 		this.lastTaggedActorNr.Clear();
@@ -389,85 +389,85 @@ public abstract class GorillaGameManager : MonoBehaviourPunCallbacks, ITickSyste
 		}
 	}
 
-	// Token: 0x04002530 RID: 9520
+	// Token: 0x04002588 RID: 9608
 	public object obj;
 
-	// Token: 0x04002531 RID: 9521
+	// Token: 0x04002589 RID: 9609
 	public float fastJumpLimit;
 
-	// Token: 0x04002532 RID: 9522
+	// Token: 0x0400258A RID: 9610
 	public float fastJumpMultiplier;
 
-	// Token: 0x04002533 RID: 9523
+	// Token: 0x0400258B RID: 9611
 	public float slowJumpLimit;
 
-	// Token: 0x04002534 RID: 9524
+	// Token: 0x0400258C RID: 9612
 	public float slowJumpMultiplier;
 
-	// Token: 0x04002535 RID: 9525
+	// Token: 0x0400258D RID: 9613
 	public float lastCheck;
 
-	// Token: 0x04002536 RID: 9526
+	// Token: 0x0400258E RID: 9614
 	public float checkCooldown = 3f;
 
-	// Token: 0x04002537 RID: 9527
+	// Token: 0x0400258F RID: 9615
 	public float startingToLookForFriend;
 
-	// Token: 0x04002538 RID: 9528
+	// Token: 0x04002590 RID: 9616
 	public float timeToSpendLookingForFriend = 10f;
 
-	// Token: 0x04002539 RID: 9529
+	// Token: 0x04002591 RID: 9617
 	public bool successfullyFoundFriend;
 
-	// Token: 0x0400253A RID: 9530
+	// Token: 0x04002592 RID: 9618
 	public float tagDistanceThreshold = 4f;
 
-	// Token: 0x0400253B RID: 9531
+	// Token: 0x04002593 RID: 9619
 	public bool testAssault;
 
-	// Token: 0x0400253C RID: 9532
+	// Token: 0x04002594 RID: 9620
 	public bool endGameManually;
 
-	// Token: 0x0400253D RID: 9533
+	// Token: 0x04002595 RID: 9621
 	public NetPlayer currentMasterClient;
 
-	// Token: 0x0400253E RID: 9534
+	// Token: 0x04002596 RID: 9622
 	public VRRig returnRig;
 
-	// Token: 0x0400253F RID: 9535
+	// Token: 0x04002597 RID: 9623
 	private NetPlayer outPlayer;
 
-	// Token: 0x04002540 RID: 9536
+	// Token: 0x04002598 RID: 9624
 	private int outInt;
 
-	// Token: 0x04002541 RID: 9537
+	// Token: 0x04002599 RID: 9625
 	private VRRig tempRig;
 
-	// Token: 0x04002542 RID: 9538
+	// Token: 0x0400259A RID: 9626
 	public NetPlayer[] currentNetPlayerArray;
 
-	// Token: 0x04002543 RID: 9539
+	// Token: 0x0400259B RID: 9627
 	public float[] playerSpeed = new float[2];
 
-	// Token: 0x04002544 RID: 9540
+	// Token: 0x0400259C RID: 9628
 	private RigContainer outContainer;
 
-	// Token: 0x04002545 RID: 9541
+	// Token: 0x0400259D RID: 9629
 	public Dictionary<int, int> lastTaggedActorNr = new Dictionary<int, int>();
 
-	// Token: 0x04002547 RID: 9543
+	// Token: 0x0400259F RID: 9631
 	private static Action onInstanceReady;
 
-	// Token: 0x04002548 RID: 9544
+	// Token: 0x040025A0 RID: 9632
 	private static bool replicatedClientReady;
 
-	// Token: 0x04002549 RID: 9545
+	// Token: 0x040025A1 RID: 9633
 	private static Action onReplicatedClientReady;
 
-	// Token: 0x0400254A RID: 9546
+	// Token: 0x040025A2 RID: 9634
 	private GameModeSerializer serializer;
 
-	// Token: 0x0200055A RID: 1370
-	// (Invoke) Token: 0x060021A8 RID: 8616
+	// Token: 0x02000568 RID: 1384
+	// (Invoke) Token: 0x06002206 RID: 8710
 	public delegate void OnTouchDelegate(NetPlayer taggedPlayer, NetPlayer taggingPlayer);
 }

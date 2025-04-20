@@ -2,16 +2,16 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x020001F9 RID: 505
+// Token: 0x02000204 RID: 516
 public class SpinParametricAnimation : MonoBehaviour
 {
-	// Token: 0x06000BD2 RID: 3026 RVA: 0x0003E9D1 File Offset: 0x0003CBD1
+	// Token: 0x06000C1D RID: 3101 RVA: 0x000387A1 File Offset: 0x000369A1
 	protected void OnEnable()
 	{
 		this.axis = this.axis.normalized;
 	}
 
-	// Token: 0x06000BD3 RID: 3027 RVA: 0x0003E9E4 File Offset: 0x0003CBE4
+	// Token: 0x06000C1E RID: 3102 RVA: 0x0009D3BC File Offset: 0x0009B5BC
 	protected void LateUpdate()
 	{
 		Transform transform = base.transform;
@@ -27,26 +27,26 @@ public class SpinParametricAnimation : MonoBehaviour
 		transform.localRotation = Quaternion.AngleAxis(angle, this.axis) * transform.localRotation;
 	}
 
-	// Token: 0x04000E34 RID: 3636
+	// Token: 0x04000E7A RID: 3706
 	[Tooltip("Axis to rotate around.")]
 	public Vector3 axis = Vector3.up;
 
-	// Token: 0x04000E35 RID: 3637
+	// Token: 0x04000E7B RID: 3707
 	[Tooltip("Whether rotation is in World Space or Local Space")]
 	public bool WorldSpaceRotation = true;
 
-	// Token: 0x04000E36 RID: 3638
+	// Token: 0x04000E7C RID: 3708
 	[FormerlySerializedAs("speed")]
 	[Tooltip("Speed of rotation.")]
 	public float revolutionsPerSecond = 0.25f;
 
-	// Token: 0x04000E37 RID: 3639
+	// Token: 0x04000E7D RID: 3709
 	[Tooltip("Affects the progress of the animation over time.")]
 	public AnimationCurve timeCurve;
 
-	// Token: 0x04000E38 RID: 3640
+	// Token: 0x04000E7E RID: 3710
 	private float _animationProgress;
 
-	// Token: 0x04000E39 RID: 3641
+	// Token: 0x04000E7F RID: 3711
 	private float _oldAngle;
 }

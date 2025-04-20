@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using Photon.Pun;
 
-// Token: 0x02000037 RID: 55
+// Token: 0x0200003A RID: 58
 public class CrittersActorSpawnerPoint : CrittersActor
 {
 	// Token: 0x14000002 RID: 2
-	// (add) Token: 0x06000111 RID: 273 RVA: 0x00008050 File Offset: 0x00006250
-	// (remove) Token: 0x06000112 RID: 274 RVA: 0x00008088 File Offset: 0x00006288
+	// (add) Token: 0x06000123 RID: 291 RVA: 0x0006D5C8 File Offset: 0x0006B7C8
+	// (remove) Token: 0x06000124 RID: 292 RVA: 0x0006D600 File Offset: 0x0006B800
 	public event Action<CrittersActor> OnSpawnChanged;
 
-	// Token: 0x06000113 RID: 275 RVA: 0x000080BD File Offset: 0x000062BD
+	// Token: 0x06000125 RID: 293 RVA: 0x000310B2 File Offset: 0x0002F2B2
 	public override void Initialize()
 	{
 		base.Initialize();
 		base.UpdateImpulses(false, false);
 	}
 
-	// Token: 0x06000114 RID: 276 RVA: 0x000080CD File Offset: 0x000062CD
+	// Token: 0x06000126 RID: 294 RVA: 0x000310C2 File Offset: 0x0002F2C2
 	public override void OnDisable()
 	{
 		base.OnDisable();
@@ -25,7 +25,7 @@ public class CrittersActorSpawnerPoint : CrittersActor
 		this.spawnedActor = null;
 	}
 
-	// Token: 0x06000115 RID: 277 RVA: 0x000080E4 File Offset: 0x000062E4
+	// Token: 0x06000127 RID: 295 RVA: 0x0006D638 File Offset: 0x0006B838
 	public void SetSpawnedActor(CrittersActor actor)
 	{
 		if (this.spawnedActor == actor)
@@ -49,7 +49,7 @@ public class CrittersActorSpawnerPoint : CrittersActor
 		this.updatedSinceLastFrame = true;
 	}
 
-	// Token: 0x06000116 RID: 278 RVA: 0x00008150 File Offset: 0x00006350
+	// Token: 0x06000128 RID: 296 RVA: 0x0006D6A4 File Offset: 0x0006B8A4
 	private void UpdateSpawnedActor(int newSpawnedActorID)
 	{
 		if (this.spawnedActorID == newSpawnedActorID)
@@ -79,14 +79,14 @@ public class CrittersActorSpawnerPoint : CrittersActor
 		onSpawnChanged(this.spawnedActor);
 	}
 
-	// Token: 0x06000117 RID: 279 RVA: 0x000081B6 File Offset: 0x000063B6
+	// Token: 0x06000129 RID: 297 RVA: 0x000310D8 File Offset: 0x0002F2D8
 	public override void SendDataByCrittersActorType(PhotonStream stream)
 	{
 		base.SendDataByCrittersActorType(stream);
 		stream.SendNext(this.spawnedActorID);
 	}
 
-	// Token: 0x06000118 RID: 280 RVA: 0x000081D0 File Offset: 0x000063D0
+	// Token: 0x0600012A RID: 298 RVA: 0x0006D70C File Offset: 0x0006B90C
 	public override bool UpdateSpecificActor(PhotonStream stream)
 	{
 		if (!base.UpdateSpecificActor(stream))
@@ -106,7 +106,7 @@ public class CrittersActorSpawnerPoint : CrittersActor
 		return true;
 	}
 
-	// Token: 0x06000119 RID: 281 RVA: 0x00008216 File Offset: 0x00006416
+	// Token: 0x0600012B RID: 299 RVA: 0x000310F2 File Offset: 0x0002F2F2
 	public override int AddActorDataToList(ref List<object> objList)
 	{
 		base.AddActorDataToList(ref objList);
@@ -114,13 +114,13 @@ public class CrittersActorSpawnerPoint : CrittersActor
 		return this.TotalActorDataLength();
 	}
 
-	// Token: 0x0600011A RID: 282 RVA: 0x00008238 File Offset: 0x00006438
+	// Token: 0x0600012C RID: 300 RVA: 0x00031114 File Offset: 0x0002F314
 	public override int TotalActorDataLength()
 	{
 		return base.BaseActorDataLength() + 1;
 	}
 
-	// Token: 0x0600011B RID: 283 RVA: 0x00008244 File Offset: 0x00006444
+	// Token: 0x0600012D RID: 301 RVA: 0x0006D754 File Offset: 0x0006B954
 	public override int UpdateFromRPC(object[] data, int startingIndex)
 	{
 		startingIndex += base.UpdateFromRPC(data, startingIndex);
@@ -137,9 +137,9 @@ public class CrittersActorSpawnerPoint : CrittersActor
 		return this.TotalActorDataLength();
 	}
 
-	// Token: 0x04000150 RID: 336
+	// Token: 0x04000159 RID: 345
 	private CrittersActor spawnedActor;
 
-	// Token: 0x04000151 RID: 337
+	// Token: 0x0400015A RID: 346
 	private int spawnedActorID = -1;
 }

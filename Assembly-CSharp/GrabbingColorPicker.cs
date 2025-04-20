@@ -5,10 +5,10 @@ using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
-// Token: 0x0200042D RID: 1069
+// Token: 0x02000439 RID: 1081
 public class GrabbingColorPicker : MonoBehaviour, IGorillaSliceableSimple
 {
-	// Token: 0x06001A6A RID: 6762 RVA: 0x000825DC File Offset: 0x000807DC
+	// Token: 0x06001ABE RID: 6846 RVA: 0x000D78DC File Offset: 0x000D5ADC
 	private void Start()
 	{
 		float @float = PlayerPrefs.GetFloat("redValue", 0f);
@@ -27,7 +27,7 @@ public class GrabbingColorPicker : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06001A6B RID: 6763 RVA: 0x000826CC File Offset: 0x000808CC
+	// Token: 0x06001ABF RID: 6847 RVA: 0x000421DD File Offset: 0x000403DD
 	private void OnDestroy()
 	{
 		if (GorillaTagger.Instance && GorillaTagger.Instance.offlineVRRig)
@@ -36,19 +36,19 @@ public class GrabbingColorPicker : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06001A6C RID: 6764 RVA: 0x000158F9 File Offset: 0x00013AF9
+	// Token: 0x06001AC0 RID: 6848 RVA: 0x00032C89 File Offset: 0x00030E89
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x06001A6D RID: 6765 RVA: 0x00015902 File Offset: 0x00013B02
+	// Token: 0x06001AC1 RID: 6849 RVA: 0x00032C92 File Offset: 0x00030E92
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x06001A6E RID: 6766 RVA: 0x00082708 File Offset: 0x00080908
+	// Token: 0x06001AC2 RID: 6850 RVA: 0x000D79CC File Offset: 0x000D5BCC
 	public void SliceUpdate()
 	{
 		float num = Vector3.Distance(base.transform.position, GTPlayer.Instance.transform.position);
@@ -99,7 +99,7 @@ public class GrabbingColorPicker : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06001A6F RID: 6767 RVA: 0x000829A4 File Offset: 0x00080BA4
+	// Token: 0x06001AC3 RID: 6851 RVA: 0x000D7C68 File Offset: 0x000D5E68
 	private void SetSliderColors(float r, float g, float b)
 	{
 		if (!this.hasUpdated)
@@ -114,13 +114,13 @@ public class GrabbingColorPicker : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06001A70 RID: 6768 RVA: 0x00082A34 File Offset: 0x00080C34
+	// Token: 0x06001AC4 RID: 6852 RVA: 0x00042217 File Offset: 0x00040417
 	private void HandleLocalColorChanged(Color newColor)
 	{
 		this.SetSliderColors(newColor.r, newColor.g, newColor.b);
 	}
 
-	// Token: 0x06001A71 RID: 6769 RVA: 0x00082A50 File Offset: 0x00080C50
+	// Token: 0x06001AC5 RID: 6853 RVA: 0x000D7CF8 File Offset: 0x000D5EF8
 	private void UpdateDisplay()
 	{
 		this.textR.text = this.Segment1.ToString();
@@ -138,61 +138,61 @@ public class GrabbingColorPicker : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06001A73 RID: 6771 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x06001AC7 RID: 6855 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x04001D32 RID: 7474
+	// Token: 0x04001D81 RID: 7553
 	[SerializeField]
 	private PushableSlider R_PushSlider;
 
-	// Token: 0x04001D33 RID: 7475
+	// Token: 0x04001D82 RID: 7554
 	[SerializeField]
 	private PushableSlider G_PushSlider;
 
-	// Token: 0x04001D34 RID: 7476
+	// Token: 0x04001D83 RID: 7555
 	[SerializeField]
 	private PushableSlider B_PushSlider;
 
-	// Token: 0x04001D35 RID: 7477
+	// Token: 0x04001D84 RID: 7556
 	[SerializeField]
 	private AudioSource R_SliderAudio;
 
-	// Token: 0x04001D36 RID: 7478
+	// Token: 0x04001D85 RID: 7557
 	[SerializeField]
 	private AudioSource G_SliderAudio;
 
-	// Token: 0x04001D37 RID: 7479
+	// Token: 0x04001D86 RID: 7558
 	[SerializeField]
 	private AudioSource B_SliderAudio;
 
-	// Token: 0x04001D38 RID: 7480
+	// Token: 0x04001D87 RID: 7559
 	[SerializeField]
 	private TextMeshPro textR;
 
-	// Token: 0x04001D39 RID: 7481
+	// Token: 0x04001D88 RID: 7560
 	[SerializeField]
 	private TextMeshPro textG;
 
-	// Token: 0x04001D3A RID: 7482
+	// Token: 0x04001D89 RID: 7561
 	[SerializeField]
 	private TextMeshPro textB;
 
-	// Token: 0x04001D3B RID: 7483
+	// Token: 0x04001D8A RID: 7562
 	[SerializeField]
 	private GameObject ColorSwatch;
 
-	// Token: 0x04001D3C RID: 7484
+	// Token: 0x04001D8B RID: 7563
 	private int Segment1;
 
-	// Token: 0x04001D3D RID: 7485
+	// Token: 0x04001D8C RID: 7564
 	private int Segment2;
 
-	// Token: 0x04001D3E RID: 7486
+	// Token: 0x04001D8D RID: 7565
 	private int Segment3;
 
-	// Token: 0x04001D3F RID: 7487
+	// Token: 0x04001D8E RID: 7566
 	private bool hasUpdated;
 }

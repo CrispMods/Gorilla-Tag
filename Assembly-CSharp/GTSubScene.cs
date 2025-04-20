@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008A2 RID: 2210
+// Token: 0x020008BE RID: 2238
 public class GTSubScene : ScriptableObject
 {
-	// Token: 0x0600357A RID: 13690 RVA: 0x000FE484 File Offset: 0x000FC684
+	// Token: 0x06003642 RID: 13890 RVA: 0x00053BBE File Offset: 0x00051DBE
 	public void SwitchToScene(int index)
 	{
 		this.scenes[index].LoadAsync();
 	}
 
-	// Token: 0x0600357B RID: 13691 RVA: 0x000FE494 File Offset: 0x000FC694
+	// Token: 0x06003643 RID: 13891 RVA: 0x00144614 File Offset: 0x00142814
 	public void SwitchToScene(GTScene scene)
 	{
 		for (int i = 0; i < this.scenes.Length; i++)
@@ -24,7 +24,7 @@ public class GTSubScene : ScriptableObject
 		scene.LoadAsync();
 	}
 
-	// Token: 0x0600357C RID: 13692 RVA: 0x000FE4D4 File Offset: 0x000FC6D4
+	// Token: 0x06003644 RID: 13892 RVA: 0x00144654 File Offset: 0x00142854
 	public void LoadAll()
 	{
 		for (int i = 0; i < this.scenes.Length; i++)
@@ -33,7 +33,7 @@ public class GTSubScene : ScriptableObject
 		}
 	}
 
-	// Token: 0x0600357D RID: 13693 RVA: 0x000FE504 File Offset: 0x000FC704
+	// Token: 0x06003645 RID: 13893 RVA: 0x00144684 File Offset: 0x00142884
 	public void UnloadAll()
 	{
 		for (int i = 0; i < this.scenes.Length; i++)
@@ -42,7 +42,7 @@ public class GTSubScene : ScriptableObject
 		}
 	}
 
-	// Token: 0x040037C8 RID: 14280
+	// Token: 0x04003889 RID: 14473
 	[DragDropScenes]
 	public GTScene[] scenes = new GTScene[0];
 }

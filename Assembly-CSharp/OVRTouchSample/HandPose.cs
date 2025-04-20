@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace OVRTouchSample
 {
-	// Token: 0x02000A81 RID: 2689
+	// Token: 0x02000AAE RID: 2734
 	public class HandPose : MonoBehaviour
 	{
-		// Token: 0x170006EB RID: 1771
-		// (get) Token: 0x06004309 RID: 17161 RVA: 0x0013BEDA File Offset: 0x0013A0DA
+		// Token: 0x17000707 RID: 1799
+		// (get) Token: 0x0600444E RID: 17486 RVA: 0x0005C90F File Offset: 0x0005AB0F
 		public bool AllowPointing
 		{
 			get
@@ -16,8 +16,8 @@ namespace OVRTouchSample
 			}
 		}
 
-		// Token: 0x170006EC RID: 1772
-		// (get) Token: 0x0600430A RID: 17162 RVA: 0x0013BEE2 File Offset: 0x0013A0E2
+		// Token: 0x17000708 RID: 1800
+		// (get) Token: 0x0600444F RID: 17487 RVA: 0x0005C917 File Offset: 0x0005AB17
 		public bool AllowThumbsUp
 		{
 			get
@@ -26,8 +26,8 @@ namespace OVRTouchSample
 			}
 		}
 
-		// Token: 0x170006ED RID: 1773
-		// (get) Token: 0x0600430B RID: 17163 RVA: 0x0013BEEA File Offset: 0x0013A0EA
+		// Token: 0x17000709 RID: 1801
+		// (get) Token: 0x06004450 RID: 17488 RVA: 0x0005C91F File Offset: 0x0005AB1F
 		public HandPoseId PoseId
 		{
 			get
@@ -36,15 +36,15 @@ namespace OVRTouchSample
 			}
 		}
 
-		// Token: 0x04004440 RID: 17472
+		// Token: 0x0400453A RID: 17722
 		[SerializeField]
 		private bool m_allowPointing;
 
-		// Token: 0x04004441 RID: 17473
+		// Token: 0x0400453B RID: 17723
 		[SerializeField]
 		private bool m_allowThumbsUp;
 
-		// Token: 0x04004442 RID: 17474
+		// Token: 0x0400453C RID: 17724
 		[SerializeField]
 		private HandPoseId m_poseId;
 	}

@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009B8 RID: 2488
+	// Token: 0x020009DE RID: 2526
 	public class GameObjectManagerWithId : MonoBehaviour
 	{
-		// Token: 0x06003DE4 RID: 15844 RVA: 0x0012598C File Offset: 0x00123B8C
+		// Token: 0x06003EFC RID: 16124 RVA: 0x0016739C File Offset: 0x0016559C
 		private void Awake()
 		{
 			Transform[] componentsInChildren = this.objectsContainer.GetComponentsInChildren<Transform>(false);
@@ -20,13 +20,13 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003DE5 RID: 15845 RVA: 0x001259F2 File Offset: 0x00123BF2
+		// Token: 0x06003EFD RID: 16125 RVA: 0x00059090 File Offset: 0x00057290
 		private void OnDestroy()
 		{
 			this.objectData.Clear();
 		}
 
-		// Token: 0x06003DE6 RID: 15846 RVA: 0x00125A00 File Offset: 0x00123C00
+		// Token: 0x06003EFE RID: 16126 RVA: 0x00167404 File Offset: 0x00165604
 		public void ReceiveEvent(string id, Transform _transform)
 		{
 			foreach (GameObjectManagerWithId.gameObjectData gameObjectData in this.objectData)
@@ -39,7 +39,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003DE7 RID: 15847 RVA: 0x00125A68 File Offset: 0x00123C68
+		// Token: 0x06003EFF RID: 16127 RVA: 0x0016746C File Offset: 0x0016566C
 		private void Update()
 		{
 			foreach (GameObjectManagerWithId.gameObjectData gameObjectData in this.objectData)
@@ -52,28 +52,28 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x04003F21 RID: 16161
+		// Token: 0x04003FFB RID: 16379
 		public GameObject objectsContainer;
 
-		// Token: 0x04003F22 RID: 16162
+		// Token: 0x04003FFC RID: 16380
 		public GTZone zone;
 
-		// Token: 0x04003F23 RID: 16163
+		// Token: 0x04003FFD RID: 16381
 		private readonly List<GameObjectManagerWithId.gameObjectData> objectData = new List<GameObjectManagerWithId.gameObjectData>();
 
-		// Token: 0x020009B9 RID: 2489
+		// Token: 0x020009DF RID: 2527
 		private class gameObjectData
 		{
-			// Token: 0x04003F24 RID: 16164
+			// Token: 0x04003FFE RID: 16382
 			public Transform transform;
 
-			// Token: 0x04003F25 RID: 16165
+			// Token: 0x04003FFF RID: 16383
 			public Transform followTransform;
 
-			// Token: 0x04003F26 RID: 16166
+			// Token: 0x04004000 RID: 16384
 			public string id;
 
-			// Token: 0x04003F27 RID: 16167
+			// Token: 0x04004001 RID: 16385
 			public bool isMatched;
 		}
 	}

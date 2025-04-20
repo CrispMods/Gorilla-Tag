@@ -4,25 +4,25 @@ using GorillaTag;
 using GorillaTag.CosmeticSystem;
 using UnityEngine;
 
-// Token: 0x02000150 RID: 336
+// Token: 0x0200015A RID: 346
 public class DJScratchSoundPlayer : MonoBehaviour, ISpawnable
 {
-	// Token: 0x170000CA RID: 202
-	// (get) Token: 0x06000889 RID: 2185 RVA: 0x0002EC1D File Offset: 0x0002CE1D
-	// (set) Token: 0x0600088A RID: 2186 RVA: 0x0002EC25 File Offset: 0x0002CE25
+	// Token: 0x170000CF RID: 207
+	// (get) Token: 0x060008CD RID: 2253 RVA: 0x00036444 File Offset: 0x00034644
+	// (set) Token: 0x060008CE RID: 2254 RVA: 0x0003644C File Offset: 0x0003464C
 	public bool IsSpawned { get; set; }
 
-	// Token: 0x170000CB RID: 203
-	// (get) Token: 0x0600088B RID: 2187 RVA: 0x0002EC2E File Offset: 0x0002CE2E
-	// (set) Token: 0x0600088C RID: 2188 RVA: 0x0002EC36 File Offset: 0x0002CE36
+	// Token: 0x170000D0 RID: 208
+	// (get) Token: 0x060008CF RID: 2255 RVA: 0x00036455 File Offset: 0x00034655
+	// (set) Token: 0x060008D0 RID: 2256 RVA: 0x0003645D File Offset: 0x0003465D
 	public ECosmeticSelectSide CosmeticSelectedSide { get; set; }
 
-	// Token: 0x0600088D RID: 2189 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060008D1 RID: 2257 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnDespawn()
 	{
 	}
 
-	// Token: 0x0600088E RID: 2190 RVA: 0x0002EC40 File Offset: 0x0002CE40
+	// Token: 0x060008D2 RID: 2258 RVA: 0x0008F9F0 File Offset: 0x0008DBF0
 	private void OnEnable()
 	{
 		if (this._events.IsNull())
@@ -37,7 +37,7 @@ public class DJScratchSoundPlayer : MonoBehaviour, ISpawnable
 		this._events.Activate += this.OnPlayEvent;
 	}
 
-	// Token: 0x0600088F RID: 2191 RVA: 0x0002ECD2 File Offset: 0x0002CED2
+	// Token: 0x060008D3 RID: 2259 RVA: 0x00036466 File Offset: 0x00034666
 	private void OnDisable()
 	{
 		if (this._events.IsNotNull())
@@ -47,7 +47,7 @@ public class DJScratchSoundPlayer : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x06000890 RID: 2192 RVA: 0x0002ED0E File Offset: 0x0002CF0E
+	// Token: 0x060008D4 RID: 2260 RVA: 0x000364A2 File Offset: 0x000346A2
 	public void OnSpawn(VRRig rig)
 	{
 		this.myRig = rig;
@@ -58,7 +58,7 @@ public class DJScratchSoundPlayer : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x06000891 RID: 2193 RVA: 0x0002ED37 File Offset: 0x0002CF37
+	// Token: 0x060008D5 RID: 2261 RVA: 0x000364CB File Offset: 0x000346CB
 	public void Play(ScratchSoundType type, bool isLeft)
 	{
 		if (this.myRig.isLocal)
@@ -71,7 +71,7 @@ public class DJScratchSoundPlayer : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x06000892 RID: 2194 RVA: 0x0002ED78 File Offset: 0x0002CF78
+	// Token: 0x060008D6 RID: 2262 RVA: 0x0008FA84 File Offset: 0x0008DC84
 	public void OnPlayEvent(int sender, int target, object[] args, PhotonMessageInfoWrapped info)
 	{
 		if (sender != target)
@@ -101,7 +101,7 @@ public class DJScratchSoundPlayer : MonoBehaviour, ISpawnable
 		this.PlayLocal(scratchSoundType, flag);
 	}
 
-	// Token: 0x06000893 RID: 2195 RVA: 0x0002EDF0 File Offset: 0x0002CFF0
+	// Token: 0x060008D7 RID: 2263 RVA: 0x0008FAFC File Offset: 0x0008DCFC
 	public void PlayLocal(ScratchSoundType type, bool isLeft)
 	{
 		switch (type)
@@ -127,33 +127,33 @@ public class DJScratchSoundPlayer : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x04000A31 RID: 2609
+	// Token: 0x04000A74 RID: 2676
 	[SerializeField]
 	private SoundBankPlayer scratchForward;
 
-	// Token: 0x04000A32 RID: 2610
+	// Token: 0x04000A75 RID: 2677
 	[SerializeField]
 	private SoundBankPlayer scratchBack;
 
-	// Token: 0x04000A33 RID: 2611
+	// Token: 0x04000A76 RID: 2678
 	[SerializeField]
 	private SoundBankPlayer scratchPause;
 
-	// Token: 0x04000A34 RID: 2612
+	// Token: 0x04000A77 RID: 2679
 	[SerializeField]
 	private SoundBankPlayer scratchResume;
 
-	// Token: 0x04000A35 RID: 2613
+	// Token: 0x04000A78 RID: 2680
 	[SerializeField]
 	private DJScratchtable scratchTableLeft;
 
-	// Token: 0x04000A36 RID: 2614
+	// Token: 0x04000A79 RID: 2681
 	[SerializeField]
 	private DJScratchtable scratchTableRight;
 
-	// Token: 0x04000A37 RID: 2615
+	// Token: 0x04000A7A RID: 2682
 	private RubberDuckEvents _events;
 
-	// Token: 0x04000A38 RID: 2616
+	// Token: 0x04000A7B RID: 2683
 	private VRRig myRig;
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000A3 RID: 163
+// Token: 0x020000AD RID: 173
 public class RotateXform : MonoBehaviour
 {
-	// Token: 0x0600043B RID: 1083 RVA: 0x000197A4 File Offset: 0x000179A4
+	// Token: 0x06000477 RID: 1143 RVA: 0x0007D234 File Offset: 0x0007B434
 	private void Update()
 	{
 		if (!this.xform)
@@ -24,24 +24,24 @@ public class RotateXform : MonoBehaviour
 		this.xform.eulerAngles = vector;
 	}
 
-	// Token: 0x040004EA RID: 1258
+	// Token: 0x0400052A RID: 1322
 	public Transform xform;
 
-	// Token: 0x040004EB RID: 1259
+	// Token: 0x0400052B RID: 1323
 	public Vector3 speed = Vector3.zero;
 
-	// Token: 0x040004EC RID: 1260
+	// Token: 0x0400052C RID: 1324
 	public RotateXform.Mode mode;
 
-	// Token: 0x040004ED RID: 1261
+	// Token: 0x0400052D RID: 1325
 	public float speedFactor = 0.0625f;
 
-	// Token: 0x020000A4 RID: 164
+	// Token: 0x020000AE RID: 174
 	public enum Mode
 	{
-		// Token: 0x040004EF RID: 1263
+		// Token: 0x0400052F RID: 1327
 		Local,
-		// Token: 0x040004F0 RID: 1264
+		// Token: 0x04000530 RID: 1328
 		World
 	}
 }

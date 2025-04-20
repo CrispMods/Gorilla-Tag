@@ -4,11 +4,11 @@ using GorillaExtensions;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x02000692 RID: 1682
+// Token: 0x0200065C RID: 1628
 [DisallowMultipleComponent]
 public class VerletLine : MonoBehaviour
 {
-	// Token: 0x060029D0 RID: 10704 RVA: 0x000CFA7C File Offset: 0x000CDC7C
+	// Token: 0x0600284F RID: 10319 RVA: 0x00110C08 File Offset: 0x0010EE08
 	private void Awake()
 	{
 		this._nodes = new VerletLine.LineNode[this.segmentNumber];
@@ -37,7 +37,7 @@ public class VerletLine : MonoBehaviour
 		this.totalLineLength = this.segmentLength * (float)this.segmentNumber;
 	}
 
-	// Token: 0x060029D1 RID: 10705 RVA: 0x000CFBBC File Offset: 0x000CDDBC
+	// Token: 0x06002850 RID: 10320 RVA: 0x00110D48 File Offset: 0x0010EF48
 	private void OnEnable()
 	{
 		if (this.endRigidbody)
@@ -47,7 +47,7 @@ public class VerletLine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060029D2 RID: 10706 RVA: 0x000CFC08 File Offset: 0x000CDE08
+	// Token: 0x06002851 RID: 10321 RVA: 0x0004B6A0 File Offset: 0x000498A0
 	private void OnDisable()
 	{
 		if (this.endRigidbody)
@@ -56,7 +56,7 @@ public class VerletLine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060029D3 RID: 10707 RVA: 0x000CFC28 File Offset: 0x000CDE28
+	// Token: 0x06002852 RID: 10322 RVA: 0x00110D94 File Offset: 0x0010EF94
 	public void SetLength(float total, float delay = 0f)
 	{
 		this.segmentTargetLength = total / (float)this.segmentNumber;
@@ -74,7 +74,7 @@ public class VerletLine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060029D4 RID: 10708 RVA: 0x000CFC90 File Offset: 0x000CDE90
+	// Token: 0x06002853 RID: 10323 RVA: 0x00110DFC File Offset: 0x0010EFFC
 	public void AddSegmentLength(float amount, float delay = 0f)
 	{
 		this.segmentTargetLength = this.segmentLength + amount;
@@ -92,7 +92,7 @@ public class VerletLine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060029D5 RID: 10709 RVA: 0x000CFCEC File Offset: 0x000CDEEC
+	// Token: 0x06002854 RID: 10324 RVA: 0x00110E58 File Offset: 0x0010F058
 	public void RemoveSegmentLength(float amount, float delay = 0f)
 	{
 		this.segmentTargetLength = this.segmentLength - amount;
@@ -107,14 +107,14 @@ public class VerletLine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060029D6 RID: 10710 RVA: 0x000CFD41 File Offset: 0x000CDF41
+	// Token: 0x06002855 RID: 10325 RVA: 0x0004B6C0 File Offset: 0x000498C0
 	private IEnumerator ResizeAfterDelay(float delay)
 	{
 		yield return new WaitForSeconds(delay);
 		yield break;
 	}
 
-	// Token: 0x060029D7 RID: 10711 RVA: 0x000CFD50 File Offset: 0x000CDF50
+	// Token: 0x06002856 RID: 10326 RVA: 0x00110EB0 File Offset: 0x0010F0B0
 	private void Update()
 	{
 		if (this.segmentLength.Approx(this.segmentTargetLength, 0.1f))
@@ -129,7 +129,7 @@ public class VerletLine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060029D8 RID: 10712 RVA: 0x000CFDD0 File Offset: 0x000CDFD0
+	// Token: 0x06002857 RID: 10327 RVA: 0x00110F30 File Offset: 0x0010F130
 	public void ForceTotalLength(float totalLength)
 	{
 		float num = totalLength / (float)((this.segmentNumber < 1) ? 1 : this.segmentNumber);
@@ -137,7 +137,7 @@ public class VerletLine : MonoBehaviour
 		this.totalLineLength = this.segmentLength * (float)this.segmentNumber;
 	}
 
-	// Token: 0x060029D9 RID: 10713 RVA: 0x000CFE18 File Offset: 0x000CE018
+	// Token: 0x06002858 RID: 10328 RVA: 0x00110F78 File Offset: 0x0010F178
 	private void FixedUpdate()
 	{
 		for (int i = 0; i < this._nodes.Length; i++)
@@ -190,7 +190,7 @@ public class VerletLine : MonoBehaviour
 		this.line.SetPositions(this._positions);
 	}
 
-	// Token: 0x060029DA RID: 10714 RVA: 0x000D00D8 File Offset: 0x000CE2D8
+	// Token: 0x06002859 RID: 10329 RVA: 0x00111238 File Offset: 0x0010F438
 	private static void Simulate(ref VerletLine.LineNode p, float dt)
 	{
 		Vector3 position = p.position;
@@ -198,7 +198,7 @@ public class VerletLine : MonoBehaviour
 		p.lastPosition = position;
 	}
 
-	// Token: 0x060029DB RID: 10715 RVA: 0x000D0130 File Offset: 0x000CE330
+	// Token: 0x0600285A RID: 10330 RVA: 0x00111290 File Offset: 0x0010F490
 	private static void LimitDistance(ref VerletLine.LineNode p1, ref VerletLine.LineNode p2, float restLength)
 	{
 		Vector3 a = p2.position - p1.position;
@@ -208,98 +208,98 @@ public class VerletLine : MonoBehaviour
 		p2.position -= a * (num2 * 0.5f);
 	}
 
-	// Token: 0x04002F3D RID: 12093
+	// Token: 0x04002DAD RID: 11693
 	public Transform lineStart;
 
-	// Token: 0x04002F3E RID: 12094
+	// Token: 0x04002DAE RID: 11694
 	public Transform lineEnd;
 
-	// Token: 0x04002F3F RID: 12095
+	// Token: 0x04002DAF RID: 11695
 	[Space]
 	public LineRenderer line;
 
-	// Token: 0x04002F40 RID: 12096
+	// Token: 0x04002DB0 RID: 11696
 	public Rigidbody endRigidbody;
 
-	// Token: 0x04002F41 RID: 12097
+	// Token: 0x04002DB1 RID: 11697
 	public Transform endRigidbodyParent;
 
-	// Token: 0x04002F42 RID: 12098
+	// Token: 0x04002DB2 RID: 11698
 	public Vector3 endLineAnchorLocalPosition;
 
-	// Token: 0x04002F43 RID: 12099
+	// Token: 0x04002DB3 RID: 11699
 	private Vector3 rigidBodyStartingLocalPosition;
 
-	// Token: 0x04002F44 RID: 12100
+	// Token: 0x04002DB4 RID: 11700
 	[Space]
 	public int segmentNumber = 10;
 
-	// Token: 0x04002F45 RID: 12101
+	// Token: 0x04002DB5 RID: 11701
 	public float segmentLength = 0.03f;
 
-	// Token: 0x04002F46 RID: 12102
+	// Token: 0x04002DB6 RID: 11702
 	public float segmentTargetLength = 0.03f;
 
-	// Token: 0x04002F47 RID: 12103
+	// Token: 0x04002DB7 RID: 11703
 	public float segmentMaxLength = 0.03f;
 
-	// Token: 0x04002F48 RID: 12104
+	// Token: 0x04002DB8 RID: 11704
 	public float segmentMinLength = 0.03f;
 
-	// Token: 0x04002F49 RID: 12105
+	// Token: 0x04002DB9 RID: 11705
 	[Space]
 	public Vector3 gravity = new Vector3(0f, -9.81f, 0f);
 
-	// Token: 0x04002F4A RID: 12106
+	// Token: 0x04002DBA RID: 11706
 	public int simIterations = 6;
 
-	// Token: 0x04002F4B RID: 12107
+	// Token: 0x04002DBB RID: 11707
 	public float tension = 10f;
 
-	// Token: 0x04002F4C RID: 12108
+	// Token: 0x04002DBC RID: 11708
 	public float tensionScale = 1f;
 
-	// Token: 0x04002F4D RID: 12109
+	// Token: 0x04002DBD RID: 11709
 	public float endMaxSpeed = 48f;
 
-	// Token: 0x04002F4E RID: 12110
+	// Token: 0x04002DBE RID: 11710
 	[FormerlySerializedAs("lerpSpeed")]
 	[Space]
 	public float resizeSpeed = 1f;
 
-	// Token: 0x04002F4F RID: 12111
+	// Token: 0x04002DBF RID: 11711
 	public float resizeScale = 1f;
 
-	// Token: 0x04002F50 RID: 12112
+	// Token: 0x04002DC0 RID: 11712
 	[NonSerialized]
 	private VerletLine.LineNode[] _nodes = new VerletLine.LineNode[0];
 
-	// Token: 0x04002F51 RID: 12113
+	// Token: 0x04002DC1 RID: 11713
 	[NonSerialized]
 	private Vector3[] _positions = new Vector3[0];
 
-	// Token: 0x04002F52 RID: 12114
+	// Token: 0x04002DC2 RID: 11714
 	private float totalLineLength;
 
-	// Token: 0x04002F53 RID: 12115
+	// Token: 0x04002DC3 RID: 11715
 	[SerializeField]
 	private bool onlyPullAtEdges;
 
-	// Token: 0x04002F54 RID: 12116
+	// Token: 0x04002DC4 RID: 11716
 	[SerializeField]
 	private bool scaleLineWidth = true;
 
-	// Token: 0x02000693 RID: 1683
+	// Token: 0x0200065D RID: 1629
 	[Serializable]
 	public struct LineNode
 	{
-		// Token: 0x04002F55 RID: 12117
+		// Token: 0x04002DC5 RID: 11717
 		public Vector3 position;
 
-		// Token: 0x04002F56 RID: 12118
+		// Token: 0x04002DC6 RID: 11718
 		public Vector3 lastPosition;
 
-		// Token: 0x04002F57 RID: 12119
+		// Token: 0x04002DC7 RID: 11719
 		public Vector3 acceleration;
 	}
 }

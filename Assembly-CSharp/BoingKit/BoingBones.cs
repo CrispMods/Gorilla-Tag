@@ -5,22 +5,22 @@ using UnityEngine;
 
 namespace BoingKit
 {
-	// Token: 0x02000CAF RID: 3247
+	// Token: 0x02000CE0 RID: 3296
 	public class BoingBones : BoingReactor
 	{
-		// Token: 0x060051F7 RID: 20983 RVA: 0x00192223 File Offset: 0x00190423
+		// Token: 0x06005359 RID: 21337 RVA: 0x000660CB File Offset: 0x000642CB
 		protected override void Register()
 		{
 			BoingManager.Register(this);
 		}
 
-		// Token: 0x060051F8 RID: 20984 RVA: 0x0019222B File Offset: 0x0019042B
+		// Token: 0x0600535A RID: 21338 RVA: 0x000660D3 File Offset: 0x000642D3
 		protected override void Unregister()
 		{
 			BoingManager.Unregister(this);
 		}
 
-		// Token: 0x060051F9 RID: 20985 RVA: 0x00192233 File Offset: 0x00190433
+		// Token: 0x0600535B RID: 21339 RVA: 0x000660DB File Offset: 0x000642DB
 		protected override void OnUpgrade(Version oldVersion, Version newVersion)
 		{
 			base.OnUpgrade(oldVersion, newVersion);
@@ -30,14 +30,14 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x060051FA RID: 20986 RVA: 0x0019224F File Offset: 0x0019044F
+		// Token: 0x0600535C RID: 21340 RVA: 0x000660F7 File Offset: 0x000642F7
 		public void OnValidate()
 		{
 			this.RescanBoneChains();
 			this.UpdateCollisionRadius();
 		}
 
-		// Token: 0x060051FB RID: 20987 RVA: 0x0019225D File Offset: 0x0019045D
+		// Token: 0x0600535D RID: 21341 RVA: 0x00066105 File Offset: 0x00064305
 		public override void OnEnable()
 		{
 			base.OnEnable();
@@ -45,14 +45,14 @@ namespace BoingKit
 			this.Reboot();
 		}
 
-		// Token: 0x060051FC RID: 20988 RVA: 0x00192271 File Offset: 0x00190471
+		// Token: 0x0600535E RID: 21342 RVA: 0x00066119 File Offset: 0x00064319
 		public override void OnDisable()
 		{
 			base.OnDisable();
 			this.Restore();
 		}
 
-		// Token: 0x060051FD RID: 20989 RVA: 0x00192280 File Offset: 0x00190480
+		// Token: 0x0600535F RID: 21343 RVA: 0x001C86A0 File Offset: 0x001C68A0
 		public void RescanBoneChains()
 		{
 			if (this.BoneChains == null)
@@ -204,7 +204,7 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x060051FE RID: 20990 RVA: 0x0019269C File Offset: 0x0019089C
+		// Token: 0x06005360 RID: 21344 RVA: 0x001C8ABC File Offset: 0x001C6CBC
 		private void UpdateCollisionRadius()
 		{
 			for (int i = 0; i < this.BoneData.Length; i++)
@@ -223,7 +223,7 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x060051FF RID: 20991 RVA: 0x00192724 File Offset: 0x00190924
+		// Token: 0x06005361 RID: 21345 RVA: 0x001C8B44 File Offset: 0x001C6D44
 		public override void Reboot()
 		{
 			base.Reboot();
@@ -233,7 +233,7 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x06005200 RID: 20992 RVA: 0x00192754 File Offset: 0x00190954
+		// Token: 0x06005362 RID: 21346 RVA: 0x001C8B74 File Offset: 0x001C6D74
 		public void Reboot(int iChain)
 		{
 			BoingBones.Bone[] array = this.BoneData[iChain];
@@ -254,8 +254,8 @@ namespace BoingKit
 			this.CachedTransformValid = true;
 		}
 
-		// Token: 0x17000845 RID: 2117
-		// (get) Token: 0x06005201 RID: 20993 RVA: 0x00192818 File Offset: 0x00190A18
+		// Token: 0x17000863 RID: 2147
+		// (get) Token: 0x06005363 RID: 21347 RVA: 0x00066127 File Offset: 0x00064327
 		internal float MinScale
 		{
 			get
@@ -264,7 +264,7 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x06005202 RID: 20994 RVA: 0x00192820 File Offset: 0x00190A20
+		// Token: 0x06005364 RID: 21348 RVA: 0x001C8C38 File Offset: 0x001C6E38
 		public override void PrepareExecute()
 		{
 			base.PrepareExecute();
@@ -370,7 +370,7 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x06005203 RID: 20995 RVA: 0x00192E20 File Offset: 0x00191020
+		// Token: 0x06005365 RID: 21349 RVA: 0x001C9238 File Offset: 0x001C7438
 		public void AccumulateTarget(ref BoingEffector.Params effector, float dt)
 		{
 			for (int i = 0; i < this.BoneData.Length; i++)
@@ -397,7 +397,7 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x06005204 RID: 20996 RVA: 0x00192F08 File Offset: 0x00191108
+		// Token: 0x06005366 RID: 21350 RVA: 0x001C9320 File Offset: 0x001C7520
 		public void EndAccumulateTargets()
 		{
 			for (int i = 0; i < this.BoneData.Length; i++)
@@ -421,7 +421,7 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x06005205 RID: 20997 RVA: 0x00192F8C File Offset: 0x0019118C
+		// Token: 0x06005367 RID: 21351 RVA: 0x001C93A4 File Offset: 0x001C75A4
 		public override void Restore()
 		{
 			if (!this.CachedTransformValid)
@@ -448,64 +448,64 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x04005434 RID: 21556
+		// Token: 0x04005540 RID: 21824
 		[SerializeField]
 		internal BoingBones.Bone[][] BoneData;
 
-		// Token: 0x04005435 RID: 21557
+		// Token: 0x04005541 RID: 21825
 		public BoingBones.Chain[] BoneChains = new BoingBones.Chain[1];
 
-		// Token: 0x04005436 RID: 21558
+		// Token: 0x04005542 RID: 21826
 		public bool TwistPropagation = true;
 
-		// Token: 0x04005437 RID: 21559
+		// Token: 0x04005543 RID: 21827
 		[Range(0.1f, 20f)]
 		public float MaxCollisionResolutionSpeed = 3f;
 
-		// Token: 0x04005438 RID: 21560
+		// Token: 0x04005544 RID: 21828
 		public BoingBoneCollider[] BoingColliders = new BoingBoneCollider[0];
 
-		// Token: 0x04005439 RID: 21561
+		// Token: 0x04005545 RID: 21829
 		public Collider[] UnityColliders = new Collider[0];
 
-		// Token: 0x0400543A RID: 21562
+		// Token: 0x04005546 RID: 21830
 		public bool DebugDrawRawBones;
 
-		// Token: 0x0400543B RID: 21563
+		// Token: 0x04005547 RID: 21831
 		public bool DebugDrawTargetBones;
 
-		// Token: 0x0400543C RID: 21564
+		// Token: 0x04005548 RID: 21832
 		public bool DebugDrawBoingBones;
 
-		// Token: 0x0400543D RID: 21565
+		// Token: 0x04005549 RID: 21833
 		public bool DebugDrawFinalBones;
 
-		// Token: 0x0400543E RID: 21566
+		// Token: 0x0400554A RID: 21834
 		public bool DebugDrawColliders;
 
-		// Token: 0x0400543F RID: 21567
+		// Token: 0x0400554B RID: 21835
 		public bool DebugDrawChainBounds;
 
-		// Token: 0x04005440 RID: 21568
+		// Token: 0x0400554C RID: 21836
 		public bool DebugDrawBoneNames;
 
-		// Token: 0x04005441 RID: 21569
+		// Token: 0x0400554D RID: 21837
 		public bool DebugDrawLengthFromRoot;
 
-		// Token: 0x04005442 RID: 21570
+		// Token: 0x0400554E RID: 21838
 		private float m_minScale = 1f;
 
-		// Token: 0x02000CB0 RID: 3248
+		// Token: 0x02000CE1 RID: 3297
 		[Serializable]
 		public class Bone
 		{
-			// Token: 0x06005207 RID: 20999 RVA: 0x00193078 File Offset: 0x00191278
+			// Token: 0x06005369 RID: 21353 RVA: 0x0006612F File Offset: 0x0006432F
 			internal void UpdateBounds()
 			{
 				this.Bounds = new Bounds(this.Instance.PositionSpring.Value, 2f * this.CollisionRadius * Vector3.one);
 			}
 
-			// Token: 0x06005208 RID: 21000 RVA: 0x001930AC File Offset: 0x001912AC
+			// Token: 0x0600536A RID: 21354 RVA: 0x001C9490 File Offset: 0x001C7690
 			internal Bone(Transform transform, int iParent, float lengthFromRoot)
 			{
 				this.Transform = transform;
@@ -525,93 +525,93 @@ namespace BoingKit
 				this.CollisionRadius = 0f;
 			}
 
-			// Token: 0x04005443 RID: 21571
+			// Token: 0x0400554F RID: 21839
 			internal BoingWork.Params.InstanceData Instance;
 
-			// Token: 0x04005444 RID: 21572
+			// Token: 0x04005550 RID: 21840
 			internal Transform Transform;
 
-			// Token: 0x04005445 RID: 21573
+			// Token: 0x04005551 RID: 21841
 			internal Vector3 ScaleWs;
 
-			// Token: 0x04005446 RID: 21574
+			// Token: 0x04005552 RID: 21842
 			internal Vector3 CachedScaleLs;
 
-			// Token: 0x04005447 RID: 21575
+			// Token: 0x04005553 RID: 21843
 			internal Vector3 BlendedPositionWs;
 
-			// Token: 0x04005448 RID: 21576
+			// Token: 0x04005554 RID: 21844
 			internal Vector3 BlendedScaleLs;
 
-			// Token: 0x04005449 RID: 21577
+			// Token: 0x04005555 RID: 21845
 			internal Vector3 CachedPositionWs;
 
-			// Token: 0x0400544A RID: 21578
+			// Token: 0x04005556 RID: 21846
 			internal Vector3 CachedPositionLs;
 
-			// Token: 0x0400544B RID: 21579
+			// Token: 0x04005557 RID: 21847
 			internal Bounds Bounds;
 
-			// Token: 0x0400544C RID: 21580
+			// Token: 0x04005558 RID: 21848
 			internal Quaternion RotationInverseWs;
 
-			// Token: 0x0400544D RID: 21581
+			// Token: 0x04005559 RID: 21849
 			internal Quaternion SpringRotationWs;
 
-			// Token: 0x0400544E RID: 21582
+			// Token: 0x0400555A RID: 21850
 			internal Quaternion SpringRotationInverseWs;
 
-			// Token: 0x0400544F RID: 21583
+			// Token: 0x0400555B RID: 21851
 			internal Quaternion CachedRotationWs;
 
-			// Token: 0x04005450 RID: 21584
+			// Token: 0x0400555C RID: 21852
 			internal Quaternion CachedRotationLs;
 
-			// Token: 0x04005451 RID: 21585
+			// Token: 0x0400555D RID: 21853
 			internal Quaternion BlendedRotationWs;
 
-			// Token: 0x04005452 RID: 21586
+			// Token: 0x0400555E RID: 21854
 			internal Quaternion RotationBackPropDeltaPs;
 
-			// Token: 0x04005453 RID: 21587
+			// Token: 0x0400555F RID: 21855
 			internal int ParentIndex;
 
-			// Token: 0x04005454 RID: 21588
+			// Token: 0x04005560 RID: 21856
 			internal int[] ChildIndices;
 
-			// Token: 0x04005455 RID: 21589
+			// Token: 0x04005561 RID: 21857
 			internal float LengthFromRoot;
 
-			// Token: 0x04005456 RID: 21590
+			// Token: 0x04005562 RID: 21858
 			internal float AnimationBlend;
 
-			// Token: 0x04005457 RID: 21591
+			// Token: 0x04005563 RID: 21859
 			internal float LengthStiffness;
 
-			// Token: 0x04005458 RID: 21592
+			// Token: 0x04005564 RID: 21860
 			internal float LengthStiffnessT;
 
-			// Token: 0x04005459 RID: 21593
+			// Token: 0x04005565 RID: 21861
 			internal float FullyStiffToParentLength;
 
-			// Token: 0x0400545A RID: 21594
+			// Token: 0x04005566 RID: 21862
 			internal float PoseStiffness;
 
-			// Token: 0x0400545B RID: 21595
+			// Token: 0x04005567 RID: 21863
 			internal float BendAngleCap;
 
-			// Token: 0x0400545C RID: 21596
+			// Token: 0x04005568 RID: 21864
 			internal float CollisionRadius;
 
-			// Token: 0x0400545D RID: 21597
+			// Token: 0x04005569 RID: 21865
 			internal float SquashAndStretch;
 		}
 
-		// Token: 0x02000CB1 RID: 3249
+		// Token: 0x02000CE2 RID: 3298
 		[Serializable]
 		public class Chain
 		{
-			// Token: 0x06005209 RID: 21001 RVA: 0x00193160 File Offset: 0x00191360
+			// Token: 0x0600536B RID: 21355 RVA: 0x001C9544 File Offset: 0x001C7744
 			public static float EvaluateCurve(BoingBones.Chain.CurveType type, float t, AnimationCurve curve)
 			{
 				switch (type)
@@ -637,146 +637,146 @@ namespace BoingKit
 				}
 			}
 
-			// Token: 0x0400545E RID: 21598
+			// Token: 0x0400556A RID: 21866
 			[Tooltip("Root Transform object from which to build a chain (or tree if a bone has multiple children) of bouncy boing bones.")]
 			public Transform Root;
 
-			// Token: 0x0400545F RID: 21599
+			// Token: 0x0400556B RID: 21867
 			[Tooltip("List of Transform objects to exclude from chain building.")]
 			public Transform[] Exclusion;
 
-			// Token: 0x04005460 RID: 21600
+			// Token: 0x0400556C RID: 21868
 			[Tooltip("Enable to allow reaction to boing effectors.")]
 			public bool EffectorReaction = true;
 
-			// Token: 0x04005461 RID: 21601
+			// Token: 0x0400556D RID: 21869
 			[Tooltip("Enable to allow root Transform object to be sprung around as well. Otherwise, no effects will be applied to the root Transform object.")]
 			public bool LooseRoot;
 
-			// Token: 0x04005462 RID: 21602
+			// Token: 0x0400556E RID: 21870
 			[Tooltip("Assign a SharedParamsOverride asset to override the parameters for this chain. Useful for chains using different parameters than that of the BoingBones component.")]
 			public SharedBoingParams ParamsOverride;
 
-			// Token: 0x04005463 RID: 21603
+			// Token: 0x0400556F RID: 21871
 			[ConditionalField(null, null, null, null, null, null, null, Label = "Animation Blend", Tooltip = "Animation blend determines each bone's final transform between the original raw transform and its corresponding boing bone. 1.0 means 100% contribution from raw (or animated) transform. 0.0 means 100% contribution from boing bone.\n\nEach curve type provides a type of mapping for each bone's percentage down the chain (0.0 at root & 1.0 at maximum chain length) to the bone's animation blend:\n\n - Constant One: 1.0 all the way.\n - Constant Half: 0.5 all the way.\n - Constant Zero: 0.0 all the way.\n - Root One Tail Half: 1.0 at 0% chain length and 0.5 at 100% chain length.\n - Root One Tail Zero: 1.0 at 0% chain length and 0.0 at 100% chain length.\n - Root Half Tail One: 0.5 at 0% chain length and 1.0 at 100% chain length.\n - Root Zero Tail One: 0.0 at 0% chain length and 1.0 at 100% chain length.\n - Custom: Custom curve.")]
 			public BoingBones.Chain.CurveType AnimationBlendCurveType = BoingBones.Chain.CurveType.RootOneTailZero;
 
-			// Token: 0x04005464 RID: 21604
+			// Token: 0x04005570 RID: 21872
 			[ConditionalField("AnimationBlendCurveType", BoingBones.Chain.CurveType.Custom, null, null, null, null, null, Label = "  Custom Curve")]
 			public AnimationCurve AnimationBlendCustomCurve = AnimationCurve.Linear(0f, 1f, 1f, 0f);
 
-			// Token: 0x04005465 RID: 21605
+			// Token: 0x04005571 RID: 21873
 			[ConditionalField(null, null, null, null, null, null, null, Label = "Length Stiffness", Tooltip = "Length stiffness determines how much each target bone (target transform each boing bone is sprung towards) tries to maintain original distance from its parent. 1.0 means 100% distance maintenance. 0.0 means 0% distance maintenance.\n\nEach curve type provides a type of mapping for each bone's percentage down the chain (0.0 at root & 1.0 at maximum chain length) to the bone's length stiffness:\n\n - Constant One: 1.0 all the way.\n - Constant Half: 0.5 all the way.\n - Constant Zero: 0.0 all the way.\n - Root One Tail Half: 1.0 at 0% chain length and 0.5 at 100% chain length.\n - Root One Tail Zero: 1.0 at 0% chain length and 0.0 at 100% chain length.\n - Root Half Tail One: 0.5 at 0% chain length and 1.0 at 100% chain length.\n - Root Zero Tail One: 0.0 at 0% chain length and 1.0 at 100% chain length.\n - Custom: Custom curve.")]
 			public BoingBones.Chain.CurveType LengthStiffnessCurveType;
 
-			// Token: 0x04005466 RID: 21606
+			// Token: 0x04005572 RID: 21874
 			[ConditionalField("LengthStiffnessCurveType", BoingBones.Chain.CurveType.Custom, null, null, null, null, null, Label = "  Custom Curve")]
 			public AnimationCurve LengthStiffnessCustomCurve = AnimationCurve.Linear(0f, 1f, 1f, 1f);
 
-			// Token: 0x04005467 RID: 21607
+			// Token: 0x04005573 RID: 21875
 			[ConditionalField(null, null, null, null, null, null, null, Label = "Pose Stiffness", Tooltip = "Pose stiffness determines how much each target bone (target transform each boing bone is sprung towards) tries to maintain original transform. 1.0 means 100% original transform maintenance. 0.0 means 0% original transform maintenance.\n\nEach curve type provides a type of mapping for each bone's percentage down the chain (0.0 at root & 1.0 at maximum chain length) to the bone's pose stiffness:\n\n - Constant One: 1.0 all the way.\n - Constant Half: 0.5 all the way.\n - Constant Zero: 0.0 all the way.\n - Root One Tail Half: 1.0 at 0% chain length and 0.5 at 100% chain length.\n - Root One Tail Zero: 1.0 at 0% chain length and 0.0 at 100% chain length.\n - Root Half Tail One: 0.5 at 0% chain length and 1.0 at 100% chain length.\n - Root Zero Tail One: 0.0 at 0% chain length and 1.0 at 100% chain length.\n - Custom: Custom curve.")]
 			public BoingBones.Chain.CurveType PoseStiffnessCurveType;
 
-			// Token: 0x04005468 RID: 21608
+			// Token: 0x04005574 RID: 21876
 			[ConditionalField("PoseStiffnessCurveType", BoingBones.Chain.CurveType.Custom, null, null, null, null, null, Label = "  Custom Curve")]
 			public AnimationCurve PoseStiffnessCustomCurve = AnimationCurve.Linear(0f, 1f, 1f, 1f);
 
-			// Token: 0x04005469 RID: 21609
+			// Token: 0x04005575 RID: 21877
 			[ConditionalField(null, null, null, null, null, null, null, Label = "Bend Angle Cap", Tooltip = "Maximum bone bend angle cap.", Min = 0f, Max = 180f)]
 			public float MaxBendAngleCap = 180f;
 
-			// Token: 0x0400546A RID: 21610
+			// Token: 0x04005576 RID: 21878
 			[ConditionalField(null, null, null, null, null, null, null, Label = "  Curve Type", Tooltip = "Percentage(0.0 = 0 %; 1.0 = 100 %) of maximum bone bend angle cap.Bend angle cap limits how much each bone can bend relative to the root (in degrees). 1.0 means 100% maximum bend angle cap. 0.0 means 0% maximum bend angle cap.\n\nEach curve type provides a type of mapping for each bone's percentage down the chain (0.0 at root & 1.0 at maximum chain length) to the bone's pose stiffness:\n\n - Constant One: 1.0 all the way.\n - Constant Half: 0.5 all the way.\n - Constant Zero: 0.0 all the way.\n - Root One Tail Half: 1.0 at 0% chain length and 0.5 at 100% chain length.\n - Root One Tail Zero: 1.0 at 0% chain length and 0.0 at 100% chain length.\n - Root Half Tail One: 0.5 at 0% chain length and 1.0 at 100% chain length.\n - Root Zero Tail One: 0.0 at 0% chain length and 1.0 at 100% chain length.\n - Custom: Custom curve.")]
 			public BoingBones.Chain.CurveType BendAngleCapCurveType;
 
-			// Token: 0x0400546B RID: 21611
+			// Token: 0x04005577 RID: 21879
 			[ConditionalField("BendAngleCapCurveType", BoingBones.Chain.CurveType.Custom, null, null, null, null, null, Label = "    Custom Curve")]
 			public AnimationCurve BendAngleCapCustomCurve = AnimationCurve.Linear(0f, 1f, 1f, 1f);
 
-			// Token: 0x0400546C RID: 21612
+			// Token: 0x04005578 RID: 21880
 			[ConditionalField(null, null, null, null, null, null, null, Label = "Collision Radius", Tooltip = "Maximum bone collision radius.")]
 			public float MaxCollisionRadius = 0.1f;
 
-			// Token: 0x0400546D RID: 21613
+			// Token: 0x04005579 RID: 21881
 			[ConditionalField(null, null, null, null, null, null, null, Label = "  Curve Type", Tooltip = "Percentage (0.0 = 0%; 1.0 = 100%) of maximum bone collision radius.\n\nEach curve type provides a type of mapping for each bone's percentage down the chain (0.0 at root & 1.0 at maximum chain length) to the bone's collision radius:\n\n - Constant One: 1.0 all the way.\n - Constant Half: 0.5 all the way.\n - Constant Zero: 0.0 all the way.\n - Root One Tail Half: 1.0 at 0% chain length and 0.5 at 100% chain length.\n - Root One Tail Zero: 1.0 at 0% chain length and 0.0 at 100% chain length.\n - Root Half Tail One: 0.5 at 0% chain length and 1.0 at 100% chain length.\n - Root Zero Tail One: 0.0 at 0% chain length and 1.0 at 100% chain length.\n - Custom: Custom curve.")]
 			public BoingBones.Chain.CurveType CollisionRadiusCurveType;
 
-			// Token: 0x0400546E RID: 21614
+			// Token: 0x0400557A RID: 21882
 			[ConditionalField("CollisionRadiusCurveType", BoingBones.Chain.CurveType.Custom, null, null, null, null, null, Label = "    Custom Curve")]
 			public AnimationCurve CollisionRadiusCustomCurve = AnimationCurve.Linear(0f, 1f, 1f, 1f);
 
-			// Token: 0x0400546F RID: 21615
+			// Token: 0x0400557B RID: 21883
 			[ConditionalField(null, null, null, null, null, null, null, Label = "Boing Kit Collision", Tooltip = "Enable to allow this chain to collide with Boing Kit's own implementation of lightweight colliders")]
 			public bool EnableBoingKitCollision;
 
-			// Token: 0x04005470 RID: 21616
+			// Token: 0x0400557C RID: 21884
 			[ConditionalField(null, null, null, null, null, null, null, Label = "Unity Collision", Tooltip = "Enable to allow this chain to collide with Unity colliders.")]
 			public bool EnableUnityCollision;
 
-			// Token: 0x04005471 RID: 21617
+			// Token: 0x0400557D RID: 21885
 			[ConditionalField(null, null, null, null, null, null, null, Label = "Inter-Chain Collision", Tooltip = "Enable to allow this chain to collide with other chain (under the same BoingBones component) with inter-chain collision enabled.")]
 			public bool EnableInterChainCollision;
 
-			// Token: 0x04005472 RID: 21618
+			// Token: 0x0400557E RID: 21886
 			public Vector3 Gravity = Vector3.zero;
 
-			// Token: 0x04005473 RID: 21619
+			// Token: 0x0400557F RID: 21887
 			internal Bounds Bounds;
 
-			// Token: 0x04005474 RID: 21620
+			// Token: 0x04005580 RID: 21888
 			[ConditionalField(null, null, null, null, null, null, null, Label = "Squash & Stretch", Tooltip = "Percentage (0.0 = 0%; 1.0 = 100%) of each bone's squash & stretch effect. Squash & stretch is the effect of volume preservation by scaling bones based on how compressed or stretched the distances between bones become.\n\nEach curve type provides a type of mapping for each bone's percentage down the chain (0.0 at root & 1.0 at maximum chain length) to the bone's squash & stretch effect amount:\n\n - Constant One: 1.0 all the way.\n - Constant Half: 0.5 all the way.\n - Constant Zero: 0.0 all the way.\n - Root One Tail Half: 1.0 at 0% chain length and 0.5 at 100% chain length.\n - Root One Tail Zero: 1.0 at 0% chain length and 0.0 at 100% chain length.\n - Root Half Tail One: 0.5 at 0% chain length and 1.0 at 100% chain length.\n - Root Zero Tail One: 0.0 at 0% chain length and 1.0 at 100% chain length.\n - Custom: Custom curve.")]
 			public BoingBones.Chain.CurveType SquashAndStretchCurveType = BoingBones.Chain.CurveType.ConstantZero;
 
-			// Token: 0x04005475 RID: 21621
+			// Token: 0x04005581 RID: 21889
 			[ConditionalField("SquashAndStretchCurveType", BoingBones.Chain.CurveType.Custom, null, null, null, null, null, Label = "  Custom Curve")]
 			public AnimationCurve SquashAndStretchCustomCurve = AnimationCurve.Linear(0f, 0f, 1f, 0f);
 
-			// Token: 0x04005476 RID: 21622
+			// Token: 0x04005582 RID: 21890
 			[ConditionalField(null, null, null, null, null, null, null, Label = "  Max Squash", Tooltip = "Maximum squash amount. For example, 2.0 means a maximum scale of 200% when squashed.", Min = 1f, Max = 5f)]
 			public float MaxSquash = 1.1f;
 
-			// Token: 0x04005477 RID: 21623
+			// Token: 0x04005583 RID: 21891
 			[ConditionalField(null, null, null, null, null, null, null, Label = "  Max Stretch", Tooltip = "Maximum stretch amount. For example, 2.0 means a minimum scale of 50% when stretched (200% stretched).", Min = 1f, Max = 5f)]
 			public float MaxStretch = 2f;
 
-			// Token: 0x04005478 RID: 21624
+			// Token: 0x04005584 RID: 21892
 			internal Transform m_scannedRoot;
 
-			// Token: 0x04005479 RID: 21625
+			// Token: 0x04005585 RID: 21893
 			internal Transform[] m_scannedExclusion;
 
-			// Token: 0x0400547A RID: 21626
+			// Token: 0x04005586 RID: 21894
 			internal int m_hierarchyHash = -1;
 
-			// Token: 0x0400547B RID: 21627
+			// Token: 0x04005587 RID: 21895
 			internal float MaxLengthFromRoot;
 
-			// Token: 0x02000CB2 RID: 3250
+			// Token: 0x02000CE3 RID: 3299
 			public enum CurveType
 			{
-				// Token: 0x0400547D RID: 21629
+				// Token: 0x04005589 RID: 21897
 				ConstantOne,
-				// Token: 0x0400547E RID: 21630
+				// Token: 0x0400558A RID: 21898
 				ConstantHalf,
-				// Token: 0x0400547F RID: 21631
+				// Token: 0x0400558B RID: 21899
 				ConstantZero,
-				// Token: 0x04005480 RID: 21632
+				// Token: 0x0400558C RID: 21900
 				RootOneTailHalf,
-				// Token: 0x04005481 RID: 21633
+				// Token: 0x0400558D RID: 21901
 				RootOneTailZero,
-				// Token: 0x04005482 RID: 21634
+				// Token: 0x0400558E RID: 21902
 				RootHalfTailOne,
-				// Token: 0x04005483 RID: 21635
+				// Token: 0x0400558F RID: 21903
 				RootZeroTailOne,
-				// Token: 0x04005484 RID: 21636
+				// Token: 0x04005590 RID: 21904
 				Custom
 			}
 		}
 
-		// Token: 0x02000CB3 RID: 3251
+		// Token: 0x02000CE4 RID: 3300
 		private class RescanEntry
 		{
-			// Token: 0x0600520B RID: 21003 RVA: 0x00193310 File Offset: 0x00191510
+			// Token: 0x0600536D RID: 21357 RVA: 0x00066162 File Offset: 0x00064362
 			internal RescanEntry(Transform transform, int iParent, float lengthFromRoot)
 			{
 				this.Transform = transform;
@@ -784,13 +784,13 @@ namespace BoingKit
 				this.LengthFromRoot = lengthFromRoot;
 			}
 
-			// Token: 0x04005485 RID: 21637
+			// Token: 0x04005591 RID: 21905
 			internal Transform Transform;
 
-			// Token: 0x04005486 RID: 21638
+			// Token: 0x04005592 RID: 21906
 			internal int ParentIndex;
 
-			// Token: 0x04005487 RID: 21639
+			// Token: 0x04005593 RID: 21907
 			internal float LengthFromRoot;
 		}
 	}

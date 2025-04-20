@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-// Token: 0x020001EA RID: 490
+// Token: 0x020001F5 RID: 501
 public class ReparentOnAwakeWithRenderer : MonoBehaviour, IBuildValidation
 {
-	// Token: 0x06000B64 RID: 2916 RVA: 0x0003D0DB File Offset: 0x0003B2DB
+	// Token: 0x06000BB0 RID: 2992 RVA: 0x00038488 File Offset: 0x00036688
 	public bool BuildValidationCheck()
 	{
 		if (base.GetComponent<MeshRenderer>() != null && this.myRenderer == null)
@@ -16,7 +16,7 @@ public class ReparentOnAwakeWithRenderer : MonoBehaviour, IBuildValidation
 		return true;
 	}
 
-	// Token: 0x06000B65 RID: 2917 RVA: 0x0003D108 File Offset: 0x0003B308
+	// Token: 0x06000BB1 RID: 2993 RVA: 0x0009BE24 File Offset: 0x0009A024
 	private void OnEnable()
 	{
 		base.transform.SetParent(this.newParent, true);
@@ -36,20 +36,20 @@ public class ReparentOnAwakeWithRenderer : MonoBehaviour, IBuildValidation
 		}
 	}
 
-	// Token: 0x06000B66 RID: 2918 RVA: 0x0003D17E File Offset: 0x0003B37E
+	// Token: 0x06000BB2 RID: 2994 RVA: 0x000384B3 File Offset: 0x000366B3
 	[ContextMenu("Set Renderer")]
 	public void SetMyRenderer()
 	{
 		this.myRenderer = base.GetComponent<MeshRenderer>();
 	}
 
-	// Token: 0x04000DFD RID: 3581
+	// Token: 0x04000E43 RID: 3651
 	public Transform newParent;
 
-	// Token: 0x04000DFE RID: 3582
+	// Token: 0x04000E44 RID: 3652
 	public MeshRenderer myRenderer;
 
-	// Token: 0x04000DFF RID: 3583
+	// Token: 0x04000E45 RID: 3653
 	[Tooltip("We're mostly using this for UI elements like text and images, so this will help you separate these in whatever target parent object.Keep images and texts together, otherwise you'll get extra draw calls. Put images above text or they'll overlap weird tho lol")]
 	public bool sortLast;
 }

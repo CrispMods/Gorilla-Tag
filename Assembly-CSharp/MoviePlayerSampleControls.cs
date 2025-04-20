@@ -4,10 +4,10 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-// Token: 0x020002F9 RID: 761
+// Token: 0x02000304 RID: 772
 public class MoviePlayerSampleControls : MonoBehaviour
 {
-	// Token: 0x0600122E RID: 4654 RVA: 0x00056918 File Offset: 0x00054B18
+	// Token: 0x0600127A RID: 4730 RVA: 0x000B0F2C File Offset: 0x000AF12C
 	private void Start()
 	{
 		this.PlayPause.onButtonDown += this.OnPlayPauseClicked;
@@ -20,7 +20,7 @@ public class MoviePlayerSampleControls : MonoBehaviour
 		this.SetVisible(false);
 	}
 
-	// Token: 0x0600122F RID: 4655 RVA: 0x000569B4 File Offset: 0x00054BB4
+	// Token: 0x0600127B RID: 4731 RVA: 0x000B0FC8 File Offset: 0x000AF1C8
 	private void OnPlayPauseClicked()
 	{
 		switch (this._state)
@@ -54,7 +54,7 @@ public class MoviePlayerSampleControls : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001230 RID: 4656 RVA: 0x00056A90 File Offset: 0x00054C90
+	// Token: 0x0600127C RID: 4732 RVA: 0x000B10A4 File Offset: 0x000AF2A4
 	private void OnFastForwardClicked()
 	{
 		switch (this._state)
@@ -82,7 +82,7 @@ public class MoviePlayerSampleControls : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001231 RID: 4657 RVA: 0x00056B40 File Offset: 0x00054D40
+	// Token: 0x0600127D RID: 4733 RVA: 0x000B1154 File Offset: 0x000AF354
 	private void OnRewindClicked()
 	{
 		switch (this._state)
@@ -109,7 +109,7 @@ public class MoviePlayerSampleControls : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001232 RID: 4658 RVA: 0x00056BF0 File Offset: 0x00054DF0
+	// Token: 0x0600127E RID: 4734 RVA: 0x000B1204 File Offset: 0x000AF404
 	private void OnSeekBarMoved(float value)
 	{
 		long num = (long)(value * (float)this.Player.Duration);
@@ -119,7 +119,7 @@ public class MoviePlayerSampleControls : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001233 RID: 4659 RVA: 0x00056C2E File Offset: 0x00054E2E
+	// Token: 0x0600127F RID: 4735 RVA: 0x0003CB15 File Offset: 0x0003AD15
 	private void Seek(long pos)
 	{
 		this._didSeek = true;
@@ -127,7 +127,7 @@ public class MoviePlayerSampleControls : MonoBehaviour
 		this.Player.SeekTo(pos);
 	}
 
-	// Token: 0x06001234 RID: 4660 RVA: 0x00056C54 File Offset: 0x00054E54
+	// Token: 0x06001280 RID: 4736 RVA: 0x000B1244 File Offset: 0x000AF444
 	private void Update()
 	{
 		if (OVRInput.Get(OVRInput.Button.One, OVRInput.Controller.Active) || OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.Active) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger, OVRInput.Controller.Active))
@@ -172,7 +172,7 @@ public class MoviePlayerSampleControls : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001235 RID: 4661 RVA: 0x00056E14 File Offset: 0x00055014
+	// Token: 0x06001281 RID: 4737 RVA: 0x000B1404 File Offset: 0x000AF604
 	private void SetVisible(bool visible)
 	{
 		this.Canvas.enabled = visible;
@@ -183,79 +183,79 @@ public class MoviePlayerSampleControls : MonoBehaviour
 		Debug.Log("Controls Visible: " + visible.ToString());
 	}
 
-	// Token: 0x04001418 RID: 5144
+	// Token: 0x04001460 RID: 5216
 	public MoviePlayerSample Player;
 
-	// Token: 0x04001419 RID: 5145
+	// Token: 0x04001461 RID: 5217
 	public OVRInputModule InputModule;
 
-	// Token: 0x0400141A RID: 5146
+	// Token: 0x04001462 RID: 5218
 	public OVRGazePointer GazePointer;
 
-	// Token: 0x0400141B RID: 5147
+	// Token: 0x04001463 RID: 5219
 	public GameObject LeftHand;
 
-	// Token: 0x0400141C RID: 5148
+	// Token: 0x04001464 RID: 5220
 	public GameObject RightHand;
 
-	// Token: 0x0400141D RID: 5149
+	// Token: 0x04001465 RID: 5221
 	public Canvas Canvas;
 
-	// Token: 0x0400141E RID: 5150
+	// Token: 0x04001466 RID: 5222
 	public ButtonDownListener PlayPause;
 
-	// Token: 0x0400141F RID: 5151
+	// Token: 0x04001467 RID: 5223
 	public MediaPlayerImage PlayPauseImage;
 
-	// Token: 0x04001420 RID: 5152
+	// Token: 0x04001468 RID: 5224
 	public Slider ProgressBar;
 
-	// Token: 0x04001421 RID: 5153
+	// Token: 0x04001469 RID: 5225
 	public ButtonDownListener FastForward;
 
-	// Token: 0x04001422 RID: 5154
+	// Token: 0x0400146A RID: 5226
 	public MediaPlayerImage FastForwardImage;
 
-	// Token: 0x04001423 RID: 5155
+	// Token: 0x0400146B RID: 5227
 	public ButtonDownListener Rewind;
 
-	// Token: 0x04001424 RID: 5156
+	// Token: 0x0400146C RID: 5228
 	public MediaPlayerImage RewindImage;
 
-	// Token: 0x04001425 RID: 5157
+	// Token: 0x0400146D RID: 5229
 	public float TimeoutTime = 10f;
 
-	// Token: 0x04001426 RID: 5158
+	// Token: 0x0400146E RID: 5230
 	private bool _isVisible;
 
-	// Token: 0x04001427 RID: 5159
+	// Token: 0x0400146F RID: 5231
 	private float _lastButtonTime;
 
-	// Token: 0x04001428 RID: 5160
+	// Token: 0x04001470 RID: 5232
 	private bool _didSeek;
 
-	// Token: 0x04001429 RID: 5161
+	// Token: 0x04001471 RID: 5233
 	private long _seekPreviousPosition;
 
-	// Token: 0x0400142A RID: 5162
+	// Token: 0x04001472 RID: 5234
 	private long _rewindStartPosition;
 
-	// Token: 0x0400142B RID: 5163
+	// Token: 0x04001473 RID: 5235
 	private float _rewindStartTime;
 
-	// Token: 0x0400142C RID: 5164
+	// Token: 0x04001474 RID: 5236
 	private MoviePlayerSampleControls.PlaybackState _state;
 
-	// Token: 0x020002FA RID: 762
+	// Token: 0x02000305 RID: 773
 	private enum PlaybackState
 	{
-		// Token: 0x0400142E RID: 5166
+		// Token: 0x04001476 RID: 5238
 		Playing,
-		// Token: 0x0400142F RID: 5167
+		// Token: 0x04001477 RID: 5239
 		Paused,
-		// Token: 0x04001430 RID: 5168
+		// Token: 0x04001478 RID: 5240
 		Rewinding,
-		// Token: 0x04001431 RID: 5169
+		// Token: 0x04001479 RID: 5241
 		FastForwarding
 	}
 }

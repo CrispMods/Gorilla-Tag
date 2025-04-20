@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A59 RID: 2649
+	// Token: 0x02000A86 RID: 2694
 	public class FingerTipPokeToolView : MonoBehaviour, InteractableToolView
 	{
-		// Token: 0x170006B5 RID: 1717
-		// (get) Token: 0x060041F9 RID: 16889 RVA: 0x00138090 File Offset: 0x00136290
-		// (set) Token: 0x060041FA RID: 16890 RVA: 0x00138098 File Offset: 0x00136298
+		// Token: 0x170006D1 RID: 1745
+		// (get) Token: 0x0600433E RID: 17214 RVA: 0x0005BD99 File Offset: 0x00059F99
+		// (set) Token: 0x0600433F RID: 17215 RVA: 0x0005BDA1 File Offset: 0x00059FA1
 		public InteractableTool InteractableTool { get; set; }
 
-		// Token: 0x170006B6 RID: 1718
-		// (get) Token: 0x060041FB RID: 16891 RVA: 0x001380A1 File Offset: 0x001362A1
-		// (set) Token: 0x060041FC RID: 16892 RVA: 0x001380AE File Offset: 0x001362AE
+		// Token: 0x170006D2 RID: 1746
+		// (get) Token: 0x06004340 RID: 17216 RVA: 0x0005BDAA File Offset: 0x00059FAA
+		// (set) Token: 0x06004341 RID: 17217 RVA: 0x0005BDB7 File Offset: 0x00059FB7
 		public bool EnableState
 		{
 			get
@@ -26,28 +26,28 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x170006B7 RID: 1719
-		// (get) Token: 0x060041FD RID: 16893 RVA: 0x001380BC File Offset: 0x001362BC
-		// (set) Token: 0x060041FE RID: 16894 RVA: 0x001380C4 File Offset: 0x001362C4
+		// Token: 0x170006D3 RID: 1747
+		// (get) Token: 0x06004342 RID: 17218 RVA: 0x0005BDC5 File Offset: 0x00059FC5
+		// (set) Token: 0x06004343 RID: 17219 RVA: 0x0005BDCD File Offset: 0x00059FCD
 		public bool ToolActivateState { get; set; }
 
-		// Token: 0x170006B8 RID: 1720
-		// (get) Token: 0x060041FF RID: 16895 RVA: 0x001380CD File Offset: 0x001362CD
-		// (set) Token: 0x06004200 RID: 16896 RVA: 0x001380D5 File Offset: 0x001362D5
+		// Token: 0x170006D4 RID: 1748
+		// (get) Token: 0x06004344 RID: 17220 RVA: 0x0005BDD6 File Offset: 0x00059FD6
+		// (set) Token: 0x06004345 RID: 17221 RVA: 0x0005BDDE File Offset: 0x00059FDE
 		public float SphereRadius { get; private set; }
 
-		// Token: 0x06004201 RID: 16897 RVA: 0x001380DE File Offset: 0x001362DE
+		// Token: 0x06004346 RID: 17222 RVA: 0x0005BDE7 File Offset: 0x00059FE7
 		private void Awake()
 		{
 			this.SphereRadius = this._sphereMeshRenderer.transform.localScale.z * 0.5f;
 		}
 
-		// Token: 0x06004202 RID: 16898 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004347 RID: 17223 RVA: 0x00030607 File Offset: 0x0002E807
 		public void SetFocusedInteractable(Interactable interactable)
 		{
 		}
 
-		// Token: 0x04004306 RID: 17158
+		// Token: 0x04004400 RID: 17408
 		[SerializeField]
 		private MeshRenderer _sphereMeshRenderer;
 	}

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using GorillaLocomotion;
 using UnityEngine;
 
-// Token: 0x0200042C RID: 1068
+// Token: 0x02000438 RID: 1080
 [RequireComponent(typeof(SphereCollider))]
 public class CosmeticWardrobeProximityDetector : MonoBehaviour
 {
-	// Token: 0x06001A65 RID: 6757 RVA: 0x000823F5 File Offset: 0x000805F5
+	// Token: 0x06001AB9 RID: 6841 RVA: 0x00042184 File Offset: 0x00040384
 	private void OnEnable()
 	{
 		if (this.wardrobeNearbyCollider != null)
@@ -16,7 +16,7 @@ public class CosmeticWardrobeProximityDetector : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A66 RID: 6758 RVA: 0x00082415 File Offset: 0x00080615
+	// Token: 0x06001ABA RID: 6842 RVA: 0x000421A4 File Offset: 0x000403A4
 	private void OnDisable()
 	{
 		if (this.wardrobeNearbyCollider != null)
@@ -25,7 +25,7 @@ public class CosmeticWardrobeProximityDetector : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A67 RID: 6759 RVA: 0x00082438 File Offset: 0x00080638
+	// Token: 0x06001ABB RID: 6843 RVA: 0x000D7750 File Offset: 0x000D5950
 	public static bool IsUserNearWardrobe(string userID)
 	{
 		int layerMask = LayerMask.GetMask(new string[]
@@ -72,13 +72,13 @@ public class CosmeticWardrobeProximityDetector : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x04001D2F RID: 7471
+	// Token: 0x04001D7E RID: 7550
 	[SerializeField]
 	private SphereCollider wardrobeNearbyCollider;
 
-	// Token: 0x04001D30 RID: 7472
+	// Token: 0x04001D7F RID: 7551
 	private static List<SphereCollider> wardrobeNearbyDetection = new List<SphereCollider>();
 
-	// Token: 0x04001D31 RID: 7473
+	// Token: 0x04001D80 RID: 7552
 	private static readonly Collider[] overlapColliders = new Collider[20];
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Playables;
 
-// Token: 0x020001B7 RID: 439
+// Token: 0x020001C2 RID: 450
 public class GTDoorTrigger : MonoBehaviour
 {
-	// Token: 0x17000109 RID: 265
-	// (get) Token: 0x06000A5C RID: 2652 RVA: 0x0003871C File Offset: 0x0003691C
+	// Token: 0x17000110 RID: 272
+	// (get) Token: 0x06000AA8 RID: 2728 RVA: 0x00037722 File Offset: 0x00035922
 	public int overlapCount
 	{
 		get
@@ -17,8 +17,8 @@ public class GTDoorTrigger : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700010A RID: 266
-	// (get) Token: 0x06000A5D RID: 2653 RVA: 0x00038729 File Offset: 0x00036929
+	// Token: 0x17000111 RID: 273
+	// (get) Token: 0x06000AA9 RID: 2729 RVA: 0x0003772F File Offset: 0x0003592F
 	public bool TriggeredThisFrame
 	{
 		get
@@ -27,7 +27,7 @@ public class GTDoorTrigger : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A5E RID: 2654 RVA: 0x00038738 File Offset: 0x00036938
+	// Token: 0x06000AAA RID: 2730 RVA: 0x000981C8 File Offset: 0x000963C8
 	public void ValidateOverlappingColliders()
 	{
 		for (int i = this.overlappingColliders.Count - 1; i >= 0; i--)
@@ -39,7 +39,7 @@ public class GTDoorTrigger : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A5F RID: 2655 RVA: 0x000387A8 File Offset: 0x000369A8
+	// Token: 0x06000AAB RID: 2731 RVA: 0x00098238 File Offset: 0x00096438
 	private void OnTriggerEnter(Collider other)
 	{
 		if (!this.overlappingColliders.Contains(other))
@@ -54,22 +54,22 @@ public class GTDoorTrigger : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A60 RID: 2656 RVA: 0x0003882C File Offset: 0x00036A2C
+	// Token: 0x06000AAC RID: 2732 RVA: 0x0003773E File Offset: 0x0003593E
 	private void OnTriggerExit(Collider other)
 	{
 		this.overlappingColliders.Remove(other);
 	}
 
-	// Token: 0x04000CAC RID: 3244
+	// Token: 0x04000CF2 RID: 3314
 	[Tooltip("Optional timeline to play to animate the thing getting activated, play sound, particles, etc...")]
 	public PlayableDirector timeline;
 
-	// Token: 0x04000CAD RID: 3245
+	// Token: 0x04000CF3 RID: 3315
 	private int lastTriggeredFrame = -1;
 
-	// Token: 0x04000CAE RID: 3246
+	// Token: 0x04000CF4 RID: 3316
 	private List<Collider> overlappingColliders = new List<Collider>(20);
 
-	// Token: 0x04000CAF RID: 3247
+	// Token: 0x04000CF5 RID: 3317
 	internal UnityEvent TriggeredEvent = new UnityEvent();
 }

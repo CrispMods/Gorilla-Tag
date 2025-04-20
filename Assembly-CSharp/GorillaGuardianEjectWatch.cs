@@ -3,10 +3,10 @@ using GorillaGameModes;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x0200055D RID: 1373
+// Token: 0x0200056B RID: 1387
 public class GorillaGuardianEjectWatch : MonoBehaviour
 {
-	// Token: 0x060021B8 RID: 8632 RVA: 0x000A6DDC File Offset: 0x000A4FDC
+	// Token: 0x06002216 RID: 8726 RVA: 0x000472DC File Offset: 0x000454DC
 	private void Start()
 	{
 		if (this.ejectButton != null)
@@ -15,7 +15,7 @@ public class GorillaGuardianEjectWatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060021B9 RID: 8633 RVA: 0x000A6E08 File Offset: 0x000A5008
+	// Token: 0x06002217 RID: 8727 RVA: 0x00047308 File Offset: 0x00045508
 	private void OnDestroy()
 	{
 		if (this.ejectButton != null)
@@ -24,7 +24,7 @@ public class GorillaGuardianEjectWatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060021BA RID: 8634 RVA: 0x000A6E34 File Offset: 0x000A5034
+	// Token: 0x06002218 RID: 8728 RVA: 0x000F7178 File Offset: 0x000F5378
 	private void OnEjectButtonPressed()
 	{
 		GorillaGuardianManager gorillaGuardianManager = GameMode.ActiveGameMode as GorillaGuardianManager;
@@ -34,7 +34,7 @@ public class GorillaGuardianEjectWatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002552 RID: 9554
+	// Token: 0x040025AA RID: 9642
 	[SerializeField]
 	private HeldButton ejectButton;
 }

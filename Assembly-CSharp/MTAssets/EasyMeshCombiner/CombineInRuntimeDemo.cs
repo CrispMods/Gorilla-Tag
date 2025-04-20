@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace MTAssets.EasyMeshCombiner
 {
-	// Token: 0x02000B15 RID: 2837
+	// Token: 0x02000B42 RID: 2882
 	public class CombineInRuntimeDemo : MonoBehaviour
 	{
-		// Token: 0x060046F0 RID: 18160 RVA: 0x00150B68 File Offset: 0x0014ED68
+		// Token: 0x06004839 RID: 18489 RVA: 0x0018D398 File Offset: 0x0018B598
 		private void Update()
 		{
 			if (!this.runtimeCombiner.isTargetMeshesMerged())
@@ -21,25 +21,25 @@ namespace MTAssets.EasyMeshCombiner
 			}
 		}
 
-		// Token: 0x060046F1 RID: 18161 RVA: 0x00150BBF File Offset: 0x0014EDBF
+		// Token: 0x0600483A RID: 18490 RVA: 0x0005EFD2 File Offset: 0x0005D1D2
 		public void CombineMeshes()
 		{
 			this.runtimeCombiner.CombineMeshes();
 		}
 
-		// Token: 0x060046F2 RID: 18162 RVA: 0x00150BCD File Offset: 0x0014EDCD
+		// Token: 0x0600483B RID: 18491 RVA: 0x0005EFE0 File Offset: 0x0005D1E0
 		public void UndoMerge()
 		{
 			this.runtimeCombiner.UndoMerge();
 		}
 
-		// Token: 0x0400485E RID: 18526
+		// Token: 0x04004953 RID: 18771
 		public GameObject combineButton;
 
-		// Token: 0x0400485F RID: 18527
+		// Token: 0x04004954 RID: 18772
 		public GameObject undoButton;
 
-		// Token: 0x04004860 RID: 18528
+		// Token: 0x04004955 RID: 18773
 		public RuntimeMeshCombiner runtimeCombiner;
 	}
 }

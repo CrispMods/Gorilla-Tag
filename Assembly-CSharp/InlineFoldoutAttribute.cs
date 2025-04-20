@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-// Token: 0x0200013B RID: 315
+// Token: 0x02000145 RID: 325
 [Conditional("UNITY_EDITOR")]
 [AttributeUsage(AttributeTargets.All)]
 public class InlineFoldoutAttribute : Attribute

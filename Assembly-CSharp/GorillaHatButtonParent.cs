@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000569 RID: 1385
+// Token: 0x02000577 RID: 1399
 public class GorillaHatButtonParent : MonoBehaviour
 {
-	// Token: 0x06002224 RID: 8740 RVA: 0x000A8B88 File Offset: 0x000A6D88
+	// Token: 0x06002282 RID: 8834 RVA: 0x000F8ABC File Offset: 0x000F6CBC
 	public void Start()
 	{
 		this.hat = PlayerPrefs.GetString("hatCosmetic", "none");
@@ -14,7 +14,7 @@ public class GorillaHatButtonParent : MonoBehaviour
 		this.rightHandHold = PlayerPrefs.GetString("rightHandHoldCosmetic", "none");
 	}
 
-	// Token: 0x06002225 RID: 8741 RVA: 0x000A8C00 File Offset: 0x000A6E00
+	// Token: 0x06002283 RID: 8835 RVA: 0x000F8B34 File Offset: 0x000F6D34
 	public void LateUpdate()
 	{
 		if (!this.initialized && GorillaTagger.Instance.offlineVRRig.InitializedCosmetics)
@@ -36,7 +36,7 @@ public class GorillaHatButtonParent : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002226 RID: 8742 RVA: 0x000A8CA8 File Offset: 0x000A6EA8
+	// Token: 0x06002284 RID: 8836 RVA: 0x000F8BDC File Offset: 0x000F6DDC
 	public void PressButton(bool isOn, GorillaHatButton.HatButtonType buttonType, string buttonValue)
 	{
 		if (this.initialized && GorillaTagger.Instance.offlineVRRig.concatStringOfCosmeticsAllowed.Contains("earlyaccess"))
@@ -85,7 +85,7 @@ public class GorillaHatButtonParent : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002227 RID: 8743 RVA: 0x000A8DBC File Offset: 0x000A6FBC
+	// Token: 0x06002285 RID: 8837 RVA: 0x000F8CF0 File Offset: 0x000F6EF0
 	private void UpdateButtonState()
 	{
 		foreach (GorillaHatButton gorillaHatButton in this.hatButtons)
@@ -106,30 +106,30 @@ public class GorillaHatButtonParent : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040025A7 RID: 9639
+	// Token: 0x040025FF RID: 9727
 	public GorillaHatButton[] hatButtons;
 
-	// Token: 0x040025A8 RID: 9640
+	// Token: 0x04002600 RID: 9728
 	public GameObject[] adminObjects;
 
-	// Token: 0x040025A9 RID: 9641
+	// Token: 0x04002601 RID: 9729
 	public string hat;
 
-	// Token: 0x040025AA RID: 9642
+	// Token: 0x04002602 RID: 9730
 	public string face;
 
-	// Token: 0x040025AB RID: 9643
+	// Token: 0x04002603 RID: 9731
 	public string badge;
 
-	// Token: 0x040025AC RID: 9644
+	// Token: 0x04002604 RID: 9732
 	public string leftHandHold;
 
-	// Token: 0x040025AD RID: 9645
+	// Token: 0x04002605 RID: 9733
 	public string rightHandHold;
 
-	// Token: 0x040025AE RID: 9646
+	// Token: 0x04002606 RID: 9734
 	public bool initialized;
 
-	// Token: 0x040025AF RID: 9647
+	// Token: 0x04002607 RID: 9735
 	public GorillaLevelScreen screen;
 }

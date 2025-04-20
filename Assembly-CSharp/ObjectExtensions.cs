@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001A6 RID: 422
+// Token: 0x020001B1 RID: 433
 public static class ObjectExtensions
 {
-	// Token: 0x06000A07 RID: 2567 RVA: 0x00037516 File Offset: 0x00035716
-	public static void Destroy(this Object target)
+	// Token: 0x06000A53 RID: 2643 RVA: 0x000373D8 File Offset: 0x000355D8
+	public static void Destroy(this UnityEngine.Object target)
 	{
-		Object.Destroy(target);
+		UnityEngine.Object.Destroy(target);
 	}
 }

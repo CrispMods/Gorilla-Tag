@@ -2,11 +2,11 @@
 using GorillaTag.Reactions;
 using UnityEngine;
 
-// Token: 0x0200089E RID: 2206
+// Token: 0x020008BA RID: 2234
 [RequireComponent(typeof(SpawnWorldEffects))]
 public class SpawnWorldEffectsTrigger : MonoBehaviour
 {
-	// Token: 0x0600355E RID: 13662 RVA: 0x000FE232 File Offset: 0x000FC432
+	// Token: 0x06003626 RID: 13862 RVA: 0x00053A1F File Offset: 0x00051C1F
 	private void OnEnable()
 	{
 		if (this.swe == null)
@@ -15,14 +15,14 @@ public class SpawnWorldEffectsTrigger : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600355F RID: 13663 RVA: 0x000FE24E File Offset: 0x000FC44E
+	// Token: 0x06003627 RID: 13863 RVA: 0x00053A3B File Offset: 0x00051C3B
 	private void OnTriggerEnter(Collider other)
 	{
 		this.spawnTime = Time.time;
 		this.swe.RequestSpawn(base.transform.position);
 	}
 
-	// Token: 0x06003560 RID: 13664 RVA: 0x000FE271 File Offset: 0x000FC471
+	// Token: 0x06003628 RID: 13864 RVA: 0x00053A5E File Offset: 0x00051C5E
 	private void OnTriggerStay(Collider other)
 	{
 		if (Time.time - this.spawnTime < this.spawnCooldown)
@@ -33,13 +33,13 @@ public class SpawnWorldEffectsTrigger : MonoBehaviour
 		this.spawnTime = Time.time;
 	}
 
-	// Token: 0x040037BC RID: 14268
+	// Token: 0x0400387D RID: 14461
 	private SpawnWorldEffects swe;
 
-	// Token: 0x040037BD RID: 14269
+	// Token: 0x0400387E RID: 14462
 	private float spawnTime;
 
-	// Token: 0x040037BE RID: 14270
+	// Token: 0x0400387F RID: 14463
 	[SerializeField]
 	private float spawnCooldown = 1f;
 }

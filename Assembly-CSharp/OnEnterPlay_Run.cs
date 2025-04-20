@@ -2,10 +2,10 @@
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x02000866 RID: 2150
+// Token: 0x02000882 RID: 2178
 public class OnEnterPlay_Run : OnEnterPlay_Attribute
 {
-	// Token: 0x06003424 RID: 13348 RVA: 0x000F8730 File Offset: 0x000F6930
+	// Token: 0x060034F0 RID: 13552 RVA: 0x00052E70 File Offset: 0x00051070
 	public override void OnEnterPlay(MethodInfo method)
 	{
 		if (!method.IsStatic)

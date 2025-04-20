@@ -3,10 +3,10 @@ using System.Runtime.CompilerServices;
 using Unity.Mathematics;
 using UnityEngine;
 
-// Token: 0x02000898 RID: 2200
+// Token: 0x020008B4 RID: 2228
 public static class VectorMath
 {
-	// Token: 0x06003534 RID: 13620 RVA: 0x000FD84C File Offset: 0x000FBA4C
+	// Token: 0x06003601 RID: 13825 RVA: 0x00143E5C File Offset: 0x0014205C
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3Int Clamped(this Vector3Int v, int min, int max)
 	{
@@ -16,7 +16,7 @@ public static class VectorMath
 		return v;
 	}
 
-	// Token: 0x06003535 RID: 13621 RVA: 0x000FD899 File Offset: 0x000FBA99
+	// Token: 0x06003602 RID: 13826 RVA: 0x000537B3 File Offset: 0x000519B3
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void SetXYZ(this Vector3 v, float f)
 	{
@@ -25,7 +25,7 @@ public static class VectorMath
 		v.z = f;
 	}
 
-	// Token: 0x06003536 RID: 13622 RVA: 0x000FD8B0 File Offset: 0x000FBAB0
+	// Token: 0x06003603 RID: 13827 RVA: 0x000537CA File Offset: 0x000519CA
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3Int Abs(this Vector3Int v)
 	{
@@ -35,7 +35,7 @@ public static class VectorMath
 		return v;
 	}
 
-	// Token: 0x06003537 RID: 13623 RVA: 0x000FD8EC File Offset: 0x000FBAEC
+	// Token: 0x06003604 RID: 13828 RVA: 0x00053806 File Offset: 0x00051A06
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 Abs(this Vector3 v)
 	{
@@ -45,21 +45,21 @@ public static class VectorMath
 		return v;
 	}
 
-	// Token: 0x06003538 RID: 13624 RVA: 0x000FD925 File Offset: 0x000FBB25
+	// Token: 0x06003605 RID: 13829 RVA: 0x0005383F File Offset: 0x00051A3F
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 Min(this Vector3 v, Vector3 other)
 	{
 		return new Vector3(Math.Min(v.x, other.x), Math.Min(v.y, other.y), Math.Min(v.z, other.z));
 	}
 
-	// Token: 0x06003539 RID: 13625 RVA: 0x000FD95F File Offset: 0x000FBB5F
+	// Token: 0x06003606 RID: 13830 RVA: 0x00053879 File Offset: 0x00051A79
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 Max(this Vector3 v, Vector3 other)
 	{
 		return new Vector3(Math.Max(v.x, other.x), Math.Max(v.y, other.y), Math.Max(v.z, other.z));
 	}
 
-	// Token: 0x0600353A RID: 13626 RVA: 0x000FD999 File Offset: 0x000FBB99
+	// Token: 0x06003607 RID: 13831 RVA: 0x000538B3 File Offset: 0x00051AB3
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 Add(this Vector3 v, float amount)
 	{
@@ -69,7 +69,7 @@ public static class VectorMath
 		return v;
 	}
 
-	// Token: 0x0600353B RID: 13627 RVA: 0x000FD9C0 File Offset: 0x000FBBC0
+	// Token: 0x06003608 RID: 13832 RVA: 0x000538DA File Offset: 0x00051ADA
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 Sub(this Vector3 v, float amount)
 	{
@@ -79,7 +79,7 @@ public static class VectorMath
 		return v;
 	}
 
-	// Token: 0x0600353C RID: 13628 RVA: 0x000FD9E7 File Offset: 0x000FBBE7
+	// Token: 0x06003609 RID: 13833 RVA: 0x00053901 File Offset: 0x00051B01
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 Mul(this Vector3 v, float amount)
 	{
@@ -89,7 +89,7 @@ public static class VectorMath
 		return v;
 	}
 
-	// Token: 0x0600353D RID: 13629 RVA: 0x000FDA10 File Offset: 0x000FBC10
+	// Token: 0x0600360A RID: 13834 RVA: 0x00143EAC File Offset: 0x001420AC
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 Div(this Vector3 v, float amount)
 	{
@@ -100,7 +100,7 @@ public static class VectorMath
 		return v;
 	}
 
-	// Token: 0x0600353E RID: 13630 RVA: 0x000FDA4C File Offset: 0x000FBC4C
+	// Token: 0x0600360B RID: 13835 RVA: 0x00143EE8 File Offset: 0x001420E8
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 Max(this Vector3 v)
 	{
@@ -111,7 +111,7 @@ public static class VectorMath
 		return v;
 	}
 
-	// Token: 0x0600353F RID: 13631 RVA: 0x000FDA90 File Offset: 0x000FBC90
+	// Token: 0x0600360C RID: 13836 RVA: 0x00143F2C File Offset: 0x0014212C
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 Max(this Vector3 v, float max)
 	{
@@ -122,7 +122,7 @@ public static class VectorMath
 		return v;
 	}
 
-	// Token: 0x06003540 RID: 13632 RVA: 0x000FDADC File Offset: 0x000FBCDC
+	// Token: 0x0600360D RID: 13837 RVA: 0x00143F78 File Offset: 0x00142178
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static float3 Max(this float3 v)
 	{
@@ -133,14 +133,14 @@ public static class VectorMath
 		return v;
 	}
 
-	// Token: 0x06003541 RID: 13633 RVA: 0x000FDB1F File Offset: 0x000FBD1F
+	// Token: 0x0600360E RID: 13838 RVA: 0x00053928 File Offset: 0x00051B28
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool IsFinite(this Vector3 v)
 	{
 		return float.IsFinite(v.x) && float.IsFinite(v.y) && float.IsFinite(v.z);
 	}
 
-	// Token: 0x06003542 RID: 13634 RVA: 0x000FDB48 File Offset: 0x000FBD48
+	// Token: 0x0600360F RID: 13839 RVA: 0x00143FBC File Offset: 0x001421BC
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 Clamped(this Vector3 v, Vector3 min, Vector3 max)
 	{
@@ -150,7 +150,7 @@ public static class VectorMath
 		return v;
 	}
 
-	// Token: 0x06003543 RID: 13635 RVA: 0x000FDBB0 File Offset: 0x000FBDB0
+	// Token: 0x06003610 RID: 13840 RVA: 0x00144024 File Offset: 0x00142224
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool Approx0(this Vector3 v, float epsilon = 1E-05f)
 	{
@@ -160,7 +160,7 @@ public static class VectorMath
 		return x * x + y * y + z * z <= epsilon * epsilon;
 	}
 
-	// Token: 0x06003544 RID: 13636 RVA: 0x000FDBE4 File Offset: 0x000FBDE4
+	// Token: 0x06003611 RID: 13841 RVA: 0x00144058 File Offset: 0x00142258
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool Approx1(this Vector3 v, float epsilon = 1E-05f)
 	{
@@ -170,7 +170,7 @@ public static class VectorMath
 		return num * num + num2 * num2 + num3 * num3 <= epsilon * epsilon;
 	}
 
-	// Token: 0x06003545 RID: 13637 RVA: 0x000FDC2C File Offset: 0x000FBE2C
+	// Token: 0x06003612 RID: 13842 RVA: 0x001440A0 File Offset: 0x001422A0
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool Approx(this Vector3 a, Vector3 b, float epsilon = 1E-05f)
 	{
@@ -180,7 +180,7 @@ public static class VectorMath
 		return num * num + num2 * num2 + num3 * num3 <= epsilon * epsilon;
 	}
 
-	// Token: 0x06003546 RID: 13638 RVA: 0x000FDC74 File Offset: 0x000FBE74
+	// Token: 0x06003613 RID: 13843 RVA: 0x001440E8 File Offset: 0x001422E8
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool Approx(this Vector4 a, Vector4 b, float epsilon = 1E-05f)
 	{

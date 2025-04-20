@@ -3,10 +3,10 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x0200066B RID: 1643
+// Token: 0x0200064A RID: 1610
 public class GorillaPressableReleaseButton : GorillaPressableButton
 {
-	// Token: 0x060028AD RID: 10413 RVA: 0x000C7F0C File Offset: 0x000C610C
+	// Token: 0x060027D8 RID: 10200 RVA: 0x0010ECB8 File Offset: 0x0010CEB8
 	private new void OnTriggerEnter(Collider other)
 	{
 		if (!base.enabled)
@@ -48,7 +48,7 @@ public class GorillaPressableReleaseButton : GorillaPressableButton
 		}
 	}
 
-	// Token: 0x060028AE RID: 10414 RVA: 0x000C8034 File Offset: 0x000C6234
+	// Token: 0x060027D9 RID: 10201 RVA: 0x0010EDE0 File Offset: 0x0010CFE0
 	private void OnTriggerExit(Collider other)
 	{
 		if (!base.enabled)
@@ -85,26 +85,26 @@ public class GorillaPressableReleaseButton : GorillaPressableButton
 		}
 	}
 
-	// Token: 0x060028AF RID: 10415 RVA: 0x000C813C File Offset: 0x000C633C
+	// Token: 0x060027DA RID: 10202 RVA: 0x0004B14B File Offset: 0x0004934B
 	public override void ResetState()
 	{
 		base.ResetState();
 		this.touchingCollider = null;
 	}
 
-	// Token: 0x060028B0 RID: 10416 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060027DB RID: 10203 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void ButtonDeactivation()
 	{
 	}
 
-	// Token: 0x060028B1 RID: 10417 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060027DC RID: 10204 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void ButtonDeactivationWithHand(bool isLeftHand)
 	{
 	}
 
-	// Token: 0x04002DBD RID: 11709
+	// Token: 0x04002D23 RID: 11555
 	public UnityEvent onReleaseButton;
 
-	// Token: 0x04002DBE RID: 11710
+	// Token: 0x04002D24 RID: 11556
 	private Collider touchingCollider;
 }

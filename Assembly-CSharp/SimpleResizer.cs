@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000352 RID: 850
+// Token: 0x0200035D RID: 861
 public class SimpleResizer
 {
-	// Token: 0x060013C3 RID: 5059 RVA: 0x00061090 File Offset: 0x0005F290
+	// Token: 0x0600140F RID: 5135 RVA: 0x000BA9D0 File Offset: 0x000B8BD0
 	public void CreateResizedObject(Vector3 newSize, GameObject parent, SimpleResizable sourcePrefab)
 	{
-		GameObject gameObject = Object.Instantiate<GameObject>(sourcePrefab.gameObject, Vector3.zero, Quaternion.identity);
+		GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(sourcePrefab.gameObject, Vector3.zero, Quaternion.identity);
 		gameObject.name = sourcePrefab.name;
 		SimpleResizable component = gameObject.GetComponent<SimpleResizable>();
 		component.SetNewSize(newSize);
@@ -23,10 +23,10 @@ public class SimpleResizer
 		gameObject.transform.parent = parent.transform;
 		gameObject.transform.localPosition = Vector3.zero;
 		gameObject.transform.localRotation = Quaternion.identity;
-		Object.Destroy(component);
+		UnityEngine.Object.Destroy(component);
 	}
 
-	// Token: 0x060013C4 RID: 5060 RVA: 0x00061138 File Offset: 0x0005F338
+	// Token: 0x06001410 RID: 5136 RVA: 0x000BAA78 File Offset: 0x000B8C78
 	internal static Mesh ProcessVertices(SimpleResizable resizable, Vector3 newSize, bool pivot = false)
 	{
 		Mesh originalMesh = resizable.OriginalMesh;
@@ -51,12 +51,12 @@ public class SimpleResizer
 			}
 			vertices[i] = vector2;
 		}
-		Mesh mesh = Object.Instantiate<Mesh>(originalMesh);
+		Mesh mesh = UnityEngine.Object.Instantiate<Mesh>(originalMesh);
 		mesh.vertices = vertices;
 		return mesh;
 	}
 
-	// Token: 0x060013C5 RID: 5061 RVA: 0x000612E0 File Offset: 0x0005F4E0
+	// Token: 0x06001411 RID: 5137 RVA: 0x000BAC20 File Offset: 0x000B8E20
 	private static float CalculateNewVertexPosition(SimpleResizable.Method resizeMethod, float currentPosition, float currentSize, float newSize, float padding, float paddingMax, float pivot)
 	{
 		float num = currentSize / 2f * (newSize / 2f * (1f / (currentSize / 2f))) - currentSize / 2f;

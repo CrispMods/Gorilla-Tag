@@ -6,55 +6,55 @@ using UnityEngine.Events;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C38 RID: 3128
+	// Token: 0x02000C69 RID: 3177
 	public class DistanceCheckerCosmetic : MonoBehaviour, ISpawnable
 	{
-		// Token: 0x17000815 RID: 2069
-		// (get) Token: 0x06004E1D RID: 19997 RVA: 0x0017F540 File Offset: 0x0017D740
-		// (set) Token: 0x06004E1E RID: 19998 RVA: 0x0017F548 File Offset: 0x0017D748
+		// Token: 0x17000833 RID: 2099
+		// (get) Token: 0x06004F7D RID: 20349 RVA: 0x00063EA1 File Offset: 0x000620A1
+		// (set) Token: 0x06004F7E RID: 20350 RVA: 0x00063EA9 File Offset: 0x000620A9
 		public bool IsSpawned { get; set; }
 
-		// Token: 0x17000816 RID: 2070
-		// (get) Token: 0x06004E1F RID: 19999 RVA: 0x0017F551 File Offset: 0x0017D751
-		// (set) Token: 0x06004E20 RID: 20000 RVA: 0x0017F559 File Offset: 0x0017D759
+		// Token: 0x17000834 RID: 2100
+		// (get) Token: 0x06004F7F RID: 20351 RVA: 0x00063EB2 File Offset: 0x000620B2
+		// (set) Token: 0x06004F80 RID: 20352 RVA: 0x00063EBA File Offset: 0x000620BA
 		public ECosmeticSelectSide CosmeticSelectedSide { get; set; }
 
-		// Token: 0x06004E21 RID: 20001 RVA: 0x0017F562 File Offset: 0x0017D762
+		// Token: 0x06004F81 RID: 20353 RVA: 0x00063EC3 File Offset: 0x000620C3
 		public void OnSpawn(VRRig rig)
 		{
 			this.myRig = rig;
 		}
 
-		// Token: 0x06004E22 RID: 20002 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004F82 RID: 20354 RVA: 0x00030607 File Offset: 0x0002E807
 		public void OnDespawn()
 		{
 		}
 
-		// Token: 0x06004E23 RID: 20003 RVA: 0x0017F56B File Offset: 0x0017D76B
+		// Token: 0x06004F83 RID: 20355 RVA: 0x00063ECC File Offset: 0x000620CC
 		private void OnEnable()
 		{
 			this.currentState = DistanceCheckerCosmetic.State.None;
 		}
 
-		// Token: 0x06004E24 RID: 20004 RVA: 0x0017F574 File Offset: 0x0017D774
+		// Token: 0x06004F84 RID: 20356 RVA: 0x00063ED5 File Offset: 0x000620D5
 		private void Update()
 		{
 			this.UpdateDistance();
 		}
 
-		// Token: 0x06004E25 RID: 20005 RVA: 0x0017F57C File Offset: 0x0017D77C
+		// Token: 0x06004F85 RID: 20357 RVA: 0x00063EDD File Offset: 0x000620DD
 		private bool IsBelowThreshold(Vector3 distance)
 		{
 			return distance.IsShorterThan(this.distanceThreshold);
 		}
 
-		// Token: 0x06004E26 RID: 20006 RVA: 0x0017F58F File Offset: 0x0017D78F
+		// Token: 0x06004F86 RID: 20358 RVA: 0x00063EF0 File Offset: 0x000620F0
 		private bool IsAboveThreshold(Vector3 distance)
 		{
 			return distance.IsLongerThan(this.distanceThreshold);
 		}
 
-		// Token: 0x06004E27 RID: 20007 RVA: 0x0017F5A4 File Offset: 0x0017D7A4
+		// Token: 0x06004F87 RID: 20359 RVA: 0x001B7DD4 File Offset: 0x001B5FD4
 		private void UpdateDistance()
 		{
 			bool flag = true;
@@ -119,7 +119,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E28 RID: 20008 RVA: 0x0017F744 File Offset: 0x0017D944
+		// Token: 0x06004F88 RID: 20360 RVA: 0x001B7F74 File Offset: 0x001B6174
 		private void UpdateState(DistanceCheckerCosmetic.State newState)
 		{
 			if (this.currentState == newState)
@@ -148,52 +148,52 @@ namespace GorillaTag.Cosmetics
 			unityEvent2.Invoke();
 		}
 
-		// Token: 0x04005151 RID: 20817
+		// Token: 0x0400525D RID: 21085
 		[SerializeField]
 		private Transform distanceFrom;
 
-		// Token: 0x04005152 RID: 20818
+		// Token: 0x0400525E RID: 21086
 		[SerializeField]
 		private DistanceCheckerCosmetic.DistanceCondition distanceTo;
 
-		// Token: 0x04005153 RID: 20819
+		// Token: 0x0400525F RID: 21087
 		[Tooltip("Receive events when above or below this distance")]
 		[SerializeField]
 		private float distanceThreshold;
 
-		// Token: 0x04005154 RID: 20820
+		// Token: 0x04005260 RID: 21088
 		public UnityEvent onOneIsBelowThreshold;
 
-		// Token: 0x04005155 RID: 20821
+		// Token: 0x04005261 RID: 21089
 		public UnityEvent onAllAreAboveThreshold;
 
-		// Token: 0x04005156 RID: 20822
+		// Token: 0x04005262 RID: 21090
 		private VRRig myRig;
 
-		// Token: 0x04005157 RID: 20823
+		// Token: 0x04005263 RID: 21091
 		private DistanceCheckerCosmetic.State currentState;
 
-		// Token: 0x02000C39 RID: 3129
+		// Token: 0x02000C6A RID: 3178
 		private enum State
 		{
-			// Token: 0x0400515B RID: 20827
+			// Token: 0x04005267 RID: 21095
 			AboveThreshold,
-			// Token: 0x0400515C RID: 20828
+			// Token: 0x04005268 RID: 21096
 			BelowThreshold,
-			// Token: 0x0400515D RID: 20829
+			// Token: 0x04005269 RID: 21097
 			None
 		}
 
-		// Token: 0x02000C3A RID: 3130
+		// Token: 0x02000C6B RID: 3179
 		private enum DistanceCondition
 		{
-			// Token: 0x0400515F RID: 20831
+			// Token: 0x0400526B RID: 21099
 			None,
-			// Token: 0x04005160 RID: 20832
+			// Token: 0x0400526C RID: 21100
 			Owner,
-			// Token: 0x04005161 RID: 20833
+			// Token: 0x0400526D RID: 21101
 			Others,
-			// Token: 0x04005162 RID: 20834
+			// Token: 0x0400526E RID: 21102
 			Everyone
 		}
 	}

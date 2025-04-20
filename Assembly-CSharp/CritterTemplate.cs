@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x02000063 RID: 99
+// Token: 0x02000069 RID: 105
 public class CritterTemplate : ScriptableObject
 {
-	// Token: 0x17000023 RID: 35
-	// (get) Token: 0x06000276 RID: 630 RVA: 0x0000F97C File Offset: 0x0000DB7C
+	// Token: 0x17000026 RID: 38
+	// (get) Token: 0x060002A4 RID: 676 RVA: 0x000746D8 File Offset: 0x000728D8
 	private string HapticsBlurb
 	{
 		get
@@ -18,7 +18,7 @@ public class CritterTemplate : ScriptableObject
 		}
 	}
 
-	// Token: 0x06000277 RID: 631 RVA: 0x0000F9C8 File Offset: 0x0000DBC8
+	// Token: 0x060002A5 RID: 677 RVA: 0x00074724 File Offset: 0x00072924
 	private void SetMaxStrength(float maxStrength = 1f)
 	{
 		float peakMagnitude = this.grabbedStruggleHaptics.GetPeakMagnitude();
@@ -29,7 +29,7 @@ public class CritterTemplate : ScriptableObject
 		}
 	}
 
-	// Token: 0x06000278 RID: 632 RVA: 0x0000FA10 File Offset: 0x0000DC10
+	// Token: 0x060002A6 RID: 678 RVA: 0x0007476C File Offset: 0x0007296C
 	private void SetMeanStrength(float meanStrength = 1f)
 	{
 		float rmsmagnitude = this.grabbedStruggleHaptics.GetRMSMagnitude();
@@ -40,7 +40,7 @@ public class CritterTemplate : ScriptableObject
 		}
 	}
 
-	// Token: 0x06000279 RID: 633 RVA: 0x0000FA55 File Offset: 0x0000DC55
+	// Token: 0x060002A7 RID: 679 RVA: 0x0003210D File Offset: 0x0003030D
 	private void OnValidate()
 	{
 		this.modifiedValues.Clear();
@@ -48,13 +48,13 @@ public class CritterTemplate : ScriptableObject
 		this.RegisterModifiedVisual();
 	}
 
-	// Token: 0x0600027A RID: 634 RVA: 0x0000FA6E File Offset: 0x0000DC6E
+	// Token: 0x060002A8 RID: 680 RVA: 0x00032126 File Offset: 0x00030326
 	private void OnEnable()
 	{
 		this.OnValidate();
 	}
 
-	// Token: 0x0600027B RID: 635 RVA: 0x0000FA78 File Offset: 0x0000DC78
+	// Token: 0x060002A9 RID: 681 RVA: 0x000747B4 File Offset: 0x000729B4
 	private void RegisterModifiedBehaviour()
 	{
 		if (this.maxJumpVel != 0f)
@@ -187,7 +187,7 @@ public class CritterTemplate : ScriptableObject
 		}
 	}
 
-	// Token: 0x0600027C RID: 636 RVA: 0x0000FF74 File Offset: 0x0000E174
+	// Token: 0x060002AA RID: 682 RVA: 0x00074CB0 File Offset: 0x00072EB0
 	private void RegisterModifiedVisual()
 	{
 		if (this.hatChance != 0f)
@@ -340,13 +340,13 @@ public class CritterTemplate : ScriptableObject
 		}
 	}
 
-	// Token: 0x0600027D RID: 637 RVA: 0x000104BE File Offset: 0x0000E6BE
+	// Token: 0x060002AB RID: 683 RVA: 0x0003212E File Offset: 0x0003032E
 	public bool IsValueModified(string valueName)
 	{
 		return this.modifiedValues.ContainsKey(valueName);
 	}
 
-	// Token: 0x0600027E RID: 638 RVA: 0x000104CC File Offset: 0x0000E6CC
+	// Token: 0x060002AC RID: 684 RVA: 0x000751FC File Offset: 0x000733FC
 	public T GetParentValue<T>(string valueName)
 	{
 		if (this.parent != null)
@@ -356,7 +356,7 @@ public class CritterTemplate : ScriptableObject
 		return default(T);
 	}
 
-	// Token: 0x0600027F RID: 639 RVA: 0x00010500 File Offset: 0x0000E700
+	// Token: 0x060002AD RID: 685 RVA: 0x00075230 File Offset: 0x00073430
 	public T GetTemplateValue<T>(string valueName)
 	{
 		object obj;
@@ -371,14 +371,14 @@ public class CritterTemplate : ScriptableObject
 		return default(T);
 	}
 
-	// Token: 0x06000280 RID: 640 RVA: 0x00010548 File Offset: 0x0000E748
+	// Token: 0x060002AE RID: 686 RVA: 0x0003213C File Offset: 0x0003033C
 	public void ApplyToCritter(CrittersPawn critter)
 	{
 		this.ApplyBehaviour(critter);
 		this.ApplyBehaviourFX(critter);
 	}
 
-	// Token: 0x06000281 RID: 641 RVA: 0x00010558 File Offset: 0x0000E758
+	// Token: 0x060002AF RID: 687 RVA: 0x00075278 File Offset: 0x00073478
 	private void ApplyBehaviour(CrittersPawn critter)
 	{
 		critter.maxJumpVel = this.GetTemplateValue<float>("maxJumpVel");
@@ -415,7 +415,7 @@ public class CritterTemplate : ScriptableObject
 		critter.afraidOfList = this.GetTemplateValue<List<crittersAttractorStruct>>("afraidOfList");
 	}
 
-	// Token: 0x06000282 RID: 642 RVA: 0x00010788 File Offset: 0x0000E988
+	// Token: 0x060002B0 RID: 688 RVA: 0x000754A8 File Offset: 0x000736A8
 	private void ApplyBehaviourFX(CrittersPawn critter)
 	{
 		critter.StartStateFX.Clear();
@@ -456,269 +456,269 @@ public class CritterTemplate : ScriptableObject
 		critter.grabbedHapticsStrength = this.GetTemplateValue<float>("grabbedStruggleHapticsStrength");
 	}
 
-	// Token: 0x040002ED RID: 749
+	// Token: 0x0400031F RID: 799
 	public CritterTemplate parent;
 
-	// Token: 0x040002EE RID: 750
+	// Token: 0x04000320 RID: 800
 	[Space]
 	[Header("Description")]
 	public string temperament = "UNKNOWN";
 
-	// Token: 0x040002EF RID: 751
+	// Token: 0x04000321 RID: 801
 	[Space]
 	[Header("Behaviour")]
 	[CritterTemplateParameter]
 	public float maxJumpVel;
 
-	// Token: 0x040002F0 RID: 752
+	// Token: 0x04000322 RID: 802
 	[CritterTemplateParameter]
 	public float jumpCooldown;
 
-	// Token: 0x040002F1 RID: 753
+	// Token: 0x04000323 RID: 803
 	[CritterTemplateParameter]
 	public float scaredJumpCooldown;
 
-	// Token: 0x040002F2 RID: 754
+	// Token: 0x04000324 RID: 804
 	[CritterTemplateParameter]
 	public float jumpVariabilityTime;
 
-	// Token: 0x040002F3 RID: 755
+	// Token: 0x04000325 RID: 805
 	[Space]
 	[CritterTemplateParameter]
 	public float visionConeAngle;
 
-	// Token: 0x040002F4 RID: 756
+	// Token: 0x04000326 RID: 806
 	[FormerlySerializedAs("visionConeHeight")]
 	[CritterTemplateParameter]
 	public float sensoryRange;
 
-	// Token: 0x040002F5 RID: 757
+	// Token: 0x04000327 RID: 807
 	[Space]
 	[CritterTemplateParameter]
 	public float maxHunger;
 
-	// Token: 0x040002F6 RID: 758
+	// Token: 0x04000328 RID: 808
 	[CritterTemplateParameter]
 	public float hungryThreshold;
 
-	// Token: 0x040002F7 RID: 759
+	// Token: 0x04000329 RID: 809
 	[CritterTemplateParameter]
 	public float satiatedThreshold;
 
-	// Token: 0x040002F8 RID: 760
+	// Token: 0x0400032A RID: 810
 	[CritterTemplateParameter]
 	public float hungerLostPerSecond;
 
-	// Token: 0x040002F9 RID: 761
+	// Token: 0x0400032B RID: 811
 	[CritterTemplateParameter]
 	public float hungerGainedPerSecond;
 
-	// Token: 0x040002FA RID: 762
+	// Token: 0x0400032C RID: 812
 	[Space]
 	[CritterTemplateParameter]
 	public float maxFear;
 
-	// Token: 0x040002FB RID: 763
+	// Token: 0x0400032D RID: 813
 	[CritterTemplateParameter]
 	public float scaredThreshold;
 
-	// Token: 0x040002FC RID: 764
+	// Token: 0x0400032E RID: 814
 	[CritterTemplateParameter]
 	public float calmThreshold;
 
-	// Token: 0x040002FD RID: 765
+	// Token: 0x0400032F RID: 815
 	[CritterTemplateParameter]
 	public float fearLostPerSecond;
 
-	// Token: 0x040002FE RID: 766
+	// Token: 0x04000330 RID: 816
 	[Space]
 	[CritterTemplateParameter]
 	public float maxAttraction;
 
-	// Token: 0x040002FF RID: 767
+	// Token: 0x04000331 RID: 817
 	[CritterTemplateParameter]
 	public float attractedThreshold;
 
-	// Token: 0x04000300 RID: 768
+	// Token: 0x04000332 RID: 818
 	[CritterTemplateParameter]
 	public float unattractedThreshold;
 
-	// Token: 0x04000301 RID: 769
+	// Token: 0x04000333 RID: 819
 	[CritterTemplateParameter]
 	public float attractionLostPerSecond;
 
-	// Token: 0x04000302 RID: 770
+	// Token: 0x04000334 RID: 820
 	[Space]
 	[CritterTemplateParameter]
 	public float maxSleepiness;
 
-	// Token: 0x04000303 RID: 771
+	// Token: 0x04000335 RID: 821
 	[CritterTemplateParameter]
 	public float tiredThreshold;
 
-	// Token: 0x04000304 RID: 772
+	// Token: 0x04000336 RID: 822
 	[CritterTemplateParameter]
 	public float awakeThreshold;
 
-	// Token: 0x04000305 RID: 773
+	// Token: 0x04000337 RID: 823
 	[CritterTemplateParameter]
 	public float sleepinessGainedPerSecond;
 
-	// Token: 0x04000306 RID: 774
+	// Token: 0x04000338 RID: 824
 	[CritterTemplateParameter]
 	public float sleepinessLostPerSecond;
 
-	// Token: 0x04000307 RID: 775
+	// Token: 0x04000339 RID: 825
 	[Space]
 	[CritterTemplateParameter]
 	public float struggleGainedPerSecond;
 
-	// Token: 0x04000308 RID: 776
+	// Token: 0x0400033A RID: 826
 	[CritterTemplateParameter]
 	public float maxStruggle;
 
-	// Token: 0x04000309 RID: 777
+	// Token: 0x0400033B RID: 827
 	[CritterTemplateParameter]
 	public float escapeThreshold;
 
-	// Token: 0x0400030A RID: 778
+	// Token: 0x0400033C RID: 828
 	[CritterTemplateParameter]
 	public float catchableThreshold;
 
-	// Token: 0x0400030B RID: 779
+	// Token: 0x0400033D RID: 829
 	[CritterTemplateParameter]
 	public float struggleLostPerSecond;
 
-	// Token: 0x0400030C RID: 780
+	// Token: 0x0400033E RID: 830
 	[Space]
 	[CritterTemplateParameter]
 	public float lifeTime;
 
-	// Token: 0x0400030D RID: 781
+	// Token: 0x0400033F RID: 831
 	[Space]
 	public List<crittersAttractorStruct> attractedToList;
 
-	// Token: 0x0400030E RID: 782
+	// Token: 0x04000340 RID: 832
 	public List<crittersAttractorStruct> afraidOfList;
 
-	// Token: 0x0400030F RID: 783
+	// Token: 0x04000341 RID: 833
 	[Space]
 	[Header("Visual")]
 	[CritterTemplateParameter]
 	public float minSize;
 
-	// Token: 0x04000310 RID: 784
+	// Token: 0x04000342 RID: 834
 	[CritterTemplateParameter]
 	public float maxSize;
 
-	// Token: 0x04000311 RID: 785
+	// Token: 0x04000343 RID: 835
 	[CritterTemplateParameter]
 	public float hatChance;
 
-	// Token: 0x04000312 RID: 786
+	// Token: 0x04000344 RID: 836
 	public GameObject[] hats;
 
-	// Token: 0x04000313 RID: 787
+	// Token: 0x04000345 RID: 837
 	[Space]
 	[Header("Behaviour FX")]
 	public GameObject eatingStartFX;
 
-	// Token: 0x04000314 RID: 788
+	// Token: 0x04000346 RID: 838
 	public GameObject eatingOngoingFX;
 
-	// Token: 0x04000315 RID: 789
+	// Token: 0x04000347 RID: 839
 	public CrittersAnim eatingAnim;
 
-	// Token: 0x04000316 RID: 790
+	// Token: 0x04000348 RID: 840
 	public GameObject fearStartFX;
 
-	// Token: 0x04000317 RID: 791
+	// Token: 0x04000349 RID: 841
 	public GameObject fearOngoingFX;
 
-	// Token: 0x04000318 RID: 792
+	// Token: 0x0400034A RID: 842
 	public CrittersAnim fearAnim;
 
-	// Token: 0x04000319 RID: 793
+	// Token: 0x0400034B RID: 843
 	public GameObject attractionStartFX;
 
-	// Token: 0x0400031A RID: 794
+	// Token: 0x0400034C RID: 844
 	public GameObject attractionOngoingFX;
 
-	// Token: 0x0400031B RID: 795
+	// Token: 0x0400034D RID: 845
 	public CrittersAnim attractionAnim;
 
-	// Token: 0x0400031C RID: 796
+	// Token: 0x0400034E RID: 846
 	public GameObject sleepStartFX;
 
-	// Token: 0x0400031D RID: 797
+	// Token: 0x0400034F RID: 847
 	public GameObject sleepOngoingFX;
 
-	// Token: 0x0400031E RID: 798
+	// Token: 0x04000350 RID: 848
 	public CrittersAnim sleepAnim;
 
-	// Token: 0x0400031F RID: 799
+	// Token: 0x04000351 RID: 849
 	public GameObject grabbedStartFX;
 
-	// Token: 0x04000320 RID: 800
+	// Token: 0x04000352 RID: 850
 	public GameObject grabbedOngoingFX;
 
-	// Token: 0x04000321 RID: 801
+	// Token: 0x04000353 RID: 851
 	public GameObject grabbedStopFX;
 
-	// Token: 0x04000322 RID: 802
+	// Token: 0x04000354 RID: 852
 	public CrittersAnim grabbedAnim;
 
-	// Token: 0x04000323 RID: 803
+	// Token: 0x04000355 RID: 853
 	public GameObject hungryStartFX;
 
-	// Token: 0x04000324 RID: 804
+	// Token: 0x04000356 RID: 854
 	public GameObject hungryOngoingFX;
 
-	// Token: 0x04000325 RID: 805
+	// Token: 0x04000357 RID: 855
 	public CrittersAnim hungryAnim;
 
-	// Token: 0x04000326 RID: 806
+	// Token: 0x04000358 RID: 856
 	public GameObject spawningStartFX;
 
-	// Token: 0x04000327 RID: 807
+	// Token: 0x04000359 RID: 857
 	public GameObject spawningOngoingFX;
 
-	// Token: 0x04000328 RID: 808
+	// Token: 0x0400035A RID: 858
 	public CrittersAnim spawningAnim;
 
-	// Token: 0x04000329 RID: 809
+	// Token: 0x0400035B RID: 859
 	public GameObject despawningStartFX;
 
-	// Token: 0x0400032A RID: 810
+	// Token: 0x0400035C RID: 860
 	public GameObject despawningOngoingFX;
 
-	// Token: 0x0400032B RID: 811
+	// Token: 0x0400035D RID: 861
 	public CrittersAnim despawningAnim;
 
-	// Token: 0x0400032C RID: 812
+	// Token: 0x0400035E RID: 862
 	public GameObject capturedStartFX;
 
-	// Token: 0x0400032D RID: 813
+	// Token: 0x0400035F RID: 863
 	public GameObject capturedOngoingFX;
 
-	// Token: 0x0400032E RID: 814
+	// Token: 0x04000360 RID: 864
 	public CrittersAnim capturedAnim;
 
-	// Token: 0x0400032F RID: 815
+	// Token: 0x04000361 RID: 865
 	public GameObject stunnedStartFX;
 
-	// Token: 0x04000330 RID: 816
+	// Token: 0x04000362 RID: 866
 	public GameObject stunnedOngoingFX;
 
-	// Token: 0x04000331 RID: 817
+	// Token: 0x04000363 RID: 867
 	public CrittersAnim stunnedAnim;
 
-	// Token: 0x04000332 RID: 818
+	// Token: 0x04000364 RID: 868
 	public AudioClip grabbedStruggleHaptics;
 
-	// Token: 0x04000333 RID: 819
+	// Token: 0x04000365 RID: 869
 	public float grabbedStruggleHapticsStrength;
 
-	// Token: 0x04000334 RID: 820
+	// Token: 0x04000366 RID: 870
 	private Dictionary<string, object> modifiedValues = new Dictionary<string, object>();
 }

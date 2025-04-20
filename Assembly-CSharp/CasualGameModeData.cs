@@ -1,13 +1,13 @@
 ﻿using System;
 using Fusion;
 
-// Token: 0x02000463 RID: 1123
+// Token: 0x0200046F RID: 1135
 [NetworkBehaviourWeaved(1)]
 public class CasualGameModeData : FusionGameModeData
 {
-	// Token: 0x170002FF RID: 767
-	// (get) Token: 0x06001B86 RID: 7046 RVA: 0x0008731F File Offset: 0x0008551F
-	// (set) Token: 0x06001B87 RID: 7047 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x17000306 RID: 774
+	// (get) Token: 0x06001BDA RID: 7130 RVA: 0x00043120 File Offset: 0x00041320
+	// (set) Token: 0x06001BDB RID: 7131 RVA: 0x00030607 File Offset: 0x0002E807
 	public override object Data
 	{
 		get
@@ -19,9 +19,9 @@ public class CasualGameModeData : FusionGameModeData
 		}
 	}
 
-	// Token: 0x17000300 RID: 768
-	// (get) Token: 0x06001B88 RID: 7048 RVA: 0x0008732C File Offset: 0x0008552C
-	// (set) Token: 0x06001B89 RID: 7049 RVA: 0x00087356 File Offset: 0x00085556
+	// Token: 0x17000307 RID: 775
+	// (get) Token: 0x06001BDC RID: 7132 RVA: 0x0004312D File Offset: 0x0004132D
+	// (set) Token: 0x06001BDD RID: 7133 RVA: 0x00043157 File Offset: 0x00041357
 	[Networked]
 	[NetworkedWeaved(0, 1)]
 	private unsafe CasualData casualData
@@ -44,7 +44,7 @@ public class CasualGameModeData : FusionGameModeData
 		}
 	}
 
-	// Token: 0x06001B8B RID: 7051 RVA: 0x00087381 File Offset: 0x00085581
+	// Token: 0x06001BDF RID: 7135 RVA: 0x00043182 File Offset: 0x00041382
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -52,7 +52,7 @@ public class CasualGameModeData : FusionGameModeData
 		this.casualData = this._casualData;
 	}
 
-	// Token: 0x06001B8C RID: 7052 RVA: 0x00087399 File Offset: 0x00085599
+	// Token: 0x06001BE0 RID: 7136 RVA: 0x0004319A File Offset: 0x0004139A
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -60,7 +60,7 @@ public class CasualGameModeData : FusionGameModeData
 		this._casualData = this.casualData;
 	}
 
-	// Token: 0x04001E7B RID: 7803
+	// Token: 0x04001ECA RID: 7882
 	[WeaverGenerated]
 	[DefaultForProperty("casualData", 0, 1)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]

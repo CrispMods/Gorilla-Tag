@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001A1 RID: 417
+// Token: 0x020001AC RID: 428
 public class DisableOtherObjectsWhileActive : MonoBehaviour
 {
-	// Token: 0x060009F3 RID: 2547 RVA: 0x000372D6 File Offset: 0x000354D6
+	// Token: 0x06000A3F RID: 2623 RVA: 0x00037329 File Offset: 0x00035529
 	private void OnEnable()
 	{
 		this.SetAllActive(false);
 	}
 
-	// Token: 0x060009F4 RID: 2548 RVA: 0x000372DF File Offset: 0x000354DF
+	// Token: 0x06000A40 RID: 2624 RVA: 0x00037332 File Offset: 0x00035532
 	private void OnDisable()
 	{
 		this.SetAllActive(true);
 	}
 
-	// Token: 0x060009F5 RID: 2549 RVA: 0x000372E8 File Offset: 0x000354E8
+	// Token: 0x06000A41 RID: 2625 RVA: 0x00097174 File Offset: 0x00095374
 	private void SetAllActive(bool active)
 	{
 		foreach (GameObject gameObject in this.otherObjects)
@@ -36,9 +36,9 @@ public class DisableOtherObjectsWhileActive : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000C53 RID: 3155
+	// Token: 0x04000C99 RID: 3225
 	public GameObject[] otherObjects;
 
-	// Token: 0x04000C54 RID: 3156
+	// Token: 0x04000C9A RID: 3226
 	public XSceneRef[] otherXSceneObjects;
 }

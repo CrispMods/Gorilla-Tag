@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AudioSourceClipRandomizer : MonoBehaviour
 {
-	// Token: 0x06000038 RID: 56 RVA: 0x00002669 File Offset: 0x00000869
+	// Token: 0x06000038 RID: 56 RVA: 0x0003071D File Offset: 0x0002E91D
 	private void Awake()
 	{
 		this.source = base.GetComponent<AudioSource>();
@@ -14,10 +14,10 @@ public class AudioSourceClipRandomizer : MonoBehaviour
 		this.source.playOnAwake = false;
 	}
 
-	// Token: 0x06000039 RID: 57 RVA: 0x00002694 File Offset: 0x00000894
+	// Token: 0x06000039 RID: 57 RVA: 0x00067B90 File Offset: 0x00065D90
 	public void Play()
 	{
-		int num = Random.Range(0, 60);
+		int num = UnityEngine.Random.Range(0, 60);
 		if (GorillaComputer.instance != null)
 		{
 			num = GorillaComputer.instance.GetServerTime().Second;
@@ -26,7 +26,7 @@ public class AudioSourceClipRandomizer : MonoBehaviour
 		this.source.GTPlay();
 	}
 
-	// Token: 0x0600003A RID: 58 RVA: 0x000026F5 File Offset: 0x000008F5
+	// Token: 0x0600003A RID: 58 RVA: 0x00030748 File Offset: 0x0002E948
 	private void OnEnable()
 	{
 		if (this.playOnAwake)

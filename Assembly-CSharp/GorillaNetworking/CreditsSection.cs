@@ -3,18 +3,18 @@ using System.Collections.Generic;
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000AA2 RID: 2722
+	// Token: 0x02000ACE RID: 2766
 	[Serializable]
 	internal class CreditsSection
 	{
-		// Token: 0x17000705 RID: 1797
-		// (get) Token: 0x060043FF RID: 17407 RVA: 0x0014232B File Offset: 0x0014052B
-		// (set) Token: 0x06004400 RID: 17408 RVA: 0x00142333 File Offset: 0x00140533
+		// Token: 0x17000721 RID: 1825
+		// (get) Token: 0x06004542 RID: 17730 RVA: 0x0005D25F File Offset: 0x0005B45F
+		// (set) Token: 0x06004543 RID: 17731 RVA: 0x0005D267 File Offset: 0x0005B467
 		public string Title { get; set; }
 
-		// Token: 0x17000706 RID: 1798
-		// (get) Token: 0x06004401 RID: 17409 RVA: 0x0014233C File Offset: 0x0014053C
-		// (set) Token: 0x06004402 RID: 17410 RVA: 0x00142344 File Offset: 0x00140544
+		// Token: 0x17000722 RID: 1826
+		// (get) Token: 0x06004544 RID: 17732 RVA: 0x0005D270 File Offset: 0x0005B470
+		// (set) Token: 0x06004545 RID: 17733 RVA: 0x0005D278 File Offset: 0x0005B478
 		public List<string> Entries { get; set; }
 	}
 }

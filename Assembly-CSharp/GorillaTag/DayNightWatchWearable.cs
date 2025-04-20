@@ -4,10 +4,10 @@ using UnityEngine.Serialization;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B9C RID: 2972
+	// Token: 0x02000BC9 RID: 3017
 	public class DayNightWatchWearable : MonoBehaviour
 	{
-		// Token: 0x06004AED RID: 19181 RVA: 0x0016A818 File Offset: 0x00168A18
+		// Token: 0x06004C38 RID: 19512 RVA: 0x001A3D90 File Offset: 0x001A1F90
 		private void Start()
 		{
 			if (!this.dayNightManager)
@@ -21,7 +21,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004AEE RID: 19182 RVA: 0x0016A868 File Offset: 0x00168A68
+		// Token: 0x06004C39 RID: 19513 RVA: 0x001A3DE0 File Offset: 0x001A1FE0
 		private void Update()
 		{
 			this.currentTimeOfDay = this.dayNightManager.currentTimeOfDay;
@@ -35,26 +35,26 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x04004C61 RID: 19553
+		// Token: 0x04004D57 RID: 19799
 		[Tooltip("The transform that will be rotated to indicate the current time.")]
 		public Transform clockNeedle;
 
-		// Token: 0x04004C62 RID: 19554
+		// Token: 0x04004D58 RID: 19800
 		[FormerlySerializedAs("dialRotationAxis")]
 		[Tooltip("The axis that the needle will rotate around.")]
 		public Vector3 needleRotationAxis = Vector3.right;
 
-		// Token: 0x04004C63 RID: 19555
+		// Token: 0x04004D59 RID: 19801
 		private BetterDayNightManager dayNightManager;
 
-		// Token: 0x04004C64 RID: 19556
+		// Token: 0x04004D5A RID: 19802
 		[DebugOption]
 		private float rotationDegree;
 
-		// Token: 0x04004C65 RID: 19557
+		// Token: 0x04004D5B RID: 19803
 		private string currentTimeOfDay;
 
-		// Token: 0x04004C66 RID: 19558
+		// Token: 0x04004D5C RID: 19804
 		private Quaternion initialRotation;
 	}
 }

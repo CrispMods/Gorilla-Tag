@@ -5,10 +5,10 @@ using UnityEngine.Events;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C1C RID: 3100
+	// Token: 0x02000C4A RID: 3146
 	public class DicePhysics : MonoBehaviour
 	{
-		// Token: 0x06004D54 RID: 19796 RVA: 0x001785E4 File Offset: 0x001767E4
+		// Token: 0x06004EA5 RID: 20133 RVA: 0x001B0EA0 File Offset: 0x001AF0A0
 		public int GetRandomSide()
 		{
 			DicePhysics.DiceType diceType = this.diceType;
@@ -23,7 +23,7 @@ namespace GorillaTag.Cosmetics
 				{
 					return Mathf.Clamp(value, 1, 20);
 				}
-				return Random.Range(1, 21);
+				return UnityEngine.Random.Range(1, 21);
 			}
 			else
 			{
@@ -36,11 +36,11 @@ namespace GorillaTag.Cosmetics
 				{
 					return Mathf.Clamp(value2, 1, 6);
 				}
-				return Random.Range(1, 7);
+				return UnityEngine.Random.Range(1, 7);
 			}
 		}
 
-		// Token: 0x06004D55 RID: 19797 RVA: 0x00178664 File Offset: 0x00176864
+		// Token: 0x06004EA6 RID: 20134 RVA: 0x001B0F20 File Offset: 0x001AF120
 		public Vector3 GetSideDirection(int side)
 		{
 			DicePhysics.DiceType diceType = this.diceType;
@@ -53,7 +53,7 @@ namespace GorillaTag.Cosmetics
 			return this.d6SideDirections[num2];
 		}
 
-		// Token: 0x06004D56 RID: 19798 RVA: 0x001786B0 File Offset: 0x001768B0
+		// Token: 0x06004EA7 RID: 20135 RVA: 0x001B0F6C File Offset: 0x001AF16C
 		public void StartThrow(DiceHoldable holdable, Vector3 startPosition, Vector3 velocity, float playerScale, int side, double startTime)
 		{
 			this.holdableParent = holdable;
@@ -76,7 +76,7 @@ namespace GorillaTag.Cosmetics
 			base.enabled = true;
 		}
 
-		// Token: 0x06004D57 RID: 19799 RVA: 0x00178798 File Offset: 0x00176998
+		// Token: 0x06004EA8 RID: 20136 RVA: 0x001B1054 File Offset: 0x001AF254
 		public void EndThrow()
 		{
 			this.rb.isKinematic = true;
@@ -98,7 +98,7 @@ namespace GorillaTag.Cosmetics
 			base.enabled = false;
 		}
 
-		// Token: 0x06004D58 RID: 19800 RVA: 0x0017885C File Offset: 0x00176A5C
+		// Token: 0x06004EA9 RID: 20137 RVA: 0x001B1118 File Offset: 0x001AF318
 		private void FixedUpdate()
 		{
 			double num = PhotonNetwork.InRoom ? PhotonNetwork.Time : ((double)Time.time);
@@ -140,7 +140,7 @@ namespace GorillaTag.Cosmetics
 			this.velocity = this.rb.velocity;
 		}
 
-		// Token: 0x06004D59 RID: 19801 RVA: 0x00178AA8 File Offset: 0x00176CA8
+		// Token: 0x06004EAA RID: 20138 RVA: 0x001B1364 File Offset: 0x001AF564
 		private void OnCollisionEnter(Collision collision)
 		{
 			float magnitude = collision.impulse.magnitude;
@@ -151,7 +151,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D5A RID: 19802 RVA: 0x00178AFC File Offset: 0x00176CFC
+		// Token: 0x06004EAB RID: 20139 RVA: 0x001B13B8 File Offset: 0x001AF5B8
 		private void InvokeLandingEffects(int side)
 		{
 			DicePhysics.DiceType diceType = this.diceType;
@@ -182,7 +182,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D5B RID: 19803 RVA: 0x00178B58 File Offset: 0x00176D58
+		// Token: 0x06004EAC RID: 20140 RVA: 0x001B1414 File Offset: 0x001AF614
 		private bool CheckCosmeticRollOverride(out int rollSide)
 		{
 			if (this.cosmeticRollOverrides.Length != 0)
@@ -220,109 +220,109 @@ namespace GorillaTag.Cosmetics
 			return false;
 		}
 
-		// Token: 0x04004FC7 RID: 20423
+		// Token: 0x040050BD RID: 20669
 		[SerializeField]
 		private DicePhysics.DiceType diceType = DicePhysics.DiceType.D20;
 
-		// Token: 0x04004FC8 RID: 20424
+		// Token: 0x040050BE RID: 20670
 		[SerializeField]
 		private float landingTime = 5f;
 
-		// Token: 0x04004FC9 RID: 20425
+		// Token: 0x040050BF RID: 20671
 		[SerializeField]
 		private float postLandingTime = 2f;
 
-		// Token: 0x04004FCA RID: 20426
+		// Token: 0x040050C0 RID: 20672
 		[SerializeField]
 		private LayerMask surfaceLayers;
 
-		// Token: 0x04004FCB RID: 20427
+		// Token: 0x040050C1 RID: 20673
 		[SerializeField]
 		private AnimationCurve angleDeltaVsStrengthCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04004FCC RID: 20428
+		// Token: 0x040050C2 RID: 20674
 		[SerializeField]
 		private AnimationCurve landingTimeVsStrengthCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04004FCD RID: 20429
+		// Token: 0x040050C3 RID: 20675
 		[SerializeField]
 		private float strength = 1f;
 
-		// Token: 0x04004FCE RID: 20430
+		// Token: 0x040050C4 RID: 20676
 		[SerializeField]
 		private float damping = 0.5f;
 
-		// Token: 0x04004FCF RID: 20431
+		// Token: 0x040050C5 RID: 20677
 		[SerializeField]
 		private bool forceLandingSide;
 
-		// Token: 0x04004FD0 RID: 20432
+		// Token: 0x040050C6 RID: 20678
 		[SerializeField]
 		private int forcedLandingSide = 20;
 
-		// Token: 0x04004FD1 RID: 20433
+		// Token: 0x040050C7 RID: 20679
 		[SerializeField]
 		private bool allowPickupFromGround = true;
 
-		// Token: 0x04004FD2 RID: 20434
+		// Token: 0x040050C8 RID: 20680
 		[SerializeField]
 		private float bounceAmplification = 1f;
 
-		// Token: 0x04004FD3 RID: 20435
+		// Token: 0x040050C9 RID: 20681
 		[SerializeField]
 		private DicePhysics.CosmeticRollOverride[] cosmeticRollOverrides;
 
-		// Token: 0x04004FD4 RID: 20436
+		// Token: 0x040050CA RID: 20682
 		[SerializeField]
 		private UnityEvent onBestRoll;
 
-		// Token: 0x04004FD5 RID: 20437
+		// Token: 0x040050CB RID: 20683
 		[SerializeField]
 		private UnityEvent onWorstRoll;
 
-		// Token: 0x04004FD6 RID: 20438
+		// Token: 0x040050CC RID: 20684
 		[SerializeField]
 		private UnityEvent onRollFinished;
 
-		// Token: 0x04004FD7 RID: 20439
+		// Token: 0x040050CD RID: 20685
 		[SerializeField]
 		private Rigidbody rb;
 
-		// Token: 0x04004FD8 RID: 20440
+		// Token: 0x040050CE RID: 20686
 		[SerializeField]
 		private InteractionPoint interactionPoint;
 
-		// Token: 0x04004FD9 RID: 20441
+		// Token: 0x040050CF RID: 20687
 		private VRRig cachedLocalRig;
 
-		// Token: 0x04004FDA RID: 20442
+		// Token: 0x040050D0 RID: 20688
 		private DiceHoldable holdableParent;
 
-		// Token: 0x04004FDB RID: 20443
+		// Token: 0x040050D1 RID: 20689
 		private double throwStartTime = -1.0;
 
-		// Token: 0x04004FDC RID: 20444
+		// Token: 0x040050D2 RID: 20690
 		private double throwSettledTime = -1.0;
 
-		// Token: 0x04004FDD RID: 20445
+		// Token: 0x040050D3 RID: 20691
 		private int landingSide;
 
-		// Token: 0x04004FDE RID: 20446
+		// Token: 0x040050D4 RID: 20692
 		private float scale;
 
-		// Token: 0x04004FDF RID: 20447
+		// Token: 0x040050D5 RID: 20693
 		private Vector3 prevVelocity = Vector3.zero;
 
-		// Token: 0x04004FE0 RID: 20448
+		// Token: 0x040050D6 RID: 20694
 		private Vector3 velocity = Vector3.zero;
 
-		// Token: 0x04004FE1 RID: 20449
+		// Token: 0x040050D7 RID: 20695
 		private const float a = 38.833332f;
 
-		// Token: 0x04004FE2 RID: 20450
+		// Token: 0x040050D8 RID: 20696
 		private const float b = 77.66666f;
 
-		// Token: 0x04004FE3 RID: 20451
+		// Token: 0x040050D9 RID: 20697
 		private Vector3[] d20SideDirections = new Vector3[]
 		{
 			Quaternion.AngleAxis(144f, Vector3.up) * Quaternion.AngleAxis(38.833332f, Vector3.forward) * -Vector3.up,
@@ -347,7 +347,7 @@ namespace GorillaTag.Cosmetics
 			Quaternion.AngleAxis(36f, -Vector3.up) * Quaternion.AngleAxis(38.833332f, -Vector3.forward) * Vector3.up
 		};
 
-		// Token: 0x04004FE4 RID: 20452
+		// Token: 0x040050DA RID: 20698
 		private Vector3[] d6SideDirections = new Vector3[]
 		{
 			new Vector3(0f, -1f, 0f),
@@ -358,26 +358,26 @@ namespace GorillaTag.Cosmetics
 			new Vector3(0f, 1f, 0f)
 		};
 
-		// Token: 0x02000C1D RID: 3101
+		// Token: 0x02000C4B RID: 3147
 		private enum DiceType
 		{
-			// Token: 0x04004FE6 RID: 20454
+			// Token: 0x040050DC RID: 20700
 			D6,
-			// Token: 0x04004FE7 RID: 20455
+			// Token: 0x040050DD RID: 20701
 			D20
 		}
 
-		// Token: 0x02000C1E RID: 3102
+		// Token: 0x02000C4C RID: 3148
 		[Serializable]
 		private struct CosmeticRollOverride
 		{
-			// Token: 0x04004FE8 RID: 20456
+			// Token: 0x040050DE RID: 20702
 			public string cosmeticName;
 
-			// Token: 0x04004FE9 RID: 20457
+			// Token: 0x040050DF RID: 20703
 			public int landingSide;
 
-			// Token: 0x04004FEA RID: 20458
+			// Token: 0x040050E0 RID: 20704
 			public bool requireHolding;
 		}
 	}

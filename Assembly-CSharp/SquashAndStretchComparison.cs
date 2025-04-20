@@ -7,13 +7,13 @@ using UnityEngine;
 // Token: 0x02000012 RID: 18
 public class SquashAndStretchComparison : MonoBehaviour
 {
-	// Token: 0x06000047 RID: 71 RVA: 0x00002D18 File Offset: 0x00000F18
+	// Token: 0x06000047 RID: 71 RVA: 0x0003083A File Offset: 0x0002EA3A
 	private void Start()
 	{
 		this.m_timer = 0f;
 	}
 
-	// Token: 0x06000048 RID: 72 RVA: 0x00002D28 File Offset: 0x00000F28
+	// Token: 0x06000048 RID: 72 RVA: 0x00068120 File Offset: 0x00066320
 	private void FixedUpdate()
 	{
 		BoingBones[] components = this.BonesA.GetComponents<BoingBones>();

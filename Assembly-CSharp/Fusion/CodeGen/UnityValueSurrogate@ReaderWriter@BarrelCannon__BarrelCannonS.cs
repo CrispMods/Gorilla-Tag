@@ -3,14 +3,14 @@ using Fusion.Internal;
 
 namespace Fusion.CodeGen
 {
-	// Token: 0x02000D05 RID: 3333
+	// Token: 0x02000D36 RID: 3382
 	[WeaverGenerated]
 	[Serializable]
 	internal class UnityValueSurrogate@ReaderWriter@BarrelCannon__BarrelCannonState : UnityValueSurrogate<BarrelCannon.BarrelCannonState, ReaderWriter@BarrelCannon__BarrelCannonState>
 	{
-		// Token: 0x17000869 RID: 2153
-		// (get) Token: 0x060053B9 RID: 21433 RVA: 0x0019C230 File Offset: 0x0019A430
-		// (set) Token: 0x060053BA RID: 21434 RVA: 0x0019C238 File Offset: 0x0019A438
+		// Token: 0x17000887 RID: 2183
+		// (get) Token: 0x0600551B RID: 21787 RVA: 0x000673C4 File Offset: 0x000655C4
+		// (set) Token: 0x0600551C RID: 21788 RVA: 0x000673CC File Offset: 0x000655CC
 		[WeaverGenerated]
 		public override BarrelCannon.BarrelCannonState DataProperty
 		{
@@ -26,13 +26,13 @@ namespace Fusion.CodeGen
 			}
 		}
 
-		// Token: 0x060053BB RID: 21435 RVA: 0x0019C241 File Offset: 0x0019A441
+		// Token: 0x0600551D RID: 21789 RVA: 0x000673D5 File Offset: 0x000655D5
 		[WeaverGenerated]
 		public UnityValueSurrogate@ReaderWriter@BarrelCannon__BarrelCannonState()
 		{
 		}
 
-		// Token: 0x040055FD RID: 22013
+		// Token: 0x04005709 RID: 22281
 		[WeaverGenerated]
 		public BarrelCannon.BarrelCannonState Data;
 	}

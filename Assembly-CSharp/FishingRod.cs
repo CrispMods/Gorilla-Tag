@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.XR;
 
-// Token: 0x0200051A RID: 1306
+// Token: 0x02000527 RID: 1319
 public class FishingRod : TransferrableObject
 {
-	// Token: 0x06001F95 RID: 8085 RVA: 0x0009EF28 File Offset: 0x0009D128
+	// Token: 0x06001FEE RID: 8174 RVA: 0x000F093C File Offset: 0x000EEB3C
 	public override void OnActivate()
 	{
 		base.OnActivate();
@@ -16,7 +16,7 @@ public class FishingRod : TransferrableObject
 		this.ReelOut();
 	}
 
-	// Token: 0x06001F96 RID: 8086 RVA: 0x0009EF81 File Offset: 0x0009D181
+	// Token: 0x06001FEF RID: 8175 RVA: 0x00045B8B File Offset: 0x00043D8B
 	public override void OnDeactivate()
 	{
 		base.OnDeactivate();
@@ -24,14 +24,14 @@ public class FishingRod : TransferrableObject
 		this.ReelStop();
 	}
 
-	// Token: 0x06001F97 RID: 8087 RVA: 0x0009EF9F File Offset: 0x0009D19F
+	// Token: 0x06001FF0 RID: 8176 RVA: 0x00045BA9 File Offset: 0x00043DA9
 	protected override void Start()
 	{
 		base.Start();
 		this.rig = base.GetComponentInParent<VRRig>();
 	}
 
-	// Token: 0x06001F98 RID: 8088 RVA: 0x0009EFB3 File Offset: 0x0009D1B3
+	// Token: 0x06001FF1 RID: 8177 RVA: 0x00045BBD File Offset: 0x00043DBD
 	public void SetBobFloat(bool enable)
 	{
 		if (!this.bobRigidbody)
@@ -42,7 +42,7 @@ public class FishingRod : TransferrableObject
 		this._bobFloating = enable;
 	}
 
-	// Token: 0x06001F99 RID: 8089 RVA: 0x0009EFE0 File Offset: 0x0009D1E0
+	// Token: 0x06001FF2 RID: 8178 RVA: 0x00045BEA File Offset: 0x00043DEA
 	private void QuickReel()
 	{
 		if (this._lineResizing)
@@ -53,7 +53,7 @@ public class FishingRod : TransferrableObject
 		this.ReelIn();
 	}
 
-	// Token: 0x06001F9A RID: 8090 RVA: 0x0009F000 File Offset: 0x0009D200
+	// Token: 0x06001FF3 RID: 8179 RVA: 0x000F0998 File Offset: 0x000EEB98
 	public bool IsFreeHandGripping()
 	{
 		bool flag = base.InLeftHand();
@@ -76,7 +76,7 @@ public class FishingRod : TransferrableObject
 		return flag3;
 	}
 
-	// Token: 0x06001F9B RID: 8091 RVA: 0x0009F119 File Offset: 0x0009D319
+	// Token: 0x06001FF4 RID: 8180 RVA: 0x00045C07 File Offset: 0x00043E07
 	public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		if (!base.OnRelease(zoneReleased, releasingHand))
@@ -91,7 +91,7 @@ public class FishingRod : TransferrableObject
 		return true;
 	}
 
-	// Token: 0x06001F9C RID: 8092 RVA: 0x0009F150 File Offset: 0x0009D350
+	// Token: 0x06001FF5 RID: 8181 RVA: 0x000F0AB4 File Offset: 0x000EECB4
 	public void ReelIn()
 	{
 		this._manualReeling = false;
@@ -103,7 +103,7 @@ public class FishingRod : TransferrableObject
 		this.line.segmentMaxLength = (this._targetSegmentMax = this.lineLengthMax / num);
 	}
 
-	// Token: 0x06001F9D RID: 8093 RVA: 0x0009F1D0 File Offset: 0x0009D3D0
+	// Token: 0x06001FF6 RID: 8182 RVA: 0x000F0B34 File Offset: 0x000EED34
 	public void ReelOut()
 	{
 		this._manualReeling = false;
@@ -115,7 +115,7 @@ public class FishingRod : TransferrableObject
 		this.line.segmentMaxLength = (this._targetSegmentMax = this.lineLengthMax / num);
 	}
 
-	// Token: 0x06001F9E RID: 8094 RVA: 0x0009F250 File Offset: 0x0009D450
+	// Token: 0x06001FF7 RID: 8183 RVA: 0x000F0BB4 File Offset: 0x000EEDB4
 	public void ReelStop()
 	{
 		if (this._manualReeling)
@@ -135,7 +135,7 @@ public class FishingRod : TransferrableObject
 		this._lineExpanding = false;
 	}
 
-	// Token: 0x06001F9F RID: 8095 RVA: 0x0009F2BC File Offset: 0x0009D4BC
+	// Token: 0x06001FF8 RID: 8184 RVA: 0x000F0C20 File Offset: 0x000EEE20
 	private static void SetHandleMotorUse(bool useMotor, float spinRate, HingeJoint handleJoint, bool reverse)
 	{
 		JointMotor motor = handleJoint.motor;
@@ -144,7 +144,7 @@ public class FishingRod : TransferrableObject
 		handleJoint.motor = motor;
 	}
 
-	// Token: 0x06001FA0 RID: 8096 RVA: 0x0009F30C File Offset: 0x0009D50C
+	// Token: 0x06001FF9 RID: 8185 RVA: 0x000F0C70 File Offset: 0x000EEE70
 	public override void TriggeredLateUpdate()
 	{
 		base.TriggeredLateUpdate();
@@ -161,7 +161,7 @@ public class FishingRod : TransferrableObject
 		this.handleTransform.localPosition = this.reelFreezeLocalPosition;
 	}
 
-	// Token: 0x06001FA1 RID: 8097 RVA: 0x0009F39F File Offset: 0x0009D59F
+	// Token: 0x06001FFA RID: 8186 RVA: 0x00045C3C File Offset: 0x00043E3C
 	private void ResetLineLength(float length)
 	{
 		if (!this.line)
@@ -174,7 +174,7 @@ public class FishingRod : TransferrableObject
 		this._sinceReset = TimeSince.Now();
 	}
 
-	// Token: 0x06001FA2 RID: 8098 RVA: 0x0009F3DC File Offset: 0x0009D5DC
+	// Token: 0x06001FFB RID: 8187 RVA: 0x000F0D04 File Offset: 0x000EEF04
 	private void FixedUpdate()
 	{
 		Transform transform = base.transform;
@@ -268,7 +268,7 @@ public class FishingRod : TransferrableObject
 		this.ReelStop();
 	}
 
-	// Token: 0x06001FA3 RID: 8099 RVA: 0x0009F6D4 File Offset: 0x0009D8D4
+	// Token: 0x06001FFC RID: 8188 RVA: 0x000F0FFC File Offset: 0x000EF1FC
 	private static float GetSignedDeltaYZ(ref Quaternion a, ref Quaternion b)
 	{
 		Vector3 forward = Vector3.forward;
@@ -279,131 +279,131 @@ public class FishingRod : TransferrableObject
 		return Mathf.DeltaAngle(current, target);
 	}
 
-	// Token: 0x0400237A RID: 9082
+	// Token: 0x040023CD RID: 9165
 	public Transform handleTransform;
 
-	// Token: 0x0400237B RID: 9083
+	// Token: 0x040023CE RID: 9166
 	public HingeJoint handleJoint;
 
-	// Token: 0x0400237C RID: 9084
+	// Token: 0x040023CF RID: 9167
 	public Rigidbody handleRigidbody;
 
-	// Token: 0x0400237D RID: 9085
+	// Token: 0x040023D0 RID: 9168
 	public BoxCollider handleCollider;
 
-	// Token: 0x0400237E RID: 9086
+	// Token: 0x040023D1 RID: 9169
 	public Rigidbody bobRigidbody;
 
-	// Token: 0x0400237F RID: 9087
+	// Token: 0x040023D2 RID: 9170
 	public Collider bobCollider;
 
-	// Token: 0x04002380 RID: 9088
+	// Token: 0x040023D3 RID: 9171
 	public VerletLine line;
 
-	// Token: 0x04002381 RID: 9089
+	// Token: 0x040023D4 RID: 9172
 	public GorillaVelocityEstimator tipTracker;
 
-	// Token: 0x04002382 RID: 9090
+	// Token: 0x040023D5 RID: 9173
 	public Rigidbody tipBody;
 
-	// Token: 0x04002383 RID: 9091
+	// Token: 0x040023D6 RID: 9174
 	[NonSerialized]
 	public VRRig rig;
 
-	// Token: 0x04002384 RID: 9092
+	// Token: 0x040023D7 RID: 9175
 	[Space]
 	public Vector3 reelFreezeLocalPosition;
 
-	// Token: 0x04002385 RID: 9093
+	// Token: 0x040023D8 RID: 9176
 	public Transform reelFrom;
 
-	// Token: 0x04002386 RID: 9094
+	// Token: 0x040023D9 RID: 9177
 	public Transform reelTo;
 
-	// Token: 0x04002387 RID: 9095
+	// Token: 0x040023DA RID: 9178
 	public Transform reelToSync;
 
-	// Token: 0x04002388 RID: 9096
+	// Token: 0x040023DB RID: 9179
 	[Space]
 	public float reelSpinRate = 1f;
 
-	// Token: 0x04002389 RID: 9097
+	// Token: 0x040023DC RID: 9180
 	public float lineResizeRate = 1f;
 
-	// Token: 0x0400238A RID: 9098
+	// Token: 0x040023DD RID: 9181
 	public float lineCastFactor = 3f;
 
-	// Token: 0x0400238B RID: 9099
+	// Token: 0x040023DE RID: 9182
 	public float lineLengthMin = 0.1f;
 
-	// Token: 0x0400238C RID: 9100
+	// Token: 0x040023DF RID: 9183
 	public float lineLengthMax = 8f;
 
-	// Token: 0x0400238D RID: 9101
+	// Token: 0x040023E0 RID: 9184
 	[Space]
 	[NonSerialized]
 	private bool _bobFloating;
 
-	// Token: 0x0400238E RID: 9102
+	// Token: 0x040023E1 RID: 9185
 	public float bobFloatForce = 8f;
 
-	// Token: 0x0400238F RID: 9103
+	// Token: 0x040023E2 RID: 9186
 	public float bobStaticDrag = 3.2f;
 
-	// Token: 0x04002390 RID: 9104
+	// Token: 0x040023E3 RID: 9187
 	public float bobDynamicDrag = 1.1f;
 
-	// Token: 0x04002391 RID: 9105
+	// Token: 0x040023E4 RID: 9188
 	[NonSerialized]
 	private float _bobFloatPlaneY;
 
-	// Token: 0x04002392 RID: 9106
+	// Token: 0x040023E5 RID: 9189
 	[Space]
 	[NonSerialized]
 	private float _targetSegmentMin;
 
-	// Token: 0x04002393 RID: 9107
+	// Token: 0x040023E6 RID: 9190
 	[NonSerialized]
 	private float _targetSegmentMax;
 
-	// Token: 0x04002394 RID: 9108
+	// Token: 0x040023E7 RID: 9191
 	[Space]
 	[NonSerialized]
 	private bool _manualReeling;
 
-	// Token: 0x04002395 RID: 9109
+	// Token: 0x040023E8 RID: 9192
 	[NonSerialized]
 	private bool _lineResizing;
 
-	// Token: 0x04002396 RID: 9110
+	// Token: 0x040023E9 RID: 9193
 	[NonSerialized]
 	private bool _lineExpanding;
 
-	// Token: 0x04002397 RID: 9111
+	// Token: 0x040023EA RID: 9194
 	[NonSerialized]
 	private bool _lineResetting;
 
-	// Token: 0x04002398 RID: 9112
+	// Token: 0x040023EB RID: 9195
 	[NonSerialized]
 	private TimeSince _sinceReset;
 
-	// Token: 0x04002399 RID: 9113
+	// Token: 0x040023EC RID: 9196
 	[Space]
 	[NonSerialized]
 	private Quaternion _lastLocalRot = Quaternion.identity;
 
-	// Token: 0x0400239A RID: 9114
+	// Token: 0x040023ED RID: 9197
 	[NonSerialized]
 	private float _localRotDelta;
 
-	// Token: 0x0400239B RID: 9115
+	// Token: 0x040023EE RID: 9198
 	[NonSerialized]
 	private bool _isGrippingHandle;
 
-	// Token: 0x0400239C RID: 9116
+	// Token: 0x040023EF RID: 9199
 	[NonSerialized]
 	private Transform _grippingHand;
 
-	// Token: 0x0400239D RID: 9117
+	// Token: 0x040023F0 RID: 9200
 	private TimeSince _sinceGripLoss;
 }

@@ -7,11 +7,11 @@ using PlayFab;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000424 RID: 1060
+// Token: 0x02000430 RID: 1072
 public class TryOnBundlesStand : MonoBehaviour
 {
-	// Token: 0x170002E2 RID: 738
-	// (get) Token: 0x06001A29 RID: 6697 RVA: 0x00080B9C File Offset: 0x0007ED9C
+	// Token: 0x170002E9 RID: 745
+	// (get) Token: 0x06001A7D RID: 6781 RVA: 0x00041DD5 File Offset: 0x0003FFD5
 	private string SelectedBundlePlayFabID
 	{
 		get
@@ -20,7 +20,7 @@ public class TryOnBundlesStand : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A2A RID: 6698 RVA: 0x00080BB0 File Offset: 0x0007EDB0
+	// Token: 0x06001A7E RID: 6782 RVA: 0x000D62A8 File Offset: 0x000D44A8
 	public static string CleanUpTitleDataValues(string titleDataResult)
 	{
 		string text = titleDataResult.Replace("\\r", "\r").Replace("\\n", "\n");
@@ -31,7 +31,7 @@ public class TryOnBundlesStand : MonoBehaviour
 		return text;
 	}
 
-	// Token: 0x06001A2B RID: 6699 RVA: 0x00080C0C File Offset: 0x0007EE0C
+	// Token: 0x06001A7F RID: 6783 RVA: 0x000D6304 File Offset: 0x000D4504
 	private void InitalizeButtons()
 	{
 		this.GetTryOnButtons();
@@ -44,7 +44,7 @@ public class TryOnBundlesStand : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A2C RID: 6700 RVA: 0x00080C60 File Offset: 0x0007EE60
+	// Token: 0x06001A80 RID: 6784 RVA: 0x000D6358 File Offset: 0x000D4558
 	private void Start()
 	{
 		PlayFabTitleDataCache.Instance.GetTitleData(this.ComputerDefaultTextTitleDataKey, new Action<string>(this.OnComputerDefaultTextTitleDataSuccess), new Action<PlayFabError>(this.OnComputerDefaultTextTitleDataFailure));
@@ -54,14 +54,14 @@ public class TryOnBundlesStand : MonoBehaviour
 		this.InitalizeButtons();
 	}
 
-	// Token: 0x06001A2D RID: 6701 RVA: 0x00080D13 File Offset: 0x0007EF13
+	// Token: 0x06001A81 RID: 6785 RVA: 0x00041DE9 File Offset: 0x0003FFE9
 	private void OnComputerDefaultTextTitleDataSuccess(string data)
 	{
 		this.ComputerDefaultTextTitleDataValue = TryOnBundlesStand.CleanUpTitleDataValues(data);
 		this.computerScreenText.text = this.ComputerDefaultTextTitleDataValue;
 	}
 
-	// Token: 0x06001A2E RID: 6702 RVA: 0x00080D32 File Offset: 0x0007EF32
+	// Token: 0x06001A82 RID: 6786 RVA: 0x00041E08 File Offset: 0x00040008
 	private void OnComputerDefaultTextTitleDataFailure(PlayFabError error)
 	{
 		this.ComputerDefaultTextTitleDataValue = "Failed to get TD Key : " + this.ComputerDefaultTextTitleDataKey;
@@ -69,20 +69,20 @@ public class TryOnBundlesStand : MonoBehaviour
 		Debug.LogError(string.Format("Error getting Computer Screen Title Data: {0}", error));
 	}
 
-	// Token: 0x06001A2F RID: 6703 RVA: 0x00080D6B File Offset: 0x0007EF6B
+	// Token: 0x06001A83 RID: 6787 RVA: 0x00041E41 File Offset: 0x00040041
 	private void OnComputerAlreadyOwnTextTitleDataSuccess(string data)
 	{
 		this.ComputerAlreadyOwnTextTitleDataValue = TryOnBundlesStand.CleanUpTitleDataValues(data);
 	}
 
-	// Token: 0x06001A30 RID: 6704 RVA: 0x00080D79 File Offset: 0x0007EF79
+	// Token: 0x06001A84 RID: 6788 RVA: 0x00041E4F File Offset: 0x0004004F
 	private void OnComputerAlreadyOwnTextTitleDataFailure(PlayFabError error)
 	{
 		this.ComputerAlreadyOwnTextTitleDataValue = "Failed to get TD Key : " + this.ComputerAlreadyOwnTextTitleDataKey;
 		Debug.LogError(string.Format("Error getting Computer Already Screen Title Data: {0}", error));
 	}
 
-	// Token: 0x06001A31 RID: 6705 RVA: 0x00080DA1 File Offset: 0x0007EFA1
+	// Token: 0x06001A85 RID: 6789 RVA: 0x00041E77 File Offset: 0x00040077
 	private void OnPurchaseButtonDefaultTextTitleDataSuccess(string data)
 	{
 		this.PurchaseButtonDefaultTextTitleDataValue = TryOnBundlesStand.CleanUpTitleDataValues(data);
@@ -90,7 +90,7 @@ public class TryOnBundlesStand : MonoBehaviour
 		this.purchaseButton.UpdateColor();
 	}
 
-	// Token: 0x06001A32 RID: 6706 RVA: 0x00080DCC File Offset: 0x0007EFCC
+	// Token: 0x06001A86 RID: 6790 RVA: 0x000D640C File Offset: 0x000D460C
 	private void OnPurchaseButtonDefaultTextTitleDataFailure(PlayFabError error)
 	{
 		this.PurchaseButtonDefaultTextTitleDataValue = "Failed to get TD Key : " + this.PurchaseButtonDefaultTextTitleDataKey;
@@ -99,14 +99,14 @@ public class TryOnBundlesStand : MonoBehaviour
 		Debug.LogError(string.Format("Error getting Tryon Purchase Button Default Text Title Data: {0}", error));
 	}
 
-	// Token: 0x06001A33 RID: 6707 RVA: 0x00080E1B File Offset: 0x0007F01B
+	// Token: 0x06001A87 RID: 6791 RVA: 0x00041EA1 File Offset: 0x000400A1
 	private void OnPurchaseButtonAlreadyOwnTextTitleDataSuccess(string data)
 	{
 		this.PurchaseButtonAlreadyOwnTextTitleDataValue = TryOnBundlesStand.CleanUpTitleDataValues(data);
 		this.purchaseButton.AlreadyOwnText = this.PurchaseButtonAlreadyOwnTextTitleDataValue;
 	}
 
-	// Token: 0x06001A34 RID: 6708 RVA: 0x00080E3A File Offset: 0x0007F03A
+	// Token: 0x06001A88 RID: 6792 RVA: 0x00041EC0 File Offset: 0x000400C0
 	private void OnPurchaseButtonAlreadyOwnTextTitleDataFailure(PlayFabError error)
 	{
 		this.PurchaseButtonAlreadyOwnTextTitleDataValue = "Failed to get TD Key : " + this.PurchaseButtonAlreadyOwnTextTitleDataKey;
@@ -114,7 +114,7 @@ public class TryOnBundlesStand : MonoBehaviour
 		Debug.LogError(string.Format("Error getting Tryon Purchase Button Already Own Text Title Data: {0}", error));
 	}
 
-	// Token: 0x06001A35 RID: 6709 RVA: 0x00080E74 File Offset: 0x0007F074
+	// Token: 0x06001A89 RID: 6793 RVA: 0x000D645C File Offset: 0x000D465C
 	public void ClearSelectedBundle()
 	{
 		if (this.SelectedButtonIndex != -1)
@@ -133,7 +133,7 @@ public class TryOnBundlesStand : MonoBehaviour
 		this.computerScreenText.text = (this.bError ? this.computerScreeErrorText : this.ComputerDefaultTextTitleDataValue);
 	}
 
-	// Token: 0x06001A36 RID: 6710 RVA: 0x00080F4C File Offset: 0x0007F14C
+	// Token: 0x06001A8A RID: 6794 RVA: 0x000D6534 File Offset: 0x000D4734
 	private void RemoveBundle(string BundleID)
 	{
 		CosmeticsController.CosmeticItem itemFromDict = CosmeticsController.instance.GetItemFromDict(BundleID);
@@ -147,7 +147,7 @@ public class TryOnBundlesStand : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A37 RID: 6711 RVA: 0x00080FA4 File Offset: 0x0007F1A4
+	// Token: 0x06001A8B RID: 6795 RVA: 0x000D658C File Offset: 0x000D478C
 	private void TryOnBundle(string BundleID)
 	{
 		CosmeticsController.CosmeticItem itemFromDict = CosmeticsController.instance.GetItemFromDict(BundleID);
@@ -171,7 +171,7 @@ public class TryOnBundlesStand : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A38 RID: 6712 RVA: 0x0008107C File Offset: 0x0007F27C
+	// Token: 0x06001A8C RID: 6796 RVA: 0x000D6664 File Offset: 0x000D4864
 	public void PressTryOnBundleButton(TryOnBundleButton pressedTryOnBundleButton, bool isLeftHand)
 	{
 		if (pressedTryOnBundleButton.playfabBundleID == "NULL")
@@ -242,19 +242,19 @@ public class TryOnBundlesStand : MonoBehaviour
 		pressedTryOnBundleButton.UpdateColor();
 	}
 
-	// Token: 0x06001A39 RID: 6713 RVA: 0x00081274 File Offset: 0x0007F474
+	// Token: 0x06001A8D RID: 6797 RVA: 0x00041EF9 File Offset: 0x000400F9
 	private string GetComputerScreenText(string playfabBundleID)
 	{
 		return BundleManager.instance.storeBundlesById[playfabBundleID].bundleDescriptionText;
 	}
 
-	// Token: 0x06001A3A RID: 6714 RVA: 0x0008128D File Offset: 0x0007F48D
+	// Token: 0x06001A8E RID: 6798 RVA: 0x00041F12 File Offset: 0x00040112
 	private string GetPurchaseButtonText(string playfabBundleID)
 	{
 		return BundleManager.instance.storeBundlesById[playfabBundleID].purchaseButtonText;
 	}
 
-	// Token: 0x06001A3B RID: 6715 RVA: 0x000812A6 File Offset: 0x0007F4A6
+	// Token: 0x06001A8F RID: 6799 RVA: 0x00041F2B File Offset: 0x0004012B
 	public void PurchaseButtonPressed()
 	{
 		if (this.SelectedButtonIndex == -1)
@@ -264,7 +264,7 @@ public class TryOnBundlesStand : MonoBehaviour
 		CosmeticsController.instance.PurchaseBundle(BundleManager.instance.storeBundlesById[this.SelectedBundlePlayFabID]);
 	}
 
-	// Token: 0x06001A3C RID: 6716 RVA: 0x000812D8 File Offset: 0x0007F4D8
+	// Token: 0x06001A90 RID: 6800 RVA: 0x000D685C File Offset: 0x000D4A5C
 	public void AlreadyOwnCheck()
 	{
 		if (this.SelectedButtonIndex == -1)
@@ -290,7 +290,7 @@ public class TryOnBundlesStand : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A3D RID: 6717 RVA: 0x0008135C File Offset: 0x0007F55C
+	// Token: 0x06001A91 RID: 6801 RVA: 0x000D68E0 File Offset: 0x000D4AE0
 	public void GetTryOnButtons()
 	{
 		StoreBundleData[] tryOnButtons = BundleManager.instance.GetTryOnButtons();
@@ -318,13 +318,13 @@ public class TryOnBundlesStand : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A3E RID: 6718 RVA: 0x0008143F File Offset: 0x0007F63F
+	// Token: 0x06001A92 RID: 6802 RVA: 0x00041F5A File Offset: 0x0004015A
 	public void UpdateBundles(StoreBundleData[] Bundles)
 	{
 		Debug.LogWarning("TryOnBundlesStand - UpdateBundles is an editor only function!");
 	}
 
-	// Token: 0x06001A3F RID: 6719 RVA: 0x0008144C File Offset: 0x0007F64C
+	// Token: 0x06001A93 RID: 6803 RVA: 0x000D69C4 File Offset: 0x000D4BC4
 	private string GetBundleComputerText(string PlayFabID)
 	{
 		StoreBundle storeBundle;
@@ -335,7 +335,7 @@ public class TryOnBundlesStand : MonoBehaviour
 		return "ERROR THIS DOES NOT EXIST YET";
 	}
 
-	// Token: 0x06001A40 RID: 6720 RVA: 0x0008147B File Offset: 0x0007F67B
+	// Token: 0x06001A94 RID: 6804 RVA: 0x00041F66 File Offset: 0x00040166
 	public void ErrorCompleting()
 	{
 		this.bError = true;
@@ -343,62 +343,62 @@ public class TryOnBundlesStand : MonoBehaviour
 		this.computerScreenText.text = this.computerScreeErrorText;
 	}
 
-	// Token: 0x04001CFC RID: 7420
+	// Token: 0x04001D4B RID: 7499
 	[SerializeField]
 	private TryOnBundleButton[] TryOnBundleButtons;
 
-	// Token: 0x04001CFD RID: 7421
+	// Token: 0x04001D4C RID: 7500
 	[SerializeField]
 	private Image[] BundleIcons;
 
-	// Token: 0x04001CFE RID: 7422
+	// Token: 0x04001D4D RID: 7501
 	[Header("The Index of the Selected Bundle from CosmeticsBundle Array in CosmeticsController")]
 	private int SelectedButtonIndex = -1;
 
-	// Token: 0x04001CFF RID: 7423
+	// Token: 0x04001D4E RID: 7502
 	public TryOnPurchaseButton purchaseButton;
 
-	// Token: 0x04001D00 RID: 7424
+	// Token: 0x04001D4F RID: 7503
 	public Image selectedBundleImage;
 
-	// Token: 0x04001D01 RID: 7425
+	// Token: 0x04001D50 RID: 7504
 	public Text computerScreenText;
 
-	// Token: 0x04001D02 RID: 7426
+	// Token: 0x04001D51 RID: 7505
 	public string ComputerDefaultTextTitleDataKey;
 
-	// Token: 0x04001D03 RID: 7427
+	// Token: 0x04001D52 RID: 7506
 	[SerializeField]
 	private string ComputerDefaultTextTitleDataValue = "";
 
-	// Token: 0x04001D04 RID: 7428
+	// Token: 0x04001D53 RID: 7507
 	public string ComputerAlreadyOwnTextTitleDataKey;
 
-	// Token: 0x04001D05 RID: 7429
+	// Token: 0x04001D54 RID: 7508
 	[SerializeField]
 	private string ComputerAlreadyOwnTextTitleDataValue = "";
 
-	// Token: 0x04001D06 RID: 7430
+	// Token: 0x04001D55 RID: 7509
 	public string PurchaseButtonDefaultTextTitleDataKey;
 
-	// Token: 0x04001D07 RID: 7431
+	// Token: 0x04001D56 RID: 7510
 	[SerializeField]
 	private string PurchaseButtonDefaultTextTitleDataValue = "";
 
-	// Token: 0x04001D08 RID: 7432
+	// Token: 0x04001D57 RID: 7511
 	public string PurchaseButtonAlreadyOwnTextTitleDataKey;
 
-	// Token: 0x04001D09 RID: 7433
+	// Token: 0x04001D58 RID: 7512
 	[SerializeField]
 	private string PurchaseButtonAlreadyOwnTextTitleDataValue = "";
 
-	// Token: 0x04001D0A RID: 7434
+	// Token: 0x04001D59 RID: 7513
 	private bool bError;
 
-	// Token: 0x04001D0B RID: 7435
+	// Token: 0x04001D5A RID: 7514
 	[Header("Error Text for Computer Screen")]
 	public string computerScreeErrorText = "ERROR COMPLETING PURCHASE! PLEASE RESTART THE GAME, AND MAKE SURE YOU HAVE A STABLE INTERNET CONNECTION. ";
 
-	// Token: 0x04001D0C RID: 7436
+	// Token: 0x04001D5B RID: 7515
 	private List<StoreBundle> storeBundles = new List<StoreBundle>();
 }

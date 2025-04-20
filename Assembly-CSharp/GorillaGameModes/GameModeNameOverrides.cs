@@ -2,14 +2,14 @@
 
 namespace GorillaGameModes
 {
-	// Token: 0x0200096C RID: 2412
+	// Token: 0x02000992 RID: 2450
 	[Serializable]
 	public struct GameModeNameOverrides
 	{
-		// Token: 0x04003BDD RID: 15325
+		// Token: 0x04003CB7 RID: 15543
 		public GameModeType mode;
 
-		// Token: 0x04003BDE RID: 15326
+		// Token: 0x04003CB8 RID: 15544
 		public string displayName;
 	}
 }

@@ -4,28 +4,28 @@ using UnityEngine.Events;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009C0 RID: 2496
+	// Token: 0x020009E6 RID: 2534
 	public class GorillaPlayerTimerButton : MonoBehaviour
 	{
-		// Token: 0x06003E20 RID: 15904 RVA: 0x00126B42 File Offset: 0x00124D42
+		// Token: 0x06003F38 RID: 16184 RVA: 0x00059389 File Offset: 0x00057589
 		private void Awake()
 		{
 			this.materialProps = new MaterialPropertyBlock();
 		}
 
-		// Token: 0x06003E21 RID: 15905 RVA: 0x00126B4F File Offset: 0x00124D4F
+		// Token: 0x06003F39 RID: 16185 RVA: 0x00059396 File Offset: 0x00057596
 		private void Start()
 		{
 			this.TryInit();
 		}
 
-		// Token: 0x06003E22 RID: 15906 RVA: 0x00126B4F File Offset: 0x00124D4F
+		// Token: 0x06003F3A RID: 16186 RVA: 0x00059396 File Offset: 0x00057596
 		private void OnEnable()
 		{
 			this.TryInit();
 		}
 
-		// Token: 0x06003E23 RID: 15907 RVA: 0x00126B58 File Offset: 0x00124D58
+		// Token: 0x06003F3B RID: 16187 RVA: 0x00168250 File Offset: 0x00166450
 		private void TryInit()
 		{
 			if (this.isInitialized)
@@ -45,7 +45,7 @@ namespace GorillaTagScripts
 			this.isInitialized = true;
 		}
 
-		// Token: 0x06003E24 RID: 15908 RVA: 0x00126BD4 File Offset: 0x00124DD4
+		// Token: 0x06003F3C RID: 16188 RVA: 0x001682CC File Offset: 0x001664CC
 		private void OnDisable()
 		{
 			if (PlayerTimerManager.instance != null)
@@ -56,7 +56,7 @@ namespace GorillaTagScripts
 			this.isInitialized = false;
 		}
 
-		// Token: 0x06003E25 RID: 15909 RVA: 0x00126C2B File Offset: 0x00124E2B
+		// Token: 0x06003F3D RID: 16189 RVA: 0x0005939E File Offset: 0x0005759E
 		private void OnLocalTimerStarted()
 		{
 			if (this.isBothStartAndStop)
@@ -65,7 +65,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E26 RID: 15910 RVA: 0x00126C3C File Offset: 0x00124E3C
+		// Token: 0x06003F3E RID: 16190 RVA: 0x000593AF File Offset: 0x000575AF
 		private void OnTimerStopped(int actorNum, int timeDelta)
 		{
 			if (this.isBothStartAndStop && actorNum == NetworkSystem.Instance.LocalPlayer.ActorNumber)
@@ -74,7 +74,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E27 RID: 15911 RVA: 0x00126C60 File Offset: 0x00124E60
+		// Token: 0x06003F3F RID: 16191 RVA: 0x00168324 File Offset: 0x00166524
 		private void OnTriggerEnter(Collider other)
 		{
 			if (!base.enabled)
@@ -102,7 +102,7 @@ namespace GorillaTagScripts
 			this.lastTriggeredTime = Time.time;
 		}
 
-		// Token: 0x06003E28 RID: 15912 RVA: 0x00126D20 File Offset: 0x00124F20
+		// Token: 0x06003F40 RID: 16192 RVA: 0x001683E4 File Offset: 0x001665E4
 		private void OnTriggerExit(Collider other)
 		{
 			if (!base.enabled)
@@ -118,37 +118,37 @@ namespace GorillaTagScripts
 			this.mesh.SetPropertyBlock(this.materialProps);
 		}
 
-		// Token: 0x04003F64 RID: 16228
+		// Token: 0x0400403E RID: 16446
 		private float lastTriggeredTime;
 
-		// Token: 0x04003F65 RID: 16229
+		// Token: 0x0400403F RID: 16447
 		[SerializeField]
 		private bool isStartButton;
 
-		// Token: 0x04003F66 RID: 16230
+		// Token: 0x04004040 RID: 16448
 		[SerializeField]
 		private bool isBothStartAndStop;
 
-		// Token: 0x04003F67 RID: 16231
+		// Token: 0x04004041 RID: 16449
 		[SerializeField]
 		private float debounceTime = 0.5f;
 
-		// Token: 0x04003F68 RID: 16232
+		// Token: 0x04004042 RID: 16450
 		[SerializeField]
 		private MeshRenderer mesh;
 
-		// Token: 0x04003F69 RID: 16233
+		// Token: 0x04004043 RID: 16451
 		[SerializeField]
 		private Color pressColor;
 
-		// Token: 0x04003F6A RID: 16234
+		// Token: 0x04004044 RID: 16452
 		[SerializeField]
 		private Color notPressedColor;
 
-		// Token: 0x04003F6B RID: 16235
+		// Token: 0x04004045 RID: 16453
 		private MaterialPropertyBlock materialProps;
 
-		// Token: 0x04003F6C RID: 16236
+		// Token: 0x04004046 RID: 16454
 		private bool isInitialized;
 	}
 }

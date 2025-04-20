@@ -8,13 +8,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x0200006A RID: 106
+// Token: 0x02000070 RID: 112
 public class Menagerie : MonoBehaviour
 {
-	// Token: 0x0600029C RID: 668 RVA: 0x00011038 File Offset: 0x0000F238
+	// Token: 0x060002CA RID: 714 RVA: 0x00075BF4 File Offset: 0x00073DF4
 	private void Start()
 	{
-		CrittersCageDeposit[] array = Object.FindObjectsByType<CrittersCageDeposit>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+		CrittersCageDeposit[] array = UnityEngine.Object.FindObjectsByType<CrittersCageDeposit>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 		for (int i = 0; i < array.Length; i++)
 		{
 			array[i].OnDepositCritter += this.OnDepositCritter;
@@ -30,7 +30,7 @@ public class Menagerie : MonoBehaviour
 		collectionBox.OnCritterInserted = (Action<MenagerieCritter>)Delegate.Combine(collectionBox.OnCritterInserted, new Action<MenagerieCritter>(this.CritterDepositedInCollectionBox));
 	}
 
-	// Token: 0x0600029D RID: 669 RVA: 0x00011130 File Offset: 0x0000F330
+	// Token: 0x060002CB RID: 715 RVA: 0x00075CEC File Offset: 0x00073EEC
 	private void CritterDepositedInDonationBox(MenagerieCritter critter)
 	{
 		if (this.newCritterPen.Contains(critter.Slot))
@@ -40,10 +40,11 @@ public class Menagerie : MonoBehaviour
 			this._savedCritters.newCritters.Remove(critter.CritterData);
 			this.DespawnCritterFromSlot(critter.Slot);
 			this.Save();
+			PlayerGameEvents.CritterEvent("Donate" + this.critterIndex[critter.CritterData.critterType].critterName);
 		}
 	}
 
-	// Token: 0x0600029E RID: 670 RVA: 0x0001118C File Offset: 0x0000F38C
+	// Token: 0x060002CC RID: 716 RVA: 0x00075D74 File Offset: 0x00073F74
 	private void CritterDepositedInFavoriteBox(MenagerieCritter critter)
 	{
 		if (this.collection.Contains(critter.Slot))
@@ -51,10 +52,11 @@ public class Menagerie : MonoBehaviour
 			this._savedCritters.favoriteCritter = critter.CritterData.critterType;
 			this.Save();
 			this.UpdateFavoriteCritter();
+			PlayerGameEvents.CritterEvent("Favorite" + this.critterIndex[critter.CritterData.critterType].critterName);
 		}
 	}
 
-	// Token: 0x0600029F RID: 671 RVA: 0x000111C4 File Offset: 0x0000F3C4
+	// Token: 0x060002CD RID: 717 RVA: 0x00075DE0 File Offset: 0x00073FE0
 	private void CritterDepositedInCollectionBox(MenagerieCritter critter)
 	{
 		if (this.newCritterPen.Contains(critter.Slot))
@@ -64,24 +66,19 @@ public class Menagerie : MonoBehaviour
 			this.DespawnCritterFromSlot(critter.Slot);
 			this.Save();
 			this.UpdateFavoriteCritter();
+			PlayerGameEvents.CritterEvent("Collect" + this.critterIndex[critter.CritterData.critterType].critterName);
 		}
 	}
 
-	// Token: 0x060002A0 RID: 672 RVA: 0x00011220 File Offset: 0x0000F420
-	private void OnDepositCritter(CrittersPawn depositedCritter, int playerID)
+	// Token: 0x060002CE RID: 718 RVA: 0x00075E68 File Offset: 0x00074068
+	private void OnDepositCritter(Menagerie.CritterData depositedCritter, int playerID)
 	{
 		try
 		{
 			if (playerID == PhotonNetwork.LocalPlayer.ActorNumber)
 			{
-				Debug.Log(string.Format("{0} deposited by local player.  Adding to Menagerie.", depositedCritter));
-				Menagerie.CritterData critterData = new Menagerie.CritterData(depositedCritter.visuals);
-				this.AddCritterToNewCritterPen(critterData);
+				this.AddCritterToNewCritterPen(depositedCritter);
 				this.Save();
-			}
-			else
-			{
-				Debug.Log(string.Format("{0} deposited by remote player: ", depositedCritter) + playerID.ToString());
 			}
 		}
 		catch (Exception exception)
@@ -90,7 +87,7 @@ public class Menagerie : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002A1 RID: 673 RVA: 0x0001129C File Offset: 0x0000F49C
+	// Token: 0x060002CF RID: 719 RVA: 0x00075EA8 File Offset: 0x000740A8
 	private void AddCritterToNewCritterPen(Menagerie.CritterData critterData)
 	{
 		if (this._savedCritters.newCritters.Count < this.newCritterPen.Length)
@@ -101,7 +98,6 @@ public class Menagerie : MonoBehaviour
 				{
 					this.SpawnCritterInSlot(menagerieSlot, critterData);
 					this._savedCritters.newCritters.Add(critterData);
-					Debug.Log(string.Format("{0} spawned", menagerieSlot.critter));
 					return;
 				}
 			}
@@ -110,7 +106,7 @@ public class Menagerie : MonoBehaviour
 		this.Save();
 	}
 
-	// Token: 0x060002A2 RID: 674 RVA: 0x00011328 File Offset: 0x0000F528
+	// Token: 0x060002D0 RID: 720 RVA: 0x00075F1C File Offset: 0x0007411C
 	private void AddCritterToCollection(Menagerie.CritterData critterData)
 	{
 		Menagerie.CritterData critterData2;
@@ -122,14 +118,14 @@ public class Menagerie : MonoBehaviour
 		this.SpawnCollectionCritterIfShowing(critterData);
 	}
 
-	// Token: 0x060002A3 RID: 675 RVA: 0x00011374 File Offset: 0x0000F574
+	// Token: 0x060002D1 RID: 721 RVA: 0x000322B4 File Offset: 0x000304B4
 	private void DonateCritter(Menagerie.CritterData critterData)
 	{
 		this._savedCritters.donatedCritterCount++;
 		this.donationCounter.SetText(string.Format(this.DonationText, this._savedCritters.donatedCritterCount), true);
 	}
 
-	// Token: 0x060002A4 RID: 676 RVA: 0x000113B0 File Offset: 0x0000F5B0
+	// Token: 0x060002D2 RID: 722 RVA: 0x00075F68 File Offset: 0x00074168
 	private void SpawnCritterInSlot(MenagerieSlot slot, Menagerie.CritterData critterData)
 	{
 		if (slot.IsNull() || critterData == null)
@@ -137,7 +133,7 @@ public class Menagerie : MonoBehaviour
 			return;
 		}
 		this.DespawnCritterFromSlot(slot);
-		MenagerieCritter menagerieCritter = Object.Instantiate<MenagerieCritter>(this.prefab, slot.critterMountPoint);
+		MenagerieCritter menagerieCritter = UnityEngine.Object.Instantiate<MenagerieCritter>(this.prefab, slot.critterMountPoint);
 		menagerieCritter.Slot = slot;
 		menagerieCritter.ApplyCritterData(critterData);
 		this._critters.Add(menagerieCritter);
@@ -147,7 +143,7 @@ public class Menagerie : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002A5 RID: 677 RVA: 0x0001142C File Offset: 0x0000F62C
+	// Token: 0x060002D3 RID: 723 RVA: 0x00075FE4 File Offset: 0x000741E4
 	private void SpawnCollectionCritterIfShowing(Menagerie.CritterData critter)
 	{
 		int num = critter.critterType - this._collectionPageIndex * this.collection.Length;
@@ -158,7 +154,7 @@ public class Menagerie : MonoBehaviour
 		this.SpawnCritterInSlot(this.collection[num], critter);
 	}
 
-	// Token: 0x060002A6 RID: 678 RVA: 0x0001146F File Offset: 0x0000F66F
+	// Token: 0x060002D4 RID: 724 RVA: 0x000322F0 File Offset: 0x000304F0
 	private void UpdateMenagerie()
 	{
 		this.UpdateNewCritterPen();
@@ -167,7 +163,7 @@ public class Menagerie : MonoBehaviour
 		this.donationCounter.SetText(string.Format(this.DonationText, this._savedCritters.donatedCritterCount), true);
 	}
 
-	// Token: 0x060002A7 RID: 679 RVA: 0x000114AC File Offset: 0x0000F6AC
+	// Token: 0x060002D5 RID: 725 RVA: 0x00076028 File Offset: 0x00074228
 	private void UpdateNewCritterPen()
 	{
 		for (int i = 0; i < this.newCritterPen.Length; i++)
@@ -183,7 +179,7 @@ public class Menagerie : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002A8 RID: 680 RVA: 0x00011510 File Offset: 0x0000F710
+	// Token: 0x060002D6 RID: 726 RVA: 0x0007608C File Offset: 0x0007428C
 	private void UpdateCollection()
 	{
 		int num = this._collectionPageIndex * this.collection.Length;
@@ -205,7 +201,7 @@ public class Menagerie : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002A9 RID: 681 RVA: 0x000115A0 File Offset: 0x0000F7A0
+	// Token: 0x060002D7 RID: 727 RVA: 0x0007611C File Offset: 0x0007431C
 	private void UpdateFavoriteCritter()
 	{
 		Menagerie.CritterData critterData;
@@ -217,7 +213,7 @@ public class Menagerie : MonoBehaviour
 		this.ClearSlot(this.favoriteCritterSlot);
 	}
 
-	// Token: 0x060002AA RID: 682 RVA: 0x000115E6 File Offset: 0x0000F7E6
+	// Token: 0x060002D8 RID: 728 RVA: 0x0003232B File Offset: 0x0003052B
 	public void NextGroupCollectedCritters()
 	{
 		this._collectionPageIndex++;
@@ -228,7 +224,7 @@ public class Menagerie : MonoBehaviour
 		this.UpdateCollection();
 	}
 
-	// Token: 0x060002AB RID: 683 RVA: 0x00011611 File Offset: 0x0000F811
+	// Token: 0x060002D9 RID: 729 RVA: 0x00032356 File Offset: 0x00030556
 	public void PrevGroupCollectedCritters()
 	{
 		this._collectionPageIndex--;
@@ -239,13 +235,13 @@ public class Menagerie : MonoBehaviour
 		this.UpdateCollection();
 	}
 
-	// Token: 0x060002AC RID: 684 RVA: 0x0001163E File Offset: 0x0000F83E
+	// Token: 0x060002DA RID: 730 RVA: 0x00032383 File Offset: 0x00030583
 	private void GenerateNewCritters()
 	{
-		this.GenerateNewCritterCount(Random.Range(Mathf.Min(1, this.newCritterPen.Length), this.newCritterPen.Length + 1));
+		this.GenerateNewCritterCount(UnityEngine.Random.Range(Mathf.Min(1, this.newCritterPen.Length), this.newCritterPen.Length + 1));
 	}
 
-	// Token: 0x060002AD RID: 685 RVA: 0x00011664 File Offset: 0x0000F864
+	// Token: 0x060002DB RID: 731 RVA: 0x00076164 File Offset: 0x00074364
 	private void GenerateLegalNewCritters()
 	{
 		this.ClearNewCritterPen();
@@ -262,26 +258,26 @@ public class Menagerie : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002AE RID: 686 RVA: 0x000116C8 File Offset: 0x0000F8C8
+	// Token: 0x060002DC RID: 732 RVA: 0x000761C8 File Offset: 0x000743C8
 	private void GenerateNewCritterCount(int critterCount)
 	{
 		this.ClearNewCritterPen();
 		for (int i = 0; i < critterCount; i++)
 		{
-			int num = Random.Range(0, this.critterIndex.critterTypes.Count);
+			int num = UnityEngine.Random.Range(0, this.critterIndex.critterTypes.Count);
 			CritterConfiguration critterConfiguration = this.critterIndex[num];
 			Menagerie.CritterData critterData = new Menagerie.CritterData(num, critterConfiguration.GenerateAppearance());
 			this.AddCritterToNewCritterPen(critterData);
 		}
 	}
 
-	// Token: 0x060002AF RID: 687 RVA: 0x00011720 File Offset: 0x0000F920
+	// Token: 0x060002DD RID: 733 RVA: 0x00076220 File Offset: 0x00074420
 	private void GenerateCollectedCritters(float spawnChance)
 	{
 		this.ClearCollection();
 		for (int i = 0; i < this.critterIndex.critterTypes.Count; i++)
 		{
-			if (Random.value <= spawnChance)
+			if (UnityEngine.Random.value <= spawnChance)
 			{
 				CritterConfiguration critterConfiguration = this.critterIndex[i];
 				Menagerie.CritterData critterData = new Menagerie.CritterData(i, critterConfiguration.GenerateAppearance());
@@ -291,21 +287,31 @@ public class Menagerie : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002B0 RID: 688 RVA: 0x00011784 File Offset: 0x0000F984
+	// Token: 0x060002DE RID: 734 RVA: 0x00076284 File Offset: 0x00074484
 	private void MoveNewCrittersToCollection()
 	{
 		foreach (MenagerieSlot menagerieSlot in this.newCritterPen)
 		{
 			if (menagerieSlot.critter)
 			{
-				this.AddCritterToCollection(menagerieSlot.critter.CritterData);
-				this.DespawnCritterFromSlot(menagerieSlot);
+				this.CritterDepositedInCollectionBox(menagerieSlot.critter);
 			}
 		}
-		this._savedCritters.newCritters.Clear();
 	}
 
-	// Token: 0x060002B1 RID: 689 RVA: 0x000117DF File Offset: 0x0000F9DF
+	// Token: 0x060002DF RID: 735 RVA: 0x000762C4 File Offset: 0x000744C4
+	private void DonateNewCritters()
+	{
+		foreach (MenagerieSlot menagerieSlot in this.newCritterPen)
+		{
+			if (menagerieSlot.critter)
+			{
+				this.CritterDepositedInDonationBox(menagerieSlot.critter);
+			}
+		}
+	}
+
+	// Token: 0x060002E0 RID: 736 RVA: 0x000323A8 File Offset: 0x000305A8
 	private void ClearSlot(MenagerieSlot slot)
 	{
 		this.DespawnCritterFromSlot(slot);
@@ -315,7 +321,7 @@ public class Menagerie : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002B2 RID: 690 RVA: 0x00011808 File Offset: 0x0000FA08
+	// Token: 0x060002E1 RID: 737 RVA: 0x00076304 File Offset: 0x00074504
 	private void DespawnCritterFromSlot(MenagerieSlot slot)
 	{
 		if (slot.IsNull())
@@ -327,7 +333,7 @@ public class Menagerie : MonoBehaviour
 			return;
 		}
 		this._critters.Remove(slot.critter);
-		Object.Destroy(slot.critter.gameObject);
+		UnityEngine.Object.Destroy(slot.critter.gameObject);
 		slot.critter = null;
 		if (slot.label)
 		{
@@ -335,14 +341,14 @@ public class Menagerie : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002B3 RID: 691 RVA: 0x00011872 File Offset: 0x0000FA72
+	// Token: 0x060002E2 RID: 738 RVA: 0x000323CE File Offset: 0x000305CE
 	private void ClearNewCritterPen()
 	{
 		this._savedCritters.newCritters.Clear();
 		this.UpdateNewCritterPen();
 	}
 
-	// Token: 0x060002B4 RID: 692 RVA: 0x0001188A File Offset: 0x0000FA8A
+	// Token: 0x060002E3 RID: 739 RVA: 0x000323E6 File Offset: 0x000305E6
 	private void ClearCollection()
 	{
 		this._savedCritters.collectedCritters.Clear();
@@ -350,31 +356,30 @@ public class Menagerie : MonoBehaviour
 		this.UpdateFavoriteCritter();
 	}
 
-	// Token: 0x060002B5 RID: 693 RVA: 0x000118A8 File Offset: 0x0000FAA8
+	// Token: 0x060002E4 RID: 740 RVA: 0x00032404 File Offset: 0x00030604
 	private void ClearAll()
 	{
 		this._savedCritters.Clear();
 		this.UpdateMenagerie();
 	}
 
-	// Token: 0x060002B6 RID: 694 RVA: 0x000118BB File Offset: 0x0000FABB
+	// Token: 0x060002E5 RID: 741 RVA: 0x00032417 File Offset: 0x00030617
 	private void ResetSavedCreatures()
 	{
 		this.ClearAll();
 		this.Save();
 	}
 
-	// Token: 0x060002B7 RID: 695 RVA: 0x000118CC File Offset: 0x0000FACC
+	// Token: 0x060002E6 RID: 742 RVA: 0x00076370 File Offset: 0x00074570
 	private void Load()
 	{
 		this.ClearAll();
 		string @string = PlayerPrefs.GetString("_SavedCritters", string.Empty);
 		this.LoadCrittersFromJson(@string);
 		this.UpdateMenagerie();
-		Debug.Log(string.Format("Loaded {0} New critters and {1} Collection critters.", this._savedCritters.newCritters.Count, this._savedCritters.collectedCritters.Count));
 	}
 
-	// Token: 0x060002B8 RID: 696 RVA: 0x00011938 File Offset: 0x0000FB38
+	// Token: 0x060002E7 RID: 743 RVA: 0x000763A0 File Offset: 0x000745A0
 	private void Save()
 	{
 		Debug.Log(string.Format("Saving {0} critters", this._critters.Count));
@@ -382,7 +387,7 @@ public class Menagerie : MonoBehaviour
 		PlayerPrefs.SetString("_SavedCritters", value);
 	}
 
-	// Token: 0x060002B9 RID: 697 RVA: 0x00011978 File Offset: 0x0000FB78
+	// Token: 0x060002E8 RID: 744 RVA: 0x000763E0 File Offset: 0x000745E0
 	private void LoadCrittersFromJson(string jsonString)
 	{
 		this._savedCritters.Clear();
@@ -401,7 +406,7 @@ public class Menagerie : MonoBehaviour
 		this.ValidateSaveData();
 	}
 
-	// Token: 0x060002BA RID: 698 RVA: 0x000119D4 File Offset: 0x0000FBD4
+	// Token: 0x060002E9 RID: 745 RVA: 0x0007643C File Offset: 0x0007463C
 	private string SaveCrittersToJson()
 	{
 		this.ValidateSaveData();
@@ -410,7 +415,7 @@ public class Menagerie : MonoBehaviour
 		return text;
 	}
 
-	// Token: 0x060002BB RID: 699 RVA: 0x00011A08 File Offset: 0x0000FC08
+	// Token: 0x060002EA RID: 746 RVA: 0x00076470 File Offset: 0x00074670
 	private void ValidateSaveData()
 	{
 		if (this._savedCritters.newCritters.Count > this.newCritterPen.Length)
@@ -424,7 +429,7 @@ public class Menagerie : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002BC RID: 700 RVA: 0x00011A9C File Offset: 0x0000FC9C
+	// Token: 0x060002EB RID: 747 RVA: 0x00076504 File Offset: 0x00074704
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.green;
@@ -441,116 +446,116 @@ public class Menagerie : MonoBehaviour
 		Gizmos.DrawWireSphere(this.favoriteCritterSlot.critterMountPoint.position, 0.1f);
 	}
 
-	// Token: 0x0400034F RID: 847
+	// Token: 0x04000381 RID: 897
 	[FormerlySerializedAs("creatureIndex")]
 	public CritterIndex critterIndex;
 
-	// Token: 0x04000350 RID: 848
+	// Token: 0x04000382 RID: 898
 	public MenagerieCritter prefab;
 
-	// Token: 0x04000351 RID: 849
+	// Token: 0x04000383 RID: 899
 	private List<MenagerieCritter> _critters = new List<MenagerieCritter>();
 
-	// Token: 0x04000352 RID: 850
+	// Token: 0x04000384 RID: 900
 	private Menagerie.CritterSaveData _savedCritters = new Menagerie.CritterSaveData();
 
-	// Token: 0x04000353 RID: 851
+	// Token: 0x04000385 RID: 901
 	public MenagerieSlot[] collection;
 
-	// Token: 0x04000354 RID: 852
+	// Token: 0x04000386 RID: 902
 	public MenagerieSlot[] newCritterPen;
 
-	// Token: 0x04000355 RID: 853
+	// Token: 0x04000387 RID: 903
 	public MenagerieSlot favoriteCritterSlot;
 
-	// Token: 0x04000356 RID: 854
+	// Token: 0x04000388 RID: 904
 	private int _collectionPageIndex;
 
-	// Token: 0x04000357 RID: 855
+	// Token: 0x04000389 RID: 905
 	private int _totalPages;
 
-	// Token: 0x04000358 RID: 856
+	// Token: 0x0400038A RID: 906
 	public MenagerieDepositBox DonationBox;
 
-	// Token: 0x04000359 RID: 857
+	// Token: 0x0400038B RID: 907
 	public MenagerieDepositBox FavoriteBox;
 
-	// Token: 0x0400035A RID: 858
+	// Token: 0x0400038C RID: 908
 	public MenagerieDepositBox CollectionBox;
 
-	// Token: 0x0400035B RID: 859
+	// Token: 0x0400038D RID: 909
 	public TextMeshPro donationCounter;
 
-	// Token: 0x0400035C RID: 860
+	// Token: 0x0400038E RID: 910
 	public string DonationText = "DONATED:{0}";
 
-	// Token: 0x0400035D RID: 861
+	// Token: 0x0400038F RID: 911
 	private const string CrittersSavePrefsKey = "_SavedCritters";
 
-	// Token: 0x0200006B RID: 107
+	// Token: 0x02000071 RID: 113
 	public class CritterData
 	{
-		// Token: 0x060002BE RID: 702 RVA: 0x00011B4E File Offset: 0x0000FD4E
+		// Token: 0x060002ED RID: 749 RVA: 0x0003244E File Offset: 0x0003064E
 		public CritterConfiguration GetConfiguration()
 		{
 			return CrittersManager.instance.creatureIndex[this.critterType];
 		}
 
-		// Token: 0x060002BF RID: 703 RVA: 0x00002050 File Offset: 0x00000250
+		// Token: 0x060002EE RID: 750 RVA: 0x00030490 File Offset: 0x0002E690
 		public CritterData()
 		{
 		}
 
-		// Token: 0x060002C0 RID: 704 RVA: 0x00011B67 File Offset: 0x0000FD67
+		// Token: 0x060002EF RID: 751 RVA: 0x00032467 File Offset: 0x00030667
 		public CritterData(CritterConfiguration config, CritterAppearance appearance)
 		{
 			this.critterType = CrittersManager.instance.creatureIndex.critterTypes.IndexOf(config);
 			this.appearance = appearance;
 		}
 
-		// Token: 0x060002C1 RID: 705 RVA: 0x00011B93 File Offset: 0x0000FD93
+		// Token: 0x060002F0 RID: 752 RVA: 0x00032493 File Offset: 0x00030693
 		public CritterData(int critterType, CritterAppearance appearance)
 		{
 			this.critterType = critterType;
 			this.appearance = appearance;
 		}
 
-		// Token: 0x060002C2 RID: 706 RVA: 0x00011BA9 File Offset: 0x0000FDA9
+		// Token: 0x060002F1 RID: 753 RVA: 0x000324A9 File Offset: 0x000306A9
 		public CritterData(CritterVisuals visuals)
 		{
 			this.critterType = visuals.critterType;
 			this.appearance = visuals.Appearance;
 		}
 
-		// Token: 0x060002C3 RID: 707 RVA: 0x00011BC9 File Offset: 0x0000FDC9
+		// Token: 0x060002F2 RID: 754 RVA: 0x000324C9 File Offset: 0x000306C9
 		public CritterData(Menagerie.CritterData source)
 		{
 			this.critterType = source.critterType;
 			this.appearance = source.appearance;
 		}
 
-		// Token: 0x060002C4 RID: 708 RVA: 0x00011BE9 File Offset: 0x0000FDE9
+		// Token: 0x060002F3 RID: 755 RVA: 0x000324E9 File Offset: 0x000306E9
 		public override string ToString()
 		{
 			return string.Format("{0} {1} [instance]", this.critterType, this.appearance);
 		}
 
-		// Token: 0x0400035E RID: 862
+		// Token: 0x04000390 RID: 912
 		public int critterType;
 
-		// Token: 0x0400035F RID: 863
+		// Token: 0x04000391 RID: 913
 		public CritterAppearance appearance;
 
-		// Token: 0x04000360 RID: 864
+		// Token: 0x04000392 RID: 914
 		[NonSerialized]
 		public MenagerieCritter instance;
 	}
 
-	// Token: 0x0200006C RID: 108
+	// Token: 0x02000072 RID: 114
 	[Serializable]
 	public class CritterSaveData
 	{
-		// Token: 0x060002C5 RID: 709 RVA: 0x00011C0B File Offset: 0x0000FE0B
+		// Token: 0x060002F4 RID: 756 RVA: 0x0003250B File Offset: 0x0003070B
 		public void Clear()
 		{
 			this.newCritters.Clear();
@@ -559,16 +564,16 @@ public class Menagerie : MonoBehaviour
 			this.favoriteCritter = -1;
 		}
 
-		// Token: 0x04000361 RID: 865
+		// Token: 0x04000393 RID: 915
 		public List<Menagerie.CritterData> newCritters = new List<Menagerie.CritterData>();
 
-		// Token: 0x04000362 RID: 866
+		// Token: 0x04000394 RID: 916
 		public Dictionary<int, Menagerie.CritterData> collectedCritters = new Dictionary<int, Menagerie.CritterData>();
 
-		// Token: 0x04000363 RID: 867
+		// Token: 0x04000395 RID: 917
 		public int donatedCritterCount;
 
-		// Token: 0x04000364 RID: 868
+		// Token: 0x04000396 RID: 918
 		public int favoriteCritter = -1;
 	}
 }

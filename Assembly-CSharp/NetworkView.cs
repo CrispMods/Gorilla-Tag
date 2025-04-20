@@ -4,13 +4,13 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-// Token: 0x02000294 RID: 660
+// Token: 0x0200029F RID: 671
 [RequireComponent(typeof(PhotonView), typeof(NetworkObject))]
 [NetworkBehaviourWeaved(0)]
 public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnershipCallbacks
 {
-	// Token: 0x170001BB RID: 443
-	// (get) Token: 0x06000FE6 RID: 4070 RVA: 0x0004D199 File Offset: 0x0004B399
+	// Token: 0x170001C2 RID: 450
+	// (get) Token: 0x06001031 RID: 4145 RVA: 0x0003B1D5 File Offset: 0x000393D5
 	public bool IsMine
 	{
 		get
@@ -19,8 +19,8 @@ public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnersh
 		}
 	}
 
-	// Token: 0x170001BC RID: 444
-	// (get) Token: 0x06000FE7 RID: 4071 RVA: 0x0004D1B6 File Offset: 0x0004B3B6
+	// Token: 0x170001C3 RID: 451
+	// (get) Token: 0x06001032 RID: 4146 RVA: 0x0003B1F2 File Offset: 0x000393F2
 	public bool IsValid
 	{
 		get
@@ -29,8 +29,8 @@ public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnersh
 		}
 	}
 
-	// Token: 0x170001BD RID: 445
-	// (get) Token: 0x06000FE8 RID: 4072 RVA: 0x0004D1B6 File Offset: 0x0004B3B6
+	// Token: 0x170001C4 RID: 452
+	// (get) Token: 0x06001033 RID: 4147 RVA: 0x0003B1F2 File Offset: 0x000393F2
 	public bool HasView
 	{
 		get
@@ -39,8 +39,8 @@ public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnersh
 		}
 	}
 
-	// Token: 0x170001BE RID: 446
-	// (get) Token: 0x06000FE9 RID: 4073 RVA: 0x0004D1C4 File Offset: 0x0004B3C4
+	// Token: 0x170001C5 RID: 453
+	// (get) Token: 0x06001034 RID: 4148 RVA: 0x0003B200 File Offset: 0x00039400
 	public bool IsRoomView
 	{
 		get
@@ -49,8 +49,8 @@ public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnersh
 		}
 	}
 
-	// Token: 0x170001BF RID: 447
-	// (get) Token: 0x06000FEA RID: 4074 RVA: 0x0004D1D1 File Offset: 0x0004B3D1
+	// Token: 0x170001C6 RID: 454
+	// (get) Token: 0x06001035 RID: 4149 RVA: 0x0003B20D File Offset: 0x0003940D
 	public PhotonView GetView
 	{
 		get
@@ -59,8 +59,8 @@ public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnersh
 		}
 	}
 
-	// Token: 0x170001C0 RID: 448
-	// (get) Token: 0x06000FEB RID: 4075 RVA: 0x0004D1D9 File Offset: 0x0004B3D9
+	// Token: 0x170001C7 RID: 455
+	// (get) Token: 0x06001036 RID: 4150 RVA: 0x0003B215 File Offset: 0x00039415
 	public NetPlayer Owner
 	{
 		get
@@ -69,8 +69,8 @@ public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnersh
 		}
 	}
 
-	// Token: 0x170001C1 RID: 449
-	// (get) Token: 0x06000FEC RID: 4076 RVA: 0x0004D1F0 File Offset: 0x0004B3F0
+	// Token: 0x170001C8 RID: 456
+	// (get) Token: 0x06001037 RID: 4151 RVA: 0x0003B22C File Offset: 0x0003942C
 	public int ViewID
 	{
 		get
@@ -79,9 +79,9 @@ public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnersh
 		}
 	}
 
-	// Token: 0x170001C2 RID: 450
-	// (get) Token: 0x06000FED RID: 4077 RVA: 0x0004D1FD File Offset: 0x0004B3FD
-	// (set) Token: 0x06000FEE RID: 4078 RVA: 0x0004D20A File Offset: 0x0004B40A
+	// Token: 0x170001C9 RID: 457
+	// (get) Token: 0x06001038 RID: 4152 RVA: 0x0003B239 File Offset: 0x00039439
+	// (set) Token: 0x06001039 RID: 4153 RVA: 0x0003B246 File Offset: 0x00039446
 	internal OwnershipOption OwnershipTransfer
 	{
 		get
@@ -98,9 +98,9 @@ public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnersh
 		}
 	}
 
-	// Token: 0x170001C3 RID: 451
-	// (get) Token: 0x06000FEF RID: 4079 RVA: 0x0004D232 File Offset: 0x0004B432
-	// (set) Token: 0x06000FF0 RID: 4080 RVA: 0x0004D23F File Offset: 0x0004B43F
+	// Token: 0x170001CA RID: 458
+	// (get) Token: 0x0600103A RID: 4154 RVA: 0x0003B26E File Offset: 0x0003946E
+	// (set) Token: 0x0600103B RID: 4155 RVA: 0x0003B27B File Offset: 0x0003947B
 	public int OwnerActorNr
 	{
 		get
@@ -117,9 +117,9 @@ public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnersh
 		}
 	}
 
-	// Token: 0x170001C4 RID: 452
-	// (get) Token: 0x06000FF1 RID: 4081 RVA: 0x0004D267 File Offset: 0x0004B467
-	// (set) Token: 0x06000FF2 RID: 4082 RVA: 0x0004D274 File Offset: 0x0004B474
+	// Token: 0x170001CB RID: 459
+	// (get) Token: 0x0600103C RID: 4156 RVA: 0x0003B2A3 File Offset: 0x000394A3
+	// (set) Token: 0x0600103D RID: 4157 RVA: 0x0003B2B0 File Offset: 0x000394B0
 	public int ControllerActorNr
 	{
 		get
@@ -136,7 +136,7 @@ public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnersh
 		}
 	}
 
-	// Token: 0x06000FF3 RID: 4083 RVA: 0x0004D29C File Offset: 0x0004B49C
+	// Token: 0x0600103E RID: 4158 RVA: 0x000A9120 File Offset: 0x000A7320
 	private void GetViews()
 	{
 		PhotonView[] components = base.GetComponents<PhotonView>();
@@ -167,13 +167,13 @@ public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnersh
 		}
 	}
 
-	// Token: 0x06000FF4 RID: 4084 RVA: 0x0004D331 File Offset: 0x0004B531
+	// Token: 0x0600103F RID: 4159 RVA: 0x0003B2D8 File Offset: 0x000394D8
 	protected virtual void Awake()
 	{
 		this.GetViews();
 	}
 
-	// Token: 0x06000FF5 RID: 4085 RVA: 0x0004D339 File Offset: 0x0004B539
+	// Token: 0x06001040 RID: 4160 RVA: 0x0003B2E0 File Offset: 0x000394E0
 	protected virtual void Start()
 	{
 		if (this._sceneObject)
@@ -182,40 +182,51 @@ public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnersh
 		}
 	}
 
-	// Token: 0x06000FF6 RID: 4086 RVA: 0x0004D354 File Offset: 0x0004B554
+	// Token: 0x06001041 RID: 4161 RVA: 0x000A91B8 File Offset: 0x000A73B8
 	public void SendRPC(string method, NetPlayer targetPlayer, params object[] parameters)
 	{
 		Player playerRef = (targetPlayer as PunNetPlayer).PlayerRef;
 		this.punView.RPC(method, playerRef, parameters);
 	}
 
-	// Token: 0x06000FF7 RID: 4087 RVA: 0x0004D37B File Offset: 0x0004B57B
+	// Token: 0x06001042 RID: 4162 RVA: 0x0003B2FA File Offset: 0x000394FA
 	public void SendRPC(string method, RpcTarget target, params object[] parameters)
 	{
 		this.punView.RPC(method, target, parameters);
 	}
 
-	// Token: 0x06000FF8 RID: 4088 RVA: 0x0004D38B File Offset: 0x0004B58B
+	// Token: 0x06001043 RID: 4163 RVA: 0x000A91E0 File Offset: 0x000A73E0
+	public void SendRPC(string method, int target, params object[] parameters)
+	{
+		Room currentRoom = PhotonNetwork.CurrentRoom;
+		if (currentRoom == null || !currentRoom.Players.ContainsKey(target))
+		{
+			return;
+		}
+		this.punView.RPC(method, currentRoom.Players[target], parameters);
+	}
+
+	// Token: 0x06001044 RID: 4164 RVA: 0x0003B30A File Offset: 0x0003950A
 	public override void Spawned()
 	{
 		base.Spawned();
 		this._spawned = true;
 	}
 
-	// Token: 0x06000FF9 RID: 4089 RVA: 0x0004D39A File Offset: 0x0004B59A
+	// Token: 0x06001045 RID: 4165 RVA: 0x0003B319 File Offset: 0x00039519
 	public void RequestOwnership()
 	{
 		this.GetView.RequestOwnership();
 	}
 
-	// Token: 0x06000FFA RID: 4090 RVA: 0x0004D3A7 File Offset: 0x0004B5A7
+	// Token: 0x06001046 RID: 4166 RVA: 0x0003B326 File Offset: 0x00039526
 	public void ReleaseOwnership()
 	{
 		this.changingStatAuth = true;
 		base.Object.ReleaseStateAuthority();
 	}
 
-	// Token: 0x06000FFB RID: 4091 RVA: 0x0004D3BB File Offset: 0x0004B5BB
+	// Token: 0x06001047 RID: 4167 RVA: 0x0003B33A File Offset: 0x0003953A
 	public virtual void StateAuthorityChanged()
 	{
 		if (this.changingStatAuth)
@@ -224,52 +235,52 @@ public class NetworkView : NetworkBehaviour, IStateAuthorityChanged, IPunOwnersh
 		}
 	}
 
-	// Token: 0x06000FFC RID: 4092 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001048 RID: 4168 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void OnOwnershipRequest(PhotonView targetView, Player requestingPlayer)
 	{
 	}
 
-	// Token: 0x06000FFD RID: 4093 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001049 RID: 4169 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void OnOwnershipTransfered(PhotonView targetView, Player previousOwner)
 	{
 	}
 
-	// Token: 0x06000FFE RID: 4094 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600104A RID: 4170 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void OnOwnershipTransferFailed(PhotonView targetView, Player senderOfFailedRequest)
 	{
 	}
 
-	// Token: 0x06001000 RID: 4096 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600104C RID: 4172 RVA: 0x00030607 File Offset: 0x0002E807
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
 	}
 
-	// Token: 0x06001001 RID: 4097 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600104D RID: 4173 RVA: 0x00030607 File Offset: 0x0002E807
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
 	}
 
-	// Token: 0x0400120C RID: 4620
+	// Token: 0x04001254 RID: 4692
 	[SerializeField]
 	private PhotonView punView;
 
-	// Token: 0x0400120D RID: 4621
+	// Token: 0x04001255 RID: 4693
 	[SerializeField]
 	private PhotonView reliableView;
 
-	// Token: 0x0400120E RID: 4622
+	// Token: 0x04001256 RID: 4694
 	[SerializeField]
 	internal NetworkObject fusionView;
 
-	// Token: 0x0400120F RID: 4623
+	// Token: 0x04001257 RID: 4695
 	[SerializeField]
 	protected bool _sceneObject;
 
-	// Token: 0x04001210 RID: 4624
+	// Token: 0x04001258 RID: 4696
 	private bool _spawned;
 
-	// Token: 0x04001211 RID: 4625
+	// Token: 0x04001259 RID: 4697
 	private bool changingStatAuth;
 }

@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000170 RID: 368
+// Token: 0x0200017B RID: 379
 [RequireComponent(typeof(ParticleSystem))]
 public class ParticleEffect : MonoBehaviour
 {
-	// Token: 0x170000E6 RID: 230
-	// (get) Token: 0x0600092D RID: 2349 RVA: 0x0003188E File Offset: 0x0002FA8E
+	// Token: 0x170000ED RID: 237
+	// (get) Token: 0x0600097A RID: 2426 RVA: 0x00036A92 File Offset: 0x00034C92
 	public long effectID
 	{
 		get
@@ -15,8 +15,8 @@ public class ParticleEffect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170000E7 RID: 231
-	// (get) Token: 0x0600092E RID: 2350 RVA: 0x00031896 File Offset: 0x0002FA96
+	// Token: 0x170000EE RID: 238
+	// (get) Token: 0x0600097B RID: 2427 RVA: 0x00036A9A File Offset: 0x00034C9A
 	public bool isPlaying
 	{
 		get
@@ -25,21 +25,21 @@ public class ParticleEffect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600092F RID: 2351 RVA: 0x000318B2 File Offset: 0x0002FAB2
+	// Token: 0x0600097C RID: 2428 RVA: 0x00036AB6 File Offset: 0x00034CB6
 	public virtual void Play()
 	{
 		base.gameObject.SetActive(true);
 		this.system.Play(true);
 	}
 
-	// Token: 0x06000930 RID: 2352 RVA: 0x000318CC File Offset: 0x0002FACC
+	// Token: 0x0600097D RID: 2429 RVA: 0x00036AD0 File Offset: 0x00034CD0
 	public virtual void Stop()
 	{
 		this.system.Stop(true);
 		base.gameObject.SetActive(false);
 	}
 
-	// Token: 0x06000931 RID: 2353 RVA: 0x000318E6 File Offset: 0x0002FAE6
+	// Token: 0x0600097E RID: 2430 RVA: 0x00036AEA File Offset: 0x00034CEA
 	private void OnParticleSystemStopped()
 	{
 		base.gameObject.SetActive(false);
@@ -49,17 +49,17 @@ public class ParticleEffect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000B31 RID: 2865
+	// Token: 0x04000B78 RID: 2936
 	public ParticleSystem system;
 
-	// Token: 0x04000B32 RID: 2866
+	// Token: 0x04000B79 RID: 2937
 	[SerializeField]
 	private long _effectID;
 
-	// Token: 0x04000B33 RID: 2867
+	// Token: 0x04000B7A RID: 2938
 	public ParticleEffectsPool pool;
 
-	// Token: 0x04000B34 RID: 2868
+	// Token: 0x04000B7B RID: 2939
 	[NonSerialized]
 	public int poolIndex = -1;
 }

@@ -2,10 +2,10 @@
 using Drawing;
 using UnityEngine;
 
-// Token: 0x020006A4 RID: 1700
+// Token: 0x020006B9 RID: 1721
 public class ComputePenetration : MonoBehaviour
 {
-	// Token: 0x06002A49 RID: 10825 RVA: 0x000D305B File Offset: 0x000D125B
+	// Token: 0x06002ADF RID: 10975 RVA: 0x0004CE67 File Offset: 0x0004B067
 	public void Compute()
 	{
 		if (this.colliderA == null)
@@ -15,7 +15,7 @@ public class ComputePenetration : MonoBehaviour
 		this.colliderB == null;
 	}
 
-	// Token: 0x06002A4A RID: 10826 RVA: 0x000D307C File Offset: 0x000D127C
+	// Token: 0x06002AE0 RID: 10976 RVA: 0x0011F614 File Offset: 0x0011D814
 	public void OnDrawGizmos()
 	{
 		if (this.colliderA.AsNull<Collider>() == null)
@@ -43,7 +43,7 @@ public class ComputePenetration : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002A4B RID: 10827 RVA: 0x000D317C File Offset: 0x000D137C
+	// Token: 0x06002AE1 RID: 10977 RVA: 0x0011F714 File Offset: 0x0011D914
 	private unsafe void DrawCollider(Collider c, Color color)
 	{
 		CommandBuilder commandBuilder = *Draw.ingame;
@@ -75,21 +75,21 @@ public class ComputePenetration : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002FC9 RID: 12233
+	// Token: 0x04003066 RID: 12390
 	public Collider colliderA;
 
-	// Token: 0x04002FCA RID: 12234
+	// Token: 0x04003067 RID: 12391
 	public Collider colliderB;
 
-	// Token: 0x04002FCB RID: 12235
+	// Token: 0x04003068 RID: 12392
 	public bool overlapped;
 
-	// Token: 0x04002FCC RID: 12236
+	// Token: 0x04003069 RID: 12393
 	public Vector3 direction;
 
-	// Token: 0x04002FCD RID: 12237
+	// Token: 0x0400306A RID: 12394
 	public float distance;
 
-	// Token: 0x04002FCE RID: 12238
+	// Token: 0x0400306B RID: 12395
 	private TimeSince lastUpdate = TimeSince.Now();
 }

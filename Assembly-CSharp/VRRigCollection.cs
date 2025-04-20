@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000899 RID: 2201
+// Token: 0x020008B5 RID: 2229
 [RequireComponent(typeof(CompositeTriggerEvents))]
 public class VRRigCollection : MonoBehaviour
 {
-	// Token: 0x1700056A RID: 1386
-	// (get) Token: 0x06003547 RID: 13639 RVA: 0x000FDCCE File Offset: 0x000FBECE
+	// Token: 0x1700057B RID: 1403
+	// (get) Token: 0x06003614 RID: 13844 RVA: 0x00053951 File Offset: 0x00051B51
 	public List<RigContainer> Rigs
 	{
 		get
@@ -16,14 +16,14 @@ public class VRRigCollection : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003548 RID: 13640 RVA: 0x000FDCD6 File Offset: 0x000FBED6
+	// Token: 0x06003615 RID: 13845 RVA: 0x00053959 File Offset: 0x00051B59
 	private void OnEnable()
 	{
 		this.collisionTriggerEvents.CompositeTriggerEnter += this.OnRigTriggerEnter;
 		this.collisionTriggerEvents.CompositeTriggerExit += this.OnRigTriggerExit;
 	}
 
-	// Token: 0x06003549 RID: 13641 RVA: 0x000FDD08 File Offset: 0x000FBF08
+	// Token: 0x06003616 RID: 13846 RVA: 0x00144144 File Offset: 0x00142344
 	private void OnDisable()
 	{
 		for (int i = this.containedRigs.Count - 1; i >= 0; i--)
@@ -34,7 +34,7 @@ public class VRRigCollection : MonoBehaviour
 		this.collisionTriggerEvents.CompositeTriggerExit -= this.OnRigTriggerExit;
 	}
 
-	// Token: 0x0600354A RID: 13642 RVA: 0x000FDD70 File Offset: 0x000FBF70
+	// Token: 0x06003617 RID: 13847 RVA: 0x001441AC File Offset: 0x001423AC
 	private void OnRigTriggerEnter(Collider other)
 	{
 		Rigidbody attachedRigidbody = other.attachedRigidbody;
@@ -54,7 +54,7 @@ public class VRRigCollection : MonoBehaviour
 		action(rigContainer);
 	}
 
-	// Token: 0x0600354B RID: 13643 RVA: 0x000FDDF8 File Offset: 0x000FBFF8
+	// Token: 0x06003618 RID: 13848 RVA: 0x00144234 File Offset: 0x00142434
 	private void OnRigTriggerExit(Collider other)
 	{
 		Rigidbody attachedRigidbody = other.attachedRigidbody;
@@ -74,14 +74,14 @@ public class VRRigCollection : MonoBehaviour
 		action(rigContainer);
 	}
 
-	// Token: 0x0600354C RID: 13644 RVA: 0x000FDE81 File Offset: 0x000FC081
+	// Token: 0x06003619 RID: 13849 RVA: 0x00053989 File Offset: 0x00051B89
 	private void RigDisabled(RigContainer rig)
 	{
 		this.collisionTriggerEvents.ResetColliderMask(rig.HeadCollider);
 		this.collisionTriggerEvents.ResetColliderMask(rig.BodyCollider);
 	}
 
-	// Token: 0x0600354D RID: 13645 RVA: 0x000FDEA8 File Offset: 0x000FC0A8
+	// Token: 0x0600361A RID: 13850 RVA: 0x001442C0 File Offset: 0x001424C0
 	private bool HasRig(VRRig rig)
 	{
 		for (int i = 0; i < this.containedRigs.Count; i++)
@@ -94,7 +94,7 @@ public class VRRigCollection : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x0600354E RID: 13646 RVA: 0x000FDEE8 File Offset: 0x000FC0E8
+	// Token: 0x0600361B RID: 13851 RVA: 0x00144300 File Offset: 0x00142500
 	private bool HasRig(NetPlayer player)
 	{
 		for (int i = 0; i < this.containedRigs.Count; i++)
@@ -107,16 +107,16 @@ public class VRRigCollection : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x040037AF RID: 14255
+	// Token: 0x0400386F RID: 14447
 	public readonly List<RigContainer> containedRigs = new List<RigContainer>(10);
 
-	// Token: 0x040037B0 RID: 14256
+	// Token: 0x04003870 RID: 14448
 	[SerializeField]
 	private CompositeTriggerEvents collisionTriggerEvents;
 
-	// Token: 0x040037B1 RID: 14257
+	// Token: 0x04003871 RID: 14449
 	public Action<RigContainer> playerEnteredCollection;
 
-	// Token: 0x040037B2 RID: 14258
+	// Token: 0x04003872 RID: 14450
 	public Action<RigContainer> playerLeftCollection;
 }

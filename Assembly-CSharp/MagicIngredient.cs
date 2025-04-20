@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x020005D6 RID: 1494
+// Token: 0x020005E4 RID: 1508
 [Obsolete("replaced with ThrowableSetDressing.cs")]
 public class MagicIngredient : TransferrableObject
 {
-	// Token: 0x0600250F RID: 9487 RVA: 0x000B7F50 File Offset: 0x000B6150
+	// Token: 0x06002571 RID: 9585 RVA: 0x00049604 File Offset: 0x00047804
 	public override void OnSpawn(VRRig rig)
 	{
 		base.OnSpawn(rig);
@@ -14,7 +14,7 @@ public class MagicIngredient : TransferrableObject
 		this.grabPtInitParent = this.anchor.transform.parent;
 	}
 
-	// Token: 0x06002510 RID: 9488 RVA: 0x000B7F7C File Offset: 0x000B617C
+	// Token: 0x06002572 RID: 9586 RVA: 0x00106194 File Offset: 0x00104394
 	private void ReParent()
 	{
 		Transform transform = this.anchor.transform;
@@ -22,7 +22,7 @@ public class MagicIngredient : TransferrableObject
 		transform.parent = this.grabPtInitParent;
 	}
 
-	// Token: 0x06002511 RID: 9489 RVA: 0x000B7FB2 File Offset: 0x000B61B2
+	// Token: 0x06002573 RID: 9587 RVA: 0x0004962F File Offset: 0x0004782F
 	public void Disable()
 	{
 		this.DropItem();
@@ -34,16 +34,16 @@ public class MagicIngredient : TransferrableObject
 		base.gameObject.SetActive(false);
 	}
 
-	// Token: 0x04002939 RID: 10553
+	// Token: 0x04002998 RID: 10648
 	[FormerlySerializedAs("IngredientType")]
 	public MagicIngredientType IngredientTypeSO;
 
-	// Token: 0x0400293A RID: 10554
+	// Token: 0x04002999 RID: 10649
 	public Transform rootParent;
 
-	// Token: 0x0400293B RID: 10555
+	// Token: 0x0400299A RID: 10650
 	private WorldShareableItem item;
 
-	// Token: 0x0400293C RID: 10556
+	// Token: 0x0400299B RID: 10651
 	private Transform grabPtInitParent;
 }

@@ -1,20 +1,20 @@
 ﻿using System;
 using Photon.Pun;
 
-// Token: 0x0200068F RID: 1679
+// Token: 0x02000659 RID: 1625
 public class GorillaThrowingRock : GorillaThrowable, IPunInstantiateMagicCallback
 {
-	// Token: 0x060029C8 RID: 10696 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002847 RID: 10311 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnPhotonInstantiate(PhotonMessageInfo info)
 	{
 	}
 
-	// Token: 0x04002F37 RID: 12087
+	// Token: 0x04002DA7 RID: 11687
 	public float bonkSpeedMin = 1f;
 
-	// Token: 0x04002F38 RID: 12088
+	// Token: 0x04002DA8 RID: 11688
 	public float bonkSpeedMax = 5f;
 
-	// Token: 0x04002F39 RID: 12089
+	// Token: 0x04002DA9 RID: 11689
 	public VRRig hitRig;
 }

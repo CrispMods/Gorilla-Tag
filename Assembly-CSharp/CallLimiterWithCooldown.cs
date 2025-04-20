@@ -1,23 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020007E3 RID: 2019
+// Token: 0x020007FD RID: 2045
 [Serializable]
 public class CallLimiterWithCooldown : CallLimiter
 {
-	// Token: 0x060031FC RID: 12796 RVA: 0x000F05CD File Offset: 0x000EE7CD
+	// Token: 0x060032B2 RID: 12978 RVA: 0x0005185F File Offset: 0x0004FA5F
 	public CallLimiterWithCooldown(float coolDownSpam, int historyLength, float coolDown) : base(historyLength, coolDown, 0.5f)
 	{
 		this.spamCoolDown = coolDownSpam;
 	}
 
-	// Token: 0x060031FD RID: 12797 RVA: 0x000F05E3 File Offset: 0x000EE7E3
+	// Token: 0x060032B3 RID: 12979 RVA: 0x00051875 File Offset: 0x0004FA75
 	public CallLimiterWithCooldown(float coolDownSpam, int historyLength, float coolDown, float latencyMax) : base(historyLength, coolDown, latencyMax)
 	{
 		this.spamCoolDown = coolDownSpam;
 	}
 
-	// Token: 0x060031FE RID: 12798 RVA: 0x000F05F6 File Offset: 0x000EE7F6
+	// Token: 0x060032B4 RID: 12980 RVA: 0x00051888 File Offset: 0x0004FA88
 	public override bool CheckCallTime(float time)
 	{
 		if (this.blockCall && time < this.blockStartTime + this.spamCoolDown)
@@ -28,7 +28,7 @@ public class CallLimiterWithCooldown : CallLimiter
 		return base.CheckCallTime(time);
 	}
 
-	// Token: 0x0400358C RID: 13708
+	// Token: 0x04003642 RID: 13890
 	[SerializeField]
 	private float spamCoolDown;
 }

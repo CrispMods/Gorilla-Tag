@@ -3,31 +3,31 @@ using UnityEngine;
 
 namespace BoingKit
 {
-	// Token: 0x02000CED RID: 3309
+	// Token: 0x02000D1E RID: 3358
 	public struct FloatSpring
 	{
-		// Token: 0x06005373 RID: 21363 RVA: 0x0019AE93 File Offset: 0x00199093
+		// Token: 0x060054D5 RID: 21717 RVA: 0x00067057 File Offset: 0x00065257
 		public void Reset()
 		{
 			this.Value = 0f;
 			this.Velocity = 0f;
 		}
 
-		// Token: 0x06005374 RID: 21364 RVA: 0x0019AEAB File Offset: 0x001990AB
+		// Token: 0x060054D6 RID: 21718 RVA: 0x0006706F File Offset: 0x0006526F
 		public void Reset(float initValue)
 		{
 			this.Value = initValue;
 			this.Velocity = 0f;
 		}
 
-		// Token: 0x06005375 RID: 21365 RVA: 0x0019AEBF File Offset: 0x001990BF
+		// Token: 0x060054D7 RID: 21719 RVA: 0x00067083 File Offset: 0x00065283
 		public void Reset(float initValue, float initVelocity)
 		{
 			this.Value = initValue;
 			this.Velocity = initVelocity;
 		}
 
-		// Token: 0x06005376 RID: 21366 RVA: 0x0019AED0 File Offset: 0x001990D0
+		// Token: 0x060054D8 RID: 21720 RVA: 0x001D0218 File Offset: 0x001CE418
 		public float TrackDampingRatio(float targetValue, float angularFrequency, float dampingRatio, float deltaTime)
 		{
 			if (angularFrequency < MathUtil.Epsilon)
@@ -53,7 +53,7 @@ namespace BoingKit
 			return this.Value;
 		}
 
-		// Token: 0x06005377 RID: 21367 RVA: 0x0019AFA0 File Offset: 0x001991A0
+		// Token: 0x060054D9 RID: 21721 RVA: 0x001D02E8 File Offset: 0x001CE4E8
 		public float TrackHalfLife(float targetValue, float frequencyHz, float halfLife, float deltaTime)
 		{
 			if (halfLife < MathUtil.Epsilon)
@@ -67,7 +67,7 @@ namespace BoingKit
 			return this.TrackDampingRatio(targetValue, num, dampingRatio, deltaTime);
 		}
 
-		// Token: 0x06005378 RID: 21368 RVA: 0x0019AFEC File Offset: 0x001991EC
+		// Token: 0x060054DA RID: 21722 RVA: 0x001D0334 File Offset: 0x001CE534
 		public float TrackExponential(float targetValue, float halfLife, float deltaTime)
 		{
 			if (halfLife < MathUtil.Epsilon)
@@ -81,13 +81,13 @@ namespace BoingKit
 			return this.TrackDampingRatio(targetValue, angularFrequency, dampingRatio, deltaTime);
 		}
 
-		// Token: 0x040055CA RID: 21962
+		// Token: 0x040056D6 RID: 22230
 		public static readonly int Stride = 8;
 
-		// Token: 0x040055CB RID: 21963
+		// Token: 0x040056D7 RID: 22231
 		public float Value;
 
-		// Token: 0x040055CC RID: 21964
+		// Token: 0x040056D8 RID: 22232
 		public float Velocity;
 	}
 }

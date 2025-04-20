@@ -4,12 +4,12 @@ using System.Text;
 
 namespace LitJson
 {
-	// Token: 0x02000957 RID: 2391
+	// Token: 0x02000974 RID: 2420
 	internal class Lexer
 	{
-		// Token: 0x17000613 RID: 1555
-		// (get) Token: 0x06003A40 RID: 14912 RVA: 0x0010C01A File Offset: 0x0010A21A
-		// (set) Token: 0x06003A41 RID: 14913 RVA: 0x0010C022 File Offset: 0x0010A222
+		// Token: 0x17000626 RID: 1574
+		// (get) Token: 0x06003B11 RID: 15121 RVA: 0x00056847 File Offset: 0x00054A47
+		// (set) Token: 0x06003B12 RID: 15122 RVA: 0x0005684F File Offset: 0x00054A4F
 		public bool AllowComments
 		{
 			get
@@ -22,9 +22,9 @@ namespace LitJson
 			}
 		}
 
-		// Token: 0x17000614 RID: 1556
-		// (get) Token: 0x06003A42 RID: 14914 RVA: 0x0010C02B File Offset: 0x0010A22B
-		// (set) Token: 0x06003A43 RID: 14915 RVA: 0x0010C033 File Offset: 0x0010A233
+		// Token: 0x17000627 RID: 1575
+		// (get) Token: 0x06003B13 RID: 15123 RVA: 0x00056858 File Offset: 0x00054A58
+		// (set) Token: 0x06003B14 RID: 15124 RVA: 0x00056860 File Offset: 0x00054A60
 		public bool AllowSingleQuotedStrings
 		{
 			get
@@ -37,8 +37,8 @@ namespace LitJson
 			}
 		}
 
-		// Token: 0x17000615 RID: 1557
-		// (get) Token: 0x06003A44 RID: 14916 RVA: 0x0010C03C File Offset: 0x0010A23C
+		// Token: 0x17000628 RID: 1576
+		// (get) Token: 0x06003B15 RID: 15125 RVA: 0x00056869 File Offset: 0x00054A69
 		public bool EndOfInput
 		{
 			get
@@ -47,8 +47,8 @@ namespace LitJson
 			}
 		}
 
-		// Token: 0x17000616 RID: 1558
-		// (get) Token: 0x06003A45 RID: 14917 RVA: 0x0010C044 File Offset: 0x0010A244
+		// Token: 0x17000629 RID: 1577
+		// (get) Token: 0x06003B16 RID: 15126 RVA: 0x00056871 File Offset: 0x00054A71
 		public int Token
 		{
 			get
@@ -57,8 +57,8 @@ namespace LitJson
 			}
 		}
 
-		// Token: 0x17000617 RID: 1559
-		// (get) Token: 0x06003A46 RID: 14918 RVA: 0x0010C04C File Offset: 0x0010A24C
+		// Token: 0x1700062A RID: 1578
+		// (get) Token: 0x06003B17 RID: 15127 RVA: 0x00056879 File Offset: 0x00054A79
 		public string StringValue
 		{
 			get
@@ -67,13 +67,13 @@ namespace LitJson
 			}
 		}
 
-		// Token: 0x06003A47 RID: 14919 RVA: 0x0010C054 File Offset: 0x0010A254
+		// Token: 0x06003B18 RID: 15128 RVA: 0x00056881 File Offset: 0x00054A81
 		static Lexer()
 		{
 			Lexer.PopulateFsmTables();
 		}
 
-		// Token: 0x06003A48 RID: 14920 RVA: 0x0010C05C File Offset: 0x0010A25C
+		// Token: 0x06003B19 RID: 15129 RVA: 0x0014F5EC File Offset: 0x0014D7EC
 		public Lexer(TextReader reader)
 		{
 			this.allow_comments = true;
@@ -87,7 +87,7 @@ namespace LitJson
 			this.fsm_context.L = this;
 		}
 
-		// Token: 0x06003A49 RID: 14921 RVA: 0x0010C0C0 File Offset: 0x0010A2C0
+		// Token: 0x06003B1A RID: 15130 RVA: 0x0014F650 File Offset: 0x0014D850
 		private static int HexValue(int digit)
 		{
 			switch (digit)
@@ -127,7 +127,7 @@ namespace LitJson
 			return 10;
 		}
 
-		// Token: 0x06003A4A RID: 14922 RVA: 0x0010C128 File Offset: 0x0010A328
+		// Token: 0x06003B1B RID: 15131 RVA: 0x0014F6B8 File Offset: 0x0014D8B8
 		private static void PopulateFsmTables()
 		{
 			Lexer.fsm_handler_table = new Lexer.StateHandler[]
@@ -194,7 +194,7 @@ namespace LitJson
 			};
 		}
 
-		// Token: 0x06003A4B RID: 14923 RVA: 0x0010C310 File Offset: 0x0010A510
+		// Token: 0x06003B1C RID: 15132 RVA: 0x0014F8A0 File Offset: 0x0014DAA0
 		private static char ProcessEscChar(int esc_char)
 		{
 			if (esc_char <= 92)
@@ -241,7 +241,7 @@ namespace LitJson
 			return '?';
 		}
 
-		// Token: 0x06003A4C RID: 14924 RVA: 0x0010C378 File Offset: 0x0010A578
+		// Token: 0x06003B1D RID: 15133 RVA: 0x0014F908 File Offset: 0x0014DB08
 		private static bool State1(FsmContext ctx)
 		{
 			while (ctx.L.GetChar())
@@ -347,7 +347,7 @@ namespace LitJson
 			return true;
 		}
 
-		// Token: 0x06003A4D RID: 14925 RVA: 0x0010C570 File Offset: 0x0010A770
+		// Token: 0x06003B1E RID: 15134 RVA: 0x0014FB00 File Offset: 0x0014DD00
 		private static bool State2(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -366,7 +366,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A4E RID: 14926 RVA: 0x0010C604 File Offset: 0x0010A804
+		// Token: 0x06003B1F RID: 15135 RVA: 0x0014FB94 File Offset: 0x0014DD94
 		private static bool State3(FsmContext ctx)
 		{
 			while (ctx.L.GetChar())
@@ -425,7 +425,7 @@ namespace LitJson
 			return true;
 		}
 
-		// Token: 0x06003A4F RID: 14927 RVA: 0x0010C740 File Offset: 0x0010A940
+		// Token: 0x06003B20 RID: 15136 RVA: 0x0014FCD0 File Offset: 0x0014DED0
 		private static bool State4(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -474,7 +474,7 @@ namespace LitJson
 			return true;
 		}
 
-		// Token: 0x06003A50 RID: 14928 RVA: 0x0010C830 File Offset: 0x0010AA30
+		// Token: 0x06003B21 RID: 15137 RVA: 0x0014FDC0 File Offset: 0x0014DFC0
 		private static bool State5(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -487,7 +487,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A51 RID: 14929 RVA: 0x0010C890 File Offset: 0x0010AA90
+		// Token: 0x06003B22 RID: 15138 RVA: 0x0014FE20 File Offset: 0x0014E020
 		private static bool State6(FsmContext ctx)
 		{
 			while (ctx.L.GetChar())
@@ -540,7 +540,7 @@ namespace LitJson
 			return true;
 		}
 
-		// Token: 0x06003A52 RID: 14930 RVA: 0x0010C9A0 File Offset: 0x0010ABA0
+		// Token: 0x06003B23 RID: 15139 RVA: 0x0014FF30 File Offset: 0x0014E130
 		private static bool State7(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -560,7 +560,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A53 RID: 14931 RVA: 0x0010CA3C File Offset: 0x0010AC3C
+		// Token: 0x06003B24 RID: 15140 RVA: 0x0014FFCC File Offset: 0x0014E1CC
 		private static bool State8(FsmContext ctx)
 		{
 			while (ctx.L.GetChar())
@@ -591,7 +591,7 @@ namespace LitJson
 			return true;
 		}
 
-		// Token: 0x06003A54 RID: 14932 RVA: 0x0010CB11 File Offset: 0x0010AD11
+		// Token: 0x06003B25 RID: 15141 RVA: 0x00056888 File Offset: 0x00054A88
 		private static bool State9(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -603,7 +603,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A55 RID: 14933 RVA: 0x0010CB39 File Offset: 0x0010AD39
+		// Token: 0x06003B26 RID: 15142 RVA: 0x000568B0 File Offset: 0x00054AB0
 		private static bool State10(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -615,7 +615,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A56 RID: 14934 RVA: 0x0010CB61 File Offset: 0x0010AD61
+		// Token: 0x06003B27 RID: 15143 RVA: 0x000568D8 File Offset: 0x00054AD8
 		private static bool State11(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -628,7 +628,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A57 RID: 14935 RVA: 0x0010CB8F File Offset: 0x0010AD8F
+		// Token: 0x06003B28 RID: 15144 RVA: 0x00056906 File Offset: 0x00054B06
 		private static bool State12(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -640,7 +640,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A58 RID: 14936 RVA: 0x0010CBB7 File Offset: 0x0010ADB7
+		// Token: 0x06003B29 RID: 15145 RVA: 0x0005692E File Offset: 0x00054B2E
 		private static bool State13(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -652,7 +652,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A59 RID: 14937 RVA: 0x0010CBDF File Offset: 0x0010ADDF
+		// Token: 0x06003B2A RID: 15146 RVA: 0x00056956 File Offset: 0x00054B56
 		private static bool State14(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -664,7 +664,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A5A RID: 14938 RVA: 0x0010CB61 File Offset: 0x0010AD61
+		// Token: 0x06003B2B RID: 15147 RVA: 0x000568D8 File Offset: 0x00054AD8
 		private static bool State15(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -677,7 +677,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A5B RID: 14939 RVA: 0x0010CC07 File Offset: 0x0010AE07
+		// Token: 0x06003B2C RID: 15148 RVA: 0x0005697E File Offset: 0x00054B7E
 		private static bool State16(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -689,7 +689,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A5C RID: 14940 RVA: 0x0010CC2F File Offset: 0x0010AE2F
+		// Token: 0x06003B2D RID: 15149 RVA: 0x000569A6 File Offset: 0x00054BA6
 		private static bool State17(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -701,7 +701,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A5D RID: 14941 RVA: 0x0010CC57 File Offset: 0x0010AE57
+		// Token: 0x06003B2E RID: 15150 RVA: 0x000569CE File Offset: 0x00054BCE
 		private static bool State18(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -714,7 +714,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A5E RID: 14942 RVA: 0x0010CC88 File Offset: 0x0010AE88
+		// Token: 0x06003B2F RID: 15151 RVA: 0x001500A4 File Offset: 0x0014E2A4
 		private static bool State19(FsmContext ctx)
 		{
 			while (ctx.L.GetChar())
@@ -738,7 +738,7 @@ namespace LitJson
 			return true;
 		}
 
-		// Token: 0x06003A5F RID: 14943 RVA: 0x0010CD08 File Offset: 0x0010AF08
+		// Token: 0x06003B30 RID: 15152 RVA: 0x000569FC File Offset: 0x00054BFC
 		private static bool State20(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -751,7 +751,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A60 RID: 14944 RVA: 0x0010CD38 File Offset: 0x0010AF38
+		// Token: 0x06003B31 RID: 15153 RVA: 0x00150124 File Offset: 0x0014E324
 		private static bool State21(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -798,7 +798,7 @@ namespace LitJson
 			return true;
 		}
 
-		// Token: 0x06003A61 RID: 14945 RVA: 0x0010CDEC File Offset: 0x0010AFEC
+		// Token: 0x06003B32 RID: 15154 RVA: 0x001501D8 File Offset: 0x0014E3D8
 		private static bool State22(FsmContext ctx)
 		{
 			int num = 0;
@@ -823,7 +823,7 @@ namespace LitJson
 			return true;
 		}
 
-		// Token: 0x06003A62 RID: 14946 RVA: 0x0010CEE0 File Offset: 0x0010B0E0
+		// Token: 0x06003B33 RID: 15155 RVA: 0x001502CC File Offset: 0x0014E4CC
 		private static bool State23(FsmContext ctx)
 		{
 			while (ctx.L.GetChar())
@@ -847,7 +847,7 @@ namespace LitJson
 			return true;
 		}
 
-		// Token: 0x06003A63 RID: 14947 RVA: 0x0010CF60 File Offset: 0x0010B160
+		// Token: 0x06003B34 RID: 15156 RVA: 0x00056A2A File Offset: 0x00054C2A
 		private static bool State24(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -861,7 +861,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A64 RID: 14948 RVA: 0x0010CF9C File Offset: 0x0010B19C
+		// Token: 0x06003B35 RID: 15157 RVA: 0x0015034C File Offset: 0x0014E54C
 		private static bool State25(FsmContext ctx)
 		{
 			ctx.L.GetChar();
@@ -879,7 +879,7 @@ namespace LitJson
 			return true;
 		}
 
-		// Token: 0x06003A65 RID: 14949 RVA: 0x0010CFE2 File Offset: 0x0010B1E2
+		// Token: 0x06003B36 RID: 15158 RVA: 0x00056A65 File Offset: 0x00054C65
 		private static bool State26(FsmContext ctx)
 		{
 			while (ctx.L.GetChar())
@@ -893,7 +893,7 @@ namespace LitJson
 			return true;
 		}
 
-		// Token: 0x06003A66 RID: 14950 RVA: 0x0010D00C File Offset: 0x0010B20C
+		// Token: 0x06003B37 RID: 15159 RVA: 0x00056A8F File Offset: 0x00054C8F
 		private static bool State27(FsmContext ctx)
 		{
 			while (ctx.L.GetChar())
@@ -907,7 +907,7 @@ namespace LitJson
 			return true;
 		}
 
-		// Token: 0x06003A67 RID: 14951 RVA: 0x0010D038 File Offset: 0x0010B238
+		// Token: 0x06003B38 RID: 15160 RVA: 0x00150394 File Offset: 0x0014E594
 		private static bool State28(FsmContext ctx)
 		{
 			while (ctx.L.GetChar())
@@ -926,7 +926,7 @@ namespace LitJson
 			return true;
 		}
 
-		// Token: 0x06003A68 RID: 14952 RVA: 0x0010D088 File Offset: 0x0010B288
+		// Token: 0x06003B39 RID: 15161 RVA: 0x001503E4 File Offset: 0x0014E5E4
 		private bool GetChar()
 		{
 			if ((this.input_char = this.NextChar()) != -1)
@@ -937,7 +937,7 @@ namespace LitJson
 			return false;
 		}
 
-		// Token: 0x06003A69 RID: 14953 RVA: 0x0010D0B1 File Offset: 0x0010B2B1
+		// Token: 0x06003B3A RID: 15162 RVA: 0x00056ABA File Offset: 0x00054CBA
 		private int NextChar()
 		{
 			if (this.input_buffer != 0)
@@ -949,7 +949,7 @@ namespace LitJson
 			return this.reader.Read();
 		}
 
-		// Token: 0x06003A6A RID: 14954 RVA: 0x0010D0D4 File Offset: 0x0010B2D4
+		// Token: 0x06003B3B RID: 15163 RVA: 0x00150410 File Offset: 0x0014E610
 		public bool NextToken()
 		{
 			this.fsm_context.Return = false;
@@ -976,56 +976,56 @@ namespace LitJson
 			throw new JsonException(this.input_char);
 		}
 
-		// Token: 0x06003A6B RID: 14955 RVA: 0x0010D1A9 File Offset: 0x0010B3A9
+		// Token: 0x06003B3C RID: 15164 RVA: 0x00056ADD File Offset: 0x00054CDD
 		private void UngetChar()
 		{
 			this.input_buffer = this.input_char;
 		}
 
-		// Token: 0x04003B7D RID: 15229
+		// Token: 0x04003C42 RID: 15426
 		private static int[] fsm_return_table;
 
-		// Token: 0x04003B7E RID: 15230
+		// Token: 0x04003C43 RID: 15427
 		private static Lexer.StateHandler[] fsm_handler_table;
 
-		// Token: 0x04003B7F RID: 15231
+		// Token: 0x04003C44 RID: 15428
 		private bool allow_comments;
 
-		// Token: 0x04003B80 RID: 15232
+		// Token: 0x04003C45 RID: 15429
 		private bool allow_single_quoted_strings;
 
-		// Token: 0x04003B81 RID: 15233
+		// Token: 0x04003C46 RID: 15430
 		private bool end_of_input;
 
-		// Token: 0x04003B82 RID: 15234
+		// Token: 0x04003C47 RID: 15431
 		private FsmContext fsm_context;
 
-		// Token: 0x04003B83 RID: 15235
+		// Token: 0x04003C48 RID: 15432
 		private int input_buffer;
 
-		// Token: 0x04003B84 RID: 15236
+		// Token: 0x04003C49 RID: 15433
 		private int input_char;
 
-		// Token: 0x04003B85 RID: 15237
+		// Token: 0x04003C4A RID: 15434
 		private TextReader reader;
 
-		// Token: 0x04003B86 RID: 15238
+		// Token: 0x04003C4B RID: 15435
 		private int state;
 
-		// Token: 0x04003B87 RID: 15239
+		// Token: 0x04003C4C RID: 15436
 		private StringBuilder string_buffer;
 
-		// Token: 0x04003B88 RID: 15240
+		// Token: 0x04003C4D RID: 15437
 		private string string_value;
 
-		// Token: 0x04003B89 RID: 15241
+		// Token: 0x04003C4E RID: 15438
 		private int token;
 
-		// Token: 0x04003B8A RID: 15242
+		// Token: 0x04003C4F RID: 15439
 		private int unichar;
 
-		// Token: 0x02000958 RID: 2392
-		// (Invoke) Token: 0x06003A6D RID: 14957
+		// Token: 0x02000975 RID: 2421
+		// (Invoke) Token: 0x06003B3E RID: 15166
 		private delegate bool StateHandler(FsmContext ctx);
 	}
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 // Token: 0x0200000E RID: 14
 public class ParentedObjectStressTestMain : MonoBehaviour
 {
-	// Token: 0x0600003C RID: 60 RVA: 0x00002710 File Offset: 0x00000910
+	// Token: 0x0600003C RID: 60 RVA: 0x00067BF4 File Offset: 0x00065DF4
 	public void Start()
 	{
 		for (int i = 0; i < (int)this.NumObjects.x; i++)

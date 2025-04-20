@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000517 RID: 1303
+// Token: 0x02000524 RID: 1316
 public class FingerFlexReactor : MonoBehaviour
 {
-	// Token: 0x06001F8E RID: 8078 RVA: 0x0009ED08 File Offset: 0x0009CF08
+	// Token: 0x06001FE7 RID: 8167 RVA: 0x000F077C File Offset: 0x000EE97C
 	private void Setup()
 	{
 		this._rig = base.GetComponentInParent<VRRig>();
@@ -23,19 +23,19 @@ public class FingerFlexReactor : MonoBehaviour
 		};
 	}
 
-	// Token: 0x06001F8F RID: 8079 RVA: 0x0009ED8F File Offset: 0x0009CF8F
+	// Token: 0x06001FE8 RID: 8168 RVA: 0x00045B29 File Offset: 0x00043D29
 	private void Awake()
 	{
 		this.Setup();
 	}
 
-	// Token: 0x06001F90 RID: 8080 RVA: 0x0009ED97 File Offset: 0x0009CF97
+	// Token: 0x06001FE9 RID: 8169 RVA: 0x00045B31 File Offset: 0x00043D31
 	private void FixedUpdate()
 	{
 		this.UpdateBlendShapes();
 	}
 
-	// Token: 0x06001F91 RID: 8081 RVA: 0x0009EDA0 File Offset: 0x0009CFA0
+	// Token: 0x06001FEA RID: 8170 RVA: 0x000F0804 File Offset: 0x000EEA04
 	public void UpdateBlendShapes()
 	{
 		if (!this._rig)
@@ -73,7 +73,7 @@ public class FingerFlexReactor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001F92 RID: 8082 RVA: 0x0009EE74 File Offset: 0x0009D074
+	// Token: 0x06001FEB RID: 8171 RVA: 0x000F08D8 File Offset: 0x000EEAD8
 	private static float GetLerpValue(VRMap map)
 	{
 		VRMapThumb vrmapThumb = map as VRMapThumb;
@@ -105,58 +105,58 @@ public class FingerFlexReactor : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x04002369 RID: 9065
+	// Token: 0x040023BC RID: 9148
 	[SerializeField]
 	private VRRig _rig;
 
-	// Token: 0x0400236A RID: 9066
+	// Token: 0x040023BD RID: 9149
 	[SerializeField]
 	private VRMap[] _fingers = new VRMap[0];
 
-	// Token: 0x0400236B RID: 9067
+	// Token: 0x040023BE RID: 9150
 	[SerializeField]
 	private FingerFlexReactor.BlendShapeTarget[] _blendShapeTargets = new FingerFlexReactor.BlendShapeTarget[0];
 
-	// Token: 0x02000518 RID: 1304
+	// Token: 0x02000525 RID: 1317
 	[Serializable]
 	public class BlendShapeTarget
 	{
-		// Token: 0x0400236C RID: 9068
+		// Token: 0x040023BF RID: 9151
 		public FingerFlexReactor.FingerMap sourceFinger;
 
-		// Token: 0x0400236D RID: 9069
+		// Token: 0x040023C0 RID: 9152
 		public SkinnedMeshRenderer targetRenderer;
 
-		// Token: 0x0400236E RID: 9070
+		// Token: 0x040023C1 RID: 9153
 		public int blendShapeIndex;
 
-		// Token: 0x0400236F RID: 9071
+		// Token: 0x040023C2 RID: 9154
 		public Vector2 inputRange = new Vector2(0f, 1f);
 
-		// Token: 0x04002370 RID: 9072
+		// Token: 0x040023C3 RID: 9155
 		public Vector2 outputRange = new Vector2(0f, 1f);
 
-		// Token: 0x04002371 RID: 9073
+		// Token: 0x040023C4 RID: 9156
 		[NonSerialized]
 		public float currentValue;
 	}
 
-	// Token: 0x02000519 RID: 1305
+	// Token: 0x02000526 RID: 1318
 	public enum FingerMap
 	{
-		// Token: 0x04002373 RID: 9075
+		// Token: 0x040023C6 RID: 9158
 		None = -1,
-		// Token: 0x04002374 RID: 9076
+		// Token: 0x040023C7 RID: 9159
 		LeftThumb,
-		// Token: 0x04002375 RID: 9077
+		// Token: 0x040023C8 RID: 9160
 		LeftIndex,
-		// Token: 0x04002376 RID: 9078
+		// Token: 0x040023C9 RID: 9161
 		LeftMiddle,
-		// Token: 0x04002377 RID: 9079
+		// Token: 0x040023CA RID: 9162
 		RightThumb,
-		// Token: 0x04002378 RID: 9080
+		// Token: 0x040023CB RID: 9163
 		RightIndex,
-		// Token: 0x04002379 RID: 9081
+		// Token: 0x040023CC RID: 9164
 		RightMiddle
 	}
 }

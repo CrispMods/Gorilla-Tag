@@ -6,11 +6,11 @@ using UnityEngine.Serialization;
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000AB8 RID: 2744
+	// Token: 0x02000AE5 RID: 2789
 	public class GorillaNetworkJoinTrigger : GorillaTriggerBox
 	{
-		// Token: 0x17000714 RID: 1812
-		// (get) Token: 0x060044E7 RID: 17639 RVA: 0x001476C8 File Offset: 0x001458C8
+		// Token: 0x17000730 RID: 1840
+		// (get) Token: 0x0600462C RID: 17964 RVA: 0x00185188 File Offset: 0x00183388
 		public GroupJoinZoneAB groupJoinRequiredZonesAB
 		{
 			get
@@ -23,7 +23,7 @@ namespace GorillaNetworking
 			}
 		}
 
-		// Token: 0x060044E8 RID: 17640 RVA: 0x001476F8 File Offset: 0x001458F8
+		// Token: 0x0600462D RID: 17965 RVA: 0x001851B8 File Offset: 0x001833B8
 		private void Start()
 		{
 			if (this.primaryTriggerForMyZone == null)
@@ -42,7 +42,7 @@ namespace GorillaNetworking
 			}
 		}
 
-		// Token: 0x060044E9 RID: 17641 RVA: 0x00147778 File Offset: 0x00145978
+		// Token: 0x0600462E RID: 17966 RVA: 0x00185238 File Offset: 0x00183438
 		public void RegisterUI(JoinTriggerUI ui)
 		{
 			this.ui = ui;
@@ -54,13 +54,13 @@ namespace GorillaNetworking
 			this.UpdateUI();
 		}
 
-		// Token: 0x060044EA RID: 17642 RVA: 0x001477C4 File Offset: 0x001459C4
+		// Token: 0x0600462F RID: 17967 RVA: 0x0005DCC9 File Offset: 0x0005BEC9
 		public void UnregisterUI(JoinTriggerUI ui)
 		{
 			this.ui = null;
 		}
 
-		// Token: 0x060044EB RID: 17643 RVA: 0x001477CD File Offset: 0x001459CD
+		// Token: 0x06004630 RID: 17968 RVA: 0x0005DCD2 File Offset: 0x0005BED2
 		private void OnDestroy()
 		{
 			if (this.didRegisterForCallbacks)
@@ -69,13 +69,13 @@ namespace GorillaNetworking
 			}
 		}
 
-		// Token: 0x060044EC RID: 17644 RVA: 0x001477ED File Offset: 0x001459ED
+		// Token: 0x06004631 RID: 17969 RVA: 0x0005DCF2 File Offset: 0x0005BEF2
 		private void OnGroupPositionsChanged(GroupJoinZoneAB groupZone)
 		{
 			this.UpdateUI();
 		}
 
-		// Token: 0x060044ED RID: 17645 RVA: 0x001477F8 File Offset: 0x001459F8
+		// Token: 0x06004632 RID: 17970 RVA: 0x00185284 File Offset: 0x00183484
 		public void UpdateUI()
 		{
 			if (this.ui == null || NetworkSystem.Instance == null)
@@ -115,50 +115,50 @@ namespace GorillaNetworking
 			this.ui.SetState(JoinTriggerVisualState.LeaveRoomAndSoloJoin, new Func<string>(this.GetActiveNetworkZone), new Func<string>(this.GetDesiredNetworkZone), new Func<string>(GorillaNetworkJoinTrigger.GetActiveGameType), new Func<string>(this.GetDesiredGameType));
 		}
 
-		// Token: 0x060044EE RID: 17646 RVA: 0x00147A42 File Offset: 0x00145C42
+		// Token: 0x06004633 RID: 17971 RVA: 0x0005DCFA File Offset: 0x0005BEFA
 		private string GetActiveNetworkZone()
 		{
 			return PhotonNetworkController.Instance.currentJoinTrigger.networkZone.ToUpper();
 		}
 
-		// Token: 0x060044EF RID: 17647 RVA: 0x00147A5A File Offset: 0x00145C5A
+		// Token: 0x06004634 RID: 17972 RVA: 0x0005DD12 File Offset: 0x0005BF12
 		private string GetDesiredNetworkZone()
 		{
 			return this.networkZone.ToUpper();
 		}
 
-		// Token: 0x060044F0 RID: 17648 RVA: 0x00147A67 File Offset: 0x00145C67
+		// Token: 0x06004635 RID: 17973 RVA: 0x0005DD1F File Offset: 0x0005BF1F
 		public static string GetActiveGameType()
 		{
 			GorillaGameManager activeGameMode = GameMode.ActiveGameMode;
 			return ((activeGameMode != null) ? activeGameMode.GameModeName() : null) ?? "";
 		}
 
-		// Token: 0x060044F1 RID: 17649 RVA: 0x00147A84 File Offset: 0x00145C84
+		// Token: 0x06004636 RID: 17974 RVA: 0x001854D0 File Offset: 0x001836D0
 		public string GetDesiredGameType()
 		{
 			return GameMode.GameModeZoneMapping.VerifyModeForZone(this.zone, Enum.Parse<GameModeType>(GorillaComputer.instance.currentGameMode.Value, true), NetworkSystem.Instance.SessionIsPrivate).ToString();
 		}
 
-		// Token: 0x060044F2 RID: 17650 RVA: 0x00147AD0 File Offset: 0x00145CD0
+		// Token: 0x06004637 RID: 17975 RVA: 0x0005DD3B File Offset: 0x0005BF3B
 		public virtual string GetFullDesiredGameModeString()
 		{
 			return this.networkZone + GorillaComputer.instance.currentQueue + this.GetDesiredGameType();
 		}
 
-		// Token: 0x060044F3 RID: 17651 RVA: 0x00147AEF File Offset: 0x00145CEF
+		// Token: 0x06004638 RID: 17976 RVA: 0x0005DD5A File Offset: 0x0005BF5A
 		public bool CanPartyJoin()
 		{
 			return this.CanPartyJoin(FriendshipGroupDetection.Instance.partyZone);
 		}
 
-		// Token: 0x060044F4 RID: 17652 RVA: 0x00147B01 File Offset: 0x00145D01
+		// Token: 0x06004639 RID: 17977 RVA: 0x0005DD6C File Offset: 0x0005BF6C
 		public bool CanPartyJoin(GroupJoinZoneAB zone)
 		{
 			return (this.groupJoinRequiredZonesAB & zone) == zone;
 		}
 
-		// Token: 0x060044F5 RID: 17653 RVA: 0x00147B18 File Offset: 0x00145D18
+		// Token: 0x0600463A RID: 17978 RVA: 0x0018551C File Offset: 0x0018371C
 		public override void OnBoxTriggered()
 		{
 			base.OnBoxTriggered();
@@ -215,61 +215,61 @@ namespace GorillaNetworking
 			PhotonNetworkController.Instance.AttemptToJoinPublicRoom(this, JoinType.Solo);
 		}
 
-		// Token: 0x060044F6 RID: 17654 RVA: 0x00147CC7 File Offset: 0x00145EC7
+		// Token: 0x0600463B RID: 17979 RVA: 0x0005DD80 File Offset: 0x0005BF80
 		public static void DisableTriggerJoins()
 		{
 			Debug.Log("[GorillaNetworkJoinTrigger::DisableTriggerJoins] Disabling Trigger-based Room Joins...");
 			GorillaNetworkJoinTrigger.triggerJoinsDisabled = true;
 		}
 
-		// Token: 0x060044F7 RID: 17655 RVA: 0x00147CD9 File Offset: 0x00145ED9
+		// Token: 0x0600463C RID: 17980 RVA: 0x0005DD92 File Offset: 0x0005BF92
 		public static void EnableTriggerJoins()
 		{
 			Debug.Log("[GorillaNetworkJoinTrigger::EnableTriggerJoins] Enabling Trigger-based Room Joins...");
 			GorillaNetworkJoinTrigger.triggerJoinsDisabled = false;
 		}
 
-		// Token: 0x04004662 RID: 18018
+		// Token: 0x04004759 RID: 18265
 		public GameObject[] makeSureThisIsDisabled;
 
-		// Token: 0x04004663 RID: 18019
+		// Token: 0x0400475A RID: 18266
 		public GameObject[] makeSureThisIsEnabled;
 
-		// Token: 0x04004664 RID: 18020
+		// Token: 0x0400475B RID: 18267
 		public GTZone zone;
 
-		// Token: 0x04004665 RID: 18021
+		// Token: 0x0400475C RID: 18268
 		public GroupJoinZoneA groupJoinRequiredZones;
 
-		// Token: 0x04004666 RID: 18022
+		// Token: 0x0400475D RID: 18269
 		public GroupJoinZoneB groupJoinRequiredZonesB;
 
-		// Token: 0x04004667 RID: 18023
+		// Token: 0x0400475E RID: 18270
 		[FormerlySerializedAs("gameModeName")]
 		public string networkZone;
 
-		// Token: 0x04004668 RID: 18024
+		// Token: 0x0400475F RID: 18271
 		public string componentTypeToAdd;
 
-		// Token: 0x04004669 RID: 18025
+		// Token: 0x04004760 RID: 18272
 		public GameObject componentTarget;
 
-		// Token: 0x0400466A RID: 18026
+		// Token: 0x04004761 RID: 18273
 		public GorillaFriendCollider myCollider;
 
-		// Token: 0x0400466B RID: 18027
+		// Token: 0x04004762 RID: 18274
 		public GorillaNetworkJoinTrigger primaryTriggerForMyZone;
 
-		// Token: 0x0400466C RID: 18028
+		// Token: 0x04004763 RID: 18275
 		public bool ignoredIfInParty;
 
-		// Token: 0x0400466D RID: 18029
+		// Token: 0x04004764 RID: 18276
 		private JoinTriggerUI ui;
 
-		// Token: 0x0400466E RID: 18030
+		// Token: 0x04004765 RID: 18277
 		private bool didRegisterForCallbacks;
 
-		// Token: 0x0400466F RID: 18031
+		// Token: 0x04004766 RID: 18278
 		private static bool triggerJoinsDisabled;
 	}
 }

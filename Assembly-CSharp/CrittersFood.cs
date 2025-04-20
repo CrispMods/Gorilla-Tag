@@ -4,17 +4,17 @@ using GorillaExtensions;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000046 RID: 70
+// Token: 0x0200004B RID: 75
 public class CrittersFood : CrittersActor
 {
-	// Token: 0x06000156 RID: 342 RVA: 0x00009049 File Offset: 0x00007249
+	// Token: 0x0600016F RID: 367 RVA: 0x00031488 File Offset: 0x0002F688
 	public override void Initialize()
 	{
 		base.Initialize();
 		this.currentFood = this.maxFood;
 	}
 
-	// Token: 0x06000157 RID: 343 RVA: 0x00009060 File Offset: 0x00007260
+	// Token: 0x06000170 RID: 368 RVA: 0x0006E4CC File Offset: 0x0006C6CC
 	public void SpawnData(float _maxFood, float _currentFood, float _startingSize)
 	{
 		this.maxFood = _maxFood;
@@ -24,7 +24,7 @@ public class CrittersFood : CrittersActor
 		this.food.localScale = new Vector3(this.currentSize, this.currentSize, this.currentSize);
 	}
 
-	// Token: 0x06000158 RID: 344 RVA: 0x000090C0 File Offset: 0x000072C0
+	// Token: 0x06000171 RID: 369 RVA: 0x0006E52C File Offset: 0x0006C72C
 	public override bool ProcessLocal()
 	{
 		bool flag = base.ProcessLocal();
@@ -48,7 +48,7 @@ public class CrittersFood : CrittersActor
 		return this.updatedSinceLastFrame;
 	}
 
-	// Token: 0x06000159 RID: 345 RVA: 0x00009182 File Offset: 0x00007382
+	// Token: 0x06000172 RID: 370 RVA: 0x0003149C File Offset: 0x0002F69C
 	public override void ProcessRemote()
 	{
 		base.ProcessRemote();
@@ -59,7 +59,7 @@ public class CrittersFood : CrittersActor
 		this.ProcessFood();
 	}
 
-	// Token: 0x0600015A RID: 346 RVA: 0x0000919C File Offset: 0x0000739C
+	// Token: 0x06000173 RID: 371 RVA: 0x0006E5F0 File Offset: 0x0006C7F0
 	public void ProcessFood()
 	{
 		if (this.currentSize != this.currentFood / this.maxFood * this.startingSize)
@@ -73,13 +73,13 @@ public class CrittersFood : CrittersActor
 		}
 	}
 
-	// Token: 0x0600015B RID: 347 RVA: 0x00009226 File Offset: 0x00007426
+	// Token: 0x06000174 RID: 372 RVA: 0x000314B3 File Offset: 0x0002F6B3
 	public void Feed(float amountEaten)
 	{
 		this.currentFood = Mathf.Max(0f, this.currentFood - amountEaten);
 	}
 
-	// Token: 0x0600015C RID: 348 RVA: 0x00009240 File Offset: 0x00007440
+	// Token: 0x06000175 RID: 373 RVA: 0x0006E67C File Offset: 0x0006C87C
 	public override bool UpdateSpecificActor(PhotonStream stream)
 	{
 		int num;
@@ -95,7 +95,7 @@ public class CrittersFood : CrittersActor
 		return true;
 	}
 
-	// Token: 0x0600015D RID: 349 RVA: 0x000092A4 File Offset: 0x000074A4
+	// Token: 0x06000176 RID: 374 RVA: 0x0006E6E0 File Offset: 0x0006C8E0
 	public override void SendDataByCrittersActorType(PhotonStream stream)
 	{
 		base.SendDataByCrittersActorType(stream);
@@ -104,7 +104,7 @@ public class CrittersFood : CrittersActor
 		stream.SendNext(this.startingSize);
 	}
 
-	// Token: 0x0600015E RID: 350 RVA: 0x000092F0 File Offset: 0x000074F0
+	// Token: 0x06000177 RID: 375 RVA: 0x0006E72C File Offset: 0x0006C92C
 	public override int AddActorDataToList(ref List<object> objList)
 	{
 		base.AddActorDataToList(ref objList);
@@ -114,13 +114,13 @@ public class CrittersFood : CrittersActor
 		return this.TotalActorDataLength();
 	}
 
-	// Token: 0x0600015F RID: 351 RVA: 0x00009346 File Offset: 0x00007546
+	// Token: 0x06000178 RID: 376 RVA: 0x000314CD File Offset: 0x0002F6CD
 	public override int TotalActorDataLength()
 	{
 		return base.BaseActorDataLength() + 3;
 	}
 
-	// Token: 0x06000160 RID: 352 RVA: 0x00009350 File Offset: 0x00007550
+	// Token: 0x06000179 RID: 377 RVA: 0x0006E784 File Offset: 0x0006C984
 	public override int UpdateFromRPC(object[] data, int startingIndex)
 	{
 		startingIndex += base.UpdateFromRPC(data, startingIndex);
@@ -145,24 +145,24 @@ public class CrittersFood : CrittersActor
 		return this.TotalActorDataLength();
 	}
 
-	// Token: 0x040001A4 RID: 420
+	// Token: 0x040001C9 RID: 457
 	public float maxFood;
 
-	// Token: 0x040001A5 RID: 421
+	// Token: 0x040001CA RID: 458
 	public float currentFood;
 
-	// Token: 0x040001A6 RID: 422
+	// Token: 0x040001CB RID: 459
 	private int lastFood;
 
-	// Token: 0x040001A7 RID: 423
+	// Token: 0x040001CC RID: 460
 	public float startingSize;
 
-	// Token: 0x040001A8 RID: 424
+	// Token: 0x040001CD RID: 461
 	public float currentSize;
 
-	// Token: 0x040001A9 RID: 425
+	// Token: 0x040001CE RID: 462
 	public Transform food;
 
-	// Token: 0x040001AA RID: 426
+	// Token: 0x040001CF RID: 463
 	public bool disableWhenEmpty = true;
 }

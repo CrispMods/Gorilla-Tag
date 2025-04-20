@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace BuildSafe
 {
-	// Token: 0x02000A24 RID: 2596
+	// Token: 0x02000A51 RID: 2641
 	public static class EditorGUIUtility
 	{
-		// Token: 0x060040FF RID: 16639 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004244 RID: 16964 RVA: 0x00030607 File Offset: 0x0002E807
 		[Conditional("UNITY_EDITOR")]
-		public static void PingObject(Object obj)
+		public static void PingObject(UnityEngine.Object obj)
 		{
 		}
 	}

@@ -6,15 +6,15 @@ using PlayFab;
 using TMPro;
 using UnityEngine;
 
-// Token: 0x0200070C RID: 1804
+// Token: 0x02000721 RID: 1825
 public class LegalAgreements : MonoBehaviour
 {
-	// Token: 0x170004BD RID: 1213
-	// (get) Token: 0x06002CBB RID: 11451 RVA: 0x000DCC4A File Offset: 0x000DAE4A
-	// (set) Token: 0x06002CBC RID: 11452 RVA: 0x000DCC51 File Offset: 0x000DAE51
+	// Token: 0x170004CA RID: 1226
+	// (get) Token: 0x06002D51 RID: 11601 RVA: 0x0004ECBD File Offset: 0x0004CEBD
+	// (set) Token: 0x06002D52 RID: 11602 RVA: 0x0004ECC4 File Offset: 0x0004CEC4
 	public static LegalAgreements instance { get; private set; }
 
-	// Token: 0x06002CBD RID: 11453 RVA: 0x000DCC59 File Offset: 0x000DAE59
+	// Token: 0x06002D53 RID: 11603 RVA: 0x0004ECCC File Offset: 0x0004CECC
 	private void Awake()
 	{
 		if (LegalAgreements.instance != null)
@@ -27,19 +27,19 @@ public class LegalAgreements : MonoBehaviour
 		LegalAgreements.instance = this;
 	}
 
-	// Token: 0x06002CBE RID: 11454 RVA: 0x000DCC93 File Offset: 0x000DAE93
+	// Token: 0x06002D54 RID: 11604 RVA: 0x0004ED06 File Offset: 0x0004CF06
 	private void OnEnable()
 	{
 		this.controllerBehaviour.OnAction += this.PostUpdate;
 	}
 
-	// Token: 0x06002CBF RID: 11455 RVA: 0x000DCCAC File Offset: 0x000DAEAC
+	// Token: 0x06002D55 RID: 11605 RVA: 0x0004ED1F File Offset: 0x0004CF1F
 	private void OnDisable()
 	{
 		this.controllerBehaviour.OnAction -= this.PostUpdate;
 	}
 
-	// Token: 0x06002CC0 RID: 11456 RVA: 0x000DCCC8 File Offset: 0x000DAEC8
+	// Token: 0x06002D56 RID: 11606 RVA: 0x00127330 File Offset: 0x00125530
 	public void StartLegalAgreements()
 	{
 		LegalAgreements.<StartLegalAgreements>d__17 <StartLegalAgreements>d__;
@@ -49,7 +49,7 @@ public class LegalAgreements : MonoBehaviour
 		<StartLegalAgreements>d__.<>t__builder.Start<LegalAgreements.<StartLegalAgreements>d__17>(ref <StartLegalAgreements>d__);
 	}
 
-	// Token: 0x06002CC1 RID: 11457 RVA: 0x000DCD00 File Offset: 0x000DAF00
+	// Token: 0x06002D57 RID: 11607 RVA: 0x00127368 File Offset: 0x00125568
 	private void PostUpdate()
 	{
 		if (this.controllerBehaviour.IsLeftStick)
@@ -70,7 +70,7 @@ public class LegalAgreements : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002CC2 RID: 11458 RVA: 0x000DCD60 File Offset: 0x000DAF60
+	// Token: 0x06002D58 RID: 11608 RVA: 0x001273C8 File Offset: 0x001255C8
 	private Task WaitForAcknowledgement()
 	{
 		LegalAgreements.<WaitForAcknowledgement>d__19 <WaitForAcknowledgement>d__;
@@ -81,7 +81,7 @@ public class LegalAgreements : MonoBehaviour
 		return <WaitForAcknowledgement>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002CC3 RID: 11459 RVA: 0x000DCDA4 File Offset: 0x000DAFA4
+	// Token: 0x06002D59 RID: 11609 RVA: 0x0012740C File Offset: 0x0012560C
 	private Task<bool> UpdateText(LegalAgreementTextAsset asset, string version)
 	{
 		LegalAgreements.<UpdateText>d__20 <UpdateText>d__;
@@ -94,7 +94,7 @@ public class LegalAgreements : MonoBehaviour
 		return <UpdateText>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002CC4 RID: 11460 RVA: 0x000DCDF8 File Offset: 0x000DAFF8
+	// Token: 0x06002D5A RID: 11610 RVA: 0x00127460 File Offset: 0x00125660
 	public Task<bool> UpdateTextFromPlayFabTitleData(string key, string version, TMP_Text target)
 	{
 		LegalAgreements.<UpdateTextFromPlayFabTitleData>d__27 <UpdateTextFromPlayFabTitleData>d__;
@@ -108,20 +108,20 @@ public class LegalAgreements : MonoBehaviour
 		return <UpdateTextFromPlayFabTitleData>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002CC5 RID: 11461 RVA: 0x000DCE53 File Offset: 0x000DB053
+	// Token: 0x06002D5B RID: 11611 RVA: 0x0004ED38 File Offset: 0x0004CF38
 	private void OnPlayFabError(PlayFabError error)
 	{
 		this.state = -1;
 	}
 
-	// Token: 0x06002CC6 RID: 11462 RVA: 0x000DCE5C File Offset: 0x000DB05C
+	// Token: 0x06002D5C RID: 11612 RVA: 0x0004ED41 File Offset: 0x0004CF41
 	private void OnTitleDataReceived(string obj)
 	{
 		this.cachedText = obj;
 		this.state = 1;
 	}
 
-	// Token: 0x06002CC7 RID: 11463 RVA: 0x000DCE6C File Offset: 0x000DB06C
+	// Token: 0x06002D5D RID: 11613 RVA: 0x001274BC File Offset: 0x001256BC
 	private Task<string> GetTitleDataAsync(string key)
 	{
 		LegalAgreements.<GetTitleDataAsync>d__30 <GetTitleDataAsync>d__;
@@ -132,7 +132,7 @@ public class LegalAgreements : MonoBehaviour
 		return <GetTitleDataAsync>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002CC8 RID: 11464 RVA: 0x000DCEB0 File Offset: 0x000DB0B0
+	// Token: 0x06002D5E RID: 11614 RVA: 0x00127500 File Offset: 0x00125700
 	private Task<Dictionary<string, string>> GetAcceptedAgreements(LegalAgreementTextAsset[] agreements)
 	{
 		LegalAgreements.<GetAcceptedAgreements>d__31 <GetAcceptedAgreements>d__;
@@ -143,7 +143,7 @@ public class LegalAgreements : MonoBehaviour
 		return <GetAcceptedAgreements>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002CC9 RID: 11465 RVA: 0x000DCEF4 File Offset: 0x000DB0F4
+	// Token: 0x06002D5F RID: 11615 RVA: 0x00127544 File Offset: 0x00125744
 	private Task SubmitAcceptedAgreements(Dictionary<string, string> agreements)
 	{
 		LegalAgreements.<SubmitAcceptedAgreements>d__32 <SubmitAcceptedAgreements>d__;
@@ -154,7 +154,7 @@ public class LegalAgreements : MonoBehaviour
 		return <SubmitAcceptedAgreements>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06002CCA RID: 11466 RVA: 0x000DCF38 File Offset: 0x000DB138
+	// Token: 0x06002D60 RID: 11616 RVA: 0x00127588 File Offset: 0x00125788
 	public void TurnPage(int i)
 	{
 		this.tmpBody.pageToDisplay = Mathf.Clamp(this.tmpBody.pageToDisplay + i, 1, this.tmpBody.textInfo.pageCount);
@@ -164,69 +164,69 @@ public class LegalAgreements : MonoBehaviour
 		this.ActivateAcceptButtonGroup();
 	}
 
-	// Token: 0x06002CCB RID: 11467 RVA: 0x000DCFF4 File Offset: 0x000DB1F4
+	// Token: 0x06002D61 RID: 11617 RVA: 0x00127644 File Offset: 0x00125844
 	private void ActivateAcceptButtonGroup()
 	{
 		this.acceptButton.SetActive(this.tmpBody.pageToDisplay == this.tmpBody.textInfo.pageCount && !this.optional);
 		this.yesNoButtons.SetActive(this.tmpBody.pageToDisplay == this.tmpBody.textInfo.pageCount && this.optional);
 	}
 
-	// Token: 0x04003211 RID: 12817
+	// Token: 0x040032AE RID: 12974
 	private ControllerBehaviour controllerBehaviour;
 
-	// Token: 0x04003213 RID: 12819
+	// Token: 0x040032B0 RID: 12976
 	[SerializeField]
 	private Transform uiParent;
 
-	// Token: 0x04003214 RID: 12820
+	// Token: 0x040032B1 RID: 12977
 	[SerializeField]
 	private TMP_Text tmpBody;
 
-	// Token: 0x04003215 RID: 12821
+	// Token: 0x040032B2 RID: 12978
 	[SerializeField]
 	private TMP_Text tmpTitle;
 
-	// Token: 0x04003216 RID: 12822
+	// Token: 0x040032B3 RID: 12979
 	[SerializeField]
 	private TMP_Text tmpPage;
 
-	// Token: 0x04003217 RID: 12823
+	// Token: 0x040032B4 RID: 12980
 	[SerializeField]
 	private LegalAgreementTextAsset[] legalAgreementScreens;
 
-	// Token: 0x04003218 RID: 12824
+	// Token: 0x040032B5 RID: 12981
 	[SerializeField]
 	public GameObject acceptButton;
 
-	// Token: 0x04003219 RID: 12825
+	// Token: 0x040032B6 RID: 12982
 	[SerializeField]
 	public GameObject yesNoButtons;
 
-	// Token: 0x0400321A RID: 12826
+	// Token: 0x040032B7 RID: 12983
 	[SerializeField]
 	public GameObject nextButton;
 
-	// Token: 0x0400321B RID: 12827
+	// Token: 0x040032B8 RID: 12984
 	[SerializeField]
 	public GameObject prevButton;
 
-	// Token: 0x0400321C RID: 12828
+	// Token: 0x040032B9 RID: 12985
 	private string cachedText;
 
-	// Token: 0x0400321D RID: 12829
+	// Token: 0x040032BA RID: 12986
 	private int state;
 
-	// Token: 0x0400321E RID: 12830
+	// Token: 0x040032BB RID: 12987
 	private bool optIn;
 
-	// Token: 0x0400321F RID: 12831
+	// Token: 0x040032BC RID: 12988
 	private bool optional;
 
-	// Token: 0x04003220 RID: 12832
+	// Token: 0x040032BD RID: 12989
 	[SerializeField]
 	private float holdTime = 5f;
 
-	// Token: 0x04003221 RID: 12833
+	// Token: 0x040032BE RID: 12990
 	[SerializeField]
 	private LineRenderer progressBar;
 }

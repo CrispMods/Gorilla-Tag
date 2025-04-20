@@ -3,10 +3,10 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000510 RID: 1296
+// Token: 0x0200051D RID: 1309
 public class GorillaScoreCounter : MonoBehaviour
 {
-	// Token: 0x06001F7A RID: 8058 RVA: 0x0009E8D8 File Offset: 0x0009CAD8
+	// Token: 0x06001FD3 RID: 8147 RVA: 0x000459F3 File Offset: 0x00043BF3
 	private void Awake()
 	{
 		this.text = base.gameObject.GetComponent<Text>();
@@ -18,7 +18,7 @@ public class GorillaScoreCounter : MonoBehaviour
 		this.attribute = "blueScore";
 	}
 
-	// Token: 0x06001F7B RID: 8059 RVA: 0x0009E90C File Offset: 0x0009CB0C
+	// Token: 0x06001FD4 RID: 8148 RVA: 0x000F0484 File Offset: 0x000EE684
 	private void Update()
 	{
 		if (PhotonNetwork.CurrentRoom != null && PhotonNetwork.CurrentRoom.CustomProperties[this.attribute] != null)
@@ -27,12 +27,12 @@ public class GorillaScoreCounter : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002347 RID: 9031
+	// Token: 0x0400239A RID: 9114
 	public bool isRedTeam;
 
-	// Token: 0x04002348 RID: 9032
+	// Token: 0x0400239B RID: 9115
 	public Text text;
 
-	// Token: 0x04002349 RID: 9033
+	// Token: 0x0400239C RID: 9116
 	public string attribute;
 }

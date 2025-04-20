@@ -1,19 +1,19 @@
 ﻿using System;
 
-// Token: 0x0200083D RID: 2109
+// Token: 0x02000857 RID: 2135
 internal class CircularBuffer<T>
 {
-	// Token: 0x17000553 RID: 1363
-	// (get) Token: 0x0600335B RID: 13147 RVA: 0x000F555D File Offset: 0x000F375D
-	// (set) Token: 0x0600335C RID: 13148 RVA: 0x000F5565 File Offset: 0x000F3765
+	// Token: 0x17000561 RID: 1377
+	// (get) Token: 0x06003416 RID: 13334 RVA: 0x000523D5 File Offset: 0x000505D5
+	// (set) Token: 0x06003417 RID: 13335 RVA: 0x000523DD File Offset: 0x000505DD
 	public int Count { get; private set; }
 
-	// Token: 0x17000554 RID: 1364
-	// (get) Token: 0x0600335D RID: 13149 RVA: 0x000F556E File Offset: 0x000F376E
-	// (set) Token: 0x0600335E RID: 13150 RVA: 0x000F5576 File Offset: 0x000F3776
+	// Token: 0x17000562 RID: 1378
+	// (get) Token: 0x06003418 RID: 13336 RVA: 0x000523E6 File Offset: 0x000505E6
+	// (set) Token: 0x06003419 RID: 13337 RVA: 0x000523EE File Offset: 0x000505EE
 	public int Capacity { get; private set; }
 
-	// Token: 0x0600335F RID: 13151 RVA: 0x000F557F File Offset: 0x000F377F
+	// Token: 0x0600341A RID: 13338 RVA: 0x000523F7 File Offset: 0x000505F7
 	public CircularBuffer(int capacity)
 	{
 		this.backingArray = new T[capacity];
@@ -21,7 +21,7 @@ internal class CircularBuffer<T>
 		this.Count = 0;
 	}
 
-	// Token: 0x06003360 RID: 13152 RVA: 0x000F55A4 File Offset: 0x000F37A4
+	// Token: 0x0600341B RID: 13339 RVA: 0x0013D0D0 File Offset: 0x0013B2D0
 	public void Add(T value)
 	{
 		this.backingArray[this.nextWriteIdx] = value;
@@ -34,19 +34,19 @@ internal class CircularBuffer<T>
 		}
 	}
 
-	// Token: 0x06003361 RID: 13153 RVA: 0x000F5602 File Offset: 0x000F3802
+	// Token: 0x0600341C RID: 13340 RVA: 0x00052419 File Offset: 0x00050619
 	public void Clear()
 	{
 		this.Count = 0;
 	}
 
-	// Token: 0x06003362 RID: 13154 RVA: 0x000F560B File Offset: 0x000F380B
+	// Token: 0x0600341D RID: 13341 RVA: 0x00052422 File Offset: 0x00050622
 	public T Last()
 	{
 		return this.backingArray[this.lastWriteIdx];
 	}
 
-	// Token: 0x17000555 RID: 1365
+	// Token: 0x17000563 RID: 1379
 	public T this[int logicalIdx]
 	{
 		get
@@ -60,12 +60,12 @@ internal class CircularBuffer<T>
 		}
 	}
 
-	// Token: 0x040036B5 RID: 14005
+	// Token: 0x04003771 RID: 14193
 	private T[] backingArray;
 
-	// Token: 0x040036B8 RID: 14008
+	// Token: 0x04003774 RID: 14196
 	private int nextWriteIdx;
 
-	// Token: 0x040036B9 RID: 14009
+	// Token: 0x04003775 RID: 14197
 	private int lastWriteIdx;
 }

@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 
-// Token: 0x020007A9 RID: 1961
+// Token: 0x020007C1 RID: 1985
 internal class OwnershipGaurdHandler : IPunOwnershipCallbacks
 {
-	// Token: 0x06003060 RID: 12384 RVA: 0x000E9819 File Offset: 0x000E7A19
+	// Token: 0x06003112 RID: 12562 RVA: 0x0005082E File Offset: 0x0004EA2E
 	static OwnershipGaurdHandler()
 	{
 		PhotonNetwork.AddCallbackTarget(OwnershipGaurdHandler.callbackInstance);
 	}
 
-	// Token: 0x06003061 RID: 12385 RVA: 0x000E9839 File Offset: 0x000E7A39
+	// Token: 0x06003113 RID: 12563 RVA: 0x0005084E File Offset: 0x0004EA4E
 	internal static void RegisterView(PhotonView view)
 	{
 		if (view == null || OwnershipGaurdHandler.gaurdedViews.Contains(view))
@@ -22,7 +22,7 @@ internal class OwnershipGaurdHandler : IPunOwnershipCallbacks
 		OwnershipGaurdHandler.gaurdedViews.Add(view);
 	}
 
-	// Token: 0x06003062 RID: 12386 RVA: 0x000E9860 File Offset: 0x000E7A60
+	// Token: 0x06003114 RID: 12564 RVA: 0x00132AA4 File Offset: 0x00130CA4
 	internal static void RegisterViews(PhotonView[] photonViews)
 	{
 		for (int i = 0; i < photonViews.Length; i++)
@@ -31,7 +31,7 @@ internal class OwnershipGaurdHandler : IPunOwnershipCallbacks
 		}
 	}
 
-	// Token: 0x06003063 RID: 12387 RVA: 0x000E9885 File Offset: 0x000E7A85
+	// Token: 0x06003115 RID: 12565 RVA: 0x00050873 File Offset: 0x0004EA73
 	internal static void RemoveView(PhotonView view)
 	{
 		if (view == null)
@@ -41,7 +41,7 @@ internal class OwnershipGaurdHandler : IPunOwnershipCallbacks
 		OwnershipGaurdHandler.gaurdedViews.Remove(view);
 	}
 
-	// Token: 0x06003064 RID: 12388 RVA: 0x000E98A0 File Offset: 0x000E7AA0
+	// Token: 0x06003116 RID: 12566 RVA: 0x00132ACC File Offset: 0x00130CCC
 	internal static void RemoveViews(PhotonView[] photonViews)
 	{
 		for (int i = 0; i < photonViews.Length; i++)
@@ -50,7 +50,7 @@ internal class OwnershipGaurdHandler : IPunOwnershipCallbacks
 		}
 	}
 
-	// Token: 0x06003065 RID: 12389 RVA: 0x000E98C8 File Offset: 0x000E7AC8
+	// Token: 0x06003117 RID: 12567 RVA: 0x00132AF4 File Offset: 0x00130CF4
 	void IPunOwnershipCallbacks.OnOwnershipTransfered(PhotonView targetView, Player previousOwner)
 	{
 		if (!OwnershipGaurdHandler.gaurdedViews.Contains(targetView))
@@ -73,19 +73,19 @@ internal class OwnershipGaurdHandler : IPunOwnershipCallbacks
 		}
 	}
 
-	// Token: 0x06003066 RID: 12390 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003118 RID: 12568 RVA: 0x00030607 File Offset: 0x0002E807
 	void IPunOwnershipCallbacks.OnOwnershipRequest(PhotonView targetView, Player requestingPlayer)
 	{
 	}
 
-	// Token: 0x06003067 RID: 12391 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003119 RID: 12569 RVA: 0x00030607 File Offset: 0x0002E807
 	void IPunOwnershipCallbacks.OnOwnershipTransferFailed(PhotonView targetView, Player senderOfFailedRequest)
 	{
 	}
 
-	// Token: 0x0400345E RID: 13406
+	// Token: 0x04003508 RID: 13576
 	private static HashSet<PhotonView> gaurdedViews = new HashSet<PhotonView>();
 
-	// Token: 0x0400345F RID: 13407
+	// Token: 0x04003509 RID: 13577
 	private static readonly OwnershipGaurdHandler callbackInstance = new OwnershipGaurdHandler();
 }

@@ -3,10 +3,10 @@ using System.Collections;
 using System.Threading;
 using UnityEngine;
 
-// Token: 0x02000556 RID: 1366
+// Token: 0x02000564 RID: 1380
 public class GorillaDayNight : MonoBehaviour
 {
-	// Token: 0x0600215A RID: 8538 RVA: 0x000A5E84 File Offset: 0x000A4084
+	// Token: 0x060021B8 RID: 8632 RVA: 0x000F6598 File Offset: 0x000F4798
 	public void Awake()
 	{
 		if (GorillaDayNight.instance == null)
@@ -15,7 +15,7 @@ public class GorillaDayNight : MonoBehaviour
 		}
 		else if (GorillaDayNight.instance != this)
 		{
-			Object.Destroy(base.gameObject);
+			UnityEngine.Object.Destroy(base.gameObject);
 		}
 		this.test = false;
 		this.working = false;
@@ -26,7 +26,7 @@ public class GorillaDayNight : MonoBehaviour
 		this.workingLightMapData.lightmapDir = this.lightmapDatas[0].dirTextures[0];
 	}
 
-	// Token: 0x0600215B RID: 8539 RVA: 0x000A5F28 File Offset: 0x000A4128
+	// Token: 0x060021B9 RID: 8633 RVA: 0x00046F64 File Offset: 0x00045164
 	public void Update()
 	{
 		if (this.test)
@@ -36,7 +36,7 @@ public class GorillaDayNight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600215C RID: 8540 RVA: 0x000A5F58 File Offset: 0x000A4158
+	// Token: 0x060021BA RID: 8634 RVA: 0x000F663C File Offset: 0x000F483C
 	public void DoWork()
 	{
 		this.k = 0;
@@ -70,7 +70,7 @@ public class GorillaDayNight : MonoBehaviour
 		this.done = true;
 	}
 
-	// Token: 0x0600215D RID: 8541 RVA: 0x000A6164 File Offset: 0x000A4364
+	// Token: 0x060021BB RID: 8635 RVA: 0x000F6848 File Offset: 0x000F4A48
 	public void DoLightsStep()
 	{
 		this.fromPixels = this.lightmapDatas[this.firstData].lights[this.k];
@@ -85,7 +85,7 @@ public class GorillaDayNight : MonoBehaviour
 		this.finishedStep = true;
 	}
 
-	// Token: 0x0600215E RID: 8542 RVA: 0x000A6228 File Offset: 0x000A4428
+	// Token: 0x060021BC RID: 8636 RVA: 0x000F690C File Offset: 0x000F4B0C
 	public void DoDirsStep()
 	{
 		this.fromPixels = this.lightmapDatas[this.firstData].dirs[this.k];
@@ -100,7 +100,7 @@ public class GorillaDayNight : MonoBehaviour
 		this.finishedStep = true;
 	}
 
-	// Token: 0x0600215F RID: 8543 RVA: 0x000A62EB File Offset: 0x000A44EB
+	// Token: 0x060021BD RID: 8637 RVA: 0x00046F94 File Offset: 0x00045194
 	private IEnumerator LightMapSet(int setFirstData, int setSecondData, float setLerp)
 	{
 		this.working = true;
@@ -131,64 +131,64 @@ public class GorillaDayNight : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04002509 RID: 9481
+	// Token: 0x04002561 RID: 9569
 	[OnEnterPlay_SetNull]
 	public static volatile GorillaDayNight instance;
 
-	// Token: 0x0400250A RID: 9482
+	// Token: 0x04002562 RID: 9570
 	public GorillaLightmapData[] lightmapDatas;
 
-	// Token: 0x0400250B RID: 9483
+	// Token: 0x04002563 RID: 9571
 	private LightmapData[] workingLightMapDatas;
 
-	// Token: 0x0400250C RID: 9484
+	// Token: 0x04002564 RID: 9572
 	private LightmapData workingLightMapData;
 
-	// Token: 0x0400250D RID: 9485
+	// Token: 0x04002565 RID: 9573
 	public float lerpValue;
 
-	// Token: 0x0400250E RID: 9486
+	// Token: 0x04002566 RID: 9574
 	public bool done;
 
-	// Token: 0x0400250F RID: 9487
+	// Token: 0x04002567 RID: 9575
 	public bool finishedStep;
 
-	// Token: 0x04002510 RID: 9488
+	// Token: 0x04002568 RID: 9576
 	private Color[] fromPixels;
 
-	// Token: 0x04002511 RID: 9489
+	// Token: 0x04002569 RID: 9577
 	private Color[] toPixels;
 
-	// Token: 0x04002512 RID: 9490
+	// Token: 0x0400256A RID: 9578
 	private Color[] mixedPixels;
 
-	// Token: 0x04002513 RID: 9491
+	// Token: 0x0400256B RID: 9579
 	public int firstData;
 
-	// Token: 0x04002514 RID: 9492
+	// Token: 0x0400256C RID: 9580
 	public int secondData;
 
-	// Token: 0x04002515 RID: 9493
+	// Token: 0x0400256D RID: 9581
 	public int i;
 
-	// Token: 0x04002516 RID: 9494
+	// Token: 0x0400256E RID: 9582
 	public int j;
 
-	// Token: 0x04002517 RID: 9495
+	// Token: 0x0400256F RID: 9583
 	public int k;
 
-	// Token: 0x04002518 RID: 9496
+	// Token: 0x04002570 RID: 9584
 	public int l;
 
-	// Token: 0x04002519 RID: 9497
+	// Token: 0x04002571 RID: 9585
 	private Thread lightsThread;
 
-	// Token: 0x0400251A RID: 9498
+	// Token: 0x04002572 RID: 9586
 	private Thread dirsThread;
 
-	// Token: 0x0400251B RID: 9499
+	// Token: 0x04002573 RID: 9587
 	public bool test;
 
-	// Token: 0x0400251C RID: 9500
+	// Token: 0x04002574 RID: 9588
 	public bool working;
 }

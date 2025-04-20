@@ -4,16 +4,16 @@ using UnityEngine.Events;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C52 RID: 3154
+	// Token: 0x02000C83 RID: 3203
 	[RequireComponent(typeof(TransferrableObject))]
 	public class ProjectileShooterCosmetic : MonoBehaviour, ITickSystemTick
 	{
-		// Token: 0x1700081F RID: 2079
-		// (get) Token: 0x06004E9E RID: 20126 RVA: 0x001820A1 File Offset: 0x001802A1
-		// (set) Token: 0x06004E9F RID: 20127 RVA: 0x001820A9 File Offset: 0x001802A9
+		// Token: 0x1700083D RID: 2109
+		// (get) Token: 0x06004FFE RID: 20478 RVA: 0x000643F9 File Offset: 0x000625F9
+		// (set) Token: 0x06004FFF RID: 20479 RVA: 0x00064401 File Offset: 0x00062601
 		public bool TickRunning { get; set; }
 
-		// Token: 0x06004EA0 RID: 20128 RVA: 0x001820B4 File Offset: 0x001802B4
+		// Token: 0x06005000 RID: 20480 RVA: 0x001BA3DC File Offset: 0x001B85DC
 		private void Awake()
 		{
 			this.transferrableObject = base.GetComponent<TransferrableObject>();
@@ -24,7 +24,7 @@ namespace GorillaTag.Cosmetics
 			this.chargeShader = base.GetComponent<ProjectileChargeShader>();
 		}
 
-		// Token: 0x06004EA1 RID: 20129 RVA: 0x00182107 File Offset: 0x00180307
+		// Token: 0x06005001 RID: 20481 RVA: 0x0006440A File Offset: 0x0006260A
 		private void OnEnable()
 		{
 			TickSystem<object>.AddTickCallback(this);
@@ -34,7 +34,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004EA2 RID: 20130 RVA: 0x0018212C File Offset: 0x0018032C
+		// Token: 0x06005002 RID: 20482 RVA: 0x001BA430 File Offset: 0x001B8630
 		public void Tick()
 		{
 			if (!this.canShoot && Time.time - this.launchedTime >= this.cooldown)
@@ -65,7 +65,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004EA3 RID: 20131 RVA: 0x00182224 File Offset: 0x00180424
+		// Token: 0x06005003 RID: 20483 RVA: 0x001BA528 File Offset: 0x001B8728
 		private void Shoot()
 		{
 			if (!this.canShoot)
@@ -87,7 +87,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004EA4 RID: 20132 RVA: 0x001822D4 File Offset: 0x001804D4
+		// Token: 0x06005004 RID: 20484 RVA: 0x001BA5D8 File Offset: 0x001B87D8
 		private void LaunchProjectileLocal(Vector3 startPos, Quaternion rotation, Vector3 velocity, float playerScale)
 		{
 			GameObject gameObject = ObjectPools.instance.Instantiate(this.projectileHash);
@@ -108,7 +108,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004EA5 RID: 20133 RVA: 0x0018236C File Offset: 0x0018056C
+		// Token: 0x06005005 RID: 20485 RVA: 0x001BA670 File Offset: 0x001B8870
 		private float GetLaunchSpeed()
 		{
 			if (!this.useButtonPressDurationAsVelocityModifier)
@@ -118,7 +118,7 @@ namespace GorillaTag.Cosmetics
 			return Mathf.Lerp(this.launchMinSpeed, this.launchMaxSpeed, Mathf.InverseLerp(0f, this.maxButtonPressDuration, Mathf.Clamp(this.pressCounter, 0f, this.maxButtonPressDuration)));
 		}
 
-		// Token: 0x06004EA6 RID: 20134 RVA: 0x001823C0 File Offset: 0x001805C0
+		// Token: 0x06005006 RID: 20486 RVA: 0x001BA6C4 File Offset: 0x001B88C4
 		private float GetChargeRate()
 		{
 			if (!this.useButtonPressDurationAsVelocityModifier)
@@ -128,14 +128,14 @@ namespace GorillaTag.Cosmetics
 			return Mathf.Lerp(0f, (float)this.chargeShader.shaderAnimSteps, Mathf.InverseLerp(0f, this.maxButtonPressDuration, Mathf.Clamp(this.pressCounter, 0f, this.maxButtonPressDuration)));
 		}
 
-		// Token: 0x06004EA7 RID: 20135 RVA: 0x0018241E File Offset: 0x0018061E
+		// Token: 0x06005007 RID: 20487 RVA: 0x0006442F File Offset: 0x0006262F
 		private void TriggerShoot()
 		{
 			this.Shoot();
 			this.pressCounter = 0f;
 		}
 
-		// Token: 0x06004EA8 RID: 20136 RVA: 0x00182431 File Offset: 0x00180631
+		// Token: 0x06005008 RID: 20488 RVA: 0x00064442 File Offset: 0x00062642
 		public void OnButtonPressed()
 		{
 			this.pressStarted = true;
@@ -145,7 +145,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004EA9 RID: 20137 RVA: 0x00182449 File Offset: 0x00180649
+		// Token: 0x06005009 RID: 20489 RVA: 0x0006445A File Offset: 0x0006265A
 		public void OnButtonReleased()
 		{
 			this.pressStarted = false;
@@ -159,93 +159,93 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x0400522A RID: 21034
+		// Token: 0x04005336 RID: 21302
 		[SerializeField]
 		private float cooldown;
 
-		// Token: 0x0400522B RID: 21035
+		// Token: 0x04005337 RID: 21303
 		[SerializeField]
 		private GameObject projectilePrefab;
 
-		// Token: 0x0400522C RID: 21036
+		// Token: 0x04005338 RID: 21304
 		[SerializeField]
 		private ParticleSystem launchParticles;
 
-		// Token: 0x0400522D RID: 21037
+		// Token: 0x04005339 RID: 21305
 		[SerializeField]
 		private AudioSource audioSource;
 
-		// Token: 0x0400522E RID: 21038
+		// Token: 0x0400533A RID: 21306
 		[SerializeField]
 		private SoundBankPlayer shootSoundBank;
 
-		// Token: 0x0400522F RID: 21039
+		// Token: 0x0400533B RID: 21307
 		[SerializeField]
 		private SoundBankPlayer readyToShootSoundBank;
 
-		// Token: 0x04005230 RID: 21040
+		// Token: 0x0400533C RID: 21308
 		[SerializeField]
 		private SoundBankPlayer chargingSoundBank;
 
-		// Token: 0x04005231 RID: 21041
+		// Token: 0x0400533D RID: 21309
 		[SerializeField]
 		private float launchMinSpeed;
 
-		// Token: 0x04005232 RID: 21042
+		// Token: 0x0400533E RID: 21310
 		[SerializeField]
 		private float launchMaxSpeed;
 
-		// Token: 0x04005233 RID: 21043
+		// Token: 0x0400533F RID: 21311
 		[SerializeField]
 		private Transform launchPosition;
 
-		// Token: 0x04005234 RID: 21044
+		// Token: 0x04005340 RID: 21312
 		[SerializeField]
 		private ProjectileShooterCosmetic.LaunchActivator launchActivatorType;
 
-		// Token: 0x04005235 RID: 21045
+		// Token: 0x04005341 RID: 21313
 		[SerializeField]
 		private bool useButtonPressDurationAsVelocityModifier;
 
-		// Token: 0x04005236 RID: 21046
+		// Token: 0x04005342 RID: 21314
 		[SerializeField]
 		private float maxButtonPressDuration = 200f;
 
-		// Token: 0x04005237 RID: 21047
+		// Token: 0x04005343 RID: 21315
 		public UnityEvent<bool, float> onOwnerLaunchProjectile;
 
-		// Token: 0x04005238 RID: 21048
+		// Token: 0x04005344 RID: 21316
 		private int projectileHash;
 
-		// Token: 0x04005239 RID: 21049
+		// Token: 0x04005345 RID: 21317
 		private float launchedTime;
 
-		// Token: 0x0400523A RID: 21050
+		// Token: 0x04005346 RID: 21318
 		private bool canShoot;
 
-		// Token: 0x0400523B RID: 21051
+		// Token: 0x04005347 RID: 21319
 		private float pressStartedTime;
 
-		// Token: 0x0400523C RID: 21052
+		// Token: 0x04005348 RID: 21320
 		private bool pressStarted;
 
-		// Token: 0x0400523D RID: 21053
+		// Token: 0x04005349 RID: 21321
 		private float pressCounter;
 
-		// Token: 0x0400523E RID: 21054
+		// Token: 0x0400534A RID: 21322
 		private TransferrableObject transferrableObject;
 
-		// Token: 0x0400523F RID: 21055
+		// Token: 0x0400534B RID: 21323
 		private ProjectileChargeShader chargeShader;
 
-		// Token: 0x02000C53 RID: 3155
+		// Token: 0x02000C84 RID: 3204
 		private enum LaunchActivator
 		{
-			// Token: 0x04005242 RID: 21058
+			// Token: 0x0400534E RID: 21326
 			ButtonReleased,
-			// Token: 0x04005243 RID: 21059
+			// Token: 0x0400534F RID: 21327
 			ButtonPressed,
-			// Token: 0x04005244 RID: 21060
+			// Token: 0x04005350 RID: 21328
 			ButtonStayed
 		}
 	}

@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C34 RID: 3124
+	// Token: 0x02000C65 RID: 3173
 	public class CloserCosmetic : MonoBehaviour, ITickSystemTick
 	{
-		// Token: 0x17000812 RID: 2066
-		// (get) Token: 0x06004E08 RID: 19976 RVA: 0x0017EED9 File Offset: 0x0017D0D9
-		// (set) Token: 0x06004E09 RID: 19977 RVA: 0x0017EEE1 File Offset: 0x0017D0E1
+		// Token: 0x17000830 RID: 2096
+		// (get) Token: 0x06004F68 RID: 20328 RVA: 0x00063DB6 File Offset: 0x00061FB6
+		// (set) Token: 0x06004F69 RID: 20329 RVA: 0x00063DBE File Offset: 0x00061FBE
 		public bool TickRunning { get; set; }
 
-		// Token: 0x06004E0A RID: 19978 RVA: 0x0017EEEC File Offset: 0x0017D0EC
+		// Token: 0x06004F6A RID: 20330 RVA: 0x001B7858 File Offset: 0x001B5A58
 		private void OnEnable()
 		{
 			TickSystem<object>.AddCallbackTarget(this);
@@ -21,13 +21,13 @@ namespace GorillaTag.Cosmetics
 			this.UpdateState(CloserCosmetic.State.Opening);
 		}
 
-		// Token: 0x06004E0B RID: 19979 RVA: 0x00019B13 File Offset: 0x00017D13
+		// Token: 0x06004F6B RID: 20331 RVA: 0x0003368B File Offset: 0x0003188B
 		private void OnDisable()
 		{
 			TickSystem<object>.RemoveCallbackTarget(this);
 		}
 
-		// Token: 0x06004E0C RID: 19980 RVA: 0x0017EF40 File Offset: 0x0017D140
+		// Token: 0x06004F6C RID: 20332 RVA: 0x001B78AC File Offset: 0x001B5AAC
 		public void Tick()
 		{
 			switch (this.currentState)
@@ -45,21 +45,21 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E0D RID: 19981 RVA: 0x0017EF74 File Offset: 0x0017D174
+		// Token: 0x06004F6D RID: 20333 RVA: 0x00063DC7 File Offset: 0x00061FC7
 		public void Close(bool leftHand, float fingerFlexValue)
 		{
 			this.UpdateState(CloserCosmetic.State.Closing);
 			this.fingerValue = fingerFlexValue;
 		}
 
-		// Token: 0x06004E0E RID: 19982 RVA: 0x0017EF84 File Offset: 0x0017D184
+		// Token: 0x06004F6E RID: 20334 RVA: 0x00063DD7 File Offset: 0x00061FD7
 		public void Open(bool leftHand, float fingerFlexValue)
 		{
 			this.UpdateState(CloserCosmetic.State.Opening);
 			this.fingerValue = fingerFlexValue;
 		}
 
-		// Token: 0x06004E0F RID: 19983 RVA: 0x0017EF94 File Offset: 0x0017D194
+		// Token: 0x06004F6F RID: 20335 RVA: 0x001B78E0 File Offset: 0x001B5AE0
 		private void Closing()
 		{
 			float t = this.useFingerFlexValueAsStrength ? Mathf.Clamp01(this.fingerValue) : 1f;
@@ -75,7 +75,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E10 RID: 19984 RVA: 0x0017F058 File Offset: 0x0017D258
+		// Token: 0x06004F70 RID: 20336 RVA: 0x001B79A4 File Offset: 0x001B5BA4
 		private void Opening()
 		{
 			float t = this.useFingerFlexValueAsStrength ? Mathf.Clamp01(this.fingerValue) : 1f;
@@ -89,52 +89,52 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E11 RID: 19985 RVA: 0x0017F11D File Offset: 0x0017D31D
+		// Token: 0x06004F71 RID: 20337 RVA: 0x00063DE7 File Offset: 0x00061FE7
 		private void UpdateState(CloserCosmetic.State newState)
 		{
 			this.currentState = newState;
 		}
 
-		// Token: 0x0400512C RID: 20780
+		// Token: 0x04005238 RID: 21048
 		[SerializeField]
 		private GameObject sideA;
 
-		// Token: 0x0400512D RID: 20781
+		// Token: 0x04005239 RID: 21049
 		[SerializeField]
 		private GameObject sideB;
 
-		// Token: 0x0400512E RID: 20782
+		// Token: 0x0400523A RID: 21050
 		[SerializeField]
 		private Vector3 maxRotationA;
 
-		// Token: 0x0400512F RID: 20783
+		// Token: 0x0400523B RID: 21051
 		[SerializeField]
 		private Vector3 maxRotationB;
 
-		// Token: 0x04005130 RID: 20784
+		// Token: 0x0400523C RID: 21052
 		[SerializeField]
 		private bool useFingerFlexValueAsStrength;
 
-		// Token: 0x04005131 RID: 20785
+		// Token: 0x0400523D RID: 21053
 		private Quaternion localRotA;
 
-		// Token: 0x04005132 RID: 20786
+		// Token: 0x0400523E RID: 21054
 		private Quaternion localRotB;
 
-		// Token: 0x04005133 RID: 20787
+		// Token: 0x0400523F RID: 21055
 		private CloserCosmetic.State currentState;
 
-		// Token: 0x04005134 RID: 20788
+		// Token: 0x04005240 RID: 21056
 		private float fingerValue;
 
-		// Token: 0x02000C35 RID: 3125
+		// Token: 0x02000C66 RID: 3174
 		private enum State
 		{
-			// Token: 0x04005137 RID: 20791
+			// Token: 0x04005243 RID: 21059
 			Closing,
-			// Token: 0x04005138 RID: 20792
+			// Token: 0x04005244 RID: 21060
 			Opening,
-			// Token: 0x04005139 RID: 20793
+			// Token: 0x04005245 RID: 21061
 			None
 		}
 	}

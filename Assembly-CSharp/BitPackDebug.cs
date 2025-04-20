@@ -1,41 +1,41 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000838 RID: 2104
+// Token: 0x02000852 RID: 2130
 public class BitPackDebug : MonoBehaviour
 {
-	// Token: 0x0400369D RID: 13981
+	// Token: 0x04003759 RID: 14169
 	public bool debugPos;
 
-	// Token: 0x0400369E RID: 13982
+	// Token: 0x0400375A RID: 14170
 	public Vector3 pos;
 
-	// Token: 0x0400369F RID: 13983
+	// Token: 0x0400375B RID: 14171
 	public Vector3 min = Vector3.one * -2f;
 
-	// Token: 0x040036A0 RID: 13984
+	// Token: 0x0400375C RID: 14172
 	public Vector3 max = Vector3.one * 2f;
 
-	// Token: 0x040036A1 RID: 13985
+	// Token: 0x0400375D RID: 14173
 	public float rad = 4f;
 
-	// Token: 0x040036A2 RID: 13986
+	// Token: 0x0400375E RID: 14174
 	[Space]
 	public bool debug32;
 
-	// Token: 0x040036A3 RID: 13987
+	// Token: 0x0400375F RID: 14175
 	public uint packed;
 
-	// Token: 0x040036A4 RID: 13988
+	// Token: 0x04003760 RID: 14176
 	public Vector3 unpacked;
 
-	// Token: 0x040036A5 RID: 13989
+	// Token: 0x04003761 RID: 14177
 	[Space]
 	public bool debug16;
 
-	// Token: 0x040036A6 RID: 13990
+	// Token: 0x04003762 RID: 14178
 	public ushort packed16;
 
-	// Token: 0x040036A7 RID: 13991
+	// Token: 0x04003763 RID: 14179
 	public Vector3 unpacked16;
 }

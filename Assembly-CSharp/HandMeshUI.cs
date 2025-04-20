@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000316 RID: 790
+// Token: 0x02000321 RID: 801
 public class HandMeshUI : MonoBehaviour
 {
-	// Token: 0x060012C2 RID: 4802 RVA: 0x0005AEB0 File Offset: 0x000590B0
+	// Token: 0x0600130E RID: 4878 RVA: 0x000B4F98 File Offset: 0x000B3198
 	private void Start()
 	{
 		this.SetSliderValue(0, (float)this.rightMask.radialDivisions, false);
@@ -14,7 +14,7 @@ public class HandMeshUI : MonoBehaviour
 		this.SetSliderValue(4, this.rightMask.webOffset, false);
 	}
 
-	// Token: 0x060012C3 RID: 4803 RVA: 0x0005AF20 File Offset: 0x00059120
+	// Token: 0x0600130F RID: 4879 RVA: 0x000B5008 File Offset: 0x000B3208
 	private void Update()
 	{
 		this.CheckForHands();
@@ -63,7 +63,7 @@ public class HandMeshUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012C4 RID: 4804 RVA: 0x0005B0B4 File Offset: 0x000592B4
+	// Token: 0x06001310 RID: 4880 RVA: 0x000B519C File Offset: 0x000B339C
 	private void SetSliderValue(int sliderID, float value, bool isNormalized)
 	{
 		float num = 0f;
@@ -129,7 +129,7 @@ public class HandMeshUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012C5 RID: 4805 RVA: 0x0005B258 File Offset: 0x00059458
+	// Token: 0x06001311 RID: 4881 RVA: 0x000B5340 File Offset: 0x000B3540
 	private void CheckForHands()
 	{
 		bool flag = OVRInput.GetActiveController() == OVRInput.Controller.Hands || OVRInput.GetActiveController() == OVRInput.Controller.LHand || OVRInput.GetActiveController() == OVRInput.Controller.RHand;
@@ -152,27 +152,27 @@ public class HandMeshUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040014BA RID: 5306
+	// Token: 0x04001502 RID: 5378
 	public SphereCollider[] knobs;
 
-	// Token: 0x040014BB RID: 5307
+	// Token: 0x04001503 RID: 5379
 	public TextMesh[] readouts;
 
-	// Token: 0x040014BC RID: 5308
+	// Token: 0x04001504 RID: 5380
 	private int rightHeldKnob = -1;
 
-	// Token: 0x040014BD RID: 5309
+	// Token: 0x04001505 RID: 5381
 	private int leftHeldKnob = -1;
 
-	// Token: 0x040014BE RID: 5310
+	// Token: 0x04001506 RID: 5382
 	public OVRSkeleton leftHand;
 
-	// Token: 0x040014BF RID: 5311
+	// Token: 0x04001507 RID: 5383
 	public OVRSkeleton rightHand;
 
-	// Token: 0x040014C0 RID: 5312
+	// Token: 0x04001508 RID: 5384
 	public HandMeshMask leftMask;
 
-	// Token: 0x040014C1 RID: 5313
+	// Token: 0x04001509 RID: 5385
 	public HandMeshMask rightMask;
 }

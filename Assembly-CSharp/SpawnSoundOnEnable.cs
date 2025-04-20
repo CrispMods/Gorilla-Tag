@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000076 RID: 118
+// Token: 0x0200007D RID: 125
 public class SpawnSoundOnEnable : MonoBehaviour
 {
-	// Token: 0x060002F7 RID: 759 RVA: 0x00012610 File Offset: 0x00010810
+	// Token: 0x06000328 RID: 808 RVA: 0x00076DA4 File Offset: 0x00074FA4
 	private void OnEnable()
 	{
 		if (CrittersManager.instance == null || !CrittersManager.instance.LocalAuthority())
@@ -25,12 +25,12 @@ public class SpawnSoundOnEnable : MonoBehaviour
 		crittersLoudNoise.SetImpulseVelocity(Vector3.zero, Vector3.zero);
 	}
 
-	// Token: 0x04000399 RID: 921
+	// Token: 0x040003CD RID: 973
 	public int soundSubIndex = 3;
 
-	// Token: 0x0400039A RID: 922
+	// Token: 0x040003CE RID: 974
 	public bool triggerOnFirstEnable;
 
-	// Token: 0x0400039B RID: 923
+	// Token: 0x040003CF RID: 975
 	private bool firstEnabledOccured;
 }

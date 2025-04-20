@@ -2,22 +2,22 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-// Token: 0x020003EE RID: 1006
+// Token: 0x020003F9 RID: 1017
 [RequireComponent(typeof(BezierSpline))]
 public class ManipulatableSpinner : ManipulatableObject
 {
-	// Token: 0x170002B6 RID: 694
-	// (get) Token: 0x0600188D RID: 6285 RVA: 0x0007767D File Offset: 0x0007587D
-	// (set) Token: 0x0600188E RID: 6286 RVA: 0x00077685 File Offset: 0x00075885
+	// Token: 0x170002BD RID: 701
+	// (get) Token: 0x060018DA RID: 6362 RVA: 0x00040D2F File Offset: 0x0003EF2F
+	// (set) Token: 0x060018DB RID: 6363 RVA: 0x00040D37 File Offset: 0x0003EF37
 	public float angle { get; private set; }
 
-	// Token: 0x0600188F RID: 6287 RVA: 0x0007768E File Offset: 0x0007588E
+	// Token: 0x060018DC RID: 6364 RVA: 0x00040D40 File Offset: 0x0003EF40
 	private void Awake()
 	{
 		this.spline = base.GetComponent<BezierSpline>();
 	}
 
-	// Token: 0x06001890 RID: 6288 RVA: 0x0007769C File Offset: 0x0007589C
+	// Token: 0x060018DD RID: 6365 RVA: 0x000CD9E4 File Offset: 0x000CBBE4
 	protected override void OnStartManipulation(GameObject grabbingHand)
 	{
 		Vector3 position = grabbingHand.transform.position;
@@ -25,12 +25,12 @@ public class ManipulatableSpinner : ManipulatableObject
 		this.previousHandT = num;
 	}
 
-	// Token: 0x06001891 RID: 6289 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060018DE RID: 6366 RVA: 0x00030607 File Offset: 0x0002E807
 	protected override void OnStopManipulation(GameObject releasingHand, Vector3 releaseVelocity)
 	{
 	}
 
-	// Token: 0x06001892 RID: 6290 RVA: 0x000776C4 File Offset: 0x000758C4
+	// Token: 0x060018DF RID: 6367 RVA: 0x000CDA0C File Offset: 0x000CBC0C
 	protected override bool ShouldHandDetach(GameObject hand)
 	{
 		if (!this.spline.Loop && (this.currentHandT >= 0.99f || this.currentHandT <= 0.01f))
@@ -42,7 +42,7 @@ public class ManipulatableSpinner : ManipulatableObject
 		return Vector3.SqrMagnitude(position - point) > this.breakDistance * this.breakDistance;
 	}
 
-	// Token: 0x06001893 RID: 6291 RVA: 0x00077734 File Offset: 0x00075934
+	// Token: 0x060018E0 RID: 6368 RVA: 0x000CDA7C File Offset: 0x000CBC7C
 	protected override void OnHeldUpdate(GameObject hand)
 	{
 		float angle = this.angle;
@@ -68,7 +68,7 @@ public class ManipulatableSpinner : ManipulatableObject
 		}
 	}
 
-	// Token: 0x06001894 RID: 6292 RVA: 0x000777F0 File Offset: 0x000759F0
+	// Token: 0x060018E1 RID: 6369 RVA: 0x000CDB38 File Offset: 0x000CBD38
 	protected override void OnReleasedUpdate()
 	{
 		if (this.tVelocity != 0f)
@@ -83,7 +83,7 @@ public class ManipulatableSpinner : ManipulatableObject
 		}
 	}
 
-	// Token: 0x06001895 RID: 6293 RVA: 0x00077878 File Offset: 0x00075A78
+	// Token: 0x060018E2 RID: 6370 RVA: 0x000CDBC0 File Offset: 0x000CBDC0
 	private float FindPositionOnSpline(Vector3 grabPoint)
 	{
 		int i = 0;
@@ -107,42 +107,42 @@ public class ManipulatableSpinner : ManipulatableObject
 		return result;
 	}
 
-	// Token: 0x06001896 RID: 6294 RVA: 0x000778F4 File Offset: 0x00075AF4
+	// Token: 0x060018E3 RID: 6371 RVA: 0x00040D4E File Offset: 0x0003EF4E
 	public void SetAngle(float newAngle)
 	{
 		this.angle = newAngle;
 	}
 
-	// Token: 0x06001897 RID: 6295 RVA: 0x000778FD File Offset: 0x00075AFD
+	// Token: 0x060018E4 RID: 6372 RVA: 0x00040D57 File Offset: 0x0003EF57
 	public void SetVelocity(float newVelocity)
 	{
 		this.tVelocity = newVelocity;
 	}
 
-	// Token: 0x04001B30 RID: 6960
+	// Token: 0x04001B79 RID: 7033
 	public float breakDistance = 0.2f;
 
-	// Token: 0x04001B31 RID: 6961
+	// Token: 0x04001B7A RID: 7034
 	public bool applyReleaseVelocity;
 
-	// Token: 0x04001B32 RID: 6962
+	// Token: 0x04001B7B RID: 7035
 	public float releaseDrag = 1f;
 
-	// Token: 0x04001B33 RID: 6963
+	// Token: 0x04001B7C RID: 7036
 	public float lowSpeedThreshold = 0.12f;
 
-	// Token: 0x04001B34 RID: 6964
+	// Token: 0x04001B7D RID: 7037
 	public float lowSpeedDrag = 3f;
 
-	// Token: 0x04001B35 RID: 6965
+	// Token: 0x04001B7E RID: 7038
 	private BezierSpline spline;
 
-	// Token: 0x04001B36 RID: 6966
+	// Token: 0x04001B7F RID: 7039
 	private float previousHandT;
 
-	// Token: 0x04001B37 RID: 6967
+	// Token: 0x04001B80 RID: 7040
 	private float currentHandT;
 
-	// Token: 0x04001B38 RID: 6968
+	// Token: 0x04001B81 RID: 7041
 	private float tVelocity;
 }

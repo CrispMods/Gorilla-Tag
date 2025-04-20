@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008DF RID: 2271
+// Token: 0x020008FB RID: 2299
 public struct GTUberShader_MaterialKeywordStates
 {
-	// Token: 0x060036B0 RID: 14000 RVA: 0x00102728 File Offset: 0x00100928
+	// Token: 0x06003778 RID: 14200 RVA: 0x00147A0C File Offset: 0x00145C0C
 	public GTUberShader_MaterialKeywordStates(Material mat)
 	{
 		this.material = mat;
@@ -83,7 +83,7 @@ public struct GTUberShader_MaterialKeywordStates
 		this.INSTANCING_ON = mat.IsKeywordEnabled("INSTANCING_ON");
 	}
 
-	// Token: 0x060036B1 RID: 14001 RVA: 0x00102C18 File Offset: 0x00100E18
+	// Token: 0x06003779 RID: 14201 RVA: 0x00147EFC File Offset: 0x001460FC
 	public void Refresh()
 	{
 		Material material = this.material;
@@ -162,225 +162,225 @@ public struct GTUberShader_MaterialKeywordStates
 		this.INSTANCING_ON = material.IsKeywordEnabled("INSTANCING_ON");
 	}
 
-	// Token: 0x04003942 RID: 14658
+	// Token: 0x04003A03 RID: 14851
 	public Material material;
 
-	// Token: 0x04003943 RID: 14659
+	// Token: 0x04003A04 RID: 14852
 	public bool STEREO_INSTANCING_ON;
 
-	// Token: 0x04003944 RID: 14660
+	// Token: 0x04003A05 RID: 14853
 	public bool UNITY_SINGLE_PASS_STEREO;
 
-	// Token: 0x04003945 RID: 14661
+	// Token: 0x04003A06 RID: 14854
 	public bool STEREO_MULTIVIEW_ON;
 
-	// Token: 0x04003946 RID: 14662
+	// Token: 0x04003A07 RID: 14855
 	public bool STEREO_CUBEMAP_RENDER_ON;
 
-	// Token: 0x04003947 RID: 14663
+	// Token: 0x04003A08 RID: 14856
 	public bool _GLOBAL_ZONE_LIQUID_TYPE__WATER;
 
-	// Token: 0x04003948 RID: 14664
+	// Token: 0x04003A09 RID: 14857
 	public bool _GLOBAL_ZONE_LIQUID_TYPE__LAVA;
 
-	// Token: 0x04003949 RID: 14665
+	// Token: 0x04003A0A RID: 14858
 	public bool _ZONE_LIQUID_SHAPE__CYLINDER;
 
-	// Token: 0x0400394A RID: 14666
+	// Token: 0x04003A0B RID: 14859
 	public bool _USE_TEXTURE;
 
-	// Token: 0x0400394B RID: 14667
+	// Token: 0x04003A0C RID: 14860
 	public bool USE_TEXTURE__AS_MASK;
 
-	// Token: 0x0400394C RID: 14668
+	// Token: 0x04003A0D RID: 14861
 	public bool _UV_SOURCE__UV0;
 
-	// Token: 0x0400394D RID: 14669
+	// Token: 0x04003A0E RID: 14862
 	public bool _UV_SOURCE__WORLD_PLANAR_Y;
 
-	// Token: 0x0400394E RID: 14670
+	// Token: 0x04003A0F RID: 14863
 	public bool _USE_VERTEX_COLOR;
 
-	// Token: 0x0400394F RID: 14671
+	// Token: 0x04003A10 RID: 14864
 	public bool _USE_WEATHER_MAP;
 
-	// Token: 0x04003950 RID: 14672
+	// Token: 0x04003A11 RID: 14865
 	public bool _ALPHA_DETAIL_MAP;
 
-	// Token: 0x04003951 RID: 14673
+	// Token: 0x04003A12 RID: 14866
 	public bool _HALF_LAMBERT_TERM;
 
-	// Token: 0x04003952 RID: 14674
+	// Token: 0x04003A13 RID: 14867
 	public bool _WATER_EFFECT;
 
-	// Token: 0x04003953 RID: 14675
+	// Token: 0x04003A14 RID: 14868
 	public bool _HEIGHT_BASED_WATER_EFFECT;
 
-	// Token: 0x04003954 RID: 14676
+	// Token: 0x04003A15 RID: 14869
 	public bool _WATER_CAUSTICS;
 
-	// Token: 0x04003955 RID: 14677
+	// Token: 0x04003A16 RID: 14870
 	public bool _ALPHATEST_ON;
 
-	// Token: 0x04003956 RID: 14678
+	// Token: 0x04003A17 RID: 14871
 	public bool _MAINTEX_ROTATE;
 
-	// Token: 0x04003957 RID: 14679
+	// Token: 0x04003A18 RID: 14872
 	public bool _UV_WAVE_WARP;
 
-	// Token: 0x04003958 RID: 14680
+	// Token: 0x04003A19 RID: 14873
 	public bool _LIQUID_VOLUME;
 
-	// Token: 0x04003959 RID: 14681
+	// Token: 0x04003A1A RID: 14874
 	public bool _LIQUID_CONTAINER;
 
-	// Token: 0x0400395A RID: 14682
+	// Token: 0x04003A1B RID: 14875
 	public bool _GT_RIM_LIGHT;
 
-	// Token: 0x0400395B RID: 14683
+	// Token: 0x04003A1C RID: 14876
 	public bool _GT_RIM_LIGHT_FLAT;
 
-	// Token: 0x0400395C RID: 14684
+	// Token: 0x04003A1D RID: 14877
 	public bool _GT_RIM_LIGHT_USE_ALPHA;
 
-	// Token: 0x0400395D RID: 14685
+	// Token: 0x04003A1E RID: 14878
 	public bool _SPECULAR_HIGHLIGHT;
 
-	// Token: 0x0400395E RID: 14686
+	// Token: 0x04003A1F RID: 14879
 	public bool _EMISSION;
 
-	// Token: 0x0400395F RID: 14687
+	// Token: 0x04003A20 RID: 14880
 	public bool _EMISSION_USE_UV_WAVE_WARP;
 
-	// Token: 0x04003960 RID: 14688
+	// Token: 0x04003A21 RID: 14881
 	public bool _USE_DEFORM_MAP;
 
-	// Token: 0x04003961 RID: 14689
+	// Token: 0x04003A22 RID: 14882
 	public bool _USE_DAY_NIGHT_LIGHTMAP;
 
-	// Token: 0x04003962 RID: 14690
+	// Token: 0x04003A23 RID: 14883
 	public bool _USE_TEX_ARRAY_ATLAS;
 
-	// Token: 0x04003963 RID: 14691
+	// Token: 0x04003A24 RID: 14884
 	public bool _GT_BASE_MAP_ATLAS_SLICE_SOURCE__PROPERTY;
 
-	// Token: 0x04003964 RID: 14692
+	// Token: 0x04003A25 RID: 14885
 	public bool _GT_BASE_MAP_ATLAS_SLICE_SOURCE__UV1_Z;
 
-	// Token: 0x04003965 RID: 14693
+	// Token: 0x04003A26 RID: 14886
 	public bool _CRYSTAL_EFFECT;
 
-	// Token: 0x04003966 RID: 14694
+	// Token: 0x04003A27 RID: 14887
 	public bool _EYECOMP;
 
-	// Token: 0x04003967 RID: 14695
+	// Token: 0x04003A28 RID: 14888
 	public bool _MOUTHCOMP;
 
-	// Token: 0x04003968 RID: 14696
+	// Token: 0x04003A29 RID: 14889
 	public bool _ALPHA_BLUE_LIVE_ON;
 
-	// Token: 0x04003969 RID: 14697
+	// Token: 0x04003A2A RID: 14890
 	public bool _GRID_EFFECT;
 
-	// Token: 0x0400396A RID: 14698
+	// Token: 0x04003A2B RID: 14891
 	public bool _REFLECTIONS;
 
-	// Token: 0x0400396B RID: 14699
+	// Token: 0x04003A2C RID: 14892
 	public bool _REFLECTIONS_BOX_PROJECT;
 
-	// Token: 0x0400396C RID: 14700
+	// Token: 0x04003A2D RID: 14893
 	public bool _REFLECTIONS_MATCAP;
 
-	// Token: 0x0400396D RID: 14701
+	// Token: 0x04003A2E RID: 14894
 	public bool _REFLECTIONS_MATCAP_PERSP_AWARE;
 
-	// Token: 0x0400396E RID: 14702
+	// Token: 0x04003A2F RID: 14895
 	public bool _REFLECTIONS_ALBEDO_TINT;
 
-	// Token: 0x0400396F RID: 14703
+	// Token: 0x04003A30 RID: 14896
 	public bool _REFLECTIONS_USE_NORMAL_TEX;
 
-	// Token: 0x04003970 RID: 14704
+	// Token: 0x04003A31 RID: 14897
 	public bool _VERTEX_ROTATE;
 
-	// Token: 0x04003971 RID: 14705
+	// Token: 0x04003A32 RID: 14898
 	public bool _VERTEX_ANIM_FLAP;
 
-	// Token: 0x04003972 RID: 14706
+	// Token: 0x04003A33 RID: 14899
 	public bool _VERTEX_ANIM_WAVE;
 
-	// Token: 0x04003973 RID: 14707
+	// Token: 0x04003A34 RID: 14900
 	public bool _VERTEX_ANIM_WAVE_DEBUG;
 
-	// Token: 0x04003974 RID: 14708
+	// Token: 0x04003A35 RID: 14901
 	public bool _GRADIENT_MAP_ON;
 
-	// Token: 0x04003975 RID: 14709
+	// Token: 0x04003A36 RID: 14902
 	public bool _PARALLAX;
 
-	// Token: 0x04003976 RID: 14710
+	// Token: 0x04003A37 RID: 14903
 	public bool _PARALLAX_AA;
 
-	// Token: 0x04003977 RID: 14711
+	// Token: 0x04003A38 RID: 14904
 	public bool _PARALLAX_PLANAR;
 
-	// Token: 0x04003978 RID: 14712
+	// Token: 0x04003A39 RID: 14905
 	public bool _MASK_MAP_ON;
 
-	// Token: 0x04003979 RID: 14713
+	// Token: 0x04003A3A RID: 14906
 	public bool _FX_LAVA_LAMP;
 
-	// Token: 0x0400397A RID: 14714
+	// Token: 0x04003A3B RID: 14907
 	public bool _INNER_GLOW;
 
-	// Token: 0x0400397B RID: 14715
+	// Token: 0x04003A3C RID: 14908
 	public bool _STEALTH_EFFECT;
 
-	// Token: 0x0400397C RID: 14716
+	// Token: 0x04003A3D RID: 14909
 	public bool _UV_SHIFT;
 
-	// Token: 0x0400397D RID: 14717
+	// Token: 0x04003A3E RID: 14910
 	public bool _TEXEL_SNAP_UVS;
 
-	// Token: 0x0400397E RID: 14718
+	// Token: 0x04003A3F RID: 14911
 	public bool _UNITY_EDIT_MODE;
 
-	// Token: 0x0400397F RID: 14719
+	// Token: 0x04003A40 RID: 14912
 	public bool _GT_EDITOR_TIME;
 
-	// Token: 0x04003980 RID: 14720
+	// Token: 0x04003A41 RID: 14913
 	public bool _DEBUG_PAWN_DATA;
 
-	// Token: 0x04003981 RID: 14721
+	// Token: 0x04003A42 RID: 14914
 	public bool _COLOR_GRADE_PROTANOMALY;
 
-	// Token: 0x04003982 RID: 14722
+	// Token: 0x04003A43 RID: 14915
 	public bool _COLOR_GRADE_PROTANOPIA;
 
-	// Token: 0x04003983 RID: 14723
+	// Token: 0x04003A44 RID: 14916
 	public bool _COLOR_GRADE_DEUTERANOMALY;
 
-	// Token: 0x04003984 RID: 14724
+	// Token: 0x04003A45 RID: 14917
 	public bool _COLOR_GRADE_DEUTERANOPIA;
 
-	// Token: 0x04003985 RID: 14725
+	// Token: 0x04003A46 RID: 14918
 	public bool _COLOR_GRADE_TRITANOMALY;
 
-	// Token: 0x04003986 RID: 14726
+	// Token: 0x04003A47 RID: 14919
 	public bool _COLOR_GRADE_TRITANOPIA;
 
-	// Token: 0x04003987 RID: 14727
+	// Token: 0x04003A48 RID: 14920
 	public bool _COLOR_GRADE_ACHROMATOMALY;
 
-	// Token: 0x04003988 RID: 14728
+	// Token: 0x04003A49 RID: 14921
 	public bool _COLOR_GRADE_ACHROMATOPSIA;
 
-	// Token: 0x04003989 RID: 14729
+	// Token: 0x04003A4A RID: 14922
 	public bool LIGHTMAP_ON;
 
-	// Token: 0x0400398A RID: 14730
+	// Token: 0x04003A4B RID: 14923
 	public bool DIRLIGHTMAP_COMBINED;
 
-	// Token: 0x0400398B RID: 14731
+	// Token: 0x04003A4C RID: 14924
 	public bool INSTANCING_ON;
 }

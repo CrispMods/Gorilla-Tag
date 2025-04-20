@@ -1,14 +1,14 @@
 ﻿using System;
 
-// Token: 0x0200053B RID: 1339
+// Token: 0x02000548 RID: 1352
 internal interface IGorillaSerializeableScene : IGorillaSerializeable
 {
-	// Token: 0x06002081 RID: 8321
+	// Token: 0x060020DA RID: 8410
 	void OnSceneLinking(GorillaSerializerScene serializer);
 
-	// Token: 0x06002082 RID: 8322
+	// Token: 0x060020DB RID: 8411
 	void OnNetworkObjectDisable();
 
-	// Token: 0x06002083 RID: 8323
+	// Token: 0x060020DC RID: 8412
 	void OnNetworkObjectEnable();
 }

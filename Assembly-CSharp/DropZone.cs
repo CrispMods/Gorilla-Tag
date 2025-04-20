@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000375 RID: 885
+// Token: 0x02000380 RID: 896
 public class DropZone : MonoBehaviour
 {
-	// Token: 0x040016D8 RID: 5848
+	// Token: 0x04001720 RID: 5920
 	public BodyDockPositions forBodyDock;
 
-	// Token: 0x040016D9 RID: 5849
+	// Token: 0x04001721 RID: 5921
 	public BodyDockPositions.DropPositions dropPosition;
 
-	// Token: 0x040016DA RID: 5850
+	// Token: 0x04001722 RID: 5922
 	public Transform anchor;
 }

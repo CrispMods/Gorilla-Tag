@@ -9,12 +9,12 @@ using UnityEngine.Scripting;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009AF RID: 2479
+	// Token: 0x020009D5 RID: 2517
 	[NetworkBehaviourWeaved(1)]
 	public class DecorativeItemsManager : NetworkComponent
 	{
-		// Token: 0x17000636 RID: 1590
-		// (get) Token: 0x06003D5E RID: 15710 RVA: 0x00121CCC File Offset: 0x0011FECC
+		// Token: 0x1700064E RID: 1614
+		// (get) Token: 0x06003E76 RID: 15990 RVA: 0x00058AB0 File Offset: 0x00056CB0
 		public static DecorativeItemsManager Instance
 		{
 			get
@@ -23,7 +23,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D5F RID: 15711 RVA: 0x00121CD4 File Offset: 0x0011FED4
+		// Token: 0x06003E77 RID: 15991 RVA: 0x00163CA4 File Offset: 0x00161EA4
 		protected override void Awake()
 		{
 			base.Awake();
@@ -67,7 +67,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D60 RID: 15712 RVA: 0x00121E3C File Offset: 0x0012003C
+		// Token: 0x06003E78 RID: 15992 RVA: 0x00163E0C File Offset: 0x0016200C
 		private void OnDestroy()
 		{
 			NetworkBehaviourUtils.InternalOnDestroy(this);
@@ -83,7 +83,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D61 RID: 15713 RVA: 0x00121ED8 File Offset: 0x001200D8
+		// Token: 0x06003E79 RID: 15993 RVA: 0x00163EA8 File Offset: 0x001620A8
 		private void Update()
 		{
 			if (!PhotonNetwork.InRoom)
@@ -118,7 +118,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D62 RID: 15714 RVA: 0x00121FC8 File Offset: 0x001201C8
+		// Token: 0x06003E7A RID: 15994 RVA: 0x00163F98 File Offset: 0x00162198
 		private void SpawnItem(int index)
 		{
 			if (!NetworkSystem.Instance.InRoom)
@@ -160,14 +160,14 @@ namespace GorillaTagScripts
 			});
 		}
 
-		// Token: 0x06003D63 RID: 15715 RVA: 0x0012208F File Offset: 0x0012028F
+		// Token: 0x06003E7B RID: 15995 RVA: 0x00058AB7 File Offset: 0x00056CB7
 		[PunRPC]
 		private void RespawnItemRPC(int index, Vector3 _transformPos, Quaternion _transformRot, PhotonMessageInfo info)
 		{
 			this.RespawnItemShared(index, _transformPos, _transformRot, info);
 		}
 
-		// Token: 0x06003D64 RID: 15716 RVA: 0x001220A4 File Offset: 0x001202A4
+		// Token: 0x06003E7C RID: 15996 RVA: 0x00164060 File Offset: 0x00162260
 		[Rpc]
 		private unsafe void RPC_RespawnItem(int index, Vector3 _transformPos, Quaternion _transformRot, RpcInfo info = default(RpcInfo))
 		{
@@ -215,7 +215,7 @@ namespace GorillaTagScripts
 			this.RespawnItemShared(index, _transformPos, _transformRot, info);
 		}
 
-		// Token: 0x06003D65 RID: 15717 RVA: 0x00122244 File Offset: 0x00120444
+		// Token: 0x06003E7D RID: 15997 RVA: 0x00164200 File Offset: 0x00162400
 		protected void RespawnItemShared(int index, Vector3 _transformPos, Quaternion _transformRot, PhotonMessageInfoWrapped info)
 		{
 			if (index >= 0 && index <= this.itemsList.Count - 1)
@@ -230,16 +230,16 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D66 RID: 15718 RVA: 0x001222B4 File Offset: 0x001204B4
+		// Token: 0x06003E7E RID: 15998 RVA: 0x00164270 File Offset: 0x00162470
 		private Transform RandomSpawn()
 		{
 			this.lastIndex = this.currentIndex;
 			bool flag = false;
 			bool flag2 = this.zone.IsLocalPlayerInZone();
-			int index = Random.Range(0, this.respawnableHooks.Count);
+			int index = UnityEngine.Random.Range(0, this.respawnableHooks.Count);
 			while (!flag)
 			{
-				index = Random.Range(0, this.respawnableHooks.Count);
+				index = UnityEngine.Random.Range(0, this.respawnableHooks.Count);
 				if (!this.respawnableHooks[index].inForest == flag2)
 				{
 					flag = true;
@@ -261,7 +261,7 @@ namespace GorillaTagScripts
 			return null;
 		}
 
-		// Token: 0x06003D67 RID: 15719 RVA: 0x00122376 File Offset: 0x00120576
+		// Token: 0x06003E7F RID: 15999 RVA: 0x00058AC9 File Offset: 0x00056CC9
 		private int UpdateListPerFrame()
 		{
 			this.arrayIndex++;
@@ -273,7 +273,7 @@ namespace GorillaTagScripts
 			return this.arrayIndex;
 		}
 
-		// Token: 0x06003D68 RID: 15720 RVA: 0x001223B4 File Offset: 0x001205B4
+		// Token: 0x06003E80 RID: 16000 RVA: 0x00164334 File Offset: 0x00162534
 		private void OnRequestToRespawn(DecorativeItem item)
 		{
 			if (base.IsMine)
@@ -287,7 +287,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D69 RID: 15721 RVA: 0x001223E8 File Offset: 0x001205E8
+		// Token: 0x06003E81 RID: 16001 RVA: 0x00164368 File Offset: 0x00162568
 		public AttachPoint getCurrentAttachPointByPosition(Vector3 _attachPoint)
 		{
 			foreach (AttachPoint attachPoint in this.allHooks)
@@ -300,9 +300,9 @@ namespace GorillaTagScripts
 			return null;
 		}
 
-		// Token: 0x17000637 RID: 1591
-		// (get) Token: 0x06003D6A RID: 15722 RVA: 0x00122450 File Offset: 0x00120650
-		// (set) Token: 0x06003D6B RID: 15723 RVA: 0x00122476 File Offset: 0x00120676
+		// Token: 0x1700064F RID: 1615
+		// (get) Token: 0x06003E82 RID: 16002 RVA: 0x00058B04 File Offset: 0x00056D04
+		// (set) Token: 0x06003E83 RID: 16003 RVA: 0x00058B2A File Offset: 0x00056D2A
 		[Networked]
 		[NetworkedWeaved(0, 1)]
 		public unsafe int Data
@@ -325,19 +325,19 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D6C RID: 15724 RVA: 0x0012249D File Offset: 0x0012069D
+		// Token: 0x06003E84 RID: 16004 RVA: 0x00058B51 File Offset: 0x00056D51
 		public override void WriteDataFusion()
 		{
 			this.Data = this.currentIndex;
 		}
 
-		// Token: 0x06003D6D RID: 15725 RVA: 0x001224AB File Offset: 0x001206AB
+		// Token: 0x06003E85 RID: 16005 RVA: 0x00058B5F File Offset: 0x00056D5F
 		public override void ReadDataFusion()
 		{
 			this.currentIndex = this.Data;
 		}
 
-		// Token: 0x06003D6E RID: 15726 RVA: 0x001224B9 File Offset: 0x001206B9
+		// Token: 0x06003E86 RID: 16006 RVA: 0x00058B6D File Offset: 0x00056D6D
 		protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 		{
 			if (info.Sender != PhotonNetwork.MasterClient)
@@ -347,7 +347,7 @@ namespace GorillaTagScripts
 			stream.SendNext(this.currentIndex);
 		}
 
-		// Token: 0x06003D6F RID: 15727 RVA: 0x001224DA File Offset: 0x001206DA
+		// Token: 0x06003E87 RID: 16007 RVA: 0x00058B8E File Offset: 0x00056D8E
 		protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 		{
 			if (info.Sender != PhotonNetwork.MasterClient)
@@ -357,7 +357,7 @@ namespace GorillaTagScripts
 			this.currentIndex = (int)stream.ReceiveNext();
 		}
 
-		// Token: 0x06003D71 RID: 15729 RVA: 0x00122536 File Offset: 0x00120736
+		// Token: 0x06003E89 RID: 16009 RVA: 0x00058BEA File Offset: 0x00056DEA
 		[WeaverGenerated]
 		public override void CopyBackingFieldsToState(bool A_1)
 		{
@@ -365,7 +365,7 @@ namespace GorillaTagScripts
 			this.Data = this._Data;
 		}
 
-		// Token: 0x06003D72 RID: 15730 RVA: 0x0012254E File Offset: 0x0012074E
+		// Token: 0x06003E8A RID: 16010 RVA: 0x00058C02 File Offset: 0x00056E02
 		[WeaverGenerated]
 		public override void CopyStateToBackingFields()
 		{
@@ -373,7 +373,7 @@ namespace GorillaTagScripts
 			this._Data = this.Data;
 		}
 
-		// Token: 0x06003D73 RID: 15731 RVA: 0x00122564 File Offset: 0x00120764
+		// Token: 0x06003E8B RID: 16011 RVA: 0x001643D0 File Offset: 0x001625D0
 		[NetworkRpcWeavedInvoker(1, 7, 7)]
 		[Preserve]
 		[WeaverGenerated]
@@ -395,47 +395,47 @@ namespace GorillaTagScripts
 			((DecorativeItemsManager)behaviour).RPC_RespawnItem(index, transformPos, transformRot, info);
 		}
 
-		// Token: 0x04003EC4 RID: 16068
+		// Token: 0x04003F9E RID: 16286
 		public GameObject decorativeItemsContainer;
 
-		// Token: 0x04003EC5 RID: 16069
+		// Token: 0x04003F9F RID: 16287
 		public GameObject respawnableHooksContainer;
 
-		// Token: 0x04003EC6 RID: 16070
+		// Token: 0x04003FA0 RID: 16288
 		public List<GameObject> nonRespawnableHooksContainer = new List<GameObject>();
 
-		// Token: 0x04003EC7 RID: 16071
+		// Token: 0x04003FA1 RID: 16289
 		private readonly List<DecorativeItem> itemsList = new List<DecorativeItem>();
 
-		// Token: 0x04003EC8 RID: 16072
+		// Token: 0x04003FA2 RID: 16290
 		private readonly List<AttachPoint> respawnableHooks = new List<AttachPoint>();
 
-		// Token: 0x04003EC9 RID: 16073
+		// Token: 0x04003FA3 RID: 16291
 		private readonly List<AttachPoint> allHooks = new List<AttachPoint>();
 
-		// Token: 0x04003ECA RID: 16074
+		// Token: 0x04003FA4 RID: 16292
 		private int lastIndex;
 
-		// Token: 0x04003ECB RID: 16075
+		// Token: 0x04003FA5 RID: 16293
 		private int currentIndex;
 
-		// Token: 0x04003ECC RID: 16076
+		// Token: 0x04003FA6 RID: 16294
 		private int arrayIndex = -1;
 
-		// Token: 0x04003ECD RID: 16077
+		// Token: 0x04003FA7 RID: 16295
 		private bool shouldRunUpdate;
 
-		// Token: 0x04003ECE RID: 16078
+		// Token: 0x04003FA8 RID: 16296
 		private ZoneBasedObject zone;
 
-		// Token: 0x04003ECF RID: 16079
+		// Token: 0x04003FA9 RID: 16297
 		private bool wasInZone;
 
-		// Token: 0x04003ED0 RID: 16080
+		// Token: 0x04003FAA RID: 16298
 		[OnEnterPlay_SetNull]
 		private static DecorativeItemsManager _instance;
 
-		// Token: 0x04003ED1 RID: 16081
+		// Token: 0x04003FAB RID: 16299
 		[WeaverGenerated]
 		[SerializeField]
 		[DefaultForProperty("Data", 0, 1)]

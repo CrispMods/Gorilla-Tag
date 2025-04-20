@@ -9,11 +9,11 @@ using UnityEngine;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B9F RID: 2975
+	// Token: 0x02000BCB RID: 3019
 	public class InfectionLavaController : MonoBehaviour, IGorillaSerializeableScene, IGorillaSerializeable, ITickSystemPost, IGuidedRefReceiverMono, IGuidedRefMonoBehaviour, IGuidedRefObject
 	{
-		// Token: 0x170007BF RID: 1983
-		// (get) Token: 0x06004B04 RID: 19204 RVA: 0x0016AEBA File Offset: 0x001690BA
+		// Token: 0x170007DB RID: 2011
+		// (get) Token: 0x06004C44 RID: 19524 RVA: 0x000622DA File Offset: 0x000604DA
 		public static InfectionLavaController Instance
 		{
 			get
@@ -22,8 +22,8 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x170007C0 RID: 1984
-		// (get) Token: 0x06004B05 RID: 19205 RVA: 0x0016AEC1 File Offset: 0x001690C1
+		// Token: 0x170007DC RID: 2012
+		// (get) Token: 0x06004C45 RID: 19525 RVA: 0x000622E1 File Offset: 0x000604E1
 		public bool LavaCurrentlyActivated
 		{
 			get
@@ -32,8 +32,8 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x170007C1 RID: 1985
-		// (get) Token: 0x06004B06 RID: 19206 RVA: 0x0016AED1 File Offset: 0x001690D1
+		// Token: 0x170007DD RID: 2013
+		// (get) Token: 0x06004C46 RID: 19526 RVA: 0x000622F1 File Offset: 0x000604F1
 		public Plane LavaPlane
 		{
 			get
@@ -42,8 +42,8 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x170007C2 RID: 1986
-		// (get) Token: 0x06004B07 RID: 19207 RVA: 0x0016AEEE File Offset: 0x001690EE
+		// Token: 0x170007DE RID: 2014
+		// (get) Token: 0x06004C47 RID: 19527 RVA: 0x0006230E File Offset: 0x0006050E
 		public Vector3 SurfaceCenter
 		{
 			get
@@ -52,8 +52,8 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x170007C3 RID: 1987
-		// (get) Token: 0x06004B08 RID: 19208 RVA: 0x0016AEFC File Offset: 0x001690FC
+		// Token: 0x170007DF RID: 2015
+		// (get) Token: 0x06004C48 RID: 19528 RVA: 0x001A4284 File Offset: 0x001A2484
 		private int PlayerCount
 		{
 			get
@@ -68,8 +68,8 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x170007C4 RID: 1988
-		// (get) Token: 0x06004B09 RID: 19209 RVA: 0x0016AF2C File Offset: 0x0016912C
+		// Token: 0x170007E0 RID: 2016
+		// (get) Token: 0x06004C49 RID: 19529 RVA: 0x0006231B File Offset: 0x0006051B
 		private bool InCompetitiveQueue
 		{
 			get
@@ -78,12 +78,12 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B0A RID: 19210 RVA: 0x0016AF50 File Offset: 0x00169150
+		// Token: 0x06004C4A RID: 19530 RVA: 0x001A42B4 File Offset: 0x001A24B4
 		private void Awake()
 		{
 			if (InfectionLavaController.instance.IsNotNull())
 			{
-				Object.Destroy(base.gameObject);
+				UnityEngine.Object.Destroy(base.gameObject);
 				return;
 			}
 			InfectionLavaController.instance = this;
@@ -100,7 +100,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B0B RID: 19211 RVA: 0x0016B00B File Offset: 0x0016920B
+		// Token: 0x06004C4B RID: 19531 RVA: 0x0006233F File Offset: 0x0006053F
 		protected void OnEnable()
 		{
 			if (!this.guidedRefsFullyResolved)
@@ -111,19 +111,19 @@ namespace GorillaTag
 			TickSystem<object>.AddPostTickCallback(this);
 		}
 
-		// Token: 0x06004B0C RID: 19212 RVA: 0x0016B022 File Offset: 0x00169222
+		// Token: 0x06004C4C RID: 19532 RVA: 0x00062356 File Offset: 0x00060556
 		void IGorillaSerializeableScene.OnSceneLinking(GorillaSerializerScene netObj)
 		{
 			this.networkObject = netObj;
 		}
 
-		// Token: 0x06004B0D RID: 19213 RVA: 0x000C141F File Offset: 0x000BF61F
+		// Token: 0x06004C4D RID: 19533 RVA: 0x0004A56E File Offset: 0x0004876E
 		protected void OnDisable()
 		{
 			TickSystem<object>.RemovePostTickCallback(this);
 		}
 
-		// Token: 0x06004B0E RID: 19214 RVA: 0x0016B02C File Offset: 0x0016922C
+		// Token: 0x06004C4E RID: 19534 RVA: 0x001A4370 File Offset: 0x001A2570
 		private void VerifyReferences()
 		{
 			this.IfNullThenLogAndDisableSelf(this.lavaMeshTransform, "lavaMeshTransform", -1);
@@ -139,8 +139,8 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B0F RID: 19215 RVA: 0x0016B0E0 File Offset: 0x001692E0
-		private void IfNullThenLogAndDisableSelf(Object obj, string fieldName, int index = -1)
+		// Token: 0x06004C4F RID: 19535 RVA: 0x001A4424 File Offset: 0x001A2624
+		private void IfNullThenLogAndDisableSelf(UnityEngine.Object obj, string fieldName, int index = -1)
 		{
 			if (obj != null)
 			{
@@ -151,7 +151,7 @@ namespace GorillaTag
 			base.enabled = false;
 		}
 
-		// Token: 0x06004B10 RID: 19216 RVA: 0x0016B130 File Offset: 0x00169330
+		// Token: 0x06004C50 RID: 19536 RVA: 0x001A4474 File Offset: 0x001A2674
 		private void OnDestroy()
 		{
 			if (InfectionLavaController.instance == this)
@@ -170,12 +170,12 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x170007C5 RID: 1989
-		// (get) Token: 0x06004B11 RID: 19217 RVA: 0x0016B1AB File Offset: 0x001693AB
-		// (set) Token: 0x06004B12 RID: 19218 RVA: 0x0016B1B3 File Offset: 0x001693B3
+		// Token: 0x170007E1 RID: 2017
+		// (get) Token: 0x06004C51 RID: 19537 RVA: 0x0006235F File Offset: 0x0006055F
+		// (set) Token: 0x06004C52 RID: 19538 RVA: 0x00062367 File Offset: 0x00060567
 		bool ITickSystemPost.PostTickRunning { get; set; }
 
-		// Token: 0x06004B13 RID: 19219 RVA: 0x0016B1BC File Offset: 0x001693BC
+		// Token: 0x06004C53 RID: 19539 RVA: 0x001A44F0 File Offset: 0x001A26F0
 		void ITickSystemPost.PostTick()
 		{
 			this.prevTime = this.currentTime;
@@ -191,7 +191,7 @@ namespace GorillaTag
 			this.CheckLocalPlayerAgainstLava(this.currentTime);
 		}
 
-		// Token: 0x06004B14 RID: 19220 RVA: 0x0016B27C File Offset: 0x0016947C
+		// Token: 0x06004C54 RID: 19540 RVA: 0x001A45B0 File Offset: 0x001A27B0
 		private void JumpToState(InfectionLavaController.RisingLavaState state)
 		{
 			this.reliableState.state = state;
@@ -252,7 +252,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B15 RID: 19221 RVA: 0x0016B378 File Offset: 0x00169578
+		// Token: 0x06004C55 RID: 19541 RVA: 0x001A46AC File Offset: 0x001A28AC
 		private void UpdateReliableState(double currentTime, ref InfectionLavaController.LavaSyncData syncData)
 		{
 			if (currentTime < syncData.stateStartTime)
@@ -371,7 +371,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B16 RID: 19222 RVA: 0x0016B664 File Offset: 0x00169864
+		// Token: 0x06004C56 RID: 19542 RVA: 0x001A4998 File Offset: 0x001A2B98
 		private void UpdateLocalState(double currentTime, InfectionLavaController.LavaSyncData syncData)
 		{
 			switch (syncData.state)
@@ -453,7 +453,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B17 RID: 19223 RVA: 0x0016B8AC File Offset: 0x00169AAC
+		// Token: 0x06004C57 RID: 19543 RVA: 0x001A4BE0 File Offset: 0x001A2DE0
 		private void UpdateLava(float fillProgress)
 		{
 			this.lavaScale = Mathf.Lerp(this.lavaMeshMinScale, this.lavaMeshMaxScale, fillProgress);
@@ -463,7 +463,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B18 RID: 19224 RVA: 0x0016B918 File Offset: 0x00169B18
+		// Token: 0x06004C58 RID: 19544 RVA: 0x001A4C4C File Offset: 0x001A2E4C
 		private void UpdateVolcanoActivationLava(float activationProgress)
 		{
 			this.activationProgessSmooth = Mathf.MoveTowards(this.activationProgessSmooth, activationProgress, this.lavaActivationVisualMovementProgressPerSecond * Time.deltaTime);
@@ -471,7 +471,7 @@ namespace GorillaTag
 			this.lavaActivationRenderer.transform.position = Vector3.Lerp(this.lavaActivationStartPos.position, this.lavaActivationEndPos.position, this.activationProgessSmooth);
 		}
 
-		// Token: 0x06004B19 RID: 19225 RVA: 0x0016B995 File Offset: 0x00169B95
+		// Token: 0x06004C59 RID: 19545 RVA: 0x00062370 File Offset: 0x00060570
 		private void CheckLocalPlayerAgainstLava(double currentTime)
 		{
 			if (GTPlayer.Instance.InWater && GTPlayer.Instance.CurrentWaterVolume == this.lavaVolume)
@@ -480,7 +480,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B1A RID: 19226 RVA: 0x0016B9C2 File Offset: 0x00169BC2
+		// Token: 0x06004C5A RID: 19546 RVA: 0x0006239D File Offset: 0x0006059D
 		private void OnColliderEnteredLava(WaterVolume volume, Collider collider)
 		{
 			if (collider == GTPlayer.Instance.bodyCollider)
@@ -489,7 +489,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B1B RID: 19227 RVA: 0x0016B9FC File Offset: 0x00169BFC
+		// Token: 0x06004C5B RID: 19547 RVA: 0x001A4CCC File Offset: 0x001A2ECC
 		private void LocalPlayerInLava(double currentTime, bool enteredLavaThisFrame)
 		{
 			GorillaGameManager gorillaGameManager = GorillaGameManager.instance;
@@ -500,7 +500,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B1C RID: 19228 RVA: 0x0016BA4E File Offset: 0x00169C4E
+		// Token: 0x06004C5C RID: 19548 RVA: 0x000623D5 File Offset: 0x000605D5
 		public void OnActivationLavaProjectileHit(SlingshotProjectile projectile, Collision collision)
 		{
 			if (projectile.gameObject.CompareTag("LavaRockProjectile"))
@@ -509,7 +509,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B1D RID: 19229 RVA: 0x0016BA74 File Offset: 0x00169C74
+		// Token: 0x06004C5D RID: 19549 RVA: 0x001A4D20 File Offset: 0x001A2F20
 		private void AddLavaRock(int playerId)
 		{
 			if (this.networkObject.HasAuthority && this.reliableState.state == InfectionLavaController.RisingLavaState.Drained)
@@ -525,7 +525,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B1E RID: 19230 RVA: 0x0016BAF0 File Offset: 0x00169CF0
+		// Token: 0x06004C5E RID: 19550 RVA: 0x001A4D9C File Offset: 0x001A2F9C
 		private void AddVoteForVolcanoActivation(int playerId)
 		{
 			if (this.networkObject.HasAuthority && this.lavaActivationVoteCount < 10)
@@ -546,7 +546,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B1F RID: 19231 RVA: 0x0016BB54 File Offset: 0x00169D54
+		// Token: 0x06004C5F RID: 19551 RVA: 0x001A4E00 File Offset: 0x001A3000
 		private void RemoveVoteForVolcanoActivation(int playerId)
 		{
 			if (this.networkObject.HasAuthority)
@@ -563,7 +563,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B20 RID: 19232 RVA: 0x0016BBB0 File Offset: 0x00169DB0
+		// Token: 0x06004C60 RID: 19552 RVA: 0x001A4E5C File Offset: 0x001A305C
 		void IGorillaSerializeable.OnSerializeWrite(PhotonStream stream, PhotonMessageInfo info)
 		{
 			stream.SendNext((int)this.reliableState.state);
@@ -582,7 +582,7 @@ namespace GorillaTag
 			stream.SendNext(this.lavaActivationVotePlayerIds[9]);
 		}
 
-		// Token: 0x06004B21 RID: 19233 RVA: 0x0016BCD0 File Offset: 0x00169ED0
+		// Token: 0x06004C61 RID: 19553 RVA: 0x001A4F7C File Offset: 0x001A317C
 		void IGorillaSerializeable.OnSerializeRead(PhotonStream stream, PhotonMessageInfo info)
 		{
 			InfectionLavaController.RisingLavaState risingLavaState = (InfectionLavaController.RisingLavaState)((int)stream.ReceiveNext());
@@ -608,13 +608,13 @@ namespace GorillaTag
 			this.localLagLavaProgressOffset = num - this.lavaProgressSmooth;
 		}
 
-		// Token: 0x06004B22 RID: 19234 RVA: 0x0016BE43 File Offset: 0x0016A043
+		// Token: 0x06004C62 RID: 19554 RVA: 0x000623FA File Offset: 0x000605FA
 		public void OnPlayerLeftRoom(NetPlayer otherNetPlayer)
 		{
 			this.RemoveVoteForVolcanoActivation(otherNetPlayer.ActorNumber);
 		}
 
-		// Token: 0x06004B23 RID: 19235 RVA: 0x0016BE54 File Offset: 0x0016A054
+		// Token: 0x06004C63 RID: 19555 RVA: 0x001A50F0 File Offset: 0x001A32F0
 		private void OnLeftRoom()
 		{
 			for (int i = 0; i < this.lavaActivationVotePlayerIds.Length; i++)
@@ -626,22 +626,22 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004B24 RID: 19236 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004C64 RID: 19556 RVA: 0x00030607 File Offset: 0x0002E807
 		void IGorillaSerializeableScene.OnNetworkObjectDisable()
 		{
 		}
 
-		// Token: 0x06004B25 RID: 19237 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004C65 RID: 19557 RVA: 0x00030607 File Offset: 0x0002E807
 		void IGorillaSerializeableScene.OnNetworkObjectEnable()
 		{
 		}
 
-		// Token: 0x170007C6 RID: 1990
-		// (get) Token: 0x06004B26 RID: 19238 RVA: 0x0016BE96 File Offset: 0x0016A096
-		// (set) Token: 0x06004B27 RID: 19239 RVA: 0x0016BE9E File Offset: 0x0016A09E
+		// Token: 0x170007E2 RID: 2018
+		// (get) Token: 0x06004C66 RID: 19558 RVA: 0x00062408 File Offset: 0x00060608
+		// (set) Token: 0x06004C67 RID: 19559 RVA: 0x00062410 File Offset: 0x00060610
 		int IGuidedRefReceiverMono.GuidedRefsWaitingToResolveCount { get; set; }
 
-		// Token: 0x06004B28 RID: 19240 RVA: 0x0016BEA7 File Offset: 0x0016A0A7
+		// Token: 0x06004C68 RID: 19560 RVA: 0x00062419 File Offset: 0x00060619
 		void IGuidedRefReceiverMono.OnAllGuidedRefsResolved()
 		{
 			this.guidedRefsFullyResolved = true;
@@ -649,14 +649,14 @@ namespace GorillaTag
 			TickSystem<object>.AddPostTickCallback(this);
 		}
 
-		// Token: 0x06004B29 RID: 19241 RVA: 0x0016BEBC File Offset: 0x0016A0BC
+		// Token: 0x06004C69 RID: 19561 RVA: 0x0006242E File Offset: 0x0006062E
 		public void OnGuidedRefTargetDestroyed(int fieldId)
 		{
 			this.guidedRefsFullyResolved = false;
 			TickSystem<object>.RemovePostTickCallback(this);
 		}
 
-		// Token: 0x06004B2A RID: 19242 RVA: 0x0016BECC File Offset: 0x0016A0CC
+		// Token: 0x06004C6A RID: 19562 RVA: 0x001A5134 File Offset: 0x001A3334
 		void IGuidedRefObject.GuidedRefInitialize()
 		{
 			GuidedRefHub.RegisterReceiverField<InfectionLavaController>(this, "lavaMeshTransform_gRef", ref this.lavaMeshTransform_gRef);
@@ -670,230 +670,230 @@ namespace GorillaTag
 			GuidedRefHub.ReceiverFullyRegistered<InfectionLavaController>(this);
 		}
 
-		// Token: 0x06004B2B RID: 19243 RVA: 0x0016BF70 File Offset: 0x0016A170
+		// Token: 0x06004C6B RID: 19563 RVA: 0x001A51D8 File Offset: 0x001A33D8
 		bool IGuidedRefReceiverMono.GuidedRefTryResolveReference(GuidedRefTryResolveInfo target)
 		{
 			return GuidedRefHub.TryResolveField<InfectionLavaController, Transform>(this, ref this.lavaMeshTransform, this.lavaMeshTransform_gRef, target) || GuidedRefHub.TryResolveField<InfectionLavaController, Transform>(this, ref this.lavaSurfacePlaneTransform, this.lavaSurfacePlaneTransform_gRef, target) || GuidedRefHub.TryResolveField<InfectionLavaController, WaterVolume>(this, ref this.lavaVolume, this.lavaVolume_gRef, target) || GuidedRefHub.TryResolveField<InfectionLavaController, MeshRenderer>(this, ref this.lavaActivationRenderer, this.lavaActivationRenderer_gRef, target) || GuidedRefHub.TryResolveField<InfectionLavaController, Transform>(this, ref this.lavaActivationStartPos, this.lavaActivationStartPos_gRef, target) || GuidedRefHub.TryResolveField<InfectionLavaController, Transform>(this, ref this.lavaActivationEndPos, this.lavaActivationEndPos_gRef, target) || GuidedRefHub.TryResolveField<InfectionLavaController, SlingshotProjectileHitNotifier>(this, ref this.lavaActivationProjectileHitNotifier, this.lavaActivationProjectileHitNotifier_gRef, target) || GuidedRefHub.TryResolveArrayItem<InfectionLavaController, VolcanoEffects>(this, this.volcanoEffects, this.volcanoEffects_gRefs, target);
 		}
 
-		// Token: 0x06004B2E RID: 19246 RVA: 0x00042E29 File Offset: 0x00041029
+		// Token: 0x06004C6E RID: 19566 RVA: 0x00039243 File Offset: 0x00037443
 		Transform IGuidedRefMonoBehaviour.get_transform()
 		{
 			return base.transform;
 		}
 
-		// Token: 0x06004B2F RID: 19247 RVA: 0x00015AA9 File Offset: 0x00013CA9
+		// Token: 0x06004C6F RID: 19567 RVA: 0x00032CAE File Offset: 0x00030EAE
 		int IGuidedRefObject.GetInstanceID()
 		{
 			return base.GetInstanceID();
 		}
 
-		// Token: 0x04004C75 RID: 19573
+		// Token: 0x04004D68 RID: 19816
 		[OnEnterPlay_SetNull]
 		private static InfectionLavaController instance;
 
-		// Token: 0x04004C76 RID: 19574
+		// Token: 0x04004D69 RID: 19817
 		[SerializeField]
 		private float lavaMeshMinScale = 3.17f;
 
-		// Token: 0x04004C77 RID: 19575
+		// Token: 0x04004D6A RID: 19818
 		[Tooltip("If you throw rocks into the volcano quickly enough, then it will raise to this height.")]
 		[SerializeField]
 		private float lavaMeshMaxScale = 8.941086f;
 
-		// Token: 0x04004C78 RID: 19576
+		// Token: 0x04004D6B RID: 19819
 		[SerializeField]
 		private float eruptTime = 3f;
 
-		// Token: 0x04004C79 RID: 19577
+		// Token: 0x04004D6C RID: 19820
 		[SerializeField]
 		private float riseTime = 10f;
 
-		// Token: 0x04004C7A RID: 19578
+		// Token: 0x04004D6D RID: 19821
 		[SerializeField]
 		private float fullTime = 240f;
 
-		// Token: 0x04004C7B RID: 19579
+		// Token: 0x04004D6E RID: 19822
 		[SerializeField]
 		private float drainTime = 10f;
 
-		// Token: 0x04004C7C RID: 19580
+		// Token: 0x04004D6F RID: 19823
 		[SerializeField]
 		private float lagResolutionLavaProgressPerSecond = 0.2f;
 
-		// Token: 0x04004C7D RID: 19581
+		// Token: 0x04004D70 RID: 19824
 		[SerializeField]
 		private AnimationCurve lavaProgressAnimationCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04004C7E RID: 19582
+		// Token: 0x04004D71 RID: 19825
 		[Header("Volcano Activation")]
 		[SerializeField]
 		[Range(0f, 1f)]
 		private float activationVotePercentageDefaultQueue = 0.42f;
 
-		// Token: 0x04004C7F RID: 19583
+		// Token: 0x04004D72 RID: 19826
 		[SerializeField]
 		[Range(0f, 1f)]
 		private float activationVotePercentageCompetitiveQueue = 0.6f;
 
-		// Token: 0x04004C80 RID: 19584
+		// Token: 0x04004D73 RID: 19827
 		[SerializeField]
 		private Gradient lavaActivationGradient;
 
-		// Token: 0x04004C81 RID: 19585
+		// Token: 0x04004D74 RID: 19828
 		[SerializeField]
 		private AnimationCurve lavaActivationRockProgressVsPlayerCount = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04004C82 RID: 19586
+		// Token: 0x04004D75 RID: 19829
 		[SerializeField]
 		private AnimationCurve lavaActivationDrainRateVsPlayerCount = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04004C83 RID: 19587
+		// Token: 0x04004D76 RID: 19830
 		[SerializeField]
 		private float lavaActivationVisualMovementProgressPerSecond = 1f;
 
-		// Token: 0x04004C84 RID: 19588
+		// Token: 0x04004D77 RID: 19831
 		[SerializeField]
 		private bool debugLavaActivationVotes;
 
-		// Token: 0x04004C85 RID: 19589
+		// Token: 0x04004D78 RID: 19832
 		[Header("Scene References")]
 		[SerializeField]
 		private Transform lavaMeshTransform;
 
-		// Token: 0x04004C86 RID: 19590
+		// Token: 0x04004D79 RID: 19833
 		[SerializeField]
 		private GuidedRefReceiverFieldInfo lavaMeshTransform_gRef = new GuidedRefReceiverFieldInfo(true);
 
-		// Token: 0x04004C87 RID: 19591
+		// Token: 0x04004D7A RID: 19834
 		[SerializeField]
 		private Transform lavaSurfacePlaneTransform;
 
-		// Token: 0x04004C88 RID: 19592
+		// Token: 0x04004D7B RID: 19835
 		[SerializeField]
 		private GuidedRefReceiverFieldInfo lavaSurfacePlaneTransform_gRef = new GuidedRefReceiverFieldInfo(true);
 
-		// Token: 0x04004C89 RID: 19593
+		// Token: 0x04004D7C RID: 19836
 		[SerializeField]
 		private WaterVolume lavaVolume;
 
-		// Token: 0x04004C8A RID: 19594
+		// Token: 0x04004D7D RID: 19837
 		[SerializeField]
 		private GuidedRefReceiverFieldInfo lavaVolume_gRef = new GuidedRefReceiverFieldInfo(true);
 
-		// Token: 0x04004C8B RID: 19595
+		// Token: 0x04004D7E RID: 19838
 		[SerializeField]
 		private MeshRenderer lavaActivationRenderer;
 
-		// Token: 0x04004C8C RID: 19596
+		// Token: 0x04004D7F RID: 19839
 		[SerializeField]
 		private GuidedRefReceiverFieldInfo lavaActivationRenderer_gRef = new GuidedRefReceiverFieldInfo(true);
 
-		// Token: 0x04004C8D RID: 19597
+		// Token: 0x04004D80 RID: 19840
 		[SerializeField]
 		private Transform lavaActivationStartPos;
 
-		// Token: 0x04004C8E RID: 19598
+		// Token: 0x04004D81 RID: 19841
 		[SerializeField]
 		private GuidedRefReceiverFieldInfo lavaActivationStartPos_gRef = new GuidedRefReceiverFieldInfo(true);
 
-		// Token: 0x04004C8F RID: 19599
+		// Token: 0x04004D82 RID: 19842
 		[SerializeField]
 		private Transform lavaActivationEndPos;
 
-		// Token: 0x04004C90 RID: 19600
+		// Token: 0x04004D83 RID: 19843
 		[SerializeField]
 		private GuidedRefReceiverFieldInfo lavaActivationEndPos_gRef = new GuidedRefReceiverFieldInfo(true);
 
-		// Token: 0x04004C91 RID: 19601
+		// Token: 0x04004D84 RID: 19844
 		[SerializeField]
 		private SlingshotProjectileHitNotifier lavaActivationProjectileHitNotifier;
 
-		// Token: 0x04004C92 RID: 19602
+		// Token: 0x04004D85 RID: 19845
 		[SerializeField]
 		private GuidedRefReceiverFieldInfo lavaActivationProjectileHitNotifier_gRef = new GuidedRefReceiverFieldInfo(true);
 
-		// Token: 0x04004C93 RID: 19603
+		// Token: 0x04004D86 RID: 19846
 		[SerializeField]
 		private VolcanoEffects[] volcanoEffects;
 
-		// Token: 0x04004C94 RID: 19604
+		// Token: 0x04004D87 RID: 19847
 		[SerializeField]
 		private GuidedRefReceiverArrayInfo volcanoEffects_gRefs = new GuidedRefReceiverArrayInfo(true);
 
-		// Token: 0x04004C95 RID: 19605
+		// Token: 0x04004D88 RID: 19848
 		[DebugReadout]
 		private InfectionLavaController.LavaSyncData reliableState;
 
-		// Token: 0x04004C96 RID: 19606
+		// Token: 0x04004D89 RID: 19849
 		private int[] lavaActivationVotePlayerIds = new int[10];
 
-		// Token: 0x04004C97 RID: 19607
+		// Token: 0x04004D8A RID: 19850
 		private int lavaActivationVoteCount;
 
-		// Token: 0x04004C98 RID: 19608
+		// Token: 0x04004D8B RID: 19851
 		private float localLagLavaProgressOffset;
 
-		// Token: 0x04004C99 RID: 19609
+		// Token: 0x04004D8C RID: 19852
 		[DebugReadout]
 		private float lavaProgressLinear;
 
-		// Token: 0x04004C9A RID: 19610
+		// Token: 0x04004D8D RID: 19853
 		[DebugReadout]
 		private float lavaProgressSmooth;
 
-		// Token: 0x04004C9B RID: 19611
+		// Token: 0x04004D8E RID: 19854
 		private double lastTagSelfRPCTime;
 
-		// Token: 0x04004C9C RID: 19612
+		// Token: 0x04004D8F RID: 19855
 		private const string lavaRockProjectileTag = "LavaRockProjectile";
 
-		// Token: 0x04004C9D RID: 19613
+		// Token: 0x04004D90 RID: 19856
 		private double currentTime;
 
-		// Token: 0x04004C9E RID: 19614
+		// Token: 0x04004D91 RID: 19857
 		private double prevTime;
 
-		// Token: 0x04004C9F RID: 19615
+		// Token: 0x04004D92 RID: 19858
 		private float activationProgessSmooth;
 
-		// Token: 0x04004CA0 RID: 19616
+		// Token: 0x04004D93 RID: 19859
 		private float lavaScale;
 
-		// Token: 0x04004CA1 RID: 19617
+		// Token: 0x04004D94 RID: 19860
 		private static readonly int shaderProp_BaseColor = Shader.PropertyToID("_BaseColor");
 
-		// Token: 0x04004CA2 RID: 19618
+		// Token: 0x04004D95 RID: 19861
 		private GorillaSerializerScene networkObject;
 
-		// Token: 0x04004CA4 RID: 19620
+		// Token: 0x04004D97 RID: 19863
 		private bool guidedRefsFullyResolved;
 
-		// Token: 0x02000BA0 RID: 2976
+		// Token: 0x02000BCC RID: 3020
 		public enum RisingLavaState
 		{
-			// Token: 0x04004CA7 RID: 19623
+			// Token: 0x04004D9A RID: 19866
 			Drained,
-			// Token: 0x04004CA8 RID: 19624
+			// Token: 0x04004D9B RID: 19867
 			Erupting,
-			// Token: 0x04004CA9 RID: 19625
+			// Token: 0x04004D9C RID: 19868
 			Rising,
-			// Token: 0x04004CAA RID: 19626
+			// Token: 0x04004D9D RID: 19869
 			Full,
-			// Token: 0x04004CAB RID: 19627
+			// Token: 0x04004D9E RID: 19870
 			Draining
 		}
 
-		// Token: 0x02000BA1 RID: 2977
+		// Token: 0x02000BCD RID: 3021
 		private struct LavaSyncData
 		{
-			// Token: 0x04004CAC RID: 19628
+			// Token: 0x04004D9F RID: 19871
 			public InfectionLavaController.RisingLavaState state;
 
-			// Token: 0x04004CAD RID: 19629
+			// Token: 0x04004DA0 RID: 19872
 			public double stateStartTime;
 
-			// Token: 0x04004CAE RID: 19630
+			// Token: 0x04004DA1 RID: 19873
 			public double activationProgress;
 		}
 	}

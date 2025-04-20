@@ -2,7 +2,7 @@
 
 namespace GorillaTag.Rendering
 {
-	// Token: 0x02000C10 RID: 3088
+	// Token: 0x02000C3E RID: 3134
 	public class GTSphereVolumes
 	{
 	}

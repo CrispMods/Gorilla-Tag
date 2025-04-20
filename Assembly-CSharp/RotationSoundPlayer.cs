@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020000D6 RID: 214
+// Token: 0x020000E0 RID: 224
 public class RotationSoundPlayer : MonoBehaviour
 {
-	// Token: 0x06000581 RID: 1409 RVA: 0x00020838 File Offset: 0x0001EA38
+	// Token: 0x060005C2 RID: 1474 RVA: 0x0008357C File Offset: 0x0008177C
 	private void Awake()
 	{
 		List<Transform> list = new List<Transform>(this.transforms);
@@ -22,7 +22,7 @@ public class RotationSoundPlayer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000582 RID: 1410 RVA: 0x00020918 File Offset: 0x0001EB18
+	// Token: 0x060005C3 RID: 1475 RVA: 0x0008365C File Offset: 0x0008185C
 	private void Update()
 	{
 		this.cooldownTimer -= Time.deltaTime;
@@ -43,35 +43,35 @@ public class RotationSoundPlayer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000677 RID: 1655
+	// Token: 0x040006B8 RID: 1720
 	[Tooltip("Transforms that will make a noise when they rotate.")]
 	[SerializeField]
 	private Transform[] transforms;
 
-	// Token: 0x04000678 RID: 1656
+	// Token: 0x040006B9 RID: 1721
 	[SerializeField]
 	private SoundBankPlayer soundBankPlayer;
 
-	// Token: 0x04000679 RID: 1657
+	// Token: 0x040006BA RID: 1722
 	[Tooltip("How much the transform must rotate from it's initial rotation before a sound is played.")]
 	private float rotationAmountThreshold = 30f;
 
-	// Token: 0x0400067A RID: 1658
+	// Token: 0x040006BB RID: 1723
 	[Tooltip("How fast the transform must rotate before a sound is played.")]
 	private float rotationSpeedThreshold = 45f;
 
-	// Token: 0x0400067B RID: 1659
+	// Token: 0x040006BC RID: 1724
 	private float cooldown = 0.6f;
 
-	// Token: 0x0400067C RID: 1660
+	// Token: 0x040006BD RID: 1725
 	private float cooldownTimer;
 
-	// Token: 0x0400067D RID: 1661
+	// Token: 0x040006BE RID: 1726
 	private Vector3[] initialUpAxis;
 
-	// Token: 0x0400067E RID: 1662
+	// Token: 0x040006BF RID: 1727
 	private Vector3[] lastUpAxis;
 
-	// Token: 0x0400067F RID: 1663
+	// Token: 0x040006C0 RID: 1728
 	private float[] lastRotationSpeeds;
 }

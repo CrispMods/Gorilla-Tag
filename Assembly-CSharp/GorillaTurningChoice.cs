@@ -1,17 +1,17 @@
 ﻿using System;
 
-// Token: 0x020005A3 RID: 1443
+// Token: 0x020005B1 RID: 1457
 public class GorillaTurningChoice : GorillaTriggerBox
 {
-	// Token: 0x060023DD RID: 9181 RVA: 0x000B3049 File Offset: 0x000B1249
+	// Token: 0x0600243D RID: 9277 RVA: 0x000487E5 File Offset: 0x000469E5
 	public override void OnBoxTriggered()
 	{
 		base.OnBoxTriggered();
 	}
 
-	// Token: 0x040027E0 RID: 10208
+	// Token: 0x0400283C RID: 10300
 	public string choiceName;
 
-	// Token: 0x040027E1 RID: 10209
+	// Token: 0x0400283D RID: 10301
 	public GorillaTurning parent;
 }

@@ -3,10 +3,10 @@ using System.Collections;
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x02000430 RID: 1072
+// Token: 0x0200043C RID: 1084
 public class WardrobeFunctionButton : GorillaPressableButton
 {
-	// Token: 0x06001A7B RID: 6779 RVA: 0x00082DBA File Offset: 0x00080FBA
+	// Token: 0x06001ACF RID: 6863 RVA: 0x0004227B File Offset: 0x0004047B
 	public override void ButtonActivation()
 	{
 		base.ButtonActivation();
@@ -14,12 +14,12 @@ public class WardrobeFunctionButton : GorillaPressableButton
 		base.StartCoroutine(this.ButtonColorUpdate());
 	}
 
-	// Token: 0x06001A7C RID: 6780 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001AD0 RID: 6864 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void UpdateColor()
 	{
 	}
 
-	// Token: 0x06001A7D RID: 6781 RVA: 0x00082DE1 File Offset: 0x00080FE1
+	// Token: 0x06001AD1 RID: 6865 RVA: 0x000422A2 File Offset: 0x000404A2
 	private IEnumerator ButtonColorUpdate()
 	{
 		this.buttonRenderer.material = this.pressedMaterial;
@@ -28,9 +28,9 @@ public class WardrobeFunctionButton : GorillaPressableButton
 		yield break;
 	}
 
-	// Token: 0x04001D49 RID: 7497
+	// Token: 0x04001D98 RID: 7576
 	public string function;
 
-	// Token: 0x04001D4A RID: 7498
+	// Token: 0x04001D99 RID: 7577
 	public float buttonFadeTime = 0.25f;
 }

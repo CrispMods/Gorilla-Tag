@@ -2,13 +2,13 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-// Token: 0x0200048B RID: 1163
+// Token: 0x02000497 RID: 1175
 [Serializable]
 public class AudioMixVar
 {
-	// Token: 0x1700030F RID: 783
-	// (get) Token: 0x06001C15 RID: 7189 RVA: 0x000886C0 File Offset: 0x000868C0
-	// (set) Token: 0x06001C16 RID: 7190 RVA: 0x0008870F File Offset: 0x0008690F
+	// Token: 0x17000316 RID: 790
+	// (get) Token: 0x06001C69 RID: 7273 RVA: 0x000DC1F8 File Offset: 0x000DA3F8
+	// (set) Token: 0x06001C6A RID: 7274 RVA: 0x0004395E File Offset: 0x00041B5E
 	public float value
 	{
 		get
@@ -37,7 +37,7 @@ public class AudioMixVar
 		}
 	}
 
-	// Token: 0x06001C17 RID: 7191 RVA: 0x00088731 File Offset: 0x00086931
+	// Token: 0x06001C6B RID: 7275 RVA: 0x00043980 File Offset: 0x00041B80
 	public void ReturnToPool()
 	{
 		if (this._pool != null)
@@ -46,20 +46,20 @@ public class AudioMixVar
 		}
 	}
 
-	// Token: 0x04001F18 RID: 7960
+	// Token: 0x04001F67 RID: 8039
 	public AudioMixerGroup group;
 
-	// Token: 0x04001F19 RID: 7961
+	// Token: 0x04001F68 RID: 8040
 	public AudioMixer mixer;
 
-	// Token: 0x04001F1A RID: 7962
+	// Token: 0x04001F69 RID: 8041
 	public string name;
 
-	// Token: 0x04001F1B RID: 7963
+	// Token: 0x04001F6A RID: 8042
 	[NonSerialized]
 	public bool taken;
 
-	// Token: 0x04001F1C RID: 7964
+	// Token: 0x04001F6B RID: 8043
 	[SerializeField]
 	private AudioMixVarPool _pool;
 }

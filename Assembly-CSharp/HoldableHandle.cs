@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003E2 RID: 994
+// Token: 0x020003ED RID: 1005
 public class HoldableHandle : InteractionPoint
 {
-	// Token: 0x170002B0 RID: 688
-	// (get) Token: 0x0600181A RID: 6170 RVA: 0x000756FB File Offset: 0x000738FB
+	// Token: 0x170002B7 RID: 695
+	// (get) Token: 0x06001867 RID: 6247 RVA: 0x00040925 File Offset: 0x0003EB25
 	public new HoldableObject Holdable
 	{
 		get
@@ -14,8 +14,8 @@ public class HoldableHandle : InteractionPoint
 		}
 	}
 
-	// Token: 0x170002B1 RID: 689
-	// (get) Token: 0x0600181B RID: 6171 RVA: 0x00075703 File Offset: 0x00073903
+	// Token: 0x170002B8 RID: 696
+	// (get) Token: 0x06001868 RID: 6248 RVA: 0x0004092D File Offset: 0x0003EB2D
 	public CapsuleCollider Capsule
 	{
 		get
@@ -24,11 +24,11 @@ public class HoldableHandle : InteractionPoint
 		}
 	}
 
-	// Token: 0x04001ACC RID: 6860
+	// Token: 0x04001B15 RID: 6933
 	[SerializeField]
 	private HoldableObject holdable;
 
-	// Token: 0x04001ACD RID: 6861
+	// Token: 0x04001B16 RID: 6934
 	[SerializeField]
 	private CapsuleCollider handleCapsuleTrigger;
 }

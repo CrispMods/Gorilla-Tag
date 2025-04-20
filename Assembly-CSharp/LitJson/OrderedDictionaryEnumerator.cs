@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace LitJson
 {
-	// Token: 0x02000943 RID: 2371
+	// Token: 0x02000960 RID: 2400
 	internal class OrderedDictionaryEnumerator : IDictionaryEnumerator, IEnumerator
 	{
-		// Token: 0x170005FF RID: 1535
-		// (get) Token: 0x060039A0 RID: 14752 RVA: 0x00109656 File Offset: 0x00107856
+		// Token: 0x17000612 RID: 1554
+		// (get) Token: 0x06003A71 RID: 14961 RVA: 0x00056121 File Offset: 0x00054321
 		public object Current
 		{
 			get
@@ -17,8 +17,8 @@ namespace LitJson
 			}
 		}
 
-		// Token: 0x17000600 RID: 1536
-		// (get) Token: 0x060039A1 RID: 14753 RVA: 0x00109664 File Offset: 0x00107864
+		// Token: 0x17000613 RID: 1555
+		// (get) Token: 0x06003A72 RID: 14962 RVA: 0x0014D354 File Offset: 0x0014B554
 		public DictionaryEntry Entry
 		{
 			get
@@ -28,8 +28,8 @@ namespace LitJson
 			}
 		}
 
-		// Token: 0x17000601 RID: 1537
-		// (get) Token: 0x060039A2 RID: 14754 RVA: 0x00109690 File Offset: 0x00107890
+		// Token: 0x17000614 RID: 1556
+		// (get) Token: 0x06003A73 RID: 14963 RVA: 0x0014D380 File Offset: 0x0014B580
 		public object Key
 		{
 			get
@@ -39,8 +39,8 @@ namespace LitJson
 			}
 		}
 
-		// Token: 0x17000602 RID: 1538
-		// (get) Token: 0x060039A3 RID: 14755 RVA: 0x001096B0 File Offset: 0x001078B0
+		// Token: 0x17000615 RID: 1557
+		// (get) Token: 0x06003A74 RID: 14964 RVA: 0x0014D3A0 File Offset: 0x0014B5A0
 		public object Value
 		{
 			get
@@ -50,25 +50,25 @@ namespace LitJson
 			}
 		}
 
-		// Token: 0x060039A4 RID: 14756 RVA: 0x001096D0 File Offset: 0x001078D0
+		// Token: 0x06003A75 RID: 14965 RVA: 0x0005612E File Offset: 0x0005432E
 		public OrderedDictionaryEnumerator(IEnumerator<KeyValuePair<string, JsonData>> enumerator)
 		{
 			this.list_enumerator = enumerator;
 		}
 
-		// Token: 0x060039A5 RID: 14757 RVA: 0x001096DF File Offset: 0x001078DF
+		// Token: 0x06003A76 RID: 14966 RVA: 0x0005613D File Offset: 0x0005433D
 		public bool MoveNext()
 		{
 			return this.list_enumerator.MoveNext();
 		}
 
-		// Token: 0x060039A6 RID: 14758 RVA: 0x001096EC File Offset: 0x001078EC
+		// Token: 0x06003A77 RID: 14967 RVA: 0x0005614A File Offset: 0x0005434A
 		public void Reset()
 		{
 			this.list_enumerator.Reset();
 		}
 
-		// Token: 0x04003B11 RID: 15121
+		// Token: 0x04003BD6 RID: 15318
 		private IEnumerator<KeyValuePair<string, JsonData>> list_enumerator;
 	}
 }

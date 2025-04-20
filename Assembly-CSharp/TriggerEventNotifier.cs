@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200088A RID: 2186
+// Token: 0x020008A6 RID: 2214
 public class TriggerEventNotifier : MonoBehaviour
 {
-	// Token: 0x14000065 RID: 101
-	// (add) Token: 0x060034F4 RID: 13556 RVA: 0x000FCF0C File Offset: 0x000FB10C
-	// (remove) Token: 0x060034F5 RID: 13557 RVA: 0x000FCF44 File Offset: 0x000FB144
+	// Token: 0x14000069 RID: 105
+	// (add) Token: 0x060035C0 RID: 13760 RVA: 0x001438C4 File Offset: 0x00141AC4
+	// (remove) Token: 0x060035C1 RID: 13761 RVA: 0x001438FC File Offset: 0x00141AFC
 	public event TriggerEventNotifier.TriggerEvent TriggerEnterEvent;
 
-	// Token: 0x14000066 RID: 102
-	// (add) Token: 0x060034F6 RID: 13558 RVA: 0x000FCF7C File Offset: 0x000FB17C
-	// (remove) Token: 0x060034F7 RID: 13559 RVA: 0x000FCFB4 File Offset: 0x000FB1B4
+	// Token: 0x1400006A RID: 106
+	// (add) Token: 0x060035C2 RID: 13762 RVA: 0x00143934 File Offset: 0x00141B34
+	// (remove) Token: 0x060035C3 RID: 13763 RVA: 0x0014396C File Offset: 0x00141B6C
 	public event TriggerEventNotifier.TriggerEvent TriggerExitEvent;
 
-	// Token: 0x060034F8 RID: 13560 RVA: 0x000FCFE9 File Offset: 0x000FB1E9
+	// Token: 0x060035C4 RID: 13764 RVA: 0x00053492 File Offset: 0x00051692
 	private void OnTriggerEnter(Collider other)
 	{
 		TriggerEventNotifier.TriggerEvent triggerEnterEvent = this.TriggerEnterEvent;
@@ -25,7 +25,7 @@ public class TriggerEventNotifier : MonoBehaviour
 		triggerEnterEvent(this, other);
 	}
 
-	// Token: 0x060034F9 RID: 13561 RVA: 0x000FCFFD File Offset: 0x000FB1FD
+	// Token: 0x060035C5 RID: 13765 RVA: 0x000534A6 File Offset: 0x000516A6
 	private void OnTriggerExit(Collider other)
 	{
 		TriggerEventNotifier.TriggerEvent triggerExitEvent = this.TriggerExitEvent;
@@ -36,11 +36,11 @@ public class TriggerEventNotifier : MonoBehaviour
 		triggerExitEvent(this, other);
 	}
 
-	// Token: 0x04003791 RID: 14225
+	// Token: 0x04003851 RID: 14417
 	[HideInInspector]
 	public int maskIndex;
 
-	// Token: 0x0200088B RID: 2187
-	// (Invoke) Token: 0x060034FC RID: 13564
+	// Token: 0x020008A7 RID: 2215
+	// (Invoke) Token: 0x060035C8 RID: 13768
 	public delegate void TriggerEvent(TriggerEventNotifier notifier, Collider collider);
 }

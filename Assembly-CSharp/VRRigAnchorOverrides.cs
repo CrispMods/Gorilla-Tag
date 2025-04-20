@@ -3,12 +3,12 @@ using GorillaExtensions;
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x0200040E RID: 1038
+// Token: 0x02000419 RID: 1049
 public class VRRigAnchorOverrides : MonoBehaviour
 {
-	// Token: 0x170002C8 RID: 712
-	// (get) Token: 0x060019AC RID: 6572 RVA: 0x0007E83D File Offset: 0x0007CA3D
-	// (set) Token: 0x060019AD RID: 6573 RVA: 0x0007E848 File Offset: 0x0007CA48
+	// Token: 0x170002CF RID: 719
+	// (get) Token: 0x060019F9 RID: 6649 RVA: 0x00041814 File Offset: 0x0003FA14
+	// (set) Token: 0x060019FA RID: 6650 RVA: 0x000D4028 File Offset: 0x000D2228
 	public Transform CurrentBadgeTransform
 	{
 		get
@@ -28,8 +28,8 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170002C9 RID: 713
-	// (get) Token: 0x060019AE RID: 6574 RVA: 0x0007E898 File Offset: 0x0007CA98
+	// Token: 0x170002D0 RID: 720
+	// (get) Token: 0x060019FB RID: 6651 RVA: 0x0004181C File Offset: 0x0003FA1C
 	public Transform HuntDefaultAnchor
 	{
 		get
@@ -38,8 +38,8 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170002CA RID: 714
-	// (get) Token: 0x060019AF RID: 6575 RVA: 0x0007E8A0 File Offset: 0x0007CAA0
+	// Token: 0x170002D1 RID: 721
+	// (get) Token: 0x060019FC RID: 6652 RVA: 0x00041824 File Offset: 0x0003FA24
 	public Transform HuntComputer
 	{
 		get
@@ -48,8 +48,8 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170002CB RID: 715
-	// (get) Token: 0x060019B0 RID: 6576 RVA: 0x0007E8A8 File Offset: 0x0007CAA8
+	// Token: 0x170002D2 RID: 722
+	// (get) Token: 0x060019FD RID: 6653 RVA: 0x0004182C File Offset: 0x0003FA2C
 	public Transform BuilderWatchAnchor
 	{
 		get
@@ -58,8 +58,8 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170002CC RID: 716
-	// (get) Token: 0x060019B1 RID: 6577 RVA: 0x0007E8B0 File Offset: 0x0007CAB0
+	// Token: 0x170002D3 RID: 723
+	// (get) Token: 0x060019FE RID: 6654 RVA: 0x00041834 File Offset: 0x0003FA34
 	public Transform BuilderWatch
 	{
 		get
@@ -68,7 +68,7 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060019B2 RID: 6578 RVA: 0x0007E8B8 File Offset: 0x0007CAB8
+	// Token: 0x060019FF RID: 6655 RVA: 0x000D4078 File Offset: 0x000D2278
 	private void Awake()
 	{
 		for (int i = 0; i < 8; i++)
@@ -81,7 +81,7 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		this.builderResizeButtonDefaultTransform = this.builderResizeButton;
 	}
 
-	// Token: 0x060019B3 RID: 6579 RVA: 0x0007E90C File Offset: 0x0007CB0C
+	// Token: 0x06001A00 RID: 6656 RVA: 0x000D40CC File Offset: 0x000D22CC
 	private void OnEnable()
 	{
 		if (this.nameDefaultAnchor && this.nameDefaultAnchor.parent)
@@ -110,7 +110,7 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		Debug.LogError("VRRigAnchorOverrides: could not set parent `builderResizeButton` because `builderResizeButtonDefaultAnchor` or its parent was null! Path: " + base.transform.GetPathQ(), this);
 	}
 
-	// Token: 0x060019B4 RID: 6580 RVA: 0x0007EA28 File Offset: 0x0007CC28
+	// Token: 0x06001A01 RID: 6657 RVA: 0x000D41E8 File Offset: 0x000D23E8
 	private int MapPositionToIndex(TransferrableObject.PositionState pos)
 	{
 		int num = (int)pos;
@@ -122,7 +122,7 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		return num2;
 	}
 
-	// Token: 0x060019B5 RID: 6581 RVA: 0x0007EA48 File Offset: 0x0007CC48
+	// Token: 0x06001A02 RID: 6658 RVA: 0x000D4208 File Offset: 0x000D2408
 	public void OverrideAnchor(TransferrableObject.PositionState pos, Transform anchor)
 	{
 		int num = this.MapPositionToIndex(pos);
@@ -136,7 +136,7 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		this.overrideAnchors[num] = anchor;
 	}
 
-	// Token: 0x060019B6 RID: 6582 RVA: 0x0007EAC4 File Offset: 0x0007CCC4
+	// Token: 0x06001A03 RID: 6659 RVA: 0x000D4284 File Offset: 0x000D2484
 	public Transform AnchorOverride(TransferrableObject.PositionState pos, Transform fallback)
 	{
 		int num = this.MapPositionToIndex(pos);
@@ -148,7 +148,7 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		return fallback;
 	}
 
-	// Token: 0x060019B7 RID: 6583 RVA: 0x0007EAE8 File Offset: 0x0007CCE8
+	// Token: 0x06001A04 RID: 6660 RVA: 0x000D42A8 File Offset: 0x000D24A8
 	public void UpdateNameAnchor(GameObject nameAnchor, CosmeticsController.CosmeticSlots slot)
 	{
 		if (slot != CosmeticsController.CosmeticSlots.Badge)
@@ -173,7 +173,7 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		this.UpdateName();
 	}
 
-	// Token: 0x060019B8 RID: 6584 RVA: 0x0007EB40 File Offset: 0x0007CD40
+	// Token: 0x06001A05 RID: 6661 RVA: 0x000D4300 File Offset: 0x000D2500
 	private void UpdateName()
 	{
 		foreach (GameObject gameObject in this.nameAnchors)
@@ -196,7 +196,7 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		Debug.LogError("VRRigAnchorOverrides: could not set parent for `nameTransform` because `nameDefaultAnchor` or its parent was null! Path: " + base.transform.GetPathQ(), this);
 	}
 
-	// Token: 0x060019B9 RID: 6585 RVA: 0x0007EBFA File Offset: 0x0007CDFA
+	// Token: 0x06001A06 RID: 6662 RVA: 0x0004183C File Offset: 0x0003FA3C
 	public void UpdateBadgeAnchor(GameObject badgeAnchor, CosmeticsController.CosmeticSlots slot)
 	{
 		switch (slot)
@@ -214,7 +214,7 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		this.UpdateBadge();
 	}
 
-	// Token: 0x060019BA RID: 6586 RVA: 0x0007EC38 File Offset: 0x0007CE38
+	// Token: 0x06001A07 RID: 6663 RVA: 0x000D43BC File Offset: 0x000D25BC
 	private void UpdateBadge()
 	{
 		if (!this.currentBadgeTransform)
@@ -233,7 +233,7 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		this.ResetBadge();
 	}
 
-	// Token: 0x060019BB RID: 6587 RVA: 0x0007ECA7 File Offset: 0x0007CEA7
+	// Token: 0x06001A08 RID: 6664 RVA: 0x0004187A File Offset: 0x0003FA7A
 	private void ResetBadge()
 	{
 		if (!this.currentBadgeTransform)
@@ -244,72 +244,72 @@ public class VRRigAnchorOverrides : MonoBehaviour
 		this.currentBadgeTransform.localPosition = this.badgeDefaultPos;
 	}
 
-	// Token: 0x04001C93 RID: 7315
+	// Token: 0x04001CDC RID: 7388
 	[SerializeField]
 	internal Transform nameDefaultAnchor;
 
-	// Token: 0x04001C94 RID: 7316
+	// Token: 0x04001CDD RID: 7389
 	[SerializeField]
 	internal Transform nameTransform;
 
-	// Token: 0x04001C95 RID: 7317
+	// Token: 0x04001CDE RID: 7390
 	[SerializeField]
 	internal Transform chestDefaultTransform;
 
-	// Token: 0x04001C96 RID: 7318
+	// Token: 0x04001CDF RID: 7391
 	[SerializeField]
 	internal Transform huntComputer;
 
-	// Token: 0x04001C97 RID: 7319
+	// Token: 0x04001CE0 RID: 7392
 	[SerializeField]
 	internal Transform huntComputerDefaultAnchor;
 
-	// Token: 0x04001C98 RID: 7320
+	// Token: 0x04001CE1 RID: 7393
 	private Transform huntDefaultTransform;
 
-	// Token: 0x04001C99 RID: 7321
+	// Token: 0x04001CE2 RID: 7394
 	[SerializeField]
 	protected Transform builderResizeButton;
 
-	// Token: 0x04001C9A RID: 7322
+	// Token: 0x04001CE3 RID: 7395
 	[SerializeField]
 	protected Transform builderResizeButtonDefaultAnchor;
 
-	// Token: 0x04001C9B RID: 7323
+	// Token: 0x04001CE4 RID: 7396
 	private Transform builderResizeButtonDefaultTransform;
 
-	// Token: 0x04001C9C RID: 7324
+	// Token: 0x04001CE5 RID: 7397
 	private readonly Transform[] overrideAnchors = new Transform[8];
 
-	// Token: 0x04001C9D RID: 7325
+	// Token: 0x04001CE6 RID: 7398
 	private GameObject nameLastObjectToAttach;
 
-	// Token: 0x04001C9E RID: 7326
+	// Token: 0x04001CE7 RID: 7399
 	private Transform currentBadgeTransform;
 
-	// Token: 0x04001C9F RID: 7327
+	// Token: 0x04001CE8 RID: 7400
 	private Vector3 badgeDefaultPos;
 
-	// Token: 0x04001CA0 RID: 7328
+	// Token: 0x04001CE9 RID: 7401
 	private Quaternion badgeDefaultRot;
 
-	// Token: 0x04001CA1 RID: 7329
+	// Token: 0x04001CEA RID: 7402
 	private GameObject[] badgeAnchors = new GameObject[3];
 
-	// Token: 0x04001CA2 RID: 7330
+	// Token: 0x04001CEB RID: 7403
 	private GameObject[] nameAnchors = new GameObject[4];
 
-	// Token: 0x04001CA3 RID: 7331
+	// Token: 0x04001CEC RID: 7404
 	[SerializeField]
 	public Transform friendshipBraceletLeftDefaultAnchor;
 
-	// Token: 0x04001CA4 RID: 7332
+	// Token: 0x04001CED RID: 7405
 	public Transform friendshipBraceletLeftAnchor;
 
-	// Token: 0x04001CA5 RID: 7333
+	// Token: 0x04001CEE RID: 7406
 	[SerializeField]
 	public Transform friendshipBraceletRightDefaultAnchor;
 
-	// Token: 0x04001CA6 RID: 7334
+	// Token: 0x04001CEF RID: 7407
 	public Transform friendshipBraceletRightAnchor;
 }

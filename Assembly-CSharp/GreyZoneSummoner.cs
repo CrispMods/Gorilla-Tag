@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-// Token: 0x020000F7 RID: 247
+// Token: 0x02000101 RID: 257
 public class GreyZoneSummoner : MonoBehaviour
 {
-	// Token: 0x1700009C RID: 156
-	// (get) Token: 0x0600068B RID: 1675 RVA: 0x00026230 File Offset: 0x00024430
+	// Token: 0x170000A1 RID: 161
+	// (get) Token: 0x060006CC RID: 1740 RVA: 0x00034F28 File Offset: 0x00033128
 	public Vector3 SummoningFocusPoint
 	{
 		get
@@ -17,8 +17,8 @@ public class GreyZoneSummoner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700009D RID: 157
-	// (get) Token: 0x0600068C RID: 1676 RVA: 0x0002623D File Offset: 0x0002443D
+	// Token: 0x170000A2 RID: 162
+	// (get) Token: 0x060006CD RID: 1741 RVA: 0x00034F35 File Offset: 0x00033135
 	public float SummonerMaxDistance
 	{
 		get
@@ -27,7 +27,7 @@ public class GreyZoneSummoner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600068D RID: 1677 RVA: 0x00026250 File Offset: 0x00024450
+	// Token: 0x060006CE RID: 1742 RVA: 0x000884A0 File Offset: 0x000866A0
 	private void OnEnable()
 	{
 		this.greyZoneManager = GreyZoneManager.Instance;
@@ -40,7 +40,7 @@ public class GreyZoneSummoner : MonoBehaviour
 		this.areaTriggerNotifier.TriggerExitEvent += this.ColliderExitedArea;
 	}
 
-	// Token: 0x0600068E RID: 1678 RVA: 0x000262B4 File Offset: 0x000244B4
+	// Token: 0x060006CF RID: 1743 RVA: 0x00088504 File Offset: 0x00086704
 	private void OnDisable()
 	{
 		if (GreyZoneManager.Instance != null)
@@ -51,7 +51,7 @@ public class GreyZoneSummoner : MonoBehaviour
 		this.areaTriggerNotifier.TriggerExitEvent -= this.ColliderExitedArea;
 	}
 
-	// Token: 0x0600068F RID: 1679 RVA: 0x0002630C File Offset: 0x0002450C
+	// Token: 0x060006D0 RID: 1744 RVA: 0x0008855C File Offset: 0x0008675C
 	public void UpdateProgressFeedback(bool greyZoneAvailable)
 	{
 		if (this.greyZoneManager == null)
@@ -82,14 +82,14 @@ public class GreyZoneSummoner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000690 RID: 1680 RVA: 0x00026455 File Offset: 0x00024655
+	// Token: 0x060006D1 RID: 1745 RVA: 0x00034F48 File Offset: 0x00033148
 	public void OnGreyZoneActivated()
 	{
 		base.StopAllCoroutines();
 		base.StartCoroutine(this.FadeOutSummoningTones());
 	}
 
-	// Token: 0x06000691 RID: 1681 RVA: 0x0002646A File Offset: 0x0002466A
+	// Token: 0x060006D2 RID: 1746 RVA: 0x00034F5D File Offset: 0x0003315D
 	private IEnumerator FadeOutSummoningTones()
 	{
 		float fadeStartTime = Time.time;
@@ -109,7 +109,7 @@ public class GreyZoneSummoner : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000692 RID: 1682 RVA: 0x0002647C File Offset: 0x0002467C
+	// Token: 0x060006D3 RID: 1747 RVA: 0x000886A8 File Offset: 0x000868A8
 	public void ColliderEnteredArea(TriggerEventNotifier notifier, Collider other)
 	{
 		ZoneEntity component = other.GetComponent<ZoneEntity>();
@@ -120,7 +120,7 @@ public class GreyZoneSummoner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000693 RID: 1683 RVA: 0x000264C8 File Offset: 0x000246C8
+	// Token: 0x060006D4 RID: 1748 RVA: 0x000886F4 File Offset: 0x000868F4
 	public void ColliderExitedArea(TriggerEventNotifier notifier, Collider other)
 	{
 		ZoneEntity component = other.GetComponent<ZoneEntity>();
@@ -131,50 +131,50 @@ public class GreyZoneSummoner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040007D6 RID: 2006
+	// Token: 0x04000817 RID: 2071
 	[SerializeField]
 	private Transform summoningFocusPoint;
 
-	// Token: 0x040007D7 RID: 2007
+	// Token: 0x04000818 RID: 2072
 	[SerializeField]
 	private Transform candlesParent;
 
-	// Token: 0x040007D8 RID: 2008
+	// Token: 0x04000819 RID: 2073
 	[SerializeField]
 	private PlayableDirector candlesTimeline;
 
-	// Token: 0x040007D9 RID: 2009
+	// Token: 0x0400081A RID: 2074
 	[SerializeField]
 	private TriggerEventNotifier areaTriggerNotifier;
 
-	// Token: 0x040007DA RID: 2010
+	// Token: 0x0400081B RID: 2075
 	[SerializeField]
 	private SphereCollider areaTriggerCollider;
 
-	// Token: 0x040007DB RID: 2011
+	// Token: 0x0400081C RID: 2076
 	[SerializeField]
 	private GorillaPressableButton greyZoneActivationButton;
 
-	// Token: 0x040007DC RID: 2012
+	// Token: 0x0400081D RID: 2077
 	[SerializeField]
 	private List<AudioSource> summoningTones = new List<AudioSource>();
 
-	// Token: 0x040007DD RID: 2013
+	// Token: 0x0400081E RID: 2078
 	[SerializeField]
 	private float summoningTonesMaxVolume = 1f;
 
-	// Token: 0x040007DE RID: 2014
+	// Token: 0x0400081F RID: 2079
 	[SerializeField]
 	private float summoningTonesFadeOverlap = 0.5f;
 
-	// Token: 0x040007DF RID: 2015
+	// Token: 0x04000820 RID: 2080
 	[SerializeField]
 	private float summoningTonesFadeTime = 4f;
 
-	// Token: 0x040007E0 RID: 2016
+	// Token: 0x04000821 RID: 2081
 	[SerializeField]
 	private List<GorillaPressableButton> greyZoneGravityFactorButtons = new List<GorillaPressableButton>();
 
-	// Token: 0x040007E1 RID: 2017
+	// Token: 0x04000822 RID: 2082
 	private GreyZoneManager greyZoneManager;
 }

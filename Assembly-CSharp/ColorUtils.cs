@@ -2,24 +2,24 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// Token: 0x0200083E RID: 2110
+// Token: 0x02000858 RID: 2136
 public static class ColorUtils
 {
-	// Token: 0x06003364 RID: 13156 RVA: 0x000F5683 File Offset: 0x000F3883
+	// Token: 0x0600341F RID: 13343 RVA: 0x00052435 File Offset: 0x00050635
 	public static Color WithAlpha(this Color c, float alpha)
 	{
 		c.a = Math.Clamp(alpha, 0f, 1f);
 		return c;
 	}
 
-	// Token: 0x06003365 RID: 13157 RVA: 0x000F569D File Offset: 0x000F389D
+	// Token: 0x06003420 RID: 13344 RVA: 0x0005244F File Offset: 0x0005064F
 	public static Color32 WithAlpha(this Color32 c, byte alpha)
 	{
 		c.a = alpha;
 		return c;
 	}
 
-	// Token: 0x06003366 RID: 13158 RVA: 0x000F56A8 File Offset: 0x000F38A8
+	// Token: 0x06003421 RID: 13345 RVA: 0x0013D194 File Offset: 0x0013B394
 	public static Color ComposeHDR(Color baseColor, float intensity)
 	{
 		intensity = Mathf.Clamp(intensity, -10f, 10f);
@@ -38,7 +38,7 @@ public static class ColorUtils
 		return color;
 	}
 
-	// Token: 0x06003367 RID: 13159 RVA: 0x000F5714 File Offset: 0x000F3914
+	// Token: 0x06003422 RID: 13346 RVA: 0x0013D200 File Offset: 0x0013B400
 	[return: TupleElementNames(new string[]
 	{
 		"baseColor",
@@ -66,6 +66,6 @@ public static class ColorUtils
 		return new ValueTuple<Color, float>(c, item);
 	}
 
-	// Token: 0x040036BA RID: 14010
+	// Token: 0x04003776 RID: 14198
 	private const byte kMaxByteForOverexposedColor = 191;
 }

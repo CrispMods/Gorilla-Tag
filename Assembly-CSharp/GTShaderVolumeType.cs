@@ -1,14 +1,14 @@
 ﻿using System;
 
-// Token: 0x02000229 RID: 553
+// Token: 0x02000234 RID: 564
 public enum GTShaderVolumeType : uint
 {
-	// Token: 0x0400100B RID: 4107
+	// Token: 0x04001051 RID: 4177
 	None,
-	// Token: 0x0400100C RID: 4108
+	// Token: 0x04001052 RID: 4178
 	Fog,
-	// Token: 0x0400100D RID: 4109
+	// Token: 0x04001053 RID: 4179
 	Tint,
-	// Token: 0x0400100E RID: 4110
+	// Token: 0x04001054 RID: 4180
 	Decal = 4U
 }

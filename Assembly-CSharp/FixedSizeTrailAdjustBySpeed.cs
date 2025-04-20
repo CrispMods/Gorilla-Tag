@@ -2,16 +2,16 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x0200051C RID: 1308
+// Token: 0x02000529 RID: 1321
 public class FixedSizeTrailAdjustBySpeed : MonoBehaviour
 {
-	// Token: 0x06001FB1 RID: 8113 RVA: 0x0009FBCE File Offset: 0x0009DDCE
+	// Token: 0x0600200A RID: 8202 RVA: 0x00045CC3 File Offset: 0x00043EC3
 	private void Start()
 	{
 		this.Setup();
 	}
 
-	// Token: 0x06001FB2 RID: 8114 RVA: 0x0009FBD8 File Offset: 0x0009DDD8
+	// Token: 0x0600200B RID: 8203 RVA: 0x000F14AC File Offset: 0x000EF6AC
 	private void Setup()
 	{
 		this._lastPosition = base.transform.position;
@@ -26,7 +26,7 @@ public class FixedSizeTrailAdjustBySpeed : MonoBehaviour
 		this.LerpTrailColors(0.5f);
 	}
 
-	// Token: 0x06001FB3 RID: 8115 RVA: 0x0009FC54 File Offset: 0x0009DE54
+	// Token: 0x0600200C RID: 8204 RVA: 0x000F1528 File Offset: 0x000EF728
 	private void LerpTrailColors(float t = 0.5f)
 	{
 		GradientColorKey[] colorKeys = this._mixGradient.colorKeys;
@@ -47,7 +47,7 @@ public class FixedSizeTrailAdjustBySpeed : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001FB4 RID: 8116 RVA: 0x0009FCF4 File Offset: 0x0009DEF4
+	// Token: 0x0600200D RID: 8205 RVA: 0x000F15C8 File Offset: 0x000EF7C8
 	private void Update()
 	{
 		float deltaTime = Time.deltaTime;
@@ -76,7 +76,7 @@ public class FixedSizeTrailAdjustBySpeed : MonoBehaviour
 		this._lastPosition = position;
 	}
 
-	// Token: 0x06001FB5 RID: 8117 RVA: 0x0009FDEC File Offset: 0x0009DFEC
+	// Token: 0x0600200E RID: 8206 RVA: 0x000F16C0 File Offset: 0x000EF8C0
 	private void AdjustTrail()
 	{
 		if (!this.trail)
@@ -96,67 +96,67 @@ public class FixedSizeTrailAdjustBySpeed : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040023A7 RID: 9127
+	// Token: 0x040023FA RID: 9210
 	public FixedSizeTrail trail;
 
-	// Token: 0x040023A8 RID: 9128
+	// Token: 0x040023FB RID: 9211
 	public bool adjustPhysics = true;
 
-	// Token: 0x040023A9 RID: 9129
+	// Token: 0x040023FC RID: 9212
 	private Vector3 _rawVelocity;
 
-	// Token: 0x040023AA RID: 9130
+	// Token: 0x040023FD RID: 9213
 	private float _rawSpeed;
 
-	// Token: 0x040023AB RID: 9131
+	// Token: 0x040023FE RID: 9214
 	private float _speed;
 
-	// Token: 0x040023AC RID: 9132
+	// Token: 0x040023FF RID: 9215
 	private float _lastSpeed;
 
-	// Token: 0x040023AD RID: 9133
+	// Token: 0x04002400 RID: 9216
 	private Vector3 _lastPosition;
 
-	// Token: 0x040023AE RID: 9134
+	// Token: 0x04002401 RID: 9217
 	private Vector3 _initGravity;
 
-	// Token: 0x040023AF RID: 9135
+	// Token: 0x04002402 RID: 9218
 	public Vector3 gravityOffset = Vector3.zero;
 
-	// Token: 0x040023B0 RID: 9136
+	// Token: 0x04002403 RID: 9219
 	[Space]
 	public float retractMin = 0.5f;
 
-	// Token: 0x040023B1 RID: 9137
+	// Token: 0x04002404 RID: 9220
 	[Space]
 	[FormerlySerializedAs("sizeIncreaseSpeed")]
 	public float expandSpeed = 16f;
 
-	// Token: 0x040023B2 RID: 9138
+	// Token: 0x04002405 RID: 9221
 	[FormerlySerializedAs("sizeDecreaseSpeed")]
 	public float retractSpeed = 4f;
 
-	// Token: 0x040023B3 RID: 9139
+	// Token: 0x04002406 RID: 9222
 	[Space]
 	public float minSpeed;
 
-	// Token: 0x040023B4 RID: 9140
+	// Token: 0x04002407 RID: 9223
 	public float minLength = 1f;
 
-	// Token: 0x040023B5 RID: 9141
+	// Token: 0x04002408 RID: 9224
 	public Gradient minColors = GradientHelper.FromColor(new Color(0f, 1f, 1f, 1f));
 
-	// Token: 0x040023B6 RID: 9142
+	// Token: 0x04002409 RID: 9225
 	[Space]
 	public float maxSpeed = 10f;
 
-	// Token: 0x040023B7 RID: 9143
+	// Token: 0x0400240A RID: 9226
 	public float maxLength = 8f;
 
-	// Token: 0x040023B8 RID: 9144
+	// Token: 0x0400240B RID: 9227
 	public Gradient maxColors = GradientHelper.FromColor(new Color(1f, 1f, 0f, 1f));
 
-	// Token: 0x040023B9 RID: 9145
+	// Token: 0x0400240C RID: 9228
 	[Space]
 	[SerializeField]
 	private Gradient _mixGradient = new Gradient
@@ -165,21 +165,21 @@ public class FixedSizeTrailAdjustBySpeed : MonoBehaviour
 		alphaKeys = Array.Empty<GradientAlphaKey>()
 	};
 
-	// Token: 0x0200051D RID: 1309
+	// Token: 0x0200052A RID: 1322
 	[Serializable]
 	public struct GradientKey
 	{
-		// Token: 0x06001FB7 RID: 8119 RVA: 0x0009FFC1 File Offset: 0x0009E1C1
+		// Token: 0x06002010 RID: 8208 RVA: 0x00045CCB File Offset: 0x00043ECB
 		public GradientKey(Color color, float time)
 		{
 			this.color = color;
 			this.time = time;
 		}
 
-		// Token: 0x040023BA RID: 9146
+		// Token: 0x0400240D RID: 9229
 		public Color color;
 
-		// Token: 0x040023BB RID: 9147
+		// Token: 0x0400240E RID: 9230
 		public float time;
 	}
 }

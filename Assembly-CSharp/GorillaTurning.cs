@@ -2,47 +2,47 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-// Token: 0x020005A2 RID: 1442
+// Token: 0x020005B0 RID: 1456
 public class GorillaTurning : GorillaTriggerBox
 {
-	// Token: 0x060023DB RID: 9179 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600243B RID: 9275 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Awake()
 	{
 	}
 
-	// Token: 0x040027D4 RID: 10196
+	// Token: 0x04002830 RID: 10288
 	public Material redMaterial;
 
-	// Token: 0x040027D5 RID: 10197
+	// Token: 0x04002831 RID: 10289
 	public Material blueMaterial;
 
-	// Token: 0x040027D6 RID: 10198
+	// Token: 0x04002832 RID: 10290
 	public Material greenMaterial;
 
-	// Token: 0x040027D7 RID: 10199
+	// Token: 0x04002833 RID: 10291
 	public Material transparentBlueMaterial;
 
-	// Token: 0x040027D8 RID: 10200
+	// Token: 0x04002834 RID: 10292
 	public Material transparentRedMaterial;
 
-	// Token: 0x040027D9 RID: 10201
+	// Token: 0x04002835 RID: 10293
 	public Material transparentGreenMaterial;
 
-	// Token: 0x040027DA RID: 10202
+	// Token: 0x04002836 RID: 10294
 	public MeshRenderer smoothTurnBox;
 
-	// Token: 0x040027DB RID: 10203
+	// Token: 0x04002837 RID: 10295
 	public MeshRenderer snapTurnBox;
 
-	// Token: 0x040027DC RID: 10204
+	// Token: 0x04002838 RID: 10296
 	public MeshRenderer noTurnBox;
 
-	// Token: 0x040027DD RID: 10205
+	// Token: 0x04002839 RID: 10297
 	public GorillaSnapTurn snapTurn;
 
-	// Token: 0x040027DE RID: 10206
+	// Token: 0x0400283A RID: 10298
 	public string currentChoice;
 
-	// Token: 0x040027DF RID: 10207
+	// Token: 0x0400283B RID: 10299
 	public float currentSpeed;
 }

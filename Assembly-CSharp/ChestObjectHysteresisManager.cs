@@ -2,39 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020003D7 RID: 983
+// Token: 0x020003E2 RID: 994
 [DefaultExecutionOrder(2000)]
 public class ChestObjectHysteresisManager : MonoBehaviour
 {
-	// Token: 0x060017C0 RID: 6080 RVA: 0x00073C5E File Offset: 0x00071E5E
+	// Token: 0x0600180D RID: 6157 RVA: 0x00040491 File Offset: 0x0003E691
 	protected void Awake()
 	{
 		if (ChestObjectHysteresisManager.hasInstance && ChestObjectHysteresisManager.instance != this)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 			return;
 		}
 		ChestObjectHysteresisManager.SetInstance(this);
 	}
 
-	// Token: 0x060017C1 RID: 6081 RVA: 0x00073C81 File Offset: 0x00071E81
+	// Token: 0x0600180E RID: 6158 RVA: 0x000404B4 File Offset: 0x0003E6B4
 	public static void CreateManager()
 	{
 		ChestObjectHysteresisManager.SetInstance(new GameObject("ChestObjectHysteresisManager").AddComponent<ChestObjectHysteresisManager>());
 	}
 
-	// Token: 0x060017C2 RID: 6082 RVA: 0x00073C97 File Offset: 0x00071E97
+	// Token: 0x0600180F RID: 6159 RVA: 0x000404CA File Offset: 0x0003E6CA
 	private static void SetInstance(ChestObjectHysteresisManager manager)
 	{
 		ChestObjectHysteresisManager.instance = manager;
 		ChestObjectHysteresisManager.hasInstance = true;
 		if (Application.isPlaying)
 		{
-			Object.DontDestroyOnLoad(manager);
+			UnityEngine.Object.DontDestroyOnLoad(manager);
 		}
 	}
 
-	// Token: 0x060017C3 RID: 6083 RVA: 0x00073CB2 File Offset: 0x00071EB2
+	// Token: 0x06001810 RID: 6160 RVA: 0x000404E5 File Offset: 0x0003E6E5
 	public static void RegisterCH(ChestObjectHysteresis cOH)
 	{
 		if (!ChestObjectHysteresisManager.hasInstance)
@@ -47,7 +47,7 @@ public class ChestObjectHysteresisManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060017C4 RID: 6084 RVA: 0x00073CD8 File Offset: 0x00071ED8
+	// Token: 0x06001811 RID: 6161 RVA: 0x0004050B File Offset: 0x0003E70B
 	public static void UnregisterCH(ChestObjectHysteresis cOH)
 	{
 		if (!ChestObjectHysteresisManager.hasInstance)
@@ -60,7 +60,7 @@ public class ChestObjectHysteresisManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060017C5 RID: 6085 RVA: 0x00073D00 File Offset: 0x00071F00
+	// Token: 0x06001812 RID: 6162 RVA: 0x000CA868 File Offset: 0x000C8A68
 	public void Update()
 	{
 		for (int i = 0; i < ChestObjectHysteresisManager.allChests.Count; i++)
@@ -69,12 +69,12 @@ public class ChestObjectHysteresisManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001A5E RID: 6750
+	// Token: 0x04001AA7 RID: 6823
 	public static ChestObjectHysteresisManager instance;
 
-	// Token: 0x04001A5F RID: 6751
+	// Token: 0x04001AA8 RID: 6824
 	public static bool hasInstance = false;
 
-	// Token: 0x04001A60 RID: 6752
+	// Token: 0x04001AA9 RID: 6825
 	public static List<ChestObjectHysteresis> allChests = new List<ChestObjectHysteresis>();
 }

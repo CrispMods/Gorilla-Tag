@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006D3 RID: 1747
+// Token: 0x020006E8 RID: 1768
 [Serializable]
 public struct StringEnum<TEnum> where TEnum : struct, Enum
 {
-	// Token: 0x17000497 RID: 1175
-	// (get) Token: 0x06002B71 RID: 11121 RVA: 0x000D6368 File Offset: 0x000D4568
+	// Token: 0x170004A4 RID: 1188
+	// (get) Token: 0x06002C07 RID: 11271 RVA: 0x0004DD4E File Offset: 0x0004BF4E
 	public TEnum Value
 	{
 		get
@@ -15,7 +15,7 @@ public struct StringEnum<TEnum> where TEnum : struct, Enum
 		}
 	}
 
-	// Token: 0x06002B72 RID: 11122 RVA: 0x000D6370 File Offset: 0x000D4570
+	// Token: 0x06002C08 RID: 11272 RVA: 0x00121A44 File Offset: 0x0011FC44
 	public static implicit operator StringEnum<TEnum>(TEnum e)
 	{
 		return new StringEnum<TEnum>
@@ -24,25 +24,25 @@ public struct StringEnum<TEnum> where TEnum : struct, Enum
 		};
 	}
 
-	// Token: 0x06002B73 RID: 11123 RVA: 0x000D6368 File Offset: 0x000D4568
+	// Token: 0x06002C09 RID: 11273 RVA: 0x0004DD4E File Offset: 0x0004BF4E
 	public static implicit operator TEnum(StringEnum<TEnum> se)
 	{
 		return se.m_EnumValue;
 	}
 
-	// Token: 0x06002B74 RID: 11124 RVA: 0x000D638E File Offset: 0x000D458E
+	// Token: 0x06002C0A RID: 11274 RVA: 0x0004DD56 File Offset: 0x0004BF56
 	public static bool operator ==(StringEnum<TEnum> left, StringEnum<TEnum> right)
 	{
 		return left.m_EnumValue.Equals(right.m_EnumValue);
 	}
 
-	// Token: 0x06002B75 RID: 11125 RVA: 0x000D63AD File Offset: 0x000D45AD
+	// Token: 0x06002C0B RID: 11275 RVA: 0x0004DD75 File Offset: 0x0004BF75
 	public static bool operator !=(StringEnum<TEnum> left, StringEnum<TEnum> right)
 	{
 		return !(left == right);
 	}
 
-	// Token: 0x06002B76 RID: 11126 RVA: 0x000D63BC File Offset: 0x000D45BC
+	// Token: 0x06002C0C RID: 11276 RVA: 0x00121A64 File Offset: 0x0011FC64
 	public override bool Equals(object obj)
 	{
 		if (obj is StringEnum<TEnum>)
@@ -53,13 +53,13 @@ public struct StringEnum<TEnum> where TEnum : struct, Enum
 		return false;
 	}
 
-	// Token: 0x06002B77 RID: 11127 RVA: 0x000D63F6 File Offset: 0x000D45F6
+	// Token: 0x06002C0D RID: 11277 RVA: 0x0004DD81 File Offset: 0x0004BF81
 	public override int GetHashCode()
 	{
 		return this.m_EnumValue.GetHashCode();
 	}
 
-	// Token: 0x040030B1 RID: 12465
+	// Token: 0x0400314E RID: 12622
 	[SerializeField]
 	private TEnum m_EnumValue;
 }

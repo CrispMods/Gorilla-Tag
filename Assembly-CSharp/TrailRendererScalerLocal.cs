@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000203 RID: 515
+// Token: 0x0200020E RID: 526
 public class TrailRendererScalerLocal : MonoBehaviour
 {
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004A8 RID: 1192
+// Token: 0x020004B4 RID: 1204
 public class MonkeBallTeamZoneSelector : MonoBehaviour
 {
-	// Token: 0x06001CF4 RID: 7412 RVA: 0x0008D0A8 File Offset: 0x0008B2A8
+	// Token: 0x06001D48 RID: 7496 RVA: 0x000E0464 File Offset: 0x000DE664
 	private void OnTriggerEnter(Collider other)
 	{
 		GamePlayer gamePlayer = GamePlayer.GetGamePlayer(other, true);
@@ -14,6 +14,6 @@ public class MonkeBallTeamZoneSelector : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001FE3 RID: 8163
+	// Token: 0x04002032 RID: 8242
 	public int teamId;
 }

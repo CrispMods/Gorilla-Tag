@@ -3,12 +3,12 @@ using System.Runtime.CompilerServices;
 
 namespace Fusion.CodeGen
 {
-	// Token: 0x02000D04 RID: 3332
+	// Token: 0x02000D35 RID: 3381
 	[WeaverGenerated]
 	[PreserveInPlugin]
 	internal struct ReaderWriter@BarrelCannon__BarrelCannonState : IElementReaderWriter<BarrelCannon.BarrelCannonState>
 	{
-		// Token: 0x060053B3 RID: 21427 RVA: 0x0019C1BC File Offset: 0x0019A3BC
+		// Token: 0x06005515 RID: 21781 RVA: 0x00067398 File Offset: 0x00065598
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -17,7 +17,7 @@ namespace Fusion.CodeGen
 			return *(BarrelCannon.BarrelCannonState*)(data + index * 4);
 		}
 
-		// Token: 0x060053B4 RID: 21428 RVA: 0x0019C1CC File Offset: 0x0019A3CC
+		// Token: 0x06005516 RID: 21782 RVA: 0x000673A8 File Offset: 0x000655A8
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -26,7 +26,7 @@ namespace Fusion.CodeGen
 			return ref *(BarrelCannon.BarrelCannonState*)(data + index * 4);
 		}
 
-		// Token: 0x060053B5 RID: 21429 RVA: 0x0019C1D7 File Offset: 0x0019A3D7
+		// Token: 0x06005517 RID: 21783 RVA: 0x000673B3 File Offset: 0x000655B3
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -35,7 +35,7 @@ namespace Fusion.CodeGen
 			*(BarrelCannon.BarrelCannonState*)(data + index * 4) = val;
 		}
 
-		// Token: 0x060053B6 RID: 21430 RVA: 0x000444E2 File Offset: 0x000426E2
+		// Token: 0x06005518 RID: 21784 RVA: 0x00039846 File Offset: 0x00037A46
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -44,7 +44,7 @@ namespace Fusion.CodeGen
 			return 1;
 		}
 
-		// Token: 0x060053B7 RID: 21431 RVA: 0x0019C1E8 File Offset: 0x0019A3E8
+		// Token: 0x06005519 RID: 21785 RVA: 0x001D1204 File Offset: 0x001CF404
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -53,7 +53,7 @@ namespace Fusion.CodeGen
 			return val.GetHashCode();
 		}
 
-		// Token: 0x060053B8 RID: 21432 RVA: 0x0019C204 File Offset: 0x0019A404
+		// Token: 0x0600551A RID: 21786 RVA: 0x001D1220 File Offset: 0x001CF420
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[WeaverGenerated]
 		public static IElementReaderWriter<BarrelCannon.BarrelCannonState> GetInstance()
@@ -65,7 +65,7 @@ namespace Fusion.CodeGen
 			return ReaderWriter@BarrelCannon__BarrelCannonState.Instance;
 		}
 
-		// Token: 0x040055FC RID: 22012
+		// Token: 0x04005708 RID: 22280
 		[WeaverGenerated]
 		public static IElementReaderWriter<BarrelCannon.BarrelCannonState> Instance;
 	}

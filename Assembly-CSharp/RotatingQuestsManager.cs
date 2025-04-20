@@ -7,44 +7,44 @@ using Newtonsoft.Json.Converters;
 using PlayFab;
 using UnityEngine;
 
-// Token: 0x02000126 RID: 294
+// Token: 0x02000130 RID: 304
 public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 {
-	// Token: 0x170000C0 RID: 192
-	// (get) Token: 0x060007DF RID: 2015 RVA: 0x0002B44E File Offset: 0x0002964E
-	// (set) Token: 0x060007E0 RID: 2016 RVA: 0x0002B456 File Offset: 0x00029656
+	// Token: 0x170000C5 RID: 197
+	// (get) Token: 0x06000823 RID: 2083 RVA: 0x00035B92 File Offset: 0x00033D92
+	// (set) Token: 0x06000824 RID: 2084 RVA: 0x00035B9A File Offset: 0x00033D9A
 	public bool TickRunning { get; set; }
 
-	// Token: 0x170000C1 RID: 193
-	// (get) Token: 0x060007E1 RID: 2017 RVA: 0x0002B45F File Offset: 0x0002965F
-	// (set) Token: 0x060007E2 RID: 2018 RVA: 0x0002B467 File Offset: 0x00029667
+	// Token: 0x170000C6 RID: 198
+	// (get) Token: 0x06000825 RID: 2085 RVA: 0x00035BA3 File Offset: 0x00033DA3
+	// (set) Token: 0x06000826 RID: 2086 RVA: 0x00035BAB File Offset: 0x00033DAB
 	public DateTime DailyQuestCountdown { get; private set; }
 
-	// Token: 0x170000C2 RID: 194
-	// (get) Token: 0x060007E3 RID: 2019 RVA: 0x0002B470 File Offset: 0x00029670
-	// (set) Token: 0x060007E4 RID: 2020 RVA: 0x0002B478 File Offset: 0x00029678
+	// Token: 0x170000C7 RID: 199
+	// (get) Token: 0x06000827 RID: 2087 RVA: 0x00035BB4 File Offset: 0x00033DB4
+	// (set) Token: 0x06000828 RID: 2088 RVA: 0x00035BBC File Offset: 0x00033DBC
 	public DateTime WeeklyQuestCountdown { get; private set; }
 
-	// Token: 0x060007E5 RID: 2021 RVA: 0x0002B481 File Offset: 0x00029681
+	// Token: 0x06000829 RID: 2089 RVA: 0x00035BC5 File Offset: 0x00033DC5
 	private void Start()
 	{
 		this._questAudio = base.GetComponent<AudioSource>();
 		this.RequestQuestsFromTitleData();
 	}
 
-	// Token: 0x060007E6 RID: 2022 RVA: 0x0002B495 File Offset: 0x00029695
+	// Token: 0x0600082A RID: 2090 RVA: 0x00035BD9 File Offset: 0x00033DD9
 	private void OnEnable()
 	{
 		TickSystem<object>.AddTickCallback(this);
 	}
 
-	// Token: 0x060007E7 RID: 2023 RVA: 0x0002B49D File Offset: 0x0002969D
+	// Token: 0x0600082B RID: 2091 RVA: 0x00035BE1 File Offset: 0x00033DE1
 	private void OnDisable()
 	{
 		TickSystem<object>.RemoveTickCallback(this);
 	}
 
-	// Token: 0x060007E8 RID: 2024 RVA: 0x0002B4A5 File Offset: 0x000296A5
+	// Token: 0x0600082C RID: 2092 RVA: 0x00035BE9 File Offset: 0x00033DE9
 	public void Tick()
 	{
 		if (this.hasQuest && this.nextQuestUpdateTime < DateTime.UtcNow)
@@ -53,7 +53,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		}
 	}
 
-	// Token: 0x060007E9 RID: 2025 RVA: 0x0002B4C8 File Offset: 0x000296C8
+	// Token: 0x0600082D RID: 2093 RVA: 0x0008CAD4 File Offset: 0x0008ACD4
 	private void ProcessAllQuests(Action<RotatingQuestsManager.RotatingQuest> action)
 	{
 		RotatingQuestsManager.<>c__DisplayClass30_0 CS$<>8__locals1;
@@ -62,7 +62,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		RotatingQuestsManager.<ProcessAllQuests>g__ProcessAllQuestsInList|30_0(this.quests.WeeklyQuests, ref CS$<>8__locals1);
 	}
 
-	// Token: 0x060007EA RID: 2026 RVA: 0x0002B501 File Offset: 0x00029701
+	// Token: 0x0600082E RID: 2094 RVA: 0x00035C0B File Offset: 0x00033E0B
 	private void QuestLoadPostProcess(RotatingQuestsManager.RotatingQuest quest)
 	{
 		if (quest.requiredZones.Count == 1 && quest.requiredZones[0] == GTZone.none)
@@ -71,7 +71,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		}
 	}
 
-	// Token: 0x060007EB RID: 2027 RVA: 0x0002B52C File Offset: 0x0002972C
+	// Token: 0x0600082F RID: 2095 RVA: 0x00035C36 File Offset: 0x00033E36
 	private void QuestSavePreProcess(RotatingQuestsManager.RotatingQuest quest)
 	{
 		if (quest.requiredZones.Count == 0)
@@ -80,14 +80,14 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		}
 	}
 
-	// Token: 0x060007EC RID: 2028 RVA: 0x0002B548 File Offset: 0x00029748
+	// Token: 0x06000830 RID: 2096 RVA: 0x0008CB10 File Offset: 0x0008AD10
 	public void LoadTestQuestsFromFile()
 	{
 		TextAsset textAsset = Resources.Load<TextAsset>(this.localQuestPath);
 		this.LoadQuestsFromJson(textAsset.text);
 	}
 
-	// Token: 0x060007ED RID: 2029 RVA: 0x0002B56D File Offset: 0x0002976D
+	// Token: 0x06000831 RID: 2097 RVA: 0x00035C52 File Offset: 0x00033E52
 	public void RequestQuestsFromTitleData()
 	{
 		PlayFabTitleDataCache.Instance.GetTitleData("AllActiveQuests", delegate(string data)
@@ -99,7 +99,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		});
 	}
 
-	// Token: 0x060007EE RID: 2030 RVA: 0x0002B5AC File Offset: 0x000297AC
+	// Token: 0x06000832 RID: 2098 RVA: 0x0008CB38 File Offset: 0x0008AD38
 	private void LoadQuestsFromJson(string jsonString)
 	{
 		this.quests = JsonConvert.DeserializeObject<RotatingQuestsManager.RotatingQuestList>(jsonString);
@@ -117,7 +117,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		}
 	}
 
-	// Token: 0x060007EF RID: 2031 RVA: 0x0002B60C File Offset: 0x0002980C
+	// Token: 0x06000833 RID: 2099 RVA: 0x0008CB98 File Offset: 0x0008AD98
 	private void SetupQuests()
 	{
 		this.ClearAllQuestEventListeners();
@@ -129,7 +129,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		this.nextQuestUpdateTime = this.nextQuestUpdateTime.AddMinutes(1.0);
 	}
 
-	// Token: 0x060007F0 RID: 2032 RVA: 0x0002B660 File Offset: 0x00029860
+	// Token: 0x06000834 RID: 2100 RVA: 0x0008CBEC File Offset: 0x0008ADEC
 	private void SelectActiveQuests()
 	{
 		DateTime dateTime = new DateTime(2025, 1, 10, 18, 0, 0, DateTimeKind.Utc);
@@ -161,7 +161,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		RotatingQuestsManager.LastQuestDailyID = this.dailyQuestSetID;
 		this.DailyQuestCountdown = dateTime + TimeSpan.FromDays((double)(this.dailyQuestSetID + 1));
 		this.WeeklyQuestCountdown = dateTime + TimeSpan.FromDays((double)((this.weeklyQuestSetID + 1) * 7));
-		Random.InitState(this.dailyQuestSetID);
+		UnityEngine.Random.InitState(this.dailyQuestSetID);
 		foreach (RotatingQuestsManager.RotatingQuestGroup rotatingQuestGroup in this.quests.DailyQuests)
 		{
 			int num = Math.Min(rotatingQuestGroup.selectCount, rotatingQuestGroup.quests.Count);
@@ -175,7 +175,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			}
 			for (int j = 0; j < num; j++)
 			{
-				float num3 = Random.Range(0f, num2);
+				float num3 = UnityEngine.Random.Range(0f, num2);
 				for (int k = 0; k < list.Count; k++)
 				{
 					float item = list[k].Item2;
@@ -192,7 +192,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 				}
 			}
 		}
-		Random.InitState(this.weeklyQuestSetID);
+		UnityEngine.Random.InitState(this.weeklyQuestSetID);
 		foreach (RotatingQuestsManager.RotatingQuestGroup rotatingQuestGroup2 in this.quests.WeeklyQuests)
 		{
 			int num4 = Math.Min(rotatingQuestGroup2.selectCount, rotatingQuestGroup2.quests.Count);
@@ -206,7 +206,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			}
 			for (int m = 0; m < num4; m++)
 			{
-				float num6 = Random.Range(0f, num5);
+				float num6 = UnityEngine.Random.Range(0f, num5);
 				for (int n = 0; n < list2.Count; n++)
 				{
 					float item3 = list2[n].Item2;
@@ -226,14 +226,14 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		ProgressionController.ReportQuestSelectionChanged();
 	}
 
-	// Token: 0x060007F1 RID: 2033 RVA: 0x0002BB94 File Offset: 0x00029D94
+	// Token: 0x06000835 RID: 2101 RVA: 0x00035C8E File Offset: 0x00033E8E
 	private void RemoveDisabledQuests()
 	{
 		RotatingQuestsManager.<RemoveDisabledQuests>g__RemoveDisabledQuestsFromGroupList|38_0(this.quests.DailyQuests);
 		RotatingQuestsManager.<RemoveDisabledQuests>g__RemoveDisabledQuestsFromGroupList|38_0(this.quests.WeeklyQuests);
 	}
 
-	// Token: 0x060007F2 RID: 2034 RVA: 0x0002BBB8 File Offset: 0x00029DB8
+	// Token: 0x06000836 RID: 2102 RVA: 0x0008D120 File Offset: 0x0008B320
 	private void LoadQuestProgress()
 	{
 		int @int = PlayerPrefs.GetInt("Rotating_Quest_Daily_SetID_Key", -1);
@@ -288,7 +288,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		}
 	}
 
-	// Token: 0x060007F3 RID: 2035 RVA: 0x0002BDB4 File Offset: 0x00029FB4
+	// Token: 0x06000837 RID: 2103 RVA: 0x0008D31C File Offset: 0x0008B51C
 	private void SaveQuestProgress()
 	{
 		int num = 0;
@@ -334,7 +334,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		PlayerPrefs.Save();
 	}
 
-	// Token: 0x060007F4 RID: 2036 RVA: 0x0002BF84 File Offset: 0x0002A184
+	// Token: 0x06000838 RID: 2104 RVA: 0x0008D4EC File Offset: 0x0008B6EC
 	private void SetupAllQuestEventListeners()
 	{
 		foreach (RotatingQuestsManager.RotatingQuestGroup rotatingQuestGroup in this.quests.DailyQuests)
@@ -361,32 +361,26 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		}
 	}
 
-	// Token: 0x060007F5 RID: 2037 RVA: 0x0002C0C4 File Offset: 0x0002A2C4
+	// Token: 0x06000839 RID: 2105 RVA: 0x0008D62C File Offset: 0x0008B82C
 	private void ClearAllQuestEventListeners()
 	{
 		foreach (RotatingQuestsManager.RotatingQuestGroup rotatingQuestGroup in this.quests.DailyQuests)
 		{
 			foreach (RotatingQuestsManager.RotatingQuest rotatingQuest in rotatingQuestGroup.quests)
 			{
-				if (rotatingQuest.isQuestActive && !rotatingQuest.isQuestComplete)
-				{
-					rotatingQuest.RemoveEventListener();
-				}
+				rotatingQuest.RemoveEventListener();
 			}
 		}
 		foreach (RotatingQuestsManager.RotatingQuestGroup rotatingQuestGroup2 in this.quests.WeeklyQuests)
 		{
 			foreach (RotatingQuestsManager.RotatingQuest rotatingQuest2 in rotatingQuestGroup2.quests)
 			{
-				if (rotatingQuest2.isQuestActive && !rotatingQuest2.isQuestComplete)
-				{
-					rotatingQuest2.RemoveEventListener();
-				}
+				rotatingQuest2.RemoveEventListener();
 			}
 		}
 	}
 
-	// Token: 0x060007F6 RID: 2038 RVA: 0x0002C1F4 File Offset: 0x0002A3F4
+	// Token: 0x0600083A RID: 2106 RVA: 0x0008D738 File Offset: 0x0008B938
 	private void HandleQuestCompleted(int questID)
 	{
 		RotatingQuestsManager.RotatingQuest quest = this.quests.GetQuest(questID);
@@ -406,7 +400,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		}
 	}
 
-	// Token: 0x060007F7 RID: 2039 RVA: 0x0002C236 File Offset: 0x0002A436
+	// Token: 0x0600083B RID: 2107 RVA: 0x00035CB0 File Offset: 0x00033EB0
 	private void HandleQuestProgressChanged(bool initialLoad)
 	{
 		if (!initialLoad)
@@ -417,7 +411,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		ProgressionController.ReportQuestChanged(initialLoad);
 	}
 
-	// Token: 0x060007F9 RID: 2041 RVA: 0x0002C264 File Offset: 0x0002A464
+	// Token: 0x0600083D RID: 2109 RVA: 0x0008D77C File Offset: 0x0008B97C
 	[CompilerGenerated]
 	internal static void <ProcessAllQuests>g__ProcessAllQuestsInList|30_0(List<RotatingQuestsManager.RotatingQuestGroup> questGroups, ref RotatingQuestsManager.<>c__DisplayClass30_0 A_1)
 	{
@@ -430,7 +424,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		}
 	}
 
-	// Token: 0x060007FB RID: 2043 RVA: 0x0002C2FC File Offset: 0x0002A4FC
+	// Token: 0x0600083F RID: 2111 RVA: 0x0008D808 File Offset: 0x0008BA08
 	[CompilerGenerated]
 	internal static void <RemoveDisabledQuests>g__RemoveDisabledQuestsFromGroupList|38_0(List<RotatingQuestsManager.RotatingQuestGroup> questList)
 	{
@@ -446,72 +440,72 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 		}
 	}
 
-	// Token: 0x0400093E RID: 2366
+	// Token: 0x04000981 RID: 2433
 	private bool hasQuest;
 
-	// Token: 0x0400093F RID: 2367
+	// Token: 0x04000982 RID: 2434
 	[SerializeField]
 	private bool useTestLocalQuests;
 
-	// Token: 0x04000940 RID: 2368
+	// Token: 0x04000983 RID: 2435
 	[SerializeField]
 	private string localQuestPath = "TestingRotatingQuests";
 
-	// Token: 0x04000941 RID: 2369
+	// Token: 0x04000984 RID: 2436
 	public static int LastQuestChange;
 
-	// Token: 0x04000942 RID: 2370
+	// Token: 0x04000985 RID: 2437
 	public static int LastQuestDailyID;
 
-	// Token: 0x04000943 RID: 2371
+	// Token: 0x04000986 RID: 2438
 	public RotatingQuestsManager.RotatingQuestList quests;
 
-	// Token: 0x04000944 RID: 2372
+	// Token: 0x04000987 RID: 2439
 	public int dailyQuestSetID;
 
-	// Token: 0x04000945 RID: 2373
+	// Token: 0x04000988 RID: 2440
 	public int weeklyQuestSetID;
 
-	// Token: 0x04000946 RID: 2374
+	// Token: 0x04000989 RID: 2441
 	[SerializeField]
 	private bool _playQuestSounds;
 
-	// Token: 0x04000947 RID: 2375
+	// Token: 0x0400098A RID: 2442
 	private AudioSource _questAudio;
 
-	// Token: 0x0400094A RID: 2378
+	// Token: 0x0400098D RID: 2445
 	private DateTime nextQuestUpdateTime;
 
-	// Token: 0x0400094B RID: 2379
+	// Token: 0x0400098E RID: 2446
 	private const string kDailyQuestSetIDKey = "Rotating_Quest_Daily_SetID_Key";
 
-	// Token: 0x0400094C RID: 2380
+	// Token: 0x0400098F RID: 2447
 	private const string kDailyQuestSaveCountKey = "Rotating_Quest_Daily_SaveCount_Key";
 
-	// Token: 0x0400094D RID: 2381
+	// Token: 0x04000990 RID: 2448
 	private const string kDailyQuestIDKey = "Rotating_Quest_Daily_ID_Key";
 
-	// Token: 0x0400094E RID: 2382
+	// Token: 0x04000991 RID: 2449
 	private const string kDailyQuestProgressKey = "Rotating_Quest_Daily_Progress_Key";
 
-	// Token: 0x0400094F RID: 2383
+	// Token: 0x04000992 RID: 2450
 	private const string kWeeklyQuestSetIDKey = "Rotating_Quest_Weekly_SetID_Key";
 
-	// Token: 0x04000950 RID: 2384
+	// Token: 0x04000993 RID: 2451
 	private const string kWeeklyQuestSaveCountKey = "Rotating_Quest_Weekly_SaveCount_Key";
 
-	// Token: 0x04000951 RID: 2385
+	// Token: 0x04000994 RID: 2452
 	private const string kWeeklyQuestIDKey = "Rotating_Quest_Weekly_ID_Key";
 
-	// Token: 0x04000952 RID: 2386
+	// Token: 0x04000995 RID: 2453
 	private const string kWeeklyQuestProgressKey = "Rotating_Quest_Weekly_Progress_Key";
 
-	// Token: 0x02000127 RID: 295
+	// Token: 0x02000131 RID: 305
 	[Serializable]
 	public class RotatingQuest
 	{
-		// Token: 0x170000C3 RID: 195
-		// (get) Token: 0x060007FC RID: 2044 RVA: 0x0002C37C File Offset: 0x0002A57C
+		// Token: 0x170000C8 RID: 200
+		// (get) Token: 0x06000840 RID: 2112 RVA: 0x00035CE7 File Offset: 0x00033EE7
 		[JsonIgnore]
 		public bool IsMovementQuest
 		{
@@ -521,19 +515,19 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			}
 		}
 
-		// Token: 0x170000C4 RID: 196
-		// (get) Token: 0x060007FD RID: 2045 RVA: 0x0002C393 File Offset: 0x0002A593
-		// (set) Token: 0x060007FE RID: 2046 RVA: 0x0002C39B File Offset: 0x0002A59B
+		// Token: 0x170000C9 RID: 201
+		// (get) Token: 0x06000841 RID: 2113 RVA: 0x00035CFE File Offset: 0x00033EFE
+		// (set) Token: 0x06000842 RID: 2114 RVA: 0x00035D06 File Offset: 0x00033F06
 		[JsonIgnore]
 		public GTZone RequiredZone { get; private set; } = GTZone.none;
 
-		// Token: 0x060007FF RID: 2047 RVA: 0x0002C3A4 File Offset: 0x0002A5A4
+		// Token: 0x06000843 RID: 2115 RVA: 0x00035D0F File Offset: 0x00033F0F
 		public void SetRequiredZone()
 		{
-			this.RequiredZone = ((this.requiredZones.Count > 0) ? this.requiredZones[Random.Range(0, this.requiredZones.Count)] : GTZone.none);
+			this.RequiredZone = ((this.requiredZones.Count > 0) ? this.requiredZones[UnityEngine.Random.Range(0, this.requiredZones.Count)] : GTZone.none);
 		}
 
-		// Token: 0x06000800 RID: 2048 RVA: 0x0002C3DC File Offset: 0x0002A5DC
+		// Token: 0x06000844 RID: 2116 RVA: 0x0008D888 File Offset: 0x0008BA88
 		public void AddEventListener()
 		{
 			if (this.isQuestComplete)
@@ -578,12 +572,15 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			case QuestType.misc:
 				PlayerGameEvents.OnMiscEvent += this.OnGameEventOccurence;
 				return;
+			case QuestType.critter:
+				PlayerGameEvents.OnCritterEvent += this.OnGameEventOccurence;
+				return;
 			default:
 				return;
 			}
 		}
 
-		// Token: 0x06000801 RID: 2049 RVA: 0x0002C50C File Offset: 0x0002A70C
+		// Token: 0x06000845 RID: 2117 RVA: 0x0008D9CC File Offset: 0x0008BBCC
 		public void RemoveEventListener()
 		{
 			switch (this.questType)
@@ -624,12 +621,15 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			case QuestType.misc:
 				PlayerGameEvents.OnMiscEvent -= this.OnGameEventOccurence;
 				return;
+			case QuestType.critter:
+				PlayerGameEvents.OnCritterEvent -= this.OnGameEventOccurence;
+				return;
 			default:
 				return;
 			}
 		}
 
-		// Token: 0x06000802 RID: 2050 RVA: 0x0002C630 File Offset: 0x0002A830
+		// Token: 0x06000846 RID: 2118 RVA: 0x0008DB08 File Offset: 0x0008BD08
 		public void ApplySavedProgress(int progress)
 		{
 			if (this.questType == QuestType.moveDistance || this.questType == QuestType.swimDistance)
@@ -643,7 +643,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			this.isQuestComplete = (this.occurenceCount >= this.requiredOccurenceCount);
 		}
 
-		// Token: 0x06000803 RID: 2051 RVA: 0x0002C69F File Offset: 0x0002A89F
+		// Token: 0x06000847 RID: 2119 RVA: 0x00035D45 File Offset: 0x00033F45
 		public int GetProgress()
 		{
 			if (this.questType == QuestType.moveDistance || this.questType == QuestType.swimDistance)
@@ -653,7 +653,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			return this.occurenceCount;
 		}
 
-		// Token: 0x06000804 RID: 2052 RVA: 0x0002C6C8 File Offset: 0x0002A8C8
+		// Token: 0x06000848 RID: 2120 RVA: 0x0008DB78 File Offset: 0x0008BD78
 		private void OnGameEventOccurence(string eventName)
 		{
 			if (this.RequiredZone != GTZone.none && !ZoneManagement.IsInZone(this.RequiredZone))
@@ -667,7 +667,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			}
 		}
 
-		// Token: 0x06000805 RID: 2053 RVA: 0x0002C715 File Offset: 0x0002A915
+		// Token: 0x06000849 RID: 2121 RVA: 0x00035D6C File Offset: 0x00033F6C
 		private void OnGameMoveEvent(float distance, float speed)
 		{
 			if (this.RequiredZone != GTZone.none && !ZoneManagement.IsInZone(this.RequiredZone))
@@ -678,7 +678,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			this.SetProgress(Mathf.FloorToInt(this.moveDistance));
 		}
 
-		// Token: 0x06000806 RID: 2054 RVA: 0x0002C750 File Offset: 0x0002A950
+		// Token: 0x0600084A RID: 2122 RVA: 0x0008DBC8 File Offset: 0x0008BDC8
 		private void SetProgress(int progress)
 		{
 			if (this.isQuestComplete)
@@ -698,7 +698,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			this.questManager.HandleQuestProgressChanged(false);
 		}
 
-		// Token: 0x06000807 RID: 2055 RVA: 0x0002C7A2 File Offset: 0x0002A9A2
+		// Token: 0x0600084B RID: 2123 RVA: 0x00035DA5 File Offset: 0x00033FA5
 		private void Complete()
 		{
 			if (this.isQuestComplete)
@@ -710,13 +710,13 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			this.questManager.HandleQuestCompleted(this.questID);
 		}
 
-		// Token: 0x06000808 RID: 2056 RVA: 0x0002C7CB File Offset: 0x0002A9CB
+		// Token: 0x0600084C RID: 2124 RVA: 0x00035DCE File Offset: 0x00033FCE
 		public string GetTextDescription()
 		{
 			return this.<GetTextDescription>g__GetActionName|30_0().ToUpper() + this.<GetTextDescription>g__GetLocationText|30_1().ToUpper();
 		}
 
-		// Token: 0x06000809 RID: 2057 RVA: 0x0002C7E8 File Offset: 0x0002A9E8
+		// Token: 0x0600084D RID: 2125 RVA: 0x00035DEB File Offset: 0x00033FEB
 		public string GetProgressText()
 		{
 			if (!this.isQuestComplete)
@@ -726,7 +726,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			return "[DONE]";
 		}
 
-		// Token: 0x0600080B RID: 2059 RVA: 0x0002C848 File Offset: 0x0002AA48
+		// Token: 0x0600084F RID: 2127 RVA: 0x0008DC1C File Offset: 0x0008BE1C
 		[CompilerGenerated]
 		private string <GetTextDescription>g__GetActionName|30_0()
 		{
@@ -760,7 +760,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			return this.questName;
 		}
 
-		// Token: 0x0600080C RID: 2060 RVA: 0x0002C90B File Offset: 0x0002AB0B
+		// Token: 0x06000850 RID: 2128 RVA: 0x00035E48 File Offset: 0x00034048
 		[CompilerGenerated]
 		private string <GetTextDescription>g__GetLocationText|30_1()
 		{
@@ -771,86 +771,86 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			return string.Format(" IN {0}", this.RequiredZone);
 		}
 
-		// Token: 0x04000953 RID: 2387
+		// Token: 0x04000996 RID: 2454
 		public bool disable;
 
-		// Token: 0x04000954 RID: 2388
+		// Token: 0x04000997 RID: 2455
 		public int questID;
 
-		// Token: 0x04000955 RID: 2389
+		// Token: 0x04000998 RID: 2456
 		public float weight = 1f;
 
-		// Token: 0x04000956 RID: 2390
+		// Token: 0x04000999 RID: 2457
 		public string questName = "UNNAMED QUEST";
 
-		// Token: 0x04000957 RID: 2391
+		// Token: 0x0400099A RID: 2458
 		public QuestType questType;
 
-		// Token: 0x04000958 RID: 2392
+		// Token: 0x0400099B RID: 2459
 		public string questOccurenceFilter;
 
-		// Token: 0x04000959 RID: 2393
+		// Token: 0x0400099C RID: 2460
 		public int requiredOccurenceCount = 1;
 
-		// Token: 0x0400095A RID: 2394
+		// Token: 0x0400099D RID: 2461
 		[JsonProperty(ItemConverterType = typeof(StringEnumConverter))]
 		public List<GTZone> requiredZones;
 
-		// Token: 0x0400095B RID: 2395
+		// Token: 0x0400099E RID: 2462
 		[Space]
 		[NonSerialized]
 		public bool isQuestActive;
 
-		// Token: 0x0400095C RID: 2396
+		// Token: 0x0400099F RID: 2463
 		[NonSerialized]
 		public bool isQuestComplete;
 
-		// Token: 0x0400095D RID: 2397
+		// Token: 0x040009A0 RID: 2464
 		[NonSerialized]
 		public bool isDailyQuest;
 
-		// Token: 0x0400095E RID: 2398
+		// Token: 0x040009A1 RID: 2465
 		[NonSerialized]
 		public int lastChange;
 
-		// Token: 0x04000960 RID: 2400
+		// Token: 0x040009A3 RID: 2467
 		[NonSerialized]
 		public int occurenceCount;
 
-		// Token: 0x04000961 RID: 2401
+		// Token: 0x040009A4 RID: 2468
 		private float moveDistance;
 
-		// Token: 0x04000962 RID: 2402
+		// Token: 0x040009A5 RID: 2469
 		[NonSerialized]
 		public RotatingQuestsManager questManager;
 	}
 
-	// Token: 0x02000128 RID: 296
+	// Token: 0x02000132 RID: 306
 	[Serializable]
 	public class RotatingQuestGroup
 	{
-		// Token: 0x04000963 RID: 2403
+		// Token: 0x040009A6 RID: 2470
 		public int selectCount;
 
-		// Token: 0x04000964 RID: 2404
+		// Token: 0x040009A7 RID: 2471
 		public string name;
 
-		// Token: 0x04000965 RID: 2405
+		// Token: 0x040009A8 RID: 2472
 		public List<RotatingQuestsManager.RotatingQuest> quests;
 	}
 
-	// Token: 0x02000129 RID: 297
+	// Token: 0x02000133 RID: 307
 	[Serializable]
 	public class RotatingQuestList
 	{
-		// Token: 0x0600080E RID: 2062 RVA: 0x0002C932 File Offset: 0x0002AB32
+		// Token: 0x06000852 RID: 2130 RVA: 0x00035E6F File Offset: 0x0003406F
 		public void Init()
 		{
 			RotatingQuestsManager.RotatingQuestList.<Init>g__SetIsDaily|2_0(this.DailyQuests, true);
 			RotatingQuestsManager.RotatingQuestList.<Init>g__SetIsDaily|2_0(this.WeeklyQuests, false);
 		}
 
-		// Token: 0x0600080F RID: 2063 RVA: 0x0002C94C File Offset: 0x0002AB4C
+		// Token: 0x06000853 RID: 2131 RVA: 0x0008DCE0 File Offset: 0x0008BEE0
 		public RotatingQuestsManager.RotatingQuest GetQuest(int questID)
 		{
 			RotatingQuestsManager.RotatingQuestList.<>c__DisplayClass3_0 CS$<>8__locals1;
@@ -863,7 +863,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			return rotatingQuest;
 		}
 
-		// Token: 0x06000811 RID: 2065 RVA: 0x0002C984 File Offset: 0x0002AB84
+		// Token: 0x06000855 RID: 2133 RVA: 0x0008DD18 File Offset: 0x0008BF18
 		[CompilerGenerated]
 		internal static void <Init>g__SetIsDaily|2_0(List<RotatingQuestsManager.RotatingQuestGroup> questList, bool isDaily)
 		{
@@ -876,7 +876,7 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			}
 		}
 
-		// Token: 0x06000812 RID: 2066 RVA: 0x0002CA0C File Offset: 0x0002AC0C
+		// Token: 0x06000856 RID: 2134 RVA: 0x0008DDA0 File Offset: 0x0008BFA0
 		[CompilerGenerated]
 		internal static RotatingQuestsManager.RotatingQuest <GetQuest>g__GetQuestFrom|3_0(List<RotatingQuestsManager.RotatingQuestGroup> list, ref RotatingQuestsManager.RotatingQuestList.<>c__DisplayClass3_0 A_1)
 		{
@@ -893,10 +893,10 @@ public class RotatingQuestsManager : MonoBehaviour, ITickSystemTick
 			return null;
 		}
 
-		// Token: 0x04000966 RID: 2406
+		// Token: 0x040009A9 RID: 2473
 		public List<RotatingQuestsManager.RotatingQuestGroup> DailyQuests;
 
-		// Token: 0x04000967 RID: 2407
+		// Token: 0x040009AA RID: 2474
 		public List<RotatingQuestsManager.RotatingQuestGroup> WeeklyQuests;
 	}
 }

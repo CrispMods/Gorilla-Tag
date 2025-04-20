@@ -2,38 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020001CB RID: 459
+// Token: 0x020001D6 RID: 470
 public class ObjectHierarchyFlattenerManager : MonoBehaviour
 {
-	// Token: 0x06000AAF RID: 2735 RVA: 0x0003A1EE File Offset: 0x000383EE
+	// Token: 0x06000AFB RID: 2811 RVA: 0x00037B97 File Offset: 0x00035D97
 	protected void Awake()
 	{
 		if (ObjectHierarchyFlattenerManager.hasInstance && ObjectHierarchyFlattenerManager.instance != this)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 			return;
 		}
 		ObjectHierarchyFlattenerManager.SetInstance(this);
 	}
 
-	// Token: 0x06000AB0 RID: 2736 RVA: 0x0003A211 File Offset: 0x00038411
+	// Token: 0x06000AFC RID: 2812 RVA: 0x00037BBA File Offset: 0x00035DBA
 	public static void CreateManager()
 	{
 		ObjectHierarchyFlattenerManager.SetInstance(new GameObject("ObjectHierarchyFlattenerManager").AddComponent<ObjectHierarchyFlattenerManager>());
 	}
 
-	// Token: 0x06000AB1 RID: 2737 RVA: 0x0003A227 File Offset: 0x00038427
+	// Token: 0x06000AFD RID: 2813 RVA: 0x00037BD0 File Offset: 0x00035DD0
 	private static void SetInstance(ObjectHierarchyFlattenerManager manager)
 	{
 		ObjectHierarchyFlattenerManager.instance = manager;
 		ObjectHierarchyFlattenerManager.hasInstance = true;
 		if (Application.isPlaying)
 		{
-			Object.DontDestroyOnLoad(manager);
+			UnityEngine.Object.DontDestroyOnLoad(manager);
 		}
 	}
 
-	// Token: 0x06000AB2 RID: 2738 RVA: 0x0003A242 File Offset: 0x00038442
+	// Token: 0x06000AFE RID: 2814 RVA: 0x00037BEB File Offset: 0x00035DEB
 	public static void RegisterOHF(ObjectHierarchyFlattener rbWI)
 	{
 		if (!ObjectHierarchyFlattenerManager.hasInstance)
@@ -46,7 +46,7 @@ public class ObjectHierarchyFlattenerManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AB3 RID: 2739 RVA: 0x0003A268 File Offset: 0x00038468
+	// Token: 0x06000AFF RID: 2815 RVA: 0x00037C11 File Offset: 0x00035E11
 	public static void UnregisterOHF(ObjectHierarchyFlattener rbWI)
 	{
 		if (!ObjectHierarchyFlattenerManager.hasInstance)
@@ -59,7 +59,7 @@ public class ObjectHierarchyFlattenerManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AB4 RID: 2740 RVA: 0x0003A290 File Offset: 0x00038490
+	// Token: 0x06000B00 RID: 2816 RVA: 0x00099828 File Offset: 0x00097A28
 	public void LateUpdate()
 	{
 		for (int i = 0; i < ObjectHierarchyFlattenerManager.alloHF.Count; i++)
@@ -68,13 +68,13 @@ public class ObjectHierarchyFlattenerManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000D27 RID: 3367
+	// Token: 0x04000D6D RID: 3437
 	public static ObjectHierarchyFlattenerManager instance;
 
-	// Token: 0x04000D28 RID: 3368
+	// Token: 0x04000D6E RID: 3438
 	[OnEnterPlay_Set(false)]
 	public static bool hasInstance = false;
 
-	// Token: 0x04000D29 RID: 3369
+	// Token: 0x04000D6F RID: 3439
 	public static List<ObjectHierarchyFlattener> alloHF = new List<ObjectHierarchyFlattener>();
 }

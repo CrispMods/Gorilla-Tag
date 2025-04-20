@@ -3,20 +3,20 @@ using System.Runtime.CompilerServices;
 
 namespace GorillaTag
 {
-	// Token: 0x02000BB5 RID: 2997
+	// Token: 0x02000BE3 RID: 3043
 	internal class TickSystemTimer : TickSystemTimerAbstract
 	{
-		// Token: 0x06004BCF RID: 19407 RVA: 0x00170F2A File Offset: 0x0016F12A
+		// Token: 0x06004D18 RID: 19736 RVA: 0x000628C1 File Offset: 0x00060AC1
 		public TickSystemTimer()
 		{
 		}
 
-		// Token: 0x06004BD0 RID: 19408 RVA: 0x00171046 File Offset: 0x0016F246
+		// Token: 0x06004D19 RID: 19737 RVA: 0x000629D6 File Offset: 0x00060BD6
 		public TickSystemTimer(float cd) : base(cd)
 		{
 		}
 
-		// Token: 0x06004BD1 RID: 19409 RVA: 0x0017104F File Offset: 0x0016F24F
+		// Token: 0x06004D1A RID: 19738 RVA: 0x000629DF File Offset: 0x00060BDF
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public override void OnTimedEvent()
 		{
@@ -28,7 +28,7 @@ namespace GorillaTag
 			action();
 		}
 
-		// Token: 0x04004D9C RID: 19868
+		// Token: 0x04004E92 RID: 20114
 		public Action callback;
 	}
 }

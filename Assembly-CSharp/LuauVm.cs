@@ -10,34 +10,34 @@ using Photon.Realtime;
 using Unity.Collections;
 using UnityEngine;
 
-// Token: 0x02000777 RID: 1911
+// Token: 0x0200078F RID: 1935
 public class LuauVm : MonoBehaviourPunCallbacks, IOnEventCallback
 {
-	// Token: 0x06002EE0 RID: 12000 RVA: 0x000E25CC File Offset: 0x000E07CC
+	// Token: 0x06002F92 RID: 12178 RVA: 0x0012C570 File Offset: 0x0012A770
 	private void Update()
 	{
 		foreach (LuauScriptRunner luauScriptRunner in LuauScriptRunner.ScriptRunners)
 		{
 			if (!luauScriptRunner.Tick(Time.deltaTime))
 			{
-				Debug.LogWarning(luauScriptRunner.ScriptName + " errored out");
+				LuauHud.Instance.LuauLog(luauScriptRunner.ScriptName + " errored out");
 				LuauScriptRunner.ScriptRunners.Remove(luauScriptRunner);
 				break;
 			}
 		}
 	}
 
-	// Token: 0x06002EE1 RID: 12001 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002F93 RID: 12179 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Start()
 	{
 	}
 
-	// Token: 0x06002EE2 RID: 12002 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002F94 RID: 12180 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Awake()
 	{
 	}
 
-	// Token: 0x06002EE3 RID: 12003 RVA: 0x000E2648 File Offset: 0x000E0848
+	// Token: 0x06002F95 RID: 12181 RVA: 0x0012C5F0 File Offset: 0x0012A7F0
 	public unsafe void OnEvent(EventData eventData)
 	{
 		if (eventData.Code != 180)
@@ -94,6 +94,10 @@ public class LuauVm : MonoBehaviourPunCallbacks, IOnEventCallback
 							Luau.lua_createtable(l, array.Length, 0);
 							for (int i = 1; i < array.Length; i++)
 							{
+								if (!luauScriptRunner.ShouldTick)
+								{
+									return;
+								}
 								object obj = array[i];
 								if (obj.IsType<double>())
 								{
@@ -124,27 +128,18 @@ public class LuauVm : MonoBehaviourPunCallbacks, IOnEventCallback
 										Luau.lua_rawseti(l, -2, i);
 									}
 								}
-								else if (obj.IsType<int>())
+								else if (obj.IsType<Player>())
 								{
-									IntPtr value;
-									if (Bindings.LuauPlayerList.TryGetValue((int)obj, out value))
+									int actorNumber = ((Player)obj).ActorNumber;
+									IntPtr ptr;
+									if (Bindings.LuauPlayerList.TryGetValue(actorNumber, out ptr))
 									{
-										Luau.lua_pushlightuserdata(l, (void*)value);
-										Luau.luaL_getmetatable(l, "Player");
-										Luau.lua_setmetatable(l, -2);
+										Luau.lua_class_push(l, "Player", ptr);
 										Luau.lua_rawseti(l, -2, i);
 									}
 									else
 									{
-										NetPlayer netPlayer = null;
-										foreach (NetPlayer netPlayer2 in RoomSystem.PlayersInRoom)
-										{
-											if (netPlayer2.ActorNumber == (int)obj)
-											{
-												netPlayer = netPlayer2;
-												break;
-											}
-										}
+										NetPlayer netPlayer = (NetPlayer)obj;
 										if (netPlayer == null)
 										{
 											Luau.lua_pushnil(l);
@@ -152,20 +147,25 @@ public class LuauVm : MonoBehaviourPunCallbacks, IOnEventCallback
 										}
 										else
 										{
-											Bindings.LuauPlayer* ptr = Luau.lua_class_push<Bindings.LuauPlayer>(l);
-											ptr->PlayerID = netPlayer.ActorNumber;
-											ptr->PlayerName = netPlayer.SanitizedNickName;
-											ptr->PlayerMaterial = 0;
-											ptr->IsMasterClient = netPlayer.IsMasterClient;
+											Bindings.LuauPlayer* ptr2 = Luau.lua_class_push<Bindings.LuauPlayer>(l);
+											ptr2->PlayerID = netPlayer.ActorNumber;
+											ptr2->PlayerName = netPlayer.SanitizedNickName;
+											ptr2->PlayerMaterial = 0;
+											ptr2->IsMasterClient = netPlayer.IsMasterClient;
 											RigContainer rigContainer;
 											VRRigCache.Instance.TryGetVrrig(netPlayer, out rigContainer);
 											VRRig rig = rigContainer.Rig;
 											Bindings.LuauVRRigList[netPlayer.ActorNumber] = rig;
-											Bindings.PlayerFunctions.UpdatePlayer(l, rig, ptr);
-											Bindings.LuauPlayerList[netPlayer.ActorNumber] = (IntPtr)((void*)ptr);
+											Bindings.PlayerFunctions.UpdatePlayer(l, rig, ptr2);
+											Bindings.LuauPlayerList[netPlayer.ActorNumber] = (IntPtr)((void*)ptr2);
 											Luau.lua_rawseti(l, -2, i);
 										}
 									}
+								}
+								else if (obj == null)
+								{
+									Luau.lua_pushnil(l);
+									Luau.lua_rawseti(l, -2, i);
 								}
 							}
 							Luau.lua_pcall(l, 2, 0, 0);
@@ -183,7 +183,7 @@ public class LuauVm : MonoBehaviourPunCallbacks, IOnEventCallback
 		}
 	}
 
-	// Token: 0x06002EE4 RID: 12004 RVA: 0x000E2AA4 File Offset: 0x000E0CA4
+	// Token: 0x06002F96 RID: 12182 RVA: 0x0012CA10 File Offset: 0x0012AC10
 	protected override void Finalize()
 	{
 		try
@@ -214,15 +214,15 @@ public class LuauVm : MonoBehaviourPunCallbacks, IOnEventCallback
 		}
 	}
 
-	// Token: 0x04003311 RID: 13073
+	// Token: 0x040033BB RID: 13243
 	public static List<object> ClassBuilders = new List<object>();
 
-	// Token: 0x04003312 RID: 13074
+	// Token: 0x040033BC RID: 13244
 	public static List<GCHandle> Handles = new List<GCHandle>();
 
-	// Token: 0x04003313 RID: 13075
+	// Token: 0x040033BD RID: 13245
 	private static Dictionary<int, float> callTimers = new Dictionary<int, float>();
 
-	// Token: 0x04003314 RID: 13076
+	// Token: 0x040033BE RID: 13246
 	private static float callCount = 25f;
 }

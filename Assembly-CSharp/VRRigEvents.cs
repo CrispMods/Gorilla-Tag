@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003BA RID: 954
+// Token: 0x020003C5 RID: 965
 [RequireComponent(typeof(RigContainer))]
 public class VRRigEvents : MonoBehaviour, IPreDisable
 {
-	// Token: 0x06001704 RID: 5892 RVA: 0x00070ADD File Offset: 0x0006ECDD
+	// Token: 0x06001751 RID: 5969 RVA: 0x0003FD34 File Offset: 0x0003DF34
 	public void PreDisable()
 	{
 		Action<RigContainer> action = this.disableEvent;
@@ -16,10 +16,10 @@ public class VRRigEvents : MonoBehaviour, IPreDisable
 		action(this.rigRef);
 	}
 
-	// Token: 0x040019AF RID: 6575
+	// Token: 0x040019F8 RID: 6648
 	[SerializeField]
 	private RigContainer rigRef;
 
-	// Token: 0x040019B0 RID: 6576
+	// Token: 0x040019F9 RID: 6649
 	public Action<RigContainer> disableEvent;
 }

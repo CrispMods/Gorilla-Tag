@@ -2,12 +2,12 @@
 using Cysharp.Text;
 using UnityEngine;
 
-// Token: 0x020008F2 RID: 2290
+// Token: 0x0200090F RID: 2319
 [Serializable]
 public struct ZoneNode : IEquatable<ZoneNode>
 {
-	// Token: 0x170005A2 RID: 1442
-	// (get) Token: 0x0600370C RID: 14092 RVA: 0x00104ABB File Offset: 0x00102CBB
+	// Token: 0x170005B5 RID: 1461
+	// (get) Token: 0x060037DD RID: 14301 RVA: 0x00054F3E File Offset: 0x0005313E
 	public static ZoneNode Null { get; } = new ZoneNode
 	{
 		zoneId = GTZone.none,
@@ -15,8 +15,8 @@ public struct ZoneNode : IEquatable<ZoneNode>
 		isValid = false
 	};
 
-	// Token: 0x170005A3 RID: 1443
-	// (get) Token: 0x0600370D RID: 14093 RVA: 0x00104AC2 File Offset: 0x00102CC2
+	// Token: 0x170005B6 RID: 1462
+	// (get) Token: 0x060037DE RID: 14302 RVA: 0x00054F45 File Offset: 0x00053145
 	public int zoneKey
 	{
 		get
@@ -25,19 +25,19 @@ public struct ZoneNode : IEquatable<ZoneNode>
 		}
 	}
 
-	// Token: 0x0600370E RID: 14094 RVA: 0x00104AD5 File Offset: 0x00102CD5
+	// Token: 0x060037DF RID: 14303 RVA: 0x00054F58 File Offset: 0x00053158
 	public bool ContainsPoint(Vector3 point)
 	{
 		return MathUtils.OrientedBoxContains(point, this.center, this.size, this.orientation);
 	}
 
-	// Token: 0x0600370F RID: 14095 RVA: 0x00104AEF File Offset: 0x00102CEF
+	// Token: 0x060037E0 RID: 14304 RVA: 0x00054F72 File Offset: 0x00053172
 	public int SphereOverlap(Vector3 position, float radius)
 	{
 		return MathUtils.OrientedBoxSphereOverlap(position, radius, this.center, this.size, this.orientation);
 	}
 
-	// Token: 0x06003710 RID: 14096 RVA: 0x00104B0A File Offset: 0x00102D0A
+	// Token: 0x060037E1 RID: 14305 RVA: 0x00054F8D File Offset: 0x0005318D
 	public override string ToString()
 	{
 		if (this.subZoneId != GTSubZone.none)
@@ -47,7 +47,7 @@ public struct ZoneNode : IEquatable<ZoneNode>
 		return ZString.Concat<GTZone>(this.zoneId);
 	}
 
-	// Token: 0x06003711 RID: 14097 RVA: 0x00104B38 File Offset: 0x00102D38
+	// Token: 0x060037E2 RID: 14306 RVA: 0x001499B4 File Offset: 0x00147BB4
 	public override int GetHashCode()
 	{
 		int zoneKey = this.zoneKey;
@@ -57,25 +57,25 @@ public struct ZoneNode : IEquatable<ZoneNode>
 		return StaticHash.Compute(zoneKey, hashCode, hashCode2, hashCode3);
 	}
 
-	// Token: 0x06003712 RID: 14098 RVA: 0x00104BA1 File Offset: 0x00102DA1
+	// Token: 0x060037E3 RID: 14307 RVA: 0x00054FB9 File Offset: 0x000531B9
 	public static bool operator ==(ZoneNode x, ZoneNode y)
 	{
 		return x.Equals(y);
 	}
 
-	// Token: 0x06003713 RID: 14099 RVA: 0x00104BAB File Offset: 0x00102DAB
+	// Token: 0x060037E4 RID: 14308 RVA: 0x00054FC3 File Offset: 0x000531C3
 	public static bool operator !=(ZoneNode x, ZoneNode y)
 	{
 		return !x.Equals(y);
 	}
 
-	// Token: 0x06003714 RID: 14100 RVA: 0x00104BB8 File Offset: 0x00102DB8
+	// Token: 0x060037E5 RID: 14309 RVA: 0x00149A20 File Offset: 0x00147C20
 	public bool Equals(ZoneNode other)
 	{
 		return this.zoneId == other.zoneId && this.subZoneId == other.subZoneId && this.center.Approx(other.center, 1E-05f) && this.size.Approx(other.size, 1E-05f) && this.orientation.Approx(other.orientation, 1E-06f);
 	}
 
-	// Token: 0x06003715 RID: 14101 RVA: 0x00104C2C File Offset: 0x00102E2C
+	// Token: 0x060037E6 RID: 14310 RVA: 0x00149A94 File Offset: 0x00147C94
 	public override bool Equals(object obj)
 	{
 		if (obj is ZoneNode)
@@ -86,24 +86,24 @@ public struct ZoneNode : IEquatable<ZoneNode>
 		return false;
 	}
 
-	// Token: 0x04003A11 RID: 14865
+	// Token: 0x04003AD6 RID: 15062
 	public GTZone zoneId;
 
-	// Token: 0x04003A12 RID: 14866
+	// Token: 0x04003AD7 RID: 15063
 	public GTSubZone subZoneId;
 
-	// Token: 0x04003A13 RID: 14867
+	// Token: 0x04003AD8 RID: 15064
 	public Vector3 center;
 
-	// Token: 0x04003A14 RID: 14868
+	// Token: 0x04003AD9 RID: 15065
 	public Vector3 size;
 
-	// Token: 0x04003A15 RID: 14869
+	// Token: 0x04003ADA RID: 15066
 	public Quaternion orientation;
 
-	// Token: 0x04003A16 RID: 14870
+	// Token: 0x04003ADB RID: 15067
 	public Bounds AABB;
 
-	// Token: 0x04003A17 RID: 14871
+	// Token: 0x04003ADC RID: 15068
 	public bool isValid;
 }

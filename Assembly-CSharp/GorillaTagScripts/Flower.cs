@@ -4,15 +4,15 @@ using UnityEngine.Events;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009B1 RID: 2481
+	// Token: 0x020009D7 RID: 2519
 	public class Flower : MonoBehaviour
 	{
-		// Token: 0x17000638 RID: 1592
-		// (get) Token: 0x06003D78 RID: 15736 RVA: 0x00122643 File Offset: 0x00120843
-		// (set) Token: 0x06003D79 RID: 15737 RVA: 0x0012264B File Offset: 0x0012084B
+		// Token: 0x17000650 RID: 1616
+		// (get) Token: 0x06003E90 RID: 16016 RVA: 0x00058C16 File Offset: 0x00056E16
+		// (set) Token: 0x06003E91 RID: 16017 RVA: 0x00058C1E File Offset: 0x00056E1E
 		public bool IsWatered { get; private set; }
 
-		// Token: 0x06003D7A RID: 15738 RVA: 0x00122654 File Offset: 0x00120854
+		// Token: 0x06003E92 RID: 16018 RVA: 0x001644B0 File Offset: 0x001626B0
 		private void Awake()
 		{
 			this.shouldUpdateVisuals = true;
@@ -28,13 +28,13 @@ namespace GorillaTagScripts
 			this.anim.enabled = false;
 		}
 
-		// Token: 0x06003D7B RID: 15739 RVA: 0x001226EB File Offset: 0x001208EB
+		// Token: 0x06003E93 RID: 16019 RVA: 0x00058C27 File Offset: 0x00056E27
 		private void OnDestroy()
 		{
 			this.timer.onTimerStopped.RemoveListener(new UnityAction<GorillaTimer>(this.HandleOnFlowerTimerEnded));
 		}
 
-		// Token: 0x06003D7C RID: 15740 RVA: 0x0012270C File Offset: 0x0012090C
+		// Token: 0x06003E94 RID: 16020 RVA: 0x00164548 File Offset: 0x00162748
 		public void WaterFlower(bool isWatered = false)
 		{
 			this.IsWatered = isWatered;
@@ -69,7 +69,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D7D RID: 15741 RVA: 0x0012277C File Offset: 0x0012097C
+		// Token: 0x06003E95 RID: 16021 RVA: 0x001645B8 File Offset: 0x001627B8
 		public void UpdateFlowerState(Flower.FlowerState newState, bool isWatered = false, bool updateVisual = true)
 		{
 			if (FlowersManager.Instance.IsMine)
@@ -87,7 +87,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D7E RID: 15742 RVA: 0x001227D4 File Offset: 0x001209D4
+		// Token: 0x06003E96 RID: 16022 RVA: 0x00164610 File Offset: 0x00162810
 		private void LocalUpdateFlowers(Flower.FlowerState state, bool isWatered = false)
 		{
 			GameObject[] array = this.meshStates;
@@ -127,7 +127,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D7F RID: 15743 RVA: 0x001228AD File Offset: 0x00120AAD
+		// Token: 0x06003E97 RID: 16023 RVA: 0x00058C45 File Offset: 0x00056E45
 		private void HandleOnFlowerTimerEnded(GorillaTimer _timer)
 		{
 			if (!FlowersManager.Instance.IsMine)
@@ -140,20 +140,20 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D80 RID: 15744 RVA: 0x001228D1 File Offset: 0x00120AD1
+		// Token: 0x06003E98 RID: 16024 RVA: 0x00058C69 File Offset: 0x00056E69
 		private void ChangeState(Flower.FlowerState state)
 		{
 			this.lastState = this.currentState;
 			this.currentState = state;
 		}
 
-		// Token: 0x06003D81 RID: 15745 RVA: 0x001228E6 File Offset: 0x00120AE6
+		// Token: 0x06003E99 RID: 16025 RVA: 0x00058C7E File Offset: 0x00056E7E
 		public Flower.FlowerState GetCurrentState()
 		{
 			return this.currentState;
 		}
 
-		// Token: 0x06003D82 RID: 15746 RVA: 0x001228F0 File Offset: 0x00120AF0
+		// Token: 0x06003E9A RID: 16026 RVA: 0x001646EC File Offset: 0x001628EC
 		public void OnAnimationIsDone(int state)
 		{
 			if (this.meshRenderer.enabled)
@@ -168,14 +168,14 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003D83 RID: 15747 RVA: 0x0012294D File Offset: 0x00120B4D
+		// Token: 0x06003E9B RID: 16027 RVA: 0x00058C86 File Offset: 0x00056E86
 		public void UpdateVisuals(bool enable)
 		{
 			this.shouldUpdateVisuals = enable;
 			this.meshStatesGameObject.SetActive(enable);
 		}
 
-		// Token: 0x06003D84 RID: 15748 RVA: 0x00122964 File Offset: 0x00120B64
+		// Token: 0x06003E9C RID: 16028 RVA: 0x0016474C File Offset: 0x0016294C
 		public void AnimCatch()
 		{
 			if (this.anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
@@ -184,65 +184,65 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x04003ED3 RID: 16083
+		// Token: 0x04003FAD RID: 16301
 		private Animator anim;
 
-		// Token: 0x04003ED4 RID: 16084
+		// Token: 0x04003FAE RID: 16302
 		private SkinnedMeshRenderer meshRenderer;
 
-		// Token: 0x04003ED5 RID: 16085
+		// Token: 0x04003FAF RID: 16303
 		[HideInInspector]
 		public GorillaTimer timer;
 
-		// Token: 0x04003ED6 RID: 16086
+		// Token: 0x04003FB0 RID: 16304
 		private BeePerchPoint perchPoint;
 
-		// Token: 0x04003ED7 RID: 16087
+		// Token: 0x04003FB1 RID: 16305
 		public ParticleSystem wateredFx;
 
-		// Token: 0x04003ED8 RID: 16088
+		// Token: 0x04003FB2 RID: 16306
 		public ParticleSystem sparkleFx;
 
-		// Token: 0x04003ED9 RID: 16089
+		// Token: 0x04003FB3 RID: 16307
 		public GameObject meshStatesGameObject;
 
-		// Token: 0x04003EDA RID: 16090
+		// Token: 0x04003FB4 RID: 16308
 		public GameObject[] meshStates;
 
-		// Token: 0x04003EDB RID: 16091
+		// Token: 0x04003FB5 RID: 16309
 		private static readonly int healthy_to_middle = Animator.StringToHash("healthy_to_middle");
 
-		// Token: 0x04003EDC RID: 16092
+		// Token: 0x04003FB6 RID: 16310
 		private static readonly int middle_to_healthy = Animator.StringToHash("middle_to_healthy");
 
-		// Token: 0x04003EDD RID: 16093
+		// Token: 0x04003FB7 RID: 16311
 		private static readonly int wilted_to_middle = Animator.StringToHash("wilted_to_middle");
 
-		// Token: 0x04003EDE RID: 16094
+		// Token: 0x04003FB8 RID: 16312
 		private static readonly int middle_to_wilted = Animator.StringToHash("middle_to_wilted");
 
-		// Token: 0x04003EDF RID: 16095
+		// Token: 0x04003FB9 RID: 16313
 		private Flower.FlowerState currentState;
 
-		// Token: 0x04003EE0 RID: 16096
+		// Token: 0x04003FBA RID: 16314
 		private string id;
 
-		// Token: 0x04003EE1 RID: 16097
+		// Token: 0x04003FBB RID: 16315
 		private bool shouldUpdateVisuals;
 
-		// Token: 0x04003EE2 RID: 16098
+		// Token: 0x04003FBC RID: 16316
 		private Flower.FlowerState lastState;
 
-		// Token: 0x020009B2 RID: 2482
+		// Token: 0x020009D8 RID: 2520
 		public enum FlowerState
 		{
-			// Token: 0x04003EE5 RID: 16101
+			// Token: 0x04003FBF RID: 16319
 			None = -1,
-			// Token: 0x04003EE6 RID: 16102
+			// Token: 0x04003FC0 RID: 16320
 			Healthy,
-			// Token: 0x04003EE7 RID: 16103
+			// Token: 0x04003FC1 RID: 16321
 			Middle,
-			// Token: 0x04003EE8 RID: 16104
+			// Token: 0x04003FC2 RID: 16322
 			Wilted
 		}
 	}

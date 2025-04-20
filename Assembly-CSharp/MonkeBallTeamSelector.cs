@@ -2,31 +2,31 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x020004A7 RID: 1191
+// Token: 0x020004B3 RID: 1203
 public class MonkeBallTeamSelector : MonoBehaviour
 {
-	// Token: 0x06001CF0 RID: 7408 RVA: 0x0008D05A File Offset: 0x0008B25A
+	// Token: 0x06001D44 RID: 7492 RVA: 0x00044093 File Offset: 0x00042293
 	public void Awake()
 	{
 		this._setTeamButton.onPressButton.AddListener(new UnityAction(this.OnSelect));
 	}
 
-	// Token: 0x06001CF1 RID: 7409 RVA: 0x0008D078 File Offset: 0x0008B278
+	// Token: 0x06001D45 RID: 7493 RVA: 0x000440B1 File Offset: 0x000422B1
 	public void OnDestroy()
 	{
 		this._setTeamButton.onPressButton.RemoveListener(new UnityAction(this.OnSelect));
 	}
 
-	// Token: 0x06001CF2 RID: 7410 RVA: 0x0008D096 File Offset: 0x0008B296
+	// Token: 0x06001D46 RID: 7494 RVA: 0x000440CF File Offset: 0x000422CF
 	private void OnSelect()
 	{
 		MonkeBallGame.Instance.RequestSetTeam(this.teamId);
 	}
 
-	// Token: 0x04001FE1 RID: 8161
+	// Token: 0x04002030 RID: 8240
 	public int teamId;
 
-	// Token: 0x04001FE2 RID: 8162
+	// Token: 0x04002031 RID: 8241
 	[SerializeField]
 	private GorillaPressableButton _setTeamButton;
 }

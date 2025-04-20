@@ -8,41 +8,41 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x02000055 RID: 85
+// Token: 0x0200005A RID: 90
 public class CrittersPawn : CrittersActor, IEyeScannable
 {
-	// Token: 0x060001EB RID: 491 RVA: 0x0000C63C File Offset: 0x0000A83C
+	// Token: 0x06000209 RID: 521 RVA: 0x00071774 File Offset: 0x0006F974
 	public override void Initialize()
 	{
 		base.Initialize();
 		this.rB = base.GetComponentInChildren<Rigidbody>();
 		this.soundsHeard = new Dictionary<int, CrittersActor>();
-		base.transform.eulerAngles = new Vector3(0f, Random.value * 360f, 0f);
+		base.transform.eulerAngles = new Vector3(0f, UnityEngine.Random.value * 360f, 0f);
 		this.raycastHits = new RaycastHit[20];
 		this.wasSomethingInTheWay = false;
 		this._spawnAnimationDuration = this.spawnInHeighMovement.keys.Last<Keyframe>().time;
 		this._despawnAnimationDuration = this.despawnInHeighMovement.keys.Last<Keyframe>().time;
 	}
 
-	// Token: 0x060001EC RID: 492 RVA: 0x0000C6DC File Offset: 0x0000A8DC
+	// Token: 0x0600020A RID: 522 RVA: 0x00071814 File Offset: 0x0006FA14
 	private void InitializeTemplateValues()
 	{
 		this.sensoryRange *= this.sensoryRange;
 		this.autoSeeFoodDistance *= this.autoSeeFoodDistance;
-		this.currentSleepiness = Random.value * this.tiredThreshold;
-		this.currentHunger = Random.value * this.hungryThreshold;
+		this.currentSleepiness = UnityEngine.Random.value * this.tiredThreshold;
+		this.currentHunger = UnityEngine.Random.value * this.hungryThreshold;
 		this.currentFear = 0f;
 		this.currentStruggle = 0f;
 		this.currentAttraction = 0f;
 	}
 
-	// Token: 0x060001ED RID: 493 RVA: 0x0000C754 File Offset: 0x0000A954
+	// Token: 0x0600020B RID: 523 RVA: 0x0007188C File Offset: 0x0006FA8C
 	public float JumpVelocityForDistanceAtAngle(float horizontalDistance, float angle)
 	{
 		return Mathf.Min(this.maxJumpVel, Mathf.Sqrt(horizontalDistance * Physics.gravity.magnitude / Mathf.Sin(2f * angle)));
 	}
 
-	// Token: 0x060001EE RID: 494 RVA: 0x0000C78D File Offset: 0x0000A98D
+	// Token: 0x0600020C RID: 524 RVA: 0x00031A4E File Offset: 0x0002FC4E
 	public override void OnEnable()
 	{
 		base.OnEnable();
@@ -51,7 +51,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		EyeScannerMono.Register(this);
 	}
 
-	// Token: 0x060001EF RID: 495 RVA: 0x0000C7BB File Offset: 0x0000A9BB
+	// Token: 0x0600020D RID: 525 RVA: 0x00031A7C File Offset: 0x0002FC7C
 	public override void OnDisable()
 	{
 		base.OnDisable();
@@ -64,17 +64,17 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		EyeScannerMono.Unregister(this);
 	}
 
-	// Token: 0x060001F0 RID: 496 RVA: 0x0000C7EF File Offset: 0x0000A9EF
+	// Token: 0x0600020E RID: 526 RVA: 0x00031AB0 File Offset: 0x0002FCB0
 	private float GetAdditiveJumpDelay()
 	{
 		if (this.currentState == CrittersPawn.CreatureState.Running)
 		{
 			return 0f;
 		}
-		return Mathf.Max(0f, this.jumpCooldown * Random.value * this.jumpVariabilityTime);
+		return Mathf.Max(0f, this.jumpCooldown * UnityEngine.Random.value * this.jumpVariabilityTime);
 	}
 
-	// Token: 0x060001F1 RID: 497 RVA: 0x0000C820 File Offset: 0x0000AA20
+	// Token: 0x0600020F RID: 527 RVA: 0x000718C8 File Offset: 0x0006FAC8
 	public void LocalJump(float maxVel, float jumpAngle)
 	{
 		maxVel *= this.slowSpeedMod;
@@ -87,26 +87,26 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		this.rb.angularVelocity = Vector3.zero;
 	}
 
-	// Token: 0x060001F2 RID: 498 RVA: 0x0000C8EC File Offset: 0x0000AAEC
+	// Token: 0x06000210 RID: 528 RVA: 0x00071994 File Offset: 0x0006FB94
 	private bool CanSeeActor(Vector3 actorPosition)
 	{
 		Vector3 to = actorPosition - base.transform.position;
 		return to.sqrMagnitude < this.autoSeeFoodDistance || (to.sqrMagnitude < this.sensoryRange && Vector3.Angle(base.transform.forward, to) < this.visionConeAngle);
 	}
 
-	// Token: 0x060001F3 RID: 499 RVA: 0x0000C948 File Offset: 0x0000AB48
+	// Token: 0x06000211 RID: 529 RVA: 0x000719F0 File Offset: 0x0006FBF0
 	private bool IsGrabPossible(CrittersGrabber actor)
 	{
 		return actor.grabbing && (base.transform.position - actor.grabPosition.position).magnitude < actor.grabDistance;
 	}
 
-	// Token: 0x060001F4 RID: 500 RVA: 0x0000C98C File Offset: 0x0000AB8C
+	// Token: 0x06000212 RID: 530 RVA: 0x00071A34 File Offset: 0x0006FC34
 	private bool WithinCaptureDistance(CrittersCage actor)
 	{
 		return (this.bodyCollider.bounds.center - actor.grabPosition.position).magnitude < actor.grabDistance;
 	}
 
-	// Token: 0x060001F5 RID: 501 RVA: 0x0000C9CC File Offset: 0x0000ABCC
+	// Token: 0x06000213 RID: 531 RVA: 0x00071A74 File Offset: 0x0006FC74
 	public bool AwareOfActor(CrittersActor actor)
 	{
 		CrittersActor.CrittersActorType crittersActorType = actor.crittersActorType;
@@ -145,7 +145,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		return false;
 	}
 
-	// Token: 0x060001F6 RID: 502 RVA: 0x0000CB08 File Offset: 0x0000AD08
+	// Token: 0x06000214 RID: 532 RVA: 0x00071BB0 File Offset: 0x0006FDB0
 	public override bool ProcessLocal()
 	{
 		CrittersPawn.CreatureUpdateData creatureUpdateData = new CrittersPawn.CreatureUpdateData(this);
@@ -207,7 +207,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		return this.updatedSinceLastFrame;
 	}
 
-	// Token: 0x060001F7 RID: 503 RVA: 0x0000CC30 File Offset: 0x0000AE30
+	// Token: 0x06000215 RID: 533 RVA: 0x00071CD8 File Offset: 0x0006FED8
 	private void StuckCheck()
 	{
 		float realtimeSinceStartup = Time.realtimeSinceStartup;
@@ -226,7 +226,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x060001F8 RID: 504 RVA: 0x0000CC98 File Offset: 0x0000AE98
+	// Token: 0x06000216 RID: 534 RVA: 0x00071D40 File Offset: 0x0006FF40
 	private void DespawnCheck()
 	{
 		float realtimeSinceStartup = Time.realtimeSinceStartup;
@@ -252,14 +252,14 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x060001F9 RID: 505 RVA: 0x0000CD52 File Offset: 0x0000AF52
+	// Token: 0x06000217 RID: 535 RVA: 0x00031ADE File Offset: 0x0002FCDE
 	public void SetTemplate(int templateIndex)
 	{
 		this.TemplateIndex = templateIndex;
 		this.UpdateTemplate();
 	}
 
-	// Token: 0x060001FA RID: 506 RVA: 0x0000CD64 File Offset: 0x0000AF64
+	// Token: 0x06000218 RID: 536 RVA: 0x00071DFC File Offset: 0x0006FFFC
 	private void UpdateTemplate()
 	{
 		if (this.TemplateIndex != this.LastTemplateIndex)
@@ -279,7 +279,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x060001FB RID: 507 RVA: 0x0000CDDC File Offset: 0x0000AFDC
+	// Token: 0x06000219 RID: 537 RVA: 0x00071E74 File Offset: 0x00070074
 	private void InitializeAttractors()
 	{
 		this.attractedToTypes = new Dictionary<CrittersActor.CrittersActorType, float>();
@@ -300,7 +300,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x060001FC RID: 508 RVA: 0x0000CE95 File Offset: 0x0000B095
+	// Token: 0x0600021A RID: 538 RVA: 0x00031AED File Offset: 0x0002FCED
 	public override void ProcessRemote()
 	{
 		this.UpdateTemplate();
@@ -308,7 +308,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		this.UpdateStateAnim();
 	}
 
-	// Token: 0x060001FD RID: 509 RVA: 0x0000CEAC File Offset: 0x0000B0AC
+	// Token: 0x0600021B RID: 539 RVA: 0x00071F30 File Offset: 0x00070130
 	public void SetState(CrittersPawn.CreatureState newState)
 	{
 		if (this.currentState == newState)
@@ -362,7 +362,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x060001FE RID: 510 RVA: 0x0000D020 File Offset: 0x0000B220
+	// Token: 0x0600021C RID: 540 RVA: 0x00031B01 File Offset: 0x0002FD01
 	private void ClearOngoingStateFX()
 	{
 		if (this.currentOngoingStateFX.IsNotNull())
@@ -372,7 +372,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x060001FF RID: 511 RVA: 0x0000D044 File Offset: 0x0000B244
+	// Token: 0x0600021D RID: 541 RVA: 0x000720A4 File Offset: 0x000702A4
 	private void StartOngoingStateFX(CrittersPawn.CreatureState state)
 	{
 		GameObject valueOrDefault = this.OngoingStateFX.GetValueOrDefault(state);
@@ -387,7 +387,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000200 RID: 512 RVA: 0x0000D0AC File Offset: 0x0000B2AC
+	// Token: 0x0600021E RID: 542 RVA: 0x0007210C File Offset: 0x0007030C
 	[Conditional("UNITY_EDITOR")]
 	public void UpdateStateColor()
 	{
@@ -426,7 +426,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000201 RID: 513 RVA: 0x0000D1E4 File Offset: 0x0000B3E4
+	// Token: 0x0600021F RID: 543 RVA: 0x00072244 File Offset: 0x00070444
 	public void UpdateStateAnim()
 	{
 		if (this.currentAnim != null)
@@ -445,7 +445,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000202 RID: 514 RVA: 0x0000D2D0 File Offset: 0x0000B4D0
+	// Token: 0x06000220 RID: 544 RVA: 0x00072330 File Offset: 0x00070530
 	public void IdleStateUpdate()
 	{
 		if (this.AboveFearThreshold())
@@ -474,7 +474,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000203 RID: 515 RVA: 0x0000D33C File Offset: 0x0000B53C
+	// Token: 0x06000221 RID: 545 RVA: 0x0007239C File Offset: 0x0007059C
 	public void EatingStateUpdate()
 	{
 		if (this.AboveFearThreshold())
@@ -493,7 +493,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000204 RID: 516 RVA: 0x0000D397 File Offset: 0x0000B597
+	// Token: 0x06000222 RID: 546 RVA: 0x00031B22 File Offset: 0x0002FD22
 	public void SleepingStateUpdate()
 	{
 		if (this.AboveFearThreshold())
@@ -507,7 +507,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000205 RID: 517 RVA: 0x0000D3B8 File Offset: 0x0000B5B8
+	// Token: 0x06000223 RID: 547 RVA: 0x000723F8 File Offset: 0x000705F8
 	public void AttractedStateUpdate()
 	{
 		if (this.AboveFearThreshold())
@@ -535,7 +535,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000206 RID: 518 RVA: 0x0000D448 File Offset: 0x0000B648
+	// Token: 0x06000224 RID: 548 RVA: 0x00072488 File Offset: 0x00070688
 	public void RunningStateUpdate()
 	{
 		if (this.CanJump())
@@ -552,7 +552,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000207 RID: 519 RVA: 0x0000D4B0 File Offset: 0x0000B6B0
+	// Token: 0x06000225 RID: 549 RVA: 0x000724F0 File Offset: 0x000706F0
 	public void SeekingFoodStateUpdate()
 	{
 		if (this.AboveFearThreshold())
@@ -596,7 +596,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000208 RID: 520 RVA: 0x0000D5D8 File Offset: 0x0000B7D8
+	// Token: 0x06000226 RID: 550 RVA: 0x00072618 File Offset: 0x00070818
 	public void GrabbedStateUpdate()
 	{
 		if (this.currentState == CrittersPawn.CreatureState.Grabbed && this.grabbedTarget != null)
@@ -613,7 +613,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000209 RID: 521 RVA: 0x0000D67C File Offset: 0x0000B87C
+	// Token: 0x06000227 RID: 551 RVA: 0x000726BC File Offset: 0x000708BC
 	protected override void HandleRemoteReleased()
 	{
 		base.HandleRemoteReleased();
@@ -634,7 +634,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x0600020A RID: 522 RVA: 0x0000D708 File Offset: 0x0000B908
+	// Token: 0x06000228 RID: 552 RVA: 0x00072748 File Offset: 0x00070948
 	public override void Released(bool keepWorldPosition, Quaternion rotation = default(Quaternion), Vector3 position = default(Vector3), Vector3 impulse = default(Vector3), Vector3 impulseRotation = default(Vector3))
 	{
 		base.Released(keepWorldPosition, rotation, position, impulse, impulseRotation);
@@ -673,7 +673,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		this.SetState(CrittersPawn.CreatureState.Idle);
 	}
 
-	// Token: 0x0600020B RID: 523 RVA: 0x0000D834 File Offset: 0x0000BA34
+	// Token: 0x06000229 RID: 553 RVA: 0x00072874 File Offset: 0x00070A74
 	public void CapturedStateUpdate()
 	{
 		if (this.cageTarget.IsNull())
@@ -687,7 +687,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x0600020C RID: 524 RVA: 0x0000D8C1 File Offset: 0x0000BAC1
+	// Token: 0x0600022A RID: 554 RVA: 0x00031B43 File Offset: 0x0002FD43
 	public void StunnedStateUpdate()
 	{
 		this.remainingStunnedTime = Mathf.Max(0f, this.remainingStunnedTime - Time.deltaTime);
@@ -698,7 +698,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x0600020D RID: 525 RVA: 0x0000D900 File Offset: 0x0000BB00
+	// Token: 0x0600022B RID: 555 RVA: 0x00072904 File Offset: 0x00070B04
 	public void WaitingToDespawnStateUpdate()
 	{
 		if (Mathf.FloorToInt(this.rb.velocity.magnitude * 10f) == 0)
@@ -707,7 +707,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x0600020E RID: 526 RVA: 0x0000D938 File Offset: 0x0000BB38
+	// Token: 0x0600022C RID: 556 RVA: 0x0007293C File Offset: 0x00070B3C
 	public void DespawningStateUpdate()
 	{
 		this._despawnAnimTime = (PhotonNetwork.InRoom ? PhotonNetwork.Time : ((double)Time.time)) - this.despawnStartTime;
@@ -718,7 +718,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x0600020F RID: 527 RVA: 0x0000D988 File Offset: 0x0000BB88
+	// Token: 0x0600022D RID: 557 RVA: 0x0007298C File Offset: 0x00070B8C
 	public void SpawningStateUpdate()
 	{
 		this._spawnAnimTime = (PhotonNetwork.InRoom ? PhotonNetwork.Time : ((double)Time.time)) - this.spawnStartTime;
@@ -729,7 +729,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000210 RID: 528 RVA: 0x0000DA1C File Offset: 0x0000BC1C
+	// Token: 0x0600022E RID: 558 RVA: 0x00031B81 File Offset: 0x0002FD81
 	public void UpdateMoodSourceData()
 	{
 		this.UpdateHunger();
@@ -741,7 +741,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		this.UpdateCaged();
 	}
 
-	// Token: 0x06000211 RID: 529 RVA: 0x0000DA48 File Offset: 0x0000BC48
+	// Token: 0x0600022F RID: 559 RVA: 0x00072A20 File Offset: 0x00070C20
 	public void UpdateHunger()
 	{
 		if (this.currentState == CrittersPawn.CreatureState.Eating && !this.eatingTarget.IsNull())
@@ -753,7 +753,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		this.currentHunger = Mathf.Min(this.maxHunger, this.currentHunger + this.hungerGainedPerSecond * Time.deltaTime);
 	}
 
-	// Token: 0x06000212 RID: 530 RVA: 0x0000DACC File Offset: 0x0000BCCC
+	// Token: 0x06000230 RID: 560 RVA: 0x00072AA4 File Offset: 0x00070CA4
 	public void UpdateFearAndAttraction()
 	{
 		if (this.currentState == CrittersPawn.CreatureState.Spawning)
@@ -778,7 +778,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000213 RID: 531 RVA: 0x0000DBB4 File Offset: 0x0000BDB4
+	// Token: 0x06000231 RID: 561 RVA: 0x00072B8C File Offset: 0x00070D8C
 	public void IncreaseFear(float fearAmount, CrittersActor actor)
 	{
 		if (fearAmount > 0f)
@@ -790,7 +790,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000214 RID: 532 RVA: 0x0000DC0C File Offset: 0x0000BE0C
+	// Token: 0x06000232 RID: 562 RVA: 0x00072BE4 File Offset: 0x00070DE4
 	public void IncreaseAttraction(float attractionAmount, CrittersActor actor)
 	{
 		if (attractionAmount > 0f)
@@ -802,7 +802,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000215 RID: 533 RVA: 0x0000DC64 File Offset: 0x0000BE64
+	// Token: 0x06000233 RID: 563 RVA: 0x00072C3C File Offset: 0x00070E3C
 	public void UpdateSleepiness()
 	{
 		if (this.currentState == CrittersPawn.CreatureState.Sleeping)
@@ -813,7 +813,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		this.currentSleepiness = Mathf.Min(this.maxSleepiness, this.currentSleepiness + Time.deltaTime * this.sleepinessGainedPerSecond);
 	}
 
-	// Token: 0x06000216 RID: 534 RVA: 0x0000DCC4 File Offset: 0x0000BEC4
+	// Token: 0x06000234 RID: 564 RVA: 0x00072C9C File Offset: 0x00070E9C
 	public void UpdateStruggle()
 	{
 		if (this.currentState == CrittersPawn.CreatureState.Grabbed)
@@ -824,7 +824,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		this.currentStruggle = Mathf.Max(0f, this.currentStruggle - this.struggleLostPerSecond * Time.deltaTime);
 	}
 
-	// Token: 0x06000217 RID: 535 RVA: 0x0000DD28 File Offset: 0x0000BF28
+	// Token: 0x06000235 RID: 565 RVA: 0x00072D00 File Offset: 0x00070F00
 	private void UpdateSlowed()
 	{
 		if (this.remainingSlowedTime > 0f)
@@ -852,7 +852,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000218 RID: 536 RVA: 0x0000DE14 File Offset: 0x0000C014
+	// Token: 0x06000236 RID: 566 RVA: 0x00072DEC File Offset: 0x00070FEC
 	public void UpdateGrabbed()
 	{
 		if (this.currentState == CrittersPawn.CreatureState.Grabbed || this.currentState == CrittersPawn.CreatureState.Captured)
@@ -869,7 +869,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000219 RID: 537 RVA: 0x0000DEAC File Offset: 0x0000C0AC
+	// Token: 0x06000237 RID: 567 RVA: 0x00072E84 File Offset: 0x00071084
 	public void UpdateCaged()
 	{
 		if (this.currentState == CrittersPawn.CreatureState.Captured)
@@ -887,12 +887,12 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x0600021A RID: 538 RVA: 0x0000DF48 File Offset: 0x0000C148
+	// Token: 0x06000238 RID: 568 RVA: 0x00072F20 File Offset: 0x00071120
 	public void RandomJump()
 	{
 		for (int i = 0; i < 5; i++)
 		{
-			base.transform.eulerAngles = new Vector3(0f, 360f * Random.value, 0f);
+			base.transform.eulerAngles = new Vector3(0f, 360f * UnityEngine.Random.value, 0f);
 			if (!this.SomethingInTheWay(default(Vector3)))
 			{
 				break;
@@ -901,7 +901,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		this.LocalJump(this.maxJumpVel, 45f);
 	}
 
-	// Token: 0x0600021B RID: 539 RVA: 0x0000DFA8 File Offset: 0x0000C1A8
+	// Token: 0x06000239 RID: 569 RVA: 0x00072F80 File Offset: 0x00071180
 	public void JumpTowards(Vector3 targetPos)
 	{
 		if (this.SomethingInTheWay((targetPos - base.transform.position).X_Z()))
@@ -913,7 +913,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		this.LocalJump(this.JumpVelocityForDistanceAtAngle(Vector3.ProjectOnPlane(targetPos - base.transform.position, Vector3.up).magnitude * this.fudge, 45f), 45f);
 	}
 
-	// Token: 0x0600021C RID: 540 RVA: 0x0000E04C File Offset: 0x0000C24C
+	// Token: 0x0600023A RID: 570 RVA: 0x00073024 File Offset: 0x00071224
 	public void JumpAwayFrom(Vector3 targetPos)
 	{
 		Vector3 vector = (base.transform.position - targetPos).X_Z();
@@ -921,7 +921,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		{
 			vector = base.transform.forward;
 		}
-		Vector3 vector2 = Quaternion.Euler(0f, (float)Random.Range(-30, 30), 0f) * vector;
+		Vector3 vector2 = Quaternion.Euler(0f, (float)UnityEngine.Random.Range(-30, 30), 0f) * vector;
 		if (this.SomethingInTheWay(vector2))
 		{
 			this.RandomJump();
@@ -931,7 +931,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		this.LocalJump(this.maxJumpVel, 45f);
 	}
 
-	// Token: 0x0600021D RID: 541 RVA: 0x0000E0E0 File Offset: 0x0000C2E0
+	// Token: 0x0600023B RID: 571 RVA: 0x000730B8 File Offset: 0x000712B8
 	public bool SomethingInTheWay(Vector3 direction = default(Vector3))
 	{
 		if (direction == default(Vector3))
@@ -943,13 +943,13 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		return flag;
 	}
 
-	// Token: 0x0600021E RID: 542 RVA: 0x0000E154 File Offset: 0x0000C354
+	// Token: 0x0600023C RID: 572 RVA: 0x00031BAD File Offset: 0x0002FDAD
 	public override bool CanBeGrabbed(CrittersActor grabbedBy)
 	{
 		return this.currentState != CrittersPawn.CreatureState.Captured && base.CanBeGrabbed(grabbedBy);
 	}
 
-	// Token: 0x0600021F RID: 543 RVA: 0x0000E168 File Offset: 0x0000C368
+	// Token: 0x0600023D RID: 573 RVA: 0x0007312C File Offset: 0x0007132C
 	public override void GrabbedBy(CrittersActor grabbingActor, bool positionOverride = false, Quaternion localRotation = default(Quaternion), Vector3 localOffset = default(Vector3), bool disableGrabbing = false)
 	{
 		CrittersActor.CrittersActorType crittersActorType = grabbingActor.crittersActorType;
@@ -976,7 +976,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		base.GrabbedBy(grabbingActor, positionOverride, localRotation, localOffset, disableGrabbing);
 	}
 
-	// Token: 0x06000220 RID: 544 RVA: 0x0000E21C File Offset: 0x0000C41C
+	// Token: 0x0600023E RID: 574 RVA: 0x000731E0 File Offset: 0x000713E0
 	protected override void RemoteGrabbedBy(CrittersActor grabbingActor)
 	{
 		base.RemoteGrabbedBy(grabbingActor);
@@ -1002,7 +1002,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000221 RID: 545 RVA: 0x0000E2AC File Offset: 0x0000C4AC
+	// Token: 0x0600023F RID: 575 RVA: 0x00031BC1 File Offset: 0x0002FDC1
 	public void Stunned(float duration)
 	{
 		if (this.currentState == CrittersPawn.CreatureState.Captured || this.currentState == CrittersPawn.CreatureState.Grabbed || this.currentState == CrittersPawn.CreatureState.Despawning || this.currentState == CrittersPawn.CreatureState.WaitingToDespawn)
@@ -1014,55 +1014,55 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		this.updatedSinceLastFrame = true;
 	}
 
-	// Token: 0x06000222 RID: 546 RVA: 0x0000E2EA File Offset: 0x0000C4EA
+	// Token: 0x06000240 RID: 576 RVA: 0x00031BFF File Offset: 0x0002FDFF
 	public bool AboveFearThreshold()
 	{
 		return this.currentFear >= this.scaredThreshold;
 	}
 
-	// Token: 0x06000223 RID: 547 RVA: 0x0000E2FD File Offset: 0x0000C4FD
+	// Token: 0x06000241 RID: 577 RVA: 0x00031C12 File Offset: 0x0002FE12
 	public bool BelowNotAfraidThreshold()
 	{
 		return this.currentFear < this.calmThreshold;
 	}
 
-	// Token: 0x06000224 RID: 548 RVA: 0x0000E30D File Offset: 0x0000C50D
+	// Token: 0x06000242 RID: 578 RVA: 0x00031C22 File Offset: 0x0002FE22
 	public bool AboveAttractedThreshold()
 	{
 		return this.currentAttraction >= this.attractedThreshold;
 	}
 
-	// Token: 0x06000225 RID: 549 RVA: 0x0000E320 File Offset: 0x0000C520
+	// Token: 0x06000243 RID: 579 RVA: 0x00031C35 File Offset: 0x0002FE35
 	public bool BelowUnAttractedThreshold()
 	{
 		return this.currentAttraction < this.unattractedThreshold;
 	}
 
-	// Token: 0x06000226 RID: 550 RVA: 0x0000E330 File Offset: 0x0000C530
+	// Token: 0x06000244 RID: 580 RVA: 0x00031C45 File Offset: 0x0002FE45
 	public bool AboveHungryThreshold()
 	{
 		return this.currentHunger >= this.hungryThreshold;
 	}
 
-	// Token: 0x06000227 RID: 551 RVA: 0x0000E343 File Offset: 0x0000C543
+	// Token: 0x06000245 RID: 581 RVA: 0x00031C58 File Offset: 0x0002FE58
 	public bool BelowNotHungryThreshold()
 	{
 		return this.currentHunger < this.satiatedThreshold;
 	}
 
-	// Token: 0x06000228 RID: 552 RVA: 0x0000E353 File Offset: 0x0000C553
+	// Token: 0x06000246 RID: 582 RVA: 0x00031C68 File Offset: 0x0002FE68
 	public bool AboveSleepyThreshold()
 	{
 		return this.currentSleepiness >= this.tiredThreshold;
 	}
 
-	// Token: 0x06000229 RID: 553 RVA: 0x0000E366 File Offset: 0x0000C566
+	// Token: 0x06000247 RID: 583 RVA: 0x00031C7B File Offset: 0x0002FE7B
 	public bool BelowNotSleepyThreshold()
 	{
 		return this.currentSleepiness < this.awakeThreshold;
 	}
 
-	// Token: 0x0600022A RID: 554 RVA: 0x0000E378 File Offset: 0x0000C578
+	// Token: 0x06000248 RID: 584 RVA: 0x00073270 File Offset: 0x00071470
 	public bool CanJump()
 	{
 		if (!this.canJump)
@@ -1086,25 +1086,25 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		return (double)num2 > this.lastImpulseTime + (double)num;
 	}
 
-	// Token: 0x0600022B RID: 555 RVA: 0x0000E3F1 File Offset: 0x0000C5F1
+	// Token: 0x06000249 RID: 585 RVA: 0x00031C8B File Offset: 0x0002FE8B
 	public void OnCollisionEnter(Collision collision)
 	{
 		this.canJump = true;
 	}
 
-	// Token: 0x0600022C RID: 556 RVA: 0x0000E3FA File Offset: 0x0000C5FA
+	// Token: 0x0600024A RID: 586 RVA: 0x00031C94 File Offset: 0x0002FE94
 	public void OnCollisionExit(Collision collision)
 	{
 		this.canJump = false;
 	}
 
-	// Token: 0x0600022D RID: 557 RVA: 0x0000E403 File Offset: 0x0000C603
+	// Token: 0x0600024B RID: 587 RVA: 0x00031C9D File Offset: 0x0002FE9D
 	public void SetVelocity(Vector3 linearVelocity)
 	{
 		this.rb.velocity = linearVelocity;
 	}
 
-	// Token: 0x0600022E RID: 558 RVA: 0x0000E414 File Offset: 0x0000C614
+	// Token: 0x0600024C RID: 588 RVA: 0x000732EC File Offset: 0x000714EC
 	public override int AddActorDataToList(ref List<object> objList)
 	{
 		base.AddActorDataToList(ref objList);
@@ -1123,13 +1123,13 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		return this.TotalActorDataLength();
 	}
 
-	// Token: 0x0600022F RID: 559 RVA: 0x0000E528 File Offset: 0x0000C728
+	// Token: 0x0600024D RID: 589 RVA: 0x00031CAB File Offset: 0x0002FEAB
 	public override int TotalActorDataLength()
 	{
 		return base.BaseActorDataLength() + 11 + CritterAppearance.DataLength();
 	}
 
-	// Token: 0x06000230 RID: 560 RVA: 0x0000E53C File Offset: 0x0000C73C
+	// Token: 0x0600024E RID: 590 RVA: 0x00073400 File Offset: 0x00071600
 	public override int UpdateFromRPC(object[] data, int startingIndex)
 	{
 		startingIndex += base.UpdateFromRPC(data, startingIndex);
@@ -1238,7 +1238,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		return this.TotalActorDataLength();
 	}
 
-	// Token: 0x06000231 RID: 561 RVA: 0x0000E7A4 File Offset: 0x0000C9A4
+	// Token: 0x0600024F RID: 591 RVA: 0x00073668 File Offset: 0x00071868
 	public override bool UpdateSpecificActor(PhotonStream stream)
 	{
 		int num;
@@ -1301,7 +1301,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		return true;
 	}
 
-	// Token: 0x06000232 RID: 562 RVA: 0x0000E97C File Offset: 0x0000CB7C
+	// Token: 0x06000250 RID: 592 RVA: 0x00073840 File Offset: 0x00071A40
 	public override void SendDataByCrittersActorType(PhotonStream stream)
 	{
 		base.SendDataByCrittersActorType(stream);
@@ -1318,20 +1318,20 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		stream.SendNext(this.despawnStartTime);
 	}
 
-	// Token: 0x06000233 RID: 563 RVA: 0x00002628 File Offset: 0x00000828
+	// Token: 0x06000251 RID: 593 RVA: 0x000306DC File Offset: 0x0002E8DC
 	public void SetConfiguration(CritterConfiguration getRandomConfiguration)
 	{
 		throw new NotImplementedException();
 	}
 
-	// Token: 0x06000234 RID: 564 RVA: 0x0000EA64 File Offset: 0x0000CC64
+	// Token: 0x06000252 RID: 594 RVA: 0x00031CBC File Offset: 0x0002FEBC
 	public void SetSpawnData(object[] spawnData)
 	{
 		this.visuals.SetAppearance(CritterAppearance.ReadFromRPCData(spawnData));
 	}
 
-	// Token: 0x1700001E RID: 30
-	// (get) Token: 0x06000235 RID: 565 RVA: 0x0000EA77 File Offset: 0x0000CC77
+	// Token: 0x1700001F RID: 31
+	// (get) Token: 0x06000253 RID: 595 RVA: 0x00031CCF File Offset: 0x0002FECF
 	int IEyeScannable.scannableId
 	{
 		get
@@ -1340,8 +1340,8 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x1700001F RID: 31
-	// (get) Token: 0x06000236 RID: 566 RVA: 0x0000EA84 File Offset: 0x0000CC84
+	// Token: 0x17000020 RID: 32
+	// (get) Token: 0x06000254 RID: 596 RVA: 0x00073928 File Offset: 0x00071B28
 	Vector3 IEyeScannable.Position
 	{
 		get
@@ -1350,8 +1350,8 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x17000020 RID: 32
-	// (get) Token: 0x06000237 RID: 567 RVA: 0x0000EAA4 File Offset: 0x0000CCA4
+	// Token: 0x17000021 RID: 33
+	// (get) Token: 0x06000255 RID: 597 RVA: 0x00031CDC File Offset: 0x0002FEDC
 	Bounds IEyeScannable.Bounds
 	{
 		get
@@ -1360,8 +1360,8 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x17000021 RID: 33
-	// (get) Token: 0x06000238 RID: 568 RVA: 0x0000EAB1 File Offset: 0x0000CCB1
+	// Token: 0x17000022 RID: 34
+	// (get) Token: 0x06000256 RID: 598 RVA: 0x00031CE9 File Offset: 0x0002FEE9
 	IList<KeyValueStringPair> IEyeScannable.Entries
 	{
 		get
@@ -1370,7 +1370,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		}
 	}
 
-	// Token: 0x06000239 RID: 569 RVA: 0x0000EABC File Offset: 0x0000CCBC
+	// Token: 0x06000257 RID: 599 RVA: 0x00073948 File Offset: 0x00071B48
 	private IList<KeyValueStringPair> BuildEyeScannerData()
 	{
 		this.eyeScanData[0] = new KeyValueStringPair("Name", this.creatureConfiguration.critterName);
@@ -1382,7 +1382,7 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 		return this.eyeScanData;
 	}
 
-	// Token: 0x0600023A RID: 570 RVA: 0x0000EBB8 File Offset: 0x0000CDB8
+	// Token: 0x06000258 RID: 600 RVA: 0x00073A44 File Offset: 0x00071C44
 	private string GetCurrentStateName()
 	{
 		string text;
@@ -1428,436 +1428,436 @@ public class CrittersPawn : CrittersActor, IEyeScannable
 	}
 
 	// Token: 0x14000005 RID: 5
-	// (add) Token: 0x0600023B RID: 571 RVA: 0x0000EC78 File Offset: 0x0000CE78
-	// (remove) Token: 0x0600023C RID: 572 RVA: 0x0000ECB0 File Offset: 0x0000CEB0
+	// (add) Token: 0x06000259 RID: 601 RVA: 0x00073B04 File Offset: 0x00071D04
+	// (remove) Token: 0x0600025A RID: 602 RVA: 0x00073B3C File Offset: 0x00071D3C
 	public event Action OnDataChange;
 
-	// Token: 0x0400024D RID: 589
+	// Token: 0x04000272 RID: 626
 	[NonSerialized]
 	public CritterConfiguration creatureConfiguration;
 
-	// Token: 0x0400024E RID: 590
+	// Token: 0x04000273 RID: 627
 	public Collider bodyCollider;
 
-	// Token: 0x0400024F RID: 591
+	// Token: 0x04000274 RID: 628
 	[HideInInspector]
 	[NonSerialized]
 	public float maxJumpVel;
 
-	// Token: 0x04000250 RID: 592
+	// Token: 0x04000275 RID: 629
 	[HideInInspector]
 	[NonSerialized]
 	public float jumpCooldown;
 
-	// Token: 0x04000251 RID: 593
+	// Token: 0x04000276 RID: 630
 	[HideInInspector]
 	[NonSerialized]
 	public float scaredJumpCooldown;
 
-	// Token: 0x04000252 RID: 594
+	// Token: 0x04000277 RID: 631
 	[HideInInspector]
 	[NonSerialized]
 	public float jumpVariabilityTime;
 
-	// Token: 0x04000253 RID: 595
+	// Token: 0x04000278 RID: 632
 	[HideInInspector]
 	[NonSerialized]
 	public float visionConeAngle;
 
-	// Token: 0x04000254 RID: 596
+	// Token: 0x04000279 RID: 633
 	[HideInInspector]
 	[NonSerialized]
 	public float sensoryRange;
 
-	// Token: 0x04000255 RID: 597
+	// Token: 0x0400027A RID: 634
 	[HideInInspector]
 	[NonSerialized]
 	public float maxHunger;
 
-	// Token: 0x04000256 RID: 598
+	// Token: 0x0400027B RID: 635
 	[HideInInspector]
 	[NonSerialized]
 	public float hungryThreshold;
 
-	// Token: 0x04000257 RID: 599
+	// Token: 0x0400027C RID: 636
 	[HideInInspector]
 	[NonSerialized]
 	public float satiatedThreshold;
 
-	// Token: 0x04000258 RID: 600
+	// Token: 0x0400027D RID: 637
 	[HideInInspector]
 	[NonSerialized]
 	public float hungerLostPerSecond;
 
-	// Token: 0x04000259 RID: 601
+	// Token: 0x0400027E RID: 638
 	[HideInInspector]
 	[NonSerialized]
 	public float hungerGainedPerSecond;
 
-	// Token: 0x0400025A RID: 602
+	// Token: 0x0400027F RID: 639
 	[HideInInspector]
 	[NonSerialized]
 	public float maxFear;
 
-	// Token: 0x0400025B RID: 603
+	// Token: 0x04000280 RID: 640
 	[HideInInspector]
 	[NonSerialized]
 	public float scaredThreshold;
 
-	// Token: 0x0400025C RID: 604
+	// Token: 0x04000281 RID: 641
 	[HideInInspector]
 	[NonSerialized]
 	public float calmThreshold;
 
-	// Token: 0x0400025D RID: 605
+	// Token: 0x04000282 RID: 642
 	[HideInInspector]
 	[NonSerialized]
 	public float fearLostPerSecond;
 
-	// Token: 0x0400025E RID: 606
+	// Token: 0x04000283 RID: 643
 	[NonSerialized]
 	public float maxAttraction;
 
-	// Token: 0x0400025F RID: 607
+	// Token: 0x04000284 RID: 644
 	[NonSerialized]
 	public float attractedThreshold;
 
-	// Token: 0x04000260 RID: 608
+	// Token: 0x04000285 RID: 645
 	[NonSerialized]
 	public float unattractedThreshold;
 
-	// Token: 0x04000261 RID: 609
+	// Token: 0x04000286 RID: 646
 	[NonSerialized]
 	public float attractionLostPerSecond;
 
-	// Token: 0x04000262 RID: 610
+	// Token: 0x04000287 RID: 647
 	[HideInInspector]
 	[NonSerialized]
 	public float maxSleepiness;
 
-	// Token: 0x04000263 RID: 611
+	// Token: 0x04000288 RID: 648
 	[HideInInspector]
 	[NonSerialized]
 	public float tiredThreshold;
 
-	// Token: 0x04000264 RID: 612
+	// Token: 0x04000289 RID: 649
 	[HideInInspector]
 	[NonSerialized]
 	public float awakeThreshold;
 
-	// Token: 0x04000265 RID: 613
+	// Token: 0x0400028A RID: 650
 	[HideInInspector]
 	[NonSerialized]
 	public float sleepinessGainedPerSecond;
 
-	// Token: 0x04000266 RID: 614
+	// Token: 0x0400028B RID: 651
 	[HideInInspector]
 	[NonSerialized]
 	public float sleepinessLostPerSecond;
 
-	// Token: 0x04000267 RID: 615
+	// Token: 0x0400028C RID: 652
 	[HideInInspector]
 	[NonSerialized]
 	public float maxStruggle;
 
-	// Token: 0x04000268 RID: 616
+	// Token: 0x0400028D RID: 653
 	[HideInInspector]
 	[NonSerialized]
 	public float escapeThreshold;
 
-	// Token: 0x04000269 RID: 617
+	// Token: 0x0400028E RID: 654
 	[HideInInspector]
 	[NonSerialized]
 	public float catchableThreshold;
 
-	// Token: 0x0400026A RID: 618
+	// Token: 0x0400028F RID: 655
 	[HideInInspector]
 	[NonSerialized]
 	public float struggleGainedPerSecond;
 
-	// Token: 0x0400026B RID: 619
+	// Token: 0x04000290 RID: 656
 	[HideInInspector]
 	[NonSerialized]
 	public float struggleLostPerSecond;
 
-	// Token: 0x0400026C RID: 620
+	// Token: 0x04000291 RID: 657
 	public List<crittersAttractorStruct> attractedToList;
 
-	// Token: 0x0400026D RID: 621
+	// Token: 0x04000292 RID: 658
 	public List<crittersAttractorStruct> afraidOfList;
 
-	// Token: 0x0400026E RID: 622
+	// Token: 0x04000293 RID: 659
 	public Dictionary<CrittersActor.CrittersActorType, float> afraidOfTypes;
 
-	// Token: 0x0400026F RID: 623
+	// Token: 0x04000294 RID: 660
 	public Dictionary<CrittersActor.CrittersActorType, float> attractedToTypes;
 
-	// Token: 0x04000270 RID: 624
+	// Token: 0x04000295 RID: 661
 	private Rigidbody rB;
 
-	// Token: 0x04000271 RID: 625
+	// Token: 0x04000296 RID: 662
 	[NonSerialized]
 	public CrittersPawn.CreatureState currentState;
 
-	// Token: 0x04000272 RID: 626
+	// Token: 0x04000297 RID: 663
 	[NonSerialized]
 	public float currentHunger;
 
-	// Token: 0x04000273 RID: 627
+	// Token: 0x04000298 RID: 664
 	[NonSerialized]
 	public float currentFear;
 
-	// Token: 0x04000274 RID: 628
+	// Token: 0x04000299 RID: 665
 	[NonSerialized]
 	public float currentAttraction;
 
-	// Token: 0x04000275 RID: 629
+	// Token: 0x0400029A RID: 666
 	[NonSerialized]
 	public float currentSleepiness;
 
-	// Token: 0x04000276 RID: 630
+	// Token: 0x0400029B RID: 667
 	[NonSerialized]
 	public float currentStruggle;
 
-	// Token: 0x04000277 RID: 631
+	// Token: 0x0400029C RID: 668
 	public double lifeTime = 10.0;
 
-	// Token: 0x04000278 RID: 632
+	// Token: 0x0400029D RID: 669
 	public double lifeTimeStart;
 
-	// Token: 0x04000279 RID: 633
+	// Token: 0x0400029E RID: 670
 	private CrittersFood eatingTarget;
 
-	// Token: 0x0400027A RID: 634
+	// Token: 0x0400029F RID: 671
 	private CrittersActor fearTarget;
 
-	// Token: 0x0400027B RID: 635
+	// Token: 0x040002A0 RID: 672
 	private CrittersActor attractionTarget;
 
-	// Token: 0x0400027C RID: 636
+	// Token: 0x040002A1 RID: 673
 	private Vector3 lastSeenFearPosition;
 
-	// Token: 0x0400027D RID: 637
+	// Token: 0x040002A2 RID: 674
 	private Vector3 lastSeenAttractionPosition;
 
-	// Token: 0x0400027E RID: 638
+	// Token: 0x040002A3 RID: 675
 	private CrittersGrabber grabbedTarget;
 
-	// Token: 0x0400027F RID: 639
+	// Token: 0x040002A4 RID: 676
 	private CrittersCage cageTarget;
 
-	// Token: 0x04000280 RID: 640
+	// Token: 0x040002A5 RID: 677
 	private int actorIdTarget;
 
-	// Token: 0x04000281 RID: 641
+	// Token: 0x040002A6 RID: 678
 	[FormerlySerializedAs("eatingRadiusMax")]
 	public float eatingRadiusMaxSquared;
 
-	// Token: 0x04000282 RID: 642
+	// Token: 0x040002A7 RID: 679
 	private bool withinEatingRadius;
 
-	// Token: 0x04000283 RID: 643
+	// Token: 0x040002A8 RID: 680
 	public Transform animTarget;
 
-	// Token: 0x04000284 RID: 644
+	// Token: 0x040002A9 RID: 681
 	public MeshRenderer myRenderer;
 
-	// Token: 0x04000285 RID: 645
+	// Token: 0x040002AA RID: 682
 	public float autoSeeFoodDistance;
 
-	// Token: 0x04000286 RID: 646
+	// Token: 0x040002AB RID: 683
 	public Dictionary<int, CrittersActor> soundsHeard;
 
-	// Token: 0x04000287 RID: 647
+	// Token: 0x040002AC RID: 684
 	public float fudge = 1.1f;
 
-	// Token: 0x04000288 RID: 648
+	// Token: 0x040002AD RID: 685
 	public float obstacleSeeDistance = 0.25f;
 
-	// Token: 0x04000289 RID: 649
+	// Token: 0x040002AE RID: 686
 	private RaycastHit[] raycastHits;
 
-	// Token: 0x0400028A RID: 650
+	// Token: 0x040002AF RID: 687
 	private bool canJump;
 
-	// Token: 0x0400028B RID: 651
+	// Token: 0x040002B0 RID: 688
 	private bool wasSomethingInTheWay;
 
-	// Token: 0x0400028C RID: 652
+	// Token: 0x040002B1 RID: 689
 	public Transform hat;
 
-	// Token: 0x0400028D RID: 653
+	// Token: 0x040002B2 RID: 690
 	private int LastTemplateIndex = -1;
 
-	// Token: 0x0400028E RID: 654
+	// Token: 0x040002B3 RID: 691
 	private int TemplateIndex = -1;
 
-	// Token: 0x0400028F RID: 655
+	// Token: 0x040002B4 RID: 692
 	private double _nextDespawnCheck;
 
-	// Token: 0x04000290 RID: 656
+	// Token: 0x040002B5 RID: 693
 	private double _nextStuckCheck;
 
-	// Token: 0x04000291 RID: 657
+	// Token: 0x040002B6 RID: 694
 	public float killHeight = -500f;
 
-	// Token: 0x04000292 RID: 658
+	// Token: 0x040002B7 RID: 695
 	private float remainingStunnedTime;
 
-	// Token: 0x04000293 RID: 659
+	// Token: 0x040002B8 RID: 696
 	private float remainingSlowedTime;
 
-	// Token: 0x04000294 RID: 660
+	// Token: 0x040002B9 RID: 697
 	private float slowSpeedMod = 1f;
 
-	// Token: 0x04000295 RID: 661
+	// Token: 0x040002BA RID: 698
 	[Header("Visuals")]
 	public CritterVisuals visuals;
 
-	// Token: 0x04000296 RID: 662
+	// Token: 0x040002BB RID: 699
 	[HideInInspector]
 	public Dictionary<CrittersPawn.CreatureState, GameObject> StartStateFX = new Dictionary<CrittersPawn.CreatureState, GameObject>();
 
-	// Token: 0x04000297 RID: 663
+	// Token: 0x040002BC RID: 700
 	[HideInInspector]
 	public Dictionary<CrittersPawn.CreatureState, GameObject> OngoingStateFX = new Dictionary<CrittersPawn.CreatureState, GameObject>();
 
-	// Token: 0x04000298 RID: 664
+	// Token: 0x040002BD RID: 701
 	[NonSerialized]
 	public GameObject OnReleasedFX;
 
-	// Token: 0x04000299 RID: 665
+	// Token: 0x040002BE RID: 702
 	private GameObject currentOngoingStateFX;
 
-	// Token: 0x0400029A RID: 666
+	// Token: 0x040002BF RID: 703
 	[HideInInspector]
 	public Dictionary<CrittersPawn.CreatureState, CrittersAnim> stateAnim = new Dictionary<CrittersPawn.CreatureState, CrittersAnim>();
 
-	// Token: 0x0400029B RID: 667
+	// Token: 0x040002C0 RID: 704
 	private CrittersAnim currentAnim;
 
-	// Token: 0x0400029C RID: 668
+	// Token: 0x040002C1 RID: 705
 	private float currentAnimTime;
 
-	// Token: 0x0400029D RID: 669
+	// Token: 0x040002C2 RID: 706
 	public AudioClip grabbedHaptics;
 
-	// Token: 0x0400029E RID: 670
+	// Token: 0x040002C3 RID: 707
 	public float grabbedHapticsStrength;
 
-	// Token: 0x0400029F RID: 671
+	// Token: 0x040002C4 RID: 708
 	public AnimationCurve spawnInHeighMovement;
 
-	// Token: 0x040002A0 RID: 672
+	// Token: 0x040002C5 RID: 709
 	public AnimationCurve despawnInHeighMovement;
 
-	// Token: 0x040002A1 RID: 673
+	// Token: 0x040002C6 RID: 710
 	private Vector3 spawningStartingPosition;
 
-	// Token: 0x040002A2 RID: 674
+	// Token: 0x040002C7 RID: 711
 	private double spawnStartTime;
 
-	// Token: 0x040002A3 RID: 675
+	// Token: 0x040002C8 RID: 712
 	private double despawnStartTime;
 
-	// Token: 0x040002A4 RID: 676
+	// Token: 0x040002C9 RID: 713
 	private float _spawnAnimationDuration;
 
-	// Token: 0x040002A5 RID: 677
+	// Token: 0x040002CA RID: 714
 	private float _despawnAnimationDuration;
 
-	// Token: 0x040002A6 RID: 678
+	// Token: 0x040002CB RID: 715
 	private double _spawnAnimTime;
 
-	// Token: 0x040002A7 RID: 679
+	// Token: 0x040002CC RID: 716
 	private double _despawnAnimTime;
 
-	// Token: 0x040002A8 RID: 680
+	// Token: 0x040002CD RID: 717
 	public MeshRenderer debugStateIndicator;
 
-	// Token: 0x040002A9 RID: 681
+	// Token: 0x040002CE RID: 718
 	public Color debugColorIdle;
 
-	// Token: 0x040002AA RID: 682
+	// Token: 0x040002CF RID: 719
 	public Color debugColorSeekingFood;
 
-	// Token: 0x040002AB RID: 683
+	// Token: 0x040002D0 RID: 720
 	public Color debugColorEating;
 
-	// Token: 0x040002AC RID: 684
+	// Token: 0x040002D1 RID: 721
 	public Color debugColorScared;
 
-	// Token: 0x040002AD RID: 685
+	// Token: 0x040002D2 RID: 722
 	public Color debugColorSleeping;
 
-	// Token: 0x040002AE RID: 686
+	// Token: 0x040002D3 RID: 723
 	public Color debugColorCaught;
 
-	// Token: 0x040002AF RID: 687
+	// Token: 0x040002D4 RID: 724
 	public Color debugColorCaged;
 
-	// Token: 0x040002B0 RID: 688
+	// Token: 0x040002D5 RID: 725
 	public Color debugColorStunned;
 
-	// Token: 0x040002B1 RID: 689
+	// Token: 0x040002D6 RID: 726
 	public Color debugColorAttracted;
 
-	// Token: 0x040002B2 RID: 690
+	// Token: 0x040002D7 RID: 727
 	[NonSerialized]
-	public int regionIndex = -1;
+	public int regionId;
 
-	// Token: 0x040002B3 RID: 691
+	// Token: 0x040002D8 RID: 728
 	private KeyValueStringPair[] eyeScanData = new KeyValueStringPair[6];
 
-	// Token: 0x02000056 RID: 86
+	// Token: 0x0200005B RID: 91
 	public enum CreatureState
 	{
-		// Token: 0x040002B6 RID: 694
+		// Token: 0x040002DB RID: 731
 		Idle,
-		// Token: 0x040002B7 RID: 695
+		// Token: 0x040002DC RID: 732
 		Eating,
-		// Token: 0x040002B8 RID: 696
+		// Token: 0x040002DD RID: 733
 		AttractedTo,
-		// Token: 0x040002B9 RID: 697
+		// Token: 0x040002DE RID: 734
 		Running,
-		// Token: 0x040002BA RID: 698
+		// Token: 0x040002DF RID: 735
 		Grabbed,
-		// Token: 0x040002BB RID: 699
+		// Token: 0x040002E0 RID: 736
 		Sleeping,
-		// Token: 0x040002BC RID: 700
+		// Token: 0x040002E1 RID: 737
 		SeekingFood,
-		// Token: 0x040002BD RID: 701
+		// Token: 0x040002E2 RID: 738
 		Captured,
-		// Token: 0x040002BE RID: 702
+		// Token: 0x040002E3 RID: 739
 		Stunned,
-		// Token: 0x040002BF RID: 703
+		// Token: 0x040002E4 RID: 740
 		WaitingToDespawn,
-		// Token: 0x040002C0 RID: 704
+		// Token: 0x040002E5 RID: 741
 		Despawning,
-		// Token: 0x040002C1 RID: 705
+		// Token: 0x040002E6 RID: 742
 		Spawning
 	}
 
-	// Token: 0x02000057 RID: 87
+	// Token: 0x0200005C RID: 92
 	internal struct CreatureUpdateData
 	{
-		// Token: 0x0600023E RID: 574 RVA: 0x0000ED78 File Offset: 0x0000CF78
+		// Token: 0x0600025C RID: 604 RVA: 0x00031CF1 File Offset: 0x0002FEF1
 		internal CreatureUpdateData(CrittersPawn creature)
 		{
 			this.lastImpulseTime = creature.lastImpulseTime;
 			this.state = creature.currentState;
 		}
 
-		// Token: 0x0600023F RID: 575 RVA: 0x0000ED92 File Offset: 0x0000CF92
+		// Token: 0x0600025D RID: 605 RVA: 0x00031D0B File Offset: 0x0002FF0B
 		internal bool SameData(CrittersPawn creature)
 		{
 			return this.lastImpulseTime == creature.lastImpulseTime && this.state == creature.currentState;
 		}
 
-		// Token: 0x040002C2 RID: 706
+		// Token: 0x040002E7 RID: 743
 		private double lastImpulseTime;
 
-		// Token: 0x040002C3 RID: 707
+		// Token: 0x040002E8 RID: 744
 		private CrittersPawn.CreatureState state;
 	}
 }

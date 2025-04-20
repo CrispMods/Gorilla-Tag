@@ -2,23 +2,23 @@
 using System.Diagnostics;
 using UnityEngine;
 
-// Token: 0x020006A3 RID: 1699
+// Token: 0x020006B8 RID: 1720
 [Serializable]
 public struct Arc
 {
-	// Token: 0x06002A43 RID: 10819 RVA: 0x000D2E9B File Offset: 0x000D109B
+	// Token: 0x06002AD9 RID: 10969 RVA: 0x0004CE48 File Offset: 0x0004B048
 	public Vector3[] GetArcPoints(int count = 12)
 	{
 		return Arc.ComputeArcPoints(this.start, this.end, new Vector3?(this.control), count);
 	}
 
-	// Token: 0x06002A44 RID: 10820 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002ADA RID: 10970 RVA: 0x00030607 File Offset: 0x0002E807
 	[Conditional("UNITY_EDITOR")]
 	public void DrawGizmo()
 	{
 	}
 
-	// Token: 0x06002A45 RID: 10821 RVA: 0x000D2EBC File Offset: 0x000D10BC
+	// Token: 0x06002ADB RID: 10971 RVA: 0x0011F474 File Offset: 0x0011D674
 	public static Arc From(Vector3 start, Vector3 end)
 	{
 		Vector3 vector = Arc.DeriveArcControlPoint(start, end, null, null);
@@ -30,7 +30,7 @@ public struct Arc
 		};
 	}
 
-	// Token: 0x06002A46 RID: 10822 RVA: 0x000D2F04 File Offset: 0x000D1104
+	// Token: 0x06002ADC RID: 10972 RVA: 0x0011F4BC File Offset: 0x0011D6BC
 	public static Vector3[] ComputeArcPoints(Vector3 a, Vector3 b, Vector3? c = null, int count = 12)
 	{
 		Vector3[] array = new Vector3[count];
@@ -61,7 +61,7 @@ public struct Arc
 		return array;
 	}
 
-	// Token: 0x06002A47 RID: 10823 RVA: 0x000D2FA4 File Offset: 0x000D11A4
+	// Token: 0x06002ADD RID: 10973 RVA: 0x0011F55C File Offset: 0x0011D75C
 	public static Vector3 BezierLerp(Vector3 a, Vector3 b, Vector3 c, float t)
 	{
 		Vector3 a2 = Vector3.Lerp(a, c, t);
@@ -69,7 +69,7 @@ public struct Arc
 		return Vector3.Lerp(a2, b2, t);
 	}
 
-	// Token: 0x06002A48 RID: 10824 RVA: 0x000D2FCC File Offset: 0x000D11CC
+	// Token: 0x06002ADE RID: 10974 RVA: 0x0011F584 File Offset: 0x0011D784
 	public static Vector3 DeriveArcControlPoint(Vector3 a, Vector3 b, Vector3? dir = null, float? height = null)
 	{
 		Vector3 b2 = (b - a) * 0.5f;
@@ -89,12 +89,12 @@ public struct Arc
 		return a + b2 + b3;
 	}
 
-	// Token: 0x04002FC6 RID: 12230
+	// Token: 0x04003063 RID: 12387
 	public Vector3 start;
 
-	// Token: 0x04002FC7 RID: 12231
+	// Token: 0x04003064 RID: 12388
 	public Vector3 end;
 
-	// Token: 0x04002FC8 RID: 12232
+	// Token: 0x04003065 RID: 12389
 	public Vector3 control;
 }

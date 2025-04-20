@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200042E RID: 1070
+// Token: 0x0200043A RID: 1082
 public class PushableSlider : MonoBehaviour
 {
-	// Token: 0x06001A74 RID: 6772 RVA: 0x00082B0C File Offset: 0x00080D0C
+	// Token: 0x06001AC8 RID: 6856 RVA: 0x00042231 File Offset: 0x00040431
 	public void Awake()
 	{
 		this.localSpace = base.transform.worldToLocalMatrix;
 		this.startingPos = base.transform.localPosition;
 	}
 
-	// Token: 0x06001A75 RID: 6773 RVA: 0x00082B30 File Offset: 0x00080D30
+	// Token: 0x06001AC9 RID: 6857 RVA: 0x000D7DB4 File Offset: 0x000D5FB4
 	private void OnTriggerStay(Collider other)
 	{
 		if (!base.enabled)
@@ -43,7 +43,7 @@ public class PushableSlider : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A76 RID: 6774 RVA: 0x00082C88 File Offset: 0x00080E88
+	// Token: 0x06001ACA RID: 6858 RVA: 0x000D7F0C File Offset: 0x000D610C
 	public void SetProgress(float value)
 	{
 		value = Mathf.Clamp(value, 0f, 1f);
@@ -54,7 +54,7 @@ public class PushableSlider : MonoBehaviour
 		this._cachedProgress = value;
 	}
 
-	// Token: 0x06001A77 RID: 6775 RVA: 0x00082CF0 File Offset: 0x00080EF0
+	// Token: 0x06001ACB RID: 6859 RVA: 0x000D7F74 File Offset: 0x000D6174
 	public float GetProgress()
 	{
 		Vector3 vector = base.transform.localPosition - this.startingPos;
@@ -67,27 +67,27 @@ public class PushableSlider : MonoBehaviour
 		return this._cachedProgress;
 	}
 
-	// Token: 0x04001D40 RID: 7488
+	// Token: 0x04001D8F RID: 7567
 	[SerializeField]
 	private float farPushDist = 0.015f;
 
-	// Token: 0x04001D41 RID: 7489
+	// Token: 0x04001D90 RID: 7568
 	[SerializeField]
 	private float maxXOffset;
 
-	// Token: 0x04001D42 RID: 7490
+	// Token: 0x04001D91 RID: 7569
 	[SerializeField]
 	private float minXOffset;
 
-	// Token: 0x04001D43 RID: 7491
+	// Token: 0x04001D92 RID: 7570
 	private Matrix4x4 localSpace;
 
-	// Token: 0x04001D44 RID: 7492
+	// Token: 0x04001D93 RID: 7571
 	private Vector3 startingPos;
 
-	// Token: 0x04001D45 RID: 7493
+	// Token: 0x04001D94 RID: 7572
 	private Vector3 _previousLocalPosition;
 
-	// Token: 0x04001D46 RID: 7494
+	// Token: 0x04001D95 RID: 7573
 	private float _cachedProgress;
 }

@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000247 RID: 583
+// Token: 0x02000252 RID: 594
 public class LineRendererDraw : MonoBehaviour
 {
-	// Token: 0x06000D7A RID: 3450 RVA: 0x00045686 File Offset: 0x00043886
+	// Token: 0x06000DC5 RID: 3525 RVA: 0x00039DBA File Offset: 0x00037FBA
 	public void SetUpLine(Transform[] points)
 	{
 		this.lr.positionCount = points.Length;
 		this.points = points;
 	}
 
-	// Token: 0x06000D7B RID: 3451 RVA: 0x000456A0 File Offset: 0x000438A0
+	// Token: 0x06000DC6 RID: 3526 RVA: 0x000A2A50 File Offset: 0x000A0C50
 	private void LateUpdate()
 	{
 		for (int i = 0; i < this.points.Length; i++)
@@ -20,15 +20,15 @@ public class LineRendererDraw : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000D7C RID: 3452 RVA: 0x000456D9 File Offset: 0x000438D9
+	// Token: 0x06000DC7 RID: 3527 RVA: 0x00039DD1 File Offset: 0x00037FD1
 	public void Enable(bool enable)
 	{
 		this.lr.enabled = enable;
 	}
 
-	// Token: 0x040010A5 RID: 4261
+	// Token: 0x040010EB RID: 4331
 	public LineRenderer lr;
 
-	// Token: 0x040010A6 RID: 4262
+	// Token: 0x040010EC RID: 4332
 	public Transform[] points;
 }

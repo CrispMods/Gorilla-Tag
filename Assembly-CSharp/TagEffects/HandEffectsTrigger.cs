@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace TagEffects
 {
-	// Token: 0x02000B2A RID: 2858
+	// Token: 0x02000B57 RID: 2903
 	public class HandEffectsTrigger : MonoBehaviour, IHandEffectsTrigger
 	{
-		// Token: 0x17000751 RID: 1873
-		// (get) Token: 0x06004735 RID: 18229 RVA: 0x001532BF File Offset: 0x001514BF
+		// Token: 0x1700076D RID: 1901
+		// (get) Token: 0x0600487E RID: 18558 RVA: 0x0005F352 File Offset: 0x0005D552
 		public bool Static
 		{
 			get
@@ -17,8 +17,8 @@ namespace TagEffects
 			}
 		}
 
-		// Token: 0x17000752 RID: 1874
-		// (get) Token: 0x06004736 RID: 18230 RVA: 0x001532C8 File Offset: 0x001514C8
+		// Token: 0x1700076E RID: 1902
+		// (get) Token: 0x0600487F RID: 18559 RVA: 0x0018F770 File Offset: 0x0018D970
 		public bool FingersDown
 		{
 			get
@@ -27,8 +27,8 @@ namespace TagEffects
 			}
 		}
 
-		// Token: 0x17000753 RID: 1875
-		// (get) Token: 0x06004737 RID: 18231 RVA: 0x00153314 File Offset: 0x00151514
+		// Token: 0x1700076F RID: 1903
+		// (get) Token: 0x06004880 RID: 18560 RVA: 0x0018F7BC File Offset: 0x0018D9BC
 		public bool FingersUp
 		{
 			get
@@ -37,8 +37,8 @@ namespace TagEffects
 			}
 		}
 
-		// Token: 0x17000754 RID: 1876
-		// (get) Token: 0x06004738 RID: 18232 RVA: 0x00153360 File Offset: 0x00151560
+		// Token: 0x17000770 RID: 1904
+		// (get) Token: 0x06004881 RID: 18561 RVA: 0x0018F808 File Offset: 0x0018DA08
 		public Vector3 Velocity
 		{
 			get
@@ -51,8 +51,8 @@ namespace TagEffects
 			}
 		}
 
-		// Token: 0x17000755 RID: 1877
-		// (get) Token: 0x06004739 RID: 18233 RVA: 0x001533BC File Offset: 0x001515BC
+		// Token: 0x17000771 RID: 1905
+		// (get) Token: 0x06004882 RID: 18562 RVA: 0x0005F35A File Offset: 0x0005D55A
 		bool IHandEffectsTrigger.RightHand
 		{
 			get
@@ -61,12 +61,12 @@ namespace TagEffects
 			}
 		}
 
-		// Token: 0x17000756 RID: 1878
-		// (get) Token: 0x0600473A RID: 18234 RVA: 0x001533C4 File Offset: 0x001515C4
+		// Token: 0x17000772 RID: 1906
+		// (get) Token: 0x06004883 RID: 18563 RVA: 0x0005F362 File Offset: 0x0005D562
 		public IHandEffectsTrigger.Mode EffectMode { get; }
 
-		// Token: 0x17000757 RID: 1879
-		// (get) Token: 0x0600473B RID: 18235 RVA: 0x00042E29 File Offset: 0x00041029
+		// Token: 0x17000773 RID: 1907
+		// (get) Token: 0x06004884 RID: 18564 RVA: 0x00039243 File Offset: 0x00037443
 		public Transform Transform
 		{
 			get
@@ -75,8 +75,8 @@ namespace TagEffects
 			}
 		}
 
-		// Token: 0x17000758 RID: 1880
-		// (get) Token: 0x0600473C RID: 18236 RVA: 0x001533CC File Offset: 0x001515CC
+		// Token: 0x17000774 RID: 1908
+		// (get) Token: 0x06004885 RID: 18565 RVA: 0x0005F36A File Offset: 0x0005D56A
 		public VRRig Rig
 		{
 			get
@@ -85,8 +85,8 @@ namespace TagEffects
 			}
 		}
 
-		// Token: 0x17000759 RID: 1881
-		// (get) Token: 0x0600473D RID: 18237 RVA: 0x001533D4 File Offset: 0x001515D4
+		// Token: 0x17000775 RID: 1909
+		// (get) Token: 0x06004886 RID: 18566 RVA: 0x0005F372 File Offset: 0x0005D572
 		public TagEffectPack CosmeticEffectPack
 		{
 			get
@@ -99,7 +99,7 @@ namespace TagEffects
 			}
 		}
 
-		// Token: 0x0600473E RID: 18238 RVA: 0x001533F4 File Offset: 0x001515F4
+		// Token: 0x06004887 RID: 18567 RVA: 0x0018F864 File Offset: 0x0018DA64
 		private void Awake()
 		{
 			this.rig = base.GetComponentInParent<VRRig>();
@@ -113,7 +113,7 @@ namespace TagEffects
 			}
 		}
 
-		// Token: 0x0600473F RID: 18239 RVA: 0x00042E7F File Offset: 0x0004107F
+		// Token: 0x06004888 RID: 18568 RVA: 0x00039299 File Offset: 0x00037499
 		private void OnEnable()
 		{
 			if (!HandEffectsTriggerRegistry.HasInstance)
@@ -123,13 +123,13 @@ namespace TagEffects
 			HandEffectsTriggerRegistry.Instance.Register(this);
 		}
 
-		// Token: 0x06004740 RID: 18240 RVA: 0x00042E98 File Offset: 0x00041098
+		// Token: 0x06004889 RID: 18569 RVA: 0x000392B2 File Offset: 0x000374B2
 		private void OnDisable()
 		{
 			HandEffectsTriggerRegistry.Instance.Unregister(this);
 		}
 
-		// Token: 0x06004741 RID: 18241 RVA: 0x0015344C File Offset: 0x0015164C
+		// Token: 0x0600488A RID: 18570 RVA: 0x0018F8BC File Offset: 0x0018DABC
 		public void OnTriggerEntered(IHandEffectsTrigger other)
 		{
 			if (this.rig == other.Rig)
@@ -146,7 +146,7 @@ namespace TagEffects
 			}
 		}
 
-		// Token: 0x06004742 RID: 18242 RVA: 0x001535B8 File Offset: 0x001517B8
+		// Token: 0x0600488B RID: 18571 RVA: 0x0018FA28 File Offset: 0x0018DC28
 		private void PlayHandEffects(TagEffectsLibrary.EffectType effectType, IHandEffectsTrigger other)
 		{
 			bool flag = false;
@@ -203,41 +203,41 @@ namespace TagEffects
 			}
 		}
 
-		// Token: 0x06004743 RID: 18243 RVA: 0x001538D4 File Offset: 0x00151AD4
+		// Token: 0x0600488C RID: 18572 RVA: 0x0005F38F File Offset: 0x0005D58F
 		public bool InTriggerZone(IHandEffectsTrigger t)
 		{
 			return (base.transform.position - t.Transform.position).IsShorterThan(this.triggerRadius * this.rig.scaleFactor);
 		}
 
-		// Token: 0x06004744 RID: 18244 RVA: 0x00153908 File Offset: 0x00151B08
+		// Token: 0x0600488D RID: 18573 RVA: 0x0005F3C3 File Offset: 0x0005D5C3
 		private HandEffectsOverrideCosmetic.HandEffectType MapEnum(TagEffectsLibrary.EffectType oldEnum)
 		{
 			return HandEffectsTrigger.mappingArray[(int)oldEnum];
 		}
 
-		// Token: 0x040048DA RID: 18650
+		// Token: 0x040049CF RID: 18895
 		[SerializeField]
 		private float triggerRadius = 0.07f;
 
-		// Token: 0x040048DB RID: 18651
+		// Token: 0x040049D0 RID: 18896
 		[SerializeField]
 		private bool rightHand;
 
-		// Token: 0x040048DC RID: 18652
+		// Token: 0x040049D1 RID: 18897
 		[SerializeField]
 		private bool isStatic;
 
-		// Token: 0x040048DD RID: 18653
+		// Token: 0x040049D2 RID: 18898
 		private VRRig rig;
 
-		// Token: 0x040048DE RID: 18654
+		// Token: 0x040049D3 RID: 18899
 		public GorillaVelocityEstimator velocityEstimator;
 
-		// Token: 0x040048DF RID: 18655
+		// Token: 0x040049D4 RID: 18900
 		[SerializeField]
 		private GameObject[] debugVisuals;
 
-		// Token: 0x040048E1 RID: 18657
+		// Token: 0x040049D6 RID: 18902
 		private static HandEffectsOverrideCosmetic.HandEffectType[] mappingArray = new HandEffectsOverrideCosmetic.HandEffectType[]
 		{
 			HandEffectsOverrideCosmetic.HandEffectType.None,

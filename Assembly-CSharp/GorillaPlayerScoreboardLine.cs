@@ -7,10 +7,10 @@ using Photon.Voice.Unity;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000668 RID: 1640
+// Token: 0x02000647 RID: 1607
 public class GorillaPlayerScoreboardLine : MonoBehaviour
 {
-	// Token: 0x0600288F RID: 10383 RVA: 0x000C70AA File Offset: 0x000C52AA
+	// Token: 0x060027BA RID: 10170 RVA: 0x0004B088 File Offset: 0x00049288
 	public void Start()
 	{
 		this.emptyRigCount = 0;
@@ -19,7 +19,7 @@ public class GorillaPlayerScoreboardLine : MonoBehaviour
 		this.reportedToxicity = false;
 	}
 
-	// Token: 0x06002890 RID: 10384 RVA: 0x000C70C8 File Offset: 0x000C52C8
+	// Token: 0x060027BB RID: 10171 RVA: 0x0010DF18 File Offset: 0x0010C118
 	public void InitializeLine()
 	{
 		this.currentNickname = string.Empty;
@@ -66,7 +66,7 @@ public class GorillaPlayerScoreboardLine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002891 RID: 10385 RVA: 0x000C72C4 File Offset: 0x000C54C4
+	// Token: 0x060027BC RID: 10172 RVA: 0x0010E114 File Offset: 0x0010C314
 	public void SetLineData(NetPlayer netPlayer)
 	{
 		if (!netPlayer.InRoom || netPlayer == this.linePlayer)
@@ -89,7 +89,7 @@ public class GorillaPlayerScoreboardLine : MonoBehaviour
 		this.InitializeLine();
 	}
 
-	// Token: 0x06002892 RID: 10386 RVA: 0x000C734C File Offset: 0x000C554C
+	// Token: 0x060027BD RID: 10173 RVA: 0x0010E19C File Offset: 0x0010C39C
 	public void UpdateLine()
 	{
 		if (this.linePlayer != null)
@@ -176,7 +176,7 @@ public class GorillaPlayerScoreboardLine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002893 RID: 10387 RVA: 0x000C761C File Offset: 0x000C581C
+	// Token: 0x060027BE RID: 10174 RVA: 0x0010E46C File Offset: 0x0010C66C
 	private void UpdatePlayerText()
 	{
 		try
@@ -206,7 +206,7 @@ public class GorillaPlayerScoreboardLine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002894 RID: 10388 RVA: 0x000C77B8 File Offset: 0x000C59B8
+	// Token: 0x060027BF RID: 10175 RVA: 0x0010E608 File Offset: 0x0010C808
 	public void PressButton(bool isOn, GorillaPlayerLineButton.ButtonType buttonType)
 	{
 		if (buttonType != GorillaPlayerLineButton.ButtonType.Mute)
@@ -236,7 +236,7 @@ public class GorillaPlayerScoreboardLine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002895 RID: 10389 RVA: 0x000C7890 File Offset: 0x000C5A90
+	// Token: 0x060027C0 RID: 10176 RVA: 0x0010E6E0 File Offset: 0x0010C8E0
 	public void SetReportState(bool reportState, GorillaPlayerLineButton.ButtonType buttonType)
 	{
 		this.canPressNextReportButton = (buttonType != GorillaPlayerLineButton.ButtonType.Toxicity && buttonType != GorillaPlayerLineButton.ButtonType.Report);
@@ -269,7 +269,7 @@ public class GorillaPlayerScoreboardLine : MonoBehaviour
 		this.parentScoreboard.RedrawPlayerLines();
 	}
 
-	// Token: 0x06002896 RID: 10390 RVA: 0x000C799C File Offset: 0x000C5B9C
+	// Token: 0x060027C1 RID: 10177 RVA: 0x0010E7EC File Offset: 0x0010C9EC
 	public static void ReportPlayer(string PlayerID, GorillaPlayerLineButton.ButtonType buttonType, string OtherPlayerNickName)
 	{
 		if (OtherPlayerNickName.Length > 12)
@@ -295,7 +295,7 @@ public class GorillaPlayerScoreboardLine : MonoBehaviour
 		NetworkSystemRaiseEvent.RaiseEvent(code, data, options, true);
 	}
 
-	// Token: 0x06002897 RID: 10391 RVA: 0x000C7A34 File Offset: 0x000C5C34
+	// Token: 0x060027C2 RID: 10178 RVA: 0x0010E884 File Offset: 0x0010CA84
 	public static void MutePlayer(string PlayerID, string OtherPlayerNickName, int muting)
 	{
 		if (OtherPlayerNickName.Length > 12)
@@ -321,7 +321,7 @@ public class GorillaPlayerScoreboardLine : MonoBehaviour
 		NetworkSystemRaiseEvent.RaiseEvent(code, data, options, true);
 	}
 
-	// Token: 0x06002898 RID: 10392 RVA: 0x000C7ACC File Offset: 0x000C5CCC
+	// Token: 0x060027C3 RID: 10179 RVA: 0x0010E91C File Offset: 0x0010CB1C
 	public string NormalizeName(bool doIt, string text)
 	{
 		if (doIt)
@@ -344,7 +344,7 @@ public class GorillaPlayerScoreboardLine : MonoBehaviour
 		return text;
 	}
 
-	// Token: 0x06002899 RID: 10393 RVA: 0x000C7B6D File Offset: 0x000C5D6D
+	// Token: 0x060027C4 RID: 10180 RVA: 0x0004B0A6 File Offset: 0x000492A6
 	public void ResetData()
 	{
 		this.emptyRigCount = 0;
@@ -354,19 +354,19 @@ public class GorillaPlayerScoreboardLine : MonoBehaviour
 		this.currentNickname = string.Empty;
 	}
 
-	// Token: 0x0600289A RID: 10394 RVA: 0x000C7B9A File Offset: 0x000C5D9A
+	// Token: 0x060027C5 RID: 10181 RVA: 0x0004B0D3 File Offset: 0x000492D3
 	private void OnEnable()
 	{
 		GorillaScoreboardTotalUpdater.RegisterSL(this);
 	}
 
-	// Token: 0x0600289B RID: 10395 RVA: 0x000C7BA2 File Offset: 0x000C5DA2
+	// Token: 0x060027C6 RID: 10182 RVA: 0x0004B0DB File Offset: 0x000492DB
 	private void OnDisable()
 	{
 		GorillaScoreboardTotalUpdater.UnregisterSL(this);
 	}
 
-	// Token: 0x0600289C RID: 10396 RVA: 0x000C7BAC File Offset: 0x000C5DAC
+	// Token: 0x060027C7 RID: 10183 RVA: 0x0010E9C0 File Offset: 0x0010CBC0
 	private void SwapToReportState(bool reportInProgress)
 	{
 		this.reportButton.gameObject.SetActive(!reportInProgress);
@@ -376,129 +376,129 @@ public class GorillaPlayerScoreboardLine : MonoBehaviour
 		this.cancelButton.SetActive(reportInProgress);
 	}
 
-	// Token: 0x04002D82 RID: 11650
+	// Token: 0x04002CE8 RID: 11496
 	private static int[] targetActors = new int[]
 	{
 		-1
 	};
 
-	// Token: 0x04002D83 RID: 11651
+	// Token: 0x04002CE9 RID: 11497
 	public Text playerName;
 
-	// Token: 0x04002D84 RID: 11652
+	// Token: 0x04002CEA RID: 11498
 	public Text playerLevel;
 
-	// Token: 0x04002D85 RID: 11653
+	// Token: 0x04002CEB RID: 11499
 	public Text playerMMR;
 
-	// Token: 0x04002D86 RID: 11654
+	// Token: 0x04002CEC RID: 11500
 	public Image playerSwatch;
 
-	// Token: 0x04002D87 RID: 11655
+	// Token: 0x04002CED RID: 11501
 	public Texture infectedTexture;
 
-	// Token: 0x04002D88 RID: 11656
+	// Token: 0x04002CEE RID: 11502
 	public NetPlayer linePlayer;
 
-	// Token: 0x04002D89 RID: 11657
+	// Token: 0x04002CEF RID: 11503
 	public VRRig playerVRRig;
 
-	// Token: 0x04002D8A RID: 11658
+	// Token: 0x04002CF0 RID: 11504
 	public string playerLevelValue;
 
-	// Token: 0x04002D8B RID: 11659
+	// Token: 0x04002CF1 RID: 11505
 	public string playerMMRValue;
 
-	// Token: 0x04002D8C RID: 11660
+	// Token: 0x04002CF2 RID: 11506
 	public string playerNameValue;
 
-	// Token: 0x04002D8D RID: 11661
+	// Token: 0x04002CF3 RID: 11507
 	public string playerNameVisible;
 
-	// Token: 0x04002D8E RID: 11662
+	// Token: 0x04002CF4 RID: 11508
 	public int playerActorNumber;
 
-	// Token: 0x04002D8F RID: 11663
+	// Token: 0x04002CF5 RID: 11509
 	public GorillaPlayerLineButton muteButton;
 
-	// Token: 0x04002D90 RID: 11664
+	// Token: 0x04002CF6 RID: 11510
 	public GorillaPlayerLineButton reportButton;
 
-	// Token: 0x04002D91 RID: 11665
+	// Token: 0x04002CF7 RID: 11511
 	public GameObject hateSpeechButton;
 
-	// Token: 0x04002D92 RID: 11666
+	// Token: 0x04002CF8 RID: 11512
 	public GameObject toxicityButton;
 
-	// Token: 0x04002D93 RID: 11667
+	// Token: 0x04002CF9 RID: 11513
 	public GameObject cheatingButton;
 
-	// Token: 0x04002D94 RID: 11668
+	// Token: 0x04002CFA RID: 11514
 	public GameObject cancelButton;
 
-	// Token: 0x04002D95 RID: 11669
+	// Token: 0x04002CFB RID: 11515
 	public SpriteRenderer speakerIcon;
 
-	// Token: 0x04002D96 RID: 11670
+	// Token: 0x04002CFC RID: 11516
 	public bool canPressNextReportButton = true;
 
-	// Token: 0x04002D97 RID: 11671
+	// Token: 0x04002CFD RID: 11517
 	public Text[] texts;
 
-	// Token: 0x04002D98 RID: 11672
+	// Token: 0x04002CFE RID: 11518
 	public SpriteRenderer[] sprites;
 
-	// Token: 0x04002D99 RID: 11673
+	// Token: 0x04002CFF RID: 11519
 	public MeshRenderer[] meshes;
 
-	// Token: 0x04002D9A RID: 11674
+	// Token: 0x04002D00 RID: 11520
 	public Image[] images;
 
-	// Token: 0x04002D9B RID: 11675
+	// Token: 0x04002D01 RID: 11521
 	private Recorder myRecorder;
 
-	// Token: 0x04002D9C RID: 11676
+	// Token: 0x04002D02 RID: 11522
 	private bool isMuteManual;
 
-	// Token: 0x04002D9D RID: 11677
+	// Token: 0x04002D03 RID: 11523
 	private int mute;
 
-	// Token: 0x04002D9E RID: 11678
+	// Token: 0x04002D04 RID: 11524
 	private int emptyRigCount;
 
-	// Token: 0x04002D9F RID: 11679
+	// Token: 0x04002D05 RID: 11525
 	public GameObject myRig;
 
-	// Token: 0x04002DA0 RID: 11680
+	// Token: 0x04002D06 RID: 11526
 	public bool reportedCheating;
 
-	// Token: 0x04002DA1 RID: 11681
+	// Token: 0x04002D07 RID: 11527
 	public bool reportedToxicity;
 
-	// Token: 0x04002DA2 RID: 11682
+	// Token: 0x04002D08 RID: 11528
 	public bool reportedHateSpeech;
 
-	// Token: 0x04002DA3 RID: 11683
+	// Token: 0x04002D09 RID: 11529
 	public bool reportInProgress;
 
-	// Token: 0x04002DA4 RID: 11684
+	// Token: 0x04002D0A RID: 11530
 	private string currentNickname;
 
-	// Token: 0x04002DA5 RID: 11685
+	// Token: 0x04002D0B RID: 11531
 	public bool doneReporting;
 
-	// Token: 0x04002DA6 RID: 11686
+	// Token: 0x04002D0C RID: 11532
 	public bool lastVisible = true;
 
-	// Token: 0x04002DA7 RID: 11687
+	// Token: 0x04002D0D RID: 11533
 	public GorillaScoreBoard parentScoreboard;
 
-	// Token: 0x04002DA8 RID: 11688
+	// Token: 0x04002D0E RID: 11534
 	public float initTime;
 
-	// Token: 0x04002DA9 RID: 11689
+	// Token: 0x04002D0F RID: 11535
 	public float emptyRigCooldown = 10f;
 
-	// Token: 0x04002DAA RID: 11690
+	// Token: 0x04002D10 RID: 11536
 	internal RigContainer rigContainer;
 }

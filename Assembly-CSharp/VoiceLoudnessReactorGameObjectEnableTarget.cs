@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008E9 RID: 2281
+// Token: 0x02000905 RID: 2309
 [Serializable]
 public class VoiceLoudnessReactorGameObjectEnableTarget
 {
-	// Token: 0x040039CB RID: 14795
+	// Token: 0x04003A8C RID: 14988
 	public GameObject GameObject;
 
-	// Token: 0x040039CC RID: 14796
+	// Token: 0x04003A8D RID: 14989
 	public float Threshold;
 
-	// Token: 0x040039CD RID: 14797
+	// Token: 0x04003A8E RID: 14990
 	public bool TurnOnAtThreshhold = true;
 
-	// Token: 0x040039CE RID: 14798
+	// Token: 0x04003A8F RID: 14991
 	public bool UseSmoothedLoudness;
 
-	// Token: 0x040039CF RID: 14799
+	// Token: 0x04003A90 RID: 14992
 	public float Scale = 1f;
 }

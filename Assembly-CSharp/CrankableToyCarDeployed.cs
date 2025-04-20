@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000148 RID: 328
+// Token: 0x02000152 RID: 338
 public class CrankableToyCarDeployed : MonoBehaviour
 {
-	// Token: 0x06000859 RID: 2137 RVA: 0x0002DC40 File Offset: 0x0002BE40
+	// Token: 0x0600089D RID: 2205 RVA: 0x0008ED0C File Offset: 0x0008CF0C
 	public void Deploy(CrankableToyCarHoldable holdable, Vector3 launchPos, Quaternion launchRot, Vector3 releaseVel, float lifetime, bool isRemote = false)
 	{
 		this.holdable = holdable;
@@ -18,7 +18,7 @@ public class CrankableToyCarDeployed : MonoBehaviour
 		this.isRemote = isRemote;
 	}
 
-	// Token: 0x0600085A RID: 2138 RVA: 0x0002DCB8 File Offset: 0x0002BEB8
+	// Token: 0x0600089E RID: 2206 RVA: 0x0008ED84 File Offset: 0x0008CF84
 	private void Update()
 	{
 		if (!this.isRemote && Time.time > this.expiresAtTimestamp)
@@ -48,39 +48,39 @@ public class CrankableToyCarDeployed : MonoBehaviour
 		this.wheelDriver.SetThrust(this.maxThrust * d);
 	}
 
-	// Token: 0x040009E3 RID: 2531
+	// Token: 0x04000A26 RID: 2598
 	[SerializeField]
 	private Rigidbody rb;
 
-	// Token: 0x040009E4 RID: 2532
+	// Token: 0x04000A27 RID: 2599
 	[SerializeField]
 	private FakeWheelDriver wheelDriver;
 
-	// Token: 0x040009E5 RID: 2533
+	// Token: 0x04000A28 RID: 2600
 	[SerializeField]
 	private Vector3 maxThrust;
 
-	// Token: 0x040009E6 RID: 2534
+	// Token: 0x04000A29 RID: 2601
 	[SerializeField]
 	private AnimationCurve thrustCurve;
 
-	// Token: 0x040009E7 RID: 2535
+	// Token: 0x04000A2A RID: 2602
 	private float startedAtTimestamp;
 
-	// Token: 0x040009E8 RID: 2536
+	// Token: 0x04000A2B RID: 2603
 	private float expiresAtTimestamp;
 
-	// Token: 0x040009E9 RID: 2537
+	// Token: 0x04000A2C RID: 2604
 	private CrankableToyCarHoldable holdable;
 
-	// Token: 0x040009EA RID: 2538
+	// Token: 0x04000A2D RID: 2605
 	[SerializeField]
 	private AudioSource drivingAudio;
 
-	// Token: 0x040009EB RID: 2539
+	// Token: 0x04000A2E RID: 2606
 	[SerializeField]
 	private AudioSource offGroundDrivingAudio;
 
-	// Token: 0x040009EC RID: 2540
+	// Token: 0x04000A2F RID: 2607
 	private bool isRemote;
 }

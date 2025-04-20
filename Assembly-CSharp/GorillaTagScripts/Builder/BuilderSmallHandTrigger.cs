@@ -6,11 +6,11 @@ using UnityEngine.Playables;
 
 namespace GorillaTagScripts.Builder
 {
-	// Token: 0x02000A0A RID: 2570
+	// Token: 0x02000A37 RID: 2615
 	public class BuilderSmallHandTrigger : MonoBehaviour
 	{
-		// Token: 0x1700066B RID: 1643
-		// (get) Token: 0x06004065 RID: 16485 RVA: 0x00131D1A File Offset: 0x0012FF1A
+		// Token: 0x17000687 RID: 1671
+		// (get) Token: 0x060041AA RID: 16810 RVA: 0x0005AEE2 File Offset: 0x000590E2
 		public bool TriggeredThisFrame
 		{
 			get
@@ -19,7 +19,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004066 RID: 16486 RVA: 0x00131D2C File Offset: 0x0012FF2C
+		// Token: 0x060041AB RID: 16811 RVA: 0x00172744 File Offset: 0x00170944
 		private void OnTriggerEnter(Collider other)
 		{
 			if (!base.enabled)
@@ -60,29 +60,29 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x04004180 RID: 16768
+		// Token: 0x0400427A RID: 17018
 		[Tooltip("Optional timeline to play to animate the thing getting activated, play sound, particles, etc...")]
 		public PlayableDirector timeline;
 
-		// Token: 0x04004181 RID: 16769
+		// Token: 0x0400427B RID: 17019
 		[Tooltip("Optional animation to play")]
 		public Animation animation;
 
-		// Token: 0x04004182 RID: 16770
+		// Token: 0x0400427C RID: 17020
 		private int lastTriggeredFrame = -1;
 
-		// Token: 0x04004183 RID: 16771
+		// Token: 0x0400427D RID: 17021
 		public bool onlySmallHands;
 
-		// Token: 0x04004184 RID: 16772
+		// Token: 0x0400427E RID: 17022
 		[SerializeField]
 		protected bool requireMinimumVelocity;
 
-		// Token: 0x04004185 RID: 16773
+		// Token: 0x0400427F RID: 17023
 		[SerializeField]
 		protected float minimumVelocityMagnitude = 0.1f;
 
-		// Token: 0x04004186 RID: 16774
+		// Token: 0x04004280 RID: 17024
 		internal UnityEvent TriggeredEvent = new UnityEvent();
 	}
 }

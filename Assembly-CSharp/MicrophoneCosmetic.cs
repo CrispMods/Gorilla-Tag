@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000EC RID: 236
+// Token: 0x020000F6 RID: 246
 public class MicrophoneCosmetic : MonoBehaviour
 {
-	// Token: 0x06000631 RID: 1585 RVA: 0x00023B98 File Offset: 0x00021D98
+	// Token: 0x06000672 RID: 1650 RVA: 0x0008614C File Offset: 0x0008434C
 	private void Awake()
 	{
 		this.audioSource = base.GetComponent<AudioSource>();
@@ -20,7 +20,7 @@ public class MicrophoneCosmetic : MonoBehaviour
 		this.audioSource.loop = true;
 	}
 
-	// Token: 0x06000632 RID: 1586 RVA: 0x00023C18 File Offset: 0x00021E18
+	// Token: 0x06000673 RID: 1651 RVA: 0x000861CC File Offset: 0x000843CC
 	private void OnEnable()
 	{
 		int num = (Application.platform == RuntimePlatform.Android && Microphone.devices.Length != 0) ? Microphone.GetPosition(Microphone.devices[0]) : Microphone.GetPosition(null);
@@ -33,13 +33,13 @@ public class MicrophoneCosmetic : MonoBehaviour
 		this.audioSource.timeSamples = num;
 	}
 
-	// Token: 0x06000633 RID: 1587 RVA: 0x00023C85 File Offset: 0x00021E85
+	// Token: 0x06000674 RID: 1652 RVA: 0x00034BDE File Offset: 0x00032DDE
 	private void OnDisable()
 	{
 		this.audioSource.GTStop();
 	}
 
-	// Token: 0x06000634 RID: 1588 RVA: 0x00023C94 File Offset: 0x00021E94
+	// Token: 0x06000675 RID: 1653 RVA: 0x0008623C File Offset: 0x0008443C
 	private void Update()
 	{
 		Vector3 vector = this.mouthTransform.position - base.transform.position;
@@ -62,22 +62,22 @@ public class MicrophoneCosmetic : MonoBehaviour
 		this.audioSource.clip.SetData(this.zero, num2);
 	}
 
-	// Token: 0x06000635 RID: 1589 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000676 RID: 1654 RVA: 0x00030607 File Offset: 0x0002E807
 	private void OnAudioFilterRead(float[] data, int channels)
 	{
 	}
 
-	// Token: 0x0400074E RID: 1870
+	// Token: 0x0400078F RID: 1935
 	[SerializeField]
 	private Transform mouthTransform;
 
-	// Token: 0x0400074F RID: 1871
+	// Token: 0x04000790 RID: 1936
 	[SerializeField]
 	private Vector2 mouthProximityRampRange = new Vector2(0.6f, 0.3f);
 
-	// Token: 0x04000750 RID: 1872
+	// Token: 0x04000791 RID: 1937
 	private AudioSource audioSource;
 
-	// Token: 0x04000751 RID: 1873
+	// Token: 0x04000792 RID: 1938
 	private float[] zero = new float[1];
 }

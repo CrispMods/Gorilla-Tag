@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000173 RID: 371
+// Token: 0x0200017E RID: 382
 public class ParticleEffectsPoolStatic<T> : ParticleEffectsPool where T : ParticleEffectsPool
 {
-	// Token: 0x170000EA RID: 234
-	// (get) Token: 0x06000948 RID: 2376 RVA: 0x00031BFF File Offset: 0x0002FDFF
+	// Token: 0x170000F1 RID: 241
+	// (get) Token: 0x06000995 RID: 2453 RVA: 0x00036C4E File Offset: 0x00034E4E
 	public static T Instance
 	{
 		get
@@ -14,17 +14,17 @@ public class ParticleEffectsPoolStatic<T> : ParticleEffectsPool where T : Partic
 		}
 	}
 
-	// Token: 0x06000949 RID: 2377 RVA: 0x00031C06 File Offset: 0x0002FE06
+	// Token: 0x06000996 RID: 2454 RVA: 0x00036C55 File Offset: 0x00034E55
 	protected override void OnPoolAwake()
 	{
 		if (ParticleEffectsPoolStatic<T>.gInstance && ParticleEffectsPoolStatic<T>.gInstance != this)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 			return;
 		}
 		ParticleEffectsPoolStatic<T>.gInstance = (this as T);
 	}
 
-	// Token: 0x04000B3F RID: 2879
+	// Token: 0x04000B86 RID: 2950
 	protected static T gInstance;
 }

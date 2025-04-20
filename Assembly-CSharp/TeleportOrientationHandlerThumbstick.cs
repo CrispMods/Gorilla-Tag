@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020002E0 RID: 736
+// Token: 0x020002EB RID: 747
 public class TeleportOrientationHandlerThumbstick : TeleportOrientationHandler
 {
-	// Token: 0x060011B9 RID: 4537 RVA: 0x00054388 File Offset: 0x00052588
+	// Token: 0x06001205 RID: 4613 RVA: 0x0003C438 File Offset: 0x0003A638
 	protected override void InitializeTeleportDestination()
 	{
 		this._initialRotation = base.LocomotionTeleport.GetHeadRotationY();
@@ -12,7 +12,7 @@ public class TeleportOrientationHandlerThumbstick : TeleportOrientationHandler
 		this._lastValidDirection = default(Vector2);
 	}
 
-	// Token: 0x060011BA RID: 4538 RVA: 0x000543B4 File Offset: 0x000525B4
+	// Token: 0x06001206 RID: 4614 RVA: 0x000AF0E4 File Offset: 0x000AD2E4
 	protected override void UpdateTeleportDestination()
 	{
 		float num;
@@ -79,24 +79,24 @@ public class TeleportOrientationHandlerThumbstick : TeleportOrientationHandler
 		base.LocomotionTeleport.OnUpdateTeleportDestination(this.AimData.TargetValid, this.AimData.Destination, new Quaternion?(this._currentRotation), new Quaternion?(base.GetLandingOrientation(this.OrientationMode, this._currentRotation)));
 	}
 
-	// Token: 0x040013A0 RID: 5024
+	// Token: 0x040013E8 RID: 5096
 	[Tooltip("HeadRelative=Character will orient to match the arrow. ForwardFacing=When user orients to match the arrow, they will be facing the sensors.")]
 	public TeleportOrientationHandler.OrientationModes OrientationMode;
 
-	// Token: 0x040013A1 RID: 5025
+	// Token: 0x040013E9 RID: 5097
 	[Tooltip("Which thumbstick is to be used for adjusting the teleport orientation. Supports LTouch, RTouch, or Touch for either.")]
 	public OVRInput.Controller Thumbstick;
 
-	// Token: 0x040013A2 RID: 5026
+	// Token: 0x040013EA RID: 5098
 	[Tooltip("The orientation will only change if the thumbstick magnitude is above this value. This will usually be larger than the TeleportInputHandlerTouch.ThumbstickTeleportThreshold.")]
 	public float RotateStickThreshold = 0.8f;
 
-	// Token: 0x040013A3 RID: 5027
+	// Token: 0x040013EB RID: 5099
 	private Quaternion _initialRotation;
 
-	// Token: 0x040013A4 RID: 5028
+	// Token: 0x040013EC RID: 5100
 	private Quaternion _currentRotation;
 
-	// Token: 0x040013A5 RID: 5029
+	// Token: 0x040013ED RID: 5101
 	private Vector2 _lastValidDirection;
 }

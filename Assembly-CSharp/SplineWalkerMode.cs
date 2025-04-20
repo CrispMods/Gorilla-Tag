@@ -1,12 +1,12 @@
 ﻿using System;
 
-// Token: 0x0200087F RID: 2175
+// Token: 0x0200089B RID: 2203
 public enum SplineWalkerMode
 {
-	// Token: 0x04003771 RID: 14193
+	// Token: 0x04003831 RID: 14385
 	Once,
-	// Token: 0x04003772 RID: 14194
+	// Token: 0x04003832 RID: 14386
 	Loop,
-	// Token: 0x04003773 RID: 14195
+	// Token: 0x04003833 RID: 14387
 	PingPong
 }

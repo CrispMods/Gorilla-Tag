@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Reflection;
 
-// Token: 0x02000861 RID: 2145
+// Token: 0x0200087D RID: 2173
 public class OnPlayChange_BaseAttribute : Attribute
 {
-	// Token: 0x06003419 RID: 13337 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060034E5 RID: 13541 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void OnEnterPlay(FieldInfo field)
 	{
 	}
 
-	// Token: 0x0600341A RID: 13338 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060034E6 RID: 13542 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void OnEnterPlay(MethodInfo method)
 	{
 	}

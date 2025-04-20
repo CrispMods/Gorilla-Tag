@@ -4,7 +4,7 @@ using UnityEngine;
 // Token: 0x02000027 RID: 39
 public class ColliderEnabledManager : MonoBehaviour
 {
-	// Token: 0x06000088 RID: 136 RVA: 0x00004B9E File Offset: 0x00002D9E
+	// Token: 0x06000088 RID: 136 RVA: 0x000309FC File Offset: 0x0002EBFC
 	private void Start()
 	{
 		this.floorEnabled = true;
@@ -12,19 +12,19 @@ public class ColliderEnabledManager : MonoBehaviour
 		ColliderEnabledManager.instance = this;
 	}
 
-	// Token: 0x06000089 RID: 137 RVA: 0x00004BB4 File Offset: 0x00002DB4
+	// Token: 0x06000089 RID: 137 RVA: 0x00030A12 File Offset: 0x0002EC12
 	private void OnDestroy()
 	{
 		ColliderEnabledManager.instance = null;
 	}
 
-	// Token: 0x0600008A RID: 138 RVA: 0x00004BBC File Offset: 0x00002DBC
+	// Token: 0x0600008A RID: 138 RVA: 0x00030A1A File Offset: 0x0002EC1A
 	public void DisableFloorForFrame()
 	{
 		this.floorEnabled = false;
 	}
 
-	// Token: 0x0600008B RID: 139 RVA: 0x00004BC8 File Offset: 0x00002DC8
+	// Token: 0x0600008B RID: 139 RVA: 0x00069DE8 File Offset: 0x00067FE8
 	private void LateUpdate()
 	{
 		if (!this.floorEnabled && this.floorCollidersEnabled)
@@ -59,7 +59,7 @@ public class ColliderEnabledManager : MonoBehaviour
 		this.floorEnabled = true;
 	}
 
-	// Token: 0x0600008C RID: 140 RVA: 0x00004C88 File Offset: 0x00002E88
+	// Token: 0x0600008C RID: 140 RVA: 0x00030A23 File Offset: 0x0002EC23
 	private void DisableFloor()
 	{
 		this.floorCollidersEnabled = false;

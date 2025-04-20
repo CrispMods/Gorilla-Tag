@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-// Token: 0x020003A7 RID: 935
+// Token: 0x020003B2 RID: 946
 public class BitmapFont : ScriptableObject
 {
-	// Token: 0x060015E2 RID: 5602 RVA: 0x00069BAC File Offset: 0x00067DAC
+	// Token: 0x0600162E RID: 5678 RVA: 0x000C1C50 File Offset: 0x000BFE50
 	private void OnEnable()
 	{
 		this._charToSymbol = this.symbols.ToDictionary((BitmapFont.SymbolData s) => s.character, (BitmapFont.SymbolData s) => s);
 	}
 
-	// Token: 0x060015E3 RID: 5603 RVA: 0x00069C08 File Offset: 0x00067E08
+	// Token: 0x0600162F RID: 5679 RVA: 0x000C1CAC File Offset: 0x000BFEAC
 	public void RenderToTexture(Texture2D target, string text)
 	{
 		if (text == null)
@@ -47,55 +47,55 @@ public class BitmapFont : ScriptableObject
 		target.Apply(false);
 	}
 
-	// Token: 0x04001808 RID: 6152
+	// Token: 0x0400184F RID: 6223
 	public Texture2D fontImage;
 
-	// Token: 0x04001809 RID: 6153
+	// Token: 0x04001850 RID: 6224
 	public TextAsset fontJson;
 
-	// Token: 0x0400180A RID: 6154
+	// Token: 0x04001851 RID: 6225
 	public int symbolPixelsPerUnit = 1;
 
-	// Token: 0x0400180B RID: 6155
+	// Token: 0x04001852 RID: 6226
 	public string characterMap;
 
-	// Token: 0x0400180C RID: 6156
+	// Token: 0x04001853 RID: 6227
 	[Space]
 	public BitmapFont.SymbolData[] symbols = new BitmapFont.SymbolData[0];
 
-	// Token: 0x0400180D RID: 6157
+	// Token: 0x04001854 RID: 6228
 	private Dictionary<char, BitmapFont.SymbolData> _charToSymbol;
 
-	// Token: 0x0400180E RID: 6158
+	// Token: 0x04001855 RID: 6229
 	private Color[] _empty = new Color[0];
 
-	// Token: 0x020003A8 RID: 936
+	// Token: 0x020003B3 RID: 947
 	[Serializable]
 	public struct SymbolData
 	{
-		// Token: 0x0400180F RID: 6159
+		// Token: 0x04001856 RID: 6230
 		public char character;
 
-		// Token: 0x04001810 RID: 6160
+		// Token: 0x04001857 RID: 6231
 		[Space]
 		public int id;
 
-		// Token: 0x04001811 RID: 6161
+		// Token: 0x04001858 RID: 6232
 		public int width;
 
-		// Token: 0x04001812 RID: 6162
+		// Token: 0x04001859 RID: 6233
 		public int height;
 
-		// Token: 0x04001813 RID: 6163
+		// Token: 0x0400185A RID: 6234
 		public int x;
 
-		// Token: 0x04001814 RID: 6164
+		// Token: 0x0400185B RID: 6235
 		public int y;
 
-		// Token: 0x04001815 RID: 6165
+		// Token: 0x0400185C RID: 6236
 		public int xadvance;
 
-		// Token: 0x04001816 RID: 6166
+		// Token: 0x0400185D RID: 6237
 		public int yoffset;
 	}
 }

@@ -2,10 +2,10 @@
 
 namespace BoingKit
 {
-	// Token: 0x02000CB6 RID: 3254
+	// Token: 0x02000CE7 RID: 3303
 	public static class BoingKit
 	{
-		// Token: 0x040054A3 RID: 21667
+		// Token: 0x040055AF RID: 21935
 		public static readonly Version Version = new Version(1, 2, 37);
 	}
 }

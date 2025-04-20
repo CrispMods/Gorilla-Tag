@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000C0 RID: 192
+// Token: 0x020000CA RID: 202
 public class CornOnCobCosmetic : MonoBehaviour
 {
-	// Token: 0x060004F8 RID: 1272 RVA: 0x0001D9EC File Offset: 0x0001BBEC
+	// Token: 0x06000534 RID: 1332 RVA: 0x00080CDC File Offset: 0x0007EEDC
 	protected void Awake()
 	{
 		this.emissionModule = this.particleSys.emission;
 		this.maxBurstProbability = ((this.emissionModule.burstCount > 0) ? this.emissionModule.GetBurst(0).probability : 0.2f);
 	}
 
-	// Token: 0x060004F9 RID: 1273 RVA: 0x0001DA3C File Offset: 0x0001BC3C
+	// Token: 0x06000535 RID: 1333 RVA: 0x00080D2C File Offset: 0x0007EF2C
 	protected void LateUpdate()
 	{
 		for (int i = 0; i < this.emissionModule.burstCount; i++)
@@ -28,27 +28,27 @@ public class CornOnCobCosmetic : MonoBehaviour
 		this.previousParticleCount = particleCount;
 	}
 
-	// Token: 0x040005CD RID: 1485
+	// Token: 0x0400060D RID: 1549
 	[Tooltip("The corn will start popping based on the temperature from this ThermalReceiver.")]
 	public ThermalReceiver thermalReceiver;
 
-	// Token: 0x040005CE RID: 1486
+	// Token: 0x0400060E RID: 1550
 	[Tooltip("The particle system that will be emitted when the heat source is hot enough.")]
 	public ParticleSystem particleSys;
 
-	// Token: 0x040005CF RID: 1487
+	// Token: 0x0400060F RID: 1551
 	[Tooltip("The curve that determines how many particles will be emitted based on the heat source's temperature.\n\nThe x-axis is the heat source's temperature and the y-axis is the number of particles to emit.")]
 	public AnimationCurve particleEmissionCurve;
 
-	// Token: 0x040005D0 RID: 1488
+	// Token: 0x04000610 RID: 1552
 	public SoundBankPlayer soundBankPlayer;
 
-	// Token: 0x040005D1 RID: 1489
+	// Token: 0x04000611 RID: 1553
 	private ParticleSystem.EmissionModule emissionModule;
 
-	// Token: 0x040005D2 RID: 1490
+	// Token: 0x04000612 RID: 1554
 	private float maxBurstProbability;
 
-	// Token: 0x040005D3 RID: 1491
+	// Token: 0x04000613 RID: 1555
 	private int previousParticleCount;
 }

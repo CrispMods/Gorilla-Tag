@@ -3,10 +3,10 @@ using GorillaTagScripts;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020002B1 RID: 689
+// Token: 0x020002BC RID: 700
 public class NonCosmeticItemProvider : MonoBehaviour
 {
-	// Token: 0x060010B8 RID: 4280 RVA: 0x00050F44 File Offset: 0x0004F144
+	// Token: 0x06001104 RID: 4356 RVA: 0x000AC674 File Offset: 0x000AA874
 	private void OnTriggerEnter(Collider other)
 	{
 		GorillaTriggerColliderHandIndicator component = other.GetComponent<GorillaTriggerColliderHandIndicator>();
@@ -25,23 +25,23 @@ public class NonCosmeticItemProvider : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040012BA RID: 4794
+	// Token: 0x04001302 RID: 4866
 	public GTZone zone;
 
-	// Token: 0x040012BB RID: 4795
+	// Token: 0x04001303 RID: 4867
 	[Tooltip("only for honeycomb")]
 	public bool useCondition;
 
-	// Token: 0x040012BC RID: 4796
+	// Token: 0x04001304 RID: 4868
 	public int conditionThreshold;
 
-	// Token: 0x040012BD RID: 4797
+	// Token: 0x04001305 RID: 4869
 	public NonCosmeticItemProvider.ItemType itemType;
 
-	// Token: 0x020002B2 RID: 690
+	// Token: 0x020002BD RID: 701
 	public enum ItemType
 	{
-		// Token: 0x040012BF RID: 4799
+		// Token: 0x04001307 RID: 4871
 		honeycomb
 	}
 }

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000889 RID: 2185
+// Token: 0x020008A5 RID: 2213
 public static class TransformUtils
 {
-	// Token: 0x060034F0 RID: 13552 RVA: 0x000FCDC4 File Offset: 0x000FAFC4
+	// Token: 0x060035BC RID: 13756 RVA: 0x0014377C File Offset: 0x0014197C
 	public static int ComputePathHashByInstance(Transform t)
 	{
 		if (t == null)
@@ -22,7 +22,7 @@ public static class TransformUtils
 		return num;
 	}
 
-	// Token: 0x060034F1 RID: 13553 RVA: 0x000FCE00 File Offset: 0x000FB000
+	// Token: 0x060035BD RID: 13757 RVA: 0x001437B8 File Offset: 0x001419B8
 	public static Hash128 ComputePathHash(Transform t)
 	{
 		if (t == null)
@@ -40,7 +40,7 @@ public static class TransformUtils
 		return result;
 	}
 
-	// Token: 0x060034F2 RID: 13554 RVA: 0x000FCE54 File Offset: 0x000FB054
+	// Token: 0x060035BE RID: 13758 RVA: 0x0014380C File Offset: 0x00141A0C
 	public static string GetScenePath(Transform t)
 	{
 		if (t == null)
@@ -57,7 +57,7 @@ public static class TransformUtils
 		return text;
 	}
 
-	// Token: 0x060034F3 RID: 13555 RVA: 0x000FCEA0 File Offset: 0x000FB0A0
+	// Token: 0x060035BF RID: 13759 RVA: 0x00143858 File Offset: 0x00141A58
 	public static string GetScenePathReverse(Transform t)
 	{
 		if (t == null)
@@ -79,6 +79,6 @@ public static class TransformUtils
 		return text;
 	}
 
-	// Token: 0x0400378E RID: 14222
+	// Token: 0x0400384E RID: 14414
 	private const string kFwdSlash = "/";
 }

@@ -4,17 +4,17 @@ using Viveport.Internal;
 
 namespace Viveport
 {
-	// Token: 0x02000920 RID: 2336
+	// Token: 0x0200093D RID: 2365
 	internal class Token
 	{
-		// Token: 0x0600385E RID: 14430 RVA: 0x00108034 File Offset: 0x00106234
+		// Token: 0x0600392F RID: 14639 RVA: 0x00055B03 File Offset: 0x00053D03
 		[MonoPInvokeCallback(typeof(StatusCallback))]
 		private static void IsReadyIl2cppCallback(int errorCode)
 		{
 			Token.isReadyIl2cppCallback(errorCode);
 		}
 
-		// Token: 0x0600385F RID: 14431 RVA: 0x00108044 File Offset: 0x00106244
+		// Token: 0x06003930 RID: 14640 RVA: 0x0014C354 File Offset: 0x0014A554
 		public static void IsReady(StatusCallback callback)
 		{
 			if (callback == null)
@@ -31,14 +31,14 @@ namespace Viveport
 			Token.IsReady(new StatusCallback(Token.IsReadyIl2cppCallback));
 		}
 
-		// Token: 0x06003860 RID: 14432 RVA: 0x001080B3 File Offset: 0x001062B3
+		// Token: 0x06003931 RID: 14641 RVA: 0x00055B10 File Offset: 0x00053D10
 		[MonoPInvokeCallback(typeof(StatusCallback2))]
 		private static void GetSessionTokenIl2cppCallback(int errorCode, string message)
 		{
 			Token.getSessionTokenIl2cppCallback(errorCode, message);
 		}
 
-		// Token: 0x06003861 RID: 14433 RVA: 0x001080C4 File Offset: 0x001062C4
+		// Token: 0x06003932 RID: 14642 RVA: 0x0014C3C4 File Offset: 0x0014A5C4
 		public static void GetSessionToken(StatusCallback2 callback)
 		{
 			if (callback == null)
@@ -55,10 +55,10 @@ namespace Viveport
 			Token.GetSessionToken(new StatusCallback2(Token.GetSessionTokenIl2cppCallback));
 		}
 
-		// Token: 0x04003AC6 RID: 15046
+		// Token: 0x04003B8B RID: 15243
 		private static StatusCallback isReadyIl2cppCallback;
 
-		// Token: 0x04003AC7 RID: 15047
+		// Token: 0x04003B8C RID: 15244
 		private static StatusCallback2 getSessionTokenIl2cppCallback;
 	}
 }

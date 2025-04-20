@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000476 RID: 1142
+// Token: 0x02000482 RID: 1154
 [Serializable]
 public class GorillaSceneTransform
 {
-	// Token: 0x04001EDF RID: 7903
+	// Token: 0x04001F2E RID: 7982
 	public Vector3 scenePosition;
 
-	// Token: 0x04001EE0 RID: 7904
+	// Token: 0x04001F2F RID: 7983
 	public Vector3 sceneRotation;
 
-	// Token: 0x04001EE1 RID: 7905
+	// Token: 0x04001F30 RID: 7984
 	public Collider sceneCollider;
 }

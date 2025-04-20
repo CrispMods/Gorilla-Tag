@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x0200034A RID: 842
+// Token: 0x02000355 RID: 853
 public class MyCustomSceneModelLoader : OVRSceneModelLoader
 {
-	// Token: 0x0600139F RID: 5023 RVA: 0x0006079D File Offset: 0x0005E99D
+	// Token: 0x060013EB RID: 5099 RVA: 0x0003D6BF File Offset: 0x0003B8BF
 	private IEnumerator DelayedLoad()
 	{
 		yield return new WaitForSeconds(1f);
@@ -14,13 +14,13 @@ public class MyCustomSceneModelLoader : OVRSceneModelLoader
 		yield break;
 	}
 
-	// Token: 0x060013A0 RID: 5024 RVA: 0x000607AC File Offset: 0x0005E9AC
+	// Token: 0x060013EC RID: 5100 RVA: 0x0003D6CE File Offset: 0x0003B8CE
 	protected override void OnStart()
 	{
 		base.StartCoroutine(this.DelayedLoad());
 	}
 
-	// Token: 0x060013A1 RID: 5025 RVA: 0x000607BB File Offset: 0x0005E9BB
+	// Token: 0x060013ED RID: 5101 RVA: 0x0003D6DD File Offset: 0x0003B8DD
 	protected override void OnNoSceneModelToLoad()
 	{
 		Debug.Log("[MyCustomSceneLoader] There is no scene to load, but we don't want to trigger scene capture.");

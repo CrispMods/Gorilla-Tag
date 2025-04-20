@@ -2,16 +2,16 @@
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000499 RID: 1177
+// Token: 0x020004A5 RID: 1189
 public class MonkeBall : MonoBehaviour
 {
-	// Token: 0x06001C7B RID: 7291 RVA: 0x0008A8EC File Offset: 0x00088AEC
+	// Token: 0x06001CCF RID: 7375 RVA: 0x00043C8B File Offset: 0x00041E8B
 	private void Start()
 	{
 		this.Refresh();
 	}
 
-	// Token: 0x06001C7C RID: 7292 RVA: 0x0008A8F4 File Offset: 0x00088AF4
+	// Token: 0x06001CD0 RID: 7376 RVA: 0x000DE0F4 File Offset: 0x000DC2F4
 	private void Update()
 	{
 		this.UpdateVisualOffset();
@@ -95,7 +95,7 @@ public class MonkeBall : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001C7D RID: 7293 RVA: 0x0008ABD4 File Offset: 0x00088DD4
+	// Token: 0x06001CD1 RID: 7377 RVA: 0x000DE3D4 File Offset: 0x000DC5D4
 	public void OnCollisionEnter(Collision collision)
 	{
 		if (this.AlreadyDropped())
@@ -134,7 +134,7 @@ public class MonkeBall : MonoBehaviour
 		MonkeBallGame.Instance.RequestRestrictBallToTeam(this.gameBall.id, MonkeBallGame.Instance.GetOtherTeam(this.gameBall.lastHeldByTeamId));
 	}
 
-	// Token: 0x06001C7E RID: 7294 RVA: 0x0008ACF3 File Offset: 0x00088EF3
+	// Token: 0x06001CD2 RID: 7378 RVA: 0x00043C93 File Offset: 0x00041E93
 	public void TriggerDelayedResync()
 	{
 		this._resyncPosition = true;
@@ -146,19 +146,19 @@ public class MonkeBall : MonoBehaviour
 		this._resyncDelay = 1.5f;
 	}
 
-	// Token: 0x06001C7F RID: 7295 RVA: 0x0008AD1A File Offset: 0x00088F1A
+	// Token: 0x06001CD3 RID: 7379 RVA: 0x00043CBA File Offset: 0x00041EBA
 	public void SetRigidbodyDiscrete()
 	{
 		this._rigidBody.collisionDetectionMode = CollisionDetectionMode.Discrete;
 	}
 
-	// Token: 0x06001C80 RID: 7296 RVA: 0x0008AD28 File Offset: 0x00088F28
+	// Token: 0x06001CD4 RID: 7380 RVA: 0x00043CC8 File Offset: 0x00041EC8
 	public void SetRigidbodyContinuous()
 	{
 		this._rigidBody.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
 	}
 
-	// Token: 0x06001C81 RID: 7297 RVA: 0x0008AD36 File Offset: 0x00088F36
+	// Token: 0x06001CD5 RID: 7381 RVA: 0x00043CD6 File Offset: 0x00041ED6
 	public static MonkeBall Get(GameBall ball)
 	{
 		if (ball == null)
@@ -168,20 +168,20 @@ public class MonkeBall : MonoBehaviour
 		return ball.GetComponent<MonkeBall>();
 	}
 
-	// Token: 0x06001C82 RID: 7298 RVA: 0x0008AD49 File Offset: 0x00088F49
+	// Token: 0x06001CD6 RID: 7382 RVA: 0x00043CE9 File Offset: 0x00041EE9
 	public bool AlreadyDropped()
 	{
 		return this.alreadyDropped;
 	}
 
-	// Token: 0x06001C83 RID: 7299 RVA: 0x0008AD51 File Offset: 0x00088F51
+	// Token: 0x06001CD7 RID: 7383 RVA: 0x00043CF1 File Offset: 0x00041EF1
 	public void OnGrabbed()
 	{
 		this.alreadyDropped = false;
 		this._resyncPosition = false;
 	}
 
-	// Token: 0x06001C84 RID: 7300 RVA: 0x0008AD61 File Offset: 0x00088F61
+	// Token: 0x06001CD8 RID: 7384 RVA: 0x00043D01 File Offset: 0x00041F01
 	public void OnSwitchHeldByTeam(int teamId)
 	{
 		if (PhotonNetwork.IsMasterClient)
@@ -190,7 +190,7 @@ public class MonkeBall : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001C85 RID: 7301 RVA: 0x0008AD80 File Offset: 0x00088F80
+	// Token: 0x06001CD9 RID: 7385 RVA: 0x00043D20 File Offset: 0x00041F20
 	public void ClearCannotGrabTeamId()
 	{
 		this.gameBall.onlyGrabTeamId = -1;
@@ -198,7 +198,7 @@ public class MonkeBall : MonoBehaviour
 		this.Refresh();
 	}
 
-	// Token: 0x06001C86 RID: 7302 RVA: 0x0008ADA4 File Offset: 0x00088FA4
+	// Token: 0x06001CDA RID: 7386 RVA: 0x000DE4F4 File Offset: 0x000DC6F4
 	public bool RestrictBallToTeam(int teamId, float duration)
 	{
 		if (teamId == this.gameBall.onlyGrabTeamId && Time.timeAsDouble + (double)duration < this.restrictTeamGrabEndTime)
@@ -211,7 +211,7 @@ public class MonkeBall : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06001C87 RID: 7303 RVA: 0x0008ADF2 File Offset: 0x00088FF2
+	// Token: 0x06001CDB RID: 7387 RVA: 0x00043D43 File Offset: 0x00041F43
 	private void Refresh()
 	{
 		if (this.gameBall.onlyGrabTeamId == -1)
@@ -222,13 +222,13 @@ public class MonkeBall : MonoBehaviour
 		this.mainRenderer.material = this.teamMaterial[this.gameBall.onlyGrabTeamId];
 	}
 
-	// Token: 0x06001C88 RID: 7304 RVA: 0x0008AE31 File Offset: 0x00089031
+	// Token: 0x06001CDC RID: 7388 RVA: 0x00043D82 File Offset: 0x00041F82
 	private static bool IsGamePlayer(Collider collider)
 	{
 		return GamePlayer.GetGamePlayer(collider, false) != null;
 	}
 
-	// Token: 0x06001C89 RID: 7305 RVA: 0x0008AE40 File Offset: 0x00089040
+	// Token: 0x06001CDD RID: 7389 RVA: 0x000DE544 File Offset: 0x000DC744
 	public void SetVisualOffset(bool detach)
 	{
 		if (detach)
@@ -242,7 +242,7 @@ public class MonkeBall : MonoBehaviour
 		this.ReattachVisuals();
 	}
 
-	// Token: 0x06001C8A RID: 7306 RVA: 0x0008AE94 File Offset: 0x00089094
+	// Token: 0x06001CDE RID: 7390 RVA: 0x000DE598 File Offset: 0x000DC798
 	private void ReattachVisuals()
 	{
 		if (!this._visualOffset)
@@ -255,7 +255,7 @@ public class MonkeBall : MonoBehaviour
 		this._visualOffset = false;
 	}
 
-	// Token: 0x06001C8B RID: 7307 RVA: 0x0008AEF4 File Offset: 0x000890F4
+	// Token: 0x06001CDF RID: 7391 RVA: 0x000DE5F8 File Offset: 0x000DC7F8
 	private void UpdateVisualOffset()
 	{
 		if (this._visualOffset)
@@ -268,61 +268,61 @@ public class MonkeBall : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001F71 RID: 8049
+	// Token: 0x04001FC0 RID: 8128
 	public GameBall gameBall;
 
-	// Token: 0x04001F72 RID: 8050
+	// Token: 0x04001FC1 RID: 8129
 	public MeshRenderer mainRenderer;
 
-	// Token: 0x04001F73 RID: 8051
+	// Token: 0x04001FC2 RID: 8130
 	public Material defaultMaterial;
 
-	// Token: 0x04001F74 RID: 8052
+	// Token: 0x04001FC3 RID: 8131
 	public Material[] teamMaterial;
 
-	// Token: 0x04001F75 RID: 8053
+	// Token: 0x04001FC4 RID: 8132
 	public double restrictTeamGrabEndTime;
 
-	// Token: 0x04001F76 RID: 8054
+	// Token: 0x04001FC5 RID: 8133
 	public bool alreadyDropped;
 
-	// Token: 0x04001F77 RID: 8055
+	// Token: 0x04001FC6 RID: 8134
 	private bool _launchAfterScore;
 
-	// Token: 0x04001F78 RID: 8056
+	// Token: 0x04001FC7 RID: 8135
 	private float _droppedTimer;
 
-	// Token: 0x04001F79 RID: 8057
+	// Token: 0x04001FC8 RID: 8136
 	private bool _resyncPosition;
 
-	// Token: 0x04001F7A RID: 8058
+	// Token: 0x04001FC9 RID: 8137
 	private float _resyncDelay;
 
-	// Token: 0x04001F7B RID: 8059
+	// Token: 0x04001FCA RID: 8138
 	private bool _visualOffset;
 
-	// Token: 0x04001F7C RID: 8060
+	// Token: 0x04001FCB RID: 8139
 	private float _offsetThreshold = 0.05f;
 
-	// Token: 0x04001F7D RID: 8061
+	// Token: 0x04001FCC RID: 8140
 	private float _timeOffset;
 
-	// Token: 0x04001F7E RID: 8062
+	// Token: 0x04001FCD RID: 8141
 	public float maxLerpTime = 0.5f;
 
-	// Token: 0x04001F7F RID: 8063
+	// Token: 0x04001FCE RID: 8142
 	public float offsetLerp = 0.2f;
 
-	// Token: 0x04001F80 RID: 8064
+	// Token: 0x04001FCF RID: 8143
 	private bool _positionFailsafe = true;
 
-	// Token: 0x04001F81 RID: 8065
+	// Token: 0x04001FD0 RID: 8144
 	private float _positionFailsafeTimer;
 
-	// Token: 0x04001F82 RID: 8066
+	// Token: 0x04001FD1 RID: 8145
 	public Vector3 lastVisiblePosition;
 
-	// Token: 0x04001F83 RID: 8067
+	// Token: 0x04001FD2 RID: 8146
 	[SerializeField]
 	private Rigidbody _rigidBody;
 }

@@ -5,18 +5,18 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-// Token: 0x0200024B RID: 587
+// Token: 0x02000256 RID: 598
 [NetworkBehaviourWeaved(128)]
 public class ArcadeMachine : NetworkComponent
 {
-	// Token: 0x06000D96 RID: 3478 RVA: 0x00045A14 File Offset: 0x00043C14
+	// Token: 0x06000DE1 RID: 3553 RVA: 0x00039EAE File Offset: 0x000380AE
 	protected override void Awake()
 	{
 		base.Awake();
 		this.audioSource = base.GetComponent<AudioSource>();
 	}
 
-	// Token: 0x06000D97 RID: 3479 RVA: 0x00045A28 File Offset: 0x00043C28
+	// Token: 0x06000DE2 RID: 3554 RVA: 0x000A2CE8 File Offset: 0x000A0EE8
 	protected override void Start()
 	{
 		base.Start();
@@ -29,7 +29,7 @@ public class ArcadeMachine : NetworkComponent
 		}
 	}
 
-	// Token: 0x06000D98 RID: 3480 RVA: 0x00045AF8 File Offset: 0x00043CF8
+	// Token: 0x06000DE3 RID: 3555 RVA: 0x000A2DB8 File Offset: 0x000A0FB8
 	public void PlaySound(int soundId, int priority)
 	{
 		if (!this.audioSource.isPlaying || this.audioSourcePriority >= priority)
@@ -48,13 +48,13 @@ public class ArcadeMachine : NetworkComponent
 		}
 	}
 
-	// Token: 0x06000D99 RID: 3481 RVA: 0x00045B80 File Offset: 0x00043D80
+	// Token: 0x06000DE4 RID: 3556 RVA: 0x00039EC2 File Offset: 0x000380C2
 	public bool IsPlayerLocallyControlled(int player)
 	{
 		return this.sticks[player].heldByLocalPlayer;
 	}
 
-	// Token: 0x06000D9A RID: 3482 RVA: 0x00045B90 File Offset: 0x00043D90
+	// Token: 0x06000DE5 RID: 3557 RVA: 0x000A2E40 File Offset: 0x000A1040
 	internal override void OnEnable()
 	{
 		NetworkBehaviourUtils.InternalOnEnable(this);
@@ -65,14 +65,14 @@ public class ArcadeMachine : NetworkComponent
 		}
 	}
 
-	// Token: 0x06000D9B RID: 3483 RVA: 0x00045BCB File Offset: 0x00043DCB
+	// Token: 0x06000DE6 RID: 3558 RVA: 0x00039ED1 File Offset: 0x000380D1
 	internal override void OnDisable()
 	{
 		NetworkBehaviourUtils.InternalOnDisable(this);
 		base.OnDisable();
 	}
 
-	// Token: 0x06000D9C RID: 3484 RVA: 0x00045BDC File Offset: 0x00043DDC
+	// Token: 0x06000DE7 RID: 3559 RVA: 0x000A2E7C File Offset: 0x000A107C
 	[PunRPC]
 	private void ArcadeGameInstance_OnPlaySound_RPC(int id, PhotonMessageInfo info)
 	{
@@ -85,7 +85,7 @@ public class ArcadeMachine : NetworkComponent
 		this.audioSource.Play();
 	}
 
-	// Token: 0x06000D9D RID: 3485 RVA: 0x00045C4B File Offset: 0x00043E4B
+	// Token: 0x06000DE8 RID: 3560 RVA: 0x00039EDF File Offset: 0x000380DF
 	public void OnJoystickStateChange(int player, ArcadeButtons buttons)
 	{
 		if (this.arcadeGameInstance != null)
@@ -94,7 +94,7 @@ public class ArcadeMachine : NetworkComponent
 		}
 	}
 
-	// Token: 0x06000D9E RID: 3486 RVA: 0x00045C64 File Offset: 0x00043E64
+	// Token: 0x06000DE9 RID: 3561 RVA: 0x00039EF8 File Offset: 0x000380F8
 	public bool IsControllerInUse(int player)
 	{
 		if (base.IsMine)
@@ -104,8 +104,8 @@ public class ArcadeMachine : NetworkComponent
 		return (this.buttonsStateValue & 1 << player * 8) != 0;
 	}
 
-	// Token: 0x17000159 RID: 345
-	// (get) Token: 0x06000D9F RID: 3487 RVA: 0x00045C9C File Offset: 0x00043E9C
+	// Token: 0x17000160 RID: 352
+	// (get) Token: 0x06000DEA RID: 3562 RVA: 0x000A2EEC File Offset: 0x000A10EC
 	[Networked]
 	[Capacity(128)]
 	[NetworkedWeaved(0, 128)]
@@ -121,17 +121,17 @@ public class ArcadeMachine : NetworkComponent
 		}
 	}
 
-	// Token: 0x06000DA0 RID: 3488 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000DEB RID: 3563 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void WriteDataFusion()
 	{
 	}
 
-	// Token: 0x06000DA1 RID: 3489 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000DEC RID: 3564 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void ReadDataFusion()
 	{
 	}
 
-	// Token: 0x06000DA2 RID: 3490 RVA: 0x00045CDC File Offset: 0x00043EDC
+	// Token: 0x06000DED RID: 3565 RVA: 0x000A2F2C File Offset: 0x000A112C
 	protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (!this.networkSynchronized || this.arcadeGameInstance == null || !info.Sender.IsMasterClient)
@@ -146,7 +146,7 @@ public class ArcadeMachine : NetworkComponent
 		stream.SendNext(this.buttonsStateValue);
 	}
 
-	// Token: 0x06000DA3 RID: 3491 RVA: 0x00045D48 File Offset: 0x00043F48
+	// Token: 0x06000DEE RID: 3566 RVA: 0x000A2F98 File Offset: 0x000A1198
 	protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (!this.networkSynchronized || this.arcadeGameInstance == null || !info.Sender.IsMasterClient)
@@ -173,19 +173,19 @@ public class ArcadeMachine : NetworkComponent
 		}
 	}
 
-	// Token: 0x06000DA4 RID: 3492 RVA: 0x00045E04 File Offset: 0x00044004
+	// Token: 0x06000DEF RID: 3567 RVA: 0x00039F30 File Offset: 0x00038130
 	public void ReadPlayerDataPUN(int player, PhotonStream stream, PhotonMessageInfo info)
 	{
 		this.arcadeGameInstance.ReadPlayerDataPUN(player, stream, info);
 	}
 
-	// Token: 0x06000DA5 RID: 3493 RVA: 0x00045E14 File Offset: 0x00044014
+	// Token: 0x06000DF0 RID: 3568 RVA: 0x00039F40 File Offset: 0x00038140
 	public void WritePlayerDataPUN(int player, PhotonStream stream, PhotonMessageInfo info)
 	{
 		this.arcadeGameInstance.WritePlayerDataPUN(player, stream, info);
 	}
 
-	// Token: 0x06000DA7 RID: 3495 RVA: 0x00045E4B File Offset: 0x0004404B
+	// Token: 0x06000DF2 RID: 3570 RVA: 0x00039F77 File Offset: 0x00038177
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -193,7 +193,7 @@ public class ArcadeMachine : NetworkComponent
 		NetworkBehaviourUtils.InitializeNetworkArray<byte>(this.Data, this._Data, "Data");
 	}
 
-	// Token: 0x06000DA8 RID: 3496 RVA: 0x00045E6D File Offset: 0x0004406D
+	// Token: 0x06000DF3 RID: 3571 RVA: 0x00039F99 File Offset: 0x00038199
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -201,45 +201,45 @@ public class ArcadeMachine : NetworkComponent
 		NetworkBehaviourUtils.CopyFromNetworkArray<byte>(this.Data, ref this._Data);
 	}
 
-	// Token: 0x040010B4 RID: 4276
+	// Token: 0x040010FA RID: 4346
 	[SerializeField]
 	private ArcadeGame arcadeGame;
 
-	// Token: 0x040010B5 RID: 4277
+	// Token: 0x040010FB RID: 4347
 	[SerializeField]
 	private ArcadeMachineJoystick[] sticks;
 
-	// Token: 0x040010B6 RID: 4278
+	// Token: 0x040010FC RID: 4348
 	[SerializeField]
 	private Renderer screen;
 
-	// Token: 0x040010B7 RID: 4279
+	// Token: 0x040010FD RID: 4349
 	[SerializeField]
 	private bool networkSynchronized = true;
 
-	// Token: 0x040010B8 RID: 4280
+	// Token: 0x040010FE RID: 4350
 	[SerializeField]
 	private CallLimiter soundCallLimit;
 
-	// Token: 0x040010B9 RID: 4281
+	// Token: 0x040010FF RID: 4351
 	private int buttonsStateValue;
 
-	// Token: 0x040010BA RID: 4282
+	// Token: 0x04001100 RID: 4352
 	private AudioSource audioSource;
 
-	// Token: 0x040010BB RID: 4283
+	// Token: 0x04001101 RID: 4353
 	private int audioSourcePriority;
 
-	// Token: 0x040010BC RID: 4284
+	// Token: 0x04001102 RID: 4354
 	private ArcadeGame arcadeGameInstance;
 
-	// Token: 0x040010BD RID: 4285
+	// Token: 0x04001103 RID: 4355
 	private Player[] playersPerJoystick = new Player[4];
 
-	// Token: 0x040010BE RID: 4286
+	// Token: 0x04001104 RID: 4356
 	private float[] playerIdleTimeouts = new float[4];
 
-	// Token: 0x040010BF RID: 4287
+	// Token: 0x04001105 RID: 4357
 	[WeaverGenerated]
 	[SerializeField]
 	[DefaultForProperty("Data", 0, 128)]

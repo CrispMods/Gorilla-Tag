@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000531 RID: 1329
+// Token: 0x0200053E RID: 1342
 public class GiantSnowflakeAudio : MonoBehaviour
 {
-	// Token: 0x06002022 RID: 8226 RVA: 0x000A1CFC File Offset: 0x0009FEFC
+	// Token: 0x0600207B RID: 8315 RVA: 0x000F3098 File Offset: 0x000F1298
 	private void Start()
 	{
 		foreach (GiantSnowflakeAudio.SnowflakeScaleOverride snowflakeScaleOverride in this.audioOverrides)
@@ -17,17 +17,17 @@ public class GiantSnowflakeAudio : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400244D RID: 9293
+	// Token: 0x040024A0 RID: 9376
 	public List<GiantSnowflakeAudio.SnowflakeScaleOverride> audioOverrides;
 
-	// Token: 0x02000532 RID: 1330
+	// Token: 0x0200053F RID: 1343
 	[Serializable]
 	public struct SnowflakeScaleOverride
 	{
-		// Token: 0x0400244E RID: 9294
+		// Token: 0x040024A1 RID: 9377
 		public float scaleMax;
 
-		// Token: 0x0400244F RID: 9295
+		// Token: 0x040024A2 RID: 9378
 		[GorillaSoundLookup]
 		public int newOverrideIndex;
 	}

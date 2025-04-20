@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using GorillaLocomotion;
 using UnityEngine;
 
-// Token: 0x0200036E RID: 878
+// Token: 0x02000379 RID: 889
 public class PrivateUIRoom : MonoBehaviour
 {
-	// Token: 0x17000243 RID: 579
-	// (get) Token: 0x0600145A RID: 5210 RVA: 0x00063159 File Offset: 0x00061359
+	// Token: 0x1700024A RID: 586
+	// (get) Token: 0x060014A6 RID: 5286 RVA: 0x0003DDE0 File Offset: 0x0003BFE0
 	private GTPlayer localPlayer
 	{
 		get
@@ -16,7 +16,7 @@ public class PrivateUIRoom : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600145B RID: 5211 RVA: 0x00063A54 File Offset: 0x00061C54
+	// Token: 0x060014A7 RID: 5287 RVA: 0x000BCC8C File Offset: 0x000BAE8C
 	private void Awake()
 	{
 		if (PrivateUIRoom.instance == null)
@@ -29,29 +29,25 @@ public class PrivateUIRoom : MonoBehaviour
 			this.uiParents = new Dictionary<Transform, Transform>();
 			return;
 		}
-		Object.Destroy(this);
+		UnityEngine.Object.Destroy(this);
 	}
 
-	// Token: 0x0600145C RID: 5212 RVA: 0x00063AB8 File Offset: 0x00061CB8
+	// Token: 0x060014A8 RID: 5288 RVA: 0x000BCCF0 File Offset: 0x000BAEF0
 	private void ToggleLevelVisibility(bool levelShouldBeVisible)
 	{
-		Debug.Log(string.Format("[PrivateUIRoom::ToggleLevelVisibility] levelShouldBeVisible: {0}", levelShouldBeVisible));
 		Camera component = GorillaTagger.Instance.mainCamera.GetComponent<Camera>();
 		if (levelShouldBeVisible)
 		{
-			Debug.Log(string.Format("[PrivateUIRoom::ToggleLevelVisibility] restoring cached culling mask: {0}", this.savedCullingLayers));
 			component.cullingMask = this.savedCullingLayers;
 			return;
 		}
-		Debug.Log(string.Format("[PrivateUIRoom::ToggleLevelVisibility] caching current culling mask: {0}", component.cullingMask));
 		this.savedCullingLayers = component.cullingMask;
 		component.cullingMask = this.visibleLayers;
 	}
 
-	// Token: 0x0600145D RID: 5213 RVA: 0x00063B4C File Offset: 0x00061D4C
+	// Token: 0x060014A9 RID: 5289 RVA: 0x000BCD3C File Offset: 0x000BAF3C
 	private static void StopOverlay()
 	{
-		Debug.Log("[PrivateUIRoom::StopOverlay] Stopping overlay...");
 		PrivateUIRoom.instance.localPlayer.inOverlay = false;
 		PrivateUIRoom.instance.inOverlay = false;
 		PrivateUIRoom.instance.localPlayer.disableMovement = false;
@@ -62,7 +58,7 @@ public class PrivateUIRoom : MonoBehaviour
 		PrivateUIRoom.instance.rightHandObject.SetActive(false);
 	}
 
-	// Token: 0x0600145E RID: 5214 RVA: 0x00063BDC File Offset: 0x00061DDC
+	// Token: 0x060014AA RID: 5290 RVA: 0x000BCDC0 File Offset: 0x000BAFC0
 	private void GetIdealScreenPositionRotation(out Vector3 position, out Quaternion rotation, out Vector3 scale)
 	{
 		GameObject mainCamera = GorillaTagger.Instance.mainCamera;
@@ -71,7 +67,7 @@ public class PrivateUIRoom : MonoBehaviour
 		position = mainCamera.transform.position + rotation * Vector3.zero * scale.x;
 	}
 
-	// Token: 0x0600145F RID: 5215 RVA: 0x00063C68 File Offset: 0x00061E68
+	// Token: 0x060014AB RID: 5291 RVA: 0x000BCE4C File Offset: 0x000BB04C
 	public static void AddUI(Transform focus)
 	{
 		if (PrivateUIRoom.instance.ui.Contains(focus))
@@ -93,7 +89,7 @@ public class PrivateUIRoom : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001460 RID: 5216 RVA: 0x00063D30 File Offset: 0x00061F30
+	// Token: 0x060014AC RID: 5292 RVA: 0x000BCF14 File Offset: 0x000BB114
 	public static void RemoveUI(Transform focus)
 	{
 		if (!PrivateUIRoom.instance.ui.Contains(focus))
@@ -113,7 +109,7 @@ public class PrivateUIRoom : MonoBehaviour
 		}
 		else
 		{
-			Object.Destroy(focus.gameObject);
+			UnityEngine.Object.Destroy(focus.gameObject);
 		}
 		if (PrivateUIRoom.instance.ui.Count > 0)
 		{
@@ -127,7 +123,7 @@ public class PrivateUIRoom : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001461 RID: 5217 RVA: 0x00063E29 File Offset: 0x00062029
+	// Token: 0x060014AD RID: 5293 RVA: 0x0003DEC3 File Offset: 0x0003C0C3
 	public static void ForceStartOverlay()
 	{
 		if (PrivateUIRoom.instance == null)
@@ -142,7 +138,7 @@ public class PrivateUIRoom : MonoBehaviour
 		PrivateUIRoom.StartOverlay();
 	}
 
-	// Token: 0x06001462 RID: 5218 RVA: 0x00063E56 File Offset: 0x00062056
+	// Token: 0x060014AE RID: 5294 RVA: 0x0003DEF0 File Offset: 0x0003C0F0
 	public static void StopForcedOverlay()
 	{
 		if (PrivateUIRoom.instance == null)
@@ -156,10 +152,9 @@ public class PrivateUIRoom : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001463 RID: 5219 RVA: 0x00063E94 File Offset: 0x00062094
+	// Token: 0x060014AF RID: 5295 RVA: 0x000BD010 File Offset: 0x000BB210
 	private static void StartOverlay()
 	{
-		Debug.Log("[PrivateUIRoom::StartOverlay] Starting overlay...");
 		Vector3 vector;
 		Quaternion quaternion;
 		Vector3 localScale;
@@ -177,7 +172,7 @@ public class PrivateUIRoom : MonoBehaviour
 		PrivateUIRoom.instance.inOverlay = true;
 	}
 
-	// Token: 0x06001464 RID: 5220 RVA: 0x00063F70 File Offset: 0x00062170
+	// Token: 0x060014B0 RID: 5296 RVA: 0x000BD0E4 File Offset: 0x000BB2E4
 	private void Update()
 	{
 		if (!this.localPlayer.InReportMenu)
@@ -200,40 +195,40 @@ public class PrivateUIRoom : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400168B RID: 5771
+	// Token: 0x040016D3 RID: 5843
 	[SerializeField]
 	private GameObject occluder;
 
-	// Token: 0x0400168C RID: 5772
+	// Token: 0x040016D4 RID: 5844
 	[SerializeField]
 	private LayerMask visibleLayers;
 
-	// Token: 0x0400168D RID: 5773
+	// Token: 0x040016D5 RID: 5845
 	[SerializeField]
 	private GameObject leftHandObject;
 
-	// Token: 0x0400168E RID: 5774
+	// Token: 0x040016D6 RID: 5846
 	[SerializeField]
 	private GameObject rightHandObject;
 
-	// Token: 0x0400168F RID: 5775
+	// Token: 0x040016D7 RID: 5847
 	private int savedCullingLayers;
 
-	// Token: 0x04001690 RID: 5776
+	// Token: 0x040016D8 RID: 5848
 	private Transform focusTransform;
 
-	// Token: 0x04001691 RID: 5777
+	// Token: 0x040016D9 RID: 5849
 	private List<Transform> ui;
 
-	// Token: 0x04001692 RID: 5778
+	// Token: 0x040016DA RID: 5850
 	private Dictionary<Transform, Transform> uiParents;
 
-	// Token: 0x04001693 RID: 5779
+	// Token: 0x040016DB RID: 5851
 	private bool inOverlay;
 
-	// Token: 0x04001694 RID: 5780
+	// Token: 0x040016DC RID: 5852
 	private bool overlayForcedActive;
 
-	// Token: 0x04001695 RID: 5781
+	// Token: 0x040016DD RID: 5853
 	private static PrivateUIRoom instance;
 }

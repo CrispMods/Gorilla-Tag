@@ -3,16 +3,16 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x0200036C RID: 876
+// Token: 0x02000377 RID: 887
 public class GorillaReportButton : MonoBehaviour
 {
-	// Token: 0x06001455 RID: 5205 RVA: 0x000638FE File Offset: 0x00061AFE
+	// Token: 0x060014A1 RID: 5281 RVA: 0x0003DE62 File Offset: 0x0003C062
 	public void AssignParentLine(GorillaPlayerScoreboardLine parent)
 	{
 		this.parentLine = parent;
 	}
 
-	// Token: 0x06001456 RID: 5206 RVA: 0x00063908 File Offset: 0x00061B08
+	// Token: 0x060014A2 RID: 5282 RVA: 0x000BCB98 File Offset: 0x000BAD98
 	private void OnTriggerEnter(Collider collider)
 	{
 		if (base.enabled && this.touchTime + this.debounceTime < Time.time)
@@ -35,7 +35,7 @@ public class GorillaReportButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001457 RID: 5207 RVA: 0x000639FB File Offset: 0x00061BFB
+	// Token: 0x060014A3 RID: 5283 RVA: 0x0003DE6B File Offset: 0x0003C06B
 	private void OnTriggerExit(Collider other)
 	{
 		if (this.metaReportType != GorillaReportButton.MetaReportReason.Cancel)
@@ -44,7 +44,7 @@ public class GorillaReportButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001458 RID: 5208 RVA: 0x00063A13 File Offset: 0x00061C13
+	// Token: 0x060014A4 RID: 5284 RVA: 0x0003DE83 File Offset: 0x0003C083
 	public void UpdateColor()
 	{
 		if (this.isOn)
@@ -55,64 +55,64 @@ public class GorillaReportButton : MonoBehaviour
 		base.GetComponent<MeshRenderer>().material = this.offMaterial;
 	}
 
-	// Token: 0x04001675 RID: 5749
+	// Token: 0x040016BD RID: 5821
 	public GorillaReportButton.MetaReportReason metaReportType;
 
-	// Token: 0x04001676 RID: 5750
+	// Token: 0x040016BE RID: 5822
 	public GorillaPlayerLineButton.ButtonType buttonType;
 
-	// Token: 0x04001677 RID: 5751
+	// Token: 0x040016BF RID: 5823
 	public GorillaPlayerScoreboardLine parentLine;
 
-	// Token: 0x04001678 RID: 5752
+	// Token: 0x040016C0 RID: 5824
 	public bool isOn;
 
-	// Token: 0x04001679 RID: 5753
+	// Token: 0x040016C1 RID: 5825
 	public Material offMaterial;
 
-	// Token: 0x0400167A RID: 5754
+	// Token: 0x040016C2 RID: 5826
 	public Material onMaterial;
 
-	// Token: 0x0400167B RID: 5755
+	// Token: 0x040016C3 RID: 5827
 	public string offText;
 
-	// Token: 0x0400167C RID: 5756
+	// Token: 0x040016C4 RID: 5828
 	public string onText;
 
-	// Token: 0x0400167D RID: 5757
+	// Token: 0x040016C5 RID: 5829
 	public Text myText;
 
-	// Token: 0x0400167E RID: 5758
+	// Token: 0x040016C6 RID: 5830
 	public float debounceTime = 0.25f;
 
-	// Token: 0x0400167F RID: 5759
+	// Token: 0x040016C7 RID: 5831
 	public float touchTime;
 
-	// Token: 0x04001680 RID: 5760
+	// Token: 0x040016C8 RID: 5832
 	public bool testPress;
 
-	// Token: 0x04001681 RID: 5761
+	// Token: 0x040016C9 RID: 5833
 	public bool selected;
 
-	// Token: 0x0200036D RID: 877
+	// Token: 0x02000378 RID: 888
 	[SerializeField]
 	public enum MetaReportReason
 	{
-		// Token: 0x04001683 RID: 5763
+		// Token: 0x040016CB RID: 5835
 		HateSpeech,
-		// Token: 0x04001684 RID: 5764
+		// Token: 0x040016CC RID: 5836
 		Cheating,
-		// Token: 0x04001685 RID: 5765
+		// Token: 0x040016CD RID: 5837
 		Toxicity,
-		// Token: 0x04001686 RID: 5766
+		// Token: 0x040016CE RID: 5838
 		Bullying,
-		// Token: 0x04001687 RID: 5767
+		// Token: 0x040016CF RID: 5839
 		Doxing,
-		// Token: 0x04001688 RID: 5768
+		// Token: 0x040016D0 RID: 5840
 		Impersonation,
-		// Token: 0x04001689 RID: 5769
+		// Token: 0x040016D1 RID: 5841
 		Submit,
-		// Token: 0x0400168A RID: 5770
+		// Token: 0x040016D2 RID: 5842
 		Cancel
 	}
 }

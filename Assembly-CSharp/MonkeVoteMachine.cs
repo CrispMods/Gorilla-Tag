@@ -6,22 +6,22 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x02000102 RID: 258
+// Token: 0x0200010C RID: 268
 public class MonkeVoteMachine : MonoBehaviour
 {
-	// Token: 0x060006DA RID: 1754 RVA: 0x0002734E File Offset: 0x0002554E
+	// Token: 0x0600071B RID: 1819 RVA: 0x00035199 File Offset: 0x00033399
 	private void Reset()
 	{
 		this.Configure();
 	}
 
-	// Token: 0x060006DB RID: 1755 RVA: 0x00027356 File Offset: 0x00025556
+	// Token: 0x0600071C RID: 1820 RVA: 0x000351A1 File Offset: 0x000333A1
 	private void Awake()
 	{
 		this._proximityTrigger.OnEnter += this.OnPlayerEnteredVoteProximity;
 	}
 
-	// Token: 0x060006DC RID: 1756 RVA: 0x00027370 File Offset: 0x00025570
+	// Token: 0x0600071D RID: 1821 RVA: 0x0008934C File Offset: 0x0008754C
 	private void Start()
 	{
 		MonkeVoteController.instance.OnPollsUpdated += this.HandleOnPollsUpdated;
@@ -31,7 +31,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		this.Init();
 	}
 
-	// Token: 0x060006DD RID: 1757 RVA: 0x000273DC File Offset: 0x000255DC
+	// Token: 0x0600071E RID: 1822 RVA: 0x000893B8 File Offset: 0x000875B8
 	private void OnDestroy()
 	{
 		this._proximityTrigger.OnEnter -= this.OnPlayerEnteredVoteProximity;
@@ -41,7 +41,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		MonkeVoteController.instance.OnCurrentPollEnded -= this.HandleCurrentPollEnded;
 	}
 
-	// Token: 0x060006DE RID: 1758 RVA: 0x00027458 File Offset: 0x00025658
+	// Token: 0x0600071F RID: 1823 RVA: 0x00089434 File Offset: 0x00087634
 	public void Init()
 	{
 		this._isTestingPoll = false;
@@ -55,19 +55,19 @@ public class MonkeVoteMachine : MonoBehaviour
 		this.UpdatePollDisplays();
 	}
 
-	// Token: 0x060006DF RID: 1759 RVA: 0x000274B8 File Offset: 0x000256B8
+	// Token: 0x06000720 RID: 1824 RVA: 0x000351BA File Offset: 0x000333BA
 	private void OnPlayerEnteredVoteProximity()
 	{
 		MonkeVoteController.instance.RequestPolls();
 	}
 
-	// Token: 0x060006E0 RID: 1760 RVA: 0x000274C4 File Offset: 0x000256C4
+	// Token: 0x06000721 RID: 1825 RVA: 0x000351C6 File Offset: 0x000333C6
 	private void HandleOnPollsUpdated()
 	{
 		this.UpdatePollDisplays();
 	}
 
-	// Token: 0x060006E1 RID: 1761 RVA: 0x000274CC File Offset: 0x000256CC
+	// Token: 0x06000722 RID: 1826 RVA: 0x00089494 File Offset: 0x00087694
 	private void UpdatePollDisplays()
 	{
 		if (MonkeVoteController.instance == null)
@@ -107,7 +107,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		this.SetState(MonkeVoteMachine.VotingState.None, true);
 	}
 
-	// Token: 0x060006E2 RID: 1762 RVA: 0x000275B0 File Offset: 0x000257B0
+	// Token: 0x06000723 RID: 1827 RVA: 0x00089578 File Offset: 0x00087778
 	private void HandleOnVoteAccepted()
 	{
 		int lastVotePollId = MonkeVoteController.instance.GetLastVotePollId();
@@ -116,7 +116,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		this.OnVoteResponseReceived(lastVotePollId, lastVoteSelectedOption, lastVoteWasPrediction, true);
 	}
 
-	// Token: 0x060006E3 RID: 1763 RVA: 0x000275E8 File Offset: 0x000257E8
+	// Token: 0x06000724 RID: 1828 RVA: 0x000895B0 File Offset: 0x000877B0
 	private void HandleOnVoteFailed()
 	{
 		this._waitingOnVote = false;
@@ -126,7 +126,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		this.OnVoteResponseReceived(lastVotePollId, lastVoteSelectedOption, lastVoteWasPrediction, false);
 	}
 
-	// Token: 0x060006E4 RID: 1764 RVA: 0x00027627 File Offset: 0x00025827
+	// Token: 0x06000725 RID: 1829 RVA: 0x000351CE File Offset: 0x000333CE
 	private void HandleCurrentPollEnded()
 	{
 		if (this._proximityTrigger.isPlayerNearby)
@@ -135,21 +135,21 @@ public class MonkeVoteMachine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006E5 RID: 1765 RVA: 0x00027640 File Offset: 0x00025840
+	// Token: 0x06000726 RID: 1830 RVA: 0x000351E7 File Offset: 0x000333E7
 	[Tooltip("Hide dynamic child meshes to avoid them getting combined into the parent mesh on awake")]
 	private void HideDynamicMeshes()
 	{
 		this.SetDynamicMeshesVisible(false);
 	}
 
-	// Token: 0x060006E6 RID: 1766 RVA: 0x00027649 File Offset: 0x00025849
+	// Token: 0x06000727 RID: 1831 RVA: 0x000351F0 File Offset: 0x000333F0
 	[Tooltip("Show dynamic child meshes to allow easy visualization")]
 	private void ShowDynamicMeshes()
 	{
 		this.SetDynamicMeshesVisible(true);
 	}
 
-	// Token: 0x060006E7 RID: 1767 RVA: 0x00027654 File Offset: 0x00025854
+	// Token: 0x06000728 RID: 1832 RVA: 0x000895F0 File Offset: 0x000877F0
 	private void SetDynamicMeshesVisible(bool enabled)
 	{
 		MonkeVoteOption[] votingOptions = this._votingOptions;
@@ -164,7 +164,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006E8 RID: 1768 RVA: 0x0002769D File Offset: 0x0002589D
+	// Token: 0x06000729 RID: 1833 RVA: 0x000351F9 File Offset: 0x000333F9
 	private void Configure()
 	{
 		this._audio = base.GetComponentInChildren<AudioSource>();
@@ -173,7 +173,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		this._results = base.GetComponentsInChildren<MonkeVoteResult>();
 	}
 
-	// Token: 0x060006E9 RID: 1769 RVA: 0x000276D4 File Offset: 0x000258D4
+	// Token: 0x0600072A RID: 1834 RVA: 0x0008963C File Offset: 0x0008783C
 	public void CreateNextDummyPoll()
 	{
 		this._isTestingPoll = true;
@@ -191,9 +191,9 @@ public class MonkeVoteMachine : MonoBehaviour
 		{
 			pollId = this._previousPoll.PollId + 1;
 		}
-		string question = "Test Question Number: " + Random.Range(1, 101).ToString();
-		string text = "Answer " + Random.Range(1, 101).ToString();
-		string text2 = "Answer " + Random.Range(1, 101).ToString();
+		string question = "Test Question Number: " + UnityEngine.Random.Range(1, 101).ToString();
+		string text = "Answer " + UnityEngine.Random.Range(1, 101).ToString();
+		string text2 = "Answer " + UnityEngine.Random.Range(1, 101).ToString();
 		string[] voteOptions = new string[]
 		{
 			text,
@@ -213,19 +213,19 @@ public class MonkeVoteMachine : MonoBehaviour
 		this.SetState(MonkeVoteMachine.VotingState.None, true);
 	}
 
-	// Token: 0x060006EA RID: 1770 RVA: 0x000277F6 File Offset: 0x000259F6
+	// Token: 0x0600072B RID: 1835 RVA: 0x0003522F File Offset: 0x0003342F
 	private void VoteLeft()
 	{
 		this.OnVoteEntered(this._votingOptions[0], null);
 	}
 
-	// Token: 0x060006EB RID: 1771 RVA: 0x00027807 File Offset: 0x00025A07
+	// Token: 0x0600072C RID: 1836 RVA: 0x00035240 File Offset: 0x00033440
 	private void VoteRight()
 	{
 		this.OnVoteEntered(this._votingOptions[1], null);
 	}
 
-	// Token: 0x060006EC RID: 1772 RVA: 0x00027818 File Offset: 0x00025A18
+	// Token: 0x0600072D RID: 1837 RVA: 0x00089760 File Offset: 0x00087960
 	private void VoteWinner()
 	{
 		if (this._currentPoll != null)
@@ -239,14 +239,14 @@ public class MonkeVoteMachine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006ED RID: 1773 RVA: 0x00027868 File Offset: 0x00025A68
+	// Token: 0x0600072E RID: 1838 RVA: 0x00035251 File Offset: 0x00033451
 	private void ClearLocalData()
 	{
 		this.ClearLocalVoteAndPredictionData();
 		this.UpdatePollDisplays();
 	}
 
-	// Token: 0x060006EE RID: 1774 RVA: 0x00027878 File Offset: 0x00025A78
+	// Token: 0x0600072F RID: 1839 RVA: 0x000897B0 File Offset: 0x000879B0
 	private void SetState(MonkeVoteMachine.VotingState newState, bool instant = true)
 	{
 		this._state = newState;
@@ -325,7 +325,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006EF RID: 1775 RVA: 0x00027AF4 File Offset: 0x00025CF4
+	// Token: 0x06000730 RID: 1840 RVA: 0x00089A2C File Offset: 0x00087C2C
 	private void ShowResults(MonkeVoteMachine.PollEntry entry)
 	{
 		if (entry != null && entry.IsValid)
@@ -366,7 +366,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006F0 RID: 1776 RVA: 0x00027CA4 File Offset: 0x00025EA4
+	// Token: 0x06000731 RID: 1841 RVA: 0x00089BDC File Offset: 0x00087DDC
 	private List<int> ConvertToPercentages(int[] votes)
 	{
 		List<int> list = new List<int>();
@@ -426,7 +426,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		return list;
 	}
 
-	// Token: 0x060006F1 RID: 1777 RVA: 0x00027DF0 File Offset: 0x00025FF0
+	// Token: 0x06000732 RID: 1842 RVA: 0x00089D28 File Offset: 0x00087F28
 	private void OnVoteEntered(MonkeVoteOption option, Collider votingCollider)
 	{
 		if (this._waitingOnVote || (Time.time < this._voteCooldownEnd && !this._isTestingPoll))
@@ -451,7 +451,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		this.PlayVoteFailEffects();
 	}
 
-	// Token: 0x060006F2 RID: 1778 RVA: 0x00027E80 File Offset: 0x00026080
+	// Token: 0x06000733 RID: 1843 RVA: 0x0003525F File Offset: 0x0003345F
 	private void Vote(int id, int option, bool isPrediction)
 	{
 		if (option < 0 || this._waitingOnVote)
@@ -467,7 +467,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		MonkeVoteController.instance.Vote(id, option, isPrediction);
 	}
 
-	// Token: 0x060006F3 RID: 1779 RVA: 0x00027EB8 File Offset: 0x000260B8
+	// Token: 0x06000734 RID: 1844 RVA: 0x00089DB8 File Offset: 0x00087FB8
 	private void OnVoteResponseReceived(int id, int option, bool isPrediction, bool success)
 	{
 		this._waitingOnVote = false;
@@ -514,7 +514,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006F4 RID: 1780 RVA: 0x00027F6C File Offset: 0x0002616C
+	// Token: 0x06000735 RID: 1845 RVA: 0x00089E6C File Offset: 0x0008806C
 	private void PlayVoteSuccessEffects()
 	{
 		MonkeVoteMachine.<PlayVoteSuccessEffects>d__68 <PlayVoteSuccessEffects>d__;
@@ -524,13 +524,13 @@ public class MonkeVoteMachine : MonoBehaviour
 		<PlayVoteSuccessEffects>d__.<>t__builder.Start<MonkeVoteMachine.<PlayVoteSuccessEffects>d__68>(ref <PlayVoteSuccessEffects>d__);
 	}
 
-	// Token: 0x060006F5 RID: 1781 RVA: 0x00027FA3 File Offset: 0x000261A3
+	// Token: 0x06000736 RID: 1846 RVA: 0x00035295 File Offset: 0x00033495
 	private void PlayVoteFailEffects()
 	{
 		this._audio.GTPlayOneShot(this._voteFailSound, this._audio.volume);
 	}
 
-	// Token: 0x060006F6 RID: 1782 RVA: 0x00027FC4 File Offset: 0x000261C4
+	// Token: 0x06000737 RID: 1847 RVA: 0x00089EA4 File Offset: 0x000880A4
 	private void SaveVote(int id, int voteOption, int predictionOption)
 	{
 		int @int = PlayerPrefs.GetInt("Vote_Current_Id", -1);
@@ -554,7 +554,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		PlayerPrefs.Save();
 	}
 
-	// Token: 0x060006F7 RID: 1783 RVA: 0x00028080 File Offset: 0x00026280
+	// Token: 0x06000738 RID: 1848 RVA: 0x00089F60 File Offset: 0x00088160
 	[return: TupleElementNames(new string[]
 	{
 		"voteOption",
@@ -577,7 +577,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		return new ValueTuple<int, int>(-1, -1);
 	}
 
-	// Token: 0x060006F8 RID: 1784 RVA: 0x000280EC File Offset: 0x000262EC
+	// Token: 0x06000739 RID: 1849 RVA: 0x000352B3 File Offset: 0x000334B3
 	private void SavePrePollStreak(int id, int streak)
 	{
 		if (id < 0)
@@ -595,7 +595,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006F9 RID: 1785 RVA: 0x00028126 File Offset: 0x00026326
+	// Token: 0x0600073A RID: 1850 RVA: 0x000352ED File Offset: 0x000334ED
 	private int GetPrePollStreak(int id)
 	{
 		if (id < 0)
@@ -613,7 +613,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		return 0;
 	}
 
-	// Token: 0x060006FA RID: 1786 RVA: 0x00028164 File Offset: 0x00026364
+	// Token: 0x0600073B RID: 1851 RVA: 0x00089FCC File Offset: 0x000881CC
 	private int GetPostPollStreak(MonkeVoteMachine.PollEntry entry)
 	{
 		if (entry == null || !entry.IsValid)
@@ -633,7 +633,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		return prePollStreak + 1;
 	}
 
-	// Token: 0x060006FB RID: 1787 RVA: 0x000281B4 File Offset: 0x000263B4
+	// Token: 0x0600073C RID: 1852 RVA: 0x0008A01C File Offset: 0x0008821C
 	private void ClearLocalVoteAndPredictionData()
 	{
 		PlayerPrefs.DeleteKey("Vote_Current_Id");
@@ -646,7 +646,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		PlayerPrefs.DeleteKey("Vote_Previous_Streak");
 	}
 
-	// Token: 0x060006FD RID: 1789 RVA: 0x000282A0 File Offset: 0x000264A0
+	// Token: 0x0600073E RID: 1854 RVA: 0x0008A108 File Offset: 0x00088308
 	[CompilerGenerated]
 	internal static int <ConvertToPercentages>g__Sum|64_0(IList<int> items)
 	{
@@ -658,7 +658,7 @@ public class MonkeVoteMachine : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x060006FE RID: 1790 RVA: 0x000282E8 File Offset: 0x000264E8
+	// Token: 0x0600073F RID: 1855 RVA: 0x0008A150 File Offset: 0x00088350
 	[CompilerGenerated]
 	internal static int <ConvertToPercentages>g__LargestFractionIndex|64_1(IList<float> fractions)
 	{
@@ -675,192 +675,192 @@ public class MonkeVoteMachine : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x0400082D RID: 2093
+	// Token: 0x0400086E RID: 2158
 	private const string kVoteCurrentIdKey = "Vote_Current_Id";
 
-	// Token: 0x0400082E RID: 2094
+	// Token: 0x0400086F RID: 2159
 	private const string kVoteCurrentOptionKey = "Vote_Current_Option";
 
-	// Token: 0x0400082F RID: 2095
+	// Token: 0x04000870 RID: 2160
 	private const string kVoteCurrentPredictionKey = "Vote_Current_Prediction";
 
-	// Token: 0x04000830 RID: 2096
+	// Token: 0x04000871 RID: 2161
 	private const string kVoteCurrentStreak = "Vote_Current_Streak";
 
-	// Token: 0x04000831 RID: 2097
+	// Token: 0x04000872 RID: 2162
 	private const string kVotePreviousIdKey = "Vote_Previous_Id";
 
-	// Token: 0x04000832 RID: 2098
+	// Token: 0x04000873 RID: 2163
 	private const string kVotePreviousOptionKey = "Vote_Previous_Option";
 
-	// Token: 0x04000833 RID: 2099
+	// Token: 0x04000874 RID: 2164
 	private const string kVotePreviousPredictionKey = "Vote_Previous_Prediction";
 
-	// Token: 0x04000834 RID: 2100
+	// Token: 0x04000875 RID: 2165
 	private const string kVotePreviousStreak = "Vote_Previous_Streak";
 
-	// Token: 0x04000835 RID: 2101
+	// Token: 0x04000876 RID: 2166
 	[SerializeField]
 	private MonkeVoteProximityTrigger _proximityTrigger;
 
-	// Token: 0x04000836 RID: 2102
+	// Token: 0x04000877 RID: 2167
 	[Header("VOTING")]
 	[SerializeField]
 	private string _pollsClosedText = "POLLS CLOSED";
 
-	// Token: 0x04000837 RID: 2103
+	// Token: 0x04000878 RID: 2168
 	[SerializeField]
 	private string _defaultTitle = "MONKE VOTE";
 
-	// Token: 0x04000838 RID: 2104
+	// Token: 0x04000879 RID: 2169
 	[SerializeField]
 	private string _voteTitle = "VOTE";
 
-	// Token: 0x04000839 RID: 2105
+	// Token: 0x0400087A RID: 2170
 	[SerializeField]
 	private string _predictTitle = "GUESS";
 
-	// Token: 0x0400083A RID: 2106
+	// Token: 0x0400087B RID: 2171
 	[SerializeField]
 	private string _completeTitle = "VOTING COMPLETE";
 
-	// Token: 0x0400083B RID: 2107
+	// Token: 0x0400087C RID: 2172
 	[SerializeField]
 	private string _defaultQuestion = "COME BACK LATER";
 
-	// Token: 0x0400083C RID: 2108
+	// Token: 0x0400087D RID: 2173
 	[SerializeField]
 	private string _predictQuestion = "WHICH WILL BE MORE POPULAR?";
 
-	// Token: 0x0400083D RID: 2109
+	// Token: 0x0400087E RID: 2174
 	[Tooltip("Must be in the format \"STREAK: {0}\"")]
 	[SerializeField]
 	private string _streakBlurb = "PREDICTION STREAK: {0}";
 
-	// Token: 0x0400083E RID: 2110
+	// Token: 0x0400087F RID: 2175
 	[Tooltip("Must be in the format \"LOST {0} PREDICTION STREAK! STREAK: {1}\"")]
 	[SerializeField]
 	private string _streakLostBlurb = "<color=red>{0} POLL STREAK LOST!</color>  STREAK: {1}";
 
-	// Token: 0x0400083F RID: 2111
+	// Token: 0x04000880 RID: 2176
 	[SerializeField]
 	private float _voteCooldown = 1f;
 
-	// Token: 0x04000840 RID: 2112
+	// Token: 0x04000881 RID: 2177
 	[SerializeField]
 	private MonkeVoteOption[] _votingOptions;
 
-	// Token: 0x04000841 RID: 2113
+	// Token: 0x04000882 RID: 2178
 	[SerializeField]
 	private CountdownText _timerText;
 
-	// Token: 0x04000842 RID: 2114
+	// Token: 0x04000883 RID: 2179
 	[SerializeField]
 	private TMP_Text _titleText;
 
-	// Token: 0x04000843 RID: 2115
+	// Token: 0x04000884 RID: 2180
 	[SerializeField]
 	private TMP_Text _questionText;
 
-	// Token: 0x04000844 RID: 2116
+	// Token: 0x04000885 RID: 2181
 	[Header("RESULTS")]
 	[SerializeField]
 	private string _defaultResultsTitle = "PREVIOUS QUESTION";
 
-	// Token: 0x04000845 RID: 2117
+	// Token: 0x04000886 RID: 2182
 	[SerializeField]
 	private TMP_Text _resultsTitleText;
 
-	// Token: 0x04000846 RID: 2118
+	// Token: 0x04000887 RID: 2183
 	[SerializeField]
 	private TMP_Text _resultsQuestionText;
 
-	// Token: 0x04000847 RID: 2119
+	// Token: 0x04000888 RID: 2184
 	[SerializeField]
 	private TMP_Text _resultsStreakText;
 
-	// Token: 0x04000848 RID: 2120
+	// Token: 0x04000889 RID: 2185
 	[SerializeField]
 	private MonkeVoteResult[] _results;
 
-	// Token: 0x04000849 RID: 2121
+	// Token: 0x0400088A RID: 2186
 	[FormerlySerializedAs("_sound")]
 	[Header("FX")]
 	[SerializeField]
 	private AudioSource _audio;
 
-	// Token: 0x0400084A RID: 2122
+	// Token: 0x0400088B RID: 2187
 	[FormerlySerializedAs("_voteProcessingAudio")]
 	[SerializeField]
 	private AudioSource _voteTubeAudio;
 
-	// Token: 0x0400084B RID: 2123
+	// Token: 0x0400088C RID: 2188
 	[SerializeField]
 	private AudioClip[] _voteFailSound;
 
-	// Token: 0x0400084C RID: 2124
+	// Token: 0x0400088D RID: 2189
 	[SerializeField]
 	private AudioClip[] _voteSuccessDing;
 
-	// Token: 0x0400084D RID: 2125
+	// Token: 0x0400088E RID: 2190
 	[FormerlySerializedAs("_voteSuccessSound")]
 	[SerializeField]
 	private AudioClip[] _voteProcessingSound;
 
-	// Token: 0x0400084E RID: 2126
+	// Token: 0x0400088F RID: 2191
 	private MonkeVoteMachine.VotingState _state;
 
-	// Token: 0x0400084F RID: 2127
+	// Token: 0x04000890 RID: 2192
 	private float _voteCooldownEnd;
 
-	// Token: 0x04000850 RID: 2128
+	// Token: 0x04000891 RID: 2193
 	private bool _waitingOnVote;
 
-	// Token: 0x04000851 RID: 2129
+	// Token: 0x04000892 RID: 2194
 	private MonkeVoteMachine.PollEntry _currentPoll;
 
-	// Token: 0x04000852 RID: 2130
+	// Token: 0x04000893 RID: 2195
 	private MonkeVoteMachine.PollEntry _previousPoll;
 
-	// Token: 0x04000853 RID: 2131
+	// Token: 0x04000894 RID: 2196
 	private DateTime _nextPollUpdate;
 
-	// Token: 0x04000854 RID: 2132
+	// Token: 0x04000895 RID: 2197
 	private bool _isTestingPoll;
 
-	// Token: 0x02000103 RID: 259
+	// Token: 0x0200010D RID: 269
 	public enum VotingState
 	{
-		// Token: 0x04000856 RID: 2134
+		// Token: 0x04000897 RID: 2199
 		None,
-		// Token: 0x04000857 RID: 2135
+		// Token: 0x04000898 RID: 2200
 		Voting,
-		// Token: 0x04000858 RID: 2136
+		// Token: 0x04000899 RID: 2201
 		Predicting,
-		// Token: 0x04000859 RID: 2137
+		// Token: 0x0400089A RID: 2202
 		Complete
 	}
 
-	// Token: 0x02000104 RID: 260
+	// Token: 0x0200010E RID: 270
 	public class PollEntry
 	{
-		// Token: 0x060006FF RID: 1791 RVA: 0x00028324 File Offset: 0x00026524
+		// Token: 0x06000740 RID: 1856 RVA: 0x0008A18C File Offset: 0x0008838C
 		public PollEntry(int pollId, string question, string[] voteOptions)
 		{
 			this.PollId = pollId;
 			this.Question = question;
 			this.VoteOptions = voteOptions;
 			this.VoteCount = new int[2];
-			this.VoteCount[0] = Random.Range(0, 50000);
-			this.VoteCount[1] = Random.Range(0, 50000);
+			this.VoteCount[0] = UnityEngine.Random.Range(0, 50000);
+			this.VoteCount[1] = UnityEngine.Random.Range(0, 50000);
 			this.PredictionCount = new int[2];
-			this.PredictionCount[0] = Random.Range(0, 50000);
-			this.PredictionCount[1] = Random.Range(0, 50000);
+			this.PredictionCount[0] = UnityEngine.Random.Range(0, 50000);
+			this.PredictionCount[1] = UnityEngine.Random.Range(0, 50000);
 			this.StartTime = DateTime.Now;
 			this.EndTime = DateTime.Now + TimeSpan.FromSeconds(20.0);
 		}
 
-		// Token: 0x06000700 RID: 1792 RVA: 0x000283DC File Offset: 0x000265DC
+		// Token: 0x06000741 RID: 1857 RVA: 0x0008A244 File Offset: 0x00088444
 		public PollEntry(MonkeVoteController.FetchPollsResponse poll)
 		{
 			this.PollId = poll.PollId;
@@ -872,7 +872,7 @@ public class MonkeVoteMachine : MonoBehaviour
 			this.EndTime = poll.EndTime;
 		}
 
-		// Token: 0x06000701 RID: 1793 RVA: 0x00028454 File Offset: 0x00026654
+		// Token: 0x06000742 RID: 1858 RVA: 0x0008A2BC File Offset: 0x000884BC
 		public int GetWinner()
 		{
 			if (this.VoteCount == null || this.VoteCount.Length == 0)
@@ -892,8 +892,8 @@ public class MonkeVoteMachine : MonoBehaviour
 			return result;
 		}
 
-		// Token: 0x170000AA RID: 170
-		// (get) Token: 0x06000702 RID: 1794 RVA: 0x000284A8 File Offset: 0x000266A8
+		// Token: 0x170000AF RID: 175
+		// (get) Token: 0x06000743 RID: 1859 RVA: 0x0008A310 File Offset: 0x00088510
 		public bool IsValid
 		{
 			get
@@ -903,25 +903,25 @@ public class MonkeVoteMachine : MonoBehaviour
 			}
 		}
 
-		// Token: 0x0400085A RID: 2138
+		// Token: 0x0400089B RID: 2203
 		public int PollId;
 
-		// Token: 0x0400085B RID: 2139
+		// Token: 0x0400089C RID: 2204
 		public string Question;
 
-		// Token: 0x0400085C RID: 2140
+		// Token: 0x0400089D RID: 2205
 		public string[] VoteOptions;
 
-		// Token: 0x0400085D RID: 2141
+		// Token: 0x0400089E RID: 2206
 		public int[] VoteCount;
 
-		// Token: 0x0400085E RID: 2142
+		// Token: 0x0400089F RID: 2207
 		public int[] PredictionCount;
 
-		// Token: 0x0400085F RID: 2143
+		// Token: 0x040008A0 RID: 2208
 		public DateTime StartTime;
 
-		// Token: 0x04000860 RID: 2144
+		// Token: 0x040008A1 RID: 2209
 		public DateTime EndTime;
 	}
 }

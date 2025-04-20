@@ -3,39 +3,39 @@ using UnityEngine;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B80 RID: 2944
+	// Token: 0x02000BAD RID: 2989
 	public class DestroyOnAwake : MonoBehaviour
 	{
-		// Token: 0x06004A93 RID: 19091 RVA: 0x001696B0 File Offset: 0x001678B0
+		// Token: 0x06004BDE RID: 19422 RVA: 0x001A30A8 File Offset: 0x001A12A8
 		protected void Awake()
 		{
 			try
 			{
-				Object.Destroy(base.gameObject);
+				UnityEngine.Object.Destroy(base.gameObject);
 			}
 			catch
 			{
 			}
 		}
 
-		// Token: 0x06004A94 RID: 19092 RVA: 0x001696E0 File Offset: 0x001678E0
+		// Token: 0x06004BDF RID: 19423 RVA: 0x001A30A8 File Offset: 0x001A12A8
 		protected void OnEnable()
 		{
 			try
 			{
-				Object.Destroy(base.gameObject);
+				UnityEngine.Object.Destroy(base.gameObject);
 			}
 			catch
 			{
 			}
 		}
 
-		// Token: 0x06004A95 RID: 19093 RVA: 0x00169710 File Offset: 0x00167910
+		// Token: 0x06004BE0 RID: 19424 RVA: 0x001A30A8 File Offset: 0x001A12A8
 		protected void Update()
 		{
 			try
 			{
-				Object.Destroy(base.gameObject);
+				UnityEngine.Object.Destroy(base.gameObject);
 			}
 			catch
 			{

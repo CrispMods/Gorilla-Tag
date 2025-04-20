@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x0200004B RID: 75
+// Token: 0x02000050 RID: 80
 public class CrittersLoudNoiseSettings : CrittersActorSettings
 {
-	// Token: 0x06000178 RID: 376 RVA: 0x00009938 File Offset: 0x00007B38
+	// Token: 0x06000192 RID: 402 RVA: 0x0006EC50 File Offset: 0x0006CE50
 	public override void UpdateActorSettings()
 	{
 		base.UpdateActorSettings();
@@ -15,18 +15,18 @@ public class CrittersLoudNoiseSettings : CrittersActorSettings
 		crittersLoudNoise.volumeFearAttractionMultiplier = this._volumeFearAttractionMultiplier;
 	}
 
-	// Token: 0x040001C1 RID: 449
+	// Token: 0x040001E4 RID: 484
 	public float _soundVolume;
 
-	// Token: 0x040001C2 RID: 450
+	// Token: 0x040001E5 RID: 485
 	public float _soundDuration;
 
-	// Token: 0x040001C3 RID: 451
+	// Token: 0x040001E6 RID: 486
 	public bool _soundEnabled;
 
-	// Token: 0x040001C4 RID: 452
+	// Token: 0x040001E7 RID: 487
 	public bool _disableWhenSoundDisabled;
 
-	// Token: 0x040001C5 RID: 453
+	// Token: 0x040001E8 RID: 488
 	public float _volumeFearAttractionMultiplier = 1f;
 }

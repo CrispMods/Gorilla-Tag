@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Critters.Scripts
 {
-	// Token: 0x02000C7E RID: 3198
+	// Token: 0x02000CAF RID: 3247
 	public class CrittersSpawnPoint : MonoBehaviour
 	{
-		// Token: 0x060050B5 RID: 20661 RVA: 0x001883B0 File Offset: 0x001865B0
+		// Token: 0x06005217 RID: 21015 RVA: 0x000653D7 File Offset: 0x000635D7
 		private void OnDrawGizmos()
 		{
 			Gizmos.color = Color.blue;

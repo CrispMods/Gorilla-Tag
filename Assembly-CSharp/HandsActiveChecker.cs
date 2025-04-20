@@ -2,17 +2,17 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x02000302 RID: 770
+// Token: 0x0200030D RID: 781
 public class HandsActiveChecker : MonoBehaviour
 {
-	// Token: 0x06001252 RID: 4690 RVA: 0x000575D0 File Offset: 0x000557D0
+	// Token: 0x0600129E RID: 4766 RVA: 0x0003CC2E File Offset: 0x0003AE2E
 	private void Awake()
 	{
-		this._notification = Object.Instantiate<GameObject>(this._notificationPrefab);
+		this._notification = UnityEngine.Object.Instantiate<GameObject>(this._notificationPrefab);
 		base.StartCoroutine(this.GetCenterEye());
 	}
 
-	// Token: 0x06001253 RID: 4691 RVA: 0x000575F0 File Offset: 0x000557F0
+	// Token: 0x0600129F RID: 4767 RVA: 0x000B1AD0 File Offset: 0x000AFCD0
 	private void Update()
 	{
 		if (OVRPlugin.GetHandTrackingEnabled())
@@ -28,10 +28,10 @@ public class HandsActiveChecker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001254 RID: 4692 RVA: 0x0005767A File Offset: 0x0005587A
+	// Token: 0x060012A0 RID: 4768 RVA: 0x0003CC4E File Offset: 0x0003AE4E
 	private IEnumerator GetCenterEye()
 	{
-		if ((this._cameraRig = Object.FindObjectOfType<OVRCameraRig>()) != null)
+		if ((this._cameraRig = UnityEngine.Object.FindObjectOfType<OVRCameraRig>()) != null)
 		{
 			while (!this._centerEye)
 			{
@@ -42,16 +42,16 @@ public class HandsActiveChecker : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04001443 RID: 5187
+	// Token: 0x0400148B RID: 5259
 	[SerializeField]
 	private GameObject _notificationPrefab;
 
-	// Token: 0x04001444 RID: 5188
+	// Token: 0x0400148C RID: 5260
 	private GameObject _notification;
 
-	// Token: 0x04001445 RID: 5189
+	// Token: 0x0400148D RID: 5261
 	private OVRCameraRig _cameraRig;
 
-	// Token: 0x04001446 RID: 5190
+	// Token: 0x0400148E RID: 5262
 	private Transform _centerEye;
 }

@@ -8,7 +8,7 @@ using UnityEngine.Events;
 // Token: 0x02000029 RID: 41
 public class CosmeticPlaySoundOnColision : MonoBehaviour
 {
-	// Token: 0x06000094 RID: 148 RVA: 0x00004E1C File Offset: 0x0000301C
+	// Token: 0x06000094 RID: 148 RVA: 0x0006A000 File Offset: 0x00068200
 	private void Awake()
 	{
 		this.transferrableObject = base.GetComponentInParent<TransferrableObject>();
@@ -20,7 +20,7 @@ public class CosmeticPlaySoundOnColision : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000095 RID: 149 RVA: 0x00004E84 File Offset: 0x00003084
+	// Token: 0x06000095 RID: 149 RVA: 0x0006A068 File Offset: 0x00068268
 	private void OnTriggerEnter(Collider other)
 	{
 		GorillaSurfaceOverride gorillaSurfaceOverride;
@@ -36,7 +36,7 @@ public class CosmeticPlaySoundOnColision : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000096 RID: 150 RVA: 0x00004EE0 File Offset: 0x000030E0
+	// Token: 0x06000096 RID: 150 RVA: 0x0006A0C4 File Offset: 0x000682C4
 	private void playSound(int soundIndex, bool invokeEvent)
 	{
 		if (soundIndex > -1 && soundIndex < GTPlayer.Instance.materialData.Count)
@@ -64,7 +64,7 @@ public class CosmeticPlaySoundOnColision : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000097 RID: 151 RVA: 0x00004FBC File Offset: 0x000031BC
+	// Token: 0x06000097 RID: 151 RVA: 0x00030A5C File Offset: 0x0002EC5C
 	private IEnumerator waitForStopPlayback()
 	{
 		while (this.audioSource.isPlaying)
@@ -79,7 +79,7 @@ public class CosmeticPlaySoundOnColision : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000098 RID: 152 RVA: 0x00004FCB File Offset: 0x000031CB
+	// Token: 0x06000098 RID: 152 RVA: 0x00030A6B File Offset: 0x0002EC6B
 	private void FixedUpdate()
 	{
 		this.speed = Vector3.Distance(base.transform.position, this.previousFramePosition) * Time.fixedDeltaTime * 100f;

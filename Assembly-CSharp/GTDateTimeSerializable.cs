@@ -2,13 +2,13 @@
 using System.Globalization;
 using UnityEngine;
 
-// Token: 0x02000185 RID: 389
+// Token: 0x02000190 RID: 400
 [Serializable]
 public struct GTDateTimeSerializable : ISerializationCallbackReceiver
 {
-	// Token: 0x170000F8 RID: 248
-	// (get) Token: 0x060009BA RID: 2490 RVA: 0x00036A3E File Offset: 0x00034C3E
-	// (set) Token: 0x060009BB RID: 2491 RVA: 0x00036A46 File Offset: 0x00034C46
+	// Token: 0x170000FF RID: 255
+	// (get) Token: 0x06000A06 RID: 2566 RVA: 0x000370A7 File Offset: 0x000352A7
+	// (set) Token: 0x06000A07 RID: 2567 RVA: 0x000370AF File Offset: 0x000352AF
 	public DateTime dateTime
 	{
 		get
@@ -22,13 +22,13 @@ public struct GTDateTimeSerializable : ISerializationCallbackReceiver
 		}
 	}
 
-	// Token: 0x060009BC RID: 2492 RVA: 0x00036A60 File Offset: 0x00034C60
+	// Token: 0x06000A08 RID: 2568 RVA: 0x000370C9 File Offset: 0x000352C9
 	void ISerializationCallbackReceiver.OnBeforeSerialize()
 	{
 		this._dateTimeString = GTDateTimeSerializable.FormatDateTime(this._dateTime);
 	}
 
-	// Token: 0x060009BD RID: 2493 RVA: 0x00036A74 File Offset: 0x00034C74
+	// Token: 0x06000A09 RID: 2569 RVA: 0x00096B64 File Offset: 0x00094D64
 	void ISerializationCallbackReceiver.OnAfterDeserialize()
 	{
 		DateTime dateTime;
@@ -38,7 +38,7 @@ public struct GTDateTimeSerializable : ISerializationCallbackReceiver
 		}
 	}
 
-	// Token: 0x060009BE RID: 2494 RVA: 0x00036A98 File Offset: 0x00034C98
+	// Token: 0x06000A0A RID: 2570 RVA: 0x00096B88 File Offset: 0x00094D88
 	public GTDateTimeSerializable(int dummyValue)
 	{
 		DateTime now = DateTime.Now;
@@ -46,13 +46,13 @@ public struct GTDateTimeSerializable : ISerializationCallbackReceiver
 		this._dateTimeString = GTDateTimeSerializable.FormatDateTime(this._dateTime);
 	}
 
-	// Token: 0x060009BF RID: 2495 RVA: 0x00036AE0 File Offset: 0x00034CE0
+	// Token: 0x06000A0B RID: 2571 RVA: 0x000370DC File Offset: 0x000352DC
 	private static string FormatDateTime(DateTime dateTime)
 	{
 		return dateTime.ToString("yyyy-MM-dd HH:mm");
 	}
 
-	// Token: 0x060009C0 RID: 2496 RVA: 0x00036AF0 File Offset: 0x00034CF0
+	// Token: 0x06000A0C RID: 2572 RVA: 0x00096BD0 File Offset: 0x00094DD0
 	private static bool TryParseDateTime(string value, out DateTime result)
 	{
 		if (DateTime.TryParseExact(value, new string[]
@@ -72,11 +72,11 @@ public struct GTDateTimeSerializable : ISerializationCallbackReceiver
 		return false;
 	}
 
-	// Token: 0x04000BD0 RID: 3024
+	// Token: 0x04000C16 RID: 3094
 	[HideInInspector]
 	[SerializeField]
 	private string _dateTimeString;
 
-	// Token: 0x04000BD1 RID: 3025
+	// Token: 0x04000C17 RID: 3095
 	private DateTime _dateTime;
 }

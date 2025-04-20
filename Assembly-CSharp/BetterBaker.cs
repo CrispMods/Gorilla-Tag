@@ -1,25 +1,25 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000830 RID: 2096
+// Token: 0x0200084A RID: 2122
 public class BetterBaker : MonoBehaviour
 {
-	// Token: 0x0400368E RID: 13966
+	// Token: 0x0400374A RID: 14154
 	public string bakeryLightmapDirectory;
 
-	// Token: 0x0400368F RID: 13967
+	// Token: 0x0400374B RID: 14155
 	public string dayNightLightmapsDirectory;
 
-	// Token: 0x04003690 RID: 13968
+	// Token: 0x0400374C RID: 14156
 	public GameObject[] allLights;
 
-	// Token: 0x02000831 RID: 2097
+	// Token: 0x0200084B RID: 2123
 	public struct LightMapMap
 	{
-		// Token: 0x04003691 RID: 13969
+		// Token: 0x0400374D RID: 14157
 		public string timeOfDayName;
 
-		// Token: 0x04003692 RID: 13970
+		// Token: 0x0400374E RID: 14158
 		public GameObject lightObject;
 	}
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace GorillaNetworking.Store
 {
-	// Token: 0x02000B02 RID: 2818
+	// Token: 0x02000B2F RID: 2863
 	public class StandImport
 	{
-		// Token: 0x06004680 RID: 18048 RVA: 0x0014EFEC File Offset: 0x0014D1EC
+		// Token: 0x060047C9 RID: 18377 RVA: 0x0018BBC8 File Offset: 0x00189DC8
 		public void DecomposeStandData(string dataString)
 		{
 			string[] array = dataString.Split('\t', StringSplitOptions.None);
@@ -29,7 +29,7 @@ namespace GorillaNetworking.Store
 			Debug.LogError("Store Importer Data String is not valid : " + text);
 		}
 
-		// Token: 0x04004808 RID: 18440
+		// Token: 0x040048FD RID: 18685
 		public List<StandTypeData> standData = new List<StandTypeData>();
 	}
 }

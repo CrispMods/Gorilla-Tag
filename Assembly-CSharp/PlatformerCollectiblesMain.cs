@@ -4,7 +4,7 @@ using UnityEngine;
 // Token: 0x02000017 RID: 23
 public class PlatformerCollectiblesMain : MonoBehaviour
 {
-	// Token: 0x06000055 RID: 85 RVA: 0x00003328 File Offset: 0x00001528
+	// Token: 0x06000055 RID: 85 RVA: 0x000686F4 File Offset: 0x000668F4
 	public void Start()
 	{
 		int num = 0;
@@ -15,7 +15,7 @@ public class PlatformerCollectiblesMain : MonoBehaviour
 			while ((float)num2 < this.CoinGridCount)
 			{
 				float z = -0.5f * this.CoinGridSize + this.CoinGridSize * (float)num2 / (this.CoinGridCount - 1f);
-				Object.Instantiate<GameObject>(this.Coin).transform.position = new Vector3(x, 0.2f, z);
+				UnityEngine.Object.Instantiate<GameObject>(this.Coin).transform.position = new Vector3(x, 0.2f, z);
 				num2++;
 			}
 			num++;

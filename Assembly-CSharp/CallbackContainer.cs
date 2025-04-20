@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200083C RID: 2108
+// Token: 0x02000856 RID: 2134
 internal class CallbackContainer<T> where T : ICallBack
 {
-	// Token: 0x17000552 RID: 1362
-	// (get) Token: 0x06003354 RID: 13140 RVA: 0x000F540D File Offset: 0x000F360D
+	// Token: 0x17000560 RID: 1376
+	// (get) Token: 0x0600340F RID: 13327 RVA: 0x0005235A File Offset: 0x0005055A
 	public int Count
 	{
 		get
@@ -15,7 +15,7 @@ internal class CallbackContainer<T> where T : ICallBack
 		}
 	}
 
-	// Token: 0x06003355 RID: 13141 RVA: 0x000F541A File Offset: 0x000F361A
+	// Token: 0x06003410 RID: 13328 RVA: 0x00052367 File Offset: 0x00050567
 	public CallbackContainer()
 	{
 		this.callbackList = new List<T>(100);
@@ -23,7 +23,7 @@ internal class CallbackContainer<T> where T : ICallBack
 		this.callbackCount = -1;
 	}
 
-	// Token: 0x06003356 RID: 13142 RVA: 0x000F543D File Offset: 0x000F363D
+	// Token: 0x06003411 RID: 13329 RVA: 0x0005238A File Offset: 0x0005058A
 	public CallbackContainer(int capacity)
 	{
 		this.callbackList = new List<T>(capacity);
@@ -31,14 +31,14 @@ internal class CallbackContainer<T> where T : ICallBack
 		this.callbackCount = -1;
 	}
 
-	// Token: 0x06003357 RID: 13143 RVA: 0x000F545F File Offset: 0x000F365F
+	// Token: 0x06003412 RID: 13330 RVA: 0x000523AC File Offset: 0x000505AC
 	public virtual void Add(T inCallback)
 	{
 		this.callbackCount++;
 		this.callbackList.Add(inCallback);
 	}
 
-	// Token: 0x06003358 RID: 13144 RVA: 0x000F547C File Offset: 0x000F367C
+	// Token: 0x06003413 RID: 13331 RVA: 0x0013CFFC File Offset: 0x0013B1FC
 	public virtual void Remove(T inCallback)
 	{
 		int num = this.callbackList.IndexOf(inCallback);
@@ -53,7 +53,7 @@ internal class CallbackContainer<T> where T : ICallBack
 		}
 	}
 
-	// Token: 0x06003359 RID: 13145 RVA: 0x000F54CC File Offset: 0x000F36CC
+	// Token: 0x06003414 RID: 13332 RVA: 0x0013D04C File Offset: 0x0013B24C
 	public virtual void TryRunCallbacks()
 	{
 		this.callbackCount = this.callbackList.Count;
@@ -73,18 +73,18 @@ internal class CallbackContainer<T> where T : ICallBack
 		}
 	}
 
-	// Token: 0x0600335A RID: 13146 RVA: 0x000F5550 File Offset: 0x000F3750
+	// Token: 0x06003415 RID: 13333 RVA: 0x000523C8 File Offset: 0x000505C8
 	public virtual void Clear()
 	{
 		this.callbackList.Clear();
 	}
 
-	// Token: 0x040036B2 RID: 14002
+	// Token: 0x0400376E RID: 14190
 	protected List<T> callbackList;
 
-	// Token: 0x040036B3 RID: 14003
+	// Token: 0x0400376F RID: 14191
 	protected int currentIndex;
 
-	// Token: 0x040036B4 RID: 14004
+	// Token: 0x04003770 RID: 14192
 	protected int callbackCount;
 }

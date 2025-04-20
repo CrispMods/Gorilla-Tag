@@ -1,10 +1,10 @@
 ﻿using System;
 
-// Token: 0x020008D9 RID: 2265
+// Token: 0x020008F5 RID: 2293
 public enum GTShaderUVSource
 {
-	// Token: 0x0400391D RID: 14621
+	// Token: 0x040039DE RID: 14814
 	UV0,
-	// Token: 0x0400391E RID: 14622
+	// Token: 0x040039DF RID: 14815
 	WorldPlanarY = 3
 }

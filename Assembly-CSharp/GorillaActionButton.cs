@@ -2,17 +2,17 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x020001AF RID: 431
+// Token: 0x020001BA RID: 442
 public class GorillaActionButton : GorillaPressableButton
 {
-	// Token: 0x06000A24 RID: 2596 RVA: 0x00037937 File Offset: 0x00035B37
+	// Token: 0x06000A70 RID: 2672 RVA: 0x00037522 File Offset: 0x00035722
 	public override void ButtonActivation()
 	{
 		base.ButtonActivation();
 		this.onPress.Invoke();
 	}
 
-	// Token: 0x04000C87 RID: 3207
+	// Token: 0x04000CCD RID: 3277
 	[SerializeField]
 	public UnityEvent onPress;
 }

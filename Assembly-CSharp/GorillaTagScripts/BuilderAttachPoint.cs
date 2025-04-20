@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x02000987 RID: 2439
+	// Token: 0x020009AD RID: 2477
 	public class BuilderAttachPoint : MonoBehaviour
 	{
-		// Token: 0x06003BAC RID: 15276 RVA: 0x00112BE1 File Offset: 0x00110DE1
+		// Token: 0x06003CC4 RID: 15556 RVA: 0x00057B0F File Offset: 0x00055D0F
 		private void Awake()
 		{
 			if (this.center == null)
@@ -15,7 +15,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x04003CD6 RID: 15574
+		// Token: 0x04003DB0 RID: 15792
 		public Transform center;
 	}
 }

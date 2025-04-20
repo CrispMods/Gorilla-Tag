@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200008E RID: 142
+// Token: 0x02000095 RID: 149
 [CreateAssetMenu(fileName = "New KeyValuePairSet", menuName = "Data/KeyValuePairSet", order = 0)]
 public class KeyValuePairSet : ScriptableObject
 {
-	// Token: 0x1700003E RID: 62
-	// (get) Token: 0x060003A1 RID: 929 RVA: 0x00016371 File Offset: 0x00014571
+	// Token: 0x17000042 RID: 66
+	// (get) Token: 0x060003D3 RID: 979 RVA: 0x00032DC7 File Offset: 0x00030FC7
 	public KeyValueStringPair[] Entries
 	{
 		get
@@ -15,7 +15,7 @@ public class KeyValuePairSet : ScriptableObject
 		}
 	}
 
-	// Token: 0x0400041F RID: 1055
+	// Token: 0x04000453 RID: 1107
 	[SerializeField]
 	private KeyValueStringPair[] m_entries;
 }

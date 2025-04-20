@@ -2,10 +2,10 @@
 using GorillaLocomotion;
 using UnityEngine;
 
-// Token: 0x02000250 RID: 592
+// Token: 0x0200025B RID: 603
 public class NativeSizeChanger : MonoBehaviour
 {
-	// Token: 0x06000DBF RID: 3519 RVA: 0x000460D8 File Offset: 0x000442D8
+	// Token: 0x06000E0A RID: 3594 RVA: 0x0003A0C9 File Offset: 0x000382C9
 	public void Activate(NativeSizeChangerSettings settings)
 	{
 		settings.WorldPosition = base.transform.position;

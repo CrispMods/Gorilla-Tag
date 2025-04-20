@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x020001A2 RID: 418
+// Token: 0x020001AD RID: 429
 public static class DelegateExtensions
 {
-	// Token: 0x060009F7 RID: 2551 RVA: 0x00037350 File Offset: 0x00035550
+	// Token: 0x06000A43 RID: 2627 RVA: 0x000971DC File Offset: 0x000953DC
 	public static List<string> ToStringList(this Delegate[] invocationList)
 	{
 		List<string> list = new List<string>();
@@ -20,7 +20,7 @@ public static class DelegateExtensions
 		return list;
 	}
 
-	// Token: 0x060009F8 RID: 2552 RVA: 0x000373BD File Offset: 0x000355BD
+	// Token: 0x06000A44 RID: 2628 RVA: 0x0003733B File Offset: 0x0003553B
 	public static string ToText(this Delegate[] invocationList)
 	{
 		return string.Join(", ", invocationList.ToStringList());

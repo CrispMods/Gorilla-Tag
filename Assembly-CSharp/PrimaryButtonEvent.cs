@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine.Events;
 
-// Token: 0x02000482 RID: 1154
+// Token: 0x0200048E RID: 1166
 [Serializable]
 public class PrimaryButtonEvent : UnityEvent<bool>
 {

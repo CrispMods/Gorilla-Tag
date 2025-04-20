@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000C1 RID: 193
+// Token: 0x020000CB RID: 203
 public class SpawnOnEnter : MonoBehaviour
 {
-	// Token: 0x060004FB RID: 1275 RVA: 0x0001DAC4 File Offset: 0x0001BCC4
+	// Token: 0x06000537 RID: 1335 RVA: 0x00033DA9 File Offset: 0x00031FA9
 	public void OnTriggerEnter(Collider other)
 	{
 		if (Time.time > this.lastSpawnTime + this.cooldown)
@@ -14,12 +14,12 @@ public class SpawnOnEnter : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040005D4 RID: 1492
+	// Token: 0x04000614 RID: 1556
 	public GameObject prefab;
 
-	// Token: 0x040005D5 RID: 1493
+	// Token: 0x04000615 RID: 1557
 	public float cooldown = 0.1f;
 
-	// Token: 0x040005D6 RID: 1494
+	// Token: 0x04000616 RID: 1558
 	private float lastSpawnTime;
 }

@@ -3,12 +3,12 @@ using System.Runtime.CompilerServices;
 
 namespace Fusion.CodeGen
 {
-	// Token: 0x02000D06 RID: 3334
+	// Token: 0x02000D37 RID: 3383
 	[WeaverGenerated]
 	[PreserveInPlugin]
 	internal struct ReaderWriter@Fusion_NetworkBool : IElementReaderWriter<NetworkBool>
 	{
-		// Token: 0x060053BC RID: 21436 RVA: 0x0019C249 File Offset: 0x0019A449
+		// Token: 0x0600551E RID: 21790 RVA: 0x000673DD File Offset: 0x000655DD
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -17,7 +17,7 @@ namespace Fusion.CodeGen
 			return *(NetworkBool*)(data + index * 4);
 		}
 
-		// Token: 0x060053BD RID: 21437 RVA: 0x0019C1CC File Offset: 0x0019A3CC
+		// Token: 0x0600551F RID: 21791 RVA: 0x000673A8 File Offset: 0x000655A8
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -26,7 +26,7 @@ namespace Fusion.CodeGen
 			return ref *(NetworkBool*)(data + index * 4);
 		}
 
-		// Token: 0x060053BE RID: 21438 RVA: 0x0019C259 File Offset: 0x0019A459
+		// Token: 0x06005520 RID: 21792 RVA: 0x000673ED File Offset: 0x000655ED
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -35,7 +35,7 @@ namespace Fusion.CodeGen
 			*(NetworkBool*)(data + index * 4) = val;
 		}
 
-		// Token: 0x060053BF RID: 21439 RVA: 0x000444E2 File Offset: 0x000426E2
+		// Token: 0x06005521 RID: 21793 RVA: 0x00039846 File Offset: 0x00037A46
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -44,7 +44,7 @@ namespace Fusion.CodeGen
 			return 1;
 		}
 
-		// Token: 0x060053C0 RID: 21440 RVA: 0x0019C26C File Offset: 0x0019A46C
+		// Token: 0x06005522 RID: 21794 RVA: 0x001D124C File Offset: 0x001CF44C
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -53,7 +53,7 @@ namespace Fusion.CodeGen
 			return val.GetHashCode();
 		}
 
-		// Token: 0x060053C1 RID: 21441 RVA: 0x0019C288 File Offset: 0x0019A488
+		// Token: 0x06005523 RID: 21795 RVA: 0x001D1268 File Offset: 0x001CF468
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[WeaverGenerated]
 		public static IElementReaderWriter<NetworkBool> GetInstance()
@@ -65,7 +65,7 @@ namespace Fusion.CodeGen
 			return ReaderWriter@Fusion_NetworkBool.Instance;
 		}
 
-		// Token: 0x040055FE RID: 22014
+		// Token: 0x0400570A RID: 22282
 		[WeaverGenerated]
 		public static IElementReaderWriter<NetworkBool> Instance;
 	}

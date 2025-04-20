@@ -4,15 +4,15 @@ using GorillaExtensions;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020005BF RID: 1471
+// Token: 0x020005CD RID: 1485
 public class FreeHoverboardManager : NetworkSceneObject
 {
-	// Token: 0x170003B8 RID: 952
-	// (get) Token: 0x06002488 RID: 9352 RVA: 0x000B5FA3 File Offset: 0x000B41A3
-	// (set) Token: 0x06002489 RID: 9353 RVA: 0x000B5FAA File Offset: 0x000B41AA
+	// Token: 0x170003C0 RID: 960
+	// (get) Token: 0x060024EA RID: 9450 RVA: 0x00049048 File Offset: 0x00047248
+	// (set) Token: 0x060024EB RID: 9451 RVA: 0x0004904F File Offset: 0x0004724F
 	public static FreeHoverboardManager instance { get; private set; }
 
-	// Token: 0x0600248A RID: 9354 RVA: 0x000B5FB4 File Offset: 0x000B41B4
+	// Token: 0x060024EC RID: 9452 RVA: 0x0010479C File Offset: 0x0010299C
 	private FreeHoverboardManager.DataPerPlayer GetOrCreatePlayerData(int actorNumber)
 	{
 		FreeHoverboardManager.DataPerPlayer dataPerPlayer;
@@ -25,7 +25,7 @@ public class FreeHoverboardManager : NetworkSceneObject
 		return dataPerPlayer;
 	}
 
-	// Token: 0x0600248B RID: 9355 RVA: 0x000B5FF8 File Offset: 0x000B41F8
+	// Token: 0x060024ED RID: 9453 RVA: 0x001047E0 File Offset: 0x001029E0
 	private void Awake()
 	{
 		FreeHoverboardManager.instance = this;
@@ -39,7 +39,7 @@ public class FreeHoverboardManager : NetworkSceneObject
 		NetworkSystem.Instance.OnReturnedToSinglePlayer += this.OnLeftRoom;
 	}
 
-	// Token: 0x0600248C RID: 9356 RVA: 0x000B6068 File Offset: 0x000B4268
+	// Token: 0x060024EE RID: 9454 RVA: 0x00104850 File Offset: 0x00102A50
 	private void OnPlayerLeftRoom(NetPlayer netPlayer)
 	{
 		FreeHoverboardManager.DataPerPlayer dataPerPlayer;
@@ -50,7 +50,7 @@ public class FreeHoverboardManager : NetworkSceneObject
 		}
 	}
 
-	// Token: 0x0600248D RID: 9357 RVA: 0x000B60AC File Offset: 0x000B42AC
+	// Token: 0x060024EF RID: 9455 RVA: 0x00104894 File Offset: 0x00102A94
 	private void OnLeftRoom()
 	{
 		foreach (KeyValuePair<int, FreeHoverboardManager.DataPerPlayer> keyValuePair in this.perPlayerData)
@@ -60,7 +60,7 @@ public class FreeHoverboardManager : NetworkSceneObject
 		this.perPlayerData.Clear();
 	}
 
-	// Token: 0x0600248E RID: 9358 RVA: 0x000B6118 File Offset: 0x000B4318
+	// Token: 0x060024F0 RID: 9456 RVA: 0x00104900 File Offset: 0x00102B00
 	private void SpawnBoard(FreeHoverboardManager.DataPerPlayer playerData, int boardIndex, Vector3 position, Quaternion rotation, Vector3 velocity, Vector3 avelocity, Color boardColor)
 	{
 		FreeHoverboardInstance freeHoverboardInstance = (boardIndex == 0) ? playerData.board0 : playerData.board1;
@@ -79,7 +79,7 @@ public class FreeHoverboardManager : NetworkSceneObject
 		}
 	}
 
-	// Token: 0x0600248F RID: 9359 RVA: 0x000B61C0 File Offset: 0x000B43C0
+	// Token: 0x060024F1 RID: 9457 RVA: 0x001049A8 File Offset: 0x00102BA8
 	public void SendDropBoardRPC(Vector3 position, Quaternion rotation, Vector3 velocity, Vector3 avelocity, Color boardColor)
 	{
 		FreeHoverboardManager.DataPerPlayer orCreatePlayerData = this.GetOrCreatePlayerData(NetworkSystem.Instance.LocalPlayer.ActorNumber);
@@ -105,7 +105,7 @@ public class FreeHoverboardManager : NetworkSceneObject
 		this.SpawnBoard(orCreatePlayerData, num, position, rotation, velocity, avelocity, boardColor);
 	}
 
-	// Token: 0x06002490 RID: 9360 RVA: 0x000B62A8 File Offset: 0x000B44A8
+	// Token: 0x060024F2 RID: 9458 RVA: 0x00104A90 File Offset: 0x00102C90
 	[PunRPC]
 	public void DropBoard_RPC(bool boardIndex1, long positionPacked, int rotationPacked, long velocityPacked, long avelocityPacked, short colorPacked, PhotonMessageInfo info)
 	{
@@ -129,7 +129,7 @@ public class FreeHoverboardManager : NetworkSceneObject
 		this.SpawnBoard(orCreatePlayerData, boardIndex2, position, BitPackUtils.UnpackQuaternionFromNetwork(rotationPacked), BitPackUtils.UnpackWorldPosFromNetwork(velocityPacked), BitPackUtils.UnpackWorldPosFromNetwork(avelocityPacked), BitPackUtils.UnpackColorFromNetwork(colorPacked));
 	}
 
-	// Token: 0x06002491 RID: 9361 RVA: 0x000B6354 File Offset: 0x000B4554
+	// Token: 0x060024F3 RID: 9459 RVA: 0x00104B3C File Offset: 0x00102D3C
 	public void SendGrabBoardRPC(FreeHoverboardInstance board)
 	{
 		if (PhotonNetwork.InRoom)
@@ -145,7 +145,7 @@ public class FreeHoverboardManager : NetworkSceneObject
 		board.gameObject.SetActive(false);
 	}
 
-	// Token: 0x06002492 RID: 9362 RVA: 0x000B63B8 File Offset: 0x000B45B8
+	// Token: 0x060024F4 RID: 9460 RVA: 0x00104BA0 File Offset: 0x00102DA0
 	[PunRPC]
 	public void GrabBoard_RPC(int ownerActorNumber, bool boardIndex1, PhotonMessageInfo info)
 	{
@@ -180,7 +180,7 @@ public class FreeHoverboardManager : NetworkSceneObject
 		board.gameObject.SetActive(false);
 	}
 
-	// Token: 0x06002493 RID: 9363 RVA: 0x000B6470 File Offset: 0x000B4670
+	// Token: 0x060024F5 RID: 9461 RVA: 0x00104C58 File Offset: 0x00102E58
 	public void PreserveMaxHoverboardsConstraint(int actorNumber)
 	{
 		FreeHoverboardManager.DataPerPlayer dataPerPlayer;
@@ -195,29 +195,29 @@ public class FreeHoverboardManager : NetworkSceneObject
 		}
 	}
 
-	// Token: 0x040028B7 RID: 10423
+	// Token: 0x04002916 RID: 10518
 	[SerializeField]
 	private FreeHoverboardInstance freeHoverboardPrefab;
 
-	// Token: 0x040028B8 RID: 10424
+	// Token: 0x04002917 RID: 10519
 	private Stack<FreeHoverboardInstance> freeBoardPool = new Stack<FreeHoverboardInstance>(20);
 
-	// Token: 0x040028B9 RID: 10425
+	// Token: 0x04002918 RID: 10520
 	private const int NumPlayers = 10;
 
-	// Token: 0x040028BA RID: 10426
+	// Token: 0x04002919 RID: 10521
 	private const int NumFreeBoardsPerPlayer = 2;
 
-	// Token: 0x040028BB RID: 10427
+	// Token: 0x0400291A RID: 10522
 	private int localPlayerLastSpawnedBoardIndex;
 
-	// Token: 0x040028BC RID: 10428
+	// Token: 0x0400291B RID: 10523
 	private Dictionary<int, FreeHoverboardManager.DataPerPlayer> perPlayerData = new Dictionary<int, FreeHoverboardManager.DataPerPlayer>();
 
-	// Token: 0x020005C0 RID: 1472
+	// Token: 0x020005CE RID: 1486
 	private struct DataPerPlayer
 	{
-		// Token: 0x06002495 RID: 9365 RVA: 0x000B64EC File Offset: 0x000B46EC
+		// Token: 0x060024F7 RID: 9463 RVA: 0x00104CB4 File Offset: 0x00102EB4
 		public void Init(int actorNumber, Stack<FreeHoverboardInstance> freeBoardPool)
 		{
 			this.board0 = freeBoardPool.Pop();
@@ -229,7 +229,7 @@ public class FreeHoverboardManager : NetworkSceneObject
 			this.spamCheck = new CallLimiterWithCooldown(5f, 10, 1f);
 		}
 
-		// Token: 0x06002496 RID: 9366 RVA: 0x000B6558 File Offset: 0x000B4758
+		// Token: 0x060024F8 RID: 9464 RVA: 0x00049077 File Offset: 0x00047277
 		public void ReturnBoards(Stack<FreeHoverboardInstance> freeBoardPool)
 		{
 			this.board0.gameObject.SetActive(false);
@@ -238,7 +238,7 @@ public class FreeHoverboardManager : NetworkSceneObject
 			freeBoardPool.Push(this.board1);
 		}
 
-		// Token: 0x06002497 RID: 9367 RVA: 0x000B6594 File Offset: 0x000B4794
+		// Token: 0x060024F9 RID: 9465 RVA: 0x000490B3 File Offset: 0x000472B3
 		public FreeHoverboardInstance GetBoard(int boardIndex)
 		{
 			if (boardIndex != 1)
@@ -248,13 +248,13 @@ public class FreeHoverboardManager : NetworkSceneObject
 			return this.board1;
 		}
 
-		// Token: 0x040028BD RID: 10429
+		// Token: 0x0400291C RID: 10524
 		public FreeHoverboardInstance board0;
 
-		// Token: 0x040028BE RID: 10430
+		// Token: 0x0400291D RID: 10525
 		public FreeHoverboardInstance board1;
 
-		// Token: 0x040028BF RID: 10431
+		// Token: 0x0400291E RID: 10526
 		public CallLimiterWithCooldown spamCheck;
 	}
 }

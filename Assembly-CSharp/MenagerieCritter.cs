@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-// Token: 0x0200006D RID: 109
+// Token: 0x02000073 RID: 115
 public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 {
-	// Token: 0x17000025 RID: 37
-	// (get) Token: 0x060002C7 RID: 711 RVA: 0x00011C56 File Offset: 0x0000FE56
+	// Token: 0x17000028 RID: 40
+	// (get) Token: 0x060002F6 RID: 758 RVA: 0x00032556 File Offset: 0x00030756
 	public Menagerie.CritterData CritterData
 	{
 		get
@@ -16,9 +16,9 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		}
 	}
 
-	// Token: 0x17000026 RID: 38
-	// (get) Token: 0x060002C8 RID: 712 RVA: 0x00011C5E File Offset: 0x0000FE5E
-	// (set) Token: 0x060002C9 RID: 713 RVA: 0x00011C68 File Offset: 0x0000FE68
+	// Token: 0x17000029 RID: 41
+	// (get) Token: 0x060002F7 RID: 759 RVA: 0x0003255E File Offset: 0x0003075E
+	// (set) Token: 0x060002F8 RID: 760 RVA: 0x00076590 File Offset: 0x00074790
 	public MenagerieSlot Slot
 	{
 		get
@@ -43,13 +43,13 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		}
 	}
 
-	// Token: 0x060002CA RID: 714 RVA: 0x00011CD0 File Offset: 0x0000FED0
+	// Token: 0x060002F9 RID: 761 RVA: 0x00032566 File Offset: 0x00030766
 	private void Update()
 	{
 		this.UpdateAnimation();
 	}
 
-	// Token: 0x060002CB RID: 715 RVA: 0x00011CD8 File Offset: 0x0000FED8
+	// Token: 0x060002FA RID: 762 RVA: 0x000765F8 File Offset: 0x000747F8
 	public void ApplyCritterData(Menagerie.CritterData critterData)
 	{
 		this._critterData = critterData;
@@ -62,7 +62,7 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		this.PlayAnimation(this.heldAnimation, UnityEngine.Random.value);
 	}
 
-	// Token: 0x060002CC RID: 716 RVA: 0x00011D6C File Offset: 0x0000FF6C
+	// Token: 0x060002FB RID: 763 RVA: 0x0007668C File Offset: 0x0007488C
 	private void PlayAnimation(CrittersAnim anim, float time = 0f)
 	{
 		this._currentAnim = anim;
@@ -75,7 +75,7 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		}
 	}
 
-	// Token: 0x060002CD RID: 717 RVA: 0x00011DC0 File Offset: 0x0000FFC0
+	// Token: 0x060002FC RID: 764 RVA: 0x000766E0 File Offset: 0x000748E0
 	private void UpdateAnimation()
 	{
 		if (this._currentAnim != null)
@@ -94,8 +94,8 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		}
 	}
 
-	// Token: 0x17000027 RID: 39
-	// (get) Token: 0x060002CE RID: 718 RVA: 0x00002076 File Offset: 0x00000276
+	// Token: 0x1700002A RID: 42
+	// (get) Token: 0x060002FD RID: 765 RVA: 0x00030498 File Offset: 0x0002E698
 	public bool TwoHanded
 	{
 		get
@@ -104,12 +104,12 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		}
 	}
 
-	// Token: 0x060002CF RID: 719 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060002FE RID: 766 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnHover(InteractionPoint pointHovered, GameObject hoveringHand)
 	{
 	}
 
-	// Token: 0x060002D0 RID: 720 RVA: 0x00011EC0 File Offset: 0x000100C0
+	// Token: 0x060002FF RID: 767 RVA: 0x000767E0 File Offset: 0x000749E0
 	public void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 	{
 		this.isHeld = true;
@@ -134,7 +134,7 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		onDataChange();
 	}
 
-	// Token: 0x060002D1 RID: 721 RVA: 0x00011F6C File Offset: 0x0001016C
+	// Token: 0x06000300 RID: 768 RVA: 0x0007688C File Offset: 0x00074A8C
 	public bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		if (EquipmentInteractor.instance.rightHandHeldEquipment == this && releasingHand != EquipmentInteractor.instance.rightHand)
@@ -170,7 +170,7 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		return true;
 	}
 
-	// Token: 0x060002D2 RID: 722 RVA: 0x0001203F File Offset: 0x0001023F
+	// Token: 0x06000301 RID: 769 RVA: 0x0003256E File Offset: 0x0003076E
 	public void ResetToTransform()
 	{
 		base.transform.parent = this._slot.transform;
@@ -178,13 +178,13 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		base.transform.localRotation = quaternion.identity;
 	}
 
-	// Token: 0x060002D3 RID: 723 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000302 RID: 770 RVA: 0x00030607 File Offset: 0x0002E807
 	public void DropItemCleanup()
 	{
 	}
 
-	// Token: 0x17000028 RID: 40
-	// (get) Token: 0x060002D4 RID: 724 RVA: 0x0000EA77 File Offset: 0x0000CC77
+	// Token: 0x1700002B RID: 43
+	// (get) Token: 0x06000303 RID: 771 RVA: 0x00031CCF File Offset: 0x0002FECF
 	int IEyeScannable.scannableId
 	{
 		get
@@ -193,8 +193,8 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		}
 	}
 
-	// Token: 0x17000029 RID: 41
-	// (get) Token: 0x060002D5 RID: 725 RVA: 0x0001207C File Offset: 0x0001027C
+	// Token: 0x1700002C RID: 44
+	// (get) Token: 0x06000304 RID: 772 RVA: 0x00076960 File Offset: 0x00074B60
 	Vector3 IEyeScannable.Position
 	{
 		get
@@ -203,8 +203,8 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		}
 	}
 
-	// Token: 0x1700002A RID: 42
-	// (get) Token: 0x060002D6 RID: 726 RVA: 0x0001209C File Offset: 0x0001029C
+	// Token: 0x1700002D RID: 45
+	// (get) Token: 0x06000305 RID: 773 RVA: 0x000325AB File Offset: 0x000307AB
 	Bounds IEyeScannable.Bounds
 	{
 		get
@@ -213,8 +213,8 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		}
 	}
 
-	// Token: 0x1700002B RID: 43
-	// (get) Token: 0x060002D7 RID: 727 RVA: 0x000120A9 File Offset: 0x000102A9
+	// Token: 0x1700002E RID: 46
+	// (get) Token: 0x06000306 RID: 774 RVA: 0x000325B8 File Offset: 0x000307B8
 	IList<KeyValueStringPair> IEyeScannable.Entries
 	{
 		get
@@ -223,19 +223,19 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		}
 	}
 
-	// Token: 0x060002D8 RID: 728 RVA: 0x000120B1 File Offset: 0x000102B1
+	// Token: 0x06000307 RID: 775 RVA: 0x000325C0 File Offset: 0x000307C0
 	public void OnEnable()
 	{
 		EyeScannerMono.Register(this);
 	}
 
-	// Token: 0x060002D9 RID: 729 RVA: 0x000120B9 File Offset: 0x000102B9
+	// Token: 0x06000308 RID: 776 RVA: 0x000325C8 File Offset: 0x000307C8
 	public void OnDisable()
 	{
 		EyeScannerMono.Unregister(this);
 	}
 
-	// Token: 0x060002DA RID: 730 RVA: 0x000120C4 File Offset: 0x000102C4
+	// Token: 0x06000309 RID: 777 RVA: 0x00076980 File Offset: 0x00074B80
 	private IList<KeyValueStringPair> BuildEyeScannerData()
 	{
 		this.eyeScanData[0] = new KeyValueStringPair("Name", this._critterConfiguration.critterName);
@@ -248,11 +248,11 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 	}
 
 	// Token: 0x14000006 RID: 6
-	// (add) Token: 0x060002DB RID: 731 RVA: 0x000121C0 File Offset: 0x000103C0
-	// (remove) Token: 0x060002DC RID: 732 RVA: 0x000121F8 File Offset: 0x000103F8
+	// (add) Token: 0x0600030A RID: 778 RVA: 0x00076A7C File Offset: 0x00074C7C
+	// (remove) Token: 0x0600030B RID: 779 RVA: 0x00076AB4 File Offset: 0x00074CB4
 	public event Action OnDataChange;
 
-	// Token: 0x060002DD RID: 733 RVA: 0x0001222D File Offset: 0x0001042D
+	// Token: 0x0600030C RID: 780 RVA: 0x000325D0 File Offset: 0x000307D0
 	private string GetCurrentStateName()
 	{
 		if (!this.isHeld)
@@ -262,91 +262,91 @@ public class MenagerieCritter : MonoBehaviour, IHoldableObject, IEyeScannable
 		return "Happy";
 	}
 
-	// Token: 0x060002DF RID: 735 RVA: 0x00012273 File Offset: 0x00010473
+	// Token: 0x0600030E RID: 782 RVA: 0x00032616 File Offset: 0x00030816
 	GameObject IHoldableObject.get_gameObject()
 	{
 		return base.gameObject;
 	}
 
-	// Token: 0x060002E0 RID: 736 RVA: 0x0001227B File Offset: 0x0001047B
+	// Token: 0x0600030F RID: 783 RVA: 0x0003261E File Offset: 0x0003081E
 	string IHoldableObject.get_name()
 	{
 		return base.name;
 	}
 
-	// Token: 0x060002E1 RID: 737 RVA: 0x00012283 File Offset: 0x00010483
+	// Token: 0x06000310 RID: 784 RVA: 0x00032626 File Offset: 0x00030826
 	void IHoldableObject.set_name(string value)
 	{
 		base.name = value;
 	}
 
-	// Token: 0x04000365 RID: 869
+	// Token: 0x04000397 RID: 919
 	public CritterVisuals visuals;
 
-	// Token: 0x04000366 RID: 870
+	// Token: 0x04000398 RID: 920
 	public Collider bodyCollider;
 
-	// Token: 0x04000367 RID: 871
+	// Token: 0x04000399 RID: 921
 	[Header("Feedback")]
 	public CrittersAnim heldAnimation;
 
-	// Token: 0x04000368 RID: 872
+	// Token: 0x0400039A RID: 922
 	public AudioClip grabbedHaptics;
 
-	// Token: 0x04000369 RID: 873
+	// Token: 0x0400039B RID: 923
 	public float grabbedHapticsStrength = 1f;
 
-	// Token: 0x0400036A RID: 874
+	// Token: 0x0400039C RID: 924
 	public GameObject grabbedFX;
 
-	// Token: 0x0400036B RID: 875
+	// Token: 0x0400039D RID: 925
 	private CrittersAnim _currentAnim;
 
-	// Token: 0x0400036C RID: 876
+	// Token: 0x0400039E RID: 926
 	private float _currentAnimTime;
 
-	// Token: 0x0400036D RID: 877
+	// Token: 0x0400039F RID: 927
 	private Transform _animRoot;
 
-	// Token: 0x0400036E RID: 878
+	// Token: 0x040003A0 RID: 928
 	private Vector3 _bodyScale;
 
-	// Token: 0x0400036F RID: 879
+	// Token: 0x040003A1 RID: 929
 	public MenagerieCritter.MenagerieCritterState currentState = MenagerieCritter.MenagerieCritterState.Displaying;
 
-	// Token: 0x04000370 RID: 880
+	// Token: 0x040003A2 RID: 930
 	private CritterConfiguration _critterConfiguration;
 
-	// Token: 0x04000371 RID: 881
+	// Token: 0x040003A3 RID: 931
 	private Menagerie.CritterData _critterData;
 
-	// Token: 0x04000372 RID: 882
+	// Token: 0x040003A4 RID: 932
 	private MenagerieSlot _slot;
 
-	// Token: 0x04000373 RID: 883
+	// Token: 0x040003A5 RID: 933
 	private List<GorillaGrabber> activeGrabbers = new List<GorillaGrabber>();
 
-	// Token: 0x04000374 RID: 884
+	// Token: 0x040003A6 RID: 934
 	private GameObject heldBy;
 
-	// Token: 0x04000375 RID: 885
+	// Token: 0x040003A7 RID: 935
 	private bool isHeld;
 
-	// Token: 0x04000376 RID: 886
+	// Token: 0x040003A8 RID: 936
 	private bool isHeldLeftHand;
 
-	// Token: 0x04000377 RID: 887
+	// Token: 0x040003A9 RID: 937
 	public Action<MenagerieCritter> OnReleased;
 
-	// Token: 0x04000378 RID: 888
+	// Token: 0x040003AA RID: 938
 	private KeyValueStringPair[] eyeScanData = new KeyValueStringPair[6];
 
-	// Token: 0x0200006E RID: 110
+	// Token: 0x02000074 RID: 116
 	public enum MenagerieCritterState
 	{
-		// Token: 0x0400037B RID: 891
+		// Token: 0x040003AD RID: 941
 		Donating,
-		// Token: 0x0400037C RID: 892
+		// Token: 0x040003AE RID: 942
 		Displaying
 	}
 }

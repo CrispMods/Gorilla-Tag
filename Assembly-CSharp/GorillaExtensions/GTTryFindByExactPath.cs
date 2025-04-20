@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 namespace GorillaExtensions
 {
-	// Token: 0x02000B74 RID: 2932
+	// Token: 0x02000BA1 RID: 2977
 	public static class GTTryFindByExactPath
 	{
-		// Token: 0x06004A4E RID: 19022 RVA: 0x00168374 File Offset: 0x00166574
+		// Token: 0x06004B99 RID: 19353 RVA: 0x001A2064 File Offset: 0x001A0264
 		public static bool WithSiblingIndexAndTypeName<T>(string path, out T out_component) where T : Component
 		{
 			out_component = default(T);
@@ -85,7 +85,7 @@ namespace GorillaExtensions
 			return out_component != null;
 		}
 
-		// Token: 0x06004A4F RID: 19023 RVA: 0x001684F4 File Offset: 0x001666F4
+		// Token: 0x06004B9A RID: 19354 RVA: 0x001A21E4 File Offset: 0x001A03E4
 		private static bool WithSiblingIndex<T>(string xformPath, out T component) where T : Component
 		{
 			component = default(T);
@@ -98,7 +98,7 @@ namespace GorillaExtensions
 			return false;
 		}
 
-		// Token: 0x06004A50 RID: 19024 RVA: 0x00168534 File Offset: 0x00166734
+		// Token: 0x06004B9B RID: 19355 RVA: 0x001A2224 File Offset: 0x001A0424
 		public static bool XformWithSiblingIndex(string xformPath, out Transform finalXform)
 		{
 			finalXform = null;

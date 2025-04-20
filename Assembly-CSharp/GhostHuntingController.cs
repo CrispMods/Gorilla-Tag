@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000AA RID: 170
+// Token: 0x020000B4 RID: 180
 public class GhostHuntingController : MonoBehaviour
 {
-	// Token: 0x06000454 RID: 1108 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000490 RID: 1168 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Start()
 	{
 	}
 
-	// Token: 0x06000455 RID: 1109 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000491 RID: 1169 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Update()
 	{
 	}

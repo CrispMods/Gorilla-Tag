@@ -9,18 +9,18 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x020001EE RID: 494
+// Token: 0x020001F9 RID: 505
 [RequireComponent(typeof(NetworkView))]
 public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidator
 {
-	// Token: 0x06000B8D RID: 2957 RVA: 0x0003D423 File Offset: 0x0003B623
+	// Token: 0x06000BD8 RID: 3032 RVA: 0x0003855B File Offset: 0x0003675B
 	private void SetViewToRequest()
 	{
 		base.GetComponent<NetworkView>().OwnershipTransfer = OwnershipOption.Request;
 	}
 
-	// Token: 0x17000123 RID: 291
-	// (get) Token: 0x06000B8E RID: 2958 RVA: 0x0003D431 File Offset: 0x0003B631
+	// Token: 0x1700012A RID: 298
+	// (get) Token: 0x06000BD9 RID: 3033 RVA: 0x00038569 File Offset: 0x00036769
 	private NetworkView netView
 	{
 		get
@@ -37,8 +37,8 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x17000124 RID: 292
-	// (get) Token: 0x06000B8F RID: 2959 RVA: 0x0003D450 File Offset: 0x0003B650
+	// Token: 0x1700012B RID: 299
+	// (get) Token: 0x06000BDA RID: 3034 RVA: 0x00038588 File Offset: 0x00036788
 	[DevInspectorShow]
 	public bool isTrulyMine
 	{
@@ -48,8 +48,8 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x17000125 RID: 293
-	// (get) Token: 0x06000B90 RID: 2960 RVA: 0x0003D467 File Offset: 0x0003B667
+	// Token: 0x1700012C RID: 300
+	// (get) Token: 0x06000BDB RID: 3035 RVA: 0x0003859F File Offset: 0x0003679F
 	public bool isMine
 	{
 		get
@@ -58,13 +58,13 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x06000B91 RID: 2961 RVA: 0x0003D47E File Offset: 0x0003B67E
+	// Token: 0x06000BDC RID: 3036 RVA: 0x000385B6 File Offset: 0x000367B6
 	private void BindNetworkViews()
 	{
 		this.netViews = base.GetComponents<NetworkView>();
 	}
 
-	// Token: 0x06000B92 RID: 2962 RVA: 0x0003D48C File Offset: 0x0003B68C
+	// Token: 0x06000BDD RID: 3037 RVA: 0x0009C030 File Offset: 0x0009A230
 	public override void OnDisable()
 	{
 		base.OnDisable();
@@ -80,7 +80,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		this.currentState = NetworkingState.IsOwner;
 	}
 
-	// Token: 0x06000B93 RID: 2963 RVA: 0x0003D530 File Offset: 0x0003B730
+	// Token: 0x06000BDE RID: 3038 RVA: 0x0009C0D4 File Offset: 0x0009A2D4
 	public override void OnEnable()
 	{
 		base.OnEnable();
@@ -126,7 +126,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		this.RequestTheCurrentOwnerFromAuthority();
 	}
 
-	// Token: 0x06000B94 RID: 2964 RVA: 0x0003D6A0 File Offset: 0x0003B8A0
+	// Token: 0x06000BDF RID: 3039 RVA: 0x0009C244 File Offset: 0x0009A444
 	private void PlayerEnteredRoom(NetPlayer player)
 	{
 		if (player.IsLocal)
@@ -142,7 +142,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x06000B95 RID: 2965 RVA: 0x0003D6FC File Offset: 0x0003B8FC
+	// Token: 0x06000BE0 RID: 3040 RVA: 0x0009C2A0 File Offset: 0x0009A4A0
 	public override void OnPreLeavingRoom()
 	{
 		if (!PhotonNetwork.InRoom)
@@ -170,7 +170,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		this.SetOwnership(NetworkSystem.Instance.LocalPlayer, false, false);
 	}
 
-	// Token: 0x06000B96 RID: 2966 RVA: 0x0003D780 File Offset: 0x0003B980
+	// Token: 0x06000BE1 RID: 3041 RVA: 0x0009C324 File Offset: 0x0009A524
 	private void JoinedRoom()
 	{
 		this.currentMasterClient = NetworkSystem.Instance.MasterClient;
@@ -184,7 +184,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		this.SetOwnership(null, false, false);
 	}
 
-	// Token: 0x06000B97 RID: 2967 RVA: 0x0003D7DC File Offset: 0x0003B9DC
+	// Token: 0x06000BE2 RID: 3042 RVA: 0x0009C380 File Offset: 0x0009A580
 	private void PlayerLeftRoom(NetPlayer otherPlayer)
 	{
 		switch (this.currentState)
@@ -293,7 +293,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x06000B98 RID: 2968 RVA: 0x0003D9FC File Offset: 0x0003BBFC
+	// Token: 0x06000BE3 RID: 3043 RVA: 0x0009C5A0 File Offset: 0x0009A7A0
 	private void MasterClientSwitch(NetPlayer newMaster)
 	{
 		switch (this.currentState)
@@ -326,7 +326,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		this.currentMasterClient = newMaster;
 	}
 
-	// Token: 0x06000B99 RID: 2969 RVA: 0x0003DA8C File Offset: 0x0003BC8C
+	// Token: 0x06000BE4 RID: 3044 RVA: 0x0009C630 File Offset: 0x0009A830
 	[PunRPC]
 	public void RequestCurrentOwnerFromAuthorityRPC(PhotonMessageInfo info)
 	{
@@ -342,13 +342,17 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		});
 	}
 
-	// Token: 0x06000B9A RID: 2970 RVA: 0x0003DAF0 File Offset: 0x0003BCF0
+	// Token: 0x06000BE5 RID: 3045 RVA: 0x0009C694 File Offset: 0x0009A894
 	[PunRPC]
 	public void TransferOwnershipFromToRPC([CanBeNull] Player nextplayer, string nonce, PhotonMessageInfo info)
 	{
+		GorillaNot.IncrementRPCCall(info, "TransferOwnershipFromToRPC");
+		if (nextplayer == null)
+		{
+			return;
+		}
 		NetPlayer player = NetworkSystem.Instance.GetPlayer(nextplayer);
 		NetworkSystem.Instance.GetPlayer(info.Sender);
-		GorillaNot.IncrementRPCCall(info, "TransferOwnershipFromToRPC");
 		if (!this.PlayerHasAuthority(NetworkSystem.Instance.LocalPlayer) && base.photonView.OwnerActorNr != info.Sender.ActorNumber)
 		{
 			NetPlayer netPlayer = this.currentOwner;
@@ -401,17 +405,21 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		throw new ArgumentOutOfRangeException();
 	}
 
-	// Token: 0x06000B9B RID: 2971 RVA: 0x0003DC8C File Offset: 0x0003BE8C
+	// Token: 0x06000BE6 RID: 3046 RVA: 0x0009C834 File Offset: 0x0009AA34
 	[PunRPC]
 	public void SetOwnershipFromMasterClient([CanBeNull] Player nextMaster, PhotonMessageInfo info)
 	{
+		GorillaNot.IncrementRPCCall(info, "SetOwnershipFromMasterClient");
+		if (nextMaster == null)
+		{
+			return;
+		}
 		NetPlayer player = NetworkSystem.Instance.GetPlayer(nextMaster);
 		NetPlayer player2 = NetworkSystem.Instance.GetPlayer(info.Sender);
-		GorillaNot.IncrementRPCCall(info, "SetOwnershipFromMasterClient");
 		this.SetOwnershipFromMasterClient(player, player2);
 	}
 
-	// Token: 0x06000B9C RID: 2972 RVA: 0x0003DCCC File Offset: 0x0003BECC
+	// Token: 0x06000BE7 RID: 3047 RVA: 0x0009C878 File Offset: 0x0009AA78
 	public void SetOwnershipFromMasterClient([CanBeNull] NetPlayer nextMaster, NetPlayer sender)
 	{
 		if (nextMaster == null)
@@ -481,7 +489,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x06000B9D RID: 2973 RVA: 0x0003DE60 File Offset: 0x0003C060
+	// Token: 0x06000BE8 RID: 3048 RVA: 0x0009CA0C File Offset: 0x0009AC0C
 	[PunRPC]
 	public void OwnershipRequested(string nonce, PhotonMessageInfo info)
 	{
@@ -522,15 +530,20 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		this.TransferOwnership(player, nonce);
 	}
 
-	// Token: 0x06000B9E RID: 2974 RVA: 0x0003DF4C File Offset: 0x0003C14C
+	// Token: 0x06000BE9 RID: 3049 RVA: 0x000385C4 File Offset: 0x000367C4
 	private void TransferOwnershipWithID(int id)
 	{
 		this.TransferOwnership(NetworkSystem.Instance.GetPlayer(id), "");
 	}
 
-	// Token: 0x06000B9F RID: 2975 RVA: 0x0003DF64 File Offset: 0x0003C164
+	// Token: 0x06000BEA RID: 3050 RVA: 0x0009CAF8 File Offset: 0x0009ACF8
 	public void TransferOwnership(NetPlayer player, string Nonce = "")
 	{
+		if (!NetworkSystem.Instance.InRoom)
+		{
+			this.SetOwnership(player, false, false);
+			return;
+		}
 		if (base.photonView.IsMine)
 		{
 			this.SetOwnership(player, false, false);
@@ -553,13 +566,13 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		Debug.LogError("Tried to transfer ownership when im not the owner or a master client");
 	}
 
-	// Token: 0x06000BA0 RID: 2976 RVA: 0x0003DFF2 File Offset: 0x0003C1F2
+	// Token: 0x06000BEB RID: 3051 RVA: 0x000385DC File Offset: 0x000367DC
 	public void RequestTheCurrentOwnerFromAuthority()
 	{
 		this.netView.SendRPC("RequestCurrentOwnerFromAuthorityRPC", this.GetAuthoritativePlayer(), Array.Empty<object>());
 	}
 
-	// Token: 0x06000BA1 RID: 2977 RVA: 0x0003E010 File Offset: 0x0003C210
+	// Token: 0x06000BEC RID: 3052 RVA: 0x0009CBA0 File Offset: 0x0009ADA0
 	protected void SetCurrentOwner(NetPlayer player)
 	{
 		if (player == null)
@@ -585,7 +598,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x06000BA2 RID: 2978 RVA: 0x0003E074 File Offset: 0x0003C274
+	// Token: 0x06000BED RID: 3053 RVA: 0x0009CC04 File Offset: 0x0009AE04
 	protected internal void SetOwnership(NetPlayer player, bool isLocalOnly = false, bool dontPropigate = false)
 	{
 		if (!object.Equals(player, this.currentOwner) && !dontPropigate)
@@ -613,7 +626,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		this.currentState = NetworkingState.IsClient;
 	}
 
-	// Token: 0x06000BA3 RID: 2979 RVA: 0x0003E112 File Offset: 0x0003C312
+	// Token: 0x06000BEE RID: 3054 RVA: 0x000385F9 File Offset: 0x000367F9
 	public NetPlayer GetAuthoritativePlayer()
 	{
 		if (this.giveCreatorAbsoluteAuthority)
@@ -623,7 +636,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		return NetworkSystem.Instance.MasterClient;
 	}
 
-	// Token: 0x06000BA4 RID: 2980 RVA: 0x0003E130 File Offset: 0x0003C330
+	// Token: 0x06000BEF RID: 3055 RVA: 0x0009CCA4 File Offset: 0x0009AEA4
 	[PunRPC]
 	public void OwnershipRequestDenied(string nonce, PhotonMessageInfo info)
 	{
@@ -665,7 +678,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x06000BA5 RID: 2981 RVA: 0x0003E226 File Offset: 0x0003C426
+	// Token: 0x06000BF0 RID: 3056 RVA: 0x00038614 File Offset: 0x00036814
 	public IEnumerator RequestTimeout()
 	{
 		Debug.Log(string.Format("Timeout request started...  {0} ", this.currentState));
@@ -695,7 +708,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		yield break;
 	}
 
-	// Token: 0x06000BA6 RID: 2982 RVA: 0x0003E238 File Offset: 0x0003C438
+	// Token: 0x06000BF1 RID: 3057 RVA: 0x0009CD9C File Offset: 0x0009AF9C
 	public void RequestOwnership(Action onRequestSuccess, Action onRequestFailed)
 	{
 		switch (this.currentState)
@@ -729,7 +742,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x06000BA7 RID: 2983 RVA: 0x0003E334 File Offset: 0x0003C534
+	// Token: 0x06000BF2 RID: 3058 RVA: 0x0009CE98 File Offset: 0x0009B098
 	public void RequestOwnershipImmediately(Action onRequestFailed)
 	{
 		Debug.Log("WorldShareable RequestOwnershipImmediately");
@@ -773,7 +786,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x06000BA8 RID: 2984 RVA: 0x0003E478 File Offset: 0x0003C678
+	// Token: 0x06000BF3 RID: 3059 RVA: 0x0009CFDC File Offset: 0x0009B1DC
 	public void RequestOwnershipImmediatelyWithGuaranteedAuthority()
 	{
 		Debug.Log("WorldShareable RequestOwnershipImmediatelyWithGuaranteedAuthority");
@@ -809,7 +822,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x06000BA9 RID: 2985 RVA: 0x0003E54D File Offset: 0x0003C74D
+	// Token: 0x06000BF4 RID: 3060 RVA: 0x00038623 File Offset: 0x00036823
 	public void AddCallbackTarget(IRequestableOwnershipGuardCallbacks callbackObject)
 	{
 		if (!this.callbacksList.Contains(callbackObject))
@@ -822,7 +835,7 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x06000BAA RID: 2986 RVA: 0x0003E57E File Offset: 0x0003C77E
+	// Token: 0x06000BF5 RID: 3061 RVA: 0x00038654 File Offset: 0x00036854
 	public void RemoveCallbackTarget(IRequestableOwnershipGuardCallbacks callbackObject)
 	{
 		if (this.callbacksList.Contains(callbackObject))
@@ -835,14 +848,14 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x06000BAB RID: 2987 RVA: 0x0003E5B0 File Offset: 0x0003C7B0
+	// Token: 0x06000BF6 RID: 3062 RVA: 0x00038686 File Offset: 0x00036886
 	public void SetCreator(NetPlayer player)
 	{
 		this.creator = player;
 	}
 
-	// Token: 0x17000126 RID: 294
-	// (get) Token: 0x06000BAC RID: 2988 RVA: 0x0003E5B9 File Offset: 0x0003C7B9
+	// Token: 0x1700012D RID: 301
+	// (get) Token: 0x06000BF7 RID: 3063 RVA: 0x0003868F File Offset: 0x0003688F
 	private NetworkingState EdCurrentState
 	{
 		get
@@ -851,79 +864,79 @@ public class RequestableOwnershipGuard : MonoBehaviourPunCallbacks, ISelfValidat
 		}
 	}
 
-	// Token: 0x06000BAD RID: 2989 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000BF8 RID: 3064 RVA: 0x00030607 File Offset: 0x0002E807
 	public void Validate(SelfValidationResult result)
 	{
 	}
 
-	// Token: 0x06000BAE RID: 2990 RVA: 0x0003E5C1 File Offset: 0x0003C7C1
+	// Token: 0x06000BF9 RID: 3065 RVA: 0x00038697 File Offset: 0x00036897
 	public bool PlayerHasAuthority(NetPlayer player)
 	{
 		return object.Equals(this.GetAuthoritativePlayer(), player);
 	}
 
-	// Token: 0x04000E0C RID: 3596
+	// Token: 0x04000E52 RID: 3666
 	[DevInspectorShow]
 	[DevInspectorColor("#ff5")]
 	public NetworkingState currentState;
 
-	// Token: 0x04000E0D RID: 3597
+	// Token: 0x04000E53 RID: 3667
 	[FormerlySerializedAs("NetworkView")]
 	[SerializeField]
 	private NetworkView[] netViews;
 
-	// Token: 0x04000E0E RID: 3598
+	// Token: 0x04000E54 RID: 3668
 	[DevInspectorHide]
 	[SerializeField]
 	private bool autoRegister = true;
 
-	// Token: 0x04000E0F RID: 3599
+	// Token: 0x04000E55 RID: 3669
 	[DevInspectorShow]
 	[CanBeNull]
 	[SerializeField]
 	[SerializeReference]
 	public NetPlayer currentOwner;
 
-	// Token: 0x04000E10 RID: 3600
+	// Token: 0x04000E56 RID: 3670
 	[CanBeNull]
 	[SerializeField]
 	[SerializeReference]
 	private NetPlayer currentMasterClient;
 
-	// Token: 0x04000E11 RID: 3601
+	// Token: 0x04000E57 RID: 3671
 	[CanBeNull]
 	[SerializeField]
 	[SerializeReference]
 	private NetPlayer fallbackOwner;
 
-	// Token: 0x04000E12 RID: 3602
+	// Token: 0x04000E58 RID: 3672
 	[CanBeNull]
 	[SerializeField]
 	[SerializeReference]
 	public NetPlayer creator;
 
-	// Token: 0x04000E13 RID: 3603
+	// Token: 0x04000E59 RID: 3673
 	public bool giveCreatorAbsoluteAuthority;
 
-	// Token: 0x04000E14 RID: 3604
+	// Token: 0x04000E5A RID: 3674
 	public bool attemptMasterAssistedTakeoverOnDeny;
 
-	// Token: 0x04000E15 RID: 3605
+	// Token: 0x04000E5B RID: 3675
 	private Action ownershipDenied;
 
-	// Token: 0x04000E16 RID: 3606
+	// Token: 0x04000E5C RID: 3676
 	private Action ownershipRequestAccepted;
 
-	// Token: 0x04000E17 RID: 3607
+	// Token: 0x04000E5D RID: 3677
 	[CanBeNull]
 	[SerializeField]
 	[SerializeReference]
 	[DevInspectorShow]
 	public NetPlayer actualOwner;
 
-	// Token: 0x04000E18 RID: 3608
+	// Token: 0x04000E5E RID: 3678
 	public string ownershipRequestNonce;
 
-	// Token: 0x04000E19 RID: 3609
+	// Token: 0x04000E5F RID: 3679
 	public List<IRequestableOwnershipGuardCallbacks> callbacksList = new List<IRequestableOwnershipGuardCallbacks>();
 }

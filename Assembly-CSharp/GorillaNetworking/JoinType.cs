@@ -2,24 +2,24 @@
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000ACF RID: 2767
+	// Token: 0x02000AFC RID: 2812
 	public enum JoinType
 	{
-		// Token: 0x040046AD RID: 18093
+		// Token: 0x040047A4 RID: 18340
 		Solo,
-		// Token: 0x040046AE RID: 18094
+		// Token: 0x040047A5 RID: 18341
 		JoinWithNearby,
-		// Token: 0x040046AF RID: 18095
+		// Token: 0x040047A6 RID: 18342
 		JoinWithParty,
-		// Token: 0x040046B0 RID: 18096
+		// Token: 0x040047A7 RID: 18343
 		ForceJoinWithParty,
-		// Token: 0x040046B1 RID: 18097
+		// Token: 0x040047A8 RID: 18344
 		FollowingNearby,
-		// Token: 0x040046B2 RID: 18098
+		// Token: 0x040047A9 RID: 18345
 		FollowingParty,
-		// Token: 0x040046B3 RID: 18099
+		// Token: 0x040047AA RID: 18346
 		FriendStationPublic,
-		// Token: 0x040046B4 RID: 18100
+		// Token: 0x040047AB RID: 18347
 		FriendStationPrivate
 	}
 }

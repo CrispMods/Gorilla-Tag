@@ -9,17 +9,17 @@ using PlayFab;
 using PlayFab.CloudScriptModels;
 using UnityEngine;
 
-// Token: 0x0200053F RID: 1343
+// Token: 0x0200054D RID: 1357
 [RequireComponent(typeof(VRRig), typeof(VRRigReliableState))]
 public class RigContainer : MonoBehaviour
 {
-	// Token: 0x1700034C RID: 844
-	// (get) Token: 0x06002092 RID: 8338 RVA: 0x000A3586 File Offset: 0x000A1786
-	// (set) Token: 0x06002093 RID: 8339 RVA: 0x000A358E File Offset: 0x000A178E
+	// Token: 0x17000354 RID: 852
+	// (get) Token: 0x060020F0 RID: 8432 RVA: 0x000466CC File Offset: 0x000448CC
+	// (set) Token: 0x060020F1 RID: 8433 RVA: 0x000466D4 File Offset: 0x000448D4
 	public bool Initialized { get; private set; }
 
-	// Token: 0x1700034D RID: 845
-	// (get) Token: 0x06002094 RID: 8340 RVA: 0x000A3597 File Offset: 0x000A1797
+	// Token: 0x17000355 RID: 853
+	// (get) Token: 0x060020F2 RID: 8434 RVA: 0x000466DD File Offset: 0x000448DD
 	public VRRig Rig
 	{
 		get
@@ -28,8 +28,8 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700034E RID: 846
-	// (get) Token: 0x06002095 RID: 8341 RVA: 0x000A359F File Offset: 0x000A179F
+	// Token: 0x17000356 RID: 854
+	// (get) Token: 0x060020F3 RID: 8435 RVA: 0x000466E5 File Offset: 0x000448E5
 	public VRRigReliableState ReliableState
 	{
 		get
@@ -38,8 +38,8 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700034F RID: 847
-	// (get) Token: 0x06002096 RID: 8342 RVA: 0x000A35A7 File Offset: 0x000A17A7
+	// Token: 0x17000357 RID: 855
+	// (get) Token: 0x060020F4 RID: 8436 RVA: 0x000466ED File Offset: 0x000448ED
 	public Transform SpeakerHead
 	{
 		get
@@ -48,8 +48,8 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000350 RID: 848
-	// (get) Token: 0x06002097 RID: 8343 RVA: 0x000A35AF File Offset: 0x000A17AF
+	// Token: 0x17000358 RID: 856
+	// (get) Token: 0x060020F5 RID: 8437 RVA: 0x000466F5 File Offset: 0x000448F5
 	public AudioSource ReplacementVoiceSource
 	{
 		get
@@ -58,9 +58,9 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000351 RID: 849
-	// (get) Token: 0x06002098 RID: 8344 RVA: 0x000A35B7 File Offset: 0x000A17B7
-	// (set) Token: 0x06002099 RID: 8345 RVA: 0x000A35BF File Offset: 0x000A17BF
+	// Token: 0x17000359 RID: 857
+	// (get) Token: 0x060020F6 RID: 8438 RVA: 0x000466FD File Offset: 0x000448FD
+	// (set) Token: 0x060020F7 RID: 8439 RVA: 0x00046705 File Offset: 0x00044905
 	public PhotonVoiceView Voice
 	{
 		get
@@ -82,8 +82,8 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000352 RID: 850
-	// (get) Token: 0x0600209A RID: 8346 RVA: 0x000A35FC File Offset: 0x000A17FC
+	// Token: 0x1700035A RID: 858
+	// (get) Token: 0x060020F8 RID: 8440 RVA: 0x00046742 File Offset: 0x00044942
 	public NetworkView netView
 	{
 		get
@@ -92,8 +92,8 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000353 RID: 851
-	// (get) Token: 0x0600209B RID: 8347 RVA: 0x000A3609 File Offset: 0x000A1809
+	// Token: 0x1700035B RID: 859
+	// (get) Token: 0x060020F9 RID: 8441 RVA: 0x0004674F File Offset: 0x0004494F
 	public int CachedNetViewID
 	{
 		get
@@ -102,9 +102,9 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000354 RID: 852
-	// (get) Token: 0x0600209C RID: 8348 RVA: 0x000A3611 File Offset: 0x000A1811
-	// (set) Token: 0x0600209D RID: 8349 RVA: 0x000A361C File Offset: 0x000A181C
+	// Token: 0x1700035C RID: 860
+	// (get) Token: 0x060020FA RID: 8442 RVA: 0x00046757 File Offset: 0x00044957
+	// (set) Token: 0x060020FB RID: 8443 RVA: 0x00046762 File Offset: 0x00044962
 	public bool Muted
 	{
 		get
@@ -118,9 +118,9 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000355 RID: 853
-	// (get) Token: 0x0600209E RID: 8350 RVA: 0x000A362E File Offset: 0x000A182E
-	// (set) Token: 0x0600209F RID: 8351 RVA: 0x000A363C File Offset: 0x000A183C
+	// Token: 0x1700035D RID: 861
+	// (get) Token: 0x060020FC RID: 8444 RVA: 0x00046774 File Offset: 0x00044974
+	// (set) Token: 0x060020FD RID: 8445 RVA: 0x000F4530 File Offset: 0x000F2730
 	public NetPlayer Creator
 	{
 		get
@@ -138,9 +138,9 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000356 RID: 854
-	// (get) Token: 0x060020A0 RID: 8352 RVA: 0x000A368D File Offset: 0x000A188D
-	// (set) Token: 0x060020A1 RID: 8353 RVA: 0x000A3695 File Offset: 0x000A1895
+	// Token: 0x1700035E RID: 862
+	// (get) Token: 0x060020FE RID: 8446 RVA: 0x00046781 File Offset: 0x00044981
+	// (set) Token: 0x060020FF RID: 8447 RVA: 0x00046789 File Offset: 0x00044989
 	public bool ForceMute
 	{
 		get
@@ -154,8 +154,8 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000357 RID: 855
-	// (get) Token: 0x060020A2 RID: 8354 RVA: 0x000A36A4 File Offset: 0x000A18A4
+	// Token: 0x1700035F RID: 863
+	// (get) Token: 0x06002100 RID: 8448 RVA: 0x00046798 File Offset: 0x00044998
 	public SphereCollider HeadCollider
 	{
 		get
@@ -164,8 +164,8 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000358 RID: 856
-	// (get) Token: 0x060020A3 RID: 8355 RVA: 0x000A36AC File Offset: 0x000A18AC
+	// Token: 0x17000360 RID: 864
+	// (get) Token: 0x06002101 RID: 8449 RVA: 0x000467A0 File Offset: 0x000449A0
 	public CapsuleCollider BodyCollider
 	{
 		get
@@ -174,8 +174,8 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000359 RID: 857
-	// (get) Token: 0x060020A4 RID: 8356 RVA: 0x000A36B4 File Offset: 0x000A18B4
+	// Token: 0x17000361 RID: 865
+	// (get) Token: 0x06002102 RID: 8450 RVA: 0x000467A8 File Offset: 0x000449A8
 	public VRRigEvents RigEvents
 	{
 		get
@@ -184,13 +184,13 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060020A5 RID: 8357 RVA: 0x000A36BC File Offset: 0x000A18BC
+	// Token: 0x06002103 RID: 8451 RVA: 0x000467B0 File Offset: 0x000449B0
 	public bool GetIsPlayerAutoMuted()
 	{
 		return this.bPlayerAutoMuted;
 	}
 
-	// Token: 0x060020A6 RID: 8358 RVA: 0x000A36C4 File Offset: 0x000A18C4
+	// Token: 0x06002104 RID: 8452 RVA: 0x000F4584 File Offset: 0x000F2784
 	public void UpdateAutomuteLevel(string autoMuteLevel)
 	{
 		if (autoMuteLevel.Equals("LOW", StringComparison.OrdinalIgnoreCase))
@@ -212,7 +212,7 @@ public class RigContainer : MonoBehaviour
 		this.RefreshVoiceChat();
 	}
 
-	// Token: 0x060020A7 RID: 8359 RVA: 0x000A3724 File Offset: 0x000A1924
+	// Token: 0x06002105 RID: 8453 RVA: 0x000F45E4 File Offset: 0x000F27E4
 	private void Start()
 	{
 		if (this.Rig.isOfflineVRRig)
@@ -224,7 +224,7 @@ public class RigContainer : MonoBehaviour
 		this.Rig.rigContainer = this;
 	}
 
-	// Token: 0x060020A8 RID: 8360 RVA: 0x000A379F File Offset: 0x000A199F
+	// Token: 0x06002106 RID: 8454 RVA: 0x000467B8 File Offset: 0x000449B8
 	private void OnMultiPlayerStarted()
 	{
 		if (this.Rig.isOfflineVRRig)
@@ -233,7 +233,7 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060020A9 RID: 8361 RVA: 0x000A37C3 File Offset: 0x000A19C3
+	// Token: 0x06002107 RID: 8455 RVA: 0x000467DC File Offset: 0x000449DC
 	private void OnReturnedToSinglePlayer()
 	{
 		if (this.Rig.isOfflineVRRig)
@@ -242,7 +242,7 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060020AA RID: 8362 RVA: 0x000A37D8 File Offset: 0x000A19D8
+	// Token: 0x06002108 RID: 8456 RVA: 0x000F4660 File Offset: 0x000F2860
 	private void OnDisable()
 	{
 		this.Initialized = false;
@@ -255,7 +255,7 @@ public class RigContainer : MonoBehaviour
 		this.forceMute = false;
 	}
 
-	// Token: 0x060020AB RID: 8363 RVA: 0x000A3861 File Offset: 0x000A1A61
+	// Token: 0x06002109 RID: 8457 RVA: 0x000467F0 File Offset: 0x000449F0
 	internal void InitializeNetwork(NetworkView netView, PhotonVoiceView voiceView, VRRigSerializer vrRigSerializer)
 	{
 		if (!netView || !voiceView)
@@ -267,7 +267,7 @@ public class RigContainer : MonoBehaviour
 		this.vrrig.voiceAudio = voiceView.SpeakerInUse.GetComponent<AudioSource>();
 	}
 
-	// Token: 0x060020AC RID: 8364 RVA: 0x000A389C File Offset: 0x000A1A9C
+	// Token: 0x0600210A RID: 8458 RVA: 0x000F46EC File Offset: 0x000F28EC
 	private void InitializeNetwork_Shared(NetworkView netView, VRRigSerializer vrRigSerializer)
 	{
 		if (this.vrrig.netView)
@@ -311,7 +311,7 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060020AD RID: 8365 RVA: 0x000A3A3E File Offset: 0x000A1C3E
+	// Token: 0x0600210B RID: 8459 RVA: 0x00046828 File Offset: 0x00044A28
 	private static IEnumerator QueueAutomute(NetPlayer player)
 	{
 		RigContainer.playersToCheckAutomute.Add(player);
@@ -329,7 +329,7 @@ public class RigContainer : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060020AE RID: 8366 RVA: 0x000A3A50 File Offset: 0x000A1C50
+	// Token: 0x0600210C RID: 8460 RVA: 0x000F4890 File Offset: 0x000F2A90
 	private static void RequestAutomuteSettings()
 	{
 		if (RigContainer.playersToCheckAutomute.Count == 0)
@@ -400,7 +400,7 @@ public class RigContainer : MonoBehaviour
 		}, null, null);
 	}
 
-	// Token: 0x060020AF RID: 8367 RVA: 0x000A3BB4 File Offset: 0x000A1DB4
+	// Token: 0x0600210D RID: 8461 RVA: 0x00046837 File Offset: 0x00044A37
 	private static void CancelAutomuteRequest()
 	{
 		RigContainer.playersToCheckAutomute.Clear();
@@ -412,7 +412,7 @@ public class RigContainer : MonoBehaviour
 		RigContainer.waitingForAutomuteCallback = false;
 	}
 
-	// Token: 0x060020B0 RID: 8368 RVA: 0x000A3BE0 File Offset: 0x000A1DE0
+	// Token: 0x0600210E RID: 8462 RVA: 0x000F49F4 File Offset: 0x000F2BF4
 	private static void ReceiveAutomuteSettings(NetPlayer player, string score)
 	{
 		RigContainer rigContainer;
@@ -423,14 +423,14 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060020B1 RID: 8369 RVA: 0x000A3C0C File Offset: 0x000A1E0C
+	// Token: 0x0600210F RID: 8463 RVA: 0x000F4A20 File Offset: 0x000F2C20
 	private void ProcessAutomute()
 	{
 		int @int = PlayerPrefs.GetInt("autoMute", 1);
 		this.bPlayerAutoMuted = (!this.hasManualMute && this.playerChatQuality < @int);
 	}
 
-	// Token: 0x060020B2 RID: 8370 RVA: 0x000A3C40 File Offset: 0x000A1E40
+	// Token: 0x06002110 RID: 8464 RVA: 0x000F4A54 File Offset: 0x000F2C54
 	public void RefreshVoiceChat()
 	{
 		if (this.Voice == null)
@@ -442,7 +442,7 @@ public class RigContainer : MonoBehaviour
 		this.replacementVoiceSource.mute = (this.forceMute || !this.enableVoice || this.bPlayerAutoMuted || GorillaComputer.instance.voiceChatOn == "OFF");
 	}
 
-	// Token: 0x060020B3 RID: 8371 RVA: 0x000A3CE0 File Offset: 0x000A1EE0
+	// Token: 0x06002111 RID: 8465 RVA: 0x000F4AF4 File Offset: 0x000F2CF4
 	public static void RefreshAllRigVoices()
 	{
 		RigContainer.staticTempRC = null;
@@ -459,67 +459,67 @@ public class RigContainer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002489 RID: 9353
+	// Token: 0x040024E1 RID: 9441
 	[SerializeField]
 	private VRRig vrrig;
 
-	// Token: 0x0400248A RID: 9354
+	// Token: 0x040024E2 RID: 9442
 	[SerializeField]
 	private VRRigReliableState reliableState;
 
-	// Token: 0x0400248B RID: 9355
+	// Token: 0x040024E3 RID: 9443
 	[SerializeField]
 	private Transform speakerHead;
 
-	// Token: 0x0400248C RID: 9356
+	// Token: 0x040024E4 RID: 9444
 	[SerializeField]
 	private AudioSource replacementVoiceSource;
 
-	// Token: 0x0400248D RID: 9357
+	// Token: 0x040024E5 RID: 9445
 	private PhotonVoiceView voiceView;
 
-	// Token: 0x0400248E RID: 9358
+	// Token: 0x040024E6 RID: 9446
 	private int m_cachedNetViewID;
 
-	// Token: 0x0400248F RID: 9359
+	// Token: 0x040024E7 RID: 9447
 	private bool enableVoice = true;
 
-	// Token: 0x04002490 RID: 9360
+	// Token: 0x040024E8 RID: 9448
 	private bool forceMute;
 
-	// Token: 0x04002491 RID: 9361
+	// Token: 0x040024E9 RID: 9449
 	[SerializeField]
 	private SphereCollider headCollider;
 
-	// Token: 0x04002492 RID: 9362
+	// Token: 0x040024EA RID: 9450
 	[SerializeField]
 	private CapsuleCollider bodyCollider;
 
-	// Token: 0x04002493 RID: 9363
+	// Token: 0x040024EB RID: 9451
 	[SerializeField]
 	private VRRigEvents rigEvents;
 
-	// Token: 0x04002494 RID: 9364
+	// Token: 0x040024EC RID: 9452
 	public bool hasManualMute;
 
-	// Token: 0x04002495 RID: 9365
+	// Token: 0x040024ED RID: 9453
 	private bool bPlayerAutoMuted;
 
-	// Token: 0x04002496 RID: 9366
+	// Token: 0x040024EE RID: 9454
 	public int playerChatQuality = 2;
 
-	// Token: 0x04002497 RID: 9367
+	// Token: 0x040024EF RID: 9455
 	private static List<NetPlayer> playersToCheckAutomute = new List<NetPlayer>();
 
-	// Token: 0x04002498 RID: 9368
+	// Token: 0x040024F0 RID: 9456
 	private static bool automuteQueued = false;
 
-	// Token: 0x04002499 RID: 9369
+	// Token: 0x040024F1 RID: 9457
 	private static List<NetPlayer> requestedAutomutePlayers;
 
-	// Token: 0x0400249A RID: 9370
+	// Token: 0x040024F2 RID: 9458
 	private static bool waitingForAutomuteCallback = false;
 
-	// Token: 0x0400249B RID: 9371
+	// Token: 0x040024F3 RID: 9459
 	private static RigContainer staticTempRC;
 }

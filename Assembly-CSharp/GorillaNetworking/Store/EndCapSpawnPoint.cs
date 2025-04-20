@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GorillaNetworking.Store
 {
-	// Token: 0x02000AFA RID: 2810
+	// Token: 0x02000B27 RID: 2855
 	public class EndCapSpawnPoint : MonoBehaviour
 	{
 	}

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000210 RID: 528
+// Token: 0x0200021B RID: 539
 public class LowEffortZone : GorillaTriggerBox
 {
-	// Token: 0x06000C49 RID: 3145 RVA: 0x000418E0 File Offset: 0x0003FAE0
+	// Token: 0x06000C94 RID: 3220 RVA: 0x00038D1F File Offset: 0x00036F1F
 	private void Awake()
 	{
 		if (this.triggerOnAwake)
@@ -13,7 +13,7 @@ public class LowEffortZone : GorillaTriggerBox
 		}
 	}
 
-	// Token: 0x06000C4A RID: 3146 RVA: 0x000418F0 File Offset: 0x0003FAF0
+	// Token: 0x06000C95 RID: 3221 RVA: 0x0009FD3C File Offset: 0x0009DF3C
 	public override void OnBoxTriggered()
 	{
 		for (int i = 0; i < this.objectsToEnable.Length; i++)
@@ -32,12 +32,12 @@ public class LowEffortZone : GorillaTriggerBox
 		}
 	}
 
-	// Token: 0x04000F8D RID: 3981
+	// Token: 0x04000FD3 RID: 4051
 	public GameObject[] objectsToEnable;
 
-	// Token: 0x04000F8E RID: 3982
+	// Token: 0x04000FD4 RID: 4052
 	public GameObject[] objectsToDisable;
 
-	// Token: 0x04000F8F RID: 3983
+	// Token: 0x04000FD5 RID: 4053
 	public bool triggerOnAwake;
 }

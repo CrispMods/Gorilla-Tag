@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000553 RID: 1363
+// Token: 0x02000561 RID: 1377
 public class GorillaColorizableParticle : GorillaColorizableBase
 {
-	// Token: 0x06002155 RID: 8533 RVA: 0x000A5DE0 File Offset: 0x000A3FE0
+	// Token: 0x060021B3 RID: 8627 RVA: 0x000F650C File Offset: 0x000F470C
 	public override void SetColor(Color color)
 	{
 		ParticleSystem.MainModule main = this.particleSystem.main;
@@ -12,12 +12,12 @@ public class GorillaColorizableParticle : GorillaColorizableBase
 		main.startColor = new ParticleSystem.MinMaxGradient(this.useLinearColor ? color.linear : color, this.useLinearColor ? color2.linear : color2);
 	}
 
-	// Token: 0x04002501 RID: 9473
+	// Token: 0x04002559 RID: 9561
 	public ParticleSystem particleSystem;
 
-	// Token: 0x04002502 RID: 9474
+	// Token: 0x0400255A RID: 9562
 	public float gradientColorPower = 2f;
 
-	// Token: 0x04002503 RID: 9475
+	// Token: 0x0400255B RID: 9563
 	public bool useLinearColor = true;
 }

@@ -4,20 +4,20 @@ using GorillaTag.CosmeticSystem;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x02000177 RID: 375
+// Token: 0x02000182 RID: 386
 public class RadioButtonGroupWearable : MonoBehaviour, ISpawnable
 {
-	// Token: 0x170000EB RID: 235
-	// (get) Token: 0x0600095D RID: 2397 RVA: 0x00032208 File Offset: 0x00030408
-	// (set) Token: 0x0600095E RID: 2398 RVA: 0x00032210 File Offset: 0x00030410
+	// Token: 0x170000F2 RID: 242
+	// (get) Token: 0x060009A9 RID: 2473 RVA: 0x00036D1F File Offset: 0x00034F1F
+	// (set) Token: 0x060009AA RID: 2474 RVA: 0x00036D27 File Offset: 0x00034F27
 	public bool IsSpawned { get; set; }
 
-	// Token: 0x170000EC RID: 236
-	// (get) Token: 0x0600095F RID: 2399 RVA: 0x00032219 File Offset: 0x00030419
-	// (set) Token: 0x06000960 RID: 2400 RVA: 0x00032221 File Offset: 0x00030421
+	// Token: 0x170000F3 RID: 243
+	// (get) Token: 0x060009AB RID: 2475 RVA: 0x00036D30 File Offset: 0x00034F30
+	// (set) Token: 0x060009AC RID: 2476 RVA: 0x00036D38 File Offset: 0x00034F38
 	public ECosmeticSelectSide CosmeticSelectedSide { get; set; }
 
-	// Token: 0x06000961 RID: 2401 RVA: 0x0003222C File Offset: 0x0003042C
+	// Token: 0x060009AD RID: 2477 RVA: 0x000926B4 File Offset: 0x000908B4
 	private void Start()
 	{
 		this.stateBitsWriteInfo = VRRig.WearablePackedStatesBitWriteInfos[(int)this.assignedSlot];
@@ -35,19 +35,19 @@ public class RadioButtonGroupWearable : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x06000962 RID: 2402 RVA: 0x0003228A File Offset: 0x0003048A
+	// Token: 0x060009AE RID: 2478 RVA: 0x00036D41 File Offset: 0x00034F41
 	private void OnEnable()
 	{
 		this.SharedRefreshState();
 	}
 
-	// Token: 0x06000963 RID: 2403 RVA: 0x00032292 File Offset: 0x00030492
+	// Token: 0x060009AF RID: 2479 RVA: 0x00036D49 File Offset: 0x00034F49
 	private int GetCurrentState()
 	{
 		return GTBitOps.ReadBits(this.ownerRig.WearablePackedStates, this.stateBitsWriteInfo.index, this.stateBitsWriteInfo.valueMask);
 	}
 
-	// Token: 0x06000964 RID: 2404 RVA: 0x000322BA File Offset: 0x000304BA
+	// Token: 0x060009B0 RID: 2480 RVA: 0x00036D71 File Offset: 0x00034F71
 	private void Update()
 	{
 		if (this.ownerRig.isLocal)
@@ -60,7 +60,7 @@ public class RadioButtonGroupWearable : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x06000965 RID: 2405 RVA: 0x000322E0 File Offset: 0x000304E0
+	// Token: 0x060009B1 RID: 2481 RVA: 0x00092714 File Offset: 0x00090914
 	public void SharedRefreshState()
 	{
 		int currentState = this.GetCurrentState();
@@ -77,7 +77,7 @@ public class RadioButtonGroupWearable : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x06000966 RID: 2406 RVA: 0x00032350 File Offset: 0x00030550
+	// Token: 0x060009B2 RID: 2482 RVA: 0x00092784 File Offset: 0x00090984
 	public void OnPress(GorillaPressableButton button)
 	{
 		int currentState = this.GetCurrentState();
@@ -95,40 +95,40 @@ public class RadioButtonGroupWearable : MonoBehaviour, ISpawnable
 		this.SharedRefreshState();
 	}
 
-	// Token: 0x06000967 RID: 2407 RVA: 0x000323B5 File Offset: 0x000305B5
+	// Token: 0x060009B3 RID: 2483 RVA: 0x00036D95 File Offset: 0x00034F95
 	public void OnSpawn(VRRig rig)
 	{
 		this.ownerRig = rig;
 	}
 
-	// Token: 0x06000968 RID: 2408 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060009B4 RID: 2484 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnDespawn()
 	{
 	}
 
-	// Token: 0x04000B51 RID: 2897
+	// Token: 0x04000B97 RID: 2967
 	[SerializeField]
 	private bool AllowSelectNone = true;
 
-	// Token: 0x04000B52 RID: 2898
+	// Token: 0x04000B98 RID: 2968
 	[SerializeField]
 	private GorillaPressableButton[] buttons;
 
-	// Token: 0x04000B53 RID: 2899
+	// Token: 0x04000B99 RID: 2969
 	[SerializeField]
 	private UnityEvent<int> OnSelectionChanged;
 
-	// Token: 0x04000B54 RID: 2900
+	// Token: 0x04000B9A RID: 2970
 	[Tooltip("This is to determine what bit to change in VRRig.WearablesPackedStates.")]
 	[SerializeField]
 	private VRRig.WearablePackedStateSlots assignedSlot = VRRig.WearablePackedStateSlots.Pants1;
 
-	// Token: 0x04000B55 RID: 2901
+	// Token: 0x04000B9B RID: 2971
 	private int lastReportedState;
 
-	// Token: 0x04000B56 RID: 2902
+	// Token: 0x04000B9C RID: 2972
 	private VRRig ownerRig;
 
-	// Token: 0x04000B57 RID: 2903
+	// Token: 0x04000B9D RID: 2973
 	private GTBitOps.BitWriteInfo stateBitsWriteInfo;
 }

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000040 RID: 64
+// Token: 0x02000044 RID: 68
 public class CrittersCage : CrittersActor
 {
-	// Token: 0x17000010 RID: 16
-	// (get) Token: 0x06000131 RID: 305 RVA: 0x000088FC File Offset: 0x00006AFC
+	// Token: 0x17000011 RID: 17
+	// (get) Token: 0x06000147 RID: 327 RVA: 0x00031222 File Offset: 0x0002F422
 	public Vector3 critterScale
 	{
 		get
@@ -20,8 +20,8 @@ public class CrittersCage : CrittersActor
 		}
 	}
 
-	// Token: 0x17000011 RID: 17
-	// (get) Token: 0x06000132 RID: 306 RVA: 0x0000892E File Offset: 0x00006B2E
+	// Token: 0x17000012 RID: 18
+	// (get) Token: 0x06000148 RID: 328 RVA: 0x00031254 File Offset: 0x0002F454
 	public bool CanCatch
 	{
 		get
@@ -30,7 +30,7 @@ public class CrittersCage : CrittersActor
 		}
 	}
 
-	// Token: 0x06000133 RID: 307 RVA: 0x0000895A File Offset: 0x00006B5A
+	// Token: 0x06000149 RID: 329 RVA: 0x00031280 File Offset: 0x0002F480
 	public void SetHasCritter(bool value)
 	{
 		if (this.hasCritter != value && !value)
@@ -41,7 +41,7 @@ public class CrittersCage : CrittersActor
 		this.UpdateCageVisuals();
 	}
 
-	// Token: 0x06000134 RID: 308 RVA: 0x00008987 File Offset: 0x00006B87
+	// Token: 0x0600014A RID: 330 RVA: 0x000312AD File Offset: 0x0002F4AD
 	public override void Initialize()
 	{
 		base.Initialize();
@@ -51,13 +51,13 @@ public class CrittersCage : CrittersActor
 		this.SetLidActive(true, false);
 	}
 
-	// Token: 0x06000135 RID: 309 RVA: 0x000089AC File Offset: 0x00006BAC
-	public void UpdateCageVisuals()
+	// Token: 0x0600014B RID: 331 RVA: 0x000312D2 File Offset: 0x0002F4D2
+	private void UpdateCageVisuals()
 	{
 		this.SetLidActive(!this.heldByPlayer || this.hasCritter, true);
 	}
 
-	// Token: 0x06000136 RID: 310 RVA: 0x000089C8 File Offset: 0x00006BC8
+	// Token: 0x0600014C RID: 332 RVA: 0x0006DE54 File Offset: 0x0006C054
 	private void SetLidActive(bool active, bool playAudio = true)
 	{
 		if (active != this._lidActive && playAudio)
@@ -68,15 +68,15 @@ public class CrittersCage : CrittersActor
 		this._lidActive = active;
 	}
 
-	// Token: 0x06000137 RID: 311 RVA: 0x00008A19 File Offset: 0x00006C19
+	// Token: 0x0600014D RID: 333 RVA: 0x000312EC File Offset: 0x0002F4EC
 	protected override void RemoteGrabbedBy(CrittersActor grabbingActor)
 	{
-		base.RemoteGrabbed(grabbingActor);
+		base.RemoteGrabbedBy(grabbingActor);
 		this.heldByPlayer = grabbingActor.isOnPlayer;
 		this.UpdateCageVisuals();
 	}
 
-	// Token: 0x06000138 RID: 312 RVA: 0x00008A34 File Offset: 0x00006C34
+	// Token: 0x0600014E RID: 334 RVA: 0x00031307 File Offset: 0x0002F507
 	public override void GrabbedBy(CrittersActor grabbingActor, bool positionOverride = false, Quaternion localRotation = default(Quaternion), Vector3 localOffset = default(Vector3), bool disableGrabbing = false)
 	{
 		base.GrabbedBy(grabbingActor, positionOverride, localRotation, localOffset, disableGrabbing);
@@ -84,7 +84,7 @@ public class CrittersCage : CrittersActor
 		this.UpdateCageVisuals();
 	}
 
-	// Token: 0x06000139 RID: 313 RVA: 0x00008A55 File Offset: 0x00006C55
+	// Token: 0x0600014F RID: 335 RVA: 0x00031328 File Offset: 0x0002F528
 	public override void Released(bool keepWorldPosition, Quaternion rotation = default(Quaternion), Vector3 position = default(Vector3), Vector3 impulseVelocity = default(Vector3), Vector3 impulseAngularVelocity = default(Vector3))
 	{
 		base.Released(keepWorldPosition, rotation, position, impulseVelocity, impulseAngularVelocity);
@@ -92,7 +92,7 @@ public class CrittersCage : CrittersActor
 		this.UpdateCageVisuals();
 	}
 
-	// Token: 0x0600013A RID: 314 RVA: 0x00008A71 File Offset: 0x00006C71
+	// Token: 0x06000150 RID: 336 RVA: 0x00031344 File Offset: 0x0002F544
 	protected override void HandleRemoteReleased()
 	{
 		base.HandleRemoteReleased();
@@ -100,20 +100,20 @@ public class CrittersCage : CrittersActor
 		this.UpdateCageVisuals();
 	}
 
-	// Token: 0x0600013B RID: 315 RVA: 0x00008A86 File Offset: 0x00006C86
+	// Token: 0x06000151 RID: 337 RVA: 0x00031359 File Offset: 0x0002F559
 	public override bool ShouldDespawn()
 	{
 		return base.ShouldDespawn() && !this.hasCritter;
 	}
 
-	// Token: 0x0600013C RID: 316 RVA: 0x00008A9B File Offset: 0x00006C9B
+	// Token: 0x06000152 RID: 338 RVA: 0x0003136E File Offset: 0x0002F56E
 	public override void SendDataByCrittersActorType(PhotonStream stream)
 	{
 		base.SendDataByCrittersActorType(stream);
 		stream.SendNext(this.hasCritter);
 	}
 
-	// Token: 0x0600013D RID: 317 RVA: 0x00008AB8 File Offset: 0x00006CB8
+	// Token: 0x06000153 RID: 339 RVA: 0x0006DEA8 File Offset: 0x0006C0A8
 	public override bool UpdateSpecificActor(PhotonStream stream)
 	{
 		if (!base.UpdateSpecificActor(stream))
@@ -129,7 +129,7 @@ public class CrittersCage : CrittersActor
 		return true;
 	}
 
-	// Token: 0x0600013E RID: 318 RVA: 0x00008AE9 File Offset: 0x00006CE9
+	// Token: 0x06000154 RID: 340 RVA: 0x00031388 File Offset: 0x0002F588
 	public override int AddActorDataToList(ref List<object> objList)
 	{
 		base.AddActorDataToList(ref objList);
@@ -137,13 +137,13 @@ public class CrittersCage : CrittersActor
 		return this.TotalActorDataLength();
 	}
 
-	// Token: 0x0600013F RID: 319 RVA: 0x00008238 File Offset: 0x00006438
+	// Token: 0x06000155 RID: 341 RVA: 0x00031114 File Offset: 0x0002F314
 	public override int TotalActorDataLength()
 	{
 		return base.BaseActorDataLength() + 1;
 	}
 
-	// Token: 0x06000140 RID: 320 RVA: 0x00008B0C File Offset: 0x00006D0C
+	// Token: 0x06000156 RID: 342 RVA: 0x0006DEDC File Offset: 0x0006C0DC
 	public override int UpdateFromRPC(object[] data, int startingIndex)
 	{
 		startingIndex += base.UpdateFromRPC(data, startingIndex);
@@ -156,56 +156,56 @@ public class CrittersCage : CrittersActor
 		return this.TotalActorDataLength();
 	}
 
-	// Token: 0x0400017F RID: 383
+	// Token: 0x04000192 RID: 402
 	public Transform grabPosition;
 
-	// Token: 0x04000180 RID: 384
+	// Token: 0x04000193 RID: 403
 	public Transform cagePosition;
 
-	// Token: 0x04000181 RID: 385
+	// Token: 0x04000194 RID: 404
 	public float grabDistance;
 
-	// Token: 0x04000182 RID: 386
+	// Token: 0x04000195 RID: 405
 	[SerializeField]
 	private Vector3[] critterScales = new Vector3[]
 	{
 		Vector3.one
 	};
 
-	// Token: 0x04000183 RID: 387
+	// Token: 0x04000196 RID: 406
 	[SerializeField]
 	private float releaseCooldown = 0.25f;
 
-	// Token: 0x04000184 RID: 388
+	// Token: 0x04000197 RID: 407
 	[SerializeField]
 	private AudioSource sound;
 
-	// Token: 0x04000185 RID: 389
+	// Token: 0x04000198 RID: 408
 	[SerializeField]
 	private AudioClip openSound;
 
-	// Token: 0x04000186 RID: 390
+	// Token: 0x04000199 RID: 409
 	[SerializeField]
 	private AudioClip closeSound;
 
-	// Token: 0x04000187 RID: 391
+	// Token: 0x0400019A RID: 410
 	public GameObject lid;
 
-	// Token: 0x04000188 RID: 392
+	// Token: 0x0400019B RID: 411
 	[NonSerialized]
 	public bool heldByPlayer;
 
-	// Token: 0x04000189 RID: 393
+	// Token: 0x0400019C RID: 412
 	[NonSerialized]
 	private bool hasCritter;
 
-	// Token: 0x0400018A RID: 394
+	// Token: 0x0400019D RID: 413
 	[NonSerialized]
 	public bool inReleasingPosition;
 
-	// Token: 0x0400018B RID: 395
+	// Token: 0x0400019E RID: 414
 	private float _releaseCooldownEnd;
 
-	// Token: 0x0400018C RID: 396
+	// Token: 0x0400019F RID: 415
 	private bool _lidActive;
 }

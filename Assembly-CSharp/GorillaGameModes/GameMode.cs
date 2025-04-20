@@ -7,10 +7,10 @@ using UnityEngine;
 
 namespace GorillaGameModes
 {
-	// Token: 0x02000966 RID: 2406
+	// Token: 0x0200098C RID: 2444
 	public class GameMode : MonoBehaviour
 	{
-		// Token: 0x06003A9F RID: 15007 RVA: 0x0010DC50 File Offset: 0x0010BE50
+		// Token: 0x06003BB7 RID: 15287 RVA: 0x00151728 File Offset: 0x0014F928
 		private void Awake()
 		{
 			if (GameMode.instance.IsNull())
@@ -34,10 +34,10 @@ namespace GorillaGameModes
 				}
 				return;
 			}
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 		}
 
-		// Token: 0x06003AA0 RID: 15008 RVA: 0x0010DCF5 File Offset: 0x0010BEF5
+		// Token: 0x06003BB8 RID: 15288 RVA: 0x00056FB7 File Offset: 0x000551B7
 		private void OnDestroy()
 		{
 			if (GameMode.instance == this)
@@ -46,13 +46,13 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x1400006D RID: 109
-		// (add) Token: 0x06003AA1 RID: 15009 RVA: 0x0010DD0C File Offset: 0x0010BF0C
-		// (remove) Token: 0x06003AA2 RID: 15010 RVA: 0x0010DD40 File Offset: 0x0010BF40
+		// Token: 0x14000071 RID: 113
+		// (add) Token: 0x06003BB9 RID: 15289 RVA: 0x001517D0 File Offset: 0x0014F9D0
+		// (remove) Token: 0x06003BBA RID: 15290 RVA: 0x00151804 File Offset: 0x0014FA04
 		public static event GameMode.OnStartGameModeAction OnStartGameMode;
 
-		// Token: 0x17000619 RID: 1561
-		// (get) Token: 0x06003AA3 RID: 15011 RVA: 0x0010DD73 File Offset: 0x0010BF73
+		// Token: 0x17000631 RID: 1585
+		// (get) Token: 0x06003BBB RID: 15291 RVA: 0x00056FCC File Offset: 0x000551CC
 		public static GorillaGameManager ActiveGameMode
 		{
 			get
@@ -61,8 +61,8 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x1700061A RID: 1562
-		// (get) Token: 0x06003AA4 RID: 15012 RVA: 0x0010DD7A File Offset: 0x0010BF7A
+		// Token: 0x17000632 RID: 1586
+		// (get) Token: 0x06003BBC RID: 15292 RVA: 0x00056FD3 File Offset: 0x000551D3
 		internal static GameModeSerializer ActiveNetworkHandler
 		{
 			get
@@ -71,8 +71,8 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x1700061B RID: 1563
-		// (get) Token: 0x06003AA5 RID: 15013 RVA: 0x0010DD81 File Offset: 0x0010BF81
+		// Token: 0x17000633 RID: 1587
+		// (get) Token: 0x06003BBD RID: 15293 RVA: 0x00056FDA File Offset: 0x000551DA
 		public static GameModeZoneMapping GameModeZoneMapping
 		{
 			get
@@ -81,13 +81,13 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x06003AA6 RID: 15014 RVA: 0x0010DD90 File Offset: 0x0010BF90
+		// Token: 0x06003BBE RID: 15294 RVA: 0x00151838 File Offset: 0x0014FA38
 		static GameMode()
 		{
 			GameMode.StaticLoad();
 		}
 
-		// Token: 0x06003AA7 RID: 15015 RVA: 0x0010DE14 File Offset: 0x0010C014
+		// Token: 0x06003BBF RID: 15295 RVA: 0x001518BC File Offset: 0x0014FABC
 		[OnEnterPlay_Run]
 		private static void StaticLoad()
 		{
@@ -96,31 +96,31 @@ namespace GorillaGameModes
 			RoomSystem.PlayersChangedEvent = (Action)Delegate.Combine(RoomSystem.PlayersChangedEvent, new Action(GameMode.RefreshPlayers));
 		}
 
-		// Token: 0x06003AA8 RID: 15016 RVA: 0x0010DE81 File Offset: 0x0010C081
+		// Token: 0x06003BC0 RID: 15296 RVA: 0x00056FE6 File Offset: 0x000551E6
 		internal static bool LoadGameModeFromProperty()
 		{
 			return GameMode.LoadGameMode(GameMode.FindGameModeFromRoomProperty());
 		}
 
-		// Token: 0x06003AA9 RID: 15017 RVA: 0x0010DE8D File Offset: 0x0010C08D
+		// Token: 0x06003BC1 RID: 15297 RVA: 0x00056FF2 File Offset: 0x000551F2
 		internal static bool ChangeGameFromProperty()
 		{
 			return GameMode.ChangeGameMode(GameMode.FindGameModeFromRoomProperty());
 		}
 
-		// Token: 0x06003AAA RID: 15018 RVA: 0x0010DE99 File Offset: 0x0010C099
+		// Token: 0x06003BC2 RID: 15298 RVA: 0x00056FFE File Offset: 0x000551FE
 		internal static bool LoadGameModeFromProperty(string prop)
 		{
 			return GameMode.LoadGameMode(GameMode.FindGameModeInString(prop));
 		}
 
-		// Token: 0x06003AAB RID: 15019 RVA: 0x0010DEA6 File Offset: 0x0010C0A6
+		// Token: 0x06003BC3 RID: 15299 RVA: 0x0005700B File Offset: 0x0005520B
 		internal static bool ChangeGameFromProperty(string prop)
 		{
 			return GameMode.ChangeGameMode(GameMode.FindGameModeInString(prop));
 		}
 
-		// Token: 0x06003AAC RID: 15020 RVA: 0x0010DEB4 File Offset: 0x0010C0B4
+		// Token: 0x06003BC4 RID: 15300 RVA: 0x0015192C File Offset: 0x0014FB2C
 		public static int GetGameModeKeyFromRoomProp()
 		{
 			string text = GameMode.FindGameModeFromRoomProperty();
@@ -133,7 +133,7 @@ namespace GorillaGameModes
 			return result;
 		}
 
-		// Token: 0x06003AAD RID: 15021 RVA: 0x0010DEF2 File Offset: 0x0010C0F2
+		// Token: 0x06003BC5 RID: 15301 RVA: 0x00057018 File Offset: 0x00055218
 		private static string FindGameModeFromRoomProperty()
 		{
 			if (!NetworkSystem.Instance.InRoom || string.IsNullOrEmpty(NetworkSystem.Instance.GameModeString))
@@ -143,13 +143,13 @@ namespace GorillaGameModes
 			return GameMode.FindGameModeInString(NetworkSystem.Instance.GameModeString);
 		}
 
-		// Token: 0x06003AAE RID: 15022 RVA: 0x0010DF22 File Offset: 0x0010C122
+		// Token: 0x06003BC6 RID: 15302 RVA: 0x00057048 File Offset: 0x00055248
 		public static bool IsValidGameMode(string gameMode)
 		{
 			return !string.IsNullOrEmpty(gameMode) && GameMode.gameModeKeyByName.ContainsKey(gameMode);
 		}
 
-		// Token: 0x06003AAF RID: 15023 RVA: 0x0010DF3C File Offset: 0x0010C13C
+		// Token: 0x06003BC7 RID: 15303 RVA: 0x0015196C File Offset: 0x0014FB6C
 		private static string FindGameModeInString(string gmString)
 		{
 			for (int i = 0; i < GameMode.gameModes.Count; i++)
@@ -163,7 +163,7 @@ namespace GorillaGameModes
 			return null;
 		}
 
-		// Token: 0x06003AB0 RID: 15024 RVA: 0x0010DF7C File Offset: 0x0010C17C
+		// Token: 0x06003BC8 RID: 15304 RVA: 0x001519AC File Offset: 0x0014FBAC
 		public static bool LoadGameMode(string gameMode)
 		{
 			if (gameMode == null)
@@ -180,7 +180,7 @@ namespace GorillaGameModes
 			return GameMode.LoadGameMode(key);
 		}
 
-		// Token: 0x06003AB1 RID: 15025 RVA: 0x0010DFC0 File Offset: 0x0010C1C0
+		// Token: 0x06003BC9 RID: 15305 RVA: 0x001519F0 File Offset: 0x0014FBF0
 		public static bool LoadGameMode(int key)
 		{
 			foreach (KeyValuePair<int, GorillaGameManager> keyValuePair in GameMode.gameModeTable)
@@ -212,7 +212,7 @@ namespace GorillaGameModes
 			return true;
 		}
 
-		// Token: 0x06003AB2 RID: 15026 RVA: 0x0010E0D4 File Offset: 0x0010C2D4
+		// Token: 0x06003BCA RID: 15306 RVA: 0x00151B04 File Offset: 0x0014FD04
 		internal static bool ChangeGameMode(string gameMode)
 		{
 			if (gameMode == null)
@@ -228,7 +228,7 @@ namespace GorillaGameModes
 			return GameMode.ChangeGameMode(key);
 		}
 
-		// Token: 0x06003AB3 RID: 15027 RVA: 0x0010E110 File Offset: 0x0010C310
+		// Token: 0x06003BCB RID: 15307 RVA: 0x00151B40 File Offset: 0x0014FD40
 		internal static bool ChangeGameMode(int key)
 		{
 			GorillaGameManager x;
@@ -246,7 +246,7 @@ namespace GorillaGameModes
 			return GameMode.LoadGameMode(key);
 		}
 
-		// Token: 0x06003AB4 RID: 15028 RVA: 0x0010E184 File Offset: 0x0010C384
+		// Token: 0x06003BCC RID: 15308 RVA: 0x00151BB4 File Offset: 0x0014FDB4
 		internal static void SetupGameModeRemote(GameModeSerializer networkSerializer)
 		{
 			GorillaGameManager gameModeInstance = networkSerializer.GameModeInstance;
@@ -268,7 +268,7 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x06003AB5 RID: 15029 RVA: 0x0010E21F File Offset: 0x0010C41F
+		// Token: 0x06003BCD RID: 15309 RVA: 0x0005705F File Offset: 0x0005525F
 		internal static void RemoveNetworkLink(GameModeSerializer networkSerializer)
 		{
 			if (GameMode.activeGameMode.IsNotNull() && networkSerializer == GameMode.activeNetworkHandler)
@@ -279,13 +279,13 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x06003AB6 RID: 15030 RVA: 0x0010E24C File Offset: 0x0010C44C
+		// Token: 0x06003BCE RID: 15310 RVA: 0x0005708C File Offset: 0x0005528C
 		public static GorillaGameManager GetGameModeInstance(GameModeType type)
 		{
 			return GameMode.GetGameModeInstance((int)type);
 		}
 
-		// Token: 0x06003AB7 RID: 15031 RVA: 0x0010E254 File Offset: 0x0010C454
+		// Token: 0x06003BCF RID: 15311 RVA: 0x00151C50 File Offset: 0x0014FE50
 		public static GorillaGameManager GetGameModeInstance(int type)
 		{
 			GorillaGameManager gorillaGameManager;
@@ -303,13 +303,13 @@ namespace GorillaGameModes
 			return null;
 		}
 
-		// Token: 0x06003AB8 RID: 15032 RVA: 0x0010E2C4 File Offset: 0x0010C4C4
+		// Token: 0x06003BD0 RID: 15312 RVA: 0x00057094 File Offset: 0x00055294
 		public static T GetGameModeInstance<T>(GameModeType type) where T : GorillaGameManager
 		{
 			return GameMode.GetGameModeInstance<T>((int)type);
 		}
 
-		// Token: 0x06003AB9 RID: 15033 RVA: 0x0010E2CC File Offset: 0x0010C4CC
+		// Token: 0x06003BD1 RID: 15313 RVA: 0x00151CC0 File Offset: 0x0014FEC0
 		public static T GetGameModeInstance<T>(int type) where T : GorillaGameManager
 		{
 			T t = GameMode.GetGameModeInstance(type) as T;
@@ -320,7 +320,7 @@ namespace GorillaGameModes
 			return default(T);
 		}
 
-		// Token: 0x06003ABA RID: 15034 RVA: 0x0010E300 File Offset: 0x0010C500
+		// Token: 0x06003BD2 RID: 15314 RVA: 0x00151CF4 File Offset: 0x0014FEF4
 		public static void ResetGameModes()
 		{
 			GameMode.activeGameMode = null;
@@ -336,7 +336,7 @@ namespace GorillaGameModes
 			GameMode.activatedGameModes.Clear();
 		}
 
-		// Token: 0x06003ABB RID: 15035 RVA: 0x0010E364 File Offset: 0x0010C564
+		// Token: 0x06003BD3 RID: 15315 RVA: 0x00151D58 File Offset: 0x0014FF58
 		private static void StartGameModeSafe(GorillaGameManager gameMode)
 		{
 			try
@@ -348,7 +348,7 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x06003ABC RID: 15036 RVA: 0x0010E38C File Offset: 0x0010C58C
+		// Token: 0x06003BD4 RID: 15316 RVA: 0x00151D80 File Offset: 0x0014FF80
 		private static void StopGameModeSafe(GorillaGameManager gameMode)
 		{
 			try
@@ -360,7 +360,7 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x06003ABD RID: 15037 RVA: 0x0010E3B4 File Offset: 0x0010C5B4
+		// Token: 0x06003BD5 RID: 15317 RVA: 0x00151DA8 File Offset: 0x0014FFA8
 		private static void ResetGameModeSafe(GorillaGameManager gameMode)
 		{
 			try
@@ -372,7 +372,7 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x06003ABE RID: 15038 RVA: 0x0010E3DC File Offset: 0x0010C5DC
+		// Token: 0x06003BD6 RID: 15318 RVA: 0x0005709C File Offset: 0x0005529C
 		public static void ReportTag(NetPlayer player)
 		{
 			if (NetworkSystem.Instance.InRoom && GameMode.activeNetworkHandler.IsNotNull())
@@ -384,16 +384,20 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x06003ABF RID: 15039 RVA: 0x0010E41A File Offset: 0x0010C61A
+		// Token: 0x06003BD7 RID: 15319 RVA: 0x00151DD0 File Offset: 0x0014FFD0
 		public static void ReportHit()
 		{
+			if (GorillaGameManager.instance.GameType() == GameModeType.Custom)
+			{
+				CustomGameMode.TaggedByEnvironment();
+			}
 			if (NetworkSystem.Instance.InRoom && GameMode.activeNetworkHandler.IsNotNull())
 			{
 				GameMode.activeNetworkHandler.SendRPC("RPC_ReportHit", false, Array.Empty<object>());
 			}
 		}
 
-		// Token: 0x06003AC0 RID: 15040 RVA: 0x0010E449 File Offset: 0x0010C649
+		// Token: 0x06003BD8 RID: 15320 RVA: 0x000570DA File Offset: 0x000552DA
 		public static void BroadcastRoundComplete()
 		{
 			if (NetworkSystem.Instance.IsMasterClient && NetworkSystem.Instance.InRoom && GameMode.activeNetworkHandler.IsNotNull())
@@ -402,7 +406,7 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x06003AC1 RID: 15041 RVA: 0x0010E484 File Offset: 0x0010C684
+		// Token: 0x06003BD9 RID: 15321 RVA: 0x00151E1C File Offset: 0x0015001C
 		public static void RefreshPlayers()
 		{
 			List<NetPlayer> playersInRoom = RoomSystem.PlayersInRoom;
@@ -417,19 +421,19 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x06003AC2 RID: 15042 RVA: 0x0010E4DA File Offset: 0x0010C6DA
+		// Token: 0x06003BDA RID: 15322 RVA: 0x00057115 File Offset: 0x00055315
 		public static void OptOut(VRRig rig)
 		{
 			GameMode.OptOut(rig.creator.ActorNumber);
 		}
 
-		// Token: 0x06003AC3 RID: 15043 RVA: 0x0010E4EC File Offset: 0x0010C6EC
+		// Token: 0x06003BDB RID: 15323 RVA: 0x00057127 File Offset: 0x00055327
 		public static void OptOut(NetPlayer player)
 		{
 			GameMode.OptOut(player.ActorNumber);
 		}
 
-		// Token: 0x06003AC4 RID: 15044 RVA: 0x0010E4F9 File Offset: 0x0010C6F9
+		// Token: 0x06003BDC RID: 15324 RVA: 0x00057134 File Offset: 0x00055334
 		public static void OptOut(int playerActorNumber)
 		{
 			if (GameMode.optOutPlayers.Add(playerActorNumber))
@@ -438,19 +442,19 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x06003AC5 RID: 15045 RVA: 0x0010E50D File Offset: 0x0010C70D
+		// Token: 0x06003BDD RID: 15325 RVA: 0x00057148 File Offset: 0x00055348
 		public static void OptIn(VRRig rig)
 		{
 			GameMode.OptIn(rig.creator.ActorNumber);
 		}
 
-		// Token: 0x06003AC6 RID: 15046 RVA: 0x0010E51F File Offset: 0x0010C71F
+		// Token: 0x06003BDE RID: 15326 RVA: 0x0005715A File Offset: 0x0005535A
 		public static void OptIn(NetPlayer player)
 		{
 			GameMode.OptIn(player.ActorNumber);
 		}
 
-		// Token: 0x06003AC7 RID: 15047 RVA: 0x0010E52C File Offset: 0x0010C72C
+		// Token: 0x06003BDF RID: 15327 RVA: 0x00057167 File Offset: 0x00055367
 		public static void OptIn(int playerActorNumber)
 		{
 			if (GameMode.optOutPlayers.Remove(playerActorNumber))
@@ -459,65 +463,65 @@ namespace GorillaGameModes
 			}
 		}
 
-		// Token: 0x06003AC8 RID: 15048 RVA: 0x0010E540 File Offset: 0x0010C740
+		// Token: 0x06003BE0 RID: 15328 RVA: 0x0005717B File Offset: 0x0005537B
 		private static bool CanParticipate(NetPlayer player)
 		{
 			return player.InRoom() && !GameMode.optOutPlayers.Contains(player.ActorNumber) && NetworkSystem.Instance.GetPlayerTutorialCompletion(player.ActorNumber);
 		}
 
-		// Token: 0x04003BBE RID: 15294
+		// Token: 0x04003C98 RID: 15512
 		[SerializeField]
 		private GameModeZoneMapping gameModeZoneMapping;
 
-		// Token: 0x04003BC0 RID: 15296
+		// Token: 0x04003C9A RID: 15514
 		[OnEnterPlay_SetNull]
 		private static GameMode instance;
 
-		// Token: 0x04003BC1 RID: 15297
+		// Token: 0x04003C9B RID: 15515
 		[OnEnterPlay_Clear]
 		private static Dictionary<int, GorillaGameManager> gameModeTable = new Dictionary<int, GorillaGameManager>();
 
-		// Token: 0x04003BC2 RID: 15298
+		// Token: 0x04003C9C RID: 15516
 		[OnEnterPlay_Clear]
 		private static Dictionary<string, int> gameModeKeyByName = new Dictionary<string, int>();
 
-		// Token: 0x04003BC3 RID: 15299
+		// Token: 0x04003C9D RID: 15517
 		[OnEnterPlay_Clear]
 		private static Dictionary<int, FusionGameModeData> fusionTypeTable = new Dictionary<int, FusionGameModeData>();
 
-		// Token: 0x04003BC4 RID: 15300
+		// Token: 0x04003C9E RID: 15518
 		[OnEnterPlay_Clear]
 		private static List<GorillaGameManager> gameModes = new List<GorillaGameManager>(10);
 
-		// Token: 0x04003BC5 RID: 15301
+		// Token: 0x04003C9F RID: 15519
 		[OnEnterPlay_Clear]
 		public static readonly List<string> gameModeNames = new List<string>(10);
 
-		// Token: 0x04003BC6 RID: 15302
+		// Token: 0x04003CA0 RID: 15520
 		[OnEnterPlay_Clear]
 		private static readonly List<GorillaGameManager> activatedGameModes = new List<GorillaGameManager>(9);
 
-		// Token: 0x04003BC7 RID: 15303
+		// Token: 0x04003CA1 RID: 15521
 		[OnEnterPlay_SetNull]
 		private static GorillaGameManager activeGameMode = null;
 
-		// Token: 0x04003BC8 RID: 15304
+		// Token: 0x04003CA2 RID: 15522
 		[OnEnterPlay_SetNull]
 		private static GameModeSerializer activeNetworkHandler = null;
 
-		// Token: 0x04003BC9 RID: 15305
+		// Token: 0x04003CA3 RID: 15523
 		private static List<Player> participatingPlayers = new List<Player>(10);
 
-		// Token: 0x04003BCA RID: 15306
+		// Token: 0x04003CA4 RID: 15524
 		[OnEnterPlay_Clear]
 		private static readonly HashSet<int> optOutPlayers = new HashSet<int>(10);
 
-		// Token: 0x04003BCB RID: 15307
+		// Token: 0x04003CA5 RID: 15525
 		[OnEnterPlay_Clear]
 		public static readonly List<NetPlayer> ParticipatingPlayers = new List<NetPlayer>(10);
 
-		// Token: 0x02000967 RID: 2407
-		// (Invoke) Token: 0x06003ACB RID: 15051
+		// Token: 0x0200098D RID: 2445
+		// (Invoke) Token: 0x06003BE3 RID: 15331
 		public delegate void OnStartGameModeAction(GameModeType newGameModeType);
 	}
 }

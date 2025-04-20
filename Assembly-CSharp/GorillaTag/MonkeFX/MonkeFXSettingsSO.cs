@@ -3,20 +3,20 @@ using UnityEngine;
 
 namespace GorillaTag.MonkeFX
 {
-	// Token: 0x02000BCE RID: 3022
+	// Token: 0x02000BFC RID: 3068
 	[CreateAssetMenu(fileName = "MeshGenerator", menuName = "ScriptableObjects/MeshGenerator", order = 1)]
 	public class MonkeFXSettingsSO : ScriptableObject
 	{
-		// Token: 0x06004C41 RID: 19521 RVA: 0x00173596 File Offset: 0x00171796
+		// Token: 0x06004D8D RID: 19853 RVA: 0x00062D8F File Offset: 0x00060F8F
 		protected void Awake()
 		{
 			MonkeFX.Register(this);
 		}
 
-		// Token: 0x04004E2D RID: 20013
+		// Token: 0x04004F23 RID: 20259
 		public GTDirectAssetRef<Mesh>[] sourceMeshes;
 
-		// Token: 0x04004E2E RID: 20014
+		// Token: 0x04004F24 RID: 20260
 		[HideInInspector]
 		public Mesh combinedMesh;
 	}

@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C2C RID: 3116
+	// Token: 0x02000C5A RID: 3162
 	public class DreidelHoldable : TransferrableObject
 	{
-		// Token: 0x06004DC1 RID: 19905 RVA: 0x0017D27C File Offset: 0x0017B47C
+		// Token: 0x06004F12 RID: 20242 RVA: 0x001B576C File Offset: 0x001B396C
 		internal override void OnEnable()
 		{
 			base.OnEnable();
@@ -32,19 +32,19 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DC2 RID: 19906 RVA: 0x0017D34C File Offset: 0x0017B54C
+		// Token: 0x06004F13 RID: 20243 RVA: 0x001B583C File Offset: 0x001B3A3C
 		internal override void OnDisable()
 		{
 			base.OnDisable();
 			if (this._events != null)
 			{
 				this._events.Activate -= this.OnDreidelSpin;
-				Object.Destroy(this._events);
+				UnityEngine.Object.Destroy(this._events);
 				this._events = null;
 			}
 		}
 
-		// Token: 0x06004DC3 RID: 19907 RVA: 0x0017D3A4 File Offset: 0x0017B5A4
+		// Token: 0x06004F14 RID: 20244 RVA: 0x001B5894 File Offset: 0x001B3A94
 		private void OnDreidelSpin(int sender, int target, object[] args, PhotonMessageInfoWrapped info)
 		{
 			GorillaNot.IncrementRPCCall(info, "OnDreidelSpin");
@@ -75,7 +75,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DC4 RID: 19908 RVA: 0x0017D463 File Offset: 0x0017B663
+		// Token: 0x06004F15 RID: 20245 RVA: 0x000639E4 File Offset: 0x00061BE4
 		public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 		{
 			base.OnGrab(pointGrabbed, grabbingHand);
@@ -85,7 +85,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DC5 RID: 19909 RVA: 0x0017D487 File Offset: 0x0017B687
+		// Token: 0x06004F16 RID: 20246 RVA: 0x00063A08 File Offset: 0x00061C08
 		public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 		{
 			if (!base.OnRelease(zoneReleased, releasingHand))
@@ -99,7 +99,7 @@ namespace GorillaTag.Cosmetics
 			return true;
 		}
 
-		// Token: 0x06004DC6 RID: 19910 RVA: 0x0017D4B0 File Offset: 0x0017B6B0
+		// Token: 0x06004F17 RID: 20247 RVA: 0x001B5954 File Offset: 0x001B3B54
 		public override void OnActivate()
 		{
 			base.OnActivate();
@@ -131,7 +131,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DC7 RID: 19911 RVA: 0x0017D590 File Offset: 0x0017B790
+		// Token: 0x06004F18 RID: 20248 RVA: 0x00063A31 File Offset: 0x00061C31
 		private void StartSpinLocal(Vector3 surfacePoint, Vector3 surfaceNormal, float duration, bool counterClockwise, Dreidel.Side side, Dreidel.Variation variation, double startTime)
 		{
 			if (this.dreidelAnimation != null)
@@ -141,7 +141,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DC8 RID: 19912 RVA: 0x0017D5C4 File Offset: 0x0017B7C4
+		// Token: 0x06004F19 RID: 20249 RVA: 0x001B5A34 File Offset: 0x001B3C34
 		public void DebugSpinDreidel()
 		{
 			Transform transform = GTPlayer.Instance.headCollider.transform;
@@ -152,9 +152,9 @@ namespace GorillaTag.Cosmetics
 			{
 				Vector3 point = raycastHit.point;
 				Vector3 normal = raycastHit.normal;
-				float num = Random.Range(7f, 10f);
-				Dreidel.Side side = (Dreidel.Side)Random.Range(0, 4);
-				Dreidel.Variation variation = (Dreidel.Variation)Random.Range(0, 5);
+				float num = UnityEngine.Random.Range(7f, 10f);
+				Dreidel.Side side = (Dreidel.Side)UnityEngine.Random.Range(0, 4);
+				Dreidel.Variation variation = (Dreidel.Variation)UnityEngine.Random.Range(0, 5);
 				bool flag = this.currentState == TransferrableObject.PositionState.InLeftHand;
 				double num2 = PhotonNetwork.InRoom ? PhotonNetwork.Time : -1.0;
 				if (PhotonNetwork.InRoom && this._events != null && this._events.Activate != null)
@@ -176,11 +176,11 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x040050CA RID: 20682
+		// Token: 0x040051C0 RID: 20928
 		[SerializeField]
 		private Dreidel dreidelAnimation;
 
-		// Token: 0x040050CB RID: 20683
+		// Token: 0x040051C1 RID: 20929
 		private RubberDuckEvents _events;
 	}
 }

@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000578 RID: 1400
+// Token: 0x02000586 RID: 1414
 public class GorillaLevelScreen : MonoBehaviour
 {
-	// Token: 0x06002277 RID: 8823 RVA: 0x000AB4EE File Offset: 0x000A96EE
+	// Token: 0x060022D5 RID: 8917 RVA: 0x00047959 File Offset: 0x00045B59
 	private void Awake()
 	{
 		if (this.myText != null)
@@ -14,7 +14,7 @@ public class GorillaLevelScreen : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002278 RID: 8824 RVA: 0x000AB510 File Offset: 0x000A9710
+	// Token: 0x060022D6 RID: 8918 RVA: 0x000FB204 File Offset: 0x000F9404
 	public void UpdateText(string newText, bool setToGoodMaterial)
 	{
 		if (this.myText != null)
@@ -26,15 +26,15 @@ public class GorillaLevelScreen : MonoBehaviour
 		base.GetComponent<MeshRenderer>().materials = materials;
 	}
 
-	// Token: 0x0400260E RID: 9742
+	// Token: 0x04002666 RID: 9830
 	public string startingText;
 
-	// Token: 0x0400260F RID: 9743
+	// Token: 0x04002667 RID: 9831
 	public Material goodMaterial;
 
-	// Token: 0x04002610 RID: 9744
+	// Token: 0x04002668 RID: 9832
 	public Material badMaterial;
 
-	// Token: 0x04002611 RID: 9745
+	// Token: 0x04002669 RID: 9833
 	public Text myText;
 }

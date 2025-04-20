@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-// Token: 0x02000483 RID: 1155
+// Token: 0x0200048F RID: 1167
 public class PrimaryButtonWatcher : MonoBehaviour
 {
-	// Token: 0x06001BF1 RID: 7153 RVA: 0x000880E3 File Offset: 0x000862E3
+	// Token: 0x06001C45 RID: 7237 RVA: 0x0004377D File Offset: 0x0004197D
 	private void Awake()
 	{
 		if (this.primaryButtonPress == null)
@@ -16,7 +16,7 @@ public class PrimaryButtonWatcher : MonoBehaviour
 		this.devicesWithPrimaryButton = new List<InputDevice>();
 	}
 
-	// Token: 0x06001BF2 RID: 7154 RVA: 0x00088104 File Offset: 0x00086304
+	// Token: 0x06001C46 RID: 7238 RVA: 0x000DBE00 File Offset: 0x000DA000
 	private void OnEnable()
 	{
 		List<InputDevice> list = new List<InputDevice>();
@@ -29,7 +29,7 @@ public class PrimaryButtonWatcher : MonoBehaviour
 		InputDevices.deviceDisconnected += this.InputDevices_deviceDisconnected;
 	}
 
-	// Token: 0x06001BF3 RID: 7155 RVA: 0x00088180 File Offset: 0x00086380
+	// Token: 0x06001C47 RID: 7239 RVA: 0x0004379D File Offset: 0x0004199D
 	private void OnDisable()
 	{
 		InputDevices.deviceConnected -= this.InputDevices_deviceConnected;
@@ -37,7 +37,7 @@ public class PrimaryButtonWatcher : MonoBehaviour
 		this.devicesWithPrimaryButton.Clear();
 	}
 
-	// Token: 0x06001BF4 RID: 7156 RVA: 0x000881B0 File Offset: 0x000863B0
+	// Token: 0x06001C48 RID: 7240 RVA: 0x000DBE7C File Offset: 0x000DA07C
 	private void InputDevices_deviceConnected(InputDevice device)
 	{
 		bool flag;
@@ -47,7 +47,7 @@ public class PrimaryButtonWatcher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001BF5 RID: 7157 RVA: 0x000881D9 File Offset: 0x000863D9
+	// Token: 0x06001C49 RID: 7241 RVA: 0x000437CC File Offset: 0x000419CC
 	private void InputDevices_deviceDisconnected(InputDevice device)
 	{
 		if (this.devicesWithPrimaryButton.Contains(device))
@@ -56,7 +56,7 @@ public class PrimaryButtonWatcher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001BF6 RID: 7158 RVA: 0x000881F8 File Offset: 0x000863F8
+	// Token: 0x06001C4A RID: 7242 RVA: 0x000DBEA8 File Offset: 0x000DA0A8
 	private void Update()
 	{
 		bool flag = false;
@@ -72,12 +72,12 @@ public class PrimaryButtonWatcher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001F01 RID: 7937
+	// Token: 0x04001F50 RID: 8016
 	public PrimaryButtonEvent primaryButtonPress;
 
-	// Token: 0x04001F02 RID: 7938
+	// Token: 0x04001F51 RID: 8017
 	private bool lastButtonState;
 
-	// Token: 0x04001F03 RID: 7939
+	// Token: 0x04001F52 RID: 8018
 	private List<InputDevice> devicesWithPrimaryButton;
 }

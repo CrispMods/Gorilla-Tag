@@ -6,11 +6,11 @@ using GorillaNetworking;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x0200046A RID: 1130
+// Token: 0x02000476 RID: 1142
 public class GameModePages : BasePageHandler
 {
-	// Token: 0x1700030A RID: 778
-	// (get) Token: 0x06001BA7 RID: 7079 RVA: 0x00087589 File Offset: 0x00085789
+	// Token: 0x17000311 RID: 785
+	// (get) Token: 0x06001BFB RID: 7163 RVA: 0x00043364 File Offset: 0x00041564
 	protected override int pageSize
 	{
 		get
@@ -19,8 +19,8 @@ public class GameModePages : BasePageHandler
 		}
 	}
 
-	// Token: 0x1700030B RID: 779
-	// (get) Token: 0x06001BA8 RID: 7080 RVA: 0x00087593 File Offset: 0x00085793
+	// Token: 0x17000312 RID: 786
+	// (get) Token: 0x06001BFC RID: 7164 RVA: 0x0004336E File Offset: 0x0004156E
 	protected override int entriesCount
 	{
 		get
@@ -29,7 +29,7 @@ public class GameModePages : BasePageHandler
 		}
 	}
 
-	// Token: 0x06001BA9 RID: 7081 RVA: 0x000875A0 File Offset: 0x000857A0
+	// Token: 0x06001BFD RID: 7165 RVA: 0x000DB6BC File Offset: 0x000D98BC
 	private void Awake()
 	{
 		GameModePages.gameModeSelectorInstances.Add(this);
@@ -41,7 +41,7 @@ public class GameModePages : BasePageHandler
 		}
 	}
 
-	// Token: 0x06001BAA RID: 7082 RVA: 0x000875F3 File Offset: 0x000857F3
+	// Token: 0x06001BFE RID: 7166 RVA: 0x0004337A File Offset: 0x0004157A
 	protected override void Start()
 	{
 		base.Start();
@@ -49,7 +49,7 @@ public class GameModePages : BasePageHandler
 		this.initialized = true;
 	}
 
-	// Token: 0x06001BAB RID: 7083 RVA: 0x0008760D File Offset: 0x0008580D
+	// Token: 0x06001BFF RID: 7167 RVA: 0x00043394 File Offset: 0x00041594
 	private void OnEnable()
 	{
 		if (this.initialized)
@@ -58,13 +58,13 @@ public class GameModePages : BasePageHandler
 		}
 	}
 
-	// Token: 0x06001BAC RID: 7084 RVA: 0x00087622 File Offset: 0x00085822
+	// Token: 0x06001C00 RID: 7168 RVA: 0x000433A9 File Offset: 0x000415A9
 	private void OnDestroy()
 	{
 		GameModePages.gameModeSelectorInstances.Remove(this);
 	}
 
-	// Token: 0x06001BAD RID: 7085 RVA: 0x00087630 File Offset: 0x00085830
+	// Token: 0x06001C01 RID: 7169 RVA: 0x000DB710 File Offset: 0x000D9910
 	protected override void ShowPage(int selectedPage, int startIndex, int endIndex)
 	{
 		GameModePages.textBuilder.Clear();
@@ -85,7 +85,7 @@ public class GameModePages : BasePageHandler
 		this.EnableEntryButtons(buttonsMissing);
 	}
 
-	// Token: 0x06001BAE RID: 7086 RVA: 0x000876CD File Offset: 0x000858CD
+	// Token: 0x06001C02 RID: 7170 RVA: 0x000433B7 File Offset: 0x000415B7
 	protected override void PageEntrySelected(int pageEntry, int selectionIndex)
 	{
 		if (selectionIndex >= this.entriesCount)
@@ -98,7 +98,7 @@ public class GameModePages : BasePageHandler
 		GorillaComputer.instance.OnModeSelectButtonPress(GameMode.gameModeNames[selectionIndex], false);
 	}
 
-	// Token: 0x06001BAF RID: 7087 RVA: 0x00087708 File Offset: 0x00085908
+	// Token: 0x06001C03 RID: 7171 RVA: 0x000DB7B0 File Offset: 0x000D99B0
 	private void UpdateAllButtons(int onButton)
 	{
 		for (int i = 0; i < this.buttons.Length; i++)
@@ -116,7 +116,7 @@ public class GameModePages : BasePageHandler
 		}
 	}
 
-	// Token: 0x06001BB0 RID: 7088 RVA: 0x00087774 File Offset: 0x00085974
+	// Token: 0x06001C04 RID: 7172 RVA: 0x000DB81C File Offset: 0x000D9A1C
 	private void EnableEntryButtons(int buttonsMissing)
 	{
 		int num = this.buttons.Length - buttonsMissing;
@@ -132,7 +132,7 @@ public class GameModePages : BasePageHandler
 		}
 	}
 
-	// Token: 0x06001BB1 RID: 7089 RVA: 0x000877D0 File Offset: 0x000859D0
+	// Token: 0x06001C05 RID: 7173 RVA: 0x000DB878 File Offset: 0x000D9A78
 	public static void SetSelectedGameModeShared(string gameMode)
 	{
 		GameModePages.sharedSelectedIndex = GameMode.gameModeNames.IndexOf(gameMode);
@@ -146,27 +146,27 @@ public class GameModePages : BasePageHandler
 		}
 	}
 
-	// Token: 0x04001E89 RID: 7817
+	// Token: 0x04001ED8 RID: 7896
 	private int currentButtonIndex;
 
-	// Token: 0x04001E8A RID: 7818
+	// Token: 0x04001ED9 RID: 7897
 	[SerializeField]
 	private Text gameModeText;
 
-	// Token: 0x04001E8B RID: 7819
+	// Token: 0x04001EDA RID: 7898
 	[SerializeField]
 	private GameModeSelectButton[] buttons;
 
-	// Token: 0x04001E8C RID: 7820
+	// Token: 0x04001EDB RID: 7899
 	private bool initialized;
 
-	// Token: 0x04001E8D RID: 7821
+	// Token: 0x04001EDC RID: 7900
 	private static int sharedSelectedIndex = 0;
 
-	// Token: 0x04001E8E RID: 7822
+	// Token: 0x04001EDD RID: 7901
 	private static StringBuilder textBuilder = new StringBuilder(50);
 
-	// Token: 0x04001E8F RID: 7823
+	// Token: 0x04001EDE RID: 7902
 	[OnEnterPlay_Clear]
 	private static List<GameModePages> gameModeSelectorInstances = new List<GameModePages>(7);
 }

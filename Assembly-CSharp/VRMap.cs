@@ -2,13 +2,13 @@
 using UnityEngine;
 using UnityEngine.XR;
 
-// Token: 0x020003B5 RID: 949
+// Token: 0x020003C0 RID: 960
 [Serializable]
 public class VRMap
 {
-	// Token: 0x1700028A RID: 650
-	// (get) Token: 0x060016E9 RID: 5865 RVA: 0x000700D4 File Offset: 0x0006E2D4
-	// (set) Token: 0x060016EA RID: 5866 RVA: 0x000700E1 File Offset: 0x0006E2E1
+	// Token: 0x17000291 RID: 657
+	// (get) Token: 0x06001736 RID: 5942 RVA: 0x0003FC2C File Offset: 0x0003DE2C
+	// (set) Token: 0x06001737 RID: 5943 RVA: 0x0003FC39 File Offset: 0x0003DE39
 	public Vector3 syncPos
 	{
 		get
@@ -21,14 +21,14 @@ public class VRMap
 		}
 	}
 
-	// Token: 0x060016EB RID: 5867 RVA: 0x000700F0 File Offset: 0x0006E2F0
+	// Token: 0x06001738 RID: 5944 RVA: 0x000C7558 File Offset: 0x000C5758
 	public void MapOther(float lerpValue)
 	{
 		this.rigTarget.localPosition = Vector3.Lerp(this.rigTarget.localPosition, this.syncPos, lerpValue);
 		this.rigTarget.localRotation = Quaternion.Lerp(this.rigTarget.localRotation, this.syncRotation, lerpValue);
 	}
 
-	// Token: 0x060016EC RID: 5868 RVA: 0x00070144 File Offset: 0x0006E344
+	// Token: 0x06001739 RID: 5945 RVA: 0x000C75AC File Offset: 0x000C57AC
 	public void MapMine(float ratio, Transform playerOffsetTransform)
 	{
 		Vector3 position = this.rigTarget.position;
@@ -57,74 +57,74 @@ public class VRMap
 		}
 	}
 
-	// Token: 0x060016ED RID: 5869 RVA: 0x0007031D File Offset: 0x0006E51D
+	// Token: 0x0600173A RID: 5946 RVA: 0x0003FC47 File Offset: 0x0003DE47
 	public Vector3 GetExtrapolatedControllerPosition()
 	{
 		return this.rigTarget.position - this.rigTarget.rotation * this.trackingPositionOffset * this.rigTarget.lossyScale.x;
 	}
 
-	// Token: 0x060016EE RID: 5870 RVA: 0x0007035A File Offset: 0x0006E55A
+	// Token: 0x0600173B RID: 5947 RVA: 0x0003FC84 File Offset: 0x0003DE84
 	public virtual void MapOtherFinger(float handSync, float lerpValue)
 	{
 		this.calcT = handSync;
 		this.LerpFinger(lerpValue, true);
 	}
 
-	// Token: 0x060016EF RID: 5871 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600173C RID: 5948 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void MapMyFinger(float lerpValue)
 	{
 	}
 
-	// Token: 0x060016F0 RID: 5872 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600173D RID: 5949 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void LerpFinger(float lerpValue, bool isOther)
 	{
 	}
 
-	// Token: 0x04001956 RID: 6486
+	// Token: 0x0400199F RID: 6559
 	public XRNode vrTargetNode;
 
-	// Token: 0x04001957 RID: 6487
+	// Token: 0x040019A0 RID: 6560
 	public Transform overrideTarget;
 
-	// Token: 0x04001958 RID: 6488
+	// Token: 0x040019A1 RID: 6561
 	public Transform rigTarget;
 
-	// Token: 0x04001959 RID: 6489
+	// Token: 0x040019A2 RID: 6562
 	public Vector3 trackingPositionOffset;
 
-	// Token: 0x0400195A RID: 6490
+	// Token: 0x040019A3 RID: 6563
 	public Vector3 trackingRotationOffset;
 
-	// Token: 0x0400195B RID: 6491
+	// Token: 0x040019A4 RID: 6564
 	public Transform headTransform;
 
-	// Token: 0x0400195C RID: 6492
+	// Token: 0x040019A5 RID: 6565
 	internal NetworkVector3 netSyncPos = new NetworkVector3();
 
-	// Token: 0x0400195D RID: 6493
+	// Token: 0x040019A6 RID: 6566
 	public Quaternion syncRotation;
 
-	// Token: 0x0400195E RID: 6494
+	// Token: 0x040019A7 RID: 6567
 	public float calcT;
 
-	// Token: 0x0400195F RID: 6495
+	// Token: 0x040019A8 RID: 6568
 	private InputDevice myInputDevice;
 
-	// Token: 0x04001960 RID: 6496
+	// Token: 0x040019A9 RID: 6569
 	private bool hasInputDevice;
 
-	// Token: 0x04001961 RID: 6497
+	// Token: 0x040019AA RID: 6570
 	private Vector3 tempPosition;
 
-	// Token: 0x04001962 RID: 6498
+	// Token: 0x040019AB RID: 6571
 	private Quaternion tempRotation;
 
-	// Token: 0x04001963 RID: 6499
+	// Token: 0x040019AC RID: 6572
 	public int tempInt;
 
-	// Token: 0x04001964 RID: 6500
+	// Token: 0x040019AD RID: 6573
 	public Transform handholdOverrideTarget;
 
-	// Token: 0x04001965 RID: 6501
+	// Token: 0x040019AE RID: 6574
 	public Vector3 handholdOverrideTargetOffset;
 }

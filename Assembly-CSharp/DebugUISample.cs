@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x020002FE RID: 766
+// Token: 0x02000309 RID: 777
 public class DebugUISample : MonoBehaviour
 {
-	// Token: 0x06001242 RID: 4674 RVA: 0x0005728C File Offset: 0x0005548C
+	// Token: 0x0600128E RID: 4750 RVA: 0x000B1830 File Offset: 0x000AFA30
 	private void Start()
 	{
 		DebugUIBuilder.instance.AddButton("Button Pressed", new DebugUIBuilder.OnClick(this.LogButtonPressed), -1, 0, false);
@@ -38,13 +38,13 @@ public class DebugUISample : MonoBehaviour
 		this.inMenu = true;
 	}
 
-	// Token: 0x06001243 RID: 4675 RVA: 0x00057400 File Offset: 0x00055600
+	// Token: 0x0600128F RID: 4751 RVA: 0x000B19A4 File Offset: 0x000AFBA4
 	public void TogglePressed(Toggle t)
 	{
 		Debug.Log("Toggle pressed. Is on? " + t.isOn.ToString());
 	}
 
-	// Token: 0x06001244 RID: 4676 RVA: 0x0005742C File Offset: 0x0005562C
+	// Token: 0x06001290 RID: 4752 RVA: 0x000B19D0 File Offset: 0x000AFBD0
 	public void RadioPressed(string radioLabel, string group, Toggle t)
 	{
 		Debug.Log(string.Concat(new string[]
@@ -58,14 +58,14 @@ public class DebugUISample : MonoBehaviour
 		}));
 	}
 
-	// Token: 0x06001245 RID: 4677 RVA: 0x0005747A File Offset: 0x0005567A
+	// Token: 0x06001291 RID: 4753 RVA: 0x0003CB88 File Offset: 0x0003AD88
 	public void SliderPressed(float f)
 	{
 		Debug.Log("Slider: " + f.ToString());
 		this.sliderText.text = f.ToString();
 	}
 
-	// Token: 0x06001246 RID: 4678 RVA: 0x000574A4 File Offset: 0x000556A4
+	// Token: 0x06001292 RID: 4754 RVA: 0x000B1A20 File Offset: 0x000AFC20
 	private void Update()
 	{
 		if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.Active) || OVRInput.GetDown(OVRInput.Button.Start, OVRInput.Controller.Active))
@@ -82,15 +82,15 @@ public class DebugUISample : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001247 RID: 4679 RVA: 0x000574FC File Offset: 0x000556FC
+	// Token: 0x06001293 RID: 4755 RVA: 0x0003CBB2 File Offset: 0x0003ADB2
 	private void LogButtonPressed()
 	{
 		Debug.Log("Button pressed");
 	}
 
-	// Token: 0x0400143D RID: 5181
+	// Token: 0x04001485 RID: 5253
 	private bool inMenu;
 
-	// Token: 0x0400143E RID: 5182
+	// Token: 0x04001486 RID: 5254
 	private Text sliderText;
 }

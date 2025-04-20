@@ -3,37 +3,37 @@ using UnityEngine;
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000AB9 RID: 2745
+	// Token: 0x02000AE6 RID: 2790
 	public class GorillaNetworkLobbyJoinTrigger : GorillaTriggerBox
 	{
-		// Token: 0x04004670 RID: 18032
+		// Token: 0x04004767 RID: 18279
 		public GameObject[] makeSureThisIsDisabled;
 
-		// Token: 0x04004671 RID: 18033
+		// Token: 0x04004768 RID: 18280
 		public GameObject[] makeSureThisIsEnabled;
 
-		// Token: 0x04004672 RID: 18034
+		// Token: 0x04004769 RID: 18281
 		public string gameModeName;
 
-		// Token: 0x04004673 RID: 18035
+		// Token: 0x0400476A RID: 18282
 		public PhotonNetworkController photonNetworkController;
 
-		// Token: 0x04004674 RID: 18036
+		// Token: 0x0400476B RID: 18283
 		public string componentTypeToRemove;
 
-		// Token: 0x04004675 RID: 18037
+		// Token: 0x0400476C RID: 18284
 		public GameObject componentRemoveTarget;
 
-		// Token: 0x04004676 RID: 18038
+		// Token: 0x0400476D RID: 18285
 		public string componentTypeToAdd;
 
-		// Token: 0x04004677 RID: 18039
+		// Token: 0x0400476E RID: 18286
 		public GameObject componentAddTarget;
 
-		// Token: 0x04004678 RID: 18040
+		// Token: 0x0400476F RID: 18287
 		public GameObject gorillaParent;
 
-		// Token: 0x04004679 RID: 18041
+		// Token: 0x04004770 RID: 18288
 		public GameObject joinFailedBlock;
 	}
 }

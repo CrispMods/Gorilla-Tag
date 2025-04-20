@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-// Token: 0x02000871 RID: 2161
+// Token: 0x0200088D RID: 2189
 public class SoundBankPlayer : MonoBehaviour
 {
-	// Token: 0x17000563 RID: 1379
-	// (get) Token: 0x06003444 RID: 13380 RVA: 0x000F89DC File Offset: 0x000F6BDC
+	// Token: 0x17000574 RID: 1396
+	// (get) Token: 0x06003510 RID: 13584 RVA: 0x00052F96 File Offset: 0x00051196
 	public bool isPlaying
 	{
 		get
@@ -15,8 +15,8 @@ public class SoundBankPlayer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000564 RID: 1380
-	// (get) Token: 0x06003445 RID: 13381 RVA: 0x000F89EB File Offset: 0x000F6BEB
+	// Token: 0x17000575 RID: 1397
+	// (get) Token: 0x06003511 RID: 13585 RVA: 0x00052FA5 File Offset: 0x000511A5
 	public float NormalizedTime
 	{
 		get
@@ -29,8 +29,8 @@ public class SoundBankPlayer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000565 RID: 1381
-	// (get) Token: 0x06003446 RID: 13382 RVA: 0x000F8A12 File Offset: 0x000F6C12
+	// Token: 0x17000576 RID: 1398
+	// (get) Token: 0x06003512 RID: 13586 RVA: 0x00052FCC File Offset: 0x000511CC
 	public float CurrentTime
 	{
 		get
@@ -39,7 +39,7 @@ public class SoundBankPlayer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003447 RID: 13383 RVA: 0x000F8A20 File Offset: 0x000F6C20
+	// Token: 0x06003513 RID: 13587 RVA: 0x0013F994 File Offset: 0x0013DB94
 	protected void Awake()
 	{
 		if (this.audioSource == null)
@@ -71,7 +71,7 @@ public class SoundBankPlayer : MonoBehaviour
 				int num = 0;
 				for (int j = 0; j < 100; j++)
 				{
-					num = Random.Range(0, this.soundBank.sounds.Length);
+					num = UnityEngine.Random.Range(0, this.soundBank.sounds.Length);
 					if (Array.IndexOf<int>(array, num) == -1)
 					{
 						break;
@@ -84,8 +84,8 @@ public class SoundBankPlayer : MonoBehaviour
 				this.playlist[i] = new SoundBankPlayer.PlaylistEntry
 				{
 					index = num,
-					volume = Random.Range(this.soundBank.volumeRange.x, this.soundBank.volumeRange.y),
-					pitch = Random.Range(this.soundBank.pitchRange.x, this.soundBank.pitchRange.y)
+					volume = UnityEngine.Random.Range(this.soundBank.volumeRange.x, this.soundBank.volumeRange.y),
+					pitch = UnityEngine.Random.Range(this.soundBank.pitchRange.x, this.soundBank.pitchRange.y)
 				};
 			}
 			return;
@@ -96,13 +96,13 @@ public class SoundBankPlayer : MonoBehaviour
 			this.playlist[k] = new SoundBankPlayer.PlaylistEntry
 			{
 				index = k % this.soundBank.sounds.Length,
-				volume = Random.Range(this.soundBank.volumeRange.x, this.soundBank.volumeRange.y),
-				pitch = Random.Range(this.soundBank.pitchRange.x, this.soundBank.pitchRange.y)
+				volume = UnityEngine.Random.Range(this.soundBank.volumeRange.x, this.soundBank.volumeRange.y),
+				pitch = UnityEngine.Random.Range(this.soundBank.pitchRange.x, this.soundBank.pitchRange.y)
 			};
 		}
 	}
 
-	// Token: 0x06003448 RID: 13384 RVA: 0x000F8D19 File Offset: 0x000F6F19
+	// Token: 0x06003514 RID: 13588 RVA: 0x00052FDA File Offset: 0x000511DA
 	protected void OnEnable()
 	{
 		if (this.playOnEnable)
@@ -111,13 +111,13 @@ public class SoundBankPlayer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003449 RID: 13385 RVA: 0x000F8D2C File Offset: 0x000F6F2C
+	// Token: 0x06003515 RID: 13589 RVA: 0x0013FC90 File Offset: 0x0013DE90
 	public void Play()
 	{
 		this.Play(null, null);
 	}
 
-	// Token: 0x0600344A RID: 13386 RVA: 0x000F8D54 File Offset: 0x000F6F54
+	// Token: 0x06003516 RID: 13590 RVA: 0x0013FCB8 File Offset: 0x0013DEB8
 	public void Play(float? volumeOverride = null, float? pitchOverride = null)
 	{
 		if (!base.enabled || this.soundBank.sounds.Length == 0)
@@ -149,99 +149,99 @@ public class SoundBankPlayer : MonoBehaviour
 		});
 	}
 
-	// Token: 0x0600344B RID: 13387 RVA: 0x000F8E91 File Offset: 0x000F7091
+	// Token: 0x06003517 RID: 13591 RVA: 0x00052FEA File Offset: 0x000511EA
 	public void RestartSequence()
 	{
 		this.nextIndex = 0;
 	}
 
-	// Token: 0x04003721 RID: 14113
+	// Token: 0x040037E1 RID: 14305
 	[Tooltip("Optional. AudioSource Settings will be used if this is not defined.")]
 	public AudioSource audioSource;
 
-	// Token: 0x04003722 RID: 14114
+	// Token: 0x040037E2 RID: 14306
 	public bool playOnEnable = true;
 
-	// Token: 0x04003723 RID: 14115
+	// Token: 0x040037E3 RID: 14307
 	public bool shuffleOrder = true;
 
-	// Token: 0x04003724 RID: 14116
+	// Token: 0x040037E4 RID: 14308
 	public bool missingSoundsAreOk;
 
-	// Token: 0x04003725 RID: 14117
+	// Token: 0x040037E5 RID: 14309
 	public SoundBankSO soundBank;
 
-	// Token: 0x04003726 RID: 14118
+	// Token: 0x040037E6 RID: 14310
 	public AudioMixerGroup outputAudioMixerGroup;
 
-	// Token: 0x04003727 RID: 14119
+	// Token: 0x040037E7 RID: 14311
 	public bool spatialize;
 
-	// Token: 0x04003728 RID: 14120
+	// Token: 0x040037E8 RID: 14312
 	public bool spatializePostEffects;
 
-	// Token: 0x04003729 RID: 14121
+	// Token: 0x040037E9 RID: 14313
 	public bool bypassEffects;
 
-	// Token: 0x0400372A RID: 14122
+	// Token: 0x040037EA RID: 14314
 	public bool bypassListenerEffects;
 
-	// Token: 0x0400372B RID: 14123
+	// Token: 0x040037EB RID: 14315
 	public bool bypassReverbZones;
 
-	// Token: 0x0400372C RID: 14124
+	// Token: 0x040037EC RID: 14316
 	public int priority = 128;
 
-	// Token: 0x0400372D RID: 14125
+	// Token: 0x040037ED RID: 14317
 	[Range(0f, 1f)]
 	public float spatialBlend = 1f;
 
-	// Token: 0x0400372E RID: 14126
+	// Token: 0x040037EE RID: 14318
 	public float reverbZoneMix = 1f;
 
-	// Token: 0x0400372F RID: 14127
+	// Token: 0x040037EF RID: 14319
 	public float dopplerLevel = 1f;
 
-	// Token: 0x04003730 RID: 14128
+	// Token: 0x040037F0 RID: 14320
 	public float spread;
 
-	// Token: 0x04003731 RID: 14129
+	// Token: 0x040037F1 RID: 14321
 	public AudioRolloffMode rolloffMode;
 
-	// Token: 0x04003732 RID: 14130
+	// Token: 0x040037F2 RID: 14322
 	public float minDistance = 1f;
 
-	// Token: 0x04003733 RID: 14131
+	// Token: 0x040037F3 RID: 14323
 	public float maxDistance = 100f;
 
-	// Token: 0x04003734 RID: 14132
+	// Token: 0x040037F4 RID: 14324
 	public AnimationCurve customRolloffCurve = AnimationCurve.Linear(0f, 1f, 1f, 0f);
 
-	// Token: 0x04003735 RID: 14133
+	// Token: 0x040037F5 RID: 14325
 	private int nextIndex;
 
-	// Token: 0x04003736 RID: 14134
+	// Token: 0x040037F6 RID: 14326
 	private float playStartTime;
 
-	// Token: 0x04003737 RID: 14135
+	// Token: 0x040037F7 RID: 14327
 	private float playEndTime;
 
-	// Token: 0x04003738 RID: 14136
+	// Token: 0x040037F8 RID: 14328
 	private float clipDuration;
 
-	// Token: 0x04003739 RID: 14137
+	// Token: 0x040037F9 RID: 14329
 	private SoundBankPlayer.PlaylistEntry[] playlist;
 
-	// Token: 0x02000872 RID: 2162
+	// Token: 0x0200088E RID: 2190
 	private struct PlaylistEntry
 	{
-		// Token: 0x0400373A RID: 14138
+		// Token: 0x040037FA RID: 14330
 		public int index;
 
-		// Token: 0x0400373B RID: 14139
+		// Token: 0x040037FB RID: 14331
 		public float volume;
 
-		// Token: 0x0400373C RID: 14140
+		// Token: 0x040037FC RID: 14332
 		public float pitch;
 	}
 }

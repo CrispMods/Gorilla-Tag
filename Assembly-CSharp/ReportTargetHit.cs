@@ -2,16 +2,16 @@
 using NetSynchrony;
 using UnityEngine;
 
-// Token: 0x020008BB RID: 2235
+// Token: 0x020008D7 RID: 2263
 public class ReportTargetHit : MonoBehaviour
 {
-	// Token: 0x0600360B RID: 13835 RVA: 0x000FFDB0 File Offset: 0x000FDFB0
+	// Token: 0x060036D3 RID: 14035 RVA: 0x00054339 File Offset: 0x00052539
 	private void Start()
 	{
 		this.seekFreq = ReportTargetHit.rand.NextFloat(this.minseekFreq, this.maxseekFreq);
 	}
 
-	// Token: 0x0600360C RID: 13836 RVA: 0x000FFDCE File Offset: 0x000FDFCE
+	// Token: 0x060036D4 RID: 14036 RVA: 0x00054357 File Offset: 0x00052557
 	private void OnEnable()
 	{
 		if (this.nsRand != null)
@@ -20,7 +20,7 @@ public class ReportTargetHit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600360D RID: 13837 RVA: 0x000FFDF5 File Offset: 0x000FDFF5
+	// Token: 0x060036D5 RID: 14037 RVA: 0x0005437E File Offset: 0x0005257E
 	private void OnDisable()
 	{
 		if (this.nsRand != null)
@@ -29,13 +29,13 @@ public class ReportTargetHit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600360E RID: 13838 RVA: 0x000FFE1C File Offset: 0x000FE01C
+	// Token: 0x060036D6 RID: 14038 RVA: 0x000543A5 File Offset: 0x000525A5
 	private void NsRand_Dispatch(RandomDispatcher randomDispatcher)
 	{
 		this.seek();
 	}
 
-	// Token: 0x0600360F RID: 13839 RVA: 0x000FFE24 File Offset: 0x000FE024
+	// Token: 0x060036D7 RID: 14039 RVA: 0x00145798 File Offset: 0x00143998
 	private void Update()
 	{
 		if (this.nsRand != null)
@@ -51,7 +51,7 @@ public class ReportTargetHit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003610 RID: 13840 RVA: 0x000FFE90 File Offset: 0x000FE090
+	// Token: 0x060036D8 RID: 14040 RVA: 0x00145804 File Offset: 0x00143A04
 	private void seek()
 	{
 		if (this.targets.Length != 0)
@@ -65,32 +65,32 @@ public class ReportTargetHit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04003839 RID: 14393
+	// Token: 0x040038FA RID: 14586
 	private static SRand rand = new SRand("ReportForwardHit");
 
-	// Token: 0x0400383A RID: 14394
+	// Token: 0x040038FB RID: 14587
 	[SerializeField]
 	private float minseekFreq = 3f;
 
-	// Token: 0x0400383B RID: 14395
+	// Token: 0x040038FC RID: 14588
 	[SerializeField]
 	private float maxseekFreq = 6f;
 
-	// Token: 0x0400383C RID: 14396
+	// Token: 0x040038FD RID: 14589
 	[SerializeField]
 	private Transform[] targets;
 
-	// Token: 0x0400383D RID: 14397
+	// Token: 0x040038FE RID: 14590
 	[SerializeField]
 	private LightningDispatcherEvent colliderFound;
 
-	// Token: 0x0400383E RID: 14398
+	// Token: 0x040038FF RID: 14591
 	private float timeSinceSeek;
 
-	// Token: 0x0400383F RID: 14399
+	// Token: 0x04003900 RID: 14592
 	private float seekFreq;
 
-	// Token: 0x04003840 RID: 14400
+	// Token: 0x04003901 RID: 14593
 	[SerializeField]
 	private RandomDispatcher nsRand;
 }

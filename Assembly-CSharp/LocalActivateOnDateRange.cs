@@ -2,10 +2,10 @@
 using GorillaTag;
 using UnityEngine;
 
-// Token: 0x020001C7 RID: 455
+// Token: 0x020001D2 RID: 466
 public class LocalActivateOnDateRange : MonoBehaviour
 {
-	// Token: 0x06000A9C RID: 2716 RVA: 0x00039984 File Offset: 0x00037B84
+	// Token: 0x06000AE8 RID: 2792 RVA: 0x00099048 File Offset: 0x00097248
 	private void Awake()
 	{
 		GameObject[] array = this.gameObjectsToActivate;
@@ -15,20 +15,20 @@ public class LocalActivateOnDateRange : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A9D RID: 2717 RVA: 0x000399AF File Offset: 0x00037BAF
+	// Token: 0x06000AE9 RID: 2793 RVA: 0x00037B08 File Offset: 0x00035D08
 	private void OnEnable()
 	{
 		this.InitActiveTimes();
 	}
 
-	// Token: 0x06000A9E RID: 2718 RVA: 0x000399B8 File Offset: 0x00037BB8
+	// Token: 0x06000AEA RID: 2794 RVA: 0x00099074 File Offset: 0x00097274
 	private void InitActiveTimes()
 	{
 		this.activationTime = new DateTime(this.activationYear, this.activationMonth, this.activationDay, this.activationHour, this.activationMinute, this.activationSecond, DateTimeKind.Utc);
 		this.deactivationTime = new DateTime(this.deactivationYear, this.deactivationMonth, this.deactivationDay, this.deactivationHour, this.deactivationMinute, this.deactivationSecond, DateTimeKind.Utc);
 	}
 
-	// Token: 0x06000A9F RID: 2719 RVA: 0x00039A28 File Offset: 0x00037C28
+	// Token: 0x06000AEB RID: 2795 RVA: 0x000990E4 File Offset: 0x000972E4
 	private void LateUpdate()
 	{
 		DateTime utcNow = DateTime.UtcNow;
@@ -46,61 +46,61 @@ public class LocalActivateOnDateRange : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000D06 RID: 3334
+	// Token: 0x04000D4C RID: 3404
 	[Header("Activation Date and Time (UTC)")]
 	public int activationYear = 2023;
 
-	// Token: 0x04000D07 RID: 3335
+	// Token: 0x04000D4D RID: 3405
 	public int activationMonth = 4;
 
-	// Token: 0x04000D08 RID: 3336
+	// Token: 0x04000D4E RID: 3406
 	public int activationDay = 1;
 
-	// Token: 0x04000D09 RID: 3337
+	// Token: 0x04000D4F RID: 3407
 	public int activationHour = 7;
 
-	// Token: 0x04000D0A RID: 3338
+	// Token: 0x04000D50 RID: 3408
 	public int activationMinute;
 
-	// Token: 0x04000D0B RID: 3339
+	// Token: 0x04000D51 RID: 3409
 	public int activationSecond;
 
-	// Token: 0x04000D0C RID: 3340
+	// Token: 0x04000D52 RID: 3410
 	[Header("Deactivation Date and Time (UTC)")]
 	public int deactivationYear = 2023;
 
-	// Token: 0x04000D0D RID: 3341
+	// Token: 0x04000D53 RID: 3411
 	public int deactivationMonth = 4;
 
-	// Token: 0x04000D0E RID: 3342
+	// Token: 0x04000D54 RID: 3412
 	public int deactivationDay = 2;
 
-	// Token: 0x04000D0F RID: 3343
+	// Token: 0x04000D55 RID: 3413
 	public int deactivationHour = 7;
 
-	// Token: 0x04000D10 RID: 3344
+	// Token: 0x04000D56 RID: 3414
 	public int deactivationMinute;
 
-	// Token: 0x04000D11 RID: 3345
+	// Token: 0x04000D57 RID: 3415
 	public int deactivationSecond;
 
-	// Token: 0x04000D12 RID: 3346
+	// Token: 0x04000D58 RID: 3416
 	public GameObject[] gameObjectsToActivate;
 
-	// Token: 0x04000D13 RID: 3347
+	// Token: 0x04000D59 RID: 3417
 	private bool isActive;
 
-	// Token: 0x04000D14 RID: 3348
+	// Token: 0x04000D5A RID: 3418
 	private DateTime activationTime;
 
-	// Token: 0x04000D15 RID: 3349
+	// Token: 0x04000D5B RID: 3419
 	private DateTime deactivationTime;
 
-	// Token: 0x04000D16 RID: 3350
+	// Token: 0x04000D5C RID: 3420
 	[DebugReadout]
 	public double dbgTimeUntilActivation;
 
-	// Token: 0x04000D17 RID: 3351
+	// Token: 0x04000D5D RID: 3421
 	[DebugReadout]
 	public double dbgTimeUntilDeactivation;
 }

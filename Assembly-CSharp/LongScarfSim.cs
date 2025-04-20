@@ -2,10 +2,10 @@
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x0200016D RID: 365
+// Token: 0x02000178 RID: 376
 public class LongScarfSim : MonoBehaviour
 {
-	// Token: 0x0600091F RID: 2335 RVA: 0x000314A0 File Offset: 0x0002F6A0
+	// Token: 0x0600096C RID: 2412 RVA: 0x00091CE4 File Offset: 0x0008FEE4
 	private void Start()
 	{
 		this.clampToPlane.Normalize();
@@ -17,7 +17,7 @@ public class LongScarfSim : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000920 RID: 2336 RVA: 0x00031508 File Offset: 0x0002F708
+	// Token: 0x0600096D RID: 2413 RVA: 0x00091D4C File Offset: 0x0008FF4C
 	private void LateUpdate()
 	{
 		this.velocity *= this.drag;
@@ -45,46 +45,46 @@ public class LongScarfSim : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000B1B RID: 2843
+	// Token: 0x04000B62 RID: 2914
 	[SerializeField]
 	private GameObject[] gameObjects;
 
-	// Token: 0x04000B1C RID: 2844
+	// Token: 0x04000B63 RID: 2915
 	[SerializeField]
 	private float speedThreshold = 1f;
 
-	// Token: 0x04000B1D RID: 2845
+	// Token: 0x04000B64 RID: 2916
 	[SerializeField]
 	private float blendAmountPerSecond = 1f;
 
-	// Token: 0x04000B1E RID: 2846
+	// Token: 0x04000B65 RID: 2917
 	private GorillaVelocityEstimator velocityEstimator;
 
-	// Token: 0x04000B1F RID: 2847
+	// Token: 0x04000B66 RID: 2918
 	private Quaternion[] baseLocalRotations;
 
-	// Token: 0x04000B20 RID: 2848
+	// Token: 0x04000B67 RID: 2919
 	private float currentBlend;
 
-	// Token: 0x04000B21 RID: 2849
+	// Token: 0x04000B68 RID: 2920
 	[SerializeField]
 	private float centerOfMassLength;
 
-	// Token: 0x04000B22 RID: 2850
+	// Token: 0x04000B69 RID: 2921
 	[SerializeField]
 	private float gravityStrength;
 
-	// Token: 0x04000B23 RID: 2851
+	// Token: 0x04000B6A RID: 2922
 	[SerializeField]
 	private float drag;
 
-	// Token: 0x04000B24 RID: 2852
+	// Token: 0x04000B6B RID: 2923
 	[SerializeField]
 	private Vector3 clampToPlane;
 
-	// Token: 0x04000B25 RID: 2853
+	// Token: 0x04000B6C RID: 2924
 	private Vector3 lastCenterPos;
 
-	// Token: 0x04000B26 RID: 2854
+	// Token: 0x04000B6D RID: 2925
 	private Vector3 velocity;
 }

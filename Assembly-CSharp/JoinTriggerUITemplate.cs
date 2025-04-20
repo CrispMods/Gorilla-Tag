@@ -1,90 +1,90 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001C5 RID: 453
+// Token: 0x020001D0 RID: 464
 [CreateAssetMenu(fileName = "JoinTriggerUITemplate", menuName = "ScriptableObjects/JoinTriggerUITemplate")]
 public class JoinTriggerUITemplate : ScriptableObject
 {
-	// Token: 0x04000CEB RID: 3307
+	// Token: 0x04000D31 RID: 3377
 	public Material Milestone_Error;
 
-	// Token: 0x04000CEC RID: 3308
+	// Token: 0x04000D32 RID: 3378
 	public Material Milestone_AlreadyInRoom;
 
-	// Token: 0x04000CED RID: 3309
+	// Token: 0x04000D33 RID: 3379
 	public Material Milestone_InPrivateRoom;
 
-	// Token: 0x04000CEE RID: 3310
+	// Token: 0x04000D34 RID: 3380
 	public Material Milestone_NotConnectedSoloJoin;
 
-	// Token: 0x04000CEF RID: 3311
+	// Token: 0x04000D35 RID: 3381
 	public Material Milestone_LeaveRoomAndSoloJoin;
 
-	// Token: 0x04000CF0 RID: 3312
+	// Token: 0x04000D36 RID: 3382
 	public Material Milestone_LeaveRoomAndGroupJoin;
 
-	// Token: 0x04000CF1 RID: 3313
+	// Token: 0x04000D37 RID: 3383
 	public Material Milestone_AbandonPartyAndSoloJoin;
 
-	// Token: 0x04000CF2 RID: 3314
+	// Token: 0x04000D38 RID: 3384
 	public Material Milestone_ChangingGameModeSoloJoin;
 
-	// Token: 0x04000CF3 RID: 3315
+	// Token: 0x04000D39 RID: 3385
 	public Material ScreenBG_Error;
 
-	// Token: 0x04000CF4 RID: 3316
+	// Token: 0x04000D3A RID: 3386
 	public Material ScreenBG_AlreadyInRoom;
 
-	// Token: 0x04000CF5 RID: 3317
+	// Token: 0x04000D3B RID: 3387
 	public Material ScreenBG_InPrivateRoom;
 
-	// Token: 0x04000CF6 RID: 3318
+	// Token: 0x04000D3C RID: 3388
 	public Material ScreenBG_NotConnectedSoloJoin;
 
-	// Token: 0x04000CF7 RID: 3319
+	// Token: 0x04000D3D RID: 3389
 	public Material ScreenBG_LeaveRoomAndSoloJoin;
 
-	// Token: 0x04000CF8 RID: 3320
+	// Token: 0x04000D3E RID: 3390
 	public Material ScreenBG_LeaveRoomAndGroupJoin;
 
-	// Token: 0x04000CF9 RID: 3321
+	// Token: 0x04000D3F RID: 3391
 	public Material ScreenBG_AbandonPartyAndSoloJoin;
 
-	// Token: 0x04000CFA RID: 3322
+	// Token: 0x04000D40 RID: 3392
 	public Material ScreenBG_ChangingGameModeSoloJoin;
 
-	// Token: 0x04000CFB RID: 3323
+	// Token: 0x04000D41 RID: 3393
 	public string ScreenText_Error;
 
-	// Token: 0x04000CFC RID: 3324
+	// Token: 0x04000D42 RID: 3394
 	public bool showFullErrorMessages;
 
-	// Token: 0x04000CFD RID: 3325
+	// Token: 0x04000D43 RID: 3395
 	public JoinTriggerUITemplate.FormattedString ScreenText_AlreadyInRoom;
 
-	// Token: 0x04000CFE RID: 3326
+	// Token: 0x04000D44 RID: 3396
 	public JoinTriggerUITemplate.FormattedString ScreenText_InPrivateRoom;
 
-	// Token: 0x04000CFF RID: 3327
+	// Token: 0x04000D45 RID: 3397
 	public JoinTriggerUITemplate.FormattedString ScreenText_NotConnectedSoloJoin;
 
-	// Token: 0x04000D00 RID: 3328
+	// Token: 0x04000D46 RID: 3398
 	public JoinTriggerUITemplate.FormattedString ScreenText_LeaveRoomAndSoloJoin;
 
-	// Token: 0x04000D01 RID: 3329
+	// Token: 0x04000D47 RID: 3399
 	public JoinTriggerUITemplate.FormattedString ScreenText_LeaveRoomAndGroupJoin;
 
-	// Token: 0x04000D02 RID: 3330
+	// Token: 0x04000D48 RID: 3400
 	public JoinTriggerUITemplate.FormattedString ScreenText_AbandonPartyAndSoloJoin;
 
-	// Token: 0x04000D03 RID: 3331
+	// Token: 0x04000D49 RID: 3401
 	public JoinTriggerUITemplate.FormattedString ScreenText_ChangingGameModeSoloJoin;
 
-	// Token: 0x020001C6 RID: 454
+	// Token: 0x020001D1 RID: 465
 	[Serializable]
 	public struct FormattedString
 	{
-		// Token: 0x06000A9A RID: 2714 RVA: 0x00039919 File Offset: 0x00037B19
+		// Token: 0x06000AE6 RID: 2790 RVA: 0x00037AA0 File Offset: 0x00035CA0
 		public string GetText(string oldZone, string newZone, string oldGameType, string newGameType)
 		{
 			if (this.formatter == null)
@@ -100,7 +100,7 @@ public class JoinTriggerUITemplate : ScriptableObject
 			});
 		}
 
-		// Token: 0x06000A9B RID: 2715 RVA: 0x00039956 File Offset: 0x00037B56
+		// Token: 0x06000AE7 RID: 2791 RVA: 0x00037ADD File Offset: 0x00035CDD
 		public string GetText(Func<string> oldZone, Func<string> newZone, Func<string> oldGameType, Func<string> newGameType)
 		{
 			if (this.formatter == null)
@@ -110,12 +110,12 @@ public class JoinTriggerUITemplate : ScriptableObject
 			return this.formatter.Format(oldZone, newZone, oldGameType, newGameType);
 		}
 
-		// Token: 0x04000D04 RID: 3332
+		// Token: 0x04000D4A RID: 3402
 		[TextArea]
 		[SerializeField]
 		private string formatText;
 
-		// Token: 0x04000D05 RID: 3333
+		// Token: 0x04000D4B RID: 3403
 		[NonSerialized]
 		private StringFormatter formatter;
 	}

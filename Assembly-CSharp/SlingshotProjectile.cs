@@ -1,4 +1,5 @@
 ﻿using System;
+using GorillaExtensions;
 using GorillaGameModes;
 using GorillaLocomotion;
 using GorillaLocomotion.Swimming;
@@ -6,26 +7,22 @@ using GorillaTag.Reactions;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x02000387 RID: 903
+// Token: 0x02000392 RID: 914
 public class SlingshotProjectile : MonoBehaviour
 {
-	// Token: 0x17000258 RID: 600
-	// (get) Token: 0x0600152D RID: 5421 RVA: 0x00067884 File Offset: 0x00065A84
-	// (set) Token: 0x0600152E RID: 5422 RVA: 0x0006788C File Offset: 0x00065A8C
+	// Token: 0x1700025F RID: 607
+	// (get) Token: 0x06001579 RID: 5497 RVA: 0x0003E8C0 File Offset: 0x0003CAC0
+	// (set) Token: 0x0600157A RID: 5498 RVA: 0x0003E8C8 File Offset: 0x0003CAC8
 	public Vector3 launchPosition { get; private set; }
 
-	// Token: 0x1400003F RID: 63
-	// (add) Token: 0x0600152F RID: 5423 RVA: 0x00067898 File Offset: 0x00065A98
-	// (remove) Token: 0x06001530 RID: 5424 RVA: 0x000678D0 File Offset: 0x00065AD0
+	// Token: 0x14000040 RID: 64
+	// (add) Token: 0x0600157B RID: 5499 RVA: 0x000C006C File Offset: 0x000BE26C
+	// (remove) Token: 0x0600157C RID: 5500 RVA: 0x000C00A4 File Offset: 0x000BE2A4
 	public event SlingshotProjectile.ProjectileImpactEvent OnImpact;
 
-	// Token: 0x06001531 RID: 5425 RVA: 0x00067908 File Offset: 0x00065B08
+	// Token: 0x0600157D RID: 5501 RVA: 0x000C00DC File Offset: 0x000BE2DC
 	public void Launch(Vector3 position, Vector3 velocity, NetPlayer player, bool blueTeam, bool orangeTeam, int projectileCount, float scale, bool shouldOverrideColor = false, Color overrideColor = default(Color))
 	{
-		if (this.playerImpactEffectPrefab != null)
-		{
-			RoomSystem.playerImpactEffectPrefab = this.playerImpactEffectPrefab;
-		}
 		if (this.launchSoundBankPlayer != null)
 		{
 			this.launchSoundBankPlayer.Play();
@@ -51,18 +48,21 @@ public class SlingshotProjectile : MonoBehaviour
 		this.ApplyTeamModelAndColor(blueTeam, orangeTeam, shouldOverrideColor, overrideColor);
 	}
 
-	// Token: 0x06001532 RID: 5426 RVA: 0x00067A34 File Offset: 0x00065C34
+	// Token: 0x0600157E RID: 5502 RVA: 0x000C01F0 File Offset: 0x000BE3F0
 	protected void Awake()
 	{
+		if (this.playerImpactEffectPrefab == null)
+		{
+			this.playerImpactEffectPrefab = this.surfaceImpactEffectPrefab;
+		}
 		this.projectileRigidbody = base.GetComponent<Rigidbody>();
 		this.forceComponent = base.GetComponent<ConstantForce>();
 		this.initialScale = base.transform.localScale.x;
 		this.matPropBlock = new MaterialPropertyBlock();
 		this.spawnWorldEffects = base.GetComponent<SpawnWorldEffects>();
-		this.defaultPlayerImpact = RoomSystem.playerImpactEffectPrefab;
 	}
 
-	// Token: 0x06001533 RID: 5427 RVA: 0x00067A94 File Offset: 0x00065C94
+	// Token: 0x0600157F RID: 5503 RVA: 0x000C025C File Offset: 0x000BE45C
 	public void Deactivate()
 	{
 		base.transform.localScale = Vector3.one * this.initialScale;
@@ -74,14 +74,10 @@ public class SlingshotProjectile : MonoBehaviour
 		this.impactSoundPitchOverride = null;
 		this.impactEffectScaleMultiplier = 1f;
 		this.gravityMultiplier = 1f;
-		if (this.playerImpactEffectPrefab != null)
-		{
-			RoomSystem.playerImpactEffectPrefab = this.defaultPlayerImpact;
-		}
 		ObjectPools.instance.Destroy(base.gameObject);
 	}
 
-	// Token: 0x06001534 RID: 5428 RVA: 0x00067B44 File Offset: 0x00065D44
+	// Token: 0x06001580 RID: 5504 RVA: 0x000C02F4 File Offset: 0x000BE4F4
 	private void SpawnImpactEffect(GameObject prefab, Vector3 position, Vector3 normal)
 	{
 		Vector3 position2 = position + normal * this.impactEffectOffset;
@@ -110,7 +106,7 @@ public class SlingshotProjectile : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001535 RID: 5429 RVA: 0x00067C28 File Offset: 0x00065E28
+	// Token: 0x06001581 RID: 5505 RVA: 0x000C03D8 File Offset: 0x000BE5D8
 	public void CheckForAOEKnockback(Vector3 impactPosition, float impactSpeed)
 	{
 		if (this.aoeKnockbackConfig != null && this.aoeKnockbackConfig.Value.applyAOEKnockback)
@@ -137,7 +133,7 @@ public class SlingshotProjectile : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001536 RID: 5430 RVA: 0x00067DCC File Offset: 0x00065FCC
+	// Token: 0x06001582 RID: 5506 RVA: 0x000C057C File Offset: 0x000BE77C
 	public void ApplyTeamModelAndColor(bool blueTeam, bool orangeTeam, bool shouldOverrideColor = false, Color overrideColor = default(Color))
 	{
 		if (shouldOverrideColor)
@@ -155,7 +151,7 @@ public class SlingshotProjectile : MonoBehaviour
 		this.ApplyColor(this.teamRenderer, (this.colorizeBalls || shouldOverrideColor) ? this.teamColor : Color.white);
 	}
 
-	// Token: 0x06001537 RID: 5431 RVA: 0x00067E7A File Offset: 0x0006607A
+	// Token: 0x06001583 RID: 5507 RVA: 0x0003E8D1 File Offset: 0x0003CAD1
 	protected void OnEnable()
 	{
 		this.timeCreated = 0f;
@@ -163,14 +159,14 @@ public class SlingshotProjectile : MonoBehaviour
 		SlingshotProjectileManager.RegisterSP(this);
 	}
 
-	// Token: 0x06001538 RID: 5432 RVA: 0x00067E94 File Offset: 0x00066094
+	// Token: 0x06001584 RID: 5508 RVA: 0x0003E8EB File Offset: 0x0003CAEB
 	protected void OnDisable()
 	{
 		this.particleLaunched = false;
 		SlingshotProjectileManager.UnregisterSP(this);
 	}
 
-	// Token: 0x06001539 RID: 5433 RVA: 0x00067EA4 File Offset: 0x000660A4
+	// Token: 0x06001585 RID: 5509 RVA: 0x000C062C File Offset: 0x000BE82C
 	public void InvokeUpdate()
 	{
 		if (this.particleLaunched)
@@ -190,14 +186,14 @@ public class SlingshotProjectile : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600153A RID: 5434 RVA: 0x00067F1F File Offset: 0x0006611F
+	// Token: 0x06001586 RID: 5510 RVA: 0x0003E8FA File Offset: 0x0003CAFA
 	public void DestroyAfterRelease()
 	{
 		this.SpawnImpactEffect(this.surfaceImpactEffectPrefab, base.transform.position, Vector3.up);
 		this.Deactivate();
 	}
 
-	// Token: 0x0600153B RID: 5435 RVA: 0x00067F44 File Offset: 0x00066144
+	// Token: 0x06001587 RID: 5511 RVA: 0x000C06A8 File Offset: 0x000BE8A8
 	protected void OnCollisionEnter(Collision collision)
 	{
 		if (!this.particleLaunched)
@@ -220,7 +216,7 @@ public class SlingshotProjectile : MonoBehaviour
 		this.Deactivate();
 	}
 
-	// Token: 0x0600153C RID: 5436 RVA: 0x00067FD4 File Offset: 0x000661D4
+	// Token: 0x06001588 RID: 5512 RVA: 0x000C0738 File Offset: 0x000BE938
 	protected void OnCollisionStay(Collision collision)
 	{
 		if (!this.particleLaunched)
@@ -243,7 +239,7 @@ public class SlingshotProjectile : MonoBehaviour
 		this.Deactivate();
 	}
 
-	// Token: 0x0600153D RID: 5437 RVA: 0x00068060 File Offset: 0x00066260
+	// Token: 0x06001589 RID: 5513 RVA: 0x000C07C4 File Offset: 0x000BE9C4
 	protected void OnTriggerExit(Collider other)
 	{
 		if (!this.particleLaunched)
@@ -257,7 +253,7 @@ public class SlingshotProjectile : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600153E RID: 5438 RVA: 0x00068090 File Offset: 0x00066290
+	// Token: 0x0600158A RID: 5514 RVA: 0x000C07F4 File Offset: 0x000BE9F4
 	protected void OnTriggerEnter(Collider other)
 	{
 		if (!this.particleLaunched)
@@ -312,15 +308,20 @@ public class SlingshotProjectile : MonoBehaviour
 			RoomSystem.SendImpactEffect(base.transform.position, this.teamColor.r, this.teamColor.g, this.teamColor.b, this.teamColor.a, this.myProjectileCount);
 			this.Deactivate();
 		}
-		UnityEvent<VRRig> onHitPlayer = this.OnHitPlayer;
-		if (onHitPlayer == null)
+		Rigidbody attachedRigidbody = other.attachedRigidbody;
+		VRRig arg;
+		if (attachedRigidbody.IsNotNull() && attachedRigidbody.gameObject.TryGetComponent<VRRig>(out arg))
 		{
-			return;
+			UnityEvent<VRRig> onHitPlayer = this.OnHitPlayer;
+			if (onHitPlayer == null)
+			{
+				return;
+			}
+			onHitPlayer.Invoke(arg);
 		}
-		onHitPlayer.Invoke(other.GetComponentInParent<VRRig>());
 	}
 
-	// Token: 0x0600153F RID: 5439 RVA: 0x00068236 File Offset: 0x00066436
+	// Token: 0x0600158B RID: 5515 RVA: 0x0003E91E File Offset: 0x0003CB1E
 	private void ApplyColor(Renderer rend, Color color)
 	{
 		if (!rend)
@@ -332,149 +333,146 @@ public class SlingshotProjectile : MonoBehaviour
 		rend.SetPropertyBlock(this.matPropBlock);
 	}
 
-	// Token: 0x0400177E RID: 6014
+	// Token: 0x040017C6 RID: 6086
 	public NetPlayer projectileOwner;
 
-	// Token: 0x0400177F RID: 6015
+	// Token: 0x040017C7 RID: 6087
 	[Tooltip("Rotates to point along the Y axis after spawn.")]
 	public GameObject surfaceImpactEffectPrefab;
 
-	// Token: 0x04001780 RID: 6016
+	// Token: 0x040017C8 RID: 6088
 	[Tooltip("if left empty, the default player impact that is set in Room System Setting will be played")]
 	public GameObject playerImpactEffectPrefab;
 
-	// Token: 0x04001781 RID: 6017
+	// Token: 0x040017C9 RID: 6089
 	[Tooltip("Distance from the surface that the particle should spawn.")]
 	[SerializeField]
 	private float impactEffectOffset;
 
-	// Token: 0x04001782 RID: 6018
+	// Token: 0x040017CA RID: 6090
 	[SerializeField]
 	private SoundBankPlayer launchSoundBankPlayer;
 
-	// Token: 0x04001783 RID: 6019
+	// Token: 0x040017CB RID: 6091
 	public float lifeTime = 20f;
 
-	// Token: 0x04001784 RID: 6020
+	// Token: 0x040017CC RID: 6092
 	public Color defaultColor = Color.white;
 
-	// Token: 0x04001785 RID: 6021
+	// Token: 0x040017CD RID: 6093
 	public Color orangeColor = new Color(1f, 0.5f, 0f, 1f);
 
-	// Token: 0x04001786 RID: 6022
+	// Token: 0x040017CE RID: 6094
 	public Color blueColor = new Color(0f, 0.72f, 1f, 1f);
 
-	// Token: 0x04001787 RID: 6023
+	// Token: 0x040017CF RID: 6095
 	[Tooltip("Renderers with team specific meshes, materials, effects, etc.")]
 	public Renderer defaultBall;
 
-	// Token: 0x04001788 RID: 6024
+	// Token: 0x040017D0 RID: 6096
 	[Tooltip("Renderers with team specific meshes, materials, effects, etc.")]
 	public Renderer orangeBall;
 
-	// Token: 0x04001789 RID: 6025
+	// Token: 0x040017D1 RID: 6097
 	[Tooltip("Renderers with team specific meshes, materials, effects, etc.")]
 	public Renderer blueBall;
 
-	// Token: 0x0400178A RID: 6026
+	// Token: 0x040017D2 RID: 6098
 	public bool colorizeBalls;
 
-	// Token: 0x0400178B RID: 6027
+	// Token: 0x040017D3 RID: 6099
 	public bool faceDirectionOfTravel = true;
 
-	// Token: 0x0400178C RID: 6028
+	// Token: 0x040017D4 RID: 6100
 	private bool particleLaunched;
 
-	// Token: 0x0400178D RID: 6029
+	// Token: 0x040017D5 RID: 6101
 	private float timeCreated;
 
-	// Token: 0x0400178F RID: 6031
+	// Token: 0x040017D7 RID: 6103
 	private Rigidbody projectileRigidbody;
 
-	// Token: 0x04001790 RID: 6032
+	// Token: 0x040017D8 RID: 6104
 	private Color teamColor = Color.white;
 
-	// Token: 0x04001791 RID: 6033
+	// Token: 0x040017D9 RID: 6105
 	private Renderer teamRenderer;
 
-	// Token: 0x04001792 RID: 6034
+	// Token: 0x040017DA RID: 6106
 	public int myProjectileCount;
 
-	// Token: 0x04001793 RID: 6035
+	// Token: 0x040017DB RID: 6107
 	private float initialScale;
 
-	// Token: 0x04001794 RID: 6036
+	// Token: 0x040017DC RID: 6108
 	private Vector3 previousPosition;
 
-	// Token: 0x04001795 RID: 6037
+	// Token: 0x040017DD RID: 6109
 	[HideInInspector]
 	public SlingshotProjectile.AOEKnockbackConfig? aoeKnockbackConfig;
 
-	// Token: 0x04001796 RID: 6038
+	// Token: 0x040017DE RID: 6110
 	[HideInInspector]
 	public float? impactSoundVolumeOverride;
 
-	// Token: 0x04001797 RID: 6039
+	// Token: 0x040017DF RID: 6111
 	[HideInInspector]
 	public float? impactSoundPitchOverride;
 
-	// Token: 0x04001798 RID: 6040
+	// Token: 0x040017E0 RID: 6112
 	[HideInInspector]
 	public float impactEffectScaleMultiplier = 1f;
 
-	// Token: 0x04001799 RID: 6041
+	// Token: 0x040017E1 RID: 6113
 	[HideInInspector]
 	public float gravityMultiplier = 1f;
 
-	// Token: 0x0400179A RID: 6042
+	// Token: 0x040017E2 RID: 6114
 	private ConstantForce forceComponent;
 
-	// Token: 0x0400179B RID: 6043
-	private GameObject defaultPlayerImpact;
-
-	// Token: 0x0400179D RID: 6045
+	// Token: 0x040017E4 RID: 6116
 	private MaterialPropertyBlock matPropBlock;
 
-	// Token: 0x0400179E RID: 6046
+	// Token: 0x040017E5 RID: 6117
 	private SpawnWorldEffects spawnWorldEffects;
 
-	// Token: 0x0400179F RID: 6047
+	// Token: 0x040017E6 RID: 6118
 	private static readonly int colorShaderProp = Shader.PropertyToID("_Color");
 
-	// Token: 0x040017A0 RID: 6048
+	// Token: 0x040017E7 RID: 6119
 	private static readonly int baseColorShaderProp = Shader.PropertyToID("_BaseColor");
 
-	// Token: 0x040017A1 RID: 6049
+	// Token: 0x040017E8 RID: 6120
 	public UnityEvent<VRRig> OnHitPlayer;
 
-	// Token: 0x02000388 RID: 904
+	// Token: 0x02000393 RID: 915
 	[Serializable]
 	public struct AOEKnockbackConfig
 	{
-		// Token: 0x040017A2 RID: 6050
+		// Token: 0x040017E9 RID: 6121
 		public bool applyAOEKnockback;
 
-		// Token: 0x040017A3 RID: 6051
+		// Token: 0x040017EA RID: 6122
 		[Tooltip("Full knockback velocity is imparted within the inner radius")]
 		public float aeoInnerRadius;
 
-		// Token: 0x040017A4 RID: 6052
+		// Token: 0x040017EB RID: 6123
 		[Tooltip("Partial knockback velocity is imparted between the inner and outer radius")]
 		public float aeoOuterRadius;
 
-		// Token: 0x040017A5 RID: 6053
+		// Token: 0x040017EC RID: 6124
 		public float knockbackVelocity;
 
-		// Token: 0x040017A6 RID: 6054
+		// Token: 0x040017ED RID: 6125
 		[Tooltip("The required impact velocity to achieve full knockback velocity")]
 		public float impactVelocityThreshold;
 
-		// Token: 0x040017A7 RID: 6055
+		// Token: 0x040017EE RID: 6126
 		[SerializeField]
 		public PlayerEffect playerProximityEffect;
 	}
 
-	// Token: 0x02000389 RID: 905
-	// (Invoke) Token: 0x06001543 RID: 5443
+	// Token: 0x02000394 RID: 916
+	// (Invoke) Token: 0x0600158F RID: 5519
 	public delegate void ProjectileImpactEvent(SlingshotProjectile projectile, Vector3 impactPos, NetPlayer hitPlayer);
 }

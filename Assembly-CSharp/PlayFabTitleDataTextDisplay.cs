@@ -5,11 +5,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x02000689 RID: 1673
+// Token: 0x02000653 RID: 1619
 public class PlayFabTitleDataTextDisplay : MonoBehaviour, IBuildValidation
 {
-	// Token: 0x17000458 RID: 1112
-	// (get) Token: 0x0600299B RID: 10651 RVA: 0x000CE876 File Offset: 0x000CCA76
+	// Token: 0x1700042F RID: 1071
+	// (get) Token: 0x0600281A RID: 10266 RVA: 0x0004B4B0 File Offset: 0x000496B0
 	public string playFabKeyValue
 	{
 		get
@@ -18,7 +18,7 @@ public class PlayFabTitleDataTextDisplay : MonoBehaviour, IBuildValidation
 		}
 	}
 
-	// Token: 0x0600299C RID: 10652 RVA: 0x000CE880 File Offset: 0x000CCA80
+	// Token: 0x0600281B RID: 10267 RVA: 0x0010FBF4 File Offset: 0x0010DDF4
 	private void Start()
 	{
 		if (this.textBox != null)
@@ -33,7 +33,7 @@ public class PlayFabTitleDataTextDisplay : MonoBehaviour, IBuildValidation
 		PlayFabTitleDataCache.Instance.GetTitleData(this.playfabKey, new Action<string>(this.OnTitleDataRequestComplete), new Action<PlayFabError>(this.OnPlayFabError));
 	}
 
-	// Token: 0x0600299D RID: 10653 RVA: 0x000CE8FB File Offset: 0x000CCAFB
+	// Token: 0x0600281C RID: 10268 RVA: 0x0004B4B8 File Offset: 0x000496B8
 	private void OnPlayFabError(PlayFabError error)
 	{
 		if (this.textBox != null)
@@ -42,7 +42,7 @@ public class PlayFabTitleDataTextDisplay : MonoBehaviour, IBuildValidation
 		}
 	}
 
-	// Token: 0x0600299E RID: 10654 RVA: 0x000CE91C File Offset: 0x000CCB1C
+	// Token: 0x0600281D RID: 10269 RVA: 0x0010FC70 File Offset: 0x0010DE70
 	private void OnTitleDataRequestComplete(string titleDataResult)
 	{
 		if (this.textBox != null)
@@ -56,7 +56,7 @@ public class PlayFabTitleDataTextDisplay : MonoBehaviour, IBuildValidation
 		}
 	}
 
-	// Token: 0x0600299F RID: 10655 RVA: 0x000CE990 File Offset: 0x000CCB90
+	// Token: 0x0600281E RID: 10270 RVA: 0x0004B4D9 File Offset: 0x000496D9
 	private void OnNewTitleDataAdded(string key)
 	{
 		if (key == this.playfabKey && this.textBox != null)
@@ -65,13 +65,13 @@ public class PlayFabTitleDataTextDisplay : MonoBehaviour, IBuildValidation
 		}
 	}
 
-	// Token: 0x060029A0 RID: 10656 RVA: 0x000CE9BF File Offset: 0x000CCBBF
+	// Token: 0x0600281F RID: 10271 RVA: 0x0004B508 File Offset: 0x00049708
 	private void OnDestroy()
 	{
 		PlayFabTitleDataCache.Instance.OnTitleDataUpdate.RemoveListener(new UnityAction<string>(this.OnNewTitleDataAdded));
 	}
 
-	// Token: 0x060029A1 RID: 10657 RVA: 0x000CE9DC File Offset: 0x000CCBDC
+	// Token: 0x06002820 RID: 10272 RVA: 0x0004B525 File Offset: 0x00049725
 	public bool BuildValidationCheck()
 	{
 		if (this.textBox == null)
@@ -82,7 +82,7 @@ public class PlayFabTitleDataTextDisplay : MonoBehaviour, IBuildValidation
 		return true;
 	}
 
-	// Token: 0x060029A2 RID: 10658 RVA: 0x000CE9FC File Offset: 0x000CCBFC
+	// Token: 0x06002821 RID: 10273 RVA: 0x0010FCE4 File Offset: 0x0010DEE4
 	public void ChangeTitleDataAtRuntime(string newTitleDataKey)
 	{
 		this.playfabKey = newTitleDataKey;
@@ -98,24 +98,24 @@ public class PlayFabTitleDataTextDisplay : MonoBehaviour, IBuildValidation
 		PlayFabTitleDataCache.Instance.GetTitleData(this.playfabKey, new Action<string>(this.OnTitleDataRequestComplete), new Action<PlayFabError>(this.OnPlayFabError));
 	}
 
-	// Token: 0x04002EF4 RID: 12020
+	// Token: 0x04002D64 RID: 11620
 	[SerializeField]
 	private TextMeshPro textBox;
 
-	// Token: 0x04002EF5 RID: 12021
+	// Token: 0x04002D65 RID: 11621
 	[SerializeField]
 	private Color newUpdateColor = Color.magenta;
 
-	// Token: 0x04002EF6 RID: 12022
+	// Token: 0x04002D66 RID: 11622
 	[SerializeField]
 	private Color defaultTextColor = Color.white;
 
-	// Token: 0x04002EF7 RID: 12023
+	// Token: 0x04002D67 RID: 11623
 	[Tooltip("PlayFab Title Data key from where to pull display text")]
 	[SerializeField]
 	private string playfabKey;
 
-	// Token: 0x04002EF8 RID: 12024
+	// Token: 0x04002D68 RID: 11624
 	[Tooltip("Text to display when error occurs during fetch")]
 	[TextArea(3, 5)]
 	[SerializeField]

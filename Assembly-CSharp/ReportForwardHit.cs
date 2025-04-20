@@ -2,16 +2,16 @@
 using NetSynchrony;
 using UnityEngine;
 
-// Token: 0x020008BA RID: 2234
+// Token: 0x020008D6 RID: 2262
 public class ReportForwardHit : MonoBehaviour
 {
-	// Token: 0x06003603 RID: 13827 RVA: 0x000FFBE9 File Offset: 0x000FDDE9
+	// Token: 0x060036CB RID: 14027 RVA: 0x0005427D File Offset: 0x0005247D
 	private void Start()
 	{
 		this.seekFreq = ReportForwardHit.rand.NextFloat(this.minseekFreq, this.maxseekFreq);
 	}
 
-	// Token: 0x06003604 RID: 13828 RVA: 0x000FFC07 File Offset: 0x000FDE07
+	// Token: 0x060036CC RID: 14028 RVA: 0x0005429B File Offset: 0x0005249B
 	private void OnEnable()
 	{
 		if (this.seekOnEnable)
@@ -24,7 +24,7 @@ public class ReportForwardHit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003605 RID: 13829 RVA: 0x000FFC3C File Offset: 0x000FDE3C
+	// Token: 0x060036CD RID: 14029 RVA: 0x000542D0 File Offset: 0x000524D0
 	private void OnDisable()
 	{
 		if (this.nsRand != null)
@@ -33,13 +33,13 @@ public class ReportForwardHit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003606 RID: 13830 RVA: 0x000FFC63 File Offset: 0x000FDE63
+	// Token: 0x060036CE RID: 14030 RVA: 0x000542F7 File Offset: 0x000524F7
 	private void NsRand_Dispatch(RandomDispatcher randomDispatcher)
 	{
 		this.seek();
 	}
 
-	// Token: 0x06003607 RID: 13831 RVA: 0x000FFC6C File Offset: 0x000FDE6C
+	// Token: 0x060036CF RID: 14031 RVA: 0x0014568C File Offset: 0x0014388C
 	private void Update()
 	{
 		if (this.nsRand != null)
@@ -55,7 +55,7 @@ public class ReportForwardHit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003608 RID: 13832 RVA: 0x000FFCD8 File Offset: 0x000FDED8
+	// Token: 0x060036D0 RID: 14032 RVA: 0x001456F8 File Offset: 0x001438F8
 	private void seek()
 	{
 		float num = Mathf.Max(new float[]
@@ -71,36 +71,36 @@ public class ReportForwardHit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04003830 RID: 14384
+	// Token: 0x040038F1 RID: 14577
 	private static SRand rand = new SRand("ReportForwardHit");
 
-	// Token: 0x04003831 RID: 14385
+	// Token: 0x040038F2 RID: 14578
 	[SerializeField]
 	private float minseekFreq = 3f;
 
-	// Token: 0x04003832 RID: 14386
+	// Token: 0x040038F3 RID: 14579
 	[SerializeField]
 	private float maxseekFreq = 6f;
 
-	// Token: 0x04003833 RID: 14387
+	// Token: 0x040038F4 RID: 14580
 	[SerializeField]
 	private float maxRadias = 10f;
 
-	// Token: 0x04003834 RID: 14388
+	// Token: 0x040038F5 RID: 14581
 	[SerializeField]
 	private LightningDispatcherEvent colliderFound;
 
-	// Token: 0x04003835 RID: 14389
+	// Token: 0x040038F6 RID: 14582
 	[SerializeField]
 	private RandomDispatcher nsRand;
 
-	// Token: 0x04003836 RID: 14390
+	// Token: 0x040038F7 RID: 14583
 	private float timeSinceSeek;
 
-	// Token: 0x04003837 RID: 14391
+	// Token: 0x040038F8 RID: 14584
 	private float seekFreq;
 
-	// Token: 0x04003838 RID: 14392
+	// Token: 0x040038F9 RID: 14585
 	[SerializeField]
 	private bool seekOnEnable;
 }

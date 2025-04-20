@@ -5,10 +5,10 @@ using UnityEngine.InputSystem;
 
 namespace UnityChan
 {
-	// Token: 0x02000CA8 RID: 3240
+	// Token: 0x02000CD9 RID: 3289
 	public class IdleChanger : MonoBehaviour
 	{
-		// Token: 0x060051C8 RID: 20936 RVA: 0x00190BB5 File Offset: 0x0018EDB5
+		// Token: 0x0600532A RID: 21290 RVA: 0x00065E94 File Offset: 0x00064094
 		private void Start()
 		{
 			this.currentState = this.UnityChanA.GetCurrentAnimatorStateInfo(0);
@@ -17,7 +17,7 @@ namespace UnityChan
 			this.kb = Keyboard.current;
 		}
 
-		// Token: 0x060051C9 RID: 20937 RVA: 0x00190BEC File Offset: 0x0018EDEC
+		// Token: 0x0600532B RID: 21291 RVA: 0x001C7260 File Offset: 0x001C5460
 		private void Update()
 		{
 			if (this.kb.upArrowKey.wasPressedThisFrame || this.kb.spaceKey.wasPressedThisFrame)
@@ -52,7 +52,7 @@ namespace UnityChan
 			}
 		}
 
-		// Token: 0x060051CA RID: 20938 RVA: 0x00190D48 File Offset: 0x0018EF48
+		// Token: 0x0600532C RID: 21292 RVA: 0x001C73BC File Offset: 0x001C55BC
 		private void OnGUI()
 		{
 			if (this.isGUI)
@@ -71,14 +71,14 @@ namespace UnityChan
 			}
 		}
 
-		// Token: 0x060051CB RID: 20939 RVA: 0x00190E1D File Offset: 0x0018F01D
+		// Token: 0x0600532D RID: 21293 RVA: 0x00065ECB File Offset: 0x000640CB
 		private IEnumerator RandomChange()
 		{
 			for (;;)
 			{
 				if (this._random)
 				{
-					float num = Random.Range(0f, 1f);
+					float num = UnityEngine.Random.Range(0f, 1f);
 					if (num < this._threshold)
 					{
 						this.UnityChanA.SetBool("Back", true);
@@ -95,31 +95,31 @@ namespace UnityChan
 			yield break;
 		}
 
-		// Token: 0x040053E6 RID: 21478
+		// Token: 0x040054F2 RID: 21746
 		private AnimatorStateInfo currentState;
 
-		// Token: 0x040053E7 RID: 21479
+		// Token: 0x040054F3 RID: 21747
 		private AnimatorStateInfo previousState;
 
-		// Token: 0x040053E8 RID: 21480
+		// Token: 0x040054F4 RID: 21748
 		public bool _random;
 
-		// Token: 0x040053E9 RID: 21481
+		// Token: 0x040054F5 RID: 21749
 		public float _threshold = 0.5f;
 
-		// Token: 0x040053EA RID: 21482
+		// Token: 0x040054F6 RID: 21750
 		public float _interval = 10f;
 
-		// Token: 0x040053EB RID: 21483
+		// Token: 0x040054F7 RID: 21751
 		public bool isGUI = true;
 
-		// Token: 0x040053EC RID: 21484
+		// Token: 0x040054F8 RID: 21752
 		public Animator UnityChanA;
 
-		// Token: 0x040053ED RID: 21485
+		// Token: 0x040054F9 RID: 21753
 		public Animator UnityChanB;
 
-		// Token: 0x040053EE RID: 21486
+		// Token: 0x040054FA RID: 21754
 		private Keyboard kb;
 	}
 }

@@ -3,10 +3,10 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
-// Token: 0x02000852 RID: 2130
+// Token: 0x0200086C RID: 2156
 public class Vector3Converter : JsonConverter
 {
-	// Token: 0x060033AB RID: 13227 RVA: 0x000F682C File Offset: 0x000F4A2C
+	// Token: 0x06003466 RID: 13414 RVA: 0x0013DF40 File Offset: 0x0013C140
 	public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
 	{
 		Vector3 vector = (Vector3)value;
@@ -20,14 +20,14 @@ public class Vector3Converter : JsonConverter
 		writer.WriteEndObject();
 	}
 
-	// Token: 0x060033AC RID: 13228 RVA: 0x000F6894 File Offset: 0x000F4A94
+	// Token: 0x06003467 RID: 13415 RVA: 0x0013DFA8 File Offset: 0x0013C1A8
 	public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
 	{
 		JObject jobject = JObject.Load(reader);
 		return new Vector3((float)jobject["x"], (float)jobject["y"], (float)jobject["z"]);
 	}
 
-	// Token: 0x060033AD RID: 13229 RVA: 0x000F68E5 File Offset: 0x000F4AE5
+	// Token: 0x06003468 RID: 13416 RVA: 0x00052836 File Offset: 0x00050A36
 	public override bool CanConvert(Type objectType)
 	{
 		return objectType == typeof(Vector3);

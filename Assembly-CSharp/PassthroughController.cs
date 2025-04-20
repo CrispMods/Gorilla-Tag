@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200031C RID: 796
+// Token: 0x02000327 RID: 807
 public class PassthroughController : MonoBehaviour
 {
-	// Token: 0x060012E3 RID: 4835 RVA: 0x0005C5B0 File Offset: 0x0005A7B0
+	// Token: 0x0600132F RID: 4911 RVA: 0x000B661C File Offset: 0x000B481C
 	private void Start()
 	{
 		GameObject gameObject = GameObject.Find("OVRCameraRig");
@@ -20,7 +20,7 @@ public class PassthroughController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012E4 RID: 4836 RVA: 0x0005C600 File Offset: 0x0005A800
+	// Token: 0x06001330 RID: 4912 RVA: 0x000B666C File Offset: 0x000B486C
 	private void Update()
 	{
 		Color edgeColor = Color.HSVToRGB(Time.time * 0.1f % 1f, 1f, 1f);
@@ -31,6 +31,6 @@ public class PassthroughController : MonoBehaviour
 		base.transform.rotation = Quaternion.LookRotation(new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z).normalized);
 	}
 
-	// Token: 0x040014E8 RID: 5352
+	// Token: 0x04001530 RID: 5424
 	private OVRPassthroughLayer passthroughLayer;
 }

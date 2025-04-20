@@ -2,10 +2,10 @@
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x020000E4 RID: 228
+// Token: 0x020000EE RID: 238
 public class BeeAvoiderTest : MonoBehaviour
 {
-	// Token: 0x060005D6 RID: 1494 RVA: 0x00022E78 File Offset: 0x00021078
+	// Token: 0x06000617 RID: 1559 RVA: 0x00085700 File Offset: 0x00083900
 	public void Update()
 	{
 		Vector3 position = this.patrolPoints[this.nextPatrolPoint].transform.position;
@@ -14,7 +14,7 @@ public class BeeAvoiderTest : MonoBehaviour
 		this.velocity = Vector3.MoveTowards(this.velocity * this.drag, target, this.acceleration);
 		if ((position2 - position).IsLongerThan(this.instabilityOffRadius))
 		{
-			this.velocity += Random.insideUnitSphere * this.instability * Time.deltaTime;
+			this.velocity += UnityEngine.Random.insideUnitSphere * this.instability * Time.deltaTime;
 		}
 		Vector3 vector = position2 + this.velocity * Time.deltaTime;
 		GameObject[] array = this.avoidancePoints;
@@ -39,36 +39,36 @@ public class BeeAvoiderTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000709 RID: 1801
+	// Token: 0x0400074A RID: 1866
 	public GameObject[] patrolPoints;
 
-	// Token: 0x0400070A RID: 1802
+	// Token: 0x0400074B RID: 1867
 	public GameObject[] avoidancePoints;
 
-	// Token: 0x0400070B RID: 1803
+	// Token: 0x0400074C RID: 1868
 	public float speed;
 
-	// Token: 0x0400070C RID: 1804
+	// Token: 0x0400074D RID: 1869
 	public float acceleration;
 
-	// Token: 0x0400070D RID: 1805
+	// Token: 0x0400074E RID: 1870
 	public float instability;
 
-	// Token: 0x0400070E RID: 1806
+	// Token: 0x0400074F RID: 1871
 	public float instabilityOffRadius;
 
-	// Token: 0x0400070F RID: 1807
+	// Token: 0x04000750 RID: 1872
 	public float drag;
 
-	// Token: 0x04000710 RID: 1808
+	// Token: 0x04000751 RID: 1873
 	public float avoidRadius;
 
-	// Token: 0x04000711 RID: 1809
+	// Token: 0x04000752 RID: 1874
 	public float patrolArrivedRadius;
 
-	// Token: 0x04000712 RID: 1810
+	// Token: 0x04000753 RID: 1875
 	private int nextPatrolPoint;
 
-	// Token: 0x04000713 RID: 1811
+	// Token: 0x04000754 RID: 1876
 	private Vector3 velocity;
 }

@@ -7,11 +7,11 @@ using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x020007CF RID: 1999
+// Token: 0x020007E7 RID: 2023
 [Serializable]
 public class PhotonSignal
 {
-	// Token: 0x06003138 RID: 12600 RVA: 0x000EDB48 File Offset: 0x000EBD48
+	// Token: 0x060031EA RID: 12778 RVA: 0x001365C8 File Offset: 0x001347C8
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _Invoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(OnSignalReceived<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, PhotonSignalInfo info)
 	{
@@ -21,7 +21,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003139 RID: 12601 RVA: 0x000EDB78 File Offset: 0x000EBD78
+	// Token: 0x060031EB RID: 12779 RVA: 0x001365F8 File Offset: 0x001347F8
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _Invoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(OnSignalReceived<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, PhotonSignalInfo info)
 	{
@@ -31,7 +31,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x0600313A RID: 12602 RVA: 0x000EDBA4 File Offset: 0x000EBDA4
+	// Token: 0x060031EC RID: 12780 RVA: 0x00136624 File Offset: 0x00134824
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _Invoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(OnSignalReceived<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, PhotonSignalInfo info)
 	{
@@ -41,7 +41,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x0600313B RID: 12603 RVA: 0x000EDBD0 File Offset: 0x000EBDD0
+	// Token: 0x060031ED RID: 12781 RVA: 0x00136650 File Offset: 0x00134850
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _Invoke<T1, T2, T3, T4, T5, T6, T7, T8, T9>(OnSignalReceived<T1, T2, T3, T4, T5, T6, T7, T8, T9> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, PhotonSignalInfo info)
 	{
@@ -51,7 +51,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x0600313C RID: 12604 RVA: 0x000EDBF8 File Offset: 0x000EBDF8
+	// Token: 0x060031EE RID: 12782 RVA: 0x00136678 File Offset: 0x00134878
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _Invoke<T1, T2, T3, T4, T5, T6, T7, T8>(OnSignalReceived<T1, T2, T3, T4, T5, T6, T7, T8> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, PhotonSignalInfo info)
 	{
@@ -61,7 +61,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x0600313D RID: 12605 RVA: 0x000EDC20 File Offset: 0x000EBE20
+	// Token: 0x060031EF RID: 12783 RVA: 0x001366A0 File Offset: 0x001348A0
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _Invoke<T1, T2, T3, T4, T5, T6, T7>(OnSignalReceived<T1, T2, T3, T4, T5, T6, T7> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, PhotonSignalInfo info)
 	{
@@ -71,7 +71,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x0600313E RID: 12606 RVA: 0x000EDC43 File Offset: 0x000EBE43
+	// Token: 0x060031F0 RID: 12784 RVA: 0x00051030 File Offset: 0x0004F230
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _Invoke<T1, T2, T3, T4, T5, T6>(OnSignalReceived<T1, T2, T3, T4, T5, T6> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, PhotonSignalInfo info)
 	{
@@ -81,7 +81,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x0600313F RID: 12607 RVA: 0x000EDC59 File Offset: 0x000EBE59
+	// Token: 0x060031F1 RID: 12785 RVA: 0x00051046 File Offset: 0x0004F246
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _Invoke<T1, T2, T3, T4, T5>(OnSignalReceived<T1, T2, T3, T4, T5> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, PhotonSignalInfo info)
 	{
@@ -91,7 +91,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003140 RID: 12608 RVA: 0x000EDC6D File Offset: 0x000EBE6D
+	// Token: 0x060031F2 RID: 12786 RVA: 0x0005105A File Offset: 0x0004F25A
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _Invoke<T1, T2, T3, T4>(OnSignalReceived<T1, T2, T3, T4> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, PhotonSignalInfo info)
 	{
@@ -101,7 +101,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003141 RID: 12609 RVA: 0x000EDC7F File Offset: 0x000EBE7F
+	// Token: 0x060031F3 RID: 12787 RVA: 0x0005106C File Offset: 0x0004F26C
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _Invoke<T1, T2, T3>(OnSignalReceived<T1, T2, T3> _event, T1 arg1, T2 arg2, T3 arg3, PhotonSignalInfo info)
 	{
@@ -111,7 +111,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003142 RID: 12610 RVA: 0x000EDC8F File Offset: 0x000EBE8F
+	// Token: 0x060031F4 RID: 12788 RVA: 0x0005107C File Offset: 0x0004F27C
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _Invoke<T1, T2>(OnSignalReceived<T1, T2> _event, T1 arg1, T2 arg2, PhotonSignalInfo info)
 	{
@@ -121,7 +121,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003143 RID: 12611 RVA: 0x000EDC9D File Offset: 0x000EBE9D
+	// Token: 0x060031F5 RID: 12789 RVA: 0x0005108A File Offset: 0x0004F28A
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _Invoke<T1>(OnSignalReceived<T1> _event, T1 arg1, PhotonSignalInfo info)
 	{
@@ -131,7 +131,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003144 RID: 12612 RVA: 0x000EDCAA File Offset: 0x000EBEAA
+	// Token: 0x060031F6 RID: 12790 RVA: 0x00051097 File Offset: 0x0004F297
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _Invoke(OnSignalReceived _event, PhotonSignalInfo info)
 	{
@@ -141,7 +141,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003145 RID: 12613 RVA: 0x000EDCB8 File Offset: 0x000EBEB8
+	// Token: 0x060031F7 RID: 12791 RVA: 0x001366C4 File Offset: 0x001348C4
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _SafeInvoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(OnSignalReceived<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, PhotonSignalInfo info)
 	{
@@ -162,7 +162,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003146 RID: 12614 RVA: 0x000EDD18 File Offset: 0x000EBF18
+	// Token: 0x060031F8 RID: 12792 RVA: 0x00136724 File Offset: 0x00134924
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _SafeInvoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(OnSignalReceived<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, PhotonSignalInfo info)
 	{
@@ -183,7 +183,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003147 RID: 12615 RVA: 0x000EDD78 File Offset: 0x000EBF78
+	// Token: 0x060031F9 RID: 12793 RVA: 0x00136784 File Offset: 0x00134984
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _SafeInvoke<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(OnSignalReceived<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, PhotonSignalInfo info)
 	{
@@ -204,7 +204,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003148 RID: 12616 RVA: 0x000EDDD4 File Offset: 0x000EBFD4
+	// Token: 0x060031FA RID: 12794 RVA: 0x001367E0 File Offset: 0x001349E0
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _SafeInvoke<T1, T2, T3, T4, T5, T6, T7, T8, T9>(OnSignalReceived<T1, T2, T3, T4, T5, T6, T7, T8, T9> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, PhotonSignalInfo info)
 	{
@@ -225,7 +225,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003149 RID: 12617 RVA: 0x000EDE30 File Offset: 0x000EC030
+	// Token: 0x060031FB RID: 12795 RVA: 0x0013683C File Offset: 0x00134A3C
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _SafeInvoke<T1, T2, T3, T4, T5, T6, T7, T8>(OnSignalReceived<T1, T2, T3, T4, T5, T6, T7, T8> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, PhotonSignalInfo info)
 	{
@@ -246,7 +246,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x0600314A RID: 12618 RVA: 0x000EDE88 File Offset: 0x000EC088
+	// Token: 0x060031FC RID: 12796 RVA: 0x00136894 File Offset: 0x00134A94
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _SafeInvoke<T1, T2, T3, T4, T5, T6, T7>(OnSignalReceived<T1, T2, T3, T4, T5, T6, T7> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, PhotonSignalInfo info)
 	{
@@ -267,7 +267,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x0600314B RID: 12619 RVA: 0x000EDEE0 File Offset: 0x000EC0E0
+	// Token: 0x060031FD RID: 12797 RVA: 0x001368EC File Offset: 0x00134AEC
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _SafeInvoke<T1, T2, T3, T4, T5, T6>(OnSignalReceived<T1, T2, T3, T4, T5, T6> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, PhotonSignalInfo info)
 	{
@@ -288,7 +288,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x0600314C RID: 12620 RVA: 0x000EDF34 File Offset: 0x000EC134
+	// Token: 0x060031FE RID: 12798 RVA: 0x00136940 File Offset: 0x00134B40
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _SafeInvoke<T1, T2, T3, T4, T5>(OnSignalReceived<T1, T2, T3, T4, T5> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, PhotonSignalInfo info)
 	{
@@ -309,7 +309,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x0600314D RID: 12621 RVA: 0x000EDF88 File Offset: 0x000EC188
+	// Token: 0x060031FF RID: 12799 RVA: 0x00136994 File Offset: 0x00134B94
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _SafeInvoke<T1, T2, T3, T4>(OnSignalReceived<T1, T2, T3, T4> _event, T1 arg1, T2 arg2, T3 arg3, T4 arg4, PhotonSignalInfo info)
 	{
@@ -330,7 +330,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x0600314E RID: 12622 RVA: 0x000EDFD8 File Offset: 0x000EC1D8
+	// Token: 0x06003200 RID: 12800 RVA: 0x001369E4 File Offset: 0x00134BE4
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _SafeInvoke<T1, T2, T3>(OnSignalReceived<T1, T2, T3> _event, T1 arg1, T2 arg2, T3 arg3, PhotonSignalInfo info)
 	{
@@ -351,7 +351,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x0600314F RID: 12623 RVA: 0x000EE028 File Offset: 0x000EC228
+	// Token: 0x06003201 RID: 12801 RVA: 0x00136A34 File Offset: 0x00134C34
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _SafeInvoke<T1, T2>(OnSignalReceived<T1, T2> _event, T1 arg1, T2 arg2, PhotonSignalInfo info)
 	{
@@ -372,7 +372,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003150 RID: 12624 RVA: 0x000EE074 File Offset: 0x000EC274
+	// Token: 0x06003202 RID: 12802 RVA: 0x00136A80 File Offset: 0x00134C80
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _SafeInvoke<T1>(OnSignalReceived<T1> _event, T1 arg1, PhotonSignalInfo info)
 	{
@@ -393,7 +393,7 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003151 RID: 12625 RVA: 0x000EE0C0 File Offset: 0x000EC2C0
+	// Token: 0x06003203 RID: 12803 RVA: 0x00136ACC File Offset: 0x00134CCC
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	protected static void _SafeInvoke(OnSignalReceived _event, PhotonSignalInfo info)
 	{
@@ -414,8 +414,8 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x17000511 RID: 1297
-	// (get) Token: 0x06003152 RID: 12626 RVA: 0x000EE10C File Offset: 0x000EC30C
+	// Token: 0x1700051F RID: 1311
+	// (get) Token: 0x06003204 RID: 12804 RVA: 0x000510A3 File Offset: 0x0004F2A3
 	public bool enabled
 	{
 		get
@@ -424,8 +424,8 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x17000512 RID: 1298
-	// (get) Token: 0x06003153 RID: 12627 RVA: 0x00002076 File Offset: 0x00000276
+	// Token: 0x17000520 RID: 1312
+	// (get) Token: 0x06003205 RID: 12805 RVA: 0x00030498 File Offset: 0x0002E698
 	public virtual int argCount
 	{
 		get
@@ -434,9 +434,9 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x1400005B RID: 91
-	// (add) Token: 0x06003154 RID: 12628 RVA: 0x000EE114 File Offset: 0x000EC314
-	// (remove) Token: 0x06003155 RID: 12629 RVA: 0x000EE148 File Offset: 0x000EC348
+	// Token: 0x1400005F RID: 95
+	// (add) Token: 0x06003206 RID: 12806 RVA: 0x000510AB File Offset: 0x0004F2AB
+	// (remove) Token: 0x06003207 RID: 12807 RVA: 0x000510DF File Offset: 0x0004F2DF
 	public event OnSignalReceived OnSignal
 	{
 		add
@@ -458,13 +458,13 @@ public class PhotonSignal
 		}
 	}
 
-	// Token: 0x06003156 RID: 12630 RVA: 0x000EE165 File Offset: 0x000EC365
+	// Token: 0x06003208 RID: 12808 RVA: 0x000510FC File Offset: 0x0004F2FC
 	protected PhotonSignal()
 	{
 		this._refID = PhotonSignal.RefID.Register(this);
 	}
 
-	// Token: 0x06003157 RID: 12631 RVA: 0x000EE19D File Offset: 0x000EC39D
+	// Token: 0x06003209 RID: 12809 RVA: 0x00051134 File Offset: 0x0004F334
 	public PhotonSignal(string signalID) : this()
 	{
 		signalID = ((signalID != null) ? signalID.Trim() : null);
@@ -475,19 +475,19 @@ public class PhotonSignal
 		this._signalID = XXHash32.Compute(signalID, 0U);
 	}
 
-	// Token: 0x06003158 RID: 12632 RVA: 0x000EE1D3 File Offset: 0x000EC3D3
+	// Token: 0x0600320A RID: 12810 RVA: 0x0005116A File Offset: 0x0004F36A
 	public PhotonSignal(int signalID) : this()
 	{
 		this._signalID = signalID;
 	}
 
-	// Token: 0x06003159 RID: 12633 RVA: 0x000EE1E2 File Offset: 0x000EC3E2
+	// Token: 0x0600320B RID: 12811 RVA: 0x00051179 File Offset: 0x0004F379
 	public void Raise()
 	{
 		this.Raise(this._receivers);
 	}
 
-	// Token: 0x0600315A RID: 12634 RVA: 0x000EE1F0 File Offset: 0x000EC3F0
+	// Token: 0x0600320C RID: 12812 RVA: 0x00136B18 File Offset: 0x00134D18
 	public void Raise(ReceiverGroup receivers)
 	{
 		if (!this._enabled)
@@ -512,21 +512,21 @@ public class PhotonSignal
 		PhotonNetwork.RaiseEvent(177, array, raiseEventOptions, PhotonSignal.gSendReliable);
 	}
 
-	// Token: 0x0600315B RID: 12635 RVA: 0x000EE27D File Offset: 0x000EC47D
+	// Token: 0x0600320D RID: 12813 RVA: 0x00051187 File Offset: 0x0004F387
 	public void Enable()
 	{
 		PhotonNetwork.NetworkingClient.EventReceived += this._EventHandle;
 		this._enabled = true;
 	}
 
-	// Token: 0x0600315C RID: 12636 RVA: 0x000EE29C File Offset: 0x000EC49C
+	// Token: 0x0600320E RID: 12814 RVA: 0x000511A6 File Offset: 0x0004F3A6
 	public void Disable()
 	{
 		this._enabled = false;
 		PhotonNetwork.NetworkingClient.EventReceived -= this._EventHandle;
 	}
 
-	// Token: 0x0600315D RID: 12637 RVA: 0x000EE2BC File Offset: 0x000EC4BC
+	// Token: 0x0600320F RID: 12815 RVA: 0x00136BA8 File Offset: 0x00134DA8
 	private void _EventHandle(EventData eventData)
 	{
 		if (!this._enabled)
@@ -576,7 +576,7 @@ public class PhotonSignal
 		this._Relay(array, info);
 	}
 
-	// Token: 0x0600315E RID: 12638 RVA: 0x000EE37B File Offset: 0x000EC57B
+	// Token: 0x06003210 RID: 12816 RVA: 0x000511C5 File Offset: 0x0004F3C5
 	protected virtual void _Relay(object[] args, PhotonSignalInfo info)
 	{
 		if (!this._safeInvoke)
@@ -587,45 +587,45 @@ public class PhotonSignal
 		PhotonSignal._SafeInvoke(this._callbacks, info);
 	}
 
-	// Token: 0x0600315F RID: 12639 RVA: 0x000EE39E File Offset: 0x000EC59E
+	// Token: 0x06003211 RID: 12817 RVA: 0x000511E8 File Offset: 0x0004F3E8
 	public virtual void ClearListeners()
 	{
 		this._callbacks = null;
 	}
 
-	// Token: 0x06003160 RID: 12640 RVA: 0x000EE3A7 File Offset: 0x000EC5A7
+	// Token: 0x06003212 RID: 12818 RVA: 0x000511F1 File Offset: 0x0004F3F1
 	public virtual void Reset()
 	{
 		this.ClearListeners();
 		this.Disable();
 	}
 
-	// Token: 0x06003161 RID: 12641 RVA: 0x000EE3B5 File Offset: 0x000EC5B5
+	// Token: 0x06003213 RID: 12819 RVA: 0x000511FF File Offset: 0x0004F3FF
 	public virtual void Dispose()
 	{
 		this._signalID = 0;
 		this.Reset();
 	}
 
-	// Token: 0x06003162 RID: 12642 RVA: 0x000EE3C4 File Offset: 0x000EC5C4
+	// Token: 0x06003214 RID: 12820 RVA: 0x00136C68 File Offset: 0x00134E68
 	~PhotonSignal()
 	{
 		this.Dispose();
 	}
 
-	// Token: 0x06003163 RID: 12643 RVA: 0x000EE3F0 File Offset: 0x000EC5F0
+	// Token: 0x06003215 RID: 12821 RVA: 0x0005120E File Offset: 0x0004F40E
 	public static implicit operator PhotonSignal(string s)
 	{
 		return new PhotonSignal(s);
 	}
 
-	// Token: 0x06003164 RID: 12644 RVA: 0x000EE3F8 File Offset: 0x000EC5F8
+	// Token: 0x06003216 RID: 12822 RVA: 0x00051216 File Offset: 0x0004F416
 	public static explicit operator PhotonSignal(int i)
 	{
 		return new PhotonSignal(i);
 	}
 
-	// Token: 0x06003165 RID: 12645 RVA: 0x000EE400 File Offset: 0x000EC600
+	// Token: 0x06003217 RID: 12823 RVA: 0x00136C94 File Offset: 0x00134E94
 	static PhotonSignal()
 	{
 		Dictionary<ReceiverGroup, RaiseEventOptions> dictionary = new Dictionary<ReceiverGroup, RaiseEventOptions>();
@@ -648,63 +648,63 @@ public class PhotonSignal
 		PhotonSignal.gSendUnreliable.Encrypt = true;
 	}
 
-	// Token: 0x0400353A RID: 13626
+	// Token: 0x040035E4 RID: 13796
 	protected int _signalID;
 
-	// Token: 0x0400353B RID: 13627
+	// Token: 0x040035E5 RID: 13797
 	protected bool _enabled;
 
-	// Token: 0x0400353C RID: 13628
+	// Token: 0x040035E6 RID: 13798
 	[SerializeField]
 	protected ReceiverGroup _receivers = ReceiverGroup.All;
 
-	// Token: 0x0400353D RID: 13629
+	// Token: 0x040035E7 RID: 13799
 	[SerializeField]
 	protected CallLimiter _limiter = new CallLimiter(1, 0.1f, 0.5f);
 
-	// Token: 0x0400353E RID: 13630
+	// Token: 0x040035E8 RID: 13800
 	[FormerlySerializedAs("mute")]
 	[SerializeField]
 	protected bool _mute;
 
-	// Token: 0x0400353F RID: 13631
+	// Token: 0x040035E9 RID: 13801
 	[SerializeField]
 	protected bool _safeInvoke = true;
 
-	// Token: 0x04003540 RID: 13632
+	// Token: 0x040035EA RID: 13802
 	[SerializeField]
 	protected bool _localOnly;
 
-	// Token: 0x04003541 RID: 13633
+	// Token: 0x040035EB RID: 13803
 	[NonSerialized]
 	private int _refID;
 
-	// Token: 0x04003542 RID: 13634
+	// Token: 0x040035EC RID: 13804
 	private OnSignalReceived _callbacks;
 
-	// Token: 0x04003543 RID: 13635
+	// Token: 0x040035ED RID: 13805
 	protected static readonly Dictionary<ReceiverGroup, RaiseEventOptions> gGroupToOptions;
 
-	// Token: 0x04003544 RID: 13636
+	// Token: 0x040035EE RID: 13806
 	protected static readonly SendOptions gSendReliable;
 
-	// Token: 0x04003545 RID: 13637
+	// Token: 0x040035EF RID: 13807
 	protected static readonly SendOptions gSendUnreliable;
 
-	// Token: 0x04003546 RID: 13638
+	// Token: 0x040035F0 RID: 13808
 	public const byte EVENT_CODE = 177;
 
-	// Token: 0x04003547 RID: 13639
+	// Token: 0x040035F1 RID: 13809
 	public const int NULL_SIGNAL = 0;
 
-	// Token: 0x04003548 RID: 13640
+	// Token: 0x040035F2 RID: 13810
 	protected const int HEADER_SIZE = 2;
 
-	// Token: 0x020007D0 RID: 2000
+	// Token: 0x020007E8 RID: 2024
 	private class RefID
 	{
-		// Token: 0x17000513 RID: 1299
-		// (get) Token: 0x06003166 RID: 12646 RVA: 0x000EE47A File Offset: 0x000EC67A
+		// Token: 0x17000521 RID: 1313
+		// (get) Token: 0x06003218 RID: 12824 RVA: 0x0005121E File Offset: 0x0004F41E
 		public static int Count
 		{
 			get
@@ -713,20 +713,20 @@ public class PhotonSignal
 			}
 		}
 
-		// Token: 0x06003167 RID: 12647 RVA: 0x000EE481 File Offset: 0x000EC681
+		// Token: 0x06003219 RID: 12825 RVA: 0x00051225 File Offset: 0x0004F425
 		public RefID()
 		{
 			this.intValue = StaticHash.ComputeTriple32(PhotonSignal.RefID.gNextID++);
 			PhotonSignal.RefID.gRefCount++;
 		}
 
-		// Token: 0x06003168 RID: 12648 RVA: 0x000EE4B0 File Offset: 0x000EC6B0
+		// Token: 0x0600321A RID: 12826 RVA: 0x00136D10 File Offset: 0x00134F10
 		~RefID()
 		{
 			PhotonSignal.RefID.gRefCount--;
 		}
 
-		// Token: 0x06003169 RID: 12649 RVA: 0x000EE4E4 File Offset: 0x000EC6E4
+		// Token: 0x0600321B RID: 12827 RVA: 0x00136D44 File Offset: 0x00134F44
 		public static int Register(PhotonSignal ps)
 		{
 			if (ps == null)
@@ -738,16 +738,16 @@ public class PhotonSignal
 			return refID.intValue;
 		}
 
-		// Token: 0x04003549 RID: 13641
+		// Token: 0x040035F3 RID: 13811
 		public int intValue;
 
-		// Token: 0x0400354A RID: 13642
+		// Token: 0x040035F4 RID: 13812
 		private static int gNextID = 1;
 
-		// Token: 0x0400354B RID: 13643
+		// Token: 0x040035F5 RID: 13813
 		private static int gRefCount = 0;
 
-		// Token: 0x0400354C RID: 13644
+		// Token: 0x040035F6 RID: 13814
 		private static readonly ConditionalWeakTable<PhotonSignal, PhotonSignal.RefID> gRefTable = new ConditionalWeakTable<PhotonSignal, PhotonSignal.RefID>();
 	}
 }

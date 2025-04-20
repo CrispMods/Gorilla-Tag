@@ -2,10 +2,10 @@
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x020002B0 RID: 688
+// Token: 0x020002BB RID: 699
 public class NonCosmeticHandItem : MonoBehaviour
 {
-	// Token: 0x060010B5 RID: 4277 RVA: 0x00050F03 File Offset: 0x0004F103
+	// Token: 0x06001101 RID: 4353 RVA: 0x0003BA1A File Offset: 0x00039C1A
 	public void EnableItem(bool enable)
 	{
 		if (this.itemPrefab)
@@ -14,8 +14,8 @@ public class NonCosmeticHandItem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170001E4 RID: 484
-	// (get) Token: 0x060010B6 RID: 4278 RVA: 0x00050F23 File Offset: 0x0004F123
+	// Token: 0x170001EB RID: 491
+	// (get) Token: 0x06001102 RID: 4354 RVA: 0x0003BA3A File Offset: 0x00039C3A
 	public bool IsEnabled
 	{
 		get
@@ -24,9 +24,9 @@ public class NonCosmeticHandItem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040012B8 RID: 4792
+	// Token: 0x04001300 RID: 4864
 	public CosmeticsController.CosmeticSlots cosmeticSlots;
 
-	// Token: 0x040012B9 RID: 4793
+	// Token: 0x04001301 RID: 4865
 	public GameObject itemPrefab;
 }

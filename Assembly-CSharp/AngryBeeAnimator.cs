@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000DC RID: 220
+// Token: 0x020000E6 RID: 230
 public class AngryBeeAnimator : MonoBehaviour
 {
-	// Token: 0x060005A2 RID: 1442 RVA: 0x0002107C File Offset: 0x0001F27C
+	// Token: 0x060005E3 RID: 1507 RVA: 0x00083BB0 File Offset: 0x00081DB0
 	private void Awake()
 	{
 		this.bees = new GameObject[this.numBees];
@@ -15,12 +15,12 @@ public class AngryBeeAnimator : MonoBehaviour
 		{
 			GameObject gameObject = new GameObject();
 			gameObject.transform.parent = base.transform;
-			Vector2 vector = Random.insideUnitCircle * this.orbitMaxCenterDisplacement;
-			gameObject.transform.localPosition = new Vector3(vector.x, Random.Range(-this.orbitMaxHeightDisplacement, this.orbitMaxHeightDisplacement), vector.y);
-			gameObject.transform.localRotation = Quaternion.Euler(Random.Range(-this.orbitMaxTilt, this.orbitMaxTilt), (float)Random.Range(0, 360), 0f);
+			Vector2 vector = UnityEngine.Random.insideUnitCircle * this.orbitMaxCenterDisplacement;
+			gameObject.transform.localPosition = new Vector3(vector.x, UnityEngine.Random.Range(-this.orbitMaxHeightDisplacement, this.orbitMaxHeightDisplacement), vector.y);
+			gameObject.transform.localRotation = Quaternion.Euler(UnityEngine.Random.Range(-this.orbitMaxTilt, this.orbitMaxTilt), (float)UnityEngine.Random.Range(0, 360), 0f);
 			this.beeOrbitalAxes[i] = gameObject.transform.up;
-			GameObject gameObject2 = Object.Instantiate<GameObject>(this.beePrefab, gameObject.transform);
-			float num = Random.Range(this.orbitMinRadius, this.orbitMaxRadius);
+			GameObject gameObject2 = UnityEngine.Object.Instantiate<GameObject>(this.beePrefab, gameObject.transform);
+			float num = UnityEngine.Random.Range(this.orbitMinRadius, this.orbitMaxRadius);
 			this.beeOrbitalRadii[i] = num;
 			gameObject2.transform.localPosition = Vector3.forward * num;
 			gameObject2.transform.localRotation = Quaternion.Euler(-90f, 90f, 0f);
@@ -30,7 +30,7 @@ public class AngryBeeAnimator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005A3 RID: 1443 RVA: 0x00021218 File Offset: 0x0001F418
+	// Token: 0x060005E4 RID: 1508 RVA: 0x00083D4C File Offset: 0x00081F4C
 	private void Update()
 	{
 		float angle = this.orbitSpeed * Time.deltaTime;
@@ -40,7 +40,7 @@ public class AngryBeeAnimator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005A4 RID: 1444 RVA: 0x00021264 File Offset: 0x0001F464
+	// Token: 0x060005E5 RID: 1509 RVA: 0x00083D98 File Offset: 0x00081F98
 	public void SetEmergeFraction(float fraction)
 	{
 		for (int i = 0; i < this.numBees; i++)
@@ -49,51 +49,51 @@ public class AngryBeeAnimator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040006A7 RID: 1703
+	// Token: 0x040006E8 RID: 1768
 	[SerializeField]
 	private GameObject beePrefab;
 
-	// Token: 0x040006A8 RID: 1704
+	// Token: 0x040006E9 RID: 1769
 	[SerializeField]
 	private int numBees;
 
-	// Token: 0x040006A9 RID: 1705
+	// Token: 0x040006EA RID: 1770
 	[SerializeField]
 	private float orbitMinRadius;
 
-	// Token: 0x040006AA RID: 1706
+	// Token: 0x040006EB RID: 1771
 	[SerializeField]
 	private float orbitMaxRadius;
 
-	// Token: 0x040006AB RID: 1707
+	// Token: 0x040006EC RID: 1772
 	[SerializeField]
 	private float orbitMaxHeightDisplacement;
 
-	// Token: 0x040006AC RID: 1708
+	// Token: 0x040006ED RID: 1773
 	[SerializeField]
 	private float orbitMaxCenterDisplacement;
 
-	// Token: 0x040006AD RID: 1709
+	// Token: 0x040006EE RID: 1774
 	[SerializeField]
 	private float orbitMaxTilt;
 
-	// Token: 0x040006AE RID: 1710
+	// Token: 0x040006EF RID: 1775
 	[SerializeField]
 	private float orbitSpeed;
 
-	// Token: 0x040006AF RID: 1711
+	// Token: 0x040006F0 RID: 1776
 	[SerializeField]
 	private float beeScale;
 
-	// Token: 0x040006B0 RID: 1712
+	// Token: 0x040006F1 RID: 1777
 	private GameObject[] beeOrbits;
 
-	// Token: 0x040006B1 RID: 1713
+	// Token: 0x040006F2 RID: 1778
 	private GameObject[] bees;
 
-	// Token: 0x040006B2 RID: 1714
+	// Token: 0x040006F3 RID: 1779
 	private Vector3[] beeOrbitalAxes;
 
-	// Token: 0x040006B3 RID: 1715
+	// Token: 0x040006F4 RID: 1780
 	private float[] beeOrbitalRadii;
 }

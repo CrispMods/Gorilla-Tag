@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000072 RID: 114
+// Token: 0x02000078 RID: 120
 public class PeriodicFoodTopUpper : MonoBehaviour
 {
-	// Token: 0x060002EB RID: 747 RVA: 0x0001232C File Offset: 0x0001052C
+	// Token: 0x0600031A RID: 794 RVA: 0x00032645 File Offset: 0x00030845
 	private void Awake()
 	{
 		this.food = base.GetComponentInParent<CrittersFood>();
 	}
 
-	// Token: 0x060002EC RID: 748 RVA: 0x0001233C File Offset: 0x0001053C
+	// Token: 0x0600031B RID: 795 RVA: 0x00076B78 File Offset: 0x00074D78
 	private void Update()
 	{
 		if (!CrittersManager.instance.LocalAuthority())
@@ -29,18 +29,18 @@ public class PeriodicFoodTopUpper : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000381 RID: 897
+	// Token: 0x040003B3 RID: 947
 	private CrittersFood food;
 
-	// Token: 0x04000382 RID: 898
+	// Token: 0x040003B4 RID: 948
 	private float timeFoodEmpty;
 
-	// Token: 0x04000383 RID: 899
+	// Token: 0x040003B5 RID: 949
 	private bool waitingToRefill;
 
-	// Token: 0x04000384 RID: 900
+	// Token: 0x040003B6 RID: 950
 	public float waitToRefill = 10f;
 
-	// Token: 0x04000385 RID: 901
+	// Token: 0x040003B7 RID: 951
 	public GameObject foodObject;
 }

@@ -4,87 +4,87 @@ using Cysharp.Text;
 using Drawing;
 using UnityEngine;
 
-// Token: 0x020001B3 RID: 435
+// Token: 0x020001BE RID: 446
 public static class GTDev
 {
-	// Token: 0x06000A38 RID: 2616 RVA: 0x00037A88 File Offset: 0x00035C88
+	// Token: 0x06000A84 RID: 2692 RVA: 0x00037673 File Offset: 0x00035873
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
 	private static void InitializeOnLoad()
 	{
 		GTDev.FetchDevID();
 	}
 
-	// Token: 0x06000A39 RID: 2617 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000A85 RID: 2693 RVA: 0x00030607 File Offset: 0x0002E807
 	[HideInCallstack]
 	public static void Log<T>(T msg, string channel = null)
 	{
 	}
 
-	// Token: 0x06000A3A RID: 2618 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000A86 RID: 2694 RVA: 0x00030607 File Offset: 0x0002E807
 	[HideInCallstack]
-	public static void Log<T>(T msg, Object context, string channel = null)
+	public static void Log<T>(T msg, UnityEngine.Object context, string channel = null)
 	{
 	}
 
-	// Token: 0x06000A3B RID: 2619 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000A87 RID: 2695 RVA: 0x00030607 File Offset: 0x0002E807
 	[HideInCallstack]
 	public static void LogError<T>(T msg, string channel = null)
 	{
 	}
 
-	// Token: 0x06000A3C RID: 2620 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000A88 RID: 2696 RVA: 0x00030607 File Offset: 0x0002E807
 	[HideInCallstack]
-	public static void LogError<T>(T msg, Object context, string channel = null)
+	public static void LogError<T>(T msg, UnityEngine.Object context, string channel = null)
 	{
 	}
 
-	// Token: 0x06000A3D RID: 2621 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000A89 RID: 2697 RVA: 0x00030607 File Offset: 0x0002E807
 	[HideInCallstack]
 	public static void LogWarning<T>(T msg, string channel = null)
 	{
 	}
 
-	// Token: 0x06000A3E RID: 2622 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000A8A RID: 2698 RVA: 0x00030607 File Offset: 0x0002E807
 	[HideInCallstack]
-	public static void LogWarning<T>(T msg, Object context, string channel = null)
+	public static void LogWarning<T>(T msg, UnityEngine.Object context, string channel = null)
 	{
 	}
 
-	// Token: 0x06000A3F RID: 2623 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000A8B RID: 2699 RVA: 0x00030607 File Offset: 0x0002E807
 	[HideInCallstack]
 	public static void LogSilent<T>(T msg, string channel = null)
 	{
 	}
 
-	// Token: 0x06000A40 RID: 2624 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000A8C RID: 2700 RVA: 0x00030607 File Offset: 0x0002E807
 	[HideInCallstack]
-	public static void LogSilent<T>(T msg, Object context, string channel = null)
+	public static void LogSilent<T>(T msg, UnityEngine.Object context, string channel = null)
 	{
 	}
 
-	// Token: 0x06000A41 RID: 2625 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000A8D RID: 2701 RVA: 0x00030607 File Offset: 0x0002E807
 	[HideInCallstack]
 	[Conditional("UNITY_EDITOR")]
 	public static void LogEditorOnly<T>(T msg, string channel = null)
 	{
 	}
 
-	// Token: 0x06000A42 RID: 2626 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000A8E RID: 2702 RVA: 0x00030607 File Offset: 0x0002E807
 	[HideInCallstack]
 	[Conditional("UNITY_EDITOR")]
-	public static void LogEditorOnly<T>(T msg, Object context, string channel = null)
+	public static void LogEditorOnly<T>(T msg, UnityEngine.Object context, string channel = null)
 	{
 	}
 
-	// Token: 0x06000A43 RID: 2627 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000A8F RID: 2703 RVA: 0x00030607 File Offset: 0x0002E807
 	[HideInCallstack]
 	[Conditional("UNITY_EDITOR")]
 	public static void CallEditorOnly(Action call)
 	{
 	}
 
-	// Token: 0x17000108 RID: 264
-	// (get) Token: 0x06000A44 RID: 2628 RVA: 0x00037A90 File Offset: 0x00035C90
+	// Token: 0x1700010F RID: 271
+	// (get) Token: 0x06000A90 RID: 2704 RVA: 0x0003767B File Offset: 0x0003587B
 	public static int DevID
 	{
 		get
@@ -93,7 +93,7 @@ public static class GTDev
 		}
 	}
 
-	// Token: 0x06000A45 RID: 2629 RVA: 0x00037A98 File Offset: 0x00035C98
+	// Token: 0x06000A91 RID: 2705 RVA: 0x000975E4 File Offset: 0x000957E4
 	private static int FetchDevID()
 	{
 		if (GTDev.gHasDevID)
@@ -109,14 +109,14 @@ public static class GTDev
 		return GTDev.gDevID;
 	}
 
-	// Token: 0x06000A46 RID: 2630 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000A92 RID: 2706 RVA: 0x00030607 File Offset: 0x0002E807
 	[HideInCallstack]
 	[Conditional("_GTDEV_ON_")]
-	private static void _Log<T>(Action<object, Object> log, Action<object> logNoCtx, T msg, Object ctx, string channel)
+	private static void _Log<T>(Action<object, UnityEngine.Object> log, Action<object> logNoCtx, T msg, UnityEngine.Object ctx, string channel)
 	{
 	}
 
-	// Token: 0x06000A47 RID: 2631 RVA: 0x00037AF5 File Offset: 0x00035CF5
+	// Token: 0x06000A93 RID: 2707 RVA: 0x00037682 File Offset: 0x00035882
 	private static Mesh SphereMesh()
 	{
 		if (!GTDev.gSphereMesh)
@@ -126,7 +126,7 @@ public static class GTDev
 		return GTDev.gSphereMesh;
 	}
 
-	// Token: 0x06000A48 RID: 2632 RVA: 0x00037B18 File Offset: 0x00035D18
+	// Token: 0x06000A94 RID: 2708 RVA: 0x00097644 File Offset: 0x00095844
 	[Conditional("_GTDEV_ON_")]
 	public unsafe static void Ping3D(this Collider col, Color color = default(Color), float duration = 8f)
 	{
@@ -177,7 +177,7 @@ public static class GTDev
 		}
 	}
 
-	// Token: 0x06000A49 RID: 2633 RVA: 0x00037CBC File Offset: 0x00035EBC
+	// Token: 0x06000A95 RID: 2709 RVA: 0x000977E8 File Offset: 0x000959E8
 	[Conditional("_GTDEV_ON_")]
 	public unsafe static void Ping3D(this Vector3 vec, Color color = default(Color), float duration = 8f)
 	{
@@ -201,7 +201,7 @@ public static class GTDev
 		}
 	}
 
-	// Token: 0x06000A4A RID: 2634 RVA: 0x00037DB0 File Offset: 0x00035FB0
+	// Token: 0x06000A96 RID: 2710 RVA: 0x000978DC File Offset: 0x00095ADC
 	[Conditional("_GTDEV_ON_")]
 	public unsafe static void Ping3D<T>(this T value, Vector3 position, Color color = default(Color), float duration = 8f)
 	{
@@ -217,23 +217,23 @@ public static class GTDev
 		}
 	}
 
-	// Token: 0x04000C8B RID: 3211
+	// Token: 0x04000CD1 RID: 3281
 	[OnEnterPlay_Set(0)]
 	private static int gDevID;
 
-	// Token: 0x04000C8C RID: 3212
+	// Token: 0x04000CD2 RID: 3282
 	[OnEnterPlay_Set(false)]
 	private static bool gHasDevID;
 
-	// Token: 0x04000C8D RID: 3213
+	// Token: 0x04000CD3 RID: 3283
 	private static readonly Color gDefaultColor = new Color(0f, 1f, 1f, 0.32f);
 
-	// Token: 0x04000C8E RID: 3214
+	// Token: 0x04000CD4 RID: 3284
 	private const string kFormatF = "{{ X: {0:##0.0000}, Y: {1:##0.0000}, Z: {2:##0.0000} }}";
 
-	// Token: 0x04000C8F RID: 3215
+	// Token: 0x04000CD5 RID: 3285
 	private const float kDuration = 8f;
 
-	// Token: 0x04000C90 RID: 3216
+	// Token: 0x04000CD6 RID: 3286
 	private static Mesh gSphereMesh;
 }

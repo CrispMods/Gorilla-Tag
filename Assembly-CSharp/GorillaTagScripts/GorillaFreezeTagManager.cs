@@ -8,22 +8,22 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009BE RID: 2494
+	// Token: 0x020009E4 RID: 2532
 	public class GorillaFreezeTagManager : GorillaTagManager
 	{
-		// Token: 0x06003E01 RID: 15873 RVA: 0x000EEB6B File Offset: 0x000ECD6B
+		// Token: 0x06003F19 RID: 16153 RVA: 0x000514ED File Offset: 0x0004F6ED
 		public override GameModeType GameType()
 		{
 			return GameModeType.FreezeTag;
 		}
 
-		// Token: 0x06003E02 RID: 15874 RVA: 0x00125DDE File Offset: 0x00123FDE
+		// Token: 0x06003F1A RID: 16154 RVA: 0x000591DC File Offset: 0x000573DC
 		public override string GameModeName()
 		{
 			return "FREEZE TAG";
 		}
 
-		// Token: 0x06003E03 RID: 15875 RVA: 0x00125DE5 File Offset: 0x00123FE5
+		// Token: 0x06003F1B RID: 16155 RVA: 0x000591E3 File Offset: 0x000573E3
 		public override void Awake()
 		{
 			base.Awake();
@@ -33,7 +33,7 @@ namespace GorillaTagScripts
 			this.slowJumpMultiplierCached = this.slowJumpMultiplier;
 		}
 
-		// Token: 0x06003E04 RID: 15876 RVA: 0x00125E20 File Offset: 0x00124020
+		// Token: 0x06003F1C RID: 16156 RVA: 0x001676A0 File Offset: 0x001658A0
 		public override void UpdateState()
 		{
 			if (NetworkSystem.Instance.IsMasterClient)
@@ -55,25 +55,25 @@ namespace GorillaTagScripts
 				}
 				if (this.isCurrentlyTag && this.currentIt == null)
 				{
-					int index = Random.Range(0, GameMode.ParticipatingPlayers.Count);
+					int index = UnityEngine.Random.Range(0, GameMode.ParticipatingPlayers.Count);
 					base.ChangeCurrentIt(GameMode.ParticipatingPlayers[index], false);
 				}
 				else if (this.isCurrentlyTag && GameMode.ParticipatingPlayers.Count >= this.infectedModeThreshold)
 				{
 					this.Reset();
-					int index2 = Random.Range(0, GameMode.ParticipatingPlayers.Count);
+					int index2 = UnityEngine.Random.Range(0, GameMode.ParticipatingPlayers.Count);
 					this.AddInfectedPlayer(GameMode.ParticipatingPlayers[index2], true);
 				}
 				else if (!this.isCurrentlyTag && GameMode.ParticipatingPlayers.Count < this.infectedModeThreshold)
 				{
 					this.Reset();
 					base.SetisCurrentlyTag(true);
-					int index3 = Random.Range(0, GameMode.ParticipatingPlayers.Count);
+					int index3 = UnityEngine.Random.Range(0, GameMode.ParticipatingPlayers.Count);
 					base.ChangeCurrentIt(GameMode.ParticipatingPlayers[index3], false);
 				}
 				else if (!this.isCurrentlyTag && this.currentInfected.Count == 0)
 				{
-					int index4 = Random.Range(0, GameMode.ParticipatingPlayers.Count);
+					int index4 = UnityEngine.Random.Range(0, GameMode.ParticipatingPlayers.Count);
 					this.AddInfectedPlayer(GameMode.ParticipatingPlayers[index4], true);
 				}
 				bool flag = true;
@@ -92,7 +92,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E05 RID: 15877 RVA: 0x00126050 File Offset: 0x00124250
+		// Token: 0x06003F1D RID: 16157 RVA: 0x0005921B File Offset: 0x0005741B
 		public override void Tick()
 		{
 			base.Tick();
@@ -102,7 +102,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E06 RID: 15878 RVA: 0x00126080 File Offset: 0x00124280
+		// Token: 0x06003F1E RID: 16158 RVA: 0x001678D0 File Offset: 0x00165AD0
 		public override void StartPlaying()
 		{
 			base.StartPlaying();
@@ -126,7 +126,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E07 RID: 15879 RVA: 0x00126124 File Offset: 0x00124324
+		// Token: 0x06003F1F RID: 16159 RVA: 0x00167974 File Offset: 0x00165B74
 		public override void ReportTag(NetPlayer taggedPlayer, NetPlayer taggingPlayer)
 		{
 			if (NetworkSystem.Instance.IsMasterClient)
@@ -171,7 +171,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E08 RID: 15880 RVA: 0x00126354 File Offset: 0x00124554
+		// Token: 0x06003F20 RID: 16160 RVA: 0x00167BA4 File Offset: 0x00165DA4
 		public override bool LocalCanTag(NetPlayer myPlayer, NetPlayer otherPlayer)
 		{
 			if (this.isCurrentlyTag)
@@ -181,7 +181,7 @@ namespace GorillaTagScripts
 			return (this.currentInfected.Contains(myPlayer) && !this.currentFrozen.ContainsKey(otherPlayer) && !this.currentInfected.Contains(otherPlayer)) || (!this.currentInfected.Contains(myPlayer) && !this.currentFrozen.ContainsKey(myPlayer) && (this.currentInfected.Contains(otherPlayer) || this.currentFrozen.ContainsKey(otherPlayer)));
 		}
 
-		// Token: 0x06003E09 RID: 15881 RVA: 0x001263E3 File Offset: 0x001245E3
+		// Token: 0x06003F21 RID: 16161 RVA: 0x0005924B File Offset: 0x0005744B
 		public override void NewVRRig(NetPlayer player, int vrrigPhotonViewID, bool didTutorial)
 		{
 			if (NetworkSystem.Instance.IsMasterClient)
@@ -196,7 +196,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E0A RID: 15882 RVA: 0x00126421 File Offset: 0x00124621
+		// Token: 0x06003F22 RID: 16162 RVA: 0x00059289 File Offset: 0x00057489
 		protected override IEnumerator InfectionEnd()
 		{
 			while ((double)Time.time < this.timeInfectedGameEnded + (double)this.tagCoolDown)
@@ -235,7 +235,7 @@ namespace GorillaTagScripts
 			yield break;
 		}
 
-		// Token: 0x06003E0B RID: 15883 RVA: 0x00126430 File Offset: 0x00124630
+		// Token: 0x06003F23 RID: 16163 RVA: 0x00059298 File Offset: 0x00057498
 		public override void Reset()
 		{
 			base.Reset();
@@ -244,7 +244,7 @@ namespace GorillaTagScripts
 			this.lastRoundInfectedPlayers.Clear();
 		}
 
-		// Token: 0x06003E0C RID: 15884 RVA: 0x000B1CE6 File Offset: 0x000AFEE6
+		// Token: 0x06003F24 RID: 16164 RVA: 0x000485DA File Offset: 0x000467DA
 		private new void AddInfectedPlayer(NetPlayer infectedPlayer, bool withTagStop = true)
 		{
 			if (NetworkSystem.Instance.IsMasterClient)
@@ -263,22 +263,22 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E0D RID: 15885 RVA: 0x0012645C File Offset: 0x0012465C
+		// Token: 0x06003F25 RID: 16165 RVA: 0x00167C34 File Offset: 0x00165E34
 		private void TryAddNewInfectedPlayer()
 		{
 			List<NetPlayer> participatingPlayers = GameMode.ParticipatingPlayers;
-			int index = Random.Range(0, participatingPlayers.Count);
+			int index = UnityEngine.Random.Range(0, participatingPlayers.Count);
 			int num = 0;
 			while (num < 10 && this.lastRoundInfectedPlayers.Contains(participatingPlayers[index]))
 			{
-				index = Random.Range(0, participatingPlayers.Count);
+				index = UnityEngine.Random.Range(0, participatingPlayers.Count);
 				num++;
 			}
 			this.AddInfectedPlayer(participatingPlayers[index], true);
 			this.currentRoundInfectedPlayers.Add(participatingPlayers[index]);
 		}
 
-		// Token: 0x06003E0E RID: 15886 RVA: 0x001264CA File Offset: 0x001246CA
+		// Token: 0x06003F26 RID: 16166 RVA: 0x000592C1 File Offset: 0x000574C1
 		public override int MyMatIndex(NetPlayer forPlayer)
 		{
 			if (this.isCurrentlyTag && forPlayer == this.currentIt)
@@ -292,7 +292,7 @@ namespace GorillaTagScripts
 			return 0;
 		}
 
-		// Token: 0x06003E0F RID: 15887 RVA: 0x001264F4 File Offset: 0x001246F4
+		// Token: 0x06003F27 RID: 16167 RVA: 0x00167CA4 File Offset: 0x00165EA4
 		public override void UpdatePlayerAppearance(VRRig rig)
 		{
 			NetPlayer netPlayer = rig.isOfflineVRRig ? NetworkSystem.Instance.LocalPlayer : rig.creator;
@@ -301,7 +301,7 @@ namespace GorillaTagScripts
 			rig.ChangeMaterialLocal(materialIndex);
 		}
 
-		// Token: 0x06003E10 RID: 15888 RVA: 0x00126538 File Offset: 0x00124738
+		// Token: 0x06003F28 RID: 16168 RVA: 0x000592E9 File Offset: 0x000574E9
 		private void UnfreezePlayer(NetPlayer taggedPlayer)
 		{
 			if (NetworkSystem.Instance.IsMasterClient && this.currentFrozen.ContainsKey(taggedPlayer))
@@ -312,7 +312,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E11 RID: 15889 RVA: 0x00126578 File Offset: 0x00124778
+		// Token: 0x06003F29 RID: 16169 RVA: 0x00167CE8 File Offset: 0x00165EE8
 		private void AddFrozenPlayer(NetPlayer taggedPlayer)
 		{
 			if (NetworkSystem.Instance.IsMasterClient && !this.currentFrozen.ContainsKey(taggedPlayer))
@@ -324,13 +324,13 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E12 RID: 15890 RVA: 0x001265D2 File Offset: 0x001247D2
+		// Token: 0x06003F2A RID: 16170 RVA: 0x00059326 File Offset: 0x00057526
 		public bool IsFrozen(NetPlayer player)
 		{
 			return this.currentFrozen.ContainsKey(player);
 		}
 
-		// Token: 0x06003E13 RID: 15891 RVA: 0x001265E0 File Offset: 0x001247E0
+		// Token: 0x06003F2B RID: 16171 RVA: 0x00167D44 File Offset: 0x00165F44
 		public override float[] LocalPlayerSpeed()
 		{
 			this.fastJumpLimit = this.fastJumpLimitCached;
@@ -370,14 +370,14 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E14 RID: 15892 RVA: 0x00126764 File Offset: 0x00124964
+		// Token: 0x06003F2C RID: 16172 RVA: 0x00167EC8 File Offset: 0x001660C8
 		public int GetFrozenHandTapAudioIndex()
 		{
-			int num = Random.Range(0, this.frozenHandTapIndices.Length);
+			int num = UnityEngine.Random.Range(0, this.frozenHandTapIndices.Length);
 			return this.frozenHandTapIndices[num];
 		}
 
-		// Token: 0x06003E15 RID: 15893 RVA: 0x00126788 File Offset: 0x00124988
+		// Token: 0x06003F2D RID: 16173 RVA: 0x00167EEC File Offset: 0x001660EC
 		public override void OnPlayerLeftRoom(NetPlayer otherPlayer)
 		{
 			base.OnPlayerLeftRoom(otherPlayer);
@@ -385,7 +385,7 @@ namespace GorillaTagScripts
 			{
 				if (this.isCurrentlyTag && ((otherPlayer != null && otherPlayer == this.currentIt) || this.currentIt.ActorNumber == otherPlayer.ActorNumber) && GameMode.ParticipatingPlayers.Count > 0)
 				{
-					int index = Random.Range(0, GameMode.ParticipatingPlayers.Count);
+					int index = UnityEngine.Random.Range(0, GameMode.ParticipatingPlayers.Count);
 					base.ChangeCurrentIt(GameMode.ParticipatingPlayers[index], false);
 				}
 				if (this.currentInfected.Contains(otherPlayer))
@@ -400,7 +400,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E16 RID: 15894 RVA: 0x00126840 File Offset: 0x00124A40
+		// Token: 0x06003F2E RID: 16174 RVA: 0x00167FA4 File Offset: 0x001661A4
 		public override void StopPlaying()
 		{
 			base.StopPlaying();
@@ -410,7 +410,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E17 RID: 15895 RVA: 0x0012689C File Offset: 0x00124A9C
+		// Token: 0x06003F2F RID: 16175 RVA: 0x00168000 File Offset: 0x00166200
 		public override void OnSerializeRead(PhotonStream stream, PhotonMessageInfo info)
 		{
 			base.OnSerializeRead(stream, info);
@@ -425,7 +425,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E18 RID: 15896 RVA: 0x00126908 File Offset: 0x00124B08
+		// Token: 0x06003F30 RID: 16176 RVA: 0x0016806C File Offset: 0x0016626C
 		public override void OnSerializeWrite(PhotonStream stream, PhotonMessageInfo info)
 		{
 			base.OnSerializeWrite(stream, info);
@@ -437,58 +437,58 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x04003F50 RID: 16208
+		// Token: 0x0400402A RID: 16426
 		public Dictionary<NetPlayer, float> currentFrozen = new Dictionary<NetPlayer, float>(10);
 
-		// Token: 0x04003F51 RID: 16209
+		// Token: 0x0400402B RID: 16427
 		public float freezeDuration;
 
-		// Token: 0x04003F52 RID: 16210
+		// Token: 0x0400402C RID: 16428
 		public int infectMorePlayerLowerThreshold = 6;
 
-		// Token: 0x04003F53 RID: 16211
+		// Token: 0x0400402D RID: 16429
 		public int infectMorePlayerUpperThreshold = 10;
 
-		// Token: 0x04003F54 RID: 16212
+		// Token: 0x0400402E RID: 16430
 		[Space]
 		[Header("Frozen player jump settings")]
 		public float frozenPlayerFastJumpLimit;
 
-		// Token: 0x04003F55 RID: 16213
+		// Token: 0x0400402F RID: 16431
 		public float frozenPlayerFastJumpMultiplier;
 
-		// Token: 0x04003F56 RID: 16214
+		// Token: 0x04004030 RID: 16432
 		public float frozenPlayerSlowJumpLimit;
 
-		// Token: 0x04003F57 RID: 16215
+		// Token: 0x04004031 RID: 16433
 		public float frozenPlayerSlowJumpMultiplier;
 
-		// Token: 0x04003F58 RID: 16216
+		// Token: 0x04004032 RID: 16434
 		[GorillaSoundLookup]
 		public int[] frozenHandTapIndices;
 
-		// Token: 0x04003F59 RID: 16217
+		// Token: 0x04004033 RID: 16435
 		private float fastJumpLimitCached;
 
-		// Token: 0x04003F5A RID: 16218
+		// Token: 0x04004034 RID: 16436
 		private float fastJumpMultiplierCached;
 
-		// Token: 0x04003F5B RID: 16219
+		// Token: 0x04004035 RID: 16437
 		private float slowJumpLimitCached;
 
-		// Token: 0x04003F5C RID: 16220
+		// Token: 0x04004036 RID: 16438
 		private float slowJumpMultiplierCached;
 
-		// Token: 0x04003F5D RID: 16221
+		// Token: 0x04004037 RID: 16439
 		private VRRig localVRRig;
 
-		// Token: 0x04003F5E RID: 16222
+		// Token: 0x04004038 RID: 16440
 		private int hapticStrength;
 
-		// Token: 0x04003F5F RID: 16223
+		// Token: 0x04004039 RID: 16441
 		private List<NetPlayer> currentRoundInfectedPlayers = new List<NetPlayer>(10);
 
-		// Token: 0x04003F60 RID: 16224
+		// Token: 0x0400403A RID: 16442
 		private List<NetPlayer> lastRoundInfectedPlayers = new List<NetPlayer>(10);
 	}
 }

@@ -3,57 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000195 RID: 405
+// Token: 0x020001A0 RID: 416
 public class DevConsoleHand : DevConsoleInstance
 {
-	// Token: 0x04000C13 RID: 3091
+	// Token: 0x04000C59 RID: 3161
 	public List<GameObject> otherButtonsList;
 
-	// Token: 0x04000C14 RID: 3092
+	// Token: 0x04000C5A RID: 3162
 	public bool isStillEnabled = true;
 
-	// Token: 0x04000C15 RID: 3093
+	// Token: 0x04000C5B RID: 3163
 	public bool isLeftHand;
 
-	// Token: 0x04000C16 RID: 3094
+	// Token: 0x04000C5C RID: 3164
 	public ConsoleMode mode;
 
-	// Token: 0x04000C17 RID: 3095
+	// Token: 0x04000C5D RID: 3165
 	public double debugScale;
 
-	// Token: 0x04000C18 RID: 3096
+	// Token: 0x04000C5E RID: 3166
 	public double inspectorScale;
 
-	// Token: 0x04000C19 RID: 3097
+	// Token: 0x04000C5F RID: 3167
 	public double componentInspectorScale;
 
-	// Token: 0x04000C1A RID: 3098
+	// Token: 0x04000C60 RID: 3168
 	public List<GameObject> consoleButtons;
 
-	// Token: 0x04000C1B RID: 3099
+	// Token: 0x04000C61 RID: 3169
 	public List<GameObject> inspectorButtons;
 
-	// Token: 0x04000C1C RID: 3100
+	// Token: 0x04000C62 RID: 3170
 	public List<GameObject> componentInspectorButtons;
 
-	// Token: 0x04000C1D RID: 3101
+	// Token: 0x04000C63 RID: 3171
 	public GorillaDevButton consoleButton;
 
-	// Token: 0x04000C1E RID: 3102
+	// Token: 0x04000C64 RID: 3172
 	public GorillaDevButton inspectorButton;
 
-	// Token: 0x04000C1F RID: 3103
+	// Token: 0x04000C65 RID: 3173
 	public GorillaDevButton componentInspectorButton;
 
-	// Token: 0x04000C20 RID: 3104
+	// Token: 0x04000C66 RID: 3174
 	public GorillaDevButton showNonStarItems;
 
-	// Token: 0x04000C21 RID: 3105
+	// Token: 0x04000C67 RID: 3175
 	public GorillaDevButton showPrivateItems;
 
-	// Token: 0x04000C22 RID: 3106
+	// Token: 0x04000C68 RID: 3176
 	public Text componentInspectionText;
 
-	// Token: 0x04000C23 RID: 3107
+	// Token: 0x04000C69 RID: 3177
 	public DevInspector selectedInspector;
 }

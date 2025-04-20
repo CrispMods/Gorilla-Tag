@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-// Token: 0x02000305 RID: 773
+// Token: 0x02000310 RID: 784
 public class LocomotionSampleSupport : MonoBehaviour
 {
-	// Token: 0x17000219 RID: 537
-	// (get) Token: 0x0600125E RID: 4702 RVA: 0x00057DB4 File Offset: 0x00055FB4
+	// Token: 0x17000220 RID: 544
+	// (get) Token: 0x060012AA RID: 4778 RVA: 0x0003CC74 File Offset: 0x0003AE74
 	private LocomotionTeleport TeleportController
 	{
 		get
@@ -17,15 +17,15 @@ public class LocomotionSampleSupport : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600125F RID: 4703 RVA: 0x00057DC4 File Offset: 0x00055FC4
+	// Token: 0x060012AB RID: 4779 RVA: 0x000B2270 File Offset: 0x000B0470
 	public void Start()
 	{
-		this.lc = Object.FindObjectOfType<LocomotionController>();
+		this.lc = UnityEngine.Object.FindObjectOfType<LocomotionController>();
 		DebugUIBuilder.instance.AddButton("Node Teleport w/ A", new DebugUIBuilder.OnClick(this.SetupNodeTeleport), -1, 0, false);
 		DebugUIBuilder.instance.AddButton("Dual-stick teleport", new DebugUIBuilder.OnClick(this.SetupTwoStickTeleport), -1, 0, false);
 		DebugUIBuilder.instance.AddButton("L Strafe R Teleport", new DebugUIBuilder.OnClick(this.SetupLeftStrafeRightTeleport), -1, 0, false);
 		DebugUIBuilder.instance.AddButton("Walk Only", new DebugUIBuilder.OnClick(this.SetupWalkOnly), -1, 0, false);
-		if (Object.FindObjectOfType<EventSystem>() == null)
+		if (UnityEngine.Object.FindObjectOfType<EventSystem>() == null)
 		{
 			Debug.LogError("Need EventSystem");
 		}
@@ -33,7 +33,7 @@ public class LocomotionSampleSupport : MonoBehaviour
 		Physics.IgnoreLayerCollision(0, 4);
 	}
 
-	// Token: 0x06001260 RID: 4704 RVA: 0x00057E7C File Offset: 0x0005607C
+	// Token: 0x060012AC RID: 4780 RVA: 0x000B2328 File Offset: 0x000B0528
 	public void Update()
 	{
 		if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.Active) || OVRInput.GetDown(OVRInput.Button.Start, OVRInput.Controller.Active))
@@ -50,14 +50,14 @@ public class LocomotionSampleSupport : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001261 RID: 4705 RVA: 0x00057ED4 File Offset: 0x000560D4
+	// Token: 0x060012AD RID: 4781 RVA: 0x0003CC81 File Offset: 0x0003AE81
 	[Conditional("DEBUG_LOCOMOTION_PANEL")]
 	private static void Log(string msg)
 	{
 		Debug.Log(msg);
 	}
 
-	// Token: 0x06001262 RID: 4706 RVA: 0x00057EDC File Offset: 0x000560DC
+	// Token: 0x060012AE RID: 4782 RVA: 0x000B2380 File Offset: 0x000B0580
 	public static TActivate ActivateCategory<TCategory, TActivate>(GameObject target) where TCategory : MonoBehaviour where TActivate : MonoBehaviour
 	{
 		TCategory[] components = target.GetComponents<TCategory>();
@@ -101,7 +101,7 @@ public class LocomotionSampleSupport : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x06001263 RID: 4707 RVA: 0x0005801C File Offset: 0x0005621C
+	// Token: 0x060012AF RID: 4783 RVA: 0x0003CC89 File Offset: 0x0003AE89
 	protected void ActivateHandlers<TInput, TAim, TTarget, TOrientation, TTransition>() where TInput : TeleportInputHandler where TAim : TeleportAimHandler where TTarget : TeleportTargetHandler where TOrientation : TeleportOrientationHandler where TTransition : TeleportTransition
 	{
 		this.ActivateInput<TInput>();
@@ -111,43 +111,43 @@ public class LocomotionSampleSupport : MonoBehaviour
 		this.ActivateTransition<TTransition>();
 	}
 
-	// Token: 0x06001264 RID: 4708 RVA: 0x0005803C File Offset: 0x0005623C
+	// Token: 0x060012B0 RID: 4784 RVA: 0x0003CCA9 File Offset: 0x0003AEA9
 	protected void ActivateInput<TActivate>() where TActivate : TeleportInputHandler
 	{
 		this.ActivateCategory<TeleportInputHandler, TActivate>();
 	}
 
-	// Token: 0x06001265 RID: 4709 RVA: 0x00058045 File Offset: 0x00056245
+	// Token: 0x060012B1 RID: 4785 RVA: 0x0003CCB2 File Offset: 0x0003AEB2
 	protected void ActivateAim<TActivate>() where TActivate : TeleportAimHandler
 	{
 		this.ActivateCategory<TeleportAimHandler, TActivate>();
 	}
 
-	// Token: 0x06001266 RID: 4710 RVA: 0x0005804E File Offset: 0x0005624E
+	// Token: 0x060012B2 RID: 4786 RVA: 0x0003CCBB File Offset: 0x0003AEBB
 	protected void ActivateTarget<TActivate>() where TActivate : TeleportTargetHandler
 	{
 		this.ActivateCategory<TeleportTargetHandler, TActivate>();
 	}
 
-	// Token: 0x06001267 RID: 4711 RVA: 0x00058057 File Offset: 0x00056257
+	// Token: 0x060012B3 RID: 4787 RVA: 0x0003CCC4 File Offset: 0x0003AEC4
 	protected void ActivateOrientation<TActivate>() where TActivate : TeleportOrientationHandler
 	{
 		this.ActivateCategory<TeleportOrientationHandler, TActivate>();
 	}
 
-	// Token: 0x06001268 RID: 4712 RVA: 0x00058060 File Offset: 0x00056260
+	// Token: 0x060012B4 RID: 4788 RVA: 0x0003CCCD File Offset: 0x0003AECD
 	protected void ActivateTransition<TActivate>() where TActivate : TeleportTransition
 	{
 		this.ActivateCategory<TeleportTransition, TActivate>();
 	}
 
-	// Token: 0x06001269 RID: 4713 RVA: 0x00058069 File Offset: 0x00056269
+	// Token: 0x060012B5 RID: 4789 RVA: 0x0003CCD6 File Offset: 0x0003AED6
 	protected TActivate ActivateCategory<TCategory, TActivate>() where TCategory : MonoBehaviour where TActivate : MonoBehaviour
 	{
 		return LocomotionSampleSupport.ActivateCategory<TCategory, TActivate>(this.lc.gameObject);
 	}
 
-	// Token: 0x0600126A RID: 4714 RVA: 0x0005807B File Offset: 0x0005627B
+	// Token: 0x060012B6 RID: 4790 RVA: 0x0003CCE8 File Offset: 0x0003AEE8
 	protected void UpdateToggle(Toggle toggle, bool enabled)
 	{
 		if (enabled != toggle.isOn)
@@ -156,7 +156,7 @@ public class LocomotionSampleSupport : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600126B RID: 4715 RVA: 0x0005808D File Offset: 0x0005628D
+	// Token: 0x060012B7 RID: 4791 RVA: 0x0003CCFA File Offset: 0x0003AEFA
 	private void SetupNonCap()
 	{
 		TeleportInputHandlerTouch component = this.TeleportController.GetComponent<TeleportInputHandlerTouch>();
@@ -165,7 +165,7 @@ public class LocomotionSampleSupport : MonoBehaviour
 		component.TeleportButton = OVRInput.RawButton.A;
 	}
 
-	// Token: 0x0600126C RID: 4716 RVA: 0x000580B0 File Offset: 0x000562B0
+	// Token: 0x060012B8 RID: 4792 RVA: 0x000B24C0 File Offset: 0x000B06C0
 	private void SetupTeleportDefaults()
 	{
 		this.TeleportController.enabled = true;
@@ -184,16 +184,16 @@ public class LocomotionSampleSupport : MonoBehaviour
 		this.TeleportController.GetComponent<TeleportOrientationHandlerThumbstick>().Thumbstick = OVRInput.Controller.LTouch;
 	}
 
-	// Token: 0x0600126D RID: 4717 RVA: 0x0005814E File Offset: 0x0005634E
+	// Token: 0x060012B9 RID: 4793 RVA: 0x0003CD1B File Offset: 0x0003AF1B
 	protected GameObject AddInstance(GameObject template, string label)
 	{
-		GameObject gameObject = Object.Instantiate<GameObject>(template);
+		GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(template);
 		gameObject.transform.SetParent(base.transform, false);
 		gameObject.name = label;
 		return gameObject;
 	}
 
-	// Token: 0x0600126E RID: 4718 RVA: 0x00058170 File Offset: 0x00056370
+	// Token: 0x060012BA RID: 4794 RVA: 0x000B2560 File Offset: 0x000B0760
 	private void SetupNodeTeleport()
 	{
 		this.SetupTeleportDefaults();
@@ -204,7 +204,7 @@ public class LocomotionSampleSupport : MonoBehaviour
 		this.TeleportController.GetComponent<TeleportInputHandlerTouch>().AimingController = OVRInput.Controller.RTouch;
 	}
 
-	// Token: 0x0600126F RID: 4719 RVA: 0x000581C0 File Offset: 0x000563C0
+	// Token: 0x060012BB RID: 4795 RVA: 0x000B25B0 File Offset: 0x000B07B0
 	private void SetupTwoStickTeleport()
 	{
 		this.SetupTeleportDefaults();
@@ -218,7 +218,7 @@ public class LocomotionSampleSupport : MonoBehaviour
 		this.TeleportController.GetComponent<TeleportOrientationHandlerThumbstick>().Thumbstick = OVRInput.Controller.Touch;
 	}
 
-	// Token: 0x06001270 RID: 4720 RVA: 0x00058231 File Offset: 0x00056431
+	// Token: 0x060012BC RID: 4796 RVA: 0x0003CD3C File Offset: 0x0003AF3C
 	private void SetupWalkOnly()
 	{
 		this.SetupTeleportDefaults();
@@ -227,7 +227,7 @@ public class LocomotionSampleSupport : MonoBehaviour
 		this.lc.PlayerController.RotationEitherThumbstick = false;
 	}
 
-	// Token: 0x06001271 RID: 4721 RVA: 0x00058268 File Offset: 0x00056468
+	// Token: 0x060012BD RID: 4797 RVA: 0x000B2624 File Offset: 0x000B0824
 	private void SetupLeftStrafeRightTeleport()
 	{
 		this.SetupTeleportDefaults();
@@ -240,9 +240,9 @@ public class LocomotionSampleSupport : MonoBehaviour
 		this.TeleportController.GetComponent<TeleportOrientationHandlerThumbstick>().Thumbstick = OVRInput.Controller.RTouch;
 	}
 
-	// Token: 0x04001454 RID: 5204
+	// Token: 0x0400149C RID: 5276
 	private LocomotionController lc;
 
-	// Token: 0x04001455 RID: 5205
+	// Token: 0x0400149D RID: 5277
 	private bool inMenu;
 }

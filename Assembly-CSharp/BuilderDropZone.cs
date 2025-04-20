@@ -4,16 +4,16 @@ using GorillaTagScripts;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020004BE RID: 1214
+// Token: 0x020004CB RID: 1227
 public class BuilderDropZone : MonoBehaviour
 {
-	// Token: 0x06001D7B RID: 7547 RVA: 0x0008FFCA File Offset: 0x0008E1CA
+	// Token: 0x06001DD4 RID: 7636 RVA: 0x00044623 File Offset: 0x00042823
 	private void Awake()
 	{
 		this.repelDirectionWorld = base.transform.TransformDirection(this.repelDirectionLocal.normalized);
 	}
 
-	// Token: 0x06001D7C RID: 7548 RVA: 0x0008FFE8 File Offset: 0x0008E1E8
+	// Token: 0x06001DD5 RID: 7637 RVA: 0x000E2F1C File Offset: 0x000E111C
 	private void OnTriggerEnter(Collider other)
 	{
 		if (!this.onEnter)
@@ -51,13 +51,13 @@ public class BuilderDropZone : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D7D RID: 7549 RVA: 0x000900AC File Offset: 0x0008E2AC
+	// Token: 0x06001DD6 RID: 7638 RVA: 0x00044641 File Offset: 0x00042841
 	public Vector3 GetRepelDirectionWorld()
 	{
 		return this.repelDirectionWorld;
 	}
 
-	// Token: 0x06001D7E RID: 7550 RVA: 0x000900B4 File Offset: 0x0008E2B4
+	// Token: 0x06001DD7 RID: 7639 RVA: 0x000E2FE0 File Offset: 0x000E11E0
 	public void PlayEffect()
 	{
 		if (this.vfxRoot != null && !this.playingEffect)
@@ -72,7 +72,7 @@ public class BuilderDropZone : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D7F RID: 7551 RVA: 0x0009012C File Offset: 0x0008E32C
+	// Token: 0x06001DD8 RID: 7640 RVA: 0x00044649 File Offset: 0x00042849
 	private IEnumerator DelayedStopEffect()
 	{
 		yield return new WaitForSeconds(this.effectDuration);
@@ -81,7 +81,7 @@ public class BuilderDropZone : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06001D80 RID: 7552 RVA: 0x0009013C File Offset: 0x0008E33C
+	// Token: 0x06001DD9 RID: 7641 RVA: 0x000E3058 File Offset: 0x000E1258
 	private void OnTriggerExit(Collider other)
 	{
 		if (this.onEnter)
@@ -119,54 +119,54 @@ public class BuilderDropZone : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002094 RID: 8340
+	// Token: 0x040020E7 RID: 8423
 	[SerializeField]
 	private BuilderDropZone.DropType dropType;
 
-	// Token: 0x04002095 RID: 8341
+	// Token: 0x040020E8 RID: 8424
 	[SerializeField]
 	private bool onEnter = true;
 
-	// Token: 0x04002096 RID: 8342
+	// Token: 0x040020E9 RID: 8425
 	[SerializeField]
 	private GameObject vfxRoot;
 
-	// Token: 0x04002097 RID: 8343
+	// Token: 0x040020EA RID: 8426
 	[SerializeField]
 	private GameObject sfxPrefab;
 
-	// Token: 0x04002098 RID: 8344
+	// Token: 0x040020EB RID: 8427
 	public float effectDuration = 1f;
 
-	// Token: 0x04002099 RID: 8345
+	// Token: 0x040020EC RID: 8428
 	private bool playingEffect;
 
-	// Token: 0x0400209A RID: 8346
+	// Token: 0x040020ED RID: 8429
 	public bool overrideDirection;
 
-	// Token: 0x0400209B RID: 8347
+	// Token: 0x040020EE RID: 8430
 	[SerializeField]
 	private Vector3 repelDirectionLocal = Vector3.up;
 
-	// Token: 0x0400209C RID: 8348
+	// Token: 0x040020EF RID: 8431
 	private Vector3 repelDirectionWorld = Vector3.up;
 
-	// Token: 0x0400209D RID: 8349
+	// Token: 0x040020F0 RID: 8432
 	[HideInInspector]
 	public int dropZoneID = -1;
 
-	// Token: 0x020004BF RID: 1215
+	// Token: 0x020004CC RID: 1228
 	public enum DropType
 	{
-		// Token: 0x0400209F RID: 8351
+		// Token: 0x040020F2 RID: 8434
 		Invalid = -1,
-		// Token: 0x040020A0 RID: 8352
+		// Token: 0x040020F3 RID: 8435
 		Repel,
-		// Token: 0x040020A1 RID: 8353
+		// Token: 0x040020F4 RID: 8436
 		ReturnToShelf,
-		// Token: 0x040020A2 RID: 8354
+		// Token: 0x040020F5 RID: 8437
 		BreakApart,
-		// Token: 0x040020A3 RID: 8355
+		// Token: 0x040020F6 RID: 8438
 		Recycle
 	}
 }

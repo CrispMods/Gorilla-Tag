@@ -5,16 +5,16 @@ using UnityEngine.XR;
 
 namespace GorillaLocomotion.Climbing
 {
-	// Token: 0x02000B66 RID: 2918
+	// Token: 0x02000B93 RID: 2963
 	public class GorillaHandClimber : MonoBehaviour
 	{
-		// Token: 0x060048FD RID: 18685 RVA: 0x00162BFC File Offset: 0x00160DFC
+		// Token: 0x06004A48 RID: 19016 RVA: 0x00060522 File Offset: 0x0005E722
 		private void Awake()
 		{
 			this.col = base.GetComponent<Collider>();
 		}
 
-		// Token: 0x060048FE RID: 18686 RVA: 0x00162C0C File Offset: 0x00160E0C
+		// Token: 0x06004A49 RID: 19017 RVA: 0x0019DFA0 File Offset: 0x0019C1A0
 		private void Update()
 		{
 			for (int i = this.potentialClimbables.Count - 1; i >= 0; i--)
@@ -61,13 +61,13 @@ namespace GorillaLocomotion.Climbing
 			}
 		}
 
-		// Token: 0x060048FF RID: 18687 RVA: 0x00162D7C File Offset: 0x00160F7C
+		// Token: 0x06004A4A RID: 19018 RVA: 0x00060530 File Offset: 0x0005E730
 		public void SetCanRelease(bool canRelease)
 		{
 			this.canRelease = canRelease;
 		}
 
-		// Token: 0x06004900 RID: 18688 RVA: 0x00162D88 File Offset: 0x00160F88
+		// Token: 0x06004A4B RID: 19019 RVA: 0x0019E110 File Offset: 0x0019C310
 		public GorillaClimbable GetClosestClimbable()
 		{
 			if (this.potentialClimbables.Count == 0)
@@ -107,7 +107,7 @@ namespace GorillaLocomotion.Climbing
 			return result;
 		}
 
-		// Token: 0x06004901 RID: 18689 RVA: 0x00162E88 File Offset: 0x00161088
+		// Token: 0x06004A4C RID: 19020 RVA: 0x0019E210 File Offset: 0x0019C410
 		private void OnTriggerEnter(Collider other)
 		{
 			GorillaClimbable item;
@@ -123,7 +123,7 @@ namespace GorillaLocomotion.Climbing
 			}
 		}
 
-		// Token: 0x06004902 RID: 18690 RVA: 0x00162EC4 File Offset: 0x001610C4
+		// Token: 0x06004A4D RID: 19021 RVA: 0x0019E24C File Offset: 0x0019C44C
 		private void OnTriggerExit(Collider other)
 		{
 			GorillaClimbable item;
@@ -139,56 +139,56 @@ namespace GorillaLocomotion.Climbing
 			}
 		}
 
-		// Token: 0x06004903 RID: 18691 RVA: 0x00162F00 File Offset: 0x00161100
+		// Token: 0x06004A4E RID: 19022 RVA: 0x00060539 File Offset: 0x0005E739
 		public void ForceStopClimbing(bool startingNewClimb = false, bool doDontReclimb = false)
 		{
 			this.player.EndClimbing(this, startingNewClimb, doDontReclimb);
 		}
 
-		// Token: 0x04004BAD RID: 19373
+		// Token: 0x04004CA3 RID: 19619
 		[SerializeField]
 		private GTPlayer player;
 
-		// Token: 0x04004BAE RID: 19374
+		// Token: 0x04004CA4 RID: 19620
 		[SerializeField]
 		private EquipmentInteractor equipmentInteractor;
 
-		// Token: 0x04004BAF RID: 19375
+		// Token: 0x04004CA5 RID: 19621
 		private List<GorillaClimbable> potentialClimbables = new List<GorillaClimbable>();
 
-		// Token: 0x04004BB0 RID: 19376
+		// Token: 0x04004CA6 RID: 19622
 		[Header("Non-hand input should have the component disabled")]
 		public XRNode xrNode = XRNode.LeftHand;
 
-		// Token: 0x04004BB1 RID: 19377
+		// Token: 0x04004CA7 RID: 19623
 		[NonSerialized]
 		public bool isClimbing;
 
-		// Token: 0x04004BB2 RID: 19378
+		// Token: 0x04004CA8 RID: 19624
 		[NonSerialized]
 		public bool queuedToBecomeValidToGrabAgain;
 
-		// Token: 0x04004BB3 RID: 19379
+		// Token: 0x04004CA9 RID: 19625
 		[NonSerialized]
 		public GorillaClimbable dontReclimbLast;
 
-		// Token: 0x04004BB4 RID: 19380
+		// Token: 0x04004CAA RID: 19626
 		[NonSerialized]
 		public Vector3 lastAutoReleasePos = Vector3.zero;
 
-		// Token: 0x04004BB5 RID: 19381
+		// Token: 0x04004CAB RID: 19627
 		public Transform handRoot;
 
-		// Token: 0x04004BB6 RID: 19382
+		// Token: 0x04004CAC RID: 19628
 		private const float DIST_FOR_CLEAR_RELEASE = 0.35f;
 
-		// Token: 0x04004BB7 RID: 19383
+		// Token: 0x04004CAD RID: 19629
 		private const float DIST_FOR_GRAB = 0.15f;
 
-		// Token: 0x04004BB8 RID: 19384
+		// Token: 0x04004CAE RID: 19630
 		private Collider col;
 
-		// Token: 0x04004BB9 RID: 19385
+		// Token: 0x04004CAF RID: 19631
 		private bool canRelease = true;
 	}
 }

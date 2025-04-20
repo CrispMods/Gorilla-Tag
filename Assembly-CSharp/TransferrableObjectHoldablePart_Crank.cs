@@ -4,16 +4,16 @@ using GorillaLocomotion;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x0200039A RID: 922
+// Token: 0x020003A5 RID: 933
 public class TransferrableObjectHoldablePart_Crank : TransferrableObjectHoldablePart
 {
-	// Token: 0x06001580 RID: 5504 RVA: 0x00068B03 File Offset: 0x00066D03
+	// Token: 0x060015CC RID: 5580 RVA: 0x0003EB10 File Offset: 0x0003CD10
 	public void SetOnCrankedCallback(Action<float> onCrankedCallback)
 	{
 		this.onCrankedCallback = onCrankedCallback;
 	}
 
-	// Token: 0x06001581 RID: 5505 RVA: 0x00068B0C File Offset: 0x00066D0C
+	// Token: 0x060015CD RID: 5581 RVA: 0x000C109C File Offset: 0x000BF29C
 	private void Awake()
 	{
 		if (this.rotatingPart == null)
@@ -35,7 +35,7 @@ public class TransferrableObjectHoldablePart_Crank : TransferrableObjectHoldable
 		}
 	}
 
-	// Token: 0x06001582 RID: 5506 RVA: 0x00068BF4 File Offset: 0x00066DF4
+	// Token: 0x060015CE RID: 5582 RVA: 0x000C1184 File Offset: 0x000BF384
 	protected override void UpdateHeld(VRRig rig, bool isHeldLeftHand)
 	{
 		Vector3 a;
@@ -77,7 +77,7 @@ public class TransferrableObjectHoldablePart_Crank : TransferrableObjectHoldable
 		this.rotatingPart.localRotation = this.baseLocalAngle * Quaternion.AngleAxis(num - this.crankAngleOffset, Vector3.forward);
 	}
 
-	// Token: 0x06001583 RID: 5507 RVA: 0x00068E10 File Offset: 0x00067010
+	// Token: 0x060015CF RID: 5583 RVA: 0x000C13A0 File Offset: 0x000BF5A0
 	private void OnDrawGizmosSelected()
 	{
 		Transform transform = (this.rotatingPart != null) ? this.rotatingPart : base.transform;
@@ -85,57 +85,57 @@ public class TransferrableObjectHoldablePart_Crank : TransferrableObjectHoldable
 		Gizmos.DrawLine(transform.TransformPoint(new Vector3(this.crankHandleX, this.crankHandleY, this.crankHandleMinZ)), transform.TransformPoint(new Vector3(this.crankHandleX, this.crankHandleY, this.crankHandleMaxZ)));
 	}
 
-	// Token: 0x040017CB RID: 6091
+	// Token: 0x04001812 RID: 6162
 	[SerializeField]
 	private float crankHandleX;
 
-	// Token: 0x040017CC RID: 6092
+	// Token: 0x04001813 RID: 6163
 	[SerializeField]
 	private float crankHandleY;
 
-	// Token: 0x040017CD RID: 6093
+	// Token: 0x04001814 RID: 6164
 	[SerializeField]
 	private float crankHandleMinZ;
 
-	// Token: 0x040017CE RID: 6094
+	// Token: 0x04001815 RID: 6165
 	[SerializeField]
 	private float crankHandleMaxZ;
 
-	// Token: 0x040017CF RID: 6095
+	// Token: 0x04001816 RID: 6166
 	[SerializeField]
 	private float maxHandSnapDistance;
 
-	// Token: 0x040017D0 RID: 6096
+	// Token: 0x04001817 RID: 6167
 	private float crankAngleOffset;
 
-	// Token: 0x040017D1 RID: 6097
+	// Token: 0x04001818 RID: 6168
 	private float crankRadius;
 
-	// Token: 0x040017D2 RID: 6098
+	// Token: 0x04001819 RID: 6169
 	[SerializeField]
 	private Transform rotatingPart;
 
-	// Token: 0x040017D3 RID: 6099
+	// Token: 0x0400181A RID: 6170
 	private float lastAngle;
 
-	// Token: 0x040017D4 RID: 6100
+	// Token: 0x0400181B RID: 6171
 	private Quaternion baseLocalAngle;
 
-	// Token: 0x040017D5 RID: 6101
+	// Token: 0x0400181C RID: 6172
 	private Quaternion baseLocalAngleInverse;
 
-	// Token: 0x040017D6 RID: 6102
+	// Token: 0x0400181D RID: 6173
 	private Action<float> onCrankedCallback;
 
-	// Token: 0x040017D7 RID: 6103
+	// Token: 0x0400181E RID: 6174
 	[SerializeField]
 	private TransferrableObjectHoldablePart_Crank.CrankThreshold[] thresholds;
 
-	// Token: 0x0200039B RID: 923
+	// Token: 0x020003A6 RID: 934
 	[Serializable]
 	private struct CrankThreshold
 	{
-		// Token: 0x06001585 RID: 5509 RVA: 0x00068E8B File Offset: 0x0006708B
+		// Token: 0x060015D1 RID: 5585 RVA: 0x0003EB21 File Offset: 0x0003CD21
 		public void OnCranked(float deltaAngle)
 		{
 			this.currentAngle += deltaAngle;
@@ -146,13 +146,13 @@ public class TransferrableObjectHoldablePart_Crank : TransferrableObjectHoldable
 			}
 		}
 
-		// Token: 0x040017D8 RID: 6104
+		// Token: 0x0400181F RID: 6175
 		public float angleThreshold;
 
-		// Token: 0x040017D9 RID: 6105
+		// Token: 0x04001820 RID: 6176
 		public UnityEvent onReached;
 
-		// Token: 0x040017DA RID: 6106
+		// Token: 0x04001821 RID: 6177
 		[HideInInspector]
 		public float currentAngle;
 	}

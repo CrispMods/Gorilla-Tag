@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x020007A1 RID: 1953
+// Token: 0x020007B9 RID: 1977
 public class GorillaNetworkLeaveTutorialTrigger : GorillaTriggerBox
 {
-	// Token: 0x06003036 RID: 12342 RVA: 0x000E8EAC File Offset: 0x000E70AC
+	// Token: 0x060030E8 RID: 12520 RVA: 0x00050604 File Offset: 0x0004E804
 	public override void OnBoxTriggered()
 	{
 		base.OnBoxTriggered();

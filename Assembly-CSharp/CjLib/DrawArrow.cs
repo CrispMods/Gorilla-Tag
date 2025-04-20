@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace CjLib
 {
-	// Token: 0x02000C90 RID: 3216
+	// Token: 0x02000CC1 RID: 3265
 	[ExecuteInEditMode]
 	public class DrawArrow : DrawBase
 	{
-		// Token: 0x0600510C RID: 20748 RVA: 0x001892B4 File Offset: 0x001874B4
+		// Token: 0x0600526E RID: 21102 RVA: 0x001C0050 File Offset: 0x001BE250
 		private void OnValidate()
 		{
 			this.ConeRadius = Mathf.Max(0f, this.ConeRadius);
@@ -16,25 +16,25 @@ namespace CjLib
 			this.NumSegments = Mathf.Max(4, this.NumSegments);
 		}
 
-		// Token: 0x0600510D RID: 20749 RVA: 0x00189318 File Offset: 0x00187518
+		// Token: 0x0600526F RID: 21103 RVA: 0x001C00B4 File Offset: 0x001BE2B4
 		protected override void Draw(Color color, DebugUtil.Style style, bool depthTest)
 		{
 			DebugUtil.DrawArrow(base.transform.position, base.transform.position + base.transform.TransformVector(this.LocalEndVector), this.ConeRadius, this.ConeHeight, this.NumSegments, this.StemThickness, color, depthTest, style);
 		}
 
-		// Token: 0x04005368 RID: 21352
+		// Token: 0x04005474 RID: 21620
 		public Vector3 LocalEndVector = Vector3.right;
 
-		// Token: 0x04005369 RID: 21353
+		// Token: 0x04005475 RID: 21621
 		public float ConeRadius = 0.05f;
 
-		// Token: 0x0400536A RID: 21354
+		// Token: 0x04005476 RID: 21622
 		public float ConeHeight = 0.1f;
 
-		// Token: 0x0400536B RID: 21355
+		// Token: 0x04005477 RID: 21623
 		public float StemThickness = 0.05f;
 
-		// Token: 0x0400536C RID: 21356
+		// Token: 0x04005478 RID: 21624
 		public int NumSegments = 8;
 	}
 }

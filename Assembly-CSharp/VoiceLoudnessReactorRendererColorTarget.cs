@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020008E4 RID: 2276
+// Token: 0x02000900 RID: 2304
 [Serializable]
 public class VoiceLoudnessReactorRendererColorTarget
 {
-	// Token: 0x060036BF RID: 14015 RVA: 0x00103B0C File Offset: 0x00101D0C
+	// Token: 0x06003787 RID: 14215 RVA: 0x00148D84 File Offset: 0x00146F84
 	public void Inititialize()
 	{
 		if (this._materials == null)
@@ -18,7 +18,7 @@ public class VoiceLoudnessReactorRendererColorTarget
 		}
 	}
 
-	// Token: 0x060036C0 RID: 14016 RVA: 0x00103B70 File Offset: 0x00101D70
+	// Token: 0x06003788 RID: 14216 RVA: 0x00148DE8 File Offset: 0x00146FE8
 	public void UpdateMaterialColor(float level)
 	{
 		Color color = this.gradient.Evaluate(level);
@@ -30,28 +30,28 @@ public class VoiceLoudnessReactorRendererColorTarget
 		this._lastColor = color;
 	}
 
-	// Token: 0x040039A9 RID: 14761
+	// Token: 0x04003A6A RID: 14954
 	[SerializeField]
 	private string colorProperty = "_BaseColor";
 
-	// Token: 0x040039AA RID: 14762
+	// Token: 0x04003A6B RID: 14955
 	public Renderer renderer;
 
-	// Token: 0x040039AB RID: 14763
+	// Token: 0x04003A6C RID: 14956
 	public int materialIndex;
 
-	// Token: 0x040039AC RID: 14764
+	// Token: 0x04003A6D RID: 14957
 	public Gradient gradient;
 
-	// Token: 0x040039AD RID: 14765
+	// Token: 0x04003A6E RID: 14958
 	public bool useSmoothedLoudness;
 
-	// Token: 0x040039AE RID: 14766
+	// Token: 0x04003A6F RID: 14959
 	public float scale = 1f;
 
-	// Token: 0x040039AF RID: 14767
+	// Token: 0x04003A70 RID: 14960
 	private List<Material> _materials;
 
-	// Token: 0x040039B0 RID: 14768
+	// Token: 0x04003A71 RID: 14961
 	private Color _lastColor = Color.white;
 }

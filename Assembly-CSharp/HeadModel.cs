@@ -7,23 +7,23 @@ using GorillaTag.CosmeticSystem;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-// Token: 0x020003D1 RID: 977
+// Token: 0x020003DC RID: 988
 public class HeadModel : MonoBehaviour, IDelayedExecListener
 {
-	// Token: 0x0600177B RID: 6011 RVA: 0x00072610 File Offset: 0x00070810
+	// Token: 0x060017C8 RID: 6088 RVA: 0x00040177 File Offset: 0x0003E377
 	protected void Awake()
 	{
 		this._mannequinRenderer = base.GetComponentInChildren<Renderer>(true);
 	}
 
-	// Token: 0x0600177C RID: 6012 RVA: 0x0007261F File Offset: 0x0007081F
+	// Token: 0x060017C9 RID: 6089 RVA: 0x00040186 File Offset: 0x0003E386
 	public void SetCosmeticActive(string playFabId, bool forRightSide = false)
 	{
 		this._ClearCurrent();
 		this._AddPreviewCosmetic(playFabId, forRightSide);
 	}
 
-	// Token: 0x0600177D RID: 6013 RVA: 0x00072630 File Offset: 0x00070830
+	// Token: 0x060017CA RID: 6090 RVA: 0x000C9538 File Offset: 0x000C7738
 	public void SetCosmeticActiveArray(string[] playFabIds, bool[] forRightSideArray)
 	{
 		this._ClearCurrent();
@@ -33,7 +33,7 @@ public class HeadModel : MonoBehaviour, IDelayedExecListener
 		}
 	}
 
-	// Token: 0x0600177E RID: 6014 RVA: 0x00072660 File Offset: 0x00070860
+	// Token: 0x060017CB RID: 6091 RVA: 0x000C9568 File Offset: 0x000C7768
 	private void _AddPreviewCosmetic(string playFabId, bool forRightSide)
 	{
 		CosmeticInfoV2 cosmeticInfoV;
@@ -71,7 +71,7 @@ public class HeadModel : MonoBehaviour, IDelayedExecListener
 		}
 	}
 
-	// Token: 0x0600177F RID: 6015 RVA: 0x000727E8 File Offset: 0x000709E8
+	// Token: 0x060017CC RID: 6092 RVA: 0x000C96F0 File Offset: 0x000C78F0
 	private void _HandleLoadOpOnCompleted(AsyncOperationHandle<GameObject> loadOp)
 	{
 		int num;
@@ -79,7 +79,7 @@ public class HeadModel : MonoBehaviour, IDelayedExecListener
 		{
 			if (loadOp.Status == AsyncOperationStatus.Succeeded && loadOp.Result)
 			{
-				Object.Destroy(loadOp.Result);
+				UnityEngine.Object.Destroy(loadOp.Result);
 			}
 			return;
 		}
@@ -97,7 +97,7 @@ public class HeadModel : MonoBehaviour, IDelayedExecListener
 		cosmeticPartLoadInfo.xform.gameObject.SetActive(true);
 	}
 
-	// Token: 0x06001780 RID: 6016 RVA: 0x000728E4 File Offset: 0x00070AE4
+	// Token: 0x060017CD RID: 6093 RVA: 0x000C97EC File Offset: 0x000C79EC
 	void IDelayedExecListener.OnDelayedAction(int partLoadInfosIndex)
 	{
 		if (partLoadInfosIndex < 0 || partLoadInfosIndex >= this._currentPartLoadInfos.Count)
@@ -114,19 +114,19 @@ public class HeadModel : MonoBehaviour, IDelayedExecListener
 		this._loadOp_to_partInfoIndex[cosmeticPartLoadInfo.loadOp] = partLoadInfosIndex;
 	}
 
-	// Token: 0x06001781 RID: 6017 RVA: 0x0007296C File Offset: 0x00070B6C
+	// Token: 0x060017CE RID: 6094 RVA: 0x000C9874 File Offset: 0x000C7A74
 	protected void _ClearCurrent()
 	{
 		for (int i = 0; i < this._currentPartLoadInfos.Count; i++)
 		{
-			Object.Destroy(this._currentPartLoadInfos[i].loadOp.Result);
+			UnityEngine.Object.Destroy(this._currentPartLoadInfos[i].loadOp.Result);
 		}
 		this._EnsureCapacityAndClear<AsyncOperationHandle, int>(this._loadOp_to_partInfoIndex);
 		this._EnsureCapacityAndClear<HeadModel._CosmeticPartLoadInfo>(this._currentPartLoadInfos);
 		this._mannequinRenderer.enabled = true;
 	}
 
-	// Token: 0x06001782 RID: 6018 RVA: 0x000729D1 File Offset: 0x00070BD1
+	// Token: 0x060017CF RID: 6095 RVA: 0x00040196 File Offset: 0x0003E396
 	private void _EnsureCapacityAndClear<T>(List<T> list)
 	{
 		if (list.Count > list.Capacity)
@@ -136,43 +136,43 @@ public class HeadModel : MonoBehaviour, IDelayedExecListener
 		list.Clear();
 	}
 
-	// Token: 0x06001783 RID: 6019 RVA: 0x000729F3 File Offset: 0x00070BF3
+	// Token: 0x060017D0 RID: 6096 RVA: 0x000401B8 File Offset: 0x0003E3B8
 	private void _EnsureCapacityAndClear<T1, T2>(Dictionary<T1, T2> dict)
 	{
 		dict.EnsureCapacity(dict.Count);
 		dict.Clear();
 	}
 
-	// Token: 0x04001A30 RID: 6704
+	// Token: 0x04001A79 RID: 6777
 	[DebugReadout]
 	protected readonly List<HeadModel._CosmeticPartLoadInfo> _currentPartLoadInfos = new List<HeadModel._CosmeticPartLoadInfo>(1);
 
-	// Token: 0x04001A31 RID: 6705
+	// Token: 0x04001A7A RID: 6778
 	[DebugReadout]
 	private readonly Dictionary<AsyncOperationHandle, int> _loadOp_to_partInfoIndex = new Dictionary<AsyncOperationHandle, int>(1);
 
-	// Token: 0x04001A32 RID: 6706
+	// Token: 0x04001A7B RID: 6779
 	private Renderer _mannequinRenderer;
 
-	// Token: 0x04001A33 RID: 6707
+	// Token: 0x04001A7C RID: 6780
 	public GameObject[] cosmetics;
 
-	// Token: 0x020003D2 RID: 978
+	// Token: 0x020003DD RID: 989
 	protected struct _CosmeticPartLoadInfo
 	{
-		// Token: 0x04001A34 RID: 6708
+		// Token: 0x04001A7D RID: 6781
 		public string playFabId;
 
-		// Token: 0x04001A35 RID: 6709
+		// Token: 0x04001A7E RID: 6782
 		public GTAssetRef<GameObject> prefabAssetRef;
 
-		// Token: 0x04001A36 RID: 6710
+		// Token: 0x04001A7F RID: 6783
 		public CosmeticAttachInfo attachInfo;
 
-		// Token: 0x04001A37 RID: 6711
+		// Token: 0x04001A80 RID: 6784
 		public AsyncOperationHandle<GameObject> loadOp;
 
-		// Token: 0x04001A38 RID: 6712
+		// Token: 0x04001A81 RID: 6785
 		public Transform xform;
 	}
 }

@@ -3,31 +3,31 @@ using UnityEngine;
 
 namespace BoingKit
 {
-	// Token: 0x02000CF0 RID: 3312
+	// Token: 0x02000D21 RID: 3361
 	public struct Vector4Spring
 	{
-		// Token: 0x06005388 RID: 21384 RVA: 0x0019B3E3 File Offset: 0x001995E3
+		// Token: 0x060054EA RID: 21738 RVA: 0x00067125 File Offset: 0x00065325
 		public void Reset()
 		{
 			this.Value = Vector4.zero;
 			this.Velocity = Vector4.zero;
 		}
 
-		// Token: 0x06005389 RID: 21385 RVA: 0x0019B3FB File Offset: 0x001995FB
+		// Token: 0x060054EB RID: 21739 RVA: 0x0006713D File Offset: 0x0006533D
 		public void Reset(Vector4 initValue)
 		{
 			this.Value = initValue;
 			this.Velocity = Vector4.zero;
 		}
 
-		// Token: 0x0600538A RID: 21386 RVA: 0x0019B40F File Offset: 0x0019960F
+		// Token: 0x060054EC RID: 21740 RVA: 0x00067151 File Offset: 0x00065351
 		public void Reset(Vector4 initValue, Vector4 initVelocity)
 		{
 			this.Value = initValue;
 			this.Velocity = initVelocity;
 		}
 
-		// Token: 0x0600538B RID: 21387 RVA: 0x0019B420 File Offset: 0x00199620
+		// Token: 0x060054ED RID: 21741 RVA: 0x001D069C File Offset: 0x001CE89C
 		public Vector4 TrackDampingRatio(Vector4 targetValue, float angularFrequency, float dampingRatio, float deltaTime)
 		{
 			if (angularFrequency < MathUtil.Epsilon)
@@ -53,7 +53,7 @@ namespace BoingKit
 			return this.Value;
 		}
 
-		// Token: 0x0600538C RID: 21388 RVA: 0x0019B51C File Offset: 0x0019971C
+		// Token: 0x060054EE RID: 21742 RVA: 0x001D0798 File Offset: 0x001CE998
 		public Vector4 TrackHalfLife(Vector4 targetValue, float frequencyHz, float halfLife, float deltaTime)
 		{
 			if (halfLife < MathUtil.Epsilon)
@@ -67,7 +67,7 @@ namespace BoingKit
 			return this.TrackDampingRatio(targetValue, num, dampingRatio, deltaTime);
 		}
 
-		// Token: 0x0600538D RID: 21389 RVA: 0x0019B568 File Offset: 0x00199768
+		// Token: 0x060054EF RID: 21743 RVA: 0x001D07E4 File Offset: 0x001CE9E4
 		public Vector4 TrackExponential(Vector4 targetValue, float halfLife, float deltaTime)
 		{
 			if (halfLife < MathUtil.Epsilon)
@@ -81,13 +81,13 @@ namespace BoingKit
 			return this.TrackDampingRatio(targetValue, angularFrequency, dampingRatio, deltaTime);
 		}
 
-		// Token: 0x040055D5 RID: 21973
+		// Token: 0x040056E1 RID: 22241
 		public static readonly int Stride = 32;
 
-		// Token: 0x040055D6 RID: 21974
+		// Token: 0x040056E2 RID: 22242
 		public Vector4 Value;
 
-		// Token: 0x040055D7 RID: 21975
+		// Token: 0x040056E3 RID: 22243
 		public Vector4 Velocity;
 	}
 }

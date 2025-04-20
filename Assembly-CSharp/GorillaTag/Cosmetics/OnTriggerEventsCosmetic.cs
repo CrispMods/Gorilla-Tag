@@ -5,23 +5,23 @@ using UnityEngine.Events;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C4D RID: 3149
+	// Token: 0x02000C7E RID: 3198
 	public class OnTriggerEventsCosmetic : MonoBehaviour
 	{
-		// Token: 0x06004E8B RID: 20107 RVA: 0x00181D5B File Offset: 0x0017FF5B
+		// Token: 0x06004FEB RID: 20459 RVA: 0x00064328 File Offset: 0x00062528
 		private bool IsMyItem()
 		{
 			return this._rig != null && this._rig.isOfflineVRRig;
 		}
 
-		// Token: 0x06004E8C RID: 20108 RVA: 0x00181D78 File Offset: 0x0017FF78
+		// Token: 0x06004FEC RID: 20460 RVA: 0x00064345 File Offset: 0x00062545
 		private void Awake()
 		{
 			this._rig = base.GetComponentInParent<VRRig>();
 			this.parentTransferable = base.GetComponentInParent<TransferrableObject>();
 		}
 
-		// Token: 0x06004E8D RID: 20109 RVA: 0x00181D94 File Offset: 0x0017FF94
+		// Token: 0x06004FED RID: 20461 RVA: 0x001BA168 File Offset: 0x001B8368
 		private void FireEvents(Collider other, OnTriggerEventsCosmetic.Listener listener)
 		{
 			if (!listener.syncForEveryoneInRoom && !this.IsMyItem())
@@ -49,13 +49,13 @@ namespace GorillaTag.Cosmetics
 			listenerComponent.Invoke(arg, other);
 		}
 
-		// Token: 0x06004E8E RID: 20110 RVA: 0x00181E40 File Offset: 0x00180040
+		// Token: 0x06004FEE RID: 20462 RVA: 0x0006435F File Offset: 0x0006255F
 		private bool IsTagValid(GameObject obj, OnTriggerEventsCosmetic.Listener listener)
 		{
 			return listener.triggerTagsList.Contains(obj.tag);
 		}
 
-		// Token: 0x06004E8F RID: 20111 RVA: 0x00181E54 File Offset: 0x00180054
+		// Token: 0x06004FEF RID: 20463 RVA: 0x001BA214 File Offset: 0x001B8414
 		private void OnTriggerEnter(Collider other)
 		{
 			for (int i = 0; i < this.eventListeners.Length; i++)
@@ -68,7 +68,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E90 RID: 20112 RVA: 0x00181E90 File Offset: 0x00180090
+		// Token: 0x06004FF0 RID: 20464 RVA: 0x001BA250 File Offset: 0x001B8450
 		private void OnTriggerExit(Collider other)
 		{
 			for (int i = 0; i < this.eventListeners.Length; i++)
@@ -81,7 +81,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E91 RID: 20113 RVA: 0x00181ECC File Offset: 0x001800CC
+		// Token: 0x06004FF1 RID: 20465 RVA: 0x001BA28C File Offset: 0x001B848C
 		private void OnTriggerStay(Collider other)
 		{
 			for (int i = 0; i < this.eventListeners.Length; i++)
@@ -94,47 +94,47 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x04005215 RID: 21013
+		// Token: 0x04005321 RID: 21281
 		public OnTriggerEventsCosmetic.Listener[] eventListeners = new OnTriggerEventsCosmetic.Listener[0];
 
-		// Token: 0x04005216 RID: 21014
+		// Token: 0x04005322 RID: 21282
 		private VRRig _rig;
 
-		// Token: 0x04005217 RID: 21015
+		// Token: 0x04005323 RID: 21283
 		private TransferrableObject parentTransferable;
 
-		// Token: 0x02000C4E RID: 3150
+		// Token: 0x02000C7F RID: 3199
 		[Serializable]
 		public class Listener
 		{
-			// Token: 0x04005218 RID: 21016
+			// Token: 0x04005324 RID: 21284
 			public LayerMask triggerLayerMask;
 
-			// Token: 0x04005219 RID: 21017
+			// Token: 0x04005325 RID: 21285
 			public List<string> triggerTagsList = new List<string>();
 
-			// Token: 0x0400521A RID: 21018
+			// Token: 0x04005326 RID: 21286
 			public OnTriggerEventsCosmetic.EventType eventType;
 
-			// Token: 0x0400521B RID: 21019
+			// Token: 0x04005327 RID: 21287
 			public UnityEvent<bool, Collider> listenerComponent;
 
-			// Token: 0x0400521C RID: 21020
+			// Token: 0x04005328 RID: 21288
 			public bool syncForEveryoneInRoom = true;
 
-			// Token: 0x0400521D RID: 21021
+			// Token: 0x04005329 RID: 21289
 			[Tooltip("Fire these events only when the item is held in hand, only works if there is a transferable component somewhere on the object or its parent.")]
 			public bool fireOnlyWhileHeld = true;
 		}
 
-		// Token: 0x02000C4F RID: 3151
+		// Token: 0x02000C80 RID: 3200
 		public enum EventType
 		{
-			// Token: 0x0400521F RID: 21023
+			// Token: 0x0400532B RID: 21291
 			TriggerEnter,
-			// Token: 0x04005220 RID: 21024
+			// Token: 0x0400532C RID: 21292
 			TriggerStay,
-			// Token: 0x04005221 RID: 21025
+			// Token: 0x0400532D RID: 21293
 			TriggerExit
 		}
 	}

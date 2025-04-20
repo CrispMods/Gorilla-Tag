@@ -2,57 +2,57 @@
 using Fusion;
 using Photon.Pun;
 
-// Token: 0x02000281 RID: 641
+// Token: 0x0200028C RID: 652
 [NetworkBehaviourWeaved(0)]
 public class NetworkComponentCallbacks : NetworkComponent
 {
-	// Token: 0x06000F23 RID: 3875 RVA: 0x0004C100 File Offset: 0x0004A300
+	// Token: 0x06000F6E RID: 3950 RVA: 0x0003AD36 File Offset: 0x00038F36
 	public override void ReadDataFusion()
 	{
 		this.ReadData();
 	}
 
-	// Token: 0x06000F24 RID: 3876 RVA: 0x0004C10D File Offset: 0x0004A30D
+	// Token: 0x06000F6F RID: 3951 RVA: 0x0003AD43 File Offset: 0x00038F43
 	public override void WriteDataFusion()
 	{
 		this.WriteData();
 	}
 
-	// Token: 0x06000F25 RID: 3877 RVA: 0x0004C11A File Offset: 0x0004A31A
+	// Token: 0x06000F70 RID: 3952 RVA: 0x0003AD50 File Offset: 0x00038F50
 	protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		this.ReadPunData(stream, info);
 	}
 
-	// Token: 0x06000F26 RID: 3878 RVA: 0x0004C129 File Offset: 0x0004A329
+	// Token: 0x06000F71 RID: 3953 RVA: 0x0003AD5F File Offset: 0x00038F5F
 	protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		this.WritePunData(stream, info);
 	}
 
-	// Token: 0x06000F28 RID: 3880 RVA: 0x00002655 File Offset: 0x00000855
+	// Token: 0x06000F73 RID: 3955 RVA: 0x00030709 File Offset: 0x0002E909
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
 		base.CopyBackingFieldsToState(A_1);
 	}
 
-	// Token: 0x06000F29 RID: 3881 RVA: 0x00002661 File Offset: 0x00000861
+	// Token: 0x06000F74 RID: 3956 RVA: 0x00030715 File Offset: 0x0002E915
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
 		base.CopyStateToBackingFields();
 	}
 
-	// Token: 0x040011BA RID: 4538
+	// Token: 0x04001202 RID: 4610
 	public Action ReadData;
 
-	// Token: 0x040011BB RID: 4539
+	// Token: 0x04001203 RID: 4611
 	public Action WriteData;
 
-	// Token: 0x040011BC RID: 4540
+	// Token: 0x04001204 RID: 4612
 	public Action<PhotonStream, PhotonMessageInfo> ReadPunData;
 
-	// Token: 0x040011BD RID: 4541
+	// Token: 0x04001205 RID: 4613
 	public Action<PhotonStream, PhotonMessageInfo> WritePunData;
 }

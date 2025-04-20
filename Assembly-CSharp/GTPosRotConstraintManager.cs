@@ -4,22 +4,22 @@ using System.Linq;
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x020001B9 RID: 441
+// Token: 0x020001C4 RID: 452
 [DefaultExecutionOrder(1300)]
 public class GTPosRotConstraintManager : MonoBehaviour
 {
-	// Token: 0x06000A65 RID: 2661 RVA: 0x0003889E File Offset: 0x00036A9E
+	// Token: 0x06000AB1 RID: 2737 RVA: 0x000377B0 File Offset: 0x000359B0
 	protected void Awake()
 	{
 		if (GTPosRotConstraintManager.hasInstance && GTPosRotConstraintManager.instance != this)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 			return;
 		}
 		GTPosRotConstraintManager.SetInstance(this);
 	}
 
-	// Token: 0x06000A66 RID: 2662 RVA: 0x000388C1 File Offset: 0x00036AC1
+	// Token: 0x06000AB2 RID: 2738 RVA: 0x000377D3 File Offset: 0x000359D3
 	protected void OnDestroy()
 	{
 		if (GTPosRotConstraintManager.instance == this)
@@ -29,7 +29,7 @@ public class GTPosRotConstraintManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A67 RID: 2663 RVA: 0x000388DC File Offset: 0x00036ADC
+	// Token: 0x06000AB3 RID: 2739 RVA: 0x000982BC File Offset: 0x000964BC
 	public void InvokeConstraint(GorillaPosRotConstraint constraint, int index)
 	{
 		Transform source = constraint.source;
@@ -39,7 +39,7 @@ public class GTPosRotConstraintManager : MonoBehaviour
 		follower.SetPositionAndRotation(position, rotation);
 	}
 
-	// Token: 0x06000A68 RID: 2664 RVA: 0x00038928 File Offset: 0x00036B28
+	// Token: 0x06000AB4 RID: 2740 RVA: 0x00098308 File Offset: 0x00096508
 	protected void LateUpdate()
 	{
 		if (this.constraintsToDisable.Count <= 0)
@@ -64,7 +64,7 @@ public class GTPosRotConstraintManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A69 RID: 2665 RVA: 0x00038A24 File Offset: 0x00036C24
+	// Token: 0x06000AB5 RID: 2741 RVA: 0x000377EE File Offset: 0x000359EE
 	public static void CreateManager()
 	{
 		GTPosRotConstraintManager gtposRotConstraintManager = new GameObject("GTPosRotConstraintManager").AddComponent<GTPosRotConstraintManager>();
@@ -73,7 +73,7 @@ public class GTPosRotConstraintManager : MonoBehaviour
 		GTPosRotConstraintManager.SetInstance(gtposRotConstraintManager);
 	}
 
-	// Token: 0x06000A6A RID: 2666 RVA: 0x00038A50 File Offset: 0x00036C50
+	// Token: 0x06000AB6 RID: 2742 RVA: 0x00098404 File Offset: 0x00096604
 	private static void SetInstance(GTPosRotConstraintManager manager)
 	{
 		GTPosRotConstraintManager.instance = manager;
@@ -86,11 +86,11 @@ public class GTPosRotConstraintManager : MonoBehaviour
 		if (Application.isPlaying)
 		{
 			manager.transform.SetParent(null, false);
-			Object.DontDestroyOnLoad(manager);
+			UnityEngine.Object.DontDestroyOnLoad(manager);
 		}
 	}
 
-	// Token: 0x06000A6B RID: 2667 RVA: 0x00038AD0 File Offset: 0x00036CD0
+	// Token: 0x06000AB7 RID: 2743 RVA: 0x00098484 File Offset: 0x00096684
 	public static void Register(GTPosRotConstraints component)
 	{
 		if (!GTPosRotConstraintManager.hasInstance)
@@ -148,7 +148,7 @@ public class GTPosRotConstraintManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A6C RID: 2668 RVA: 0x00038D70 File Offset: 0x00036F70
+	// Token: 0x06000AB8 RID: 2744 RVA: 0x00098724 File Offset: 0x00096924
 	public static void Unregister(GTPosRotConstraints component)
 	{
 		int instanceID = component.GetInstanceID();
@@ -177,53 +177,53 @@ public class GTPosRotConstraintManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000CB3 RID: 3251
+	// Token: 0x04000CF9 RID: 3321
 	public static GTPosRotConstraintManager instance;
 
-	// Token: 0x04000CB4 RID: 3252
+	// Token: 0x04000CFA RID: 3322
 	public static bool hasInstance = false;
 
-	// Token: 0x04000CB5 RID: 3253
+	// Token: 0x04000CFB RID: 3323
 	private const int _kComponentsCapacity = 256;
 
-	// Token: 0x04000CB6 RID: 3254
+	// Token: 0x04000CFC RID: 3324
 	private const int _kConstraintsCapacity = 1024;
 
-	// Token: 0x04000CB7 RID: 3255
+	// Token: 0x04000CFD RID: 3325
 	[NonSerialized]
 	public Dictionary<Transform, Transform> originalParent;
 
-	// Token: 0x04000CB8 RID: 3256
+	// Token: 0x04000CFE RID: 3326
 	[NonSerialized]
 	public Dictionary<Transform, Vector3> originalOffset;
 
-	// Token: 0x04000CB9 RID: 3257
+	// Token: 0x04000CFF RID: 3327
 	[NonSerialized]
 	public Dictionary<Transform, Vector3> originalScale;
 
-	// Token: 0x04000CBA RID: 3258
+	// Token: 0x04000D00 RID: 3328
 	[NonSerialized]
 	public Dictionary<Transform, Quaternion> originalRot;
 
-	// Token: 0x04000CBB RID: 3259
+	// Token: 0x04000D01 RID: 3329
 	[NonSerialized]
 	public List<GTPosRotConstraints> constraintsToDisable;
 
-	// Token: 0x04000CBC RID: 3260
+	// Token: 0x04000D02 RID: 3330
 	[OnEnterPlay_Clear]
 	private static readonly List<GorillaPosRotConstraint> constraints = new List<GorillaPosRotConstraint>(1024);
 
-	// Token: 0x04000CBD RID: 3261
+	// Token: 0x04000D03 RID: 3331
 	[OnEnterPlay_Clear]
 	public static readonly Dictionary<int, GTPosRotConstraintManager.Range> componentRanges = new Dictionary<int, GTPosRotConstraintManager.Range>(256);
 
-	// Token: 0x020001BA RID: 442
+	// Token: 0x020001C5 RID: 453
 	public struct Range
 	{
-		// Token: 0x04000CBE RID: 3262
+		// Token: 0x04000D04 RID: 3332
 		public int start;
 
-		// Token: 0x04000CBF RID: 3263
+		// Token: 0x04000D05 RID: 3333
 		public int end;
 	}
 }

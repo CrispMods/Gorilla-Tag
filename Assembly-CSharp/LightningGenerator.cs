@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008B7 RID: 2231
+// Token: 0x020008D3 RID: 2259
 public class LightningGenerator : MonoBehaviour
 {
-	// Token: 0x060035F5 RID: 13813 RVA: 0x000FF79C File Offset: 0x000FD99C
+	// Token: 0x060036BD RID: 14013 RVA: 0x00145318 File Offset: 0x00143518
 	private void Awake()
 	{
 		this.strikes = new LightningStrike[this.maxConcurrentStrikes];
@@ -16,42 +16,42 @@ public class LightningGenerator : MonoBehaviour
 			}
 			else
 			{
-				this.strikes[i] = Object.Instantiate<LightningStrike>(this.prototype, base.transform);
+				this.strikes[i] = UnityEngine.Object.Instantiate<LightningStrike>(this.prototype, base.transform);
 			}
 			this.strikes[i].gameObject.SetActive(false);
 		}
 	}
 
-	// Token: 0x060035F6 RID: 13814 RVA: 0x000FF80C File Offset: 0x000FDA0C
+	// Token: 0x060036BE RID: 14014 RVA: 0x000541A2 File Offset: 0x000523A2
 	private void OnEnable()
 	{
 		LightningDispatcher.RequestLightningStrike += this.LightningDispatcher_RequestLightningStrike;
 	}
 
-	// Token: 0x060035F7 RID: 13815 RVA: 0x000FF81F File Offset: 0x000FDA1F
+	// Token: 0x060036BF RID: 14015 RVA: 0x000541B5 File Offset: 0x000523B5
 	private void OnDisable()
 	{
 		LightningDispatcher.RequestLightningStrike -= this.LightningDispatcher_RequestLightningStrike;
 	}
 
-	// Token: 0x060035F8 RID: 13816 RVA: 0x000FF832 File Offset: 0x000FDA32
+	// Token: 0x060036C0 RID: 14016 RVA: 0x000541C8 File Offset: 0x000523C8
 	private LightningStrike LightningDispatcher_RequestLightningStrike(Vector3 t1, Vector3 t2)
 	{
 		this.index = (this.index + 1) % this.strikes.Length;
 		return this.strikes[this.index];
 	}
 
-	// Token: 0x0400381D RID: 14365
+	// Token: 0x040038DE RID: 14558
 	[SerializeField]
 	private uint maxConcurrentStrikes = 10U;
 
-	// Token: 0x0400381E RID: 14366
+	// Token: 0x040038DF RID: 14559
 	[SerializeField]
 	private LightningStrike prototype;
 
-	// Token: 0x0400381F RID: 14367
+	// Token: 0x040038E0 RID: 14560
 	private LightningStrike[] strikes;
 
-	// Token: 0x04003820 RID: 14368
+	// Token: 0x040038E1 RID: 14561
 	private int index;
 }

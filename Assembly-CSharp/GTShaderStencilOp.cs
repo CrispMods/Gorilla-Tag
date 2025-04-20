@@ -1,22 +1,22 @@
 ﻿using System;
 
-// Token: 0x020008DC RID: 2268
+// Token: 0x020008F8 RID: 2296
 public enum GTShaderStencilOp
 {
-	// Token: 0x0400392F RID: 14639
+	// Token: 0x040039F0 RID: 14832
 	Keep,
-	// Token: 0x04003930 RID: 14640
+	// Token: 0x040039F1 RID: 14833
 	Zero,
-	// Token: 0x04003931 RID: 14641
+	// Token: 0x040039F2 RID: 14834
 	Replace,
-	// Token: 0x04003932 RID: 14642
+	// Token: 0x040039F3 RID: 14835
 	IncrSat,
-	// Token: 0x04003933 RID: 14643
+	// Token: 0x040039F4 RID: 14836
 	DecrSat,
-	// Token: 0x04003934 RID: 14644
+	// Token: 0x040039F5 RID: 14837
 	Invert,
-	// Token: 0x04003935 RID: 14645
+	// Token: 0x040039F6 RID: 14838
 	IncrWrap,
-	// Token: 0x04003936 RID: 14646
+	// Token: 0x040039F7 RID: 14839
 	DecrWrap
 }

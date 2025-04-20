@@ -2,16 +2,16 @@
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A7B RID: 2683
+	// Token: 0x02000AA8 RID: 2728
 	public enum EUiDisplayType
 	{
-		// Token: 0x040043FE RID: 17406
+		// Token: 0x040044F8 RID: 17656
 		EUDT_WorldGeoQuad,
-		// Token: 0x040043FF RID: 17407
+		// Token: 0x040044F9 RID: 17657
 		EUDT_OverlayQuad,
-		// Token: 0x04004400 RID: 17408
+		// Token: 0x040044FA RID: 17658
 		EUDT_None,
-		// Token: 0x04004401 RID: 17409
+		// Token: 0x040044FB RID: 17659
 		EUDT_MaxDislayTypes
 	}
 }

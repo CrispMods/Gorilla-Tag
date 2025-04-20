@@ -4,10 +4,10 @@ using GorillaNetworking;
 using UnityEngine;
 using UnityEngine.Networking;
 
-// Token: 0x020003CD RID: 973
+// Token: 0x020003D8 RID: 984
 public class CodeRedemption : MonoBehaviour
 {
-	// Token: 0x06001768 RID: 5992 RVA: 0x000722AE File Offset: 0x000704AE
+	// Token: 0x060017B5 RID: 6069 RVA: 0x000400D9 File Offset: 0x0003E2D9
 	public void Awake()
 	{
 		if (CodeRedemption.Instance == null)
@@ -17,11 +17,11 @@ public class CodeRedemption : MonoBehaviour
 		}
 		if (CodeRedemption.Instance != this)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 		}
 	}
 
-	// Token: 0x06001769 RID: 5993 RVA: 0x000722E0 File Offset: 0x000704E0
+	// Token: 0x060017B6 RID: 6070 RVA: 0x000C9274 File Offset: 0x000C7474
 	public void HandleCodeRedemption(string code)
 	{
 		string playFabPlayerId = PlayFabAuthenticator.instance.GetPlayFabPlayerId();
@@ -40,7 +40,7 @@ public class CodeRedemption : MonoBehaviour
 		base.StartCoroutine(CodeRedemption.ProcessWebRequest(PlayFabAuthenticatorSettings.HpPromoApiBaseUrl + "/api/ConsumeCodeItem", text, "application/json", new Action<UnityWebRequest>(this.OnCodeRedemptionResponse)));
 	}
 
-	// Token: 0x0600176A RID: 5994 RVA: 0x00072380 File Offset: 0x00070580
+	// Token: 0x060017B7 RID: 6071 RVA: 0x000C9314 File Offset: 0x000C7514
 	private void OnCodeRedemptionResponse(UnityWebRequest completedRequest)
 	{
 		if (completedRequest.result != UnityWebRequest.Result.Success)
@@ -78,7 +78,7 @@ public class CodeRedemption : MonoBehaviour
 		}, true, true, true));
 	}
 
-	// Token: 0x0600176B RID: 5995 RVA: 0x00072494 File Offset: 0x00070694
+	// Token: 0x060017B8 RID: 6072 RVA: 0x00040108 File Offset: 0x0003E308
 	private IEnumerator CheckProcessExternalUnlock(string[] itemIDs, bool autoEquip, bool isLeftHand, bool destroyOnFinish)
 	{
 		Debug.Log("[CodeRedemption] Checking if we can process external cosmetic unlock...");
@@ -94,7 +94,7 @@ public class CodeRedemption : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600176C RID: 5996 RVA: 0x000724B1 File Offset: 0x000706B1
+	// Token: 0x060017B9 RID: 6073 RVA: 0x00040125 File Offset: 0x0003E325
 	private static IEnumerator ProcessWebRequest(string url, string data, string contentType, Action<UnityWebRequest> callback)
 	{
 		UnityWebRequest request = UnityWebRequest.Post(url, data, contentType);
@@ -103,23 +103,23 @@ public class CodeRedemption : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04001A1F RID: 6687
+	// Token: 0x04001A68 RID: 6760
 	public static volatile CodeRedemption Instance;
 
-	// Token: 0x04001A20 RID: 6688
+	// Token: 0x04001A69 RID: 6761
 	private const string HiddenPathCollabEndpoint = "/api/ConsumeCodeItem";
 
-	// Token: 0x020003CE RID: 974
+	// Token: 0x020003D9 RID: 985
 	[Serializable]
 	public class CodeRedemptionRequest
 	{
-		// Token: 0x04001A21 RID: 6689
+		// Token: 0x04001A6A RID: 6762
 		public string result;
 
-		// Token: 0x04001A22 RID: 6690
+		// Token: 0x04001A6B RID: 6763
 		public string itemID;
 
-		// Token: 0x04001A23 RID: 6691
+		// Token: 0x04001A6C RID: 6764
 		public string playFabItemName;
 	}
 }

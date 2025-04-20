@@ -1,33 +1,33 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000718 RID: 1816
+// Token: 0x0200072D RID: 1837
 [CreateAssetMenu(fileName = "NewLegalAgreementAsset", menuName = "Gorilla Tag/Legal Agreement Asset")]
 public class LegalAgreementTextAsset : ScriptableObject
 {
-	// Token: 0x04003259 RID: 12889
+	// Token: 0x040032F6 RID: 13046
 	public string title;
 
-	// Token: 0x0400325A RID: 12890
+	// Token: 0x040032F7 RID: 13047
 	public string playFabKey;
 
-	// Token: 0x0400325B RID: 12891
+	// Token: 0x040032F8 RID: 13048
 	public string latestVersionKey;
 
-	// Token: 0x0400325C RID: 12892
+	// Token: 0x040032F9 RID: 13049
 	[TextArea(3, 5)]
 	public string errorMessage;
 
-	// Token: 0x0400325D RID: 12893
+	// Token: 0x040032FA RID: 13050
 	public bool optional;
 
-	// Token: 0x0400325E RID: 12894
+	// Token: 0x040032FB RID: 13051
 	public LegalAgreementTextAsset.PostAcceptAction optInAction;
 
-	// Token: 0x02000719 RID: 1817
+	// Token: 0x0200072E RID: 1838
 	public enum PostAcceptAction
 	{
-		// Token: 0x04003260 RID: 12896
+		// Token: 0x040032FD RID: 13053
 		NONE
 	}
 }

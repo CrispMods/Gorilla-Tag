@@ -2,21 +2,21 @@
 
 namespace GorillaTag.GuidedRefs
 {
-	// Token: 0x02000BDE RID: 3038
+	// Token: 0x02000C0C RID: 3084
 	public interface IGuidedRefReceiverMono : IGuidedRefMonoBehaviour, IGuidedRefObject
 	{
-		// Token: 0x06004C8D RID: 19597
+		// Token: 0x06004DD9 RID: 19929
 		bool GuidedRefTryResolveReference(GuidedRefTryResolveInfo target);
 
-		// Token: 0x170007EF RID: 2031
-		// (get) Token: 0x06004C8E RID: 19598
-		// (set) Token: 0x06004C8F RID: 19599
+		// Token: 0x1700080D RID: 2061
+		// (get) Token: 0x06004DDA RID: 19930
+		// (set) Token: 0x06004DDB RID: 19931
 		int GuidedRefsWaitingToResolveCount { get; set; }
 
-		// Token: 0x06004C90 RID: 19600
+		// Token: 0x06004DDC RID: 19932
 		void OnAllGuidedRefsResolved();
 
-		// Token: 0x06004C91 RID: 19601
+		// Token: 0x06004DDD RID: 19933
 		void OnGuidedRefTargetDestroyed(int fieldId);
 	}
 }

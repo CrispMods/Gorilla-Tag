@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B82 RID: 2946
+	// Token: 0x02000BAF RID: 2991
 	[IncludeMyAttributes]
 	public class DebugReadoutAttribute : Attribute
 	{

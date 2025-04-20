@@ -2,22 +2,22 @@
 using UnityEngine;
 using UnityEngine.XR;
 
-// Token: 0x0200048C RID: 1164
+// Token: 0x02000498 RID: 1176
 public class AutomaticAdjustIPD : MonoBehaviour, IGorillaSliceableSimple
 {
-	// Token: 0x06001C19 RID: 7193 RVA: 0x000158F9 File Offset: 0x00013AF9
+	// Token: 0x06001C6D RID: 7277 RVA: 0x00032C89 File Offset: 0x00030E89
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x06001C1A RID: 7194 RVA: 0x00015902 File Offset: 0x00013B02
+	// Token: 0x06001C6E RID: 7278 RVA: 0x00032C92 File Offset: 0x00030E92
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x06001C1B RID: 7195 RVA: 0x00088750 File Offset: 0x00086950
+	// Token: 0x06001C6F RID: 7279 RVA: 0x000DC248 File Offset: 0x000DA448
 	public void SliceUpdate()
 	{
 		if (!this.headset.isValid)
@@ -44,36 +44,36 @@ public class AutomaticAdjustIPD : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06001C1D RID: 7197 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x06001C71 RID: 7281 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x04001F1D RID: 7965
+	// Token: 0x04001F6C RID: 8044
 	public InputDevice headset;
 
-	// Token: 0x04001F1E RID: 7966
+	// Token: 0x04001F6D RID: 8045
 	public float currentIPD;
 
-	// Token: 0x04001F1F RID: 7967
+	// Token: 0x04001F6E RID: 8046
 	public Vector3 leftEyePosition;
 
-	// Token: 0x04001F20 RID: 7968
+	// Token: 0x04001F6F RID: 8047
 	public Vector3 rightEyePosition;
 
-	// Token: 0x04001F21 RID: 7969
+	// Token: 0x04001F70 RID: 8048
 	public bool testOverride;
 
-	// Token: 0x04001F22 RID: 7970
+	// Token: 0x04001F71 RID: 8049
 	public Transform[] adjustXScaleObjects;
 
-	// Token: 0x04001F23 RID: 7971
+	// Token: 0x04001F72 RID: 8050
 	public float sizeAt58mm = 1f;
 
-	// Token: 0x04001F24 RID: 7972
+	// Token: 0x04001F73 RID: 8051
 	public float sizeAt63mm = 1.12f;
 
-	// Token: 0x04001F25 RID: 7973
+	// Token: 0x04001F74 RID: 8052
 	public float lastIPD;
 }

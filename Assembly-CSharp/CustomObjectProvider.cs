@@ -4,11 +4,11 @@ using Fusion;
 using GorillaGameModes;
 using UnityEngine;
 
-// Token: 0x02000255 RID: 597
+// Token: 0x02000260 RID: 608
 public class CustomObjectProvider : NetworkObjectProviderDefault
 {
-	// Token: 0x1700015C RID: 348
-	// (get) Token: 0x06000DCB RID: 3531 RVA: 0x00046208 File Offset: 0x00044408
+	// Token: 0x17000163 RID: 355
+	// (get) Token: 0x06000E16 RID: 3606 RVA: 0x0003A148 File Offset: 0x00038348
 	private static NetworkObjectBaker Baker
 	{
 		get
@@ -22,7 +22,7 @@ public class CustomObjectProvider : NetworkObjectProviderDefault
 		}
 	}
 
-	// Token: 0x06000DCC RID: 3532 RVA: 0x0004621E File Offset: 0x0004441E
+	// Token: 0x06000E17 RID: 3607 RVA: 0x0003A15E File Offset: 0x0003835E
 	public override NetworkObjectAcquireResult AcquirePrefabInstance(NetworkRunner runner, in NetworkPrefabAcquireContext context, out NetworkObject instance)
 	{
 		NetworkObjectAcquireResult networkObjectAcquireResult = base.AcquirePrefabInstance(runner, context, out instance);
@@ -35,7 +35,7 @@ public class CustomObjectProvider : NetworkObjectProviderDefault
 		return networkObjectAcquireResult;
 	}
 
-	// Token: 0x06000DCD RID: 3533 RVA: 0x00046238 File Offset: 0x00044438
+	// Token: 0x06000E18 RID: 3608 RVA: 0x0003A178 File Offset: 0x00038378
 	private void IsGameMode(NetworkObject instance)
 	{
 		if (instance.gameObject.GetComponent<GameModeSerializer>() != null)
@@ -45,7 +45,7 @@ public class CustomObjectProvider : NetworkObjectProviderDefault
 		}
 	}
 
-	// Token: 0x06000DCE RID: 3534 RVA: 0x0004626E File Offset: 0x0004446E
+	// Token: 0x06000E19 RID: 3609 RVA: 0x0003A1AE File Offset: 0x000383AE
 	protected override void DestroySceneObject(NetworkRunner runner, NetworkSceneObjectId sceneObjectId, NetworkObject instance)
 	{
 		if (this.SceneObjects != null && this.SceneObjects.Contains(instance.gameObject))
@@ -55,21 +55,21 @@ public class CustomObjectProvider : NetworkObjectProviderDefault
 		base.DestroySceneObject(runner, sceneObjectId, instance);
 	}
 
-	// Token: 0x06000DCF RID: 3535 RVA: 0x00046295 File Offset: 0x00044495
+	// Token: 0x06000E1A RID: 3610 RVA: 0x0003A1D5 File Offset: 0x000383D5
 	protected override void DestroyPrefabInstance(NetworkRunner runner, NetworkPrefabId prefabId, NetworkObject instance)
 	{
 		base.DestroyPrefabInstance(runner, prefabId, instance);
 	}
 
-	// Token: 0x040010DA RID: 4314
+	// Token: 0x04001120 RID: 4384
 	public const int GameModeFlag = 1;
 
-	// Token: 0x040010DB RID: 4315
+	// Token: 0x04001121 RID: 4385
 	public const int PlayerFlag = 2;
 
-	// Token: 0x040010DC RID: 4316
+	// Token: 0x04001122 RID: 4386
 	private static NetworkObjectBaker baker;
 
-	// Token: 0x040010DD RID: 4317
+	// Token: 0x04001123 RID: 4387
 	internal List<GameObject> SceneObjects;
 }

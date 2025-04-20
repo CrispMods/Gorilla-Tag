@@ -1,36 +1,37 @@
 ﻿using System;
 using GorillaExtensions;
+using GT_CustomMapSupportRuntime;
 using UnityEngine;
 
 namespace GorillaTag.Rendering
 {
-	// Token: 0x02000C0C RID: 3084
+	// Token: 0x02000C3A RID: 3130
 	public class ZoneShaderSettings : MonoBehaviour, ITickSystemPost
 	{
-		// Token: 0x170007FF RID: 2047
-		// (get) Token: 0x06004D1A RID: 19738 RVA: 0x00176DC7 File Offset: 0x00174FC7
-		// (set) Token: 0x06004D1B RID: 19739 RVA: 0x00176DCE File Offset: 0x00174FCE
+		// Token: 0x1700081D RID: 2077
+		// (get) Token: 0x06004E66 RID: 20070 RVA: 0x0006346F File Offset: 0x0006166F
+		// (set) Token: 0x06004E67 RID: 20071 RVA: 0x00063476 File Offset: 0x00061676
 		[DebugReadout]
 		public static ZoneShaderSettings defaultsInstance { get; private set; }
 
-		// Token: 0x17000800 RID: 2048
-		// (get) Token: 0x06004D1C RID: 19740 RVA: 0x00176DD6 File Offset: 0x00174FD6
-		// (set) Token: 0x06004D1D RID: 19741 RVA: 0x00176DDD File Offset: 0x00174FDD
+		// Token: 0x1700081E RID: 2078
+		// (get) Token: 0x06004E68 RID: 20072 RVA: 0x0006347E File Offset: 0x0006167E
+		// (set) Token: 0x06004E69 RID: 20073 RVA: 0x00063485 File Offset: 0x00061685
 		public static bool hasDefaultsInstance { get; private set; }
 
-		// Token: 0x17000801 RID: 2049
-		// (get) Token: 0x06004D1E RID: 19742 RVA: 0x00176DE5 File Offset: 0x00174FE5
-		// (set) Token: 0x06004D1F RID: 19743 RVA: 0x00176DEC File Offset: 0x00174FEC
+		// Token: 0x1700081F RID: 2079
+		// (get) Token: 0x06004E6A RID: 20074 RVA: 0x0006348D File Offset: 0x0006168D
+		// (set) Token: 0x06004E6B RID: 20075 RVA: 0x00063494 File Offset: 0x00061694
 		[DebugReadout]
 		public static ZoneShaderSettings activeInstance { get; private set; }
 
-		// Token: 0x17000802 RID: 2050
-		// (get) Token: 0x06004D20 RID: 19744 RVA: 0x00176DF4 File Offset: 0x00174FF4
-		// (set) Token: 0x06004D21 RID: 19745 RVA: 0x00176DFB File Offset: 0x00174FFB
+		// Token: 0x17000820 RID: 2080
+		// (get) Token: 0x06004E6C RID: 20076 RVA: 0x0006349C File Offset: 0x0006169C
+		// (set) Token: 0x06004E6D RID: 20077 RVA: 0x000634A3 File Offset: 0x000616A3
 		public static bool hasActiveInstance { get; private set; }
 
-		// Token: 0x17000803 RID: 2051
-		// (get) Token: 0x06004D22 RID: 19746 RVA: 0x00176E03 File Offset: 0x00175003
+		// Token: 0x17000821 RID: 2081
+		// (get) Token: 0x06004E6E RID: 20078 RVA: 0x000634AB File Offset: 0x000616AB
 		public bool isActiveInstance
 		{
 			get
@@ -39,8 +40,8 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x17000804 RID: 2052
-		// (get) Token: 0x06004D23 RID: 19747 RVA: 0x00176E10 File Offset: 0x00175010
+		// Token: 0x17000822 RID: 2082
+		// (get) Token: 0x06004E6F RID: 20079 RVA: 0x000634B8 File Offset: 0x000616B8
 		[DebugReadout]
 		private float GroundFogDepthFadeSq
 		{
@@ -50,8 +51,8 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x17000805 RID: 2053
-		// (get) Token: 0x06004D24 RID: 19748 RVA: 0x00176E2F File Offset: 0x0017502F
+		// Token: 0x17000823 RID: 2083
+		// (get) Token: 0x06004E70 RID: 20080 RVA: 0x000634D7 File Offset: 0x000616D7
 		[DebugReadout]
 		private float GroundFogHeightFade
 		{
@@ -61,7 +62,7 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x06004D25 RID: 19749 RVA: 0x00176E48 File Offset: 0x00175048
+		// Token: 0x06004E71 RID: 20081 RVA: 0x001AF034 File Offset: 0x001AD234
 		public void SetZoneLiquidTypeKeywordEnum(ZoneShaderSettings.EZoneLiquidType liquidType)
 		{
 			if (liquidType == ZoneShaderSettings.EZoneLiquidType.None)
@@ -88,7 +89,7 @@ namespace GorillaTag.Rendering
 			Shader.DisableKeyword("_GLOBAL_ZONE_LIQUID_TYPE__LAVA");
 		}
 
-		// Token: 0x06004D26 RID: 19750 RVA: 0x00176EA1 File Offset: 0x001750A1
+		// Token: 0x06004E72 RID: 20082 RVA: 0x000634EF File Offset: 0x000616EF
 		public void SetZoneLiquidShapeKeywordEnum(ZoneShaderSettings.ELiquidShape shape)
 		{
 			if (shape == ZoneShaderSettings.ELiquidShape.Plane)
@@ -107,18 +108,18 @@ namespace GorillaTag.Rendering
 			Shader.DisableKeyword("_ZONE_LIQUID_SHAPE__CYLINDER");
 		}
 
-		// Token: 0x17000806 RID: 2054
-		// (get) Token: 0x06004D27 RID: 19751 RVA: 0x00176ED5 File Offset: 0x001750D5
-		// (set) Token: 0x06004D28 RID: 19752 RVA: 0x00176EDC File Offset: 0x001750DC
+		// Token: 0x17000824 RID: 2084
+		// (get) Token: 0x06004E73 RID: 20083 RVA: 0x00063523 File Offset: 0x00061723
+		// (set) Token: 0x06004E74 RID: 20084 RVA: 0x0006352A File Offset: 0x0006172A
 		public static int shaderParam_ZoneLiquidPosRadiusSq { get; private set; } = Shader.PropertyToID("_ZoneLiquidPosRadiusSq");
 
-		// Token: 0x06004D29 RID: 19753 RVA: 0x00176EE4 File Offset: 0x001750E4
+		// Token: 0x06004E75 RID: 20085 RVA: 0x00063532 File Offset: 0x00061732
 		public static float GetWaterY()
 		{
 			return ZoneShaderSettings.activeInstance.mainWaterSurfacePlane.position.y;
 		}
 
-		// Token: 0x06004D2A RID: 19754 RVA: 0x00176EFC File Offset: 0x001750FC
+		// Token: 0x06004E76 RID: 20086 RVA: 0x001AF090 File Offset: 0x001AD290
 		protected void Awake()
 		{
 			this.hasMainWaterSurfacePlane = (this.mainWaterSurfacePlane != null && (this.mainWaterSurfacePlane_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyNewValue || this.isDefaultValues));
@@ -131,7 +132,7 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x06004D2B RID: 19755 RVA: 0x00176F94 File Offset: 0x00175194
+		// Token: 0x06004E77 RID: 20087 RVA: 0x00063548 File Offset: 0x00061748
 		protected void OnEnable()
 		{
 			if (this.hasDynamicWaterSurfacePlane)
@@ -140,13 +141,13 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x06004D2C RID: 19756 RVA: 0x000C141F File Offset: 0x000BF61F
+		// Token: 0x06004E78 RID: 20088 RVA: 0x0004A56E File Offset: 0x0004876E
 		protected void OnDisable()
 		{
 			TickSystem<object>.RemovePostTickCallback(this);
 		}
 
-		// Token: 0x06004D2D RID: 19757 RVA: 0x00176FA4 File Offset: 0x001751A4
+		// Token: 0x06004E79 RID: 20089 RVA: 0x00063558 File Offset: 0x00061758
 		protected void OnDestroy()
 		{
 			if (ZoneShaderSettings.defaultsInstance == this)
@@ -159,12 +160,12 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x17000807 RID: 2055
-		// (get) Token: 0x06004D2E RID: 19758 RVA: 0x00176FCC File Offset: 0x001751CC
-		// (set) Token: 0x06004D2F RID: 19759 RVA: 0x00176FD4 File Offset: 0x001751D4
+		// Token: 0x17000825 RID: 2085
+		// (get) Token: 0x06004E7A RID: 20090 RVA: 0x00063580 File Offset: 0x00061780
+		// (set) Token: 0x06004E7B RID: 20091 RVA: 0x00063588 File Offset: 0x00061788
 		bool ITickSystemPost.PostTickRunning { get; set; }
 
-		// Token: 0x06004D30 RID: 19760 RVA: 0x00176FDD File Offset: 0x001751DD
+		// Token: 0x06004E7C RID: 20092 RVA: 0x00063591 File Offset: 0x00061791
 		void ITickSystemPost.PostTick()
 		{
 			if (ZoneShaderSettings.activeInstance == this && Application.isPlaying && !ApplicationQuittingState.IsQuitting)
@@ -173,7 +174,7 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x06004D31 RID: 19761 RVA: 0x00177000 File Offset: 0x00175200
+		// Token: 0x06004E7D RID: 20093 RVA: 0x001AF128 File Offset: 0x001AD328
 		private void UpdateMainPlaneShaderProperty()
 		{
 			Transform transform = null;
@@ -243,7 +244,7 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x06004D32 RID: 19762 RVA: 0x001771BC File Offset: 0x001753BC
+		// Token: 0x06004E7E RID: 20094 RVA: 0x001AF2E4 File Offset: 0x001AD4E4
 		private void CheckDefaultsInstance()
 		{
 			if (!this.isDefaultValues)
@@ -261,7 +262,7 @@ namespace GorillaTag.Rendering
 					base.transform.GetPath(),
 					"\""
 				}), this);
-				Object.Destroy(base.gameObject);
+				UnityEngine.Object.Destroy(base.gameObject);
 				return;
 			}
 			ZoneShaderSettings.defaultsInstance = this;
@@ -269,7 +270,7 @@ namespace GorillaTag.Rendering
 			this.BecomeActiveInstance(false);
 		}
 
-		// Token: 0x06004D33 RID: 19763 RVA: 0x0017725D File Offset: 0x0017545D
+		// Token: 0x06004E7F RID: 20095 RVA: 0x000635B4 File Offset: 0x000617B4
 		public void BecomeActiveInstance(bool force = false)
 		{
 			if (ZoneShaderSettings.activeInstance == this && !force)
@@ -281,7 +282,7 @@ namespace GorillaTag.Rendering
 			ZoneShaderSettings.hasActiveInstance = true;
 		}
 
-		// Token: 0x06004D34 RID: 19764 RVA: 0x00177282 File Offset: 0x00175482
+		// Token: 0x06004E80 RID: 20096 RVA: 0x000635D9 File Offset: 0x000617D9
 		public static void ActivateDefaultSettings()
 		{
 			if (ZoneShaderSettings.hasDefaultsInstance)
@@ -290,7 +291,21 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x06004D35 RID: 19765 RVA: 0x00177298 File Offset: 0x00175498
+		// Token: 0x06004E81 RID: 20097 RVA: 0x001AF388 File Offset: 0x001AD588
+		public void SetGroundFogValue(Color fogColor, float fogDepthFade, float fogHeight, float fogHeightFade)
+		{
+			this.groundFogColor_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+			this.groundFogColor = fogColor;
+			this.groundFogDepthFade_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+			this._groundFogDepthFadeSize = fogDepthFade;
+			this.groundFogHeight_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+			this.groundFogHeight = fogHeight;
+			this.groundFogHeightFade_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+			this._groundFogHeightFadeSize = fogHeightFade;
+			this.BecomeActiveInstance(true);
+		}
+
+		// Token: 0x06004E82 RID: 20098 RVA: 0x001AF3D8 File Offset: 0x001AD5D8
 		private void ApplyValues()
 		{
 			if (!ZoneShaderSettings.hasDefaultsInstance || ApplicationQuittingState.IsQuitting)
@@ -332,7 +347,7 @@ namespace GorillaTag.Rendering
 			ZoneShaderSettings.isInitialized = true;
 		}
 
-		// Token: 0x06004D36 RID: 19766 RVA: 0x001774ED File Offset: 0x001756ED
+		// Token: 0x06004E83 RID: 20099 RVA: 0x000635ED File Offset: 0x000617ED
 		private void ApplyColor(int shaderProp, ZoneShaderSettings.EOverrideMode overrideMode, Color value, Color defaultValue)
 		{
 			if (overrideMode == ZoneShaderSettings.EOverrideMode.ApplyNewValue || this.isDefaultValues)
@@ -346,7 +361,7 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x06004D37 RID: 19767 RVA: 0x0017751A File Offset: 0x0017571A
+		// Token: 0x06004E84 RID: 20100 RVA: 0x0006361A File Offset: 0x0006181A
 		private void ApplyFloat(int shaderProp, ZoneShaderSettings.EOverrideMode overrideMode, float value, float defaultValue)
 		{
 			if (overrideMode == ZoneShaderSettings.EOverrideMode.ApplyNewValue || this.isDefaultValues)
@@ -360,7 +375,7 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x06004D38 RID: 19768 RVA: 0x0017753C File Offset: 0x0017573C
+		// Token: 0x06004E85 RID: 20101 RVA: 0x0006363C File Offset: 0x0006183C
 		private void ApplyVector(int shaderProp, ZoneShaderSettings.EOverrideMode overrideMode, Vector2 value, Vector2 defaultValue)
 		{
 			if (overrideMode == ZoneShaderSettings.EOverrideMode.ApplyNewValue || this.isDefaultValues)
@@ -374,7 +389,7 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x06004D39 RID: 19769 RVA: 0x00177568 File Offset: 0x00175768
+		// Token: 0x06004E86 RID: 20102 RVA: 0x00063668 File Offset: 0x00061868
 		private void ApplyVector(int shaderProp, ZoneShaderSettings.EOverrideMode overrideMode, Vector3 value, Vector3 defaultValue)
 		{
 			if (overrideMode == ZoneShaderSettings.EOverrideMode.ApplyNewValue || this.isDefaultValues)
@@ -388,7 +403,7 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x06004D3A RID: 19770 RVA: 0x00177594 File Offset: 0x00175794
+		// Token: 0x06004E87 RID: 20103 RVA: 0x00063694 File Offset: 0x00061894
 		private void ApplyVector(int shaderProp, ZoneShaderSettings.EOverrideMode overrideMode, Vector4 value, Vector4 defaultValue)
 		{
 			if (overrideMode == ZoneShaderSettings.EOverrideMode.ApplyNewValue || this.isDefaultValues)
@@ -402,7 +417,7 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x06004D3B RID: 19771 RVA: 0x001775B6 File Offset: 0x001757B6
+		// Token: 0x06004E88 RID: 20104 RVA: 0x000636B6 File Offset: 0x000618B6
 		private void ApplyTexture(int shaderProp, ZoneShaderSettings.EOverrideMode overrideMode, Texture2D value, Texture2D defaultValue)
 		{
 			if (overrideMode == ZoneShaderSettings.EOverrideMode.ApplyNewValue || this.isDefaultValues)
@@ -416,274 +431,601 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x04004F5B RID: 20315
+		// Token: 0x06004E89 RID: 20105 RVA: 0x001AF630 File Offset: 0x001AD830
+		public void CopySettings(CMSZoneShaderSettings cmsZoneShaderSettings, bool rerunAwake = false, bool becomeActive = false)
+		{
+			this._activateOnAwake = cmsZoneShaderSettings.activateOnLoad;
+			if (cmsZoneShaderSettings.applyGroundFog)
+			{
+				this.groundFogColor_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetGroundFogColorOverrideMode();
+				this.groundFogColor = cmsZoneShaderSettings.groundFogColor;
+				this.groundFogHeight_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetGroundFogHeightOverrideMode();
+				if (cmsZoneShaderSettings.groundFogHeightPlane.IsNotNull())
+				{
+					this.groundFogHeight = cmsZoneShaderSettings.groundFogHeightPlane.position.y;
+				}
+				else
+				{
+					this.groundFogHeight = cmsZoneShaderSettings.groundFogHeight;
+				}
+				this.groundFogHeightFade_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetGroundFogHeightFadeOverrideMode();
+				this._groundFogHeightFadeSize = cmsZoneShaderSettings.groundFogHeightFadeSize;
+				this.groundFogDepthFade_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetGroundFogDepthFadeOverrideMode();
+				this._groundFogDepthFadeSize = cmsZoneShaderSettings.groundFogDepthFadeSize;
+			}
+			else
+			{
+				this.groundFogColor_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.groundFogColor = new Color(0f, 0f, 0f, 0f);
+				this.groundFogHeight = -9999f;
+			}
+			if (cmsZoneShaderSettings.applyLiquidEffects)
+			{
+				this.zoneLiquidType_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetZoneLiquidTypeOverrideMode();
+				this.zoneLiquidType = (ZoneShaderSettings.EZoneLiquidType)cmsZoneShaderSettings.GetZoneLiquidType();
+				this.liquidShape_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetLiquidShapeOverrideMode();
+				this.liquidShape = (ZoneShaderSettings.ELiquidShape)cmsZoneShaderSettings.GetZoneLiquidShape();
+				this.liquidShapeRadius_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetLiquidShapeRadiusOverrideMode();
+				this.liquidShapeRadius = cmsZoneShaderSettings.liquidShapeRadius;
+				this.liquidBottomTransform_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetLiquidBottomTransformOverrideMode();
+				this.liquidBottomTransform = cmsZoneShaderSettings.liquidBottomTransform;
+				this.zoneLiquidUVScale_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetZoneLiquidUVScaleOverrideMode();
+				this.zoneLiquidUVScale = cmsZoneShaderSettings.zoneLiquidUVScale;
+				this.underwaterTintColor_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetUnderwaterTintColorOverrideMode();
+				this.underwaterTintColor = cmsZoneShaderSettings.underwaterTintColor;
+				this.underwaterFogColor_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetUnderwaterFogColorOverrideMode();
+				this.underwaterFogColor = cmsZoneShaderSettings.underwaterFogColor;
+				this.underwaterFogParams_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetUnderwaterFogParamsOverrideMode();
+				this.underwaterFogParams = cmsZoneShaderSettings.underwaterFogParams;
+				this.underwaterCausticsParams_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetUnderwaterCausticsParamsOverrideMode();
+				this.underwaterCausticsParams = cmsZoneShaderSettings.underwaterCausticsParams;
+				this.underwaterCausticsTexture_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetUnderwaterCausticsTextureOverrideMode();
+				this.underwaterCausticsTexture = cmsZoneShaderSettings.underwaterCausticsTexture;
+				this.underwaterEffectsDistanceToSurfaceFade_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetUnderwaterEffectsDistanceToSurfaceFadeOverrideMode();
+				this.underwaterEffectsDistanceToSurfaceFade = cmsZoneShaderSettings.underwaterEffectsDistanceToSurfaceFade;
+				this.liquidResidueTex_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetLiquidResidueTextureOverrideMode();
+				this.liquidResidueTex = cmsZoneShaderSettings.liquidResidueTex;
+				this.mainWaterSurfacePlane_overrideMode = (ZoneShaderSettings.EOverrideMode)cmsZoneShaderSettings.GetMainWaterSurfacePlaneOverrideMode();
+				this.mainWaterSurfacePlane = cmsZoneShaderSettings.mainWaterSurfacePlane;
+			}
+			else
+			{
+				this.underwaterTintColor_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterTintColor = new Color(0f, 0f, 0f, 0f);
+				this.underwaterFogColor_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterFogColor = new Color(0f, 0f, 0f, 0f);
+				this.mainWaterSurfacePlane_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				Transform transform = base.gameObject.transform.Find("DummyWaterPlane");
+				GameObject gameObject;
+				if (transform != null)
+				{
+					gameObject = transform.gameObject;
+				}
+				else
+				{
+					gameObject = new GameObject("DummyWaterPlane");
+					gameObject.transform.SetParent(base.gameObject.transform);
+					gameObject.transform.rotation = Quaternion.identity;
+					gameObject.transform.position = new Vector3(0f, -9999f, 0f);
+				}
+				this.mainWaterSurfacePlane = gameObject.transform;
+			}
+			this.zoneWeatherMapDissolveProgress_overrideMode = ZoneShaderSettings.EOverrideMode.LeaveUnchanged;
+			if (rerunAwake)
+			{
+				this.Awake();
+			}
+			if (becomeActive)
+			{
+				this.BecomeActiveInstance(true);
+			}
+		}
+
+		// Token: 0x06004E8A RID: 20106 RVA: 0x001AF948 File Offset: 0x001ADB48
+		public void CopySettings(ZoneShaderSettings zoneShaderSettings, bool rerunAwake = false, bool becomeActive = false)
+		{
+			this.groundFogColor_overrideMode = zoneShaderSettings.groundFogColor_overrideMode;
+			this.groundFogColor = zoneShaderSettings.groundFogColor;
+			this.groundFogHeight_overrideMode = zoneShaderSettings.groundFogHeight_overrideMode;
+			this.groundFogHeight = zoneShaderSettings.groundFogHeight;
+			this.groundFogHeightFade_overrideMode = zoneShaderSettings.groundFogHeightFade_overrideMode;
+			this._groundFogHeightFadeSize = zoneShaderSettings._groundFogHeightFadeSize;
+			this.groundFogDepthFade_overrideMode = zoneShaderSettings.groundFogDepthFade_overrideMode;
+			this._groundFogDepthFadeSize = zoneShaderSettings._groundFogDepthFadeSize;
+			this.zoneLiquidType_overrideMode = zoneShaderSettings.zoneLiquidType_overrideMode;
+			this.zoneLiquidType = zoneShaderSettings.zoneLiquidType;
+			this.liquidShape_overrideMode = zoneShaderSettings.liquidShape_overrideMode;
+			this.liquidShape = zoneShaderSettings.liquidShape;
+			this.liquidShapeRadius_overrideMode = zoneShaderSettings.liquidShapeRadius_overrideMode;
+			this.liquidShapeRadius = zoneShaderSettings.liquidShapeRadius;
+			this.liquidBottomTransform_overrideMode = zoneShaderSettings.liquidBottomTransform_overrideMode;
+			this.liquidBottomTransform = zoneShaderSettings.liquidBottomTransform;
+			this.zoneLiquidUVScale_overrideMode = zoneShaderSettings.zoneLiquidUVScale_overrideMode;
+			this.zoneLiquidUVScale = zoneShaderSettings.zoneLiquidUVScale;
+			this.underwaterTintColor_overrideMode = zoneShaderSettings.underwaterTintColor_overrideMode;
+			this.underwaterTintColor = zoneShaderSettings.underwaterTintColor;
+			this.underwaterFogColor_overrideMode = zoneShaderSettings.underwaterFogColor_overrideMode;
+			this.underwaterFogColor = zoneShaderSettings.underwaterFogColor;
+			this.underwaterFogParams_overrideMode = zoneShaderSettings.underwaterFogParams_overrideMode;
+			this.underwaterFogParams = zoneShaderSettings.underwaterFogParams;
+			this.underwaterCausticsParams_overrideMode = zoneShaderSettings.underwaterCausticsParams_overrideMode;
+			this.underwaterCausticsParams = zoneShaderSettings.underwaterCausticsParams;
+			this.underwaterCausticsTexture_overrideMode = zoneShaderSettings.underwaterCausticsTexture_overrideMode;
+			this.underwaterCausticsTexture = zoneShaderSettings.underwaterCausticsTexture;
+			this.underwaterEffectsDistanceToSurfaceFade_overrideMode = zoneShaderSettings.underwaterEffectsDistanceToSurfaceFade_overrideMode;
+			this.underwaterEffectsDistanceToSurfaceFade = zoneShaderSettings.underwaterEffectsDistanceToSurfaceFade;
+			this.liquidResidueTex_overrideMode = zoneShaderSettings.liquidResidueTex_overrideMode;
+			this.liquidResidueTex = zoneShaderSettings.liquidResidueTex;
+			this.mainWaterSurfacePlane_overrideMode = zoneShaderSettings.mainWaterSurfacePlane_overrideMode;
+			this.mainWaterSurfacePlane = zoneShaderSettings.mainWaterSurfacePlane;
+			this.zoneWeatherMapDissolveProgress_overrideMode = zoneShaderSettings.zoneWeatherMapDissolveProgress_overrideMode;
+			this.zoneWeatherMapDissolveProgress = zoneShaderSettings.zoneWeatherMapDissolveProgress;
+			if (rerunAwake)
+			{
+				this.Awake();
+			}
+			if (becomeActive)
+			{
+				this.BecomeActiveInstance(true);
+			}
+		}
+
+		// Token: 0x06004E8B RID: 20107 RVA: 0x001AFB18 File Offset: 0x001ADD18
+		public void ReplaceDefaultValues(ZoneShaderSettings defaultZoneShaderSettings, bool rerunAwake = false)
+		{
+			if (this.groundFogColor_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.groundFogColor_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.groundFogColor = defaultZoneShaderSettings.groundFogColor;
+			}
+			if (this.groundFogHeight_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.groundFogHeight_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.groundFogHeight = defaultZoneShaderSettings.groundFogHeight;
+			}
+			if (this.groundFogHeightFade_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.groundFogHeightFade_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this._groundFogHeightFadeSize = defaultZoneShaderSettings._groundFogHeightFadeSize;
+			}
+			if (this.groundFogDepthFade_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.groundFogDepthFade_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this._groundFogDepthFadeSize = defaultZoneShaderSettings._groundFogDepthFadeSize;
+			}
+			if (this.zoneLiquidType_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.zoneLiquidType_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.zoneLiquidType = defaultZoneShaderSettings.zoneLiquidType;
+			}
+			if (this.liquidShape_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.liquidShape_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.liquidShape = defaultZoneShaderSettings.liquidShape;
+			}
+			if (this.liquidShapeRadius_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.liquidShapeRadius_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.liquidShapeRadius = defaultZoneShaderSettings.liquidShapeRadius;
+			}
+			if (this.liquidBottomTransform_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.liquidBottomTransform_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.liquidBottomTransform = defaultZoneShaderSettings.liquidBottomTransform;
+			}
+			if (this.zoneLiquidUVScale_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.zoneLiquidUVScale_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.zoneLiquidUVScale = defaultZoneShaderSettings.zoneLiquidUVScale;
+			}
+			if (this.underwaterTintColor_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.underwaterTintColor_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterTintColor = defaultZoneShaderSettings.underwaterTintColor;
+			}
+			if (this.underwaterFogColor_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.underwaterFogColor_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterFogColor = defaultZoneShaderSettings.underwaterFogColor;
+			}
+			if (this.underwaterFogParams_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.underwaterFogParams_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterFogParams = defaultZoneShaderSettings.underwaterFogParams;
+			}
+			if (this.underwaterCausticsParams_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.underwaterCausticsParams_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterCausticsParams = defaultZoneShaderSettings.underwaterCausticsParams;
+			}
+			if (this.underwaterCausticsTexture_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.underwaterCausticsTexture_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterCausticsTexture = defaultZoneShaderSettings.underwaterCausticsTexture;
+			}
+			if (this.underwaterEffectsDistanceToSurfaceFade_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.underwaterEffectsDistanceToSurfaceFade_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterEffectsDistanceToSurfaceFade = defaultZoneShaderSettings.underwaterEffectsDistanceToSurfaceFade;
+			}
+			if (this.liquidResidueTex_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.liquidResidueTex_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.liquidResidueTex = defaultZoneShaderSettings.liquidResidueTex;
+			}
+			if (this.mainWaterSurfacePlane_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.mainWaterSurfacePlane_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.mainWaterSurfacePlane = defaultZoneShaderSettings.mainWaterSurfacePlane;
+			}
+			if (rerunAwake)
+			{
+				this.Awake();
+			}
+		}
+
+		// Token: 0x06004E8C RID: 20108 RVA: 0x001AFD0C File Offset: 0x001ADF0C
+		public void ReplaceDefaultValues(CMSZoneShaderSettings.CMSZoneShaderProperties defaultZoneShaderProperties, bool rerunAwake = false)
+		{
+			if (this.groundFogColor_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.groundFogColor_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.groundFogColor = defaultZoneShaderProperties.groundFogColor;
+			}
+			if (this.groundFogHeight_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.groundFogHeight_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.groundFogHeight = defaultZoneShaderProperties.groundFogHeight;
+			}
+			if (this.groundFogHeightFade_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.groundFogHeightFade_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this._groundFogHeightFadeSize = defaultZoneShaderProperties.groundFogHeightFadeSize;
+			}
+			if (this.groundFogDepthFade_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.groundFogDepthFade_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this._groundFogDepthFadeSize = defaultZoneShaderProperties.groundFogDepthFadeSize;
+			}
+			if (this.zoneLiquidType_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.zoneLiquidType_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.zoneLiquidType = (ZoneShaderSettings.EZoneLiquidType)defaultZoneShaderProperties.zoneLiquidType;
+			}
+			if (this.liquidShape_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.liquidShape_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.liquidShape = (ZoneShaderSettings.ELiquidShape)defaultZoneShaderProperties.liquidShape;
+			}
+			if (this.liquidShapeRadius_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.liquidShapeRadius_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.liquidShapeRadius = defaultZoneShaderProperties.liquidShapeRadius;
+			}
+			if (this.liquidBottomTransform_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.liquidBottomTransform_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.liquidBottomTransform = defaultZoneShaderProperties.liquidBottomTransform;
+			}
+			if (this.zoneLiquidUVScale_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.zoneLiquidUVScale_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.zoneLiquidUVScale = defaultZoneShaderProperties.zoneLiquidUVScale;
+			}
+			if (this.underwaterTintColor_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.underwaterTintColor_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterTintColor = defaultZoneShaderProperties.underwaterTintColor;
+			}
+			if (this.underwaterFogColor_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.underwaterFogColor_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterFogColor = defaultZoneShaderProperties.underwaterFogColor;
+			}
+			if (this.underwaterFogParams_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.underwaterFogParams_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterFogParams = defaultZoneShaderProperties.underwaterFogParams;
+			}
+			if (this.underwaterCausticsParams_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.underwaterCausticsParams_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterCausticsParams = defaultZoneShaderProperties.underwaterCausticsParams;
+			}
+			if (this.underwaterCausticsTexture_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.underwaterCausticsTexture_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterCausticsTexture = defaultZoneShaderProperties.underwaterCausticsTexture;
+			}
+			if (this.underwaterEffectsDistanceToSurfaceFade_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.underwaterEffectsDistanceToSurfaceFade_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.underwaterEffectsDistanceToSurfaceFade = defaultZoneShaderProperties.underwaterEffectsDistanceToSurfaceFade;
+			}
+			if (this.liquidResidueTex_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.liquidResidueTex_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.liquidResidueTex = defaultZoneShaderProperties.liquidResidueTex;
+			}
+			if (this.mainWaterSurfacePlane_overrideMode == ZoneShaderSettings.EOverrideMode.ApplyDefaultValue)
+			{
+				this.mainWaterSurfacePlane_overrideMode = ZoneShaderSettings.EOverrideMode.ApplyNewValue;
+				this.mainWaterSurfacePlane = defaultZoneShaderProperties.mainWaterSurfacePlane;
+			}
+			if (rerunAwake)
+			{
+				this.Awake();
+			}
+		}
+
+		// Token: 0x04005051 RID: 20561
 		[OnEnterPlay_Set(false)]
 		private static bool isInitialized;
 
-		// Token: 0x04004F60 RID: 20320
+		// Token: 0x04005056 RID: 20566
 		[Tooltip("Set this to true for cases like it is the first ZoneShaderSettings that should be activated when entering a scene.")]
 		[SerializeField]
 		private bool _activateOnAwake;
 
-		// Token: 0x04004F61 RID: 20321
+		// Token: 0x04005057 RID: 20567
 		[Tooltip("These values will be used as the default global values that will be fallen back to when not in a zone and that the other scripts will reference.")]
 		public bool isDefaultValues;
 
-		// Token: 0x04004F62 RID: 20322
+		// Token: 0x04005058 RID: 20568
 		private static readonly int groundFogColor_shaderProp = Shader.PropertyToID("_ZoneGroundFogColor");
 
-		// Token: 0x04004F63 RID: 20323
+		// Token: 0x04005059 RID: 20569
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode groundFogColor_overrideMode;
 
-		// Token: 0x04004F64 RID: 20324
+		// Token: 0x0400505A RID: 20570
 		[SerializeField]
 		private Color groundFogColor = new Color(0.7f, 0.9f, 1f, 1f);
 
-		// Token: 0x04004F65 RID: 20325
+		// Token: 0x0400505B RID: 20571
 		private static readonly int groundFogDepthFadeSq_shaderProp = Shader.PropertyToID("_ZoneGroundFogDepthFadeSq");
 
-		// Token: 0x04004F66 RID: 20326
+		// Token: 0x0400505C RID: 20572
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode groundFogDepthFade_overrideMode;
 
-		// Token: 0x04004F67 RID: 20327
+		// Token: 0x0400505D RID: 20573
 		[SerializeField]
 		private float _groundFogDepthFadeSize = 20f;
 
-		// Token: 0x04004F68 RID: 20328
+		// Token: 0x0400505E RID: 20574
 		private static readonly int groundFogHeight_shaderProp = Shader.PropertyToID("_ZoneGroundFogHeight");
 
-		// Token: 0x04004F69 RID: 20329
+		// Token: 0x0400505F RID: 20575
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode groundFogHeight_overrideMode;
 
-		// Token: 0x04004F6A RID: 20330
+		// Token: 0x04005060 RID: 20576
 		[SerializeField]
 		private float groundFogHeight = 7.45f;
 
-		// Token: 0x04004F6B RID: 20331
+		// Token: 0x04005061 RID: 20577
 		private static readonly int groundFogHeightFade_shaderProp = Shader.PropertyToID("_ZoneGroundFogHeightFade");
 
-		// Token: 0x04004F6C RID: 20332
+		// Token: 0x04005062 RID: 20578
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode groundFogHeightFade_overrideMode;
 
-		// Token: 0x04004F6D RID: 20333
+		// Token: 0x04005063 RID: 20579
 		[SerializeField]
 		private float _groundFogHeightFadeSize = 20f;
 
-		// Token: 0x04004F6E RID: 20334
+		// Token: 0x04005064 RID: 20580
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode zoneLiquidType_overrideMode;
 
-		// Token: 0x04004F6F RID: 20335
+		// Token: 0x04005065 RID: 20581
 		[SerializeField]
 		private ZoneShaderSettings.EZoneLiquidType zoneLiquidType = ZoneShaderSettings.EZoneLiquidType.Water;
 
-		// Token: 0x04004F70 RID: 20336
+		// Token: 0x04005066 RID: 20582
 		[OnEnterPlay_Set(ZoneShaderSettings.EZoneLiquidType.None)]
 		private static ZoneShaderSettings.EZoneLiquidType liquidType_previousValue = ZoneShaderSettings.EZoneLiquidType.None;
 
-		// Token: 0x04004F71 RID: 20337
+		// Token: 0x04005067 RID: 20583
 		[OnEnterPlay_Set(false)]
 		private static bool didEverSetLiquidShape;
 
-		// Token: 0x04004F72 RID: 20338
+		// Token: 0x04005068 RID: 20584
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode liquidShape_overrideMode;
 
-		// Token: 0x04004F73 RID: 20339
+		// Token: 0x04005069 RID: 20585
 		[SerializeField]
 		private ZoneShaderSettings.ELiquidShape liquidShape;
 
-		// Token: 0x04004F74 RID: 20340
+		// Token: 0x0400506A RID: 20586
 		[OnEnterPlay_Set(ZoneShaderSettings.ELiquidShape.Plane)]
 		private static ZoneShaderSettings.ELiquidShape liquidShape_previousValue = ZoneShaderSettings.ELiquidShape.Plane;
 
-		// Token: 0x04004F76 RID: 20342
+		// Token: 0x0400506C RID: 20588
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode liquidShapeRadius_overrideMode;
 
-		// Token: 0x04004F77 RID: 20343
+		// Token: 0x0400506D RID: 20589
 		[Tooltip("Fog params are: start, distance (end - start), unused, unused")]
 		[SerializeField]
 		private float liquidShapeRadius = 1f;
 
-		// Token: 0x04004F78 RID: 20344
+		// Token: 0x0400506E RID: 20590
 		[OnEnterPlay_Set(1f)]
 		private static float liquidShapeRadius_previousValue;
 
-		// Token: 0x04004F79 RID: 20345
+		// Token: 0x0400506F RID: 20591
 		private bool hasLiquidBottomTransform;
 
-		// Token: 0x04004F7A RID: 20346
+		// Token: 0x04005070 RID: 20592
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode liquidBottomTransform_overrideMode;
 
-		// Token: 0x04004F7B RID: 20347
+		// Token: 0x04005071 RID: 20593
 		[Tooltip("TODO: remove this when there is a way to precalculate the nearest triangle plane per vertex so it will work better for rivers.")]
 		[SerializeField]
 		private Transform liquidBottomTransform;
 
-		// Token: 0x04004F7C RID: 20348
+		// Token: 0x04005072 RID: 20594
 		private float liquidBottomPosY_previousValue;
 
-		// Token: 0x04004F7D RID: 20349
+		// Token: 0x04005073 RID: 20595
 		private static readonly int shaderParam_GlobalZoneLiquidUVScale = Shader.PropertyToID("_GlobalZoneLiquidUVScale");
 
-		// Token: 0x04004F7E RID: 20350
+		// Token: 0x04005074 RID: 20596
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode zoneLiquidUVScale_overrideMode;
 
-		// Token: 0x04004F7F RID: 20351
+		// Token: 0x04005075 RID: 20597
 		[Tooltip("Fog params are: start, distance (end - start), unused, unused")]
 		[SerializeField]
 		private float zoneLiquidUVScale = 1f;
 
-		// Token: 0x04004F80 RID: 20352
+		// Token: 0x04005076 RID: 20598
 		private static readonly int shaderParam_GlobalWaterTintColor = Shader.PropertyToID("_GlobalWaterTintColor");
 
-		// Token: 0x04004F81 RID: 20353
+		// Token: 0x04005077 RID: 20599
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode underwaterTintColor_overrideMode;
 
-		// Token: 0x04004F82 RID: 20354
+		// Token: 0x04005078 RID: 20600
 		[SerializeField]
 		private Color underwaterTintColor = new Color(0.3f, 0.65f, 1f, 0.2f);
 
-		// Token: 0x04004F83 RID: 20355
+		// Token: 0x04005079 RID: 20601
 		private static readonly int shaderParam_GlobalUnderwaterFogColor = Shader.PropertyToID("_GlobalUnderwaterFogColor");
 
-		// Token: 0x04004F84 RID: 20356
+		// Token: 0x0400507A RID: 20602
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode underwaterFogColor_overrideMode;
 
-		// Token: 0x04004F85 RID: 20357
+		// Token: 0x0400507B RID: 20603
 		[SerializeField]
 		private Color underwaterFogColor = new Color(0.12f, 0.41f, 0.77f);
 
-		// Token: 0x04004F86 RID: 20358
+		// Token: 0x0400507C RID: 20604
 		private static readonly int shaderParam_GlobalUnderwaterFogParams = Shader.PropertyToID("_GlobalUnderwaterFogParams");
 
-		// Token: 0x04004F87 RID: 20359
+		// Token: 0x0400507D RID: 20605
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode underwaterFogParams_overrideMode;
 
-		// Token: 0x04004F88 RID: 20360
+		// Token: 0x0400507E RID: 20606
 		[Tooltip("Fog params are: start, distance (end - start), unused, unused")]
 		[SerializeField]
 		private Vector4 underwaterFogParams = new Vector4(-5f, 40f, 0f, 0f);
 
-		// Token: 0x04004F89 RID: 20361
+		// Token: 0x0400507F RID: 20607
 		private static readonly int shaderParam_GlobalUnderwaterCausticsParams = Shader.PropertyToID("_GlobalUnderwaterCausticsParams");
 
-		// Token: 0x04004F8A RID: 20362
+		// Token: 0x04005080 RID: 20608
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode underwaterCausticsParams_overrideMode;
 
-		// Token: 0x04004F8B RID: 20363
+		// Token: 0x04005081 RID: 20609
 		[Tooltip("Caustics params are: speed1, scale, alpha, unused")]
 		[SerializeField]
 		private Vector4 underwaterCausticsParams = new Vector4(0.075f, 0.075f, 1f, 0f);
 
-		// Token: 0x04004F8C RID: 20364
+		// Token: 0x04005082 RID: 20610
 		private static readonly int shaderParam_GlobalUnderwaterCausticsTex = Shader.PropertyToID("_GlobalUnderwaterCausticsTex");
 
-		// Token: 0x04004F8D RID: 20365
+		// Token: 0x04005083 RID: 20611
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode underwaterCausticsTexture_overrideMode;
 
-		// Token: 0x04004F8E RID: 20366
+		// Token: 0x04005084 RID: 20612
 		[SerializeField]
 		private Texture2D underwaterCausticsTexture;
 
-		// Token: 0x04004F8F RID: 20367
+		// Token: 0x04005085 RID: 20613
 		private static readonly int shaderParam_GlobalUnderwaterEffectsDistanceToSurfaceFade = Shader.PropertyToID("_GlobalUnderwaterEffectsDistanceToSurfaceFade");
 
-		// Token: 0x04004F90 RID: 20368
+		// Token: 0x04005086 RID: 20614
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode underwaterEffectsDistanceToSurfaceFade_overrideMode;
 
-		// Token: 0x04004F91 RID: 20369
+		// Token: 0x04005087 RID: 20615
 		[SerializeField]
 		private Vector2 underwaterEffectsDistanceToSurfaceFade = new Vector2(0.0001f, 50f);
 
-		// Token: 0x04004F92 RID: 20370
+		// Token: 0x04005088 RID: 20616
 		private const string kEdTooltip_liquidResidueTex = "This is used for things like the charred surface effect when lava burns static geo.";
 
-		// Token: 0x04004F93 RID: 20371
+		// Token: 0x04005089 RID: 20617
 		private static readonly int shaderParam_GlobalLiquidResidueTex = Shader.PropertyToID("_GlobalLiquidResidueTex");
 
-		// Token: 0x04004F94 RID: 20372
+		// Token: 0x0400508A RID: 20618
 		[SerializeField]
 		[Tooltip("This is used for things like the charred surface effect when lava burns static geo.")]
 		private ZoneShaderSettings.EOverrideMode liquidResidueTex_overrideMode;
 
-		// Token: 0x04004F95 RID: 20373
+		// Token: 0x0400508B RID: 20619
 		[SerializeField]
 		[Tooltip("This is used for things like the charred surface effect when lava burns static geo.")]
 		private Texture2D liquidResidueTex;
 
-		// Token: 0x04004F96 RID: 20374
+		// Token: 0x0400508C RID: 20620
 		private readonly int shaderParam_GlobalMainWaterSurfacePlane = Shader.PropertyToID("_GlobalMainWaterSurfacePlane");
 
-		// Token: 0x04004F97 RID: 20375
+		// Token: 0x0400508D RID: 20621
 		private bool hasMainWaterSurfacePlane;
 
-		// Token: 0x04004F98 RID: 20376
+		// Token: 0x0400508E RID: 20622
 		private bool hasDynamicWaterSurfacePlane;
 
-		// Token: 0x04004F99 RID: 20377
+		// Token: 0x0400508F RID: 20623
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode mainWaterSurfacePlane_overrideMode;
 
-		// Token: 0x04004F9A RID: 20378
+		// Token: 0x04005090 RID: 20624
 		[Tooltip("TODO: remove this when there is a way to precalculate the nearest triangle plane per vertex so it will work better for rivers.")]
 		[SerializeField]
 		private Transform mainWaterSurfacePlane;
 
-		// Token: 0x04004F9B RID: 20379
+		// Token: 0x04005091 RID: 20625
 		private static readonly int shaderParam_ZoneWeatherMapDissolveProgress = Shader.PropertyToID("_ZoneWeatherMapDissolveProgress");
 
-		// Token: 0x04004F9C RID: 20380
+		// Token: 0x04005092 RID: 20626
 		[SerializeField]
 		private ZoneShaderSettings.EOverrideMode zoneWeatherMapDissolveProgress_overrideMode;
 
-		// Token: 0x04004F9D RID: 20381
+		// Token: 0x04005093 RID: 20627
 		[Tooltip("Fog params are: start, distance (end - start), unused, unused")]
 		[Range(0f, 1f)]
 		[SerializeField]
 		private float zoneWeatherMapDissolveProgress = 1f;
 
-		// Token: 0x02000C0D RID: 3085
+		// Token: 0x02000C3B RID: 3131
 		public enum EOverrideMode
 		{
-			// Token: 0x04004FA0 RID: 20384
+			// Token: 0x04005096 RID: 20630
 			LeaveUnchanged,
-			// Token: 0x04004FA1 RID: 20385
+			// Token: 0x04005097 RID: 20631
 			ApplyNewValue,
-			// Token: 0x04004FA2 RID: 20386
+			// Token: 0x04005098 RID: 20632
 			ApplyDefaultValue
 		}
 
-		// Token: 0x02000C0E RID: 3086
+		// Token: 0x02000C3C RID: 3132
 		public enum EZoneLiquidType
 		{
-			// Token: 0x04004FA4 RID: 20388
+			// Token: 0x0400509A RID: 20634
 			None,
-			// Token: 0x04004FA5 RID: 20389
+			// Token: 0x0400509B RID: 20635
 			Water,
-			// Token: 0x04004FA6 RID: 20390
+			// Token: 0x0400509C RID: 20636
 			Lava
 		}
 
-		// Token: 0x02000C0F RID: 3087
+		// Token: 0x02000C3D RID: 3133
 		public enum ELiquidShape
 		{
-			// Token: 0x04004FA8 RID: 20392
+			// Token: 0x0400509E RID: 20638
 			Plane,
-			// Token: 0x04004FA9 RID: 20393
+			// Token: 0x0400509F RID: 20639
 			Cylinder
 		}
 	}

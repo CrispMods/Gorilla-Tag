@@ -7,12 +7,12 @@ using UnityEngine;
 
 namespace GameObjectScheduling
 {
-	// Token: 0x02000C7F RID: 3199
+	// Token: 0x02000CB0 RID: 3248
 	public class CountdownText : MonoBehaviour
 	{
-		// Token: 0x17000826 RID: 2086
-		// (get) Token: 0x060050B7 RID: 20663 RVA: 0x001883D1 File Offset: 0x001865D1
-		// (set) Token: 0x060050B8 RID: 20664 RVA: 0x001883DC File Offset: 0x001865DC
+		// Token: 0x17000844 RID: 2116
+		// (get) Token: 0x06005219 RID: 21017 RVA: 0x000653F8 File Offset: 0x000635F8
+		// (set) Token: 0x0600521A RID: 21018 RVA: 0x001BF510 File Offset: 0x001BD710
 		public CountdownTextDate Countdown
 		{
 			get
@@ -34,7 +34,7 @@ namespace GameObjectScheduling
 			}
 		}
 
-		// Token: 0x060050B9 RID: 20665 RVA: 0x00188468 File Offset: 0x00186668
+		// Token: 0x0600521B RID: 21019 RVA: 0x001BF59C File Offset: 0x001BD79C
 		private void Awake()
 		{
 			this.displayText = base.GetComponent<TMP_Text>();
@@ -51,7 +51,7 @@ namespace GameObjectScheduling
 			this.displayText.text = this.CountdownTo.DefaultString;
 		}
 
-		// Token: 0x060050BA RID: 20666 RVA: 0x001884FD File Offset: 0x001866FD
+		// Token: 0x0600521C RID: 21020 RVA: 0x00065400 File Offset: 0x00063600
 		private void OnEnable()
 		{
 			if (this.CountdownTo == null)
@@ -64,14 +64,14 @@ namespace GameObjectScheduling
 			}
 		}
 
-		// Token: 0x060050BB RID: 20667 RVA: 0x00188530 File Offset: 0x00186730
+		// Token: 0x0600521D RID: 21021 RVA: 0x00065433 File Offset: 0x00063633
 		private void OnDisable()
 		{
 			this.StopMonitorTime();
 			this.StopDisplayRefresh();
 		}
 
-		// Token: 0x060050BC RID: 20668 RVA: 0x0018853E File Offset: 0x0018673E
+		// Token: 0x0600521E RID: 21022 RVA: 0x00065441 File Offset: 0x00063641
 		private IEnumerator MonitorTime()
 		{
 			while (GorillaComputer.instance == null || GorillaComputer.instance.startupMillis == 0L)
@@ -91,7 +91,7 @@ namespace GameObjectScheduling
 			yield break;
 		}
 
-		// Token: 0x060050BD RID: 20669 RVA: 0x0018854D File Offset: 0x0018674D
+		// Token: 0x0600521F RID: 21023 RVA: 0x00065450 File Offset: 0x00063650
 		private IEnumerator MonitorExternalTime(DateTime countdown)
 		{
 			while (GorillaComputer.instance == null || GorillaComputer.instance.startupMillis == 0L)
@@ -111,7 +111,7 @@ namespace GameObjectScheduling
 			yield break;
 		}
 
-		// Token: 0x060050BE RID: 20670 RVA: 0x00188563 File Offset: 0x00186763
+		// Token: 0x06005220 RID: 21024 RVA: 0x00065466 File Offset: 0x00063666
 		private void StopMonitorTime()
 		{
 			if (this.monitor != null)
@@ -121,7 +121,7 @@ namespace GameObjectScheduling
 			this.monitor = null;
 		}
 
-		// Token: 0x060050BF RID: 20671 RVA: 0x00188580 File Offset: 0x00186780
+		// Token: 0x06005221 RID: 21025 RVA: 0x00065483 File Offset: 0x00063683
 		public void SetCountdownTime(DateTime countdown)
 		{
 			this.StopMonitorTime();
@@ -129,7 +129,7 @@ namespace GameObjectScheduling
 			this.monitor = base.StartCoroutine(this.MonitorExternalTime(countdown));
 		}
 
-		// Token: 0x060050C0 RID: 20672 RVA: 0x001885A1 File Offset: 0x001867A1
+		// Token: 0x06005222 RID: 21026 RVA: 0x000654A4 File Offset: 0x000636A4
 		public void SetFixedText(string text)
 		{
 			this.StopMonitorTime();
@@ -137,14 +137,14 @@ namespace GameObjectScheduling
 			this.displayText.text = text;
 		}
 
-		// Token: 0x060050C1 RID: 20673 RVA: 0x001885BB File Offset: 0x001867BB
+		// Token: 0x06005223 RID: 21027 RVA: 0x000654BE File Offset: 0x000636BE
 		private void StartDisplayRefresh()
 		{
 			this.StopDisplayRefresh();
 			this.displayRefresh = base.StartCoroutine(this.WaitForDisplayRefresh());
 		}
 
-		// Token: 0x060050C2 RID: 20674 RVA: 0x001885D5 File Offset: 0x001867D5
+		// Token: 0x06005224 RID: 21028 RVA: 0x000654D8 File Offset: 0x000636D8
 		private void StopDisplayRefresh()
 		{
 			if (this.displayRefresh != null)
@@ -154,7 +154,7 @@ namespace GameObjectScheduling
 			this.displayRefresh = null;
 		}
 
-		// Token: 0x060050C3 RID: 20675 RVA: 0x001885F2 File Offset: 0x001867F2
+		// Token: 0x06005225 RID: 21029 RVA: 0x000654F5 File Offset: 0x000636F5
 		private IEnumerator WaitForDisplayRefresh()
 		{
 			for (;;)
@@ -186,20 +186,20 @@ namespace GameObjectScheduling
 			yield break;
 		}
 
-		// Token: 0x060050C4 RID: 20676 RVA: 0x00188604 File Offset: 0x00186804
+		// Token: 0x06005226 RID: 21030 RVA: 0x001BF634 File Offset: 0x001BD834
 		private void RefreshDisplay()
 		{
 			this.countdownTime = this.targetTime.Subtract(GorillaComputer.instance.GetServerTime());
 			this.displayText.text = CountdownText.GetTimeDisplay(this.countdownTime, this.displayTextFormat, this.CountdownTo.DaysThreshold, string.Empty, this.CountdownTo.DefaultString);
 		}
 
-		// Token: 0x060050C5 RID: 20677 RVA: 0x00188665 File Offset: 0x00186865
+		// Token: 0x06005227 RID: 21031 RVA: 0x00065504 File Offset: 0x00063704
 		public static string GetTimeDisplay(TimeSpan ts, string format)
 		{
 			return CountdownText.GetTimeDisplay(ts, format, int.MaxValue, string.Empty, string.Empty);
 		}
 
-		// Token: 0x060050C6 RID: 20678 RVA: 0x00188680 File Offset: 0x00186880
+		// Token: 0x06005228 RID: 21032 RVA: 0x001BF698 File Offset: 0x001BD898
 		public static string GetTimeDisplay(TimeSpan ts, string format, int maxDaysToDisplay, string elapsedString, string overMaxString)
 		{
 			if (ts.TotalSeconds < 0.0)
@@ -228,7 +228,7 @@ namespace GameObjectScheduling
 			return overMaxString;
 		}
 
-		// Token: 0x060050C7 RID: 20679 RVA: 0x0018875C File Offset: 0x0018695C
+		// Token: 0x06005229 RID: 21033 RVA: 0x001BF774 File Offset: 0x001BD974
 		private static string getTimeChunkString(CountdownText.TimeChunk chunk, int n)
 		{
 			switch (chunk)
@@ -262,7 +262,7 @@ namespace GameObjectScheduling
 			}
 		}
 
-		// Token: 0x060050C8 RID: 20680 RVA: 0x001887C8 File Offset: 0x001869C8
+		// Token: 0x0600522A RID: 21034 RVA: 0x001BF7E0 File Offset: 0x001BD9E0
 		private DateTime TryParseDateTime()
 		{
 			DateTime result;
@@ -277,46 +277,46 @@ namespace GameObjectScheduling
 			return result;
 		}
 
-		// Token: 0x04005328 RID: 21288
+		// Token: 0x04005434 RID: 21556
 		[SerializeField]
 		private CountdownTextDate CountdownTo;
 
-		// Token: 0x04005329 RID: 21289
+		// Token: 0x04005435 RID: 21557
 		[SerializeField]
 		private bool updateDisplay;
 
-		// Token: 0x0400532A RID: 21290
+		// Token: 0x04005436 RID: 21558
 		[SerializeField]
 		private bool useExternalTime;
 
-		// Token: 0x0400532B RID: 21291
+		// Token: 0x04005437 RID: 21559
 		private TMP_Text displayText;
 
-		// Token: 0x0400532C RID: 21292
+		// Token: 0x04005438 RID: 21560
 		private string displayTextFormat;
 
-		// Token: 0x0400532D RID: 21293
+		// Token: 0x04005439 RID: 21561
 		private DateTime targetTime;
 
-		// Token: 0x0400532E RID: 21294
+		// Token: 0x0400543A RID: 21562
 		private TimeSpan countdownTime;
 
-		// Token: 0x0400532F RID: 21295
+		// Token: 0x0400543B RID: 21563
 		private Coroutine monitor;
 
-		// Token: 0x04005330 RID: 21296
+		// Token: 0x0400543C RID: 21564
 		private Coroutine displayRefresh;
 
-		// Token: 0x02000C80 RID: 3200
+		// Token: 0x02000CB1 RID: 3249
 		private enum TimeChunk
 		{
-			// Token: 0x04005332 RID: 21298
+			// Token: 0x0400543E RID: 21566
 			DAY,
-			// Token: 0x04005333 RID: 21299
+			// Token: 0x0400543F RID: 21567
 			HOUR,
-			// Token: 0x04005334 RID: 21300
+			// Token: 0x04005440 RID: 21568
 			MINUTE,
-			// Token: 0x04005335 RID: 21301
+			// Token: 0x04005441 RID: 21569
 			SECOND
 		}
 	}

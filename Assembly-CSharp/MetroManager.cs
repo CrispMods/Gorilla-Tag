@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000A1 RID: 161
+// Token: 0x020000AB RID: 171
 public class MetroManager : MonoBehaviour
 {
-	// Token: 0x06000436 RID: 1078 RVA: 0x000195D0 File Offset: 0x000177D0
+	// Token: 0x06000472 RID: 1138 RVA: 0x0007D09C File Offset: 0x0007B29C
 	private void Update()
 	{
 		for (int i = 0; i < this._blimps.Length; i++)
@@ -17,15 +17,15 @@ public class MetroManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040004DF RID: 1247
+	// Token: 0x0400051F RID: 1311
 	[SerializeField]
 	private MetroBlimp[] _blimps = new MetroBlimp[0];
 
-	// Token: 0x040004E0 RID: 1248
+	// Token: 0x04000520 RID: 1312
 	[SerializeField]
 	private MetroSpotlight[] _spotlights = new MetroSpotlight[0];
 
-	// Token: 0x040004E1 RID: 1249
+	// Token: 0x04000521 RID: 1313
 	[Space]
 	[SerializeField]
 	private Transform _blimpsRotationAnchor;

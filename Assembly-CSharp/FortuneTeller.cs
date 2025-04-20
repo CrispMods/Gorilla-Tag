@@ -7,10 +7,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
 
-// Token: 0x02000529 RID: 1321
+// Token: 0x02000536 RID: 1334
 public class FortuneTeller : MonoBehaviourPunCallbacks
 {
-	// Token: 0x06001FF2 RID: 8178 RVA: 0x000A12A8 File Offset: 0x0009F4A8
+	// Token: 0x0600204B RID: 8267 RVA: 0x000F28D0 File Offset: 0x000F0AD0
 	private void Awake()
 	{
 		if (this.changeMaterialsInGreyZone && GreyZoneManager.Instance != null)
@@ -22,7 +22,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06001FF3 RID: 8179 RVA: 0x000A131C File Offset: 0x0009F51C
+	// Token: 0x0600204C RID: 8268 RVA: 0x000F2944 File Offset: 0x000F0B44
 	private void OnDestroy()
 	{
 		if (GreyZoneManager.Instance != null)
@@ -34,7 +34,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06001FF4 RID: 8180 RVA: 0x000A1388 File Offset: 0x0009F588
+	// Token: 0x0600204D RID: 8269 RVA: 0x00045F61 File Offset: 0x00044161
 	public override void OnEnable()
 	{
 		base.OnEnable();
@@ -45,7 +45,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06001FF5 RID: 8181 RVA: 0x000A13C6 File Offset: 0x0009F5C6
+	// Token: 0x0600204E RID: 8270 RVA: 0x00045F9F File Offset: 0x0004419F
 	public override void OnDisable()
 	{
 		base.OnDisable();
@@ -55,7 +55,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06001FF6 RID: 8182 RVA: 0x000A13F2 File Offset: 0x0009F5F2
+	// Token: 0x0600204F RID: 8271 RVA: 0x00045FCB File Offset: 0x000441CB
 	private void GreyZoneActivated()
 	{
 		this.boothRenderer.material = this.boothGreyZoneMaterial;
@@ -63,7 +63,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		this.tellerRenderer.SetMaterials(this.tellerGreyZoneMaterials);
 	}
 
-	// Token: 0x06001FF7 RID: 8183 RVA: 0x000A1427 File Offset: 0x0009F627
+	// Token: 0x06002050 RID: 8272 RVA: 0x00046000 File Offset: 0x00044200
 	private void GreyZoneDeactivated()
 	{
 		this.boothRenderer.material = this.boothDefaultMaterial;
@@ -71,7 +71,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		this.tellerRenderer.SetMaterials(this.tellerDefaultMaterials);
 	}
 
-	// Token: 0x06001FF8 RID: 8184 RVA: 0x000A145C File Offset: 0x0009F65C
+	// Token: 0x06002051 RID: 8273 RVA: 0x000F29B0 File Offset: 0x000F0BB0
 	public override void OnPlayerEnteredRoom(Player newPlayer)
 	{
 		base.OnPlayerEnteredRoom(newPlayer);
@@ -85,7 +85,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06001FF9 RID: 8185 RVA: 0x000A14C0 File Offset: 0x0009F6C0
+	// Token: 0x06002052 RID: 8274 RVA: 0x00046035 File Offset: 0x00044235
 	public override void OnMasterClientSwitched(Player newMasterClient)
 	{
 		if (PhotonNetwork.IsMasterClient)
@@ -94,7 +94,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06001FFA RID: 8186 RVA: 0x000A14C0 File Offset: 0x0009F6C0
+	// Token: 0x06002053 RID: 8275 RVA: 0x00046035 File Offset: 0x00044235
 	public override void OnJoinedRoom()
 	{
 		if (PhotonNetwork.IsMasterClient)
@@ -103,7 +103,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06001FFB RID: 8187 RVA: 0x000A14CF File Offset: 0x0009F6CF
+	// Token: 0x06002054 RID: 8276 RVA: 0x00046044 File Offset: 0x00044244
 	private void HandlePressedButton(GorillaPressableButton button, bool isLeft)
 	{
 		if (base.photonView.IsMine)
@@ -117,7 +117,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06001FFC RID: 8188 RVA: 0x000A1504 File Offset: 0x0009F704
+	// Token: 0x06002055 RID: 8277 RVA: 0x000F2A14 File Offset: 0x000F0C14
 	[PunRPC]
 	private void RequestFortuneRPC(PhotonMessageInfo info)
 	{
@@ -133,7 +133,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06001FFD RID: 8189 RVA: 0x000A1584 File Offset: 0x0009F784
+	// Token: 0x06002056 RID: 8278 RVA: 0x000F2A94 File Offset: 0x000F0C94
 	private void SendNewFortune()
 	{
 		if (this.playable.time > 0.0 && this.playable.time < this.playable.duration)
@@ -152,7 +152,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06001FFE RID: 8190 RVA: 0x000A1624 File Offset: 0x0009F824
+	// Token: 0x06002057 RID: 8279 RVA: 0x000F2B34 File Offset: 0x000F0D34
 	[PunRPC]
 	private void TriggerUpdateFortuneRPC(int fortuneType, int resultIndex, PhotonMessageInfo info)
 	{
@@ -170,7 +170,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		this.UpdateFortune(this.latestFortune, false);
 	}
 
-	// Token: 0x06001FFF RID: 8191 RVA: 0x000A16A0 File Offset: 0x0009F8A0
+	// Token: 0x06002058 RID: 8280 RVA: 0x000F2BB0 File Offset: 0x000F0DB0
 	[PunRPC]
 	private void TriggerNewFortuneRPC(int fortuneType, int resultIndex, PhotonMessageInfo info)
 	{
@@ -189,7 +189,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		this.UpdateFortune(this.latestFortune, true);
 	}
 
-	// Token: 0x06002000 RID: 8192 RVA: 0x000A172C File Offset: 0x0009F92C
+	// Token: 0x06002059 RID: 8281 RVA: 0x00046077 File Offset: 0x00044277
 	private void StartAttractModeMonitor()
 	{
 		if (this.attractModeMonitor == null)
@@ -198,7 +198,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06002001 RID: 8193 RVA: 0x000A1748 File Offset: 0x0009F948
+	// Token: 0x0600205A RID: 8282 RVA: 0x00046093 File Offset: 0x00044293
 	private IEnumerator AttractModeMonitor()
 	{
 		while (PhotonNetwork.IsMasterClient && PhotonNetwork.InRoom)
@@ -213,7 +213,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		yield break;
 	}
 
-	// Token: 0x06002002 RID: 8194 RVA: 0x000A1757 File Offset: 0x0009F957
+	// Token: 0x0600205B RID: 8283 RVA: 0x000460A2 File Offset: 0x000442A2
 	private void SendAttractAnim()
 	{
 		if (PhotonNetwork.InRoom && PhotonNetwork.IsMasterClient)
@@ -222,7 +222,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06002003 RID: 8195 RVA: 0x000A1780 File Offset: 0x0009F980
+	// Token: 0x0600205C RID: 8284 RVA: 0x000F2C3C File Offset: 0x000F0E3C
 	[PunRPC]
 	private void TriggerAttractAnimRPC(PhotonMessageInfo info)
 	{
@@ -236,7 +236,7 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		this.nextAttractAnimTimestamp = Time.time + this.waitDurationBeforeAttractAnim;
 	}
 
-	// Token: 0x06002004 RID: 8196 RVA: 0x000A17F8 File Offset: 0x0009F9F8
+	// Token: 0x0600205D RID: 8285 RVA: 0x000F2CB4 File Offset: 0x000F0EB4
 	private void UpdateFortune(FortuneResults.FortuneResult result, bool newFortune)
 	{
 		if (this.results)
@@ -252,13 +252,13 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06002005 RID: 8197 RVA: 0x000A187B File Offset: 0x0009FA7B
+	// Token: 0x0600205E RID: 8286 RVA: 0x000460C8 File Offset: 0x000442C8
 	public void ApplyFortuneText()
 	{
 		this.text.text = this.results.GetResultText(this.latestFortune).ToUpper();
 	}
 
-	// Token: 0x06002006 RID: 8198 RVA: 0x000A18A0 File Offset: 0x0009FAA0
+	// Token: 0x0600205F RID: 8287 RVA: 0x000F2D38 File Offset: 0x000F0F38
 	private PlayableAsset GetResultFanfare(FortuneResults.FortuneCategoryType fortuneType)
 	{
 		foreach (FortuneTeller.FortuneTellerResultFanfare fortuneTellerResultFanfare in this.resultFanfares)
@@ -271,108 +271,108 @@ public class FortuneTeller : MonoBehaviourPunCallbacks
 		return null;
 	}
 
-	// Token: 0x04002402 RID: 9218
+	// Token: 0x04002455 RID: 9301
 	[SerializeField]
 	private FXType limiterType;
 
-	// Token: 0x04002403 RID: 9219
+	// Token: 0x04002456 RID: 9302
 	[SerializeField]
 	private FortuneTellerButton button;
 
-	// Token: 0x04002404 RID: 9220
+	// Token: 0x04002457 RID: 9303
 	[SerializeField]
 	private TextMeshPro text;
 
-	// Token: 0x04002405 RID: 9221
+	// Token: 0x04002458 RID: 9304
 	[SerializeField]
 	private FortuneResults results;
 
-	// Token: 0x04002406 RID: 9222
+	// Token: 0x04002459 RID: 9305
 	[SerializeField]
 	private PlayableDirector playable;
 
-	// Token: 0x04002407 RID: 9223
+	// Token: 0x0400245A RID: 9306
 	[SerializeField]
 	private Animator animator;
 
-	// Token: 0x04002408 RID: 9224
+	// Token: 0x0400245B RID: 9307
 	[SerializeField]
 	private float waitDurationBeforeAttractAnim;
 
-	// Token: 0x04002409 RID: 9225
+	// Token: 0x0400245C RID: 9308
 	[SerializeField]
 	private FortuneTeller.FortuneTellerResultFanfare[] resultFanfares;
 
-	// Token: 0x0400240A RID: 9226
+	// Token: 0x0400245D RID: 9309
 	[Header("Grey Zone Visuals")]
 	[SerializeField]
 	private bool changeMaterialsInGreyZone;
 
-	// Token: 0x0400240B RID: 9227
+	// Token: 0x0400245E RID: 9310
 	[SerializeField]
 	private MeshRenderer boothRenderer;
 
-	// Token: 0x0400240C RID: 9228
+	// Token: 0x0400245F RID: 9311
 	[SerializeField]
 	private Material boothDefaultMaterial;
 
-	// Token: 0x0400240D RID: 9229
+	// Token: 0x04002460 RID: 9312
 	[SerializeField]
 	private Material boothGreyZoneMaterial;
 
-	// Token: 0x0400240E RID: 9230
+	// Token: 0x04002461 RID: 9313
 	[SerializeField]
 	private MeshRenderer beardRenderer;
 
-	// Token: 0x0400240F RID: 9231
+	// Token: 0x04002462 RID: 9314
 	[SerializeField]
 	private Material beardDefaultMaterial;
 
-	// Token: 0x04002410 RID: 9232
+	// Token: 0x04002463 RID: 9315
 	[SerializeField]
 	private Material beardGreyZoneMaterial;
 
-	// Token: 0x04002411 RID: 9233
+	// Token: 0x04002464 RID: 9316
 	[SerializeField]
 	private SkinnedMeshRenderer tellerRenderer;
 
-	// Token: 0x04002412 RID: 9234
+	// Token: 0x04002465 RID: 9317
 	[SerializeField]
 	private List<Material> tellerDefaultMaterials;
 
-	// Token: 0x04002413 RID: 9235
+	// Token: 0x04002466 RID: 9318
 	[SerializeField]
 	private List<Material> tellerGreyZoneMaterials;
 
-	// Token: 0x04002414 RID: 9236
+	// Token: 0x04002467 RID: 9319
 	private FortuneResults.FortuneResult latestFortune;
 
-	// Token: 0x04002415 RID: 9237
+	// Token: 0x04002468 RID: 9320
 	private CallLimiter triggerNewFortuneLimiter = new CallLimiter(10, 1f, 0.5f);
 
-	// Token: 0x04002416 RID: 9238
+	// Token: 0x04002469 RID: 9321
 	private CallLimiter triggerUpdateFortuneLimiter = new CallLimiter(10, 1f, 0.5f);
 
-	// Token: 0x04002417 RID: 9239
+	// Token: 0x0400246A RID: 9322
 	private AnimHashId trigger_attract = "Attract";
 
-	// Token: 0x04002418 RID: 9240
+	// Token: 0x0400246B RID: 9323
 	private AnimHashId trigger_prediction = "Prediction";
 
-	// Token: 0x04002419 RID: 9241
+	// Token: 0x0400246C RID: 9324
 	private float nextAttractAnimTimestamp;
 
-	// Token: 0x0400241A RID: 9242
+	// Token: 0x0400246D RID: 9325
 	private Coroutine attractModeMonitor;
 
-	// Token: 0x0200052A RID: 1322
+	// Token: 0x02000537 RID: 1335
 	[Serializable]
 	public struct FortuneTellerResultFanfare
 	{
-		// Token: 0x0400241B RID: 9243
+		// Token: 0x0400246E RID: 9326
 		public FortuneResults.FortuneCategoryType type;
 
-		// Token: 0x0400241C RID: 9244
+		// Token: 0x0400246F RID: 9327
 		public PlayableAsset fanfare;
 	}
 }

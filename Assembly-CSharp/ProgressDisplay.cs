@@ -3,22 +3,22 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000114 RID: 276
+// Token: 0x0200011E RID: 286
 public class ProgressDisplay : MonoBehaviour
 {
-	// Token: 0x0600077B RID: 1915 RVA: 0x00029D66 File Offset: 0x00027F66
+	// Token: 0x060007BF RID: 1983 RVA: 0x00035789 File Offset: 0x00033989
 	private void Reset()
 	{
 		this.root = base.gameObject;
 	}
 
-	// Token: 0x0600077C RID: 1916 RVA: 0x00029D74 File Offset: 0x00027F74
+	// Token: 0x060007C0 RID: 1984 RVA: 0x00035797 File Offset: 0x00033997
 	public void SetVisible(bool visible)
 	{
 		this.root.SetActive(visible);
 	}
 
-	// Token: 0x0600077D RID: 1917 RVA: 0x00029D84 File Offset: 0x00027F84
+	// Token: 0x060007C1 RID: 1985 RVA: 0x0008B7F8 File Offset: 0x000899F8
 	public void SetProgress(int progress, int total)
 	{
 		if (this.text)
@@ -36,13 +36,13 @@ public class ProgressDisplay : MonoBehaviour
 		this.progressImage.fillAmount = (float)progress / (float)total;
 	}
 
-	// Token: 0x0600077E RID: 1918 RVA: 0x00029DFE File Offset: 0x00027FFE
+	// Token: 0x060007C2 RID: 1986 RVA: 0x000357A5 File Offset: 0x000339A5
 	public void SetProgress(float progress)
 	{
 		this.progressImage.fillAmount = progress;
 	}
 
-	// Token: 0x0600077F RID: 1919 RVA: 0x00029E0C File Offset: 0x0002800C
+	// Token: 0x060007C3 RID: 1987 RVA: 0x000357B3 File Offset: 0x000339B3
 	private void SetTextVisible(bool visible)
 	{
 		if (this.text.gameObject.activeSelf == visible)
@@ -52,19 +52,19 @@ public class ProgressDisplay : MonoBehaviour
 		this.text.gameObject.SetActive(visible);
 	}
 
-	// Token: 0x040008CF RID: 2255
+	// Token: 0x04000911 RID: 2321
 	[SerializeField]
 	private GameObject root;
 
-	// Token: 0x040008D0 RID: 2256
+	// Token: 0x04000912 RID: 2322
 	[SerializeField]
 	private TMP_Text text;
 
-	// Token: 0x040008D1 RID: 2257
+	// Token: 0x04000913 RID: 2323
 	[SerializeField]
 	private Image progressImage;
 
-	// Token: 0x040008D2 RID: 2258
+	// Token: 0x04000914 RID: 2324
 	[SerializeField]
 	private int largestNumberToShow = 99;
 }

@@ -2,14 +2,14 @@
 using TMPro;
 using UnityEngine;
 
-// Token: 0x020001E0 RID: 480
+// Token: 0x020001EB RID: 491
 public class RacingScoreboard : MonoBehaviour
 {
-	// Token: 0x04000DA5 RID: 3493
+	// Token: 0x04000DEB RID: 3563
 	[SerializeField]
 	public TextMeshPro mainDisplay;
 
-	// Token: 0x04000DA6 RID: 3494
+	// Token: 0x04000DEC RID: 3564
 	[SerializeField]
 	public TextMeshPro timesDisplay;
 }

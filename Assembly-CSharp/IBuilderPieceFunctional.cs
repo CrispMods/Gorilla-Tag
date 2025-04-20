@@ -1,27 +1,27 @@
 ﻿using System;
 
-// Token: 0x020004C9 RID: 1225
+// Token: 0x020004D6 RID: 1238
 public interface IBuilderPieceFunctional
 {
-	// Token: 0x06001DB7 RID: 7607
+	// Token: 0x06001E10 RID: 7696
 	void OnStateChanged(byte newState, NetPlayer instigator, int timeStamp);
 
-	// Token: 0x06001DB8 RID: 7608
+	// Token: 0x06001E11 RID: 7697
 	void OnStateRequest(byte newState, NetPlayer instigator, int timeStamp);
 
-	// Token: 0x06001DB9 RID: 7609
+	// Token: 0x06001E12 RID: 7698
 	bool IsStateValid(byte state);
 
-	// Token: 0x06001DBA RID: 7610
+	// Token: 0x06001E13 RID: 7699
 	void FunctionalPieceUpdate();
 
-	// Token: 0x06001DBB RID: 7611 RVA: 0x00002628 File Offset: 0x00000828
+	// Token: 0x06001E14 RID: 7700 RVA: 0x000306DC File Offset: 0x0002E8DC
 	void FunctionalPieceFixedUpdate()
 	{
 		throw new NotImplementedException();
 	}
 
-	// Token: 0x06001DBC RID: 7612 RVA: 0x0009171F File Offset: 0x0008F91F
+	// Token: 0x06001E15 RID: 7701 RVA: 0x00044876 File Offset: 0x00042A76
 	float GetInteractionDistace()
 	{
 		return 2.5f;

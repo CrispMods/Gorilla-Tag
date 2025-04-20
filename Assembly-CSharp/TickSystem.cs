@@ -4,30 +4,30 @@ using System.Runtime.CompilerServices;
 using GorillaTag;
 using UnityEngine;
 
-// Token: 0x0200080B RID: 2059
+// Token: 0x02000825 RID: 2085
 internal abstract class TickSystem<T> : MonoBehaviour
 {
-	// Token: 0x060032A9 RID: 12969 RVA: 0x000F3611 File Offset: 0x000F1811
+	// Token: 0x06003364 RID: 13156 RVA: 0x00051E17 File Offset: 0x00050017
 	private void Awake()
 	{
 		base.transform.SetParent(null, true);
-		Object.DontDestroyOnLoad(this);
+		UnityEngine.Object.DontDestroyOnLoad(this);
 	}
 
-	// Token: 0x060032AA RID: 12970 RVA: 0x000F3626 File Offset: 0x000F1826
+	// Token: 0x06003365 RID: 13157 RVA: 0x00051E2C File Offset: 0x0005002C
 	private void Update()
 	{
 		TickSystem<T>.preTickCallbacks.TryRunCallbacks();
 		TickSystem<T>.tickCallbacks.TryRunCallbacks();
 	}
 
-	// Token: 0x060032AB RID: 12971 RVA: 0x000F363C File Offset: 0x000F183C
+	// Token: 0x06003366 RID: 13158 RVA: 0x00051E42 File Offset: 0x00050042
 	private void LateUpdate()
 	{
 		TickSystem<T>.postTickCallbacks.TryRunCallbacks();
 	}
 
-	// Token: 0x060032AC RID: 12972 RVA: 0x000F3648 File Offset: 0x000F1848
+	// Token: 0x06003367 RID: 13159 RVA: 0x0013B740 File Offset: 0x00139940
 	static TickSystem()
 	{
 		TickSystem<T>.preTickWrapperPool = new ObjectPool<TickSystem<T>.TickCallbackWrapperPre>(100);
@@ -35,7 +35,7 @@ internal abstract class TickSystem<T> : MonoBehaviour
 		TickSystem<T>.postTickWrapperPool = new ObjectPool<TickSystem<T>.TickCallbackWrapperPost>(100);
 	}
 
-	// Token: 0x060032AD RID: 12973 RVA: 0x000F36BB File Offset: 0x000F18BB
+	// Token: 0x06003368 RID: 13160 RVA: 0x00051E4E File Offset: 0x0005004E
 	private static void OnEnterPlay()
 	{
 		TickSystem<T>.preTickCallbacks.Clear();
@@ -46,7 +46,7 @@ internal abstract class TickSystem<T> : MonoBehaviour
 		TickSystem<T>.postTickWrapperTable.Clear();
 	}
 
-	// Token: 0x060032AE RID: 12974 RVA: 0x000F36FC File Offset: 0x000F18FC
+	// Token: 0x06003369 RID: 13161 RVA: 0x0013B7B4 File Offset: 0x001399B4
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void AddPreTickCallback(ITickSystemPre callback)
 	{
@@ -61,7 +61,7 @@ internal abstract class TickSystem<T> : MonoBehaviour
 		callback.PreTickRunning = true;
 	}
 
-	// Token: 0x060032AF RID: 12975 RVA: 0x000F3744 File Offset: 0x000F1944
+	// Token: 0x0600336A RID: 13162 RVA: 0x0013B7FC File Offset: 0x001399FC
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void AddTickCallback(ITickSystemTick callback)
 	{
@@ -76,7 +76,7 @@ internal abstract class TickSystem<T> : MonoBehaviour
 		callback.TickRunning = true;
 	}
 
-	// Token: 0x060032B0 RID: 12976 RVA: 0x000F378C File Offset: 0x000F198C
+	// Token: 0x0600336B RID: 13163 RVA: 0x0013B844 File Offset: 0x00139A44
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void AddPostTickCallback(ITickSystemPost callback)
 	{
@@ -91,7 +91,7 @@ internal abstract class TickSystem<T> : MonoBehaviour
 		callback.PostTickRunning = true;
 	}
 
-	// Token: 0x060032B1 RID: 12977 RVA: 0x000F37D2 File Offset: 0x000F19D2
+	// Token: 0x0600336C RID: 13164 RVA: 0x00051E8C File Offset: 0x0005008C
 	public static void AddTickSystemCallBack(ITickSystem callback)
 	{
 		TickSystem<T>.AddPreTickCallback(callback);
@@ -99,7 +99,7 @@ internal abstract class TickSystem<T> : MonoBehaviour
 		TickSystem<T>.AddPostTickCallback(callback);
 	}
 
-	// Token: 0x060032B2 RID: 12978 RVA: 0x000F37E8 File Offset: 0x000F19E8
+	// Token: 0x0600336D RID: 13165 RVA: 0x0013B88C File Offset: 0x00139A8C
 	public static void AddCallbackTarget(object target)
 	{
 		ITickSystem tickSystem = target as ITickSystem;
@@ -125,7 +125,7 @@ internal abstract class TickSystem<T> : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060032B3 RID: 12979 RVA: 0x000F3838 File Offset: 0x000F1A38
+	// Token: 0x0600336E RID: 13166 RVA: 0x0013B8DC File Offset: 0x00139ADC
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void RemovePreTickCallback(ITickSystemPre callback)
 	{
@@ -139,7 +139,7 @@ internal abstract class TickSystem<T> : MonoBehaviour
 		TickSystem<T>.preTickWrapperPool.Return(tickCallbackWrapperPre);
 	}
 
-	// Token: 0x060032B4 RID: 12980 RVA: 0x000F387C File Offset: 0x000F1A7C
+	// Token: 0x0600336F RID: 13167 RVA: 0x0013B920 File Offset: 0x00139B20
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void RemoveTickCallback(ITickSystemTick callback)
 	{
@@ -153,7 +153,7 @@ internal abstract class TickSystem<T> : MonoBehaviour
 		TickSystem<T>.tickWrapperPool.Return(tickCallbackWrapperTick);
 	}
 
-	// Token: 0x060032B5 RID: 12981 RVA: 0x000F38C0 File Offset: 0x000F1AC0
+	// Token: 0x06003370 RID: 13168 RVA: 0x0013B964 File Offset: 0x00139B64
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void RemovePostTickCallback(ITickSystemPost callback)
 	{
@@ -167,7 +167,7 @@ internal abstract class TickSystem<T> : MonoBehaviour
 		TickSystem<T>.postTickWrapperPool.Return(tickCallbackWrapperPost);
 	}
 
-	// Token: 0x060032B6 RID: 12982 RVA: 0x000F3902 File Offset: 0x000F1B02
+	// Token: 0x06003371 RID: 13169 RVA: 0x00051EA0 File Offset: 0x000500A0
 	public static void RemoveTickSystemCallback(ITickSystem callback)
 	{
 		TickSystem<T>.RemovePreTickCallback(callback);
@@ -175,7 +175,7 @@ internal abstract class TickSystem<T> : MonoBehaviour
 		TickSystem<T>.RemovePostTickCallback(callback);
 	}
 
-	// Token: 0x060032B7 RID: 12983 RVA: 0x000F3918 File Offset: 0x000F1B18
+	// Token: 0x06003372 RID: 13170 RVA: 0x0013B9A8 File Offset: 0x00139BA8
 	public static void RemoveCallbackTarget(object target)
 	{
 		ITickSystem tickSystem = target as ITickSystem;
@@ -201,80 +201,80 @@ internal abstract class TickSystem<T> : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04003629 RID: 13865
+	// Token: 0x040036E5 RID: 14053
 	private static readonly ObjectPool<TickSystem<T>.TickCallbackWrapperPre> preTickWrapperPool;
 
-	// Token: 0x0400362A RID: 13866
+	// Token: 0x040036E6 RID: 14054
 	private static readonly CallbackContainer<TickSystem<T>.TickCallbackWrapperPre> preTickCallbacks = new CallbackContainer<TickSystem<T>.TickCallbackWrapperPre>();
 
-	// Token: 0x0400362B RID: 13867
+	// Token: 0x040036E7 RID: 14055
 	private static readonly Dictionary<ITickSystemPre, TickSystem<T>.TickCallbackWrapperPre> preTickWrapperTable = new Dictionary<ITickSystemPre, TickSystem<T>.TickCallbackWrapperPre>(100);
 
-	// Token: 0x0400362C RID: 13868
+	// Token: 0x040036E8 RID: 14056
 	private static readonly ObjectPool<TickSystem<T>.TickCallbackWrapperTick> tickWrapperPool;
 
-	// Token: 0x0400362D RID: 13869
+	// Token: 0x040036E9 RID: 14057
 	private static readonly CallbackContainer<TickSystem<T>.TickCallbackWrapperTick> tickCallbacks = new CallbackContainer<TickSystem<T>.TickCallbackWrapperTick>();
 
-	// Token: 0x0400362E RID: 13870
+	// Token: 0x040036EA RID: 14058
 	private static readonly Dictionary<ITickSystemTick, TickSystem<T>.TickCallbackWrapperTick> tickWrapperTable = new Dictionary<ITickSystemTick, TickSystem<T>.TickCallbackWrapperTick>(100);
 
-	// Token: 0x0400362F RID: 13871
+	// Token: 0x040036EB RID: 14059
 	private static readonly ObjectPool<TickSystem<T>.TickCallbackWrapperPost> postTickWrapperPool;
 
-	// Token: 0x04003630 RID: 13872
+	// Token: 0x040036EC RID: 14060
 	private static readonly CallbackContainer<TickSystem<T>.TickCallbackWrapperPost> postTickCallbacks = new CallbackContainer<TickSystem<T>.TickCallbackWrapperPost>();
 
-	// Token: 0x04003631 RID: 13873
+	// Token: 0x040036ED RID: 14061
 	private static readonly Dictionary<ITickSystemPost, TickSystem<T>.TickCallbackWrapperPost> postTickWrapperTable = new Dictionary<ITickSystemPost, TickSystem<T>.TickCallbackWrapperPost>(100);
 
-	// Token: 0x0200080C RID: 2060
+	// Token: 0x02000826 RID: 2086
 	private class TickCallbackWrapper<U> : ObjectPoolEvents, ICallBack where U : class
 	{
-		// Token: 0x060032B9 RID: 12985 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06003374 RID: 13172 RVA: 0x00030607 File Offset: 0x0002E807
 		public virtual void CallBack()
 		{
 		}
 
-		// Token: 0x060032BA RID: 12986 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06003375 RID: 13173 RVA: 0x00030607 File Offset: 0x0002E807
 		public void OnTaken()
 		{
 		}
 
-		// Token: 0x060032BB RID: 12987 RVA: 0x000F3966 File Offset: 0x000F1B66
+		// Token: 0x06003376 RID: 13174 RVA: 0x00051EB4 File Offset: 0x000500B4
 		public void OnReturned()
 		{
 			this.target = default(U);
 		}
 
-		// Token: 0x04003632 RID: 13874
+		// Token: 0x040036EE RID: 14062
 		public U target;
 	}
 
-	// Token: 0x0200080D RID: 2061
+	// Token: 0x02000827 RID: 2087
 	private class TickCallbackWrapperPre : TickSystem<T>.TickCallbackWrapper<ITickSystemPre>
 	{
-		// Token: 0x060032BD RID: 12989 RVA: 0x000F3974 File Offset: 0x000F1B74
+		// Token: 0x06003378 RID: 13176 RVA: 0x00051EC2 File Offset: 0x000500C2
 		public override void CallBack()
 		{
 			this.target.PreTick();
 		}
 	}
 
-	// Token: 0x0200080E RID: 2062
+	// Token: 0x02000828 RID: 2088
 	private class TickCallbackWrapperTick : TickSystem<T>.TickCallbackWrapper<ITickSystemTick>
 	{
-		// Token: 0x060032BF RID: 12991 RVA: 0x000F3989 File Offset: 0x000F1B89
+		// Token: 0x0600337A RID: 13178 RVA: 0x00051ED7 File Offset: 0x000500D7
 		public override void CallBack()
 		{
 			this.target.Tick();
 		}
 	}
 
-	// Token: 0x0200080F RID: 2063
+	// Token: 0x02000829 RID: 2089
 	private class TickCallbackWrapperPost : TickSystem<T>.TickCallbackWrapper<ITickSystemPost>
 	{
-		// Token: 0x060032C1 RID: 12993 RVA: 0x000F399E File Offset: 0x000F1B9E
+		// Token: 0x0600337C RID: 13180 RVA: 0x00051EEC File Offset: 0x000500EC
 		public override void CallBack()
 		{
 			this.target.PostTick();

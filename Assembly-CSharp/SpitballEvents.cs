@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000445 RID: 1093
+// Token: 0x02000451 RID: 1105
 public class SpitballEvents : SubEmitterListener
 {
-	// Token: 0x06001AE6 RID: 6886 RVA: 0x00084605 File Offset: 0x00082805
+	// Token: 0x06001B3A RID: 6970 RVA: 0x0004280B File Offset: 0x00040A0B
 	protected override void OnSubEmit()
 	{
 		base.OnSubEmit();
@@ -14,11 +14,11 @@ public class SpitballEvents : SubEmitterListener
 		}
 	}
 
-	// Token: 0x04001DC5 RID: 7621
+	// Token: 0x04001E14 RID: 7700
 	[SerializeField]
 	private AudioSource _audioSource;
 
-	// Token: 0x04001DC6 RID: 7622
+	// Token: 0x04001E15 RID: 7701
 	[SerializeField]
 	private AudioClip _sfxHit;
 }

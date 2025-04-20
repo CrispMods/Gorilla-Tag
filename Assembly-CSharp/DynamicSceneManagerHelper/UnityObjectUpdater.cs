@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace DynamicSceneManagerHelper
 {
-	// Token: 0x02000A3A RID: 2618
+	// Token: 0x02000A67 RID: 2663
 	internal class UnityObjectUpdater
 	{
-		// Token: 0x0600414C RID: 16716 RVA: 0x001356D0 File Offset: 0x001338D0
+		// Token: 0x06004291 RID: 17041 RVA: 0x00175774 File Offset: 0x00173974
 		public Task<GameObject> CreateUnityObject(OVRAnchor anchor, GameObject parent)
 		{
 			UnityObjectUpdater.<CreateUnityObject>d__0 <CreateUnityObject>d__;
@@ -20,7 +20,7 @@ namespace DynamicSceneManagerHelper
 			return <CreateUnityObject>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x0600414D RID: 16717 RVA: 0x0013571C File Offset: 0x0013391C
+		// Token: 0x06004292 RID: 17042 RVA: 0x001757C0 File Offset: 0x001739C0
 		public void UpdateUnityObject(OVRAnchor anchor, GameObject gameObject)
 		{
 			SceneManagerHelper sceneManagerHelper = new SceneManagerHelper(gameObject);

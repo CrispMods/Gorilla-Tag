@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts.Builder
 {
-	// Token: 0x020009F7 RID: 2551
+	// Token: 0x02000A24 RID: 2596
 	public class BuilderMovingPart : MonoBehaviour
 	{
-		// Token: 0x06003FB3 RID: 16307 RVA: 0x0012DFCC File Offset: 0x0012C1CC
+		// Token: 0x060040F8 RID: 16632 RVA: 0x0016F1BC File Offset: 0x0016D3BC
 		private void Awake()
 		{
 			foreach (BuilderAttachGridPlane builderAttachGridPlane in this.myGridPlanes)
@@ -19,7 +19,7 @@ namespace GorillaTagScripts.Builder
 			this.initLocalRotation = base.transform.localRotation;
 		}
 
-		// Token: 0x06003FB4 RID: 16308 RVA: 0x0012E020 File Offset: 0x0012C220
+		// Token: 0x060040F9 RID: 16633 RVA: 0x0005A7C0 File Offset: 0x000589C0
 		private long NetworkTimeMs()
 		{
 			if (PhotonNetwork.InRoom)
@@ -29,13 +29,13 @@ namespace GorillaTagScripts.Builder
 			return (long)(Time.time * 1000f);
 		}
 
-		// Token: 0x06003FB5 RID: 16309 RVA: 0x0012E055 File Offset: 0x0012C255
+		// Token: 0x060040FA RID: 16634 RVA: 0x0005A7F5 File Offset: 0x000589F5
 		private long CycleLengthMs()
 		{
 			return (long)(this.cycleDuration * 1000f);
 		}
 
-		// Token: 0x06003FB6 RID: 16310 RVA: 0x0012E064 File Offset: 0x0012C264
+		// Token: 0x060040FB RID: 16635 RVA: 0x0016F210 File Offset: 0x0016D410
 		public double PlatformTime()
 		{
 			long num = this.NetworkTimeMs();
@@ -43,25 +43,25 @@ namespace GorillaTagScripts.Builder
 			return (double)(num - num / num2 * num2) / 1000.0;
 		}
 
-		// Token: 0x06003FB7 RID: 16311 RVA: 0x0012E08F File Offset: 0x0012C28F
+		// Token: 0x060040FC RID: 16636 RVA: 0x0005A804 File Offset: 0x00058A04
 		public int CycleCount()
 		{
 			return (int)(this.NetworkTimeMs() / this.CycleLengthMs());
 		}
 
-		// Token: 0x06003FB8 RID: 16312 RVA: 0x0012E09F File Offset: 0x0012C29F
+		// Token: 0x060040FD RID: 16637 RVA: 0x0005A814 File Offset: 0x00058A14
 		public float CycleCompletionPercent()
 		{
 			return Mathf.Clamp((float)(this.PlatformTime() / (double)this.cycleDuration), 0f, 1f);
 		}
 
-		// Token: 0x06003FB9 RID: 16313 RVA: 0x0012E0BF File Offset: 0x0012C2BF
+		// Token: 0x060040FE RID: 16638 RVA: 0x0005A834 File Offset: 0x00058A34
 		public bool IsEvenCycle()
 		{
 			return this.CycleCount() % 2 == 0;
 		}
 
-		// Token: 0x06003FBA RID: 16314 RVA: 0x0012E0CC File Offset: 0x0012C2CC
+		// Token: 0x060040FF RID: 16639 RVA: 0x0016F23C File Offset: 0x0016D43C
 		public void ActivateAtNode(byte node, int timestamp)
 		{
 			float num = (float)node;
@@ -94,7 +94,7 @@ namespace GorillaTagScripts.Builder
 			this.SetMoving(true);
 		}
 
-		// Token: 0x06003FBB RID: 16315 RVA: 0x0012E184 File Offset: 0x0012C384
+		// Token: 0x06004100 RID: 16640 RVA: 0x0016F2F4 File Offset: 0x0016D4F4
 		public int GetTimeOffsetMS()
 		{
 			int num = PhotonNetwork.ServerTimestamp - this.myPiece.activatedTimeStamp;
@@ -102,7 +102,7 @@ namespace GorillaTagScripts.Builder
 			return num % (int)num2;
 		}
 
-		// Token: 0x06003FBC RID: 16316 RVA: 0x0012E1B0 File Offset: 0x0012C3B0
+		// Token: 0x06004101 RID: 16641 RVA: 0x0016F320 File Offset: 0x0016D520
 		public byte GetNearestNode()
 		{
 			int num = Mathf.RoundToInt(this.currT * (float)BuilderMovingPart.NUM_PAUSE_NODES);
@@ -113,13 +113,13 @@ namespace GorillaTagScripts.Builder
 			return (byte)num;
 		}
 
-		// Token: 0x06003FBD RID: 16317 RVA: 0x0012E1E2 File Offset: 0x0012C3E2
+		// Token: 0x06004102 RID: 16642 RVA: 0x0005A841 File Offset: 0x00058A41
 		public byte GetStartNode()
 		{
 			return (byte)Mathf.RoundToInt(this.startPercentage * (float)BuilderMovingPart.NUM_PAUSE_NODES);
 		}
 
-		// Token: 0x06003FBE RID: 16318 RVA: 0x0012E1F8 File Offset: 0x0012C3F8
+		// Token: 0x06004103 RID: 16643 RVA: 0x0016F354 File Offset: 0x0016D554
 		public void PauseMovement(byte node)
 		{
 			this.SetMoving(false);
@@ -152,7 +152,7 @@ namespace GorillaTagScripts.Builder
 			this.UpdateRotation(num);
 		}
 
-		// Token: 0x06003FBF RID: 16319 RVA: 0x0012E290 File Offset: 0x0012C490
+		// Token: 0x06004104 RID: 16644 RVA: 0x0016F3EC File Offset: 0x0016D5EC
 		public void SetMoving(bool isMoving)
 		{
 			this.isMoving = isMoving;
@@ -167,7 +167,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003FC0 RID: 16320 RVA: 0x0012E2CC File Offset: 0x0012C4CC
+		// Token: 0x06004105 RID: 16645 RVA: 0x0016F428 File Offset: 0x0016D628
 		public void InitMovingGrid()
 		{
 			if (this.moveType == BuilderMovingPart.BuilderMovingPartType.Translation)
@@ -201,7 +201,7 @@ namespace GorillaTagScripts.Builder
 			this.startPercentageCycleOffset = num6 + num4 + num4 - num5;
 		}
 
-		// Token: 0x06003FC1 RID: 16321 RVA: 0x0012E434 File Offset: 0x0012C634
+		// Token: 0x06004106 RID: 16646 RVA: 0x0016F590 File Offset: 0x0016D790
 		public void UpdateMovingGrid()
 		{
 			this.Progress();
@@ -218,27 +218,27 @@ namespace GorillaTagScripts.Builder
 			this.UpdateRotation(this.percent);
 		}
 
-		// Token: 0x06003FC2 RID: 16322 RVA: 0x0012E484 File Offset: 0x0012C684
+		// Token: 0x06004107 RID: 16647 RVA: 0x0016F5E0 File Offset: 0x0016D7E0
 		private Vector3 UpdatePointToPoint(float perc)
 		{
 			float t = this.lerpAlpha.Evaluate(perc);
 			return Vector3.Lerp(this.startXf.localPosition, this.endXf.localPosition, t);
 		}
 
-		// Token: 0x06003FC3 RID: 16323 RVA: 0x0012E4BC File Offset: 0x0012C6BC
+		// Token: 0x06004108 RID: 16648 RVA: 0x001550EC File Offset: 0x001532EC
 		private void UpdateRotation(float perc)
 		{
 			Quaternion localRotation = Quaternion.AngleAxis(perc * 360f, Vector3.up);
 			base.transform.localRotation = localRotation;
 		}
 
-		// Token: 0x06003FC4 RID: 16324 RVA: 0x0012E4E7 File Offset: 0x0012C6E7
+		// Token: 0x06004109 RID: 16649 RVA: 0x0005A856 File Offset: 0x00058A56
 		private void ResetMovingGrid()
 		{
 			base.transform.SetLocalPositionAndRotation(this.initLocalPos, this.initLocalRotation);
 		}
 
-		// Token: 0x06003FC5 RID: 16325 RVA: 0x0012E500 File Offset: 0x0012C700
+		// Token: 0x0600410A RID: 16650 RVA: 0x0016F618 File Offset: 0x0016D818
 		private void Progress()
 		{
 			this.currT = this.CycleCompletionPercent();
@@ -254,7 +254,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003FC6 RID: 16326 RVA: 0x0012E578 File Offset: 0x0012C778
+		// Token: 0x0600410B RID: 16651 RVA: 0x0016F690 File Offset: 0x0016D890
 		public bool IsAnchoredToTable()
 		{
 			foreach (BuilderAttachGridPlane builderAttachGridPlane in this.myGridPlanes)
@@ -267,101 +267,101 @@ namespace GorillaTagScripts.Builder
 			return false;
 		}
 
-		// Token: 0x06003FC7 RID: 16327 RVA: 0x0012E5B4 File Offset: 0x0012C7B4
+		// Token: 0x0600410C RID: 16652 RVA: 0x0005A86F File Offset: 0x00058A6F
 		public void OnPieceDestroy()
 		{
 			this.ResetMovingGrid();
 		}
 
-		// Token: 0x040040B8 RID: 16568
+		// Token: 0x040041B2 RID: 16818
 		public BuilderPiece myPiece;
 
-		// Token: 0x040040B9 RID: 16569
+		// Token: 0x040041B3 RID: 16819
 		public BuilderAttachGridPlane[] myGridPlanes;
 
-		// Token: 0x040040BA RID: 16570
+		// Token: 0x040041B4 RID: 16820
 		[SerializeField]
 		private BuilderMovingPart.BuilderMovingPartType moveType;
 
-		// Token: 0x040040BB RID: 16571
+		// Token: 0x040041B5 RID: 16821
 		[SerializeField]
 		private float startPercentage = 0.5f;
 
-		// Token: 0x040040BC RID: 16572
+		// Token: 0x040041B6 RID: 16822
 		[SerializeField]
 		private float velocity;
 
-		// Token: 0x040040BD RID: 16573
+		// Token: 0x040041B7 RID: 16823
 		[SerializeField]
 		private bool reverseDirOnCycle = true;
 
-		// Token: 0x040040BE RID: 16574
+		// Token: 0x040041B8 RID: 16824
 		[SerializeField]
 		private bool reverseDir;
 
-		// Token: 0x040040BF RID: 16575
+		// Token: 0x040041B9 RID: 16825
 		[SerializeField]
 		private float cycleDelay = 0.25f;
 
-		// Token: 0x040040C0 RID: 16576
+		// Token: 0x040041BA RID: 16826
 		[SerializeField]
 		protected Transform startXf;
 
-		// Token: 0x040040C1 RID: 16577
+		// Token: 0x040041BB RID: 16827
 		[SerializeField]
 		protected Transform endXf;
 
-		// Token: 0x040040C2 RID: 16578
+		// Token: 0x040041BC RID: 16828
 		public static int NUM_PAUSE_NODES = 32;
 
-		// Token: 0x040040C3 RID: 16579
+		// Token: 0x040041BD RID: 16829
 		private AnimationCurve lerpAlpha;
 
-		// Token: 0x040040C4 RID: 16580
+		// Token: 0x040041BE RID: 16830
 		public bool isMoving;
 
-		// Token: 0x040040C5 RID: 16581
+		// Token: 0x040041BF RID: 16831
 		private Quaternion initLocalRotation = Quaternion.identity;
 
-		// Token: 0x040040C6 RID: 16582
+		// Token: 0x040041C0 RID: 16832
 		private Vector3 initLocalPos = Vector3.zero;
 
-		// Token: 0x040040C7 RID: 16583
+		// Token: 0x040041C1 RID: 16833
 		private float cycleDuration;
 
-		// Token: 0x040040C8 RID: 16584
+		// Token: 0x040041C2 RID: 16834
 		private float distance;
 
-		// Token: 0x040040C9 RID: 16585
+		// Token: 0x040041C3 RID: 16835
 		private float currT;
 
-		// Token: 0x040040CA RID: 16586
+		// Token: 0x040041C4 RID: 16836
 		private float percent;
 
-		// Token: 0x040040CB RID: 16587
+		// Token: 0x040041C5 RID: 16837
 		private bool currForward;
 
-		// Token: 0x040040CC RID: 16588
+		// Token: 0x040041C6 RID: 16838
 		private float dtSinceServerUpdate;
 
-		// Token: 0x040040CD RID: 16589
+		// Token: 0x040041C7 RID: 16839
 		private int lastServerTimeStamp;
 
-		// Token: 0x040040CE RID: 16590
+		// Token: 0x040041C8 RID: 16840
 		private float rotateStartAmt;
 
-		// Token: 0x040040CF RID: 16591
+		// Token: 0x040041C9 RID: 16841
 		private float rotateAmt;
 
-		// Token: 0x040040D0 RID: 16592
+		// Token: 0x040041CA RID: 16842
 		private uint startPercentageCycleOffset;
 
-		// Token: 0x020009F8 RID: 2552
+		// Token: 0x02000A25 RID: 2597
 		public enum BuilderMovingPartType
 		{
-			// Token: 0x040040D2 RID: 16594
+			// Token: 0x040041CC RID: 16844
 			Translation,
-			// Token: 0x040040D3 RID: 16595
+			// Token: 0x040041CD RID: 16845
 			Rotation
 		}
 	}

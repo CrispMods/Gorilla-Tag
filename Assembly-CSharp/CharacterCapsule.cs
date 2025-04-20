@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000304 RID: 772
+// Token: 0x0200030F RID: 783
 [ExecuteInEditMode]
 public class CharacterCapsule : MonoBehaviour
 {
-	// Token: 0x0600125C RID: 4700 RVA: 0x0005771C File Offset: 0x0005591C
+	// Token: 0x060012A8 RID: 4776 RVA: 0x000B1BD8 File Offset: 0x000AFDD8
 	private void Update()
 	{
 		if (this._character == null)
@@ -146,35 +146,35 @@ public class CharacterCapsule : MonoBehaviour
 		this._meshFilter.sharedMesh.RecalculateNormals();
 	}
 
-	// Token: 0x0400144A RID: 5194
+	// Token: 0x04001492 RID: 5266
 	private CharacterController _character;
 
-	// Token: 0x0400144B RID: 5195
+	// Token: 0x04001493 RID: 5267
 	private MeshFilter _meshFilter;
 
-	// Token: 0x0400144C RID: 5196
+	// Token: 0x04001494 RID: 5268
 	private float _height;
 
-	// Token: 0x0400144D RID: 5197
+	// Token: 0x04001495 RID: 5269
 	private float _radius;
 
-	// Token: 0x0400144E RID: 5198
+	// Token: 0x04001496 RID: 5270
 	[Range(4f, 32f)]
 	public int SubdivisionsU;
 
-	// Token: 0x0400144F RID: 5199
+	// Token: 0x04001497 RID: 5271
 	[Range(4f, 32f)]
 	public int SubdivisionsV;
 
-	// Token: 0x04001450 RID: 5200
+	// Token: 0x04001498 RID: 5272
 	private int _subdivisionU;
 
-	// Token: 0x04001451 RID: 5201
+	// Token: 0x04001499 RID: 5273
 	private int _subdivisionV;
 
-	// Token: 0x04001452 RID: 5202
+	// Token: 0x0400149A RID: 5274
 	private Vector3[] _vertices;
 
-	// Token: 0x04001453 RID: 5203
+	// Token: 0x0400149B RID: 5275
 	private int[] _triangles;
 }

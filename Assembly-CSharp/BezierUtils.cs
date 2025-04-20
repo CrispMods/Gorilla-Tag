@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000837 RID: 2103
+// Token: 0x02000851 RID: 2129
 public class BezierUtils
 {
-	// Token: 0x06003341 RID: 13121 RVA: 0x000F4870 File Offset: 0x000F2A70
+	// Token: 0x060033FC RID: 13308 RVA: 0x0013C4FC File Offset: 0x0013A6FC
 	public static Vector3 BezierSolve(float t, Vector3 startPos, Vector3 ctrl1, Vector3 ctrl2, Vector3 endPos)
 	{
 		float num = 1f - t;

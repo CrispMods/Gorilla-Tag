@@ -7,10 +7,10 @@ using Fusion.Sockets;
 using UnityEngine;
 using UnityEngine.Scripting;
 
-// Token: 0x02000259 RID: 601
+// Token: 0x02000264 RID: 612
 public class FusionCallbackHandler : SimulationBehaviour, INetworkRunnerCallbacks
 {
-	// Token: 0x06000DE1 RID: 3553 RVA: 0x00046890 File Offset: 0x00044A90
+	// Token: 0x06000E2C RID: 3628 RVA: 0x0003A277 File Offset: 0x00038477
 	public void Setup(NetworkSystemFusion parentController)
 	{
 		this.parent = parentController;
@@ -20,14 +20,14 @@ public class FusionCallbackHandler : SimulationBehaviour, INetworkRunnerCallback
 		});
 	}
 
-	// Token: 0x06000DE2 RID: 3554 RVA: 0x000468B3 File Offset: 0x00044AB3
+	// Token: 0x06000E2D RID: 3629 RVA: 0x0003A29A File Offset: 0x0003849A
 	private void OnDestroy()
 	{
 		NetworkBehaviourUtils.InternalOnDestroy(this);
 		this.RemoveCallbacks();
 	}
 
-	// Token: 0x06000DE3 RID: 3555 RVA: 0x000468C4 File Offset: 0x00044AC4
+	// Token: 0x06000E2E RID: 3630 RVA: 0x000A379C File Offset: 0x000A199C
 	private void RemoveCallbacks()
 	{
 		FusionCallbackHandler.<RemoveCallbacks>d__3 <RemoveCallbacks>d__;
@@ -37,24 +37,24 @@ public class FusionCallbackHandler : SimulationBehaviour, INetworkRunnerCallback
 		<RemoveCallbacks>d__.<>t__builder.Start<FusionCallbackHandler.<RemoveCallbacks>d__3>(ref <RemoveCallbacks>d__);
 	}
 
-	// Token: 0x06000DE4 RID: 3556 RVA: 0x000468FB File Offset: 0x00044AFB
+	// Token: 0x06000E2F RID: 3631 RVA: 0x0003A2A8 File Offset: 0x000384A8
 	public void OnConnectedToServer(NetworkRunner runner)
 	{
 		this.parent.OnJoinedSession();
 	}
 
-	// Token: 0x06000DE5 RID: 3557 RVA: 0x00046908 File Offset: 0x00044B08
+	// Token: 0x06000E30 RID: 3632 RVA: 0x0003A2B5 File Offset: 0x000384B5
 	public void OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason)
 	{
 		this.parent.OnJoinFailed(reason);
 	}
 
-	// Token: 0x06000DE6 RID: 3558 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E31 RID: 3633 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token)
 	{
 	}
 
-	// Token: 0x06000DE7 RID: 3559 RVA: 0x00046918 File Offset: 0x00044B18
+	// Token: 0x06000E32 RID: 3634 RVA: 0x000A37D4 File Offset: 0x000A19D4
 	public void OnCustomAuthenticationResponse(NetworkRunner runner, Dictionary<string, object> data)
 	{
 		this.parent.CustomAuthenticationResponse(data);
@@ -65,74 +65,74 @@ public class FusionCallbackHandler : SimulationBehaviour, INetworkRunnerCallback
 		}
 	}
 
-	// Token: 0x06000DE8 RID: 3560 RVA: 0x00046998 File Offset: 0x00044B98
+	// Token: 0x06000E33 RID: 3635 RVA: 0x0003A2C3 File Offset: 0x000384C3
 	public void OnDisconnectedFromServer(NetworkRunner runner)
 	{
 		this.parent.OnDisconnectedFromSession();
 	}
 
-	// Token: 0x06000DE9 RID: 3561 RVA: 0x000469A5 File Offset: 0x00044BA5
+	// Token: 0x06000E34 RID: 3636 RVA: 0x0003A2D0 File Offset: 0x000384D0
 	public void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken)
 	{
 		this.parent.MigrateHost(runner, hostMigrationToken);
 	}
 
-	// Token: 0x06000DEA RID: 3562 RVA: 0x000469B4 File Offset: 0x00044BB4
+	// Token: 0x06000E35 RID: 3637 RVA: 0x000A3854 File Offset: 0x000A1A54
 	public void OnInput(NetworkRunner runner, NetworkInput input)
 	{
 		NetworkedInput input2 = NetInput.GetInput();
 		input.Set<NetworkedInput>(input2);
 	}
 
-	// Token: 0x06000DEB RID: 3563 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E36 RID: 3638 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input)
 	{
 	}
 
-	// Token: 0x06000DEC RID: 3564 RVA: 0x000469D0 File Offset: 0x00044BD0
+	// Token: 0x06000E37 RID: 3639 RVA: 0x0003A2DF File Offset: 0x000384DF
 	public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
 	{
 		this.parent.OnFusionPlayerJoined(player);
 	}
 
-	// Token: 0x06000DED RID: 3565 RVA: 0x000469DE File Offset: 0x00044BDE
+	// Token: 0x06000E38 RID: 3640 RVA: 0x0003A2ED File Offset: 0x000384ED
 	public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)
 	{
 		this.parent.OnFusionPlayerLeft(player);
 	}
 
-	// Token: 0x06000DEE RID: 3566 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E39 RID: 3641 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ArraySegment<byte> data)
 	{
 	}
 
-	// Token: 0x06000DEF RID: 3567 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E3A RID: 3642 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnSceneLoadDone(NetworkRunner runner)
 	{
 	}
 
-	// Token: 0x06000DF0 RID: 3568 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E3B RID: 3643 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnSceneLoadStart(NetworkRunner runner)
 	{
 	}
 
-	// Token: 0x06000DF1 RID: 3569 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E3C RID: 3644 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList)
 	{
 	}
 
-	// Token: 0x06000DF2 RID: 3570 RVA: 0x000469EC File Offset: 0x00044BEC
+	// Token: 0x06000E3D RID: 3645 RVA: 0x0003A2FB File Offset: 0x000384FB
 	public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)
 	{
 		this.parent.OnRunnerShutDown();
 	}
 
-	// Token: 0x06000DF3 RID: 3571 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E3E RID: 3646 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message)
 	{
 	}
 
-	// Token: 0x06000DF4 RID: 3572 RVA: 0x000469FC File Offset: 0x00044BFC
+	// Token: 0x06000E3F RID: 3647 RVA: 0x000A3870 File Offset: 0x000A1A70
 	[Rpc(Channel = RpcChannel.Reliable)]
 	public unsafe static void RPC_OnEventRaisedReliable(NetworkRunner runner, byte eventCode, byte[] byteData, bool hasOps, byte[] netOptsData, RpcInfo info = default(RpcInfo))
 	{
@@ -189,7 +189,7 @@ public class FusionCallbackHandler : SimulationBehaviour, INetworkRunnerCallback
 		NetworkSystem.Instance.RaiseEvent(eventCode, data2, info.Source.PlayerId);
 	}
 
-	// Token: 0x06000DF5 RID: 3573 RVA: 0x00046C00 File Offset: 0x00044E00
+	// Token: 0x06000E40 RID: 3648 RVA: 0x000A3A74 File Offset: 0x000A1C74
 	[Rpc(Channel = RpcChannel.Unreliable)]
 	public unsafe static void RPC_OnEventRaisedUnreliable(NetworkRunner runner, byte eventCode, byte[] byteData, bool hasOps, byte[] netOptsData, RpcInfo info = default(RpcInfo))
 	{
@@ -247,7 +247,7 @@ public class FusionCallbackHandler : SimulationBehaviour, INetworkRunnerCallback
 		NetworkSystem.Instance.RaiseEvent(eventCode, data2, info.Source.PlayerId);
 	}
 
-	// Token: 0x06000DF6 RID: 3574 RVA: 0x00046E0C File Offset: 0x0004500C
+	// Token: 0x06000E41 RID: 3649 RVA: 0x000A3C80 File Offset: 0x000A1E80
 	private static bool CanRecieveEvent(NetworkRunner runner, NetEventOptions opts, RpcInfo info)
 	{
 		if (opts != null)
@@ -271,32 +271,32 @@ public class FusionCallbackHandler : SimulationBehaviour, INetworkRunnerCallback
 		return true;
 	}
 
-	// Token: 0x06000DF7 RID: 3575 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E42 RID: 3650 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnObjectExitAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player)
 	{
 	}
 
-	// Token: 0x06000DF8 RID: 3576 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E43 RID: 3651 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnObjectEnterAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player)
 	{
 	}
 
-	// Token: 0x06000DF9 RID: 3577 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E44 RID: 3652 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason)
 	{
 	}
 
-	// Token: 0x06000DFA RID: 3578 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E45 RID: 3653 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ReliableKey key, ArraySegment<byte> data)
 	{
 	}
 
-	// Token: 0x06000DFB RID: 3579 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E46 RID: 3654 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnReliableDataProgress(NetworkRunner runner, PlayerRef player, ReliableKey key, float progress)
 	{
 	}
 
-	// Token: 0x06000DFD RID: 3581 RVA: 0x00046E80 File Offset: 0x00045080
+	// Token: 0x06000E48 RID: 3656 RVA: 0x000A3CEC File Offset: 0x000A1EEC
 	[NetworkRpcStaticWeavedInvoker("System.Void FusionCallbackHandler::RPC_OnEventRaisedReliable(Fusion.NetworkRunner,System.Byte,System.Byte[],System.Boolean,System.Byte[],Fusion.RpcInfo)")]
 	[Preserve]
 	[WeaverGenerated]
@@ -321,7 +321,7 @@ public class FusionCallbackHandler : SimulationBehaviour, INetworkRunnerCallback
 		FusionCallbackHandler.RPC_OnEventRaisedReliable(runner, eventCode, array, hasOps, array2, info);
 	}
 
-	// Token: 0x06000DFE RID: 3582 RVA: 0x00046F9C File Offset: 0x0004519C
+	// Token: 0x06000E49 RID: 3657 RVA: 0x000A3E08 File Offset: 0x000A2008
 	[NetworkRpcStaticWeavedInvoker("System.Void FusionCallbackHandler::RPC_OnEventRaisedUnreliable(Fusion.NetworkRunner,System.Byte,System.Byte[],System.Boolean,System.Byte[],Fusion.RpcInfo)")]
 	[Preserve]
 	[WeaverGenerated]
@@ -346,6 +346,6 @@ public class FusionCallbackHandler : SimulationBehaviour, INetworkRunnerCallback
 		FusionCallbackHandler.RPC_OnEventRaisedUnreliable(runner, eventCode, array, hasOps, array2, info);
 	}
 
-	// Token: 0x040010E3 RID: 4323
+	// Token: 0x04001129 RID: 4393
 	private NetworkSystemFusion parent;
 }

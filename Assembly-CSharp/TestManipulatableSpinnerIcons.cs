@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x020003EC RID: 1004
+// Token: 0x020003F7 RID: 1015
 public class TestManipulatableSpinnerIcons : MonoBehaviour
 {
-	// Token: 0x0600187C RID: 6268 RVA: 0x00076F66 File Offset: 0x00075166
+	// Token: 0x060018C9 RID: 6345 RVA: 0x00040C0D File Offset: 0x0003EE0D
 	private void Awake()
 	{
 		this.GenerateRollers();
 	}
 
-	// Token: 0x0600187D RID: 6269 RVA: 0x00076F6E File Offset: 0x0007516E
+	// Token: 0x060018CA RID: 6346 RVA: 0x00040C15 File Offset: 0x0003EE15
 	private void LateUpdate()
 	{
 		this.currentRotation = this.spinner.angle * this.rotationScale;
@@ -20,14 +20,14 @@ public class TestManipulatableSpinnerIcons : MonoBehaviour
 		this.UpdateRollers();
 	}
 
-	// Token: 0x0600187E RID: 6270 RVA: 0x00076F94 File Offset: 0x00075194
+	// Token: 0x060018CB RID: 6347 RVA: 0x000CD3EC File Offset: 0x000CB5EC
 	private void GenerateRollers()
 	{
 		for (int i = 0; i < this.rollerElementCount; i++)
 		{
 			float x = this.rollerElementAngle * (float)i + this.rollerElementAngle * 0.5f;
-			Object.Instantiate<GameObject>(this.rollerElementTemplate, base.transform).transform.localRotation = Quaternion.Euler(x, 0f, 0f);
-			GameObject gameObject = Object.Instantiate<GameObject>(this.iconElementTemplate, this.iconCanvas.transform);
+			UnityEngine.Object.Instantiate<GameObject>(this.rollerElementTemplate, base.transform).transform.localRotation = Quaternion.Euler(x, 0f, 0f);
+			GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(this.iconElementTemplate, this.iconCanvas.transform);
 			gameObject.transform.localRotation = Quaternion.Euler(x, 0f, 0f);
 			this.visibleIcons.Add(gameObject.GetComponentInChildren<Text>());
 		}
@@ -36,7 +36,7 @@ public class TestManipulatableSpinnerIcons : MonoBehaviour
 		this.UpdateRollers();
 	}
 
-	// Token: 0x0600187F RID: 6271 RVA: 0x0007705C File Offset: 0x0007525C
+	// Token: 0x060018CC RID: 6348 RVA: 0x000CD4B4 File Offset: 0x000CB6B4
 	private void UpdateSelectedIndex()
 	{
 		float num = this.currentRotation / this.rollerElementAngle;
@@ -52,7 +52,7 @@ public class TestManipulatableSpinnerIcons : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001880 RID: 6272 RVA: 0x000770C8 File Offset: 0x000752C8
+	// Token: 0x060018CD RID: 6349 RVA: 0x000CD520 File Offset: 0x000CB720
 	private void UpdateRollers()
 	{
 		float num = this.currentRotation;
@@ -90,39 +90,39 @@ public class TestManipulatableSpinnerIcons : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001B18 RID: 6936
+	// Token: 0x04001B61 RID: 7009
 	public ManipulatableSpinner spinner;
 
-	// Token: 0x04001B19 RID: 6937
+	// Token: 0x04001B62 RID: 7010
 	public float rotationScale = 1f;
 
-	// Token: 0x04001B1A RID: 6938
+	// Token: 0x04001B63 RID: 7011
 	public int rollerElementCount = 5;
 
-	// Token: 0x04001B1B RID: 6939
+	// Token: 0x04001B64 RID: 7012
 	public GameObject rollerElementTemplate;
 
-	// Token: 0x04001B1C RID: 6940
+	// Token: 0x04001B65 RID: 7013
 	public GameObject iconCanvas;
 
-	// Token: 0x04001B1D RID: 6941
+	// Token: 0x04001B66 RID: 7014
 	public GameObject iconElementTemplate;
 
-	// Token: 0x04001B1E RID: 6942
+	// Token: 0x04001B67 RID: 7015
 	public float iconOffset = 1f;
 
-	// Token: 0x04001B1F RID: 6943
+	// Token: 0x04001B68 RID: 7016
 	public float rollerElementAngle = 15f;
 
-	// Token: 0x04001B20 RID: 6944
+	// Token: 0x04001B69 RID: 7017
 	private List<Text> visibleIcons = new List<Text>();
 
-	// Token: 0x04001B21 RID: 6945
+	// Token: 0x04001B6A RID: 7018
 	private float currentRotation;
 
-	// Token: 0x04001B22 RID: 6946
+	// Token: 0x04001B6B RID: 7019
 	public int scrollableCount = 50;
 
-	// Token: 0x04001B23 RID: 6947
+	// Token: 0x04001B6C RID: 7020
 	public int selectedIndex;
 }

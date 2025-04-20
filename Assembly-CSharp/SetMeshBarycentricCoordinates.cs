@@ -3,18 +3,18 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-// Token: 0x0200034E RID: 846
+// Token: 0x02000359 RID: 857
 [RequireComponent(typeof(MeshFilter))]
 public class SetMeshBarycentricCoordinates : MonoBehaviour
 {
-	// Token: 0x060013AD RID: 5037 RVA: 0x00060886 File Offset: 0x0005EA86
+	// Token: 0x060013F9 RID: 5113 RVA: 0x0003D744 File Offset: 0x0003B944
 	private void Start()
 	{
 		this._meshFilter = base.GetComponent<MeshFilter>();
 		base.StartCoroutine(this.CheckMeshData());
 	}
 
-	// Token: 0x060013AE RID: 5038 RVA: 0x000608A1 File Offset: 0x0005EAA1
+	// Token: 0x060013FA RID: 5114 RVA: 0x0003D75F File Offset: 0x0003B95F
 	private IEnumerator CheckMeshData()
 	{
 		yield return null;
@@ -26,7 +26,7 @@ public class SetMeshBarycentricCoordinates : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060013AF RID: 5039 RVA: 0x000608B0 File Offset: 0x0005EAB0
+	// Token: 0x060013FB RID: 5115 RVA: 0x000BA240 File Offset: 0x000B8440
 	private void CreateBarycentricCoordinates()
 	{
 		Mesh mesh = this._meshFilter.mesh;
@@ -50,9 +50,9 @@ public class SetMeshBarycentricCoordinates : MonoBehaviour
 		this._meshFilter.mesh.RecalculateNormals();
 	}
 
-	// Token: 0x040015D7 RID: 5591
+	// Token: 0x0400161F RID: 5663
 	private MeshFilter _meshFilter;
 
-	// Token: 0x040015D8 RID: 5592
+	// Token: 0x04001620 RID: 5664
 	private Mesh _mesh;
 }

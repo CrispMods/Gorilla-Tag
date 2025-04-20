@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009CD RID: 2509
+	// Token: 0x020009F3 RID: 2547
 	public class PlayerTimerBoardLine : MonoBehaviour
 	{
-		// Token: 0x06003E94 RID: 16020 RVA: 0x00128843 File Offset: 0x00126A43
+		// Token: 0x06003FAC RID: 16300 RVA: 0x00059A38 File Offset: 0x00057C38
 		public void ResetData()
 		{
 			this.linePlayer = null;
@@ -17,7 +17,7 @@ namespace GorillaTagScripts
 			this.playerTimeSeconds = 0f;
 		}
 
-		// Token: 0x06003E95 RID: 16021 RVA: 0x00128870 File Offset: 0x00126A70
+		// Token: 0x06003FAD RID: 16301 RVA: 0x001698A0 File Offset: 0x00167AA0
 		public void SetLineData(NetPlayer netPlayer)
 		{
 			if (!netPlayer.InRoom || netPlayer == this.linePlayer)
@@ -34,7 +34,7 @@ namespace GorillaTagScripts
 			this.InitializeLine();
 		}
 
-		// Token: 0x06003E96 RID: 16022 RVA: 0x001288BE File Offset: 0x00126ABE
+		// Token: 0x06003FAE RID: 16302 RVA: 0x00059A62 File Offset: 0x00057C62
 		public void InitializeLine()
 		{
 			this.currentNickname = string.Empty;
@@ -42,7 +42,7 @@ namespace GorillaTagScripts
 			this.UpdateTimeText();
 		}
 
-		// Token: 0x06003E97 RID: 16023 RVA: 0x001288D8 File Offset: 0x00126AD8
+		// Token: 0x06003FAF RID: 16303 RVA: 0x001698F0 File Offset: 0x00167AF0
 		public void UpdateLine()
 		{
 			if (this.linePlayer != null)
@@ -61,7 +61,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E98 RID: 16024 RVA: 0x00128940 File Offset: 0x00126B40
+		// Token: 0x06003FB0 RID: 16304 RVA: 0x00169958 File Offset: 0x00167B58
 		private void UpdatePlayerText()
 		{
 			try
@@ -87,7 +87,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E99 RID: 16025 RVA: 0x00128A74 File Offset: 0x00126C74
+		// Token: 0x06003FB1 RID: 16305 RVA: 0x00169A8C File Offset: 0x00167C8C
 		private void UpdateTimeText()
 		{
 			if (this.linePlayer == null || !(PlayerTimerManager.instance != null))
@@ -104,7 +104,7 @@ namespace GorillaTagScripts
 			this.playerTimeStr = "--:--:--";
 		}
 
-		// Token: 0x06003E9A RID: 16026 RVA: 0x00128AF8 File Offset: 0x00126CF8
+		// Token: 0x06003FB2 RID: 16306 RVA: 0x00169B10 File Offset: 0x00167D10
 		public string NormalizeName(bool doIt, string text)
 		{
 			if (doIt)
@@ -127,7 +127,7 @@ namespace GorillaTagScripts
 			return text;
 		}
 
-		// Token: 0x06003E9B RID: 16027 RVA: 0x00128B9C File Offset: 0x00126D9C
+		// Token: 0x06003FB3 RID: 16307 RVA: 0x00169BB4 File Offset: 0x00167DB4
 		public static int CompareByTotalTime(PlayerTimerBoardLine lineA, PlayerTimerBoardLine lineB)
 		{
 			if (lineA.playerTimeSeconds > 0f && lineB.playerTimeSeconds > 0f)
@@ -145,28 +145,28 @@ namespace GorillaTagScripts
 			return 0;
 		}
 
-		// Token: 0x04003FDB RID: 16347
+		// Token: 0x040040B5 RID: 16565
 		public string playerNameVisible;
 
-		// Token: 0x04003FDC RID: 16348
+		// Token: 0x040040B6 RID: 16566
 		public string playerTimeStr;
 
-		// Token: 0x04003FDD RID: 16349
+		// Token: 0x040040B7 RID: 16567
 		private float playerTimeSeconds;
 
-		// Token: 0x04003FDE RID: 16350
+		// Token: 0x040040B8 RID: 16568
 		public NetPlayer linePlayer;
 
-		// Token: 0x04003FDF RID: 16351
+		// Token: 0x040040B9 RID: 16569
 		public VRRig playerVRRig;
 
-		// Token: 0x04003FE0 RID: 16352
+		// Token: 0x040040BA RID: 16570
 		public PlayerTimerBoard parentBoard;
 
-		// Token: 0x04003FE1 RID: 16353
+		// Token: 0x040040BB RID: 16571
 		internal RigContainer rigContainer;
 
-		// Token: 0x04003FE2 RID: 16354
+		// Token: 0x040040BC RID: 16572
 		private string currentNickname;
 	}
 }

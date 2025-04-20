@@ -4,29 +4,29 @@ using UnityEngine;
 
 namespace DynamicSceneManagerHelper
 {
-	// Token: 0x02000A35 RID: 2613
+	// Token: 0x02000A62 RID: 2658
 	internal class SceneSnapshot
 	{
-		// Token: 0x1700068A RID: 1674
-		// (get) Token: 0x0600413C RID: 16700 RVA: 0x001350BE File Offset: 0x001332BE
+		// Token: 0x170006A6 RID: 1702
+		// (get) Token: 0x06004281 RID: 17025 RVA: 0x0005B707 File Offset: 0x00059907
 		public Dictionary<OVRAnchor, SceneSnapshot.Data> Anchors { get; } = new Dictionary<OVRAnchor, SceneSnapshot.Data>();
 
-		// Token: 0x0600413D RID: 16701 RVA: 0x001350C6 File Offset: 0x001332C6
+		// Token: 0x06004282 RID: 17026 RVA: 0x0005B70F File Offset: 0x0005990F
 		public bool Contains(OVRAnchor anchor)
 		{
 			return this.Anchors.ContainsKey(anchor);
 		}
 
-		// Token: 0x02000A36 RID: 2614
+		// Token: 0x02000A63 RID: 2659
 		public class Data
 		{
-			// Token: 0x04004263 RID: 16995
+			// Token: 0x0400435D RID: 17245
 			public List<OVRAnchor> Children;
 
-			// Token: 0x04004264 RID: 16996
+			// Token: 0x0400435E RID: 17246
 			public Rect? Rect;
 
-			// Token: 0x04004265 RID: 16997
+			// Token: 0x0400435F RID: 17247
 			public Bounds? Bounds;
 		}
 	}

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001D7 RID: 471
+// Token: 0x020001E2 RID: 482
 public class RaceCheckpointManager : MonoBehaviour
 {
-	// Token: 0x06000AF5 RID: 2805 RVA: 0x0003B1C8 File Offset: 0x000393C8
+	// Token: 0x06000B41 RID: 2881 RVA: 0x0009A56C File Offset: 0x0009876C
 	private void Start()
 	{
 		this.visual = base.GetComponent<RaceVisual>();
@@ -15,7 +15,7 @@ public class RaceCheckpointManager : MonoBehaviour
 		this.OnRaceEnd();
 	}
 
-	// Token: 0x06000AF6 RID: 2806 RVA: 0x0003B20C File Offset: 0x0003940C
+	// Token: 0x06000B42 RID: 2882 RVA: 0x0009A5B0 File Offset: 0x000987B0
 	public void OnRaceStart()
 	{
 		for (int i = 0; i < this.checkpoints.Length; i++)
@@ -24,7 +24,7 @@ public class RaceCheckpointManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AF7 RID: 2807 RVA: 0x0003B240 File Offset: 0x00039440
+	// Token: 0x06000B43 RID: 2883 RVA: 0x0009A5E4 File Offset: 0x000987E4
 	public void OnRaceEnd()
 	{
 		for (int i = 0; i < this.checkpoints.Length; i++)
@@ -33,7 +33,7 @@ public class RaceCheckpointManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AF8 RID: 2808 RVA: 0x0003B26E File Offset: 0x0003946E
+	// Token: 0x06000B44 RID: 2884 RVA: 0x00037E2B File Offset: 0x0003602B
 	public void OnCheckpointReached(int index, SoundBankPlayer checkpointSound)
 	{
 		this.checkpoints[index].SetIsCorrectCheckpoint(false);
@@ -41,16 +41,16 @@ public class RaceCheckpointManager : MonoBehaviour
 		this.visual.OnCheckpointPassed(index, checkpointSound);
 	}
 
-	// Token: 0x06000AF9 RID: 2809 RVA: 0x0003B2A4 File Offset: 0x000394A4
+	// Token: 0x06000B45 RID: 2885 RVA: 0x00037E61 File Offset: 0x00036061
 	public bool IsPlayerNearCheckpoint(VRRig player, int checkpointIdx)
 	{
 		return checkpointIdx >= 0 && checkpointIdx < this.checkpoints.Length && player.IsPositionInRange(this.checkpoints[checkpointIdx].transform.position, 6f);
 	}
 
-	// Token: 0x04000D5E RID: 3422
+	// Token: 0x04000DA4 RID: 3492
 	[SerializeField]
 	private RaceCheckpoint[] checkpoints;
 
-	// Token: 0x04000D5F RID: 3423
+	// Token: 0x04000DA5 RID: 3493
 	private RaceVisual visual;
 }

@@ -4,20 +4,20 @@ using GorillaTag;
 using GorillaTag.CosmeticSystem;
 using UnityEngine;
 
-// Token: 0x0200017B RID: 379
+// Token: 0x02000186 RID: 390
 public class StickyHand : MonoBehaviour, ISpawnable
 {
-	// Token: 0x170000EE RID: 238
-	// (get) Token: 0x06000977 RID: 2423 RVA: 0x0003278B File Offset: 0x0003098B
-	// (set) Token: 0x06000978 RID: 2424 RVA: 0x00032793 File Offset: 0x00030993
+	// Token: 0x170000F5 RID: 245
+	// (get) Token: 0x060009C3 RID: 2499 RVA: 0x00036E73 File Offset: 0x00035073
+	// (set) Token: 0x060009C4 RID: 2500 RVA: 0x00036E7B File Offset: 0x0003507B
 	bool ISpawnable.IsSpawned { get; set; }
 
-	// Token: 0x170000EF RID: 239
-	// (get) Token: 0x06000979 RID: 2425 RVA: 0x0003279C File Offset: 0x0003099C
-	// (set) Token: 0x0600097A RID: 2426 RVA: 0x000327A4 File Offset: 0x000309A4
+	// Token: 0x170000F6 RID: 246
+	// (get) Token: 0x060009C5 RID: 2501 RVA: 0x00036E84 File Offset: 0x00035084
+	// (set) Token: 0x060009C6 RID: 2502 RVA: 0x00036E8C File Offset: 0x0003508C
 	public ECosmeticSelectSide CosmeticSelectedSide { get; set; }
 
-	// Token: 0x0600097B RID: 2427 RVA: 0x000327B0 File Offset: 0x000309B0
+	// Token: 0x060009C7 RID: 2503 RVA: 0x00092AE4 File Offset: 0x00090CE4
 	void ISpawnable.OnSpawn(VRRig rig)
 	{
 		this.myRig = rig;
@@ -28,12 +28,12 @@ public class StickyHand : MonoBehaviour, ISpawnable
 		this.stateBitIndex = VRRig.WearablePackedStatesBitWriteInfos[num].index;
 	}
 
-	// Token: 0x0600097C RID: 2428 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060009C8 RID: 2504 RVA: 0x00030607 File Offset: 0x0002E807
 	void ISpawnable.OnDespawn()
 	{
 	}
 
-	// Token: 0x0600097D RID: 2429 RVA: 0x00032828 File Offset: 0x00030A28
+	// Token: 0x060009C9 RID: 2505 RVA: 0x00092B5C File Offset: 0x00090D5C
 	private void Update()
 	{
 		if (this.isLocal)
@@ -60,7 +60,7 @@ public class StickyHand : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x0600097E RID: 2430 RVA: 0x00032956 File Offset: 0x00030B56
+	// Token: 0x060009CA RID: 2506 RVA: 0x00036E95 File Offset: 0x00035095
 	private void Stick()
 	{
 		this.thwackSound.Play();
@@ -69,7 +69,7 @@ public class StickyHand : MonoBehaviour, ISpawnable
 		this.rb.isKinematic = true;
 	}
 
-	// Token: 0x0600097F RID: 2431 RVA: 0x00032987 File Offset: 0x00030B87
+	// Token: 0x060009CB RID: 2507 RVA: 0x00036EC6 File Offset: 0x000350C6
 	private void Unstick()
 	{
 		this.schlupSound.Play();
@@ -78,7 +78,7 @@ public class StickyHand : MonoBehaviour, ISpawnable
 		this.regularHand.enabled = true;
 	}
 
-	// Token: 0x06000980 RID: 2432 RVA: 0x000329B8 File Offset: 0x00030BB8
+	// Token: 0x060009CC RID: 2508 RVA: 0x00092C8C File Offset: 0x00090E8C
 	private void OnCollisionStay(Collision collision)
 	{
 		if (!this.isLocal || this.rb.isKinematic)
@@ -98,55 +98,55 @@ public class StickyHand : MonoBehaviour, ISpawnable
 		this.rb.transform.position = point + vector + this.surfaceOffsetDistance * normal;
 	}
 
-	// Token: 0x04000B71 RID: 2929
+	// Token: 0x04000BB7 RID: 2999
 	[SerializeField]
 	private MeshRenderer flatHand;
 
-	// Token: 0x04000B72 RID: 2930
+	// Token: 0x04000BB8 RID: 3000
 	[SerializeField]
 	private MeshRenderer regularHand;
 
-	// Token: 0x04000B73 RID: 2931
+	// Token: 0x04000BB9 RID: 3001
 	[SerializeField]
 	private Rigidbody rb;
 
-	// Token: 0x04000B74 RID: 2932
+	// Token: 0x04000BBA RID: 3002
 	[SerializeField]
 	private GameObject stringParent;
 
-	// Token: 0x04000B75 RID: 2933
+	// Token: 0x04000BBB RID: 3003
 	[SerializeField]
 	private float surfaceOffsetDistance;
 
-	// Token: 0x04000B76 RID: 2934
+	// Token: 0x04000BBC RID: 3004
 	[SerializeField]
 	private float stringMaxAttachLength;
 
-	// Token: 0x04000B77 RID: 2935
+	// Token: 0x04000BBD RID: 3005
 	[SerializeField]
 	private float stringDetachLength;
 
-	// Token: 0x04000B78 RID: 2936
+	// Token: 0x04000BBE RID: 3006
 	[SerializeField]
 	private float stringTeleportLength;
 
-	// Token: 0x04000B79 RID: 2937
+	// Token: 0x04000BBF RID: 3007
 	[SerializeField]
 	private SoundBankPlayer thwackSound;
 
-	// Token: 0x04000B7A RID: 2938
+	// Token: 0x04000BC0 RID: 3008
 	[SerializeField]
 	private SoundBankPlayer schlupSound;
 
-	// Token: 0x04000B7B RID: 2939
+	// Token: 0x04000BC1 RID: 3009
 	private VRRig myRig;
 
-	// Token: 0x04000B7C RID: 2940
+	// Token: 0x04000BC2 RID: 3010
 	private bool isLocal;
 
-	// Token: 0x04000B7D RID: 2941
+	// Token: 0x04000BC3 RID: 3011
 	private int stateBitIndex;
 
-	// Token: 0x04000B7E RID: 2942
+	// Token: 0x04000BC4 RID: 3012
 	private Vector3 defaultLocalPosition;
 }

@@ -2,10 +2,10 @@
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x02000450 RID: 1104
+// Token: 0x0200045C RID: 1116
 public class UseableObjectEvents : MonoBehaviour
 {
-	// Token: 0x06001B3B RID: 6971 RVA: 0x000861D4 File Offset: 0x000843D4
+	// Token: 0x06001B8F RID: 7055 RVA: 0x000DA91C File Offset: 0x000D8B1C
 	public void Init(NetPlayer player)
 	{
 		bool isLocal = player.IsLocal;
@@ -28,7 +28,7 @@ public class UseableObjectEvents : MonoBehaviour
 		this.Deactivate.reliable = false;
 	}
 
-	// Token: 0x06001B3C RID: 6972 RVA: 0x00086295 File Offset: 0x00084495
+	// Token: 0x06001B90 RID: 7056 RVA: 0x00042D83 File Offset: 0x00040F83
 	private void OnEnable()
 	{
 		PhotonEvent activate = this.Activate;
@@ -44,7 +44,7 @@ public class UseableObjectEvents : MonoBehaviour
 		deactivate.Enable();
 	}
 
-	// Token: 0x06001B3D RID: 6973 RVA: 0x000862B8 File Offset: 0x000844B8
+	// Token: 0x06001B91 RID: 7057 RVA: 0x00042DA6 File Offset: 0x00040FA6
 	private void OnDisable()
 	{
 		PhotonEvent activate = this.Activate;
@@ -60,13 +60,13 @@ public class UseableObjectEvents : MonoBehaviour
 		deactivate.Disable();
 	}
 
-	// Token: 0x06001B3E RID: 6974 RVA: 0x000862DB File Offset: 0x000844DB
+	// Token: 0x06001B92 RID: 7058 RVA: 0x00042DC9 File Offset: 0x00040FC9
 	private void OnDestroy()
 	{
 		this.DisposeEvents();
 	}
 
-	// Token: 0x06001B3F RID: 6975 RVA: 0x000862E3 File Offset: 0x000844E3
+	// Token: 0x06001B93 RID: 7059 RVA: 0x00042DD1 File Offset: 0x00040FD1
 	private void DisposeEvents()
 	{
 		PhotonEvent activate = this.Activate;
@@ -83,17 +83,17 @@ public class UseableObjectEvents : MonoBehaviour
 		this.Deactivate = null;
 	}
 
-	// Token: 0x04001E2C RID: 7724
+	// Token: 0x04001E7B RID: 7803
 	[NonSerialized]
 	private string PlayerIdString;
 
-	// Token: 0x04001E2D RID: 7725
+	// Token: 0x04001E7C RID: 7804
 	[NonSerialized]
 	private int PlayerId;
 
-	// Token: 0x04001E2E RID: 7726
+	// Token: 0x04001E7D RID: 7805
 	public PhotonEvent Activate;
 
-	// Token: 0x04001E2F RID: 7727
+	// Token: 0x04001E7E RID: 7806
 	public PhotonEvent Deactivate;
 }

@@ -2,16 +2,16 @@
 
 namespace Viveport.Internal
 {
-	// Token: 0x02000925 RID: 2341
+	// Token: 0x02000942 RID: 2370
 	internal enum ELeaderboardDataRequest
 	{
-		// Token: 0x04003AC9 RID: 15049
+		// Token: 0x04003B8E RID: 15246
 		k_ELeaderboardDataRequestGlobal,
-		// Token: 0x04003ACA RID: 15050
+		// Token: 0x04003B8F RID: 15247
 		k_ELeaderboardDataRequestGlobalAroundUser,
-		// Token: 0x04003ACB RID: 15051
+		// Token: 0x04003B90 RID: 15248
 		k_ELeaderboardDataRequestLocal,
-		// Token: 0x04003ACC RID: 15052
+		// Token: 0x04003B91 RID: 15249
 		k_ELeaderboardDataRequestLocaleAroundUser
 	}
 }

@@ -4,36 +4,36 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C2E RID: 3118
+	// Token: 0x02000C5E RID: 3166
 	public class SquirtingFlowerBadgeCosmetic : MonoBehaviour, ISpawnable, IFingerFlexListener
 	{
-		// Token: 0x1700080F RID: 2063
-		// (get) Token: 0x06004DD4 RID: 19924 RVA: 0x0017DAC2 File Offset: 0x0017BCC2
-		// (set) Token: 0x06004DD5 RID: 19925 RVA: 0x0017DACA File Offset: 0x0017BCCA
+		// Token: 0x1700082D RID: 2093
+		// (get) Token: 0x06004F2C RID: 20268 RVA: 0x00063AE3 File Offset: 0x00061CE3
+		// (set) Token: 0x06004F2D RID: 20269 RVA: 0x00063AEB File Offset: 0x00061CEB
 		public VRRig MyRig { get; private set; }
 
-		// Token: 0x17000810 RID: 2064
-		// (get) Token: 0x06004DD6 RID: 19926 RVA: 0x0017DAD3 File Offset: 0x0017BCD3
-		// (set) Token: 0x06004DD7 RID: 19927 RVA: 0x0017DADB File Offset: 0x0017BCDB
+		// Token: 0x1700082E RID: 2094
+		// (get) Token: 0x06004F2E RID: 20270 RVA: 0x00063AF4 File Offset: 0x00061CF4
+		// (set) Token: 0x06004F2F RID: 20271 RVA: 0x00063AFC File Offset: 0x00061CFC
 		public bool IsSpawned { get; set; }
 
-		// Token: 0x17000811 RID: 2065
-		// (get) Token: 0x06004DD8 RID: 19928 RVA: 0x0017DAE4 File Offset: 0x0017BCE4
-		// (set) Token: 0x06004DD9 RID: 19929 RVA: 0x0017DAEC File Offset: 0x0017BCEC
+		// Token: 0x1700082F RID: 2095
+		// (get) Token: 0x06004F30 RID: 20272 RVA: 0x00063B05 File Offset: 0x00061D05
+		// (set) Token: 0x06004F31 RID: 20273 RVA: 0x00063B0D File Offset: 0x00061D0D
 		public ECosmeticSelectSide CosmeticSelectedSide { get; set; }
 
-		// Token: 0x06004DDA RID: 19930 RVA: 0x0017DAF5 File Offset: 0x0017BCF5
+		// Token: 0x06004F32 RID: 20274 RVA: 0x00063B16 File Offset: 0x00061D16
 		public void OnSpawn(VRRig rig)
 		{
 			this.MyRig = rig;
 		}
 
-		// Token: 0x06004DDB RID: 19931 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004F33 RID: 20275 RVA: 0x00030607 File Offset: 0x0002E807
 		public void OnDespawn()
 		{
 		}
 
-		// Token: 0x06004DDC RID: 19932 RVA: 0x0017DAFE File Offset: 0x0017BCFE
+		// Token: 0x06004F34 RID: 20276 RVA: 0x00063B1F File Offset: 0x00061D1F
 		private void Update()
 		{
 			if (!this.restartTimer && Time.time - this.triggeredTime >= this.coolDownTimer)
@@ -42,7 +42,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DDD RID: 19933 RVA: 0x0017DB24 File Offset: 0x0017BD24
+		// Token: 0x06004F35 RID: 20277 RVA: 0x001B6158 File Offset: 0x001B4358
 		private void OnPlayEffectLocal()
 		{
 			if (this.particlesToPlay != null)
@@ -61,7 +61,7 @@ namespace GorillaTag.Cosmetics
 			this.triggeredTime = Time.time;
 		}
 
-		// Token: 0x06004DDE RID: 19934 RVA: 0x0017DBA8 File Offset: 0x0017BDA8
+		// Token: 0x06004F36 RID: 20278 RVA: 0x00063B44 File Offset: 0x00061D44
 		public void OnButtonPressed(bool isLeftHand, float value)
 		{
 			if (!this.FingerFlexValidation(isLeftHand))
@@ -76,7 +76,7 @@ namespace GorillaTag.Cosmetics
 			this.buttonReleased = false;
 		}
 
-		// Token: 0x06004DDF RID: 19935 RVA: 0x0017DBD2 File Offset: 0x0017BDD2
+		// Token: 0x06004F37 RID: 20279 RVA: 0x00063B6E File Offset: 0x00061D6E
 		public void OnButtonReleased(bool isLeftHand, float value)
 		{
 			if (!this.FingerFlexValidation(isLeftHand))
@@ -86,48 +86,48 @@ namespace GorillaTag.Cosmetics
 			this.buttonReleased = true;
 		}
 
-		// Token: 0x06004DE0 RID: 19936 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004F38 RID: 20280 RVA: 0x00030607 File Offset: 0x0002E807
 		public void OnButtonPressStayed(bool isLeftHand, float value)
 		{
 		}
 
-		// Token: 0x06004DE1 RID: 19937 RVA: 0x0017DBE5 File Offset: 0x0017BDE5
+		// Token: 0x06004F39 RID: 20281 RVA: 0x00063B81 File Offset: 0x00061D81
 		public bool FingerFlexValidation(bool isLeftHand)
 		{
 			return (!this.leftHand || isLeftHand) && (this.leftHand || !isLeftHand);
 		}
 
-		// Token: 0x040050DB RID: 20699
+		// Token: 0x040051E1 RID: 20961
 		[SerializeField]
 		private ParticleSystem particlesToPlay;
 
-		// Token: 0x040050DC RID: 20700
+		// Token: 0x040051E2 RID: 20962
 		[SerializeField]
 		private GameObject objectToEnable;
 
-		// Token: 0x040050DD RID: 20701
+		// Token: 0x040051E3 RID: 20963
 		[SerializeField]
 		private AudioClip audioToPlay;
 
-		// Token: 0x040050DE RID: 20702
+		// Token: 0x040051E4 RID: 20964
 		[SerializeField]
 		private AudioSource audioSource;
 
-		// Token: 0x040050DF RID: 20703
+		// Token: 0x040051E5 RID: 20965
 		[SerializeField]
 		private float coolDownTimer = 2f;
 
-		// Token: 0x040050E0 RID: 20704
+		// Token: 0x040051E6 RID: 20966
 		[SerializeField]
 		private bool leftHand;
 
-		// Token: 0x040050E1 RID: 20705
+		// Token: 0x040051E7 RID: 20967
 		private float triggeredTime;
 
-		// Token: 0x040050E2 RID: 20706
+		// Token: 0x040051E8 RID: 20968
 		private bool restartTimer;
 
-		// Token: 0x040050E3 RID: 20707
+		// Token: 0x040051E9 RID: 20969
 		private bool buttonReleased = true;
 	}
 }

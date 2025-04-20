@@ -6,22 +6,22 @@ using UnityEngine;
 
 namespace GorillaTag.Reactions
 {
-	// Token: 0x02000BC1 RID: 3009
+	// Token: 0x02000BEF RID: 3055
 	public class FireManager : ITickSystemPost
 	{
-		// Token: 0x170007DD RID: 2013
-		// (get) Token: 0x06004C00 RID: 19456 RVA: 0x001719E5 File Offset: 0x0016FBE5
-		// (set) Token: 0x06004C01 RID: 19457 RVA: 0x001719EC File Offset: 0x0016FBEC
+		// Token: 0x170007FB RID: 2043
+		// (get) Token: 0x06004D4C RID: 19788 RVA: 0x00062BB1 File Offset: 0x00060DB1
+		// (set) Token: 0x06004D4D RID: 19789 RVA: 0x00062BB8 File Offset: 0x00060DB8
 		[OnEnterPlay_SetNull]
 		internal static FireManager instance { get; private set; }
 
-		// Token: 0x170007DE RID: 2014
-		// (get) Token: 0x06004C02 RID: 19458 RVA: 0x001719F4 File Offset: 0x0016FBF4
-		// (set) Token: 0x06004C03 RID: 19459 RVA: 0x001719FB File Offset: 0x0016FBFB
+		// Token: 0x170007FC RID: 2044
+		// (get) Token: 0x06004D4E RID: 19790 RVA: 0x00062BC0 File Offset: 0x00060DC0
+		// (set) Token: 0x06004D4F RID: 19791 RVA: 0x00062BC7 File Offset: 0x00060DC7
 		[OnEnterPlay_Set(false)]
 		internal static bool hasInstance { get; private set; }
 
-		// Token: 0x06004C04 RID: 19460 RVA: 0x00171A03 File Offset: 0x0016FC03
+		// Token: 0x06004D50 RID: 19792 RVA: 0x00062BCF File Offset: 0x00060DCF
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
 		private static void Initialize()
 		{
@@ -38,7 +38,7 @@ namespace GorillaTag.Reactions
 			TickSystem<object>.AddPostTickCallback(FireManager.instance);
 		}
 
-		// Token: 0x06004C05 RID: 19461 RVA: 0x00171A30 File Offset: 0x0016FC30
+		// Token: 0x06004D51 RID: 19793 RVA: 0x001AA528 File Offset: 0x001A8728
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void Register(FireInstance f)
 		{
@@ -80,7 +80,7 @@ namespace GorillaTag.Reactions
 			}
 		}
 
-		// Token: 0x06004C06 RID: 19462 RVA: 0x00171C2C File Offset: 0x0016FE2C
+		// Token: 0x06004D52 RID: 19794 RVA: 0x001AA724 File Offset: 0x001A8924
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void Unregister(FireInstance reactable)
 		{
@@ -92,7 +92,7 @@ namespace GorillaTag.Reactions
 			FireManager._kGObjInstId_to_fire.Remove(instanceID);
 		}
 
-		// Token: 0x06004C07 RID: 19463 RVA: 0x00171C5C File Offset: 0x0016FE5C
+		// Token: 0x06004D53 RID: 19795 RVA: 0x001AA754 File Offset: 0x001A8954
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		private static Vector3Int GetSpatialGridPos(Vector3 pos)
 		{
@@ -100,7 +100,7 @@ namespace GorillaTag.Reactions
 			return new Vector3Int((int)vector.x, (int)vector.y, (int)vector.z);
 		}
 
-		// Token: 0x06004C08 RID: 19464 RVA: 0x00171C90 File Offset: 0x0016FE90
+		// Token: 0x06004D54 RID: 19796 RVA: 0x001AA788 File Offset: 0x001A8988
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		private static void ResetFireValues(FireInstance f)
 		{
@@ -111,7 +111,7 @@ namespace GorillaTag.Reactions
 			f._thermalVolume.celsius = f._defaultTemperature;
 		}
 
-		// Token: 0x06004C09 RID: 19465 RVA: 0x00171CE4 File Offset: 0x0016FEE4
+		// Token: 0x06004D55 RID: 19797 RVA: 0x001AA7DC File Offset: 0x001A89DC
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void SpawnFire(SinglePool pool, Vector3 pos, Vector3 normal, float scale)
 		{
@@ -128,7 +128,7 @@ namespace GorillaTag.Reactions
 			gameObject.SetActive(true);
 		}
 
-		// Token: 0x06004C0A RID: 19466 RVA: 0x00171D54 File Offset: 0x0016FF54
+		// Token: 0x06004D56 RID: 19798 RVA: 0x001AA84C File Offset: 0x001A8A4C
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void OnEnable(FireInstance f)
 		{
@@ -153,7 +153,7 @@ namespace GorillaTag.Reactions
 			f._loopingAudioSource.enabled = false;
 		}
 
-		// Token: 0x06004C0B RID: 19467 RVA: 0x00171E2C File Offset: 0x0017002C
+		// Token: 0x06004D57 RID: 19799 RVA: 0x001AA924 File Offset: 0x001A8B24
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void OnDisable(FireInstance f)
 		{
@@ -166,7 +166,7 @@ namespace GorillaTag.Reactions
 			FireManager._activeAudioSources = Mathf.Min(FireManager._activeAudioSources - (f._loopingAudioSource.enabled ? 1 : 0), 0);
 		}
 
-		// Token: 0x06004C0C RID: 19468 RVA: 0x00171E80 File Offset: 0x00170080
+		// Token: 0x06004D58 RID: 19800 RVA: 0x00062BFB File Offset: 0x00060DFB
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void OnTriggerEnter(FireInstance f, Collider other)
 		{
@@ -180,7 +180,7 @@ namespace GorillaTag.Reactions
 			}
 		}
 
-		// Token: 0x06004C0D RID: 19469 RVA: 0x00171EB0 File Offset: 0x001700B0
+		// Token: 0x06004D59 RID: 19801 RVA: 0x001AA978 File Offset: 0x001A8B78
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		internal static void Extinguish(GameObject gObj, float extinguishAmount)
 		{
@@ -207,12 +207,12 @@ namespace GorillaTag.Reactions
 			}
 		}
 
-		// Token: 0x170007DF RID: 2015
-		// (get) Token: 0x06004C0E RID: 19470 RVA: 0x00171F63 File Offset: 0x00170163
-		// (set) Token: 0x06004C0F RID: 19471 RVA: 0x00171F6B File Offset: 0x0017016B
+		// Token: 0x170007FD RID: 2045
+		// (get) Token: 0x06004D5A RID: 19802 RVA: 0x00062C2B File Offset: 0x00060E2B
+		// (set) Token: 0x06004D5B RID: 19803 RVA: 0x00062C33 File Offset: 0x00060E33
 		bool ITickSystemPost.PostTickRunning { get; set; }
 
-		// Token: 0x06004C10 RID: 19472 RVA: 0x00171F74 File Offset: 0x00170174
+		// Token: 0x06004D5C RID: 19804 RVA: 0x001AAA2C File Offset: 0x001A8C2C
 		void ITickSystemPost.PostTick()
 		{
 			if (ApplicationQuittingState.IsQuitting)
@@ -283,33 +283,33 @@ namespace GorillaTag.Reactions
 			FireManager._kFiresToDespawn.Clear();
 		}
 
-		// Token: 0x04004DD0 RID: 19920
+		// Token: 0x04004EC6 RID: 20166
 		[OnEnterPlay_Clear]
 		private static readonly Dictionary<int, FireInstance> _kGObjInstId_to_fire = new Dictionary<int, FireInstance>(256);
 
-		// Token: 0x04004DD1 RID: 19921
+		// Token: 0x04004EC7 RID: 20167
 		[OnEnterPlay_Clear]
 		private static readonly List<FireInstance> _kEnabledReactions = new List<FireInstance>(256);
 
-		// Token: 0x04004DD2 RID: 19922
+		// Token: 0x04004EC8 RID: 20168
 		[OnEnterPlay_Clear]
 		private static readonly List<FireInstance> _kFiresToDespawn = new List<FireInstance>(256);
 
-		// Token: 0x04004DD3 RID: 19923
+		// Token: 0x04004EC9 RID: 20169
 		[OnEnterPlay_Clear]
 		private static readonly Dictionary<Vector3Int, int> _fireSpatialGrid = new Dictionary<Vector3Int, int>(256);
 
-		// Token: 0x04004DD4 RID: 19924
+		// Token: 0x04004ECA RID: 20170
 		private const float _kSpatialGridCellSize = 0.2f;
 
-		// Token: 0x04004DD5 RID: 19925
+		// Token: 0x04004ECB RID: 20171
 		private const int _kMaxAudioSources = 8;
 
-		// Token: 0x04004DD6 RID: 19926
+		// Token: 0x04004ECC RID: 20172
 		[OnEnterPlay_Set(0)]
 		private static int _activeAudioSources;
 
-		// Token: 0x04004DD7 RID: 19927
+		// Token: 0x04004ECD RID: 20173
 		private static readonly int shaderProp_EmissionColor = Shader.PropertyToID("_EmissionColor");
 	}
 }

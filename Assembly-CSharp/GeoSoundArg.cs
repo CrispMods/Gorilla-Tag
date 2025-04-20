@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000547 RID: 1351
+// Token: 0x02000555 RID: 1365
 public class GeoSoundArg : FXSArgs
 {
-	// Token: 0x040024B8 RID: 9400
+	// Token: 0x04002510 RID: 9488
 	public Vector3 position;
 }

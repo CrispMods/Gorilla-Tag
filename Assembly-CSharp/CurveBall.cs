@@ -5,10 +5,10 @@ using UnityEngine;
 // Token: 0x0200001C RID: 28
 public class CurveBall : MonoBehaviour
 {
-	// Token: 0x06000069 RID: 105 RVA: 0x00003C24 File Offset: 0x00001E24
+	// Token: 0x06000069 RID: 105 RVA: 0x00068F48 File Offset: 0x00067148
 	public void Reset()
 	{
-		float f = Random.Range(0f, MathUtil.TwoPi);
+		float f = UnityEngine.Random.Range(0f, MathUtil.TwoPi);
 		float num = Mathf.Cos(f);
 		float num2 = Mathf.Sin(f);
 		this.m_speedX = 40f * num;
@@ -20,13 +20,13 @@ public class CurveBall : MonoBehaviour
 		base.transform.position = position;
 	}
 
-	// Token: 0x0600006A RID: 106 RVA: 0x00003CA6 File Offset: 0x00001EA6
+	// Token: 0x0600006A RID: 106 RVA: 0x00030920 File Offset: 0x0002EB20
 	public void Start()
 	{
 		this.Reset();
 	}
 
-	// Token: 0x0600006B RID: 107 RVA: 0x00003CB0 File Offset: 0x00001EB0
+	// Token: 0x0600006B RID: 107 RVA: 0x00068FCC File Offset: 0x000671CC
 	public void Update()
 	{
 		float deltaTime = Time.deltaTime;

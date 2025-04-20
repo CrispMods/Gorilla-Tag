@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000059 RID: 89
+// Token: 0x0200005F RID: 95
 public class CrittersPool : MonoBehaviour
 {
-	// Token: 0x06000242 RID: 578 RVA: 0x0000EE04 File Offset: 0x0000D004
+	// Token: 0x06000264 RID: 612 RVA: 0x00031D90 File Offset: 0x0002FF90
 	public static GameObject GetPooled(GameObject prefab)
 	{
 		CrittersPool crittersPool = CrittersPool.instance;
@@ -16,7 +16,7 @@ public class CrittersPool : MonoBehaviour
 		return crittersPool.GetInstance(prefab);
 	}
 
-	// Token: 0x06000243 RID: 579 RVA: 0x0000EE17 File Offset: 0x0000D017
+	// Token: 0x06000265 RID: 613 RVA: 0x00031DA3 File Offset: 0x0002FFA3
 	public static void Return(GameObject pooledGO)
 	{
 		CrittersPool crittersPool = CrittersPool.instance;
@@ -27,19 +27,19 @@ public class CrittersPool : MonoBehaviour
 		crittersPool.ReturnInstance(pooledGO);
 	}
 
-	// Token: 0x06000244 RID: 580 RVA: 0x0000EE29 File Offset: 0x0000D029
+	// Token: 0x06000266 RID: 614 RVA: 0x00031DB5 File Offset: 0x0002FFB5
 	private void Awake()
 	{
 		if (CrittersPool.instance != null)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 			return;
 		}
 		CrittersPool.instance = this;
 		this.SetupPools();
 	}
 
-	// Token: 0x06000245 RID: 581 RVA: 0x0000EE4C File Offset: 0x0000D04C
+	// Token: 0x06000267 RID: 615 RVA: 0x00073D14 File Offset: 0x00071F14
 	private void SetupPools()
 	{
 		this.pools = new Dictionary<GameObject, List<GameObject>>();
@@ -62,7 +62,7 @@ public class CrittersPool : MonoBehaviour
 				List<GameObject> list = new List<GameObject>();
 				for (int j = 0; j < crittersPoolSettings.poolSize; j++)
 				{
-					GameObject gameObject = Object.Instantiate<GameObject>(crittersPoolSettings.poolObject);
+					GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(crittersPoolSettings.poolObject);
 					gameObject.transform.SetParent(this.poolParent);
 					GameObject gameObject2 = gameObject;
 					gameObject2.name += j.ToString();
@@ -74,7 +74,7 @@ public class CrittersPool : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000246 RID: 582 RVA: 0x0000EF48 File Offset: 0x0000D148
+	// Token: 0x06000268 RID: 616 RVA: 0x00073E10 File Offset: 0x00072010
 	private GameObject GetInstance(GameObject prefab)
 	{
 		List<GameObject> list;
@@ -95,33 +95,33 @@ public class CrittersPool : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x06000247 RID: 583 RVA: 0x0000EFC1 File Offset: 0x0000D1C1
+	// Token: 0x06000269 RID: 617 RVA: 0x00031DD7 File Offset: 0x0002FFD7
 	private void ReturnInstance(GameObject instance)
 	{
 		instance.transform.SetParent(this.poolParent);
 		instance.SetActive(false);
 	}
 
-	// Token: 0x040002C5 RID: 709
+	// Token: 0x040002F1 RID: 753
 	private static CrittersPool instance;
 
-	// Token: 0x040002C6 RID: 710
+	// Token: 0x040002F2 RID: 754
 	public CrittersPool.CrittersPoolSettings[] eventEffects;
 
-	// Token: 0x040002C7 RID: 711
+	// Token: 0x040002F3 RID: 755
 	private Dictionary<GameObject, List<GameObject>> pools;
 
-	// Token: 0x040002C8 RID: 712
+	// Token: 0x040002F4 RID: 756
 	public Transform poolParent;
 
-	// Token: 0x0200005A RID: 90
+	// Token: 0x02000060 RID: 96
 	[Serializable]
 	public class CrittersPoolSettings
 	{
-		// Token: 0x040002C9 RID: 713
+		// Token: 0x040002F5 RID: 757
 		public GameObject poolObject;
 
-		// Token: 0x040002CA RID: 714
+		// Token: 0x040002F6 RID: 758
 		public int poolSize = 20;
 	}
 }

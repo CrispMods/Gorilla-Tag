@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts.Builder
 {
-	// Token: 0x02000A07 RID: 2567
+	// Token: 0x02000A34 RID: 2612
 	public class BuilderProjectileLauncher : MonoBehaviour, IBuilderPieceFunctional, IBuilderPieceComponent
 	{
-		// Token: 0x0600404D RID: 16461 RVA: 0x0013175C File Offset: 0x0012F95C
+		// Token: 0x06004192 RID: 16786 RVA: 0x001722A4 File Offset: 0x001704A4
 		private void LaunchProjectile(int timeStamp)
 		{
 			if (Time.time > this.lastFireTime + this.fireCooldown)
@@ -51,7 +51,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x0600404E RID: 16462 RVA: 0x00131930 File Offset: 0x0012FB30
+		// Token: 0x06004193 RID: 16787 RVA: 0x00172478 File Offset: 0x00170678
 		public void OnStateChanged(byte newState, NetPlayer instigator, int timeStamp)
 		{
 			if (!this.IsStateValid(newState))
@@ -70,18 +70,18 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x0600404F RID: 16463 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004194 RID: 16788 RVA: 0x00030607 File Offset: 0x0002E807
 		public void OnStateRequest(byte newState, NetPlayer instigator, int timeStamp)
 		{
 		}
 
-		// Token: 0x06004050 RID: 16464 RVA: 0x0012D814 File Offset: 0x0012BA14
+		// Token: 0x06004195 RID: 16789 RVA: 0x0005A6BA File Offset: 0x000588BA
 		public bool IsStateValid(byte state)
 		{
 			return state <= 1;
 		}
 
-		// Token: 0x06004051 RID: 16465 RVA: 0x00131984 File Offset: 0x0012FB84
+		// Token: 0x06004196 RID: 16790 RVA: 0x001724CC File Offset: 0x001706CC
 		public void FunctionalPieceUpdate()
 		{
 			for (int i = this.launchedProjectiles.Count - 1; i >= 0; i--)
@@ -94,28 +94,28 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004052 RID: 16466 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004197 RID: 16791 RVA: 0x00030607 File Offset: 0x0002E807
 		public void OnPieceCreate(int pieceType, int pieceId)
 		{
 		}
 
-		// Token: 0x06004053 RID: 16467 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004198 RID: 16792 RVA: 0x00030607 File Offset: 0x0002E807
 		public void OnPieceDestroy()
 		{
 		}
 
-		// Token: 0x06004054 RID: 16468 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004199 RID: 16793 RVA: 0x00030607 File Offset: 0x0002E807
 		public void OnPiecePlacementDeserialized()
 		{
 		}
 
-		// Token: 0x06004055 RID: 16469 RVA: 0x001319FA File Offset: 0x0012FBFA
+		// Token: 0x0600419A RID: 16794 RVA: 0x0005ADC1 File Offset: 0x00058FC1
 		public void OnPieceActivate()
 		{
 			BuilderTable.instance.RegisterFunctionalPiece(this);
 		}
 
-		// Token: 0x06004056 RID: 16470 RVA: 0x00131A08 File Offset: 0x0012FC08
+		// Token: 0x0600419B RID: 16795 RVA: 0x00172544 File Offset: 0x00170744
 		public void OnPieceDeactivate()
 		{
 			BuilderTable.instance.UnregisterFunctionalPiece(this);
@@ -125,73 +125,73 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004057 RID: 16471 RVA: 0x00131A49 File Offset: 0x0012FC49
+		// Token: 0x0600419C RID: 16796 RVA: 0x0005ADCE File Offset: 0x00058FCE
 		public void RegisterProjectile(BuilderProjectile projectile)
 		{
 			this.launchedProjectiles.Add(projectile);
 		}
 
-		// Token: 0x06004058 RID: 16472 RVA: 0x00131A57 File Offset: 0x0012FC57
+		// Token: 0x0600419D RID: 16797 RVA: 0x0005ADDC File Offset: 0x00058FDC
 		public void UnRegisterProjectile(BuilderProjectile projectile)
 		{
 			this.launchedProjectiles.Remove(projectile);
 			this.allProjectiles.Remove(projectile.projectileId);
 		}
 
-		// Token: 0x04004165 RID: 16741
+		// Token: 0x0400425F RID: 16991
 		private List<BuilderProjectile> launchedProjectiles = new List<BuilderProjectile>();
 
-		// Token: 0x04004166 RID: 16742
+		// Token: 0x04004260 RID: 16992
 		[SerializeField]
 		protected BuilderPiece myPiece;
 
-		// Token: 0x04004167 RID: 16743
+		// Token: 0x04004261 RID: 16993
 		[SerializeField]
 		protected float fireCooldown = 2f;
 
-		// Token: 0x04004168 RID: 16744
+		// Token: 0x04004262 RID: 16994
 		[Tooltip("launch in Y direction")]
 		[SerializeField]
 		private Transform launchPosition;
 
-		// Token: 0x04004169 RID: 16745
+		// Token: 0x04004263 RID: 16995
 		[SerializeField]
 		private float launchVelocity;
 
-		// Token: 0x0400416A RID: 16746
+		// Token: 0x04004264 RID: 16996
 		[SerializeField]
 		private AudioSource launchSound;
 
-		// Token: 0x0400416B RID: 16747
+		// Token: 0x04004265 RID: 16997
 		[SerializeField]
 		protected GameObject projectilePrefab;
 
-		// Token: 0x0400416C RID: 16748
+		// Token: 0x04004266 RID: 16998
 		[SerializeField]
 		protected float projectileScale = 0.06f;
 
-		// Token: 0x0400416D RID: 16749
+		// Token: 0x04004267 RID: 16999
 		[SerializeField]
 		protected float gravityMultiplier = 1f;
 
-		// Token: 0x0400416E RID: 16750
+		// Token: 0x04004268 RID: 17000
 		public SlingshotProjectile.AOEKnockbackConfig knockbackConfig;
 
-		// Token: 0x0400416F RID: 16751
+		// Token: 0x04004269 RID: 17001
 		private float lastFireTime;
 
-		// Token: 0x04004170 RID: 16752
+		// Token: 0x0400426A RID: 17002
 		private BuilderProjectileLauncher.FunctionalState currentState;
 
-		// Token: 0x04004171 RID: 16753
+		// Token: 0x0400426B RID: 17003
 		private Dictionary<int, BuilderProjectile> allProjectiles = new Dictionary<int, BuilderProjectile>();
 
-		// Token: 0x02000A08 RID: 2568
+		// Token: 0x02000A35 RID: 2613
 		private enum FunctionalState
 		{
-			// Token: 0x04004173 RID: 16755
+			// Token: 0x0400426D RID: 17005
 			Idle,
-			// Token: 0x04004174 RID: 16756
+			// Token: 0x0400426E RID: 17006
 			Fire
 		}
 	}

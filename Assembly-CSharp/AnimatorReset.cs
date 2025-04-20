@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000487 RID: 1159
+// Token: 0x02000493 RID: 1171
 public class AnimatorReset : MonoBehaviour
 {
-	// Token: 0x06001C03 RID: 7171 RVA: 0x0008843C File Offset: 0x0008663C
+	// Token: 0x06001C57 RID: 7255 RVA: 0x00043874 File Offset: 0x00041A74
 	public void Reset()
 	{
 		if (!this.target)
@@ -15,7 +15,7 @@ public class AnimatorReset : MonoBehaviour
 		this.target.Update(0f);
 	}
 
-	// Token: 0x06001C04 RID: 7172 RVA: 0x00088467 File Offset: 0x00086667
+	// Token: 0x06001C58 RID: 7256 RVA: 0x0004389F File Offset: 0x00041A9F
 	private void OnEnable()
 	{
 		if (this.onEnable)
@@ -24,7 +24,7 @@ public class AnimatorReset : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001C05 RID: 7173 RVA: 0x00088477 File Offset: 0x00086677
+	// Token: 0x06001C59 RID: 7257 RVA: 0x000438AF File Offset: 0x00041AAF
 	private void OnDisable()
 	{
 		if (this.onDisable)
@@ -33,12 +33,12 @@ public class AnimatorReset : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001F0F RID: 7951
+	// Token: 0x04001F5E RID: 8030
 	public Animator target;
 
-	// Token: 0x04001F10 RID: 7952
+	// Token: 0x04001F5F RID: 8031
 	public bool onEnable;
 
-	// Token: 0x04001F11 RID: 7953
+	// Token: 0x04001F60 RID: 8032
 	public bool onDisable = true;
 }

@@ -5,15 +5,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x020005C5 RID: 1477
+// Token: 0x020005D3 RID: 1491
 public class HoverboardVisual : MonoBehaviour, ICallBack
 {
-	// Token: 0x170003B9 RID: 953
-	// (get) Token: 0x060024A8 RID: 9384 RVA: 0x000B694E File Offset: 0x000B4B4E
-	// (set) Token: 0x060024A9 RID: 9385 RVA: 0x000B6956 File Offset: 0x000B4B56
+	// Token: 0x170003C1 RID: 961
+	// (get) Token: 0x0600250A RID: 9482 RVA: 0x0004917C File Offset: 0x0004737C
+	// (set) Token: 0x0600250B RID: 9483 RVA: 0x00049184 File Offset: 0x00047384
 	public Color boardColor { get; private set; }
 
-	// Token: 0x060024AA RID: 9386 RVA: 0x000B6960 File Offset: 0x000B4B60
+	// Token: 0x0600250C RID: 9484 RVA: 0x00105014 File Offset: 0x00103214
 	private void Awake()
 	{
 		Material[] sharedMaterials = this.boardMesh.sharedMaterials;
@@ -22,28 +22,28 @@ public class HoverboardVisual : MonoBehaviour, ICallBack
 		this.boardMesh.sharedMaterials = sharedMaterials;
 	}
 
-	// Token: 0x170003BA RID: 954
-	// (get) Token: 0x060024AB RID: 9387 RVA: 0x000B699C File Offset: 0x000B4B9C
-	// (set) Token: 0x060024AC RID: 9388 RVA: 0x000B69A4 File Offset: 0x000B4BA4
+	// Token: 0x170003C2 RID: 962
+	// (get) Token: 0x0600250D RID: 9485 RVA: 0x0004918D File Offset: 0x0004738D
+	// (set) Token: 0x0600250E RID: 9486 RVA: 0x00049195 File Offset: 0x00047395
 	public bool IsHeld { get; private set; }
 
-	// Token: 0x170003BB RID: 955
-	// (get) Token: 0x060024AD RID: 9389 RVA: 0x000B69AD File Offset: 0x000B4BAD
-	// (set) Token: 0x060024AE RID: 9390 RVA: 0x000B69B5 File Offset: 0x000B4BB5
+	// Token: 0x170003C3 RID: 963
+	// (get) Token: 0x0600250F RID: 9487 RVA: 0x0004919E File Offset: 0x0004739E
+	// (set) Token: 0x06002510 RID: 9488 RVA: 0x000491A6 File Offset: 0x000473A6
 	public bool IsLeftHanded { get; private set; }
 
-	// Token: 0x170003BC RID: 956
-	// (get) Token: 0x060024AF RID: 9391 RVA: 0x000B69BE File Offset: 0x000B4BBE
-	// (set) Token: 0x060024B0 RID: 9392 RVA: 0x000B69C6 File Offset: 0x000B4BC6
+	// Token: 0x170003C4 RID: 964
+	// (get) Token: 0x06002511 RID: 9489 RVA: 0x000491AF File Offset: 0x000473AF
+	// (set) Token: 0x06002512 RID: 9490 RVA: 0x000491B7 File Offset: 0x000473B7
 	public Vector3 NominalLocalPosition { get; private set; }
 
-	// Token: 0x170003BD RID: 957
-	// (get) Token: 0x060024B1 RID: 9393 RVA: 0x000B69CF File Offset: 0x000B4BCF
-	// (set) Token: 0x060024B2 RID: 9394 RVA: 0x000B69D7 File Offset: 0x000B4BD7
+	// Token: 0x170003C5 RID: 965
+	// (get) Token: 0x06002513 RID: 9491 RVA: 0x000491C0 File Offset: 0x000473C0
+	// (set) Token: 0x06002514 RID: 9492 RVA: 0x000491C8 File Offset: 0x000473C8
 	public Quaternion NominalLocalRotation { get; private set; }
 
-	// Token: 0x170003BE RID: 958
-	// (get) Token: 0x060024B3 RID: 9395 RVA: 0x000B69E0 File Offset: 0x000B4BE0
+	// Token: 0x170003C6 RID: 966
+	// (get) Token: 0x06002515 RID: 9493 RVA: 0x000491D1 File Offset: 0x000473D1
 	private Transform NominalParentTransform
 	{
 		get
@@ -56,7 +56,7 @@ public class HoverboardVisual : MonoBehaviour, ICallBack
 		}
 	}
 
-	// Token: 0x060024B4 RID: 9396 RVA: 0x000B6A20 File Offset: 0x000B4C20
+	// Token: 0x06002516 RID: 9494 RVA: 0x00105050 File Offset: 0x00103250
 	public void SetIsHeld(bool isHeldLeftHanded, Vector3 localPosition, Quaternion localRotation, Color boardColor)
 	{
 		if (!this.isCallbackActive)
@@ -85,14 +85,14 @@ public class HoverboardVisual : MonoBehaviour, ICallBack
 		this.boardColor = boardColor;
 	}
 
-	// Token: 0x060024B5 RID: 9397 RVA: 0x000B6B29 File Offset: 0x000B4D29
+	// Token: 0x06002517 RID: 9495 RVA: 0x00049211 File Offset: 0x00047411
 	public void SetNotHeld(bool isLeftHanded)
 	{
 		this.IsLeftHanded = isLeftHanded;
 		this.SetNotHeld();
 	}
 
-	// Token: 0x060024B6 RID: 9398 RVA: 0x000B6B38 File Offset: 0x000B4D38
+	// Token: 0x06002518 RID: 9496 RVA: 0x0010515C File Offset: 0x0010335C
 	public void SetNotHeld()
 	{
 		bool isHeld = this.IsHeld;
@@ -117,7 +117,7 @@ public class HoverboardVisual : MonoBehaviour, ICallBack
 		this.hoverboardAudio.Stop();
 	}
 
-	// Token: 0x060024B7 RID: 9399 RVA: 0x000B6C40 File Offset: 0x000B4E40
+	// Token: 0x06002519 RID: 9497 RVA: 0x00105264 File Offset: 0x00103464
 	void ICallBack.CallBack()
 	{
 		Transform nominalParentTransform = this.NominalParentTransform;
@@ -149,7 +149,7 @@ public class HoverboardVisual : MonoBehaviour, ICallBack
 		}
 	}
 
-	// Token: 0x060024B8 RID: 9400 RVA: 0x000B6D96 File Offset: 0x000B4F96
+	// Token: 0x0600251A RID: 9498 RVA: 0x00049220 File Offset: 0x00047420
 	public void PlayGrindHaptic()
 	{
 		if (this.IsHeld)
@@ -158,7 +158,7 @@ public class HoverboardVisual : MonoBehaviour, ICallBack
 		}
 	}
 
-	// Token: 0x060024B9 RID: 9401 RVA: 0x000B6DBC File Offset: 0x000B4FBC
+	// Token: 0x0600251B RID: 9499 RVA: 0x00049246 File Offset: 0x00047446
 	public void PlayCarveHaptic(float carveForce)
 	{
 		if (this.IsHeld)
@@ -167,19 +167,19 @@ public class HoverboardVisual : MonoBehaviour, ICallBack
 		}
 	}
 
-	// Token: 0x060024BA RID: 9402 RVA: 0x000B6DE4 File Offset: 0x000B4FE4
+	// Token: 0x0600251C RID: 9500 RVA: 0x0004926E File Offset: 0x0004746E
 	public void ProxyGrabHandle(bool isLeftHand)
 	{
 		EquipmentInteractor.instance.UpdateHandEquipment(this.handlePosition, isLeftHand);
 	}
 
-	// Token: 0x060024BB RID: 9403 RVA: 0x000B6DF9 File Offset: 0x000B4FF9
+	// Token: 0x0600251D RID: 9501 RVA: 0x00049283 File Offset: 0x00047483
 	public void DropFreeBoard()
 	{
 		FreeHoverboardManager.instance.SendDropBoardRPC(base.transform.position, base.transform.rotation, this.velocityEstimator.linearVelocity, this.velocityEstimator.angularVelocity, this.boardColor);
 	}
 
-	// Token: 0x060024BC RID: 9404 RVA: 0x000B6E37 File Offset: 0x000B5037
+	// Token: 0x0600251E RID: 9502 RVA: 0x000492C1 File Offset: 0x000474C1
 	public void SetRaceDisplay(string text)
 	{
 		if (string.IsNullOrEmpty(text))
@@ -191,7 +191,7 @@ public class HoverboardVisual : MonoBehaviour, ICallBack
 		this.racePositionReadout.text = text;
 	}
 
-	// Token: 0x060024BD RID: 9405 RVA: 0x000B6E70 File Offset: 0x000B5070
+	// Token: 0x0600251F RID: 9503 RVA: 0x000492FA File Offset: 0x000474FA
 	public void SetRaceLapsDisplay(string text)
 	{
 		if (string.IsNullOrEmpty(text))
@@ -203,74 +203,74 @@ public class HoverboardVisual : MonoBehaviour, ICallBack
 		this.raceLapsReadout.text = text;
 	}
 
-	// Token: 0x040028D1 RID: 10449
+	// Token: 0x04002930 RID: 10544
 	[SerializeField]
 	private VRRig parentRig;
 
-	// Token: 0x040028D2 RID: 10450
+	// Token: 0x04002931 RID: 10545
 	[SerializeField]
 	private GorillaVelocityEstimator velocityEstimator;
 
-	// Token: 0x040028D3 RID: 10451
+	// Token: 0x04002932 RID: 10546
 	[SerializeField]
 	[FormerlySerializedAs("audio")]
 	private HoverboardAudio hoverboardAudio;
 
-	// Token: 0x040028D4 RID: 10452
+	// Token: 0x04002933 RID: 10547
 	[SerializeField]
 	private HoverboardHandle handlePosition;
 
-	// Token: 0x040028D5 RID: 10453
+	// Token: 0x04002934 RID: 10548
 	[SerializeField]
 	private float grindHapticStrength;
 
-	// Token: 0x040028D6 RID: 10454
+	// Token: 0x04002935 RID: 10549
 	[SerializeField]
 	private float grindHapticDuration;
 
-	// Token: 0x040028D7 RID: 10455
+	// Token: 0x04002936 RID: 10550
 	[SerializeField]
 	private float carveHapticStrength;
 
-	// Token: 0x040028D8 RID: 10456
+	// Token: 0x04002937 RID: 10551
 	[SerializeField]
 	private float carveHapticDuration;
 
-	// Token: 0x040028D9 RID: 10457
+	// Token: 0x04002938 RID: 10552
 	[SerializeField]
 	private MeshRenderer boardMesh;
 
-	// Token: 0x040028DA RID: 10458
+	// Token: 0x04002939 RID: 10553
 	[SerializeField]
 	private InteractionPoint handleInteractionPoint;
 
-	// Token: 0x040028DB RID: 10459
+	// Token: 0x0400293A RID: 10554
 	[SerializeField]
 	private TextMeshPro racePositionReadout;
 
-	// Token: 0x040028DC RID: 10460
+	// Token: 0x0400293B RID: 10555
 	[SerializeField]
 	private TextMeshPro raceLapsReadout;
 
-	// Token: 0x040028DD RID: 10461
+	// Token: 0x0400293C RID: 10556
 	private Material colorMaterial;
 
-	// Token: 0x040028E3 RID: 10467
+	// Token: 0x04002942 RID: 10562
 	private Vector3 interpolatedLocalPosition;
 
-	// Token: 0x040028E4 RID: 10468
+	// Token: 0x04002943 RID: 10563
 	private Quaternion interpolatedLocalRotation;
 
-	// Token: 0x040028E5 RID: 10469
+	// Token: 0x04002944 RID: 10564
 	[SerializeField]
 	private float lerpIntoHandDuration;
 
-	// Token: 0x040028E6 RID: 10470
+	// Token: 0x04002945 RID: 10565
 	private float positionLerpSpeed;
 
-	// Token: 0x040028E7 RID: 10471
+	// Token: 0x04002946 RID: 10566
 	private float rotationLerpSpeed;
 
-	// Token: 0x040028E8 RID: 10472
+	// Token: 0x04002947 RID: 10567
 	private bool isCallbackActive;
 }

@@ -1,23 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000215 RID: 533
+// Token: 0x02000220 RID: 544
 [Serializable]
 public class ZoneData
 {
-	// Token: 0x04000FC4 RID: 4036
+	// Token: 0x0400100A RID: 4106
 	public GTZone zone;
 
-	// Token: 0x04000FC5 RID: 4037
+	// Token: 0x0400100B RID: 4107
 	public string sceneName;
 
-	// Token: 0x04000FC6 RID: 4038
+	// Token: 0x0400100C RID: 4108
 	public float CameraFarClipPlane = 500f;
 
-	// Token: 0x04000FC7 RID: 4039
+	// Token: 0x0400100D RID: 4109
 	public GameObject[] rootGameObjects;
 
-	// Token: 0x04000FC8 RID: 4040
+	// Token: 0x0400100E RID: 4110
 	[NonSerialized]
 	public bool active;
 }

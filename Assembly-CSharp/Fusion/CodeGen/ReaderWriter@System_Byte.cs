@@ -3,12 +3,12 @@ using System.Runtime.CompilerServices;
 
 namespace Fusion.CodeGen
 {
-	// Token: 0x02000D32 RID: 3378
+	// Token: 0x02000D63 RID: 3427
 	[WeaverGenerated]
 	[PreserveInPlugin]
 	internal struct ReaderWriter@System_Byte : IElementReaderWriter<byte>
 	{
-		// Token: 0x0600541F RID: 21535 RVA: 0x0019C7F1 File Offset: 0x0019A9F1
+		// Token: 0x06005581 RID: 21889 RVA: 0x00067702 File Offset: 0x00065902
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -17,7 +17,7 @@ namespace Fusion.CodeGen
 			return data[index * 4];
 		}
 
-		// Token: 0x06005420 RID: 21536 RVA: 0x0019C1CC File Offset: 0x0019A3CC
+		// Token: 0x06005582 RID: 21890 RVA: 0x000673A8 File Offset: 0x000655A8
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -26,7 +26,7 @@ namespace Fusion.CodeGen
 			return ref data[index * 4];
 		}
 
-		// Token: 0x06005421 RID: 21537 RVA: 0x0019C7FD File Offset: 0x0019A9FD
+		// Token: 0x06005583 RID: 21891 RVA: 0x0006770E File Offset: 0x0006590E
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -35,7 +35,7 @@ namespace Fusion.CodeGen
 			data[index * 4] = val;
 		}
 
-		// Token: 0x06005422 RID: 21538 RVA: 0x000444E2 File Offset: 0x000426E2
+		// Token: 0x06005584 RID: 21892 RVA: 0x00039846 File Offset: 0x00037A46
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -44,7 +44,7 @@ namespace Fusion.CodeGen
 			return 1;
 		}
 
-		// Token: 0x06005423 RID: 21539 RVA: 0x0019C80C File Offset: 0x0019AA0C
+		// Token: 0x06005585 RID: 21893 RVA: 0x001D14BC File Offset: 0x001CF6BC
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -53,7 +53,7 @@ namespace Fusion.CodeGen
 			return val.GetHashCode();
 		}
 
-		// Token: 0x06005424 RID: 21540 RVA: 0x0019C820 File Offset: 0x0019AA20
+		// Token: 0x06005586 RID: 21894 RVA: 0x001D14D0 File Offset: 0x001CF6D0
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[WeaverGenerated]
 		public static IElementReaderWriter<byte> GetInstance()
@@ -65,7 +65,7 @@ namespace Fusion.CodeGen
 			return ReaderWriter@System_Byte.Instance;
 		}
 
-		// Token: 0x0400593F RID: 22847
+		// Token: 0x04005A4B RID: 23115
 		[WeaverGenerated]
 		public static IElementReaderWriter<byte> Instance;
 	}

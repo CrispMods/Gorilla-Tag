@@ -2,10 +2,10 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// Token: 0x0200083F RID: 2111
+// Token: 0x02000859 RID: 2137
 public static class ComponentUtils
 {
-	// Token: 0x06003368 RID: 13160 RVA: 0x000F5828 File Offset: 0x000F3A28
+	// Token: 0x06003423 RID: 13347 RVA: 0x0013D314 File Offset: 0x0013B514
 	public static T EnsureComponent<T>(this Component ctx, ref T target) where T : Component
 	{
 		if (ctx.AsNull<Component>() == null)
@@ -19,7 +19,7 @@ public static class ComponentUtils
 		return target = ctx.GetComponent<T>();
 	}
 
-	// Token: 0x06003369 RID: 13161 RVA: 0x000F587B File Offset: 0x000F3A7B
+	// Token: 0x06003424 RID: 13348 RVA: 0x0005245A File Offset: 0x0005065A
 	public static bool TryEnsureComponent<T>(this Component ctx, ref T target) where T : Component
 	{
 		if (ctx.AsNull<Component>() == null)
@@ -34,13 +34,13 @@ public static class ComponentUtils
 		return true;
 	}
 
-	// Token: 0x0600336A RID: 13162 RVA: 0x000F58B4 File Offset: 0x000F3AB4
+	// Token: 0x06003425 RID: 13349 RVA: 0x00052493 File Offset: 0x00050693
 	public static T AddComponent<T>(this Component c) where T : Component
 	{
 		return c.gameObject.AddComponent<T>();
 	}
 
-	// Token: 0x0600336B RID: 13163 RVA: 0x000F58C1 File Offset: 0x000F3AC1
+	// Token: 0x06003426 RID: 13350 RVA: 0x000524A0 File Offset: 0x000506A0
 	public static void GetOrAddComponent<T>(this Component c, out T result) where T : Component
 	{
 		if (!c.TryGetComponent<T>(out result))
@@ -49,7 +49,7 @@ public static class ComponentUtils
 		}
 	}
 
-	// Token: 0x0600336C RID: 13164 RVA: 0x000F58DD File Offset: 0x000F3ADD
+	// Token: 0x06003427 RID: 13351 RVA: 0x000524BC File Offset: 0x000506BC
 	public static bool GetComponentAndSetFieldIfNullElseLogAndDisable<T>(this Behaviour c, ref T fieldRef, string fieldName, string fieldTypeName, string msgSuffix = "Disabling.", [CallerMemberName] string caller = "__UNKNOWN_CALLER__") where T : Component
 	{
 		if (c.GetComponentAndSetFieldIfNullElseLog(ref fieldRef, fieldName, fieldTypeName, msgSuffix, caller))
@@ -60,7 +60,7 @@ public static class ComponentUtils
 		return false;
 	}
 
-	// Token: 0x0600336D RID: 13165 RVA: 0x000F58F8 File Offset: 0x000F3AF8
+	// Token: 0x06003428 RID: 13352 RVA: 0x0013D368 File Offset: 0x0013B568
 	public static bool GetComponentAndSetFieldIfNullElseLog<T>(this Behaviour c, ref T fieldRef, string fieldName, string fieldTypeName, string msgSuffix = "", [CallerMemberName] string caller = "__UNKNOWN_CALLER__") where T : Component
 	{
 		if (fieldRef != null)
@@ -87,8 +87,8 @@ public static class ComponentUtils
 		return false;
 	}
 
-	// Token: 0x0600336E RID: 13166 RVA: 0x000F5989 File Offset: 0x000F3B89
-	public static bool DisableIfNull<T>(this Behaviour c, T fieldRef, string fieldName, string fieldTypeName, [CallerMemberName] string caller = "__UNKNOWN_CALLER__") where T : Object
+	// Token: 0x06003429 RID: 13353 RVA: 0x000524D7 File Offset: 0x000506D7
+	public static bool DisableIfNull<T>(this Behaviour c, T fieldRef, string fieldName, string fieldTypeName, [CallerMemberName] string caller = "__UNKNOWN_CALLER__") where T : UnityEngine.Object
 	{
 		if (fieldRef != null)
 		{
@@ -98,13 +98,13 @@ public static class ComponentUtils
 		return false;
 	}
 
-	// Token: 0x0600336F RID: 13167 RVA: 0x000F59A3 File Offset: 0x000F3BA3
+	// Token: 0x0600342A RID: 13354 RVA: 0x000524F1 File Offset: 0x000506F1
 	public static Hash128 ComputeStaticHash128(Component c, string k)
 	{
 		return ComponentUtils.ComputeStaticHash128(c, StaticHash.Compute(k));
 	}
 
-	// Token: 0x06003370 RID: 13168 RVA: 0x000F59B4 File Offset: 0x000F3BB4
+	// Token: 0x0600342B RID: 13355 RVA: 0x0013D3FC File Offset: 0x0013B5FC
 	public static Hash128 ComputeStaticHash128(Component c, int k = 0)
 	{
 		if (c == null)
@@ -141,6 +141,6 @@ public static class ComponentUtils
 		return result;
 	}
 
-	// Token: 0x040036BB RID: 14011
+	// Token: 0x04003777 RID: 14199
 	private static readonly uint[] kHashBits = new uint[4];
 }

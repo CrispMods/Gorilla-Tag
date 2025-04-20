@@ -2,11 +2,11 @@
 using GorillaTag;
 using UnityEngine;
 
-// Token: 0x020001FE RID: 510
+// Token: 0x02000209 RID: 521
 public class ThermalReceiver : MonoBehaviour, IDynamicFloat, IResettableItem
 {
-	// Token: 0x17000129 RID: 297
-	// (get) Token: 0x06000BF6 RID: 3062 RVA: 0x0003F3E9 File Offset: 0x0003D5E9
+	// Token: 0x17000130 RID: 304
+	// (get) Token: 0x06000C41 RID: 3137 RVA: 0x00038905 File Offset: 0x00036B05
 	public float Farenheit
 	{
 		get
@@ -15,8 +15,8 @@ public class ThermalReceiver : MonoBehaviour, IDynamicFloat, IResettableItem
 		}
 	}
 
-	// Token: 0x1700012A RID: 298
-	// (get) Token: 0x06000BF7 RID: 3063 RVA: 0x0003F3FD File Offset: 0x0003D5FD
+	// Token: 0x17000131 RID: 305
+	// (get) Token: 0x06000C42 RID: 3138 RVA: 0x00038919 File Offset: 0x00036B19
 	public float floatValue
 	{
 		get
@@ -25,41 +25,41 @@ public class ThermalReceiver : MonoBehaviour, IDynamicFloat, IResettableItem
 		}
 	}
 
-	// Token: 0x06000BF8 RID: 3064 RVA: 0x0003F405 File Offset: 0x0003D605
+	// Token: 0x06000C43 RID: 3139 RVA: 0x00038921 File Offset: 0x00036B21
 	protected void Awake()
 	{
 		this.defaultCelsius = this.celsius;
 	}
 
-	// Token: 0x06000BF9 RID: 3065 RVA: 0x0003F413 File Offset: 0x0003D613
+	// Token: 0x06000C44 RID: 3140 RVA: 0x0003892F File Offset: 0x00036B2F
 	protected void OnEnable()
 	{
 		ThermalManager.Register(this);
 	}
 
-	// Token: 0x06000BFA RID: 3066 RVA: 0x0003F41B File Offset: 0x0003D61B
+	// Token: 0x06000C45 RID: 3141 RVA: 0x00038937 File Offset: 0x00036B37
 	protected void OnDisable()
 	{
 		ThermalManager.Unregister(this);
 	}
 
-	// Token: 0x06000BFB RID: 3067 RVA: 0x0003F423 File Offset: 0x0003D623
+	// Token: 0x06000C46 RID: 3142 RVA: 0x0003893F File Offset: 0x00036B3F
 	public void ResetToDefaultState()
 	{
 		this.celsius = this.defaultCelsius;
 	}
 
-	// Token: 0x04000E4A RID: 3658
+	// Token: 0x04000E90 RID: 3728
 	public float radius = 0.2f;
 
-	// Token: 0x04000E4B RID: 3659
+	// Token: 0x04000E91 RID: 3729
 	[Tooltip("How fast the temperature should change overtime. 1.0 would be instantly.")]
 	public float conductivity = 0.3f;
 
-	// Token: 0x04000E4C RID: 3660
+	// Token: 0x04000E92 RID: 3730
 	[DebugOption]
 	public float celsius;
 
-	// Token: 0x04000E4D RID: 3661
+	// Token: 0x04000E93 RID: 3731
 	private float defaultCelsius;
 }

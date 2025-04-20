@@ -2,10 +2,10 @@
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x0200036F RID: 879
+// Token: 0x0200037A RID: 890
 public class BalloonDynamics : MonoBehaviour, ITetheredObjectBehavior
 {
-	// Token: 0x06001466 RID: 5222 RVA: 0x000640D0 File Offset: 0x000622D0
+	// Token: 0x060014B2 RID: 5298 RVA: 0x000BD244 File Offset: 0x000BB444
 	private void Awake()
 	{
 		this.rb = base.GetComponent<Rigidbody>();
@@ -14,24 +14,24 @@ public class BalloonDynamics : MonoBehaviour, ITetheredObjectBehavior
 		this.grabPtInitParent = this.grabPt.transform.parent;
 	}
 
-	// Token: 0x06001467 RID: 5223 RVA: 0x0006411C File Offset: 0x0006231C
+	// Token: 0x060014B3 RID: 5299 RVA: 0x0003DF2D File Offset: 0x0003C12D
 	private void Start()
 	{
 		this.airResistance = Mathf.Clamp(this.airResistance, 0f, 1f);
 		this.balloonCollider.enabled = false;
 	}
 
-	// Token: 0x06001468 RID: 5224 RVA: 0x00064148 File Offset: 0x00062348
+	// Token: 0x060014B4 RID: 5300 RVA: 0x000BD290 File Offset: 0x000BB490
 	public void ReParent()
 	{
 		if (this.grabPt != null)
 		{
 			this.grabPt.transform.parent = this.grabPtInitParent.transform;
 		}
-		this.bouyancyActualHeight = Random.Range(this.bouyancyMinHeight, this.bouyancyMaxHeight);
+		this.bouyancyActualHeight = UnityEngine.Random.Range(this.bouyancyMinHeight, this.bouyancyMaxHeight);
 	}
 
-	// Token: 0x06001469 RID: 5225 RVA: 0x00064198 File Offset: 0x00062398
+	// Token: 0x060014B5 RID: 5301 RVA: 0x000BD2E0 File Offset: 0x000BB4E0
 	private void ApplyBouyancyForce()
 	{
 		float num = this.bouyancyActualHeight + Mathf.Sin(Time.time) * this.varianceMaxheight;
@@ -40,27 +40,27 @@ public class BalloonDynamics : MonoBehaviour, ITetheredObjectBehavior
 		this.rb.AddForce(new Vector3(0f, y, 0f), ForceMode.Acceleration);
 	}
 
-	// Token: 0x0600146A RID: 5226 RVA: 0x00064200 File Offset: 0x00062400
+	// Token: 0x060014B6 RID: 5302 RVA: 0x000BD348 File Offset: 0x000BB548
 	private void ApplyUpRightForce()
 	{
 		Vector3 torque = Vector3.Cross(base.transform.up, Vector3.up) * this.upRightTorque * this.balloonScale;
 		this.rb.AddTorque(torque);
 	}
 
-	// Token: 0x0600146B RID: 5227 RVA: 0x00064248 File Offset: 0x00062448
+	// Token: 0x060014B7 RID: 5303 RVA: 0x000BD390 File Offset: 0x000BB590
 	private void ApplyAntiSpinForce()
 	{
 		Vector3 vector = this.rb.transform.InverseTransformDirection(this.rb.angularVelocity);
 		this.rb.AddRelativeTorque(0f, -vector.y * this.antiSpinTorque, 0f);
 	}
 
-	// Token: 0x0600146C RID: 5228 RVA: 0x00064294 File Offset: 0x00062494
+	// Token: 0x060014B8 RID: 5304 RVA: 0x0003DF56 File Offset: 0x0003C156
 	private void ApplyAirResistance()
 	{
 		this.rb.velocity *= 1f - this.airResistance;
 	}
 
-	// Token: 0x0600146D RID: 5229 RVA: 0x000642B8 File Offset: 0x000624B8
+	// Token: 0x060014B9 RID: 5305 RVA: 0x000BD3DC File Offset: 0x000BB5DC
 	private void ApplyDistanceConstraint()
 	{
 		this.knot.transform.position - base.transform.position;
@@ -83,7 +83,7 @@ public class BalloonDynamics : MonoBehaviour, ITetheredObjectBehavior
 		}
 	}
 
-	// Token: 0x0600146E RID: 5230 RVA: 0x000643C4 File Offset: 0x000625C4
+	// Token: 0x060014BA RID: 5306 RVA: 0x000BD4E8 File Offset: 0x000BB6E8
 	public void EnableDynamics(bool enable, bool collider, bool kinematic)
 	{
 		bool flag = !this.enableDynamics && enable;
@@ -103,15 +103,15 @@ public class BalloonDynamics : MonoBehaviour, ITetheredObjectBehavior
 		}
 	}
 
-	// Token: 0x0600146F RID: 5231 RVA: 0x0006443F File Offset: 0x0006263F
+	// Token: 0x060014BB RID: 5307 RVA: 0x0003DF7A File Offset: 0x0003C17A
 	public void EnableDistanceConstraints(bool enable, float scale = 1f)
 	{
 		this.enableDistanceConstraints = enable;
 		this.balloonScale = scale;
 	}
 
-	// Token: 0x17000244 RID: 580
-	// (get) Token: 0x06001470 RID: 5232 RVA: 0x0006444F File Offset: 0x0006264F
+	// Token: 0x1700024B RID: 587
+	// (get) Token: 0x060014BC RID: 5308 RVA: 0x0003DF8A File Offset: 0x0003C18A
 	public bool ColliderEnabled
 	{
 		get
@@ -120,7 +120,7 @@ public class BalloonDynamics : MonoBehaviour, ITetheredObjectBehavior
 		}
 	}
 
-	// Token: 0x06001471 RID: 5233 RVA: 0x0006446C File Offset: 0x0006266C
+	// Token: 0x060014BD RID: 5309 RVA: 0x000BD564 File Offset: 0x000BB764
 	private void FixedUpdate()
 	{
 		if (this.enableDynamics && !this.rb.isKinematic)
@@ -142,19 +142,19 @@ public class BalloonDynamics : MonoBehaviour, ITetheredObjectBehavior
 		}
 	}
 
-	// Token: 0x06001472 RID: 5234 RVA: 0x00002628 File Offset: 0x00000828
+	// Token: 0x060014BE RID: 5310 RVA: 0x000306DC File Offset: 0x0002E8DC
 	void ITetheredObjectBehavior.DbgClear()
 	{
 		throw new NotImplementedException();
 	}
 
-	// Token: 0x06001473 RID: 5235 RVA: 0x000644FF File Offset: 0x000626FF
+	// Token: 0x060014BF RID: 5311 RVA: 0x0003DFA6 File Offset: 0x0003C1A6
 	bool ITetheredObjectBehavior.IsEnabled()
 	{
 		return base.enabled;
 	}
 
-	// Token: 0x06001474 RID: 5236 RVA: 0x00064508 File Offset: 0x00062708
+	// Token: 0x060014C0 RID: 5312 RVA: 0x000BD5F8 File Offset: 0x000BB7F8
 	void ITetheredObjectBehavior.TriggerEnter(Collider other, ref Vector3 force, ref Vector3 collisionPt, ref bool transferOwnership)
 	{
 		if (!other.gameObject.IsOnLayer(UnityLayer.GorillaHand))
@@ -193,85 +193,85 @@ public class BalloonDynamics : MonoBehaviour, ITetheredObjectBehavior
 		}
 	}
 
-	// Token: 0x06001475 RID: 5237 RVA: 0x000444E2 File Offset: 0x000426E2
+	// Token: 0x060014C1 RID: 5313 RVA: 0x00039846 File Offset: 0x00037A46
 	public bool ReturnStep()
 	{
 		return true;
 	}
 
-	// Token: 0x04001696 RID: 5782
+	// Token: 0x040016DE RID: 5854
 	private Rigidbody rb;
 
-	// Token: 0x04001697 RID: 5783
+	// Token: 0x040016DF RID: 5855
 	private Collider balloonCollider;
 
-	// Token: 0x04001698 RID: 5784
+	// Token: 0x040016E0 RID: 5856
 	private Bounds bounds;
 
-	// Token: 0x04001699 RID: 5785
+	// Token: 0x040016E1 RID: 5857
 	public float bouyancyForce = 1f;
 
-	// Token: 0x0400169A RID: 5786
+	// Token: 0x040016E2 RID: 5858
 	public float bouyancyMinHeight = 10f;
 
-	// Token: 0x0400169B RID: 5787
+	// Token: 0x040016E3 RID: 5859
 	public float bouyancyMaxHeight = 20f;
 
-	// Token: 0x0400169C RID: 5788
+	// Token: 0x040016E4 RID: 5860
 	private float bouyancyActualHeight = 20f;
 
-	// Token: 0x0400169D RID: 5789
+	// Token: 0x040016E5 RID: 5861
 	public float varianceMaxheight = 5f;
 
-	// Token: 0x0400169E RID: 5790
+	// Token: 0x040016E6 RID: 5862
 	public float airResistance = 0.01f;
 
-	// Token: 0x0400169F RID: 5791
+	// Token: 0x040016E7 RID: 5863
 	public GameObject knot;
 
-	// Token: 0x040016A0 RID: 5792
+	// Token: 0x040016E8 RID: 5864
 	private Rigidbody knotRb;
 
-	// Token: 0x040016A1 RID: 5793
+	// Token: 0x040016E9 RID: 5865
 	public Transform grabPt;
 
-	// Token: 0x040016A2 RID: 5794
+	// Token: 0x040016EA RID: 5866
 	private Transform grabPtInitParent;
 
-	// Token: 0x040016A3 RID: 5795
+	// Token: 0x040016EB RID: 5867
 	public float stringLength = 2f;
 
-	// Token: 0x040016A4 RID: 5796
+	// Token: 0x040016EC RID: 5868
 	public float stringStrength = 0.9f;
 
-	// Token: 0x040016A5 RID: 5797
+	// Token: 0x040016ED RID: 5869
 	public float stringStretch = 0.1f;
 
-	// Token: 0x040016A6 RID: 5798
+	// Token: 0x040016EE RID: 5870
 	public float maximumVelocity = 2f;
 
-	// Token: 0x040016A7 RID: 5799
+	// Token: 0x040016EF RID: 5871
 	public float upRightTorque = 1f;
 
-	// Token: 0x040016A8 RID: 5800
+	// Token: 0x040016F0 RID: 5872
 	public float antiSpinTorque;
 
-	// Token: 0x040016A9 RID: 5801
+	// Token: 0x040016F1 RID: 5873
 	private bool enableDynamics;
 
-	// Token: 0x040016AA RID: 5802
+	// Token: 0x040016F2 RID: 5874
 	private bool enableDistanceConstraints;
 
-	// Token: 0x040016AB RID: 5803
+	// Token: 0x040016F3 RID: 5875
 	public float balloonScale = 1f;
 
-	// Token: 0x040016AC RID: 5804
+	// Token: 0x040016F4 RID: 5876
 	public float bopSpeed = 1f;
 
-	// Token: 0x040016AD RID: 5805
+	// Token: 0x040016F5 RID: 5877
 	public float bopSpeedCap;
 
-	// Token: 0x040016AE RID: 5806
+	// Token: 0x040016F6 RID: 5878
 	[SerializeField]
 	private AudioSource balloonBopSource;
 }

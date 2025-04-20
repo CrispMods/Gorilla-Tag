@@ -3,10 +3,10 @@ using GorillaLocomotion;
 using Liv.Lck.GorillaTag;
 using UnityEngine;
 
-// Token: 0x02000242 RID: 578
+// Token: 0x0200024D RID: 589
 public class LckTabletSizeManager : MonoBehaviour
 {
-	// Token: 0x06000D52 RID: 3410 RVA: 0x00044BD0 File Offset: 0x00042DD0
+	// Token: 0x06000D9D RID: 3485 RVA: 0x000A22AC File Offset: 0x000A04AC
 	private void Update()
 	{
 		if (!GTPlayer.Instance.IsDefaultScale && this.lckDirectGrabbable.isGrabbed)
@@ -46,17 +46,17 @@ public class LckTabletSizeManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001089 RID: 4233
+	// Token: 0x040010CF RID: 4303
 	[SerializeField]
 	private LckDirectGrabbable lckDirectGrabbable;
 
-	// Token: 0x0400108A RID: 4234
+	// Token: 0x040010D0 RID: 4304
 	[SerializeField]
 	private GtTabletFollower tabletFollower;
 
-	// Token: 0x0400108B RID: 4235
+	// Token: 0x040010D1 RID: 4305
 	private float _shrinkSize = 0.06f;
 
-	// Token: 0x0400108C RID: 4236
+	// Token: 0x040010D2 RID: 4306
 	private Vector3 _shrinkVector = new Vector3(0.06f, 0.06f, 0.06f);
 }

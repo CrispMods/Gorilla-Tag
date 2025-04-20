@@ -1,14 +1,14 @@
 ﻿using System;
 
-// Token: 0x020004DB RID: 1243
+// Token: 0x020004E8 RID: 1256
 public struct BuilderTableSubMesh
 {
-	// Token: 0x040021A0 RID: 8608
+	// Token: 0x040021F3 RID: 8691
 	public int startIndex;
 
-	// Token: 0x040021A1 RID: 8609
+	// Token: 0x040021F4 RID: 8692
 	public int indexCount;
 
-	// Token: 0x040021A2 RID: 8610
+	// Token: 0x040021F5 RID: 8693
 	public int startVertex;
 }

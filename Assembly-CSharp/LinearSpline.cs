@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200087B RID: 2171
+// Token: 0x02000897 RID: 2199
 public class LinearSpline : MonoBehaviour
 {
-	// Token: 0x06003496 RID: 13462 RVA: 0x000FB2E4 File Offset: 0x000F94E4
+	// Token: 0x06003562 RID: 13666 RVA: 0x00141FD8 File Offset: 0x001401D8
 	private void RefreshControlPoints()
 	{
 		this.controlPoints.Clear();
@@ -44,13 +44,13 @@ public class LinearSpline : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003497 RID: 13463 RVA: 0x000FB51E File Offset: 0x000F971E
+	// Token: 0x06003563 RID: 13667 RVA: 0x0005325A File Offset: 0x0005145A
 	private void Awake()
 	{
 		this.RefreshControlPoints();
 	}
 
-	// Token: 0x06003498 RID: 13464 RVA: 0x000FB528 File Offset: 0x000F9728
+	// Token: 0x06003564 RID: 13668 RVA: 0x00142214 File Offset: 0x00140414
 	public Vector3 Evaluate(float t)
 	{
 		if (this.controlPoints.Count < 1)
@@ -120,7 +120,7 @@ public class LinearSpline : MonoBehaviour
 		return Vector3.Lerp(this.controlPoints[num2], this.controlPoints[num5], num3);
 	}
 
-	// Token: 0x06003499 RID: 13465 RVA: 0x000FB874 File Offset: 0x000F9A74
+	// Token: 0x06003565 RID: 13669 RVA: 0x00142560 File Offset: 0x00140760
 	public Vector3 GetForwardTangent(float t, float step = 0.01f)
 	{
 		t = Mathf.Clamp(t, 0f, 1f - step - Mathf.Epsilon);
@@ -128,7 +128,7 @@ public class LinearSpline : MonoBehaviour
 		return (this.Evaluate(t + step) - b).normalized;
 	}
 
-	// Token: 0x0600349A RID: 13466 RVA: 0x000FB8BC File Offset: 0x000F9ABC
+	// Token: 0x06003566 RID: 13670 RVA: 0x001425A8 File Offset: 0x001407A8
 	private void OnDrawGizmosSelected()
 	{
 		this.RefreshControlPoints();
@@ -146,46 +146,46 @@ public class LinearSpline : MonoBehaviour
 		Gizmos.DrawLine(from, to);
 	}
 
-	// Token: 0x04003754 RID: 14164
+	// Token: 0x04003814 RID: 14356
 	public Transform[] controlPointTransforms = new Transform[0];
 
-	// Token: 0x04003755 RID: 14165
+	// Token: 0x04003815 RID: 14357
 	public Transform debugTransform;
 
-	// Token: 0x04003756 RID: 14166
+	// Token: 0x04003816 RID: 14358
 	public List<Vector3> controlPoints = new List<Vector3>();
 
-	// Token: 0x04003757 RID: 14167
+	// Token: 0x04003817 RID: 14359
 	public List<float> distances = new List<float>();
 
-	// Token: 0x04003758 RID: 14168
+	// Token: 0x04003818 RID: 14360
 	public List<LinearSpline.CurveBoundary> curveBoundaries = new List<LinearSpline.CurveBoundary>();
 
-	// Token: 0x04003759 RID: 14169
+	// Token: 0x04003819 RID: 14361
 	public bool roundCorners;
 
-	// Token: 0x0400375A RID: 14170
+	// Token: 0x0400381A RID: 14362
 	public float cornerRadius = 1f;
 
-	// Token: 0x0400375B RID: 14171
+	// Token: 0x0400381B RID: 14363
 	public bool looping;
 
-	// Token: 0x0400375C RID: 14172
+	// Token: 0x0400381C RID: 14364
 	public float testFloat;
 
-	// Token: 0x0400375D RID: 14173
+	// Token: 0x0400381D RID: 14365
 	public int gizmoResolution = 128;
 
-	// Token: 0x0400375E RID: 14174
+	// Token: 0x0400381E RID: 14366
 	public float totalDistance;
 
-	// Token: 0x0200087C RID: 2172
+	// Token: 0x02000898 RID: 2200
 	public struct CurveBoundary
 	{
-		// Token: 0x0400375F RID: 14175
+		// Token: 0x0400381F RID: 14367
 		public Vector3 start;
 
-		// Token: 0x04003760 RID: 14176
+		// Token: 0x04003820 RID: 14368
 		public Vector3 end;
 	}
 }

@@ -2,10 +2,10 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// Token: 0x020001A5 RID: 421
+// Token: 0x020001B0 RID: 432
 public static class GTVector3Extensions
 {
-	// Token: 0x06000A06 RID: 2566 RVA: 0x000374FE File Offset: 0x000356FE
+	// Token: 0x06000A52 RID: 2642 RVA: 0x000373C0 File Offset: 0x000355C0
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 X_Z(this Vector3 vector)
 	{

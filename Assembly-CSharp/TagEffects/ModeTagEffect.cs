@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace TagEffects
 {
-	// Token: 0x02000B34 RID: 2868
+	// Token: 0x02000B61 RID: 2913
 	[Serializable]
 	public class ModeTagEffect
 	{
-		// Token: 0x1700076A RID: 1898
-		// (get) Token: 0x0600476F RID: 18287 RVA: 0x0015403A File Offset: 0x0015223A
+		// Token: 0x17000786 RID: 1926
+		// (get) Token: 0x060048B8 RID: 18616 RVA: 0x0005F531 File Offset: 0x0005D731
 		public HashSet<GameModeType> Modes
 		{
 			get
@@ -23,23 +23,23 @@ namespace TagEffects
 			}
 		}
 
-		// Token: 0x0400490D RID: 18701
+		// Token: 0x04004A02 RID: 18946
 		[SerializeField]
 		private GameModeType[] modes;
 
-		// Token: 0x0400490E RID: 18702
+		// Token: 0x04004A03 RID: 18947
 		private HashSet<GameModeType> modesHash;
 
-		// Token: 0x0400490F RID: 18703
+		// Token: 0x04004A04 RID: 18948
 		public TagEffectPack tagEffect;
 
-		// Token: 0x04004910 RID: 18704
+		// Token: 0x04004A05 RID: 18949
 		public bool blockTagOverride;
 
-		// Token: 0x04004911 RID: 18705
+		// Token: 0x04004A06 RID: 18950
 		public bool blockFistBumpOverride;
 
-		// Token: 0x04004912 RID: 18706
+		// Token: 0x04004A07 RID: 18951
 		public bool blockHiveFiveOverride;
 	}
 }

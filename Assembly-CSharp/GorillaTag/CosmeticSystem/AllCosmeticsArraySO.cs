@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace GorillaTag.CosmeticSystem
 {
-	// Token: 0x02000BEB RID: 3051
+	// Token: 0x02000C19 RID: 3097
 	public class AllCosmeticsArraySO : ScriptableObject
 	{
-		// Token: 0x06004CB4 RID: 19636 RVA: 0x001751CC File Offset: 0x001733CC
+		// Token: 0x06004E00 RID: 19968 RVA: 0x001AD7C0 File Offset: 0x001AB9C0
 		public CosmeticSO SearchForCosmeticSO(string playfabId)
 		{
 			GTDirectAssetRef<CosmeticSO>[] array = this.sturdyAssetRefs;
@@ -22,7 +22,7 @@ namespace GorillaTag.CosmeticSystem
 			return null;
 		}
 
-		// Token: 0x04004E83 RID: 20099
+		// Token: 0x04004F79 RID: 20345
 		[SerializeField]
 		public GTDirectAssetRef<CosmeticSO>[] sturdyAssetRefs;
 	}

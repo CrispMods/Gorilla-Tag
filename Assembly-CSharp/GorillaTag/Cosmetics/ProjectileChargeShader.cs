@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C51 RID: 3153
+	// Token: 0x02000C82 RID: 3202
 	public class ProjectileChargeShader : MonoBehaviour
 	{
-		// Token: 0x06004E9A RID: 20122 RVA: 0x00181FF4 File Offset: 0x001801F4
+		// Token: 0x06004FFA RID: 20474 RVA: 0x000643C0 File Offset: 0x000625C0
 		private void Awake()
 		{
 			this.renderer = base.GetComponentInChildren<Renderer>();
 			this.chargerMPB = new MaterialPropertyBlock();
 		}
 
-		// Token: 0x06004E9B RID: 20123 RVA: 0x00182010 File Offset: 0x00180210
+		// Token: 0x06004FFB RID: 20475 RVA: 0x001BA368 File Offset: 0x001B8568
 		public void UpdateChargeProgress(float value)
 		{
 			if (this.chargerMPB == null)
@@ -28,16 +28,16 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x04005226 RID: 21030
+		// Token: 0x04005332 RID: 21298
 		private Renderer renderer;
 
-		// Token: 0x04005227 RID: 21031
+		// Token: 0x04005333 RID: 21299
 		private MaterialPropertyBlock chargerMPB;
 
-		// Token: 0x04005228 RID: 21032
+		// Token: 0x04005334 RID: 21300
 		private static readonly int UvShiftOffset = Shader.PropertyToID("_UvShiftOffset");
 
-		// Token: 0x04005229 RID: 21033
+		// Token: 0x04005335 RID: 21301
 		public int shaderAnimSteps = 4;
 	}
 }

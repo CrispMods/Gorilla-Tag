@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x020005EF RID: 1519
+// Token: 0x0200067A RID: 1658
 public struct ModIORequestResult
 {
-	// Token: 0x060025CB RID: 9675 RVA: 0x000BA7C4 File Offset: 0x000B89C4
+	// Token: 0x06002927 RID: 10535 RVA: 0x001150D8 File Offset: 0x001132D8
 	public static ModIORequestResult CreateFailureResult(string inMessage)
 	{
 		ModIORequestResult result;
@@ -12,7 +12,7 @@ public struct ModIORequestResult
 		return result;
 	}
 
-	// Token: 0x060025CC RID: 9676 RVA: 0x000BA7E4 File Offset: 0x000B89E4
+	// Token: 0x06002928 RID: 10536 RVA: 0x001150F8 File Offset: 0x001132F8
 	public static ModIORequestResult CreateSuccessResult()
 	{
 		ModIORequestResult result;
@@ -21,9 +21,9 @@ public struct ModIORequestResult
 		return result;
 	}
 
-	// Token: 0x040029E3 RID: 10723
+	// Token: 0x04002E7E RID: 11902
 	public bool success;
 
-	// Token: 0x040029E4 RID: 10724
+	// Token: 0x04002E7F RID: 11903
 	public string message;
 }

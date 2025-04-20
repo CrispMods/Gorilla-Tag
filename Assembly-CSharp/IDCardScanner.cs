@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x020000B0 RID: 176
+// Token: 0x020000BA RID: 186
 public class IDCardScanner : MonoBehaviour
 {
-	// Token: 0x0600047A RID: 1146 RVA: 0x0001A803 File Offset: 0x00018A03
+	// Token: 0x060004B6 RID: 1206 RVA: 0x0003386D File Offset: 0x00031A6D
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.GetComponent<ScannableIDCard>() != null)
@@ -19,6 +19,6 @@ public class IDCardScanner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400051F RID: 1311
+	// Token: 0x0400055F RID: 1375
 	public UnityEvent onCardScanned;
 }

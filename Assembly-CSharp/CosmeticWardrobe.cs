@@ -2,10 +2,10 @@
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x02000429 RID: 1065
+// Token: 0x02000435 RID: 1077
 public class CosmeticWardrobe : MonoBehaviour
 {
-	// Token: 0x06001A57 RID: 6743 RVA: 0x00081A44 File Offset: 0x0007FC44
+	// Token: 0x06001AAB RID: 6827 RVA: 0x000D6DEC File Offset: 0x000D4FEC
 	private void Start()
 	{
 		for (int i = 0; i < this.cosmeticCategoryButtons.Length; i++)
@@ -44,7 +44,7 @@ public class CosmeticWardrobe : MonoBehaviour
 		this.HandleCosmeticsUpdated();
 	}
 
-	// Token: 0x06001A58 RID: 6744 RVA: 0x00081C30 File Offset: 0x0007FE30
+	// Token: 0x06001AAC RID: 6828 RVA: 0x000D6FD8 File Offset: 0x000D51D8
 	private void OnDestroy()
 	{
 		if (GorillaTagger.Instance && GorillaTagger.Instance.offlineVRRig)
@@ -67,7 +67,7 @@ public class CosmeticWardrobe : MonoBehaviour
 		CosmeticWardrobe.OnWardrobeUpdateDisplays = (Action)Delegate.Remove(CosmeticWardrobe.OnWardrobeUpdateDisplays, new Action(this.UpdateCosmeticDisplays));
 	}
 
-	// Token: 0x06001A59 RID: 6745 RVA: 0x00081D70 File Offset: 0x0007FF70
+	// Token: 0x06001AAD RID: 6829 RVA: 0x000D7118 File Offset: 0x000D5318
 	private void HandlePressedNextSelection(GorillaPressableButton button, bool isLeft)
 	{
 		CosmeticWardrobe.startingDisplayIndex += this.cosmeticCollectionDisplays.Length;
@@ -83,7 +83,7 @@ public class CosmeticWardrobe : MonoBehaviour
 		onWardrobeUpdateDisplays();
 	}
 
-	// Token: 0x06001A5A RID: 6746 RVA: 0x00081DC0 File Offset: 0x0007FFC0
+	// Token: 0x06001AAE RID: 6830 RVA: 0x000D7168 File Offset: 0x000D5368
 	private void HandlePressedPrevSelection(GorillaPressableButton button, bool isLeft)
 	{
 		CosmeticWardrobe.startingDisplayIndex -= this.cosmeticCollectionDisplays.Length;
@@ -110,7 +110,7 @@ public class CosmeticWardrobe : MonoBehaviour
 		onWardrobeUpdateDisplays();
 	}
 
-	// Token: 0x06001A5B RID: 6747 RVA: 0x00081E40 File Offset: 0x00080040
+	// Token: 0x06001AAF RID: 6831 RVA: 0x000D71E8 File Offset: 0x000D53E8
 	private void HandlePressedSelectCosmeticButton(GorillaPressableButton button, bool isLeft)
 	{
 		int i = 0;
@@ -134,7 +134,7 @@ public class CosmeticWardrobe : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A5C RID: 6748 RVA: 0x00081ED0 File Offset: 0x000800D0
+	// Token: 0x06001AB0 RID: 6832 RVA: 0x000D7278 File Offset: 0x000D5478
 	private void HandleChangeCategory(GorillaPressableButton button, bool isLeft)
 	{
 		for (int i = 0; i < this.cosmeticCategoryButtons.Length; i++)
@@ -228,7 +228,7 @@ public class CosmeticWardrobe : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A5D RID: 6749 RVA: 0x000820D0 File Offset: 0x000802D0
+	// Token: 0x06001AB1 RID: 6833 RVA: 0x000D7478 File Offset: 0x000D5678
 	private void HandleCosmeticsUpdated()
 	{
 		string[] currentlyWornCosmetics = CosmeticsController.instance.GetCurrentlyWornCosmetics();
@@ -238,7 +238,7 @@ public class CosmeticWardrobe : MonoBehaviour
 		this.UpdateCosmeticDisplays();
 	}
 
-	// Token: 0x06001A5E RID: 6750 RVA: 0x00082110 File Offset: 0x00080310
+	// Token: 0x06001AB2 RID: 6834 RVA: 0x000D74B8 File Offset: 0x000D56B8
 	private void HandleLocalColorChanged(Color newColor)
 	{
 		MeshRenderer component = this.currentEquippedDisplay.GetComponent<MeshRenderer>();
@@ -248,7 +248,7 @@ public class CosmeticWardrobe : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A5F RID: 6751 RVA: 0x00082140 File Offset: 0x00080340
+	// Token: 0x06001AB3 RID: 6835 RVA: 0x000D74E8 File Offset: 0x000D56E8
 	private void UpdateCosmeticDisplays()
 	{
 		for (int i = 0; i < this.cosmeticCollectionDisplays.Length; i++)
@@ -267,7 +267,7 @@ public class CosmeticWardrobe : MonoBehaviour
 		this.prevSelection.UpdateColor();
 	}
 
-	// Token: 0x06001A60 RID: 6752 RVA: 0x00082254 File Offset: 0x00080454
+	// Token: 0x06001AB4 RID: 6836 RVA: 0x000D75FC File Offset: 0x000D57FC
 	private void UpdateCategoryButtons()
 	{
 		for (int i = 0; i < this.cosmeticCategoryButtons.Length; i++)
@@ -304,78 +304,78 @@ public class CosmeticWardrobe : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001D1B RID: 7451
+	// Token: 0x04001D6A RID: 7530
 	[SerializeField]
 	private CosmeticWardrobe.CosmeticWardrobeSelection[] cosmeticCollectionDisplays;
 
-	// Token: 0x04001D1C RID: 7452
+	// Token: 0x04001D6B RID: 7531
 	[SerializeField]
 	private CosmeticWardrobe.CosmeticWardrobeCategory[] cosmeticCategoryButtons;
 
-	// Token: 0x04001D1D RID: 7453
+	// Token: 0x04001D6C RID: 7532
 	[SerializeField]
 	private HeadModel currentEquippedDisplay;
 
-	// Token: 0x04001D1E RID: 7454
+	// Token: 0x04001D6D RID: 7533
 	[SerializeField]
 	private GorillaPressableButton nextSelection;
 
-	// Token: 0x04001D1F RID: 7455
+	// Token: 0x04001D6E RID: 7534
 	[SerializeField]
 	private GorillaPressableButton prevSelection;
 
-	// Token: 0x04001D20 RID: 7456
+	// Token: 0x04001D6F RID: 7535
 	private static int selectedCategoryIndex = 0;
 
-	// Token: 0x04001D21 RID: 7457
+	// Token: 0x04001D70 RID: 7536
 	private static CosmeticsController.CosmeticCategory selectedCategory = CosmeticsController.CosmeticCategory.Hat;
 
-	// Token: 0x04001D22 RID: 7458
+	// Token: 0x04001D71 RID: 7537
 	private static int startingDisplayIndex = 0;
 
-	// Token: 0x04001D23 RID: 7459
+	// Token: 0x04001D72 RID: 7538
 	private static Action OnWardrobeUpdateCategories;
 
-	// Token: 0x04001D24 RID: 7460
+	// Token: 0x04001D73 RID: 7539
 	private static Action OnWardrobeUpdateDisplays;
 
-	// Token: 0x04001D25 RID: 7461
+	// Token: 0x04001D74 RID: 7540
 	public Vector3 startingHeadSize = new Vector3(0.25f, 0.25f, 0.25f);
 
-	// Token: 0x0200042A RID: 1066
+	// Token: 0x02000436 RID: 1078
 	[Serializable]
 	public class CosmeticWardrobeSelection
 	{
-		// Token: 0x04001D26 RID: 7462
+		// Token: 0x04001D75 RID: 7541
 		public HeadModel displayHead;
 
-		// Token: 0x04001D27 RID: 7463
+		// Token: 0x04001D76 RID: 7542
 		public CosmeticButton selectButton;
 
-		// Token: 0x04001D28 RID: 7464
+		// Token: 0x04001D77 RID: 7543
 		public CosmeticsController.CosmeticItem currentCosmeticItem;
 	}
 
-	// Token: 0x0200042B RID: 1067
+	// Token: 0x02000437 RID: 1079
 	[Serializable]
 	public class CosmeticWardrobeCategory
 	{
-		// Token: 0x04001D29 RID: 7465
+		// Token: 0x04001D78 RID: 7544
 		public CosmeticCategoryButton button;
 
-		// Token: 0x04001D2A RID: 7466
+		// Token: 0x04001D79 RID: 7545
 		public CosmeticsController.CosmeticCategory category;
 
-		// Token: 0x04001D2B RID: 7467
+		// Token: 0x04001D7A RID: 7546
 		public CosmeticsController.CosmeticSlots slot1 = CosmeticsController.CosmeticSlots.Count;
 
-		// Token: 0x04001D2C RID: 7468
+		// Token: 0x04001D7B RID: 7547
 		public CosmeticsController.CosmeticSlots slot2 = CosmeticsController.CosmeticSlots.Count;
 
-		// Token: 0x04001D2D RID: 7469
+		// Token: 0x04001D7C RID: 7548
 		public CosmeticsController.CosmeticItem slot1RemovedItem;
 
-		// Token: 0x04001D2E RID: 7470
+		// Token: 0x04001D7D RID: 7549
 		public CosmeticsController.CosmeticItem slot2RemovedItem;
 	}
 }

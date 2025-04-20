@@ -5,10 +5,10 @@ using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 
-// Token: 0x02000658 RID: 1624
+// Token: 0x02000637 RID: 1591
 public class DayNightCycle : MonoBehaviour
 {
-	// Token: 0x0600284C RID: 10316 RVA: 0x000C5DA4 File Offset: 0x000C3FA4
+	// Token: 0x06002777 RID: 10103 RVA: 0x0010CDFC File Offset: 0x0010AFFC
 	public void Awake()
 	{
 		this.fromMap = new Texture2D(this._sunriseMap.width, this._sunriseMap.height);
@@ -30,7 +30,7 @@ public class DayNightCycle : MonoBehaviour
 		this.finishedCoroutine = false;
 	}
 
-	// Token: 0x0600284D RID: 10317 RVA: 0x000C5F28 File Offset: 0x000C4128
+	// Token: 0x06002778 RID: 10104 RVA: 0x0010CF80 File Offset: 0x0010B180
 	public void Update()
 	{
 		if (this.startJob)
@@ -80,7 +80,7 @@ public class DayNightCycle : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600284E RID: 10318 RVA: 0x000C6116 File Offset: 0x000C4316
+	// Token: 0x06002779 RID: 10105 RVA: 0x0004AE8E File Offset: 0x0004908E
 	public IEnumerator UpdateWork()
 	{
 		yield return 0;
@@ -126,115 +126,115 @@ public class DayNightCycle : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04002D06 RID: 11526
+	// Token: 0x04002C6C RID: 11372
 	public Texture2D _dayMap;
 
-	// Token: 0x04002D07 RID: 11527
+	// Token: 0x04002C6D RID: 11373
 	private Texture2D fromMap;
 
-	// Token: 0x04002D08 RID: 11528
+	// Token: 0x04002C6E RID: 11374
 	public Texture2D _sunriseMap;
 
-	// Token: 0x04002D09 RID: 11529
+	// Token: 0x04002C6F RID: 11375
 	private Texture2D toMap;
 
-	// Token: 0x04002D0A RID: 11530
+	// Token: 0x04002C70 RID: 11376
 	public DayNightCycle.LerpBakedLightingJob job;
 
-	// Token: 0x04002D0B RID: 11531
+	// Token: 0x04002C71 RID: 11377
 	public JobHandle jobHandle;
 
-	// Token: 0x04002D0C RID: 11532
+	// Token: 0x04002C72 RID: 11378
 	public bool isComplete;
 
-	// Token: 0x04002D0D RID: 11533
+	// Token: 0x04002C73 RID: 11379
 	private float startTime;
 
-	// Token: 0x04002D0E RID: 11534
+	// Token: 0x04002C74 RID: 11380
 	public float timeTakenStartingJob;
 
-	// Token: 0x04002D0F RID: 11535
+	// Token: 0x04002C75 RID: 11381
 	public float timeTakenPostJob;
 
-	// Token: 0x04002D10 RID: 11536
+	// Token: 0x04002C76 RID: 11382
 	public float timeTakenDuringJob;
 
-	// Token: 0x04002D11 RID: 11537
+	// Token: 0x04002C77 RID: 11383
 	public LightmapData newData;
 
-	// Token: 0x04002D12 RID: 11538
+	// Token: 0x04002C78 RID: 11384
 	private Color[] fromPixels;
 
-	// Token: 0x04002D13 RID: 11539
+	// Token: 0x04002C79 RID: 11385
 	private Color[] toPixels;
 
-	// Token: 0x04002D14 RID: 11540
+	// Token: 0x04002C7A RID: 11386
 	private Color[] mixedPixels;
 
-	// Token: 0x04002D15 RID: 11541
+	// Token: 0x04002C7B RID: 11387
 	private LightmapData[] newDatas;
 
-	// Token: 0x04002D16 RID: 11542
+	// Token: 0x04002C7C RID: 11388
 	public Texture2D newTexture;
 
-	// Token: 0x04002D17 RID: 11543
+	// Token: 0x04002C7D RID: 11389
 	public int textureWidth;
 
-	// Token: 0x04002D18 RID: 11544
+	// Token: 0x04002C7E RID: 11390
 	public int textureHeight;
 
-	// Token: 0x04002D19 RID: 11545
+	// Token: 0x04002C7F RID: 11391
 	private Color[] workBlockFrom;
 
-	// Token: 0x04002D1A RID: 11546
+	// Token: 0x04002C80 RID: 11392
 	private Color[] workBlockTo;
 
-	// Token: 0x04002D1B RID: 11547
+	// Token: 0x04002C81 RID: 11393
 	private Color[] workBlockMix;
 
-	// Token: 0x04002D1C RID: 11548
+	// Token: 0x04002C82 RID: 11394
 	public int subTextureSize = 1024;
 
-	// Token: 0x04002D1D RID: 11549
+	// Token: 0x04002C83 RID: 11395
 	public Texture2D[] subTextureArray;
 
-	// Token: 0x04002D1E RID: 11550
+	// Token: 0x04002C84 RID: 11396
 	public bool startCoroutine;
 
-	// Token: 0x04002D1F RID: 11551
+	// Token: 0x04002C85 RID: 11397
 	public bool startedCoroutine;
 
-	// Token: 0x04002D20 RID: 11552
+	// Token: 0x04002C86 RID: 11398
 	public bool finishedCoroutine;
 
-	// Token: 0x04002D21 RID: 11553
+	// Token: 0x04002C87 RID: 11399
 	public bool startJob;
 
-	// Token: 0x04002D22 RID: 11554
+	// Token: 0x04002C88 RID: 11400
 	public float switchTimeTaken;
 
-	// Token: 0x04002D23 RID: 11555
+	// Token: 0x04002C89 RID: 11401
 	public bool jobStarted;
 
-	// Token: 0x04002D24 RID: 11556
+	// Token: 0x04002C8A RID: 11402
 	public float lerpAmount;
 
-	// Token: 0x04002D25 RID: 11557
+	// Token: 0x04002C8B RID: 11403
 	public int currentRow;
 
-	// Token: 0x04002D26 RID: 11558
+	// Token: 0x04002C8C RID: 11404
 	public int currentColumn;
 
-	// Token: 0x04002D27 RID: 11559
+	// Token: 0x04002C8D RID: 11405
 	public int currentSubTexture;
 
-	// Token: 0x04002D28 RID: 11560
+	// Token: 0x04002C8E RID: 11406
 	public int currentRowInSubtexture;
 
-	// Token: 0x02000659 RID: 1625
+	// Token: 0x02000638 RID: 1592
 	public struct LerpBakedLightingJob : IJob
 	{
-		// Token: 0x06002850 RID: 10320 RVA: 0x000C6138 File Offset: 0x000C4338
+		// Token: 0x0600277B RID: 10107 RVA: 0x0010D170 File Offset: 0x0010B370
 		public void Execute()
 		{
 			for (int i = 0; i < this.fromPixels.Length; i++)
@@ -243,16 +243,16 @@ public class DayNightCycle : MonoBehaviour
 			}
 		}
 
-		// Token: 0x04002D29 RID: 11561
+		// Token: 0x04002C8F RID: 11407
 		public NativeArray<Color> fromPixels;
 
-		// Token: 0x04002D2A RID: 11562
+		// Token: 0x04002C90 RID: 11408
 		public NativeArray<Color> toPixels;
 
-		// Token: 0x04002D2B RID: 11563
+		// Token: 0x04002C91 RID: 11409
 		public NativeArray<Color> mixedPixels;
 
-		// Token: 0x04002D2C RID: 11564
+		// Token: 0x04002C92 RID: 11410
 		public float lerpValue;
 	}
 }

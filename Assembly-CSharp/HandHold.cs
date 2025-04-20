@@ -1,24 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using GorillaExtensions;
 using GorillaLocomotion.Gameplay;
+using GT_CustomMapSupportRuntime;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x020005B3 RID: 1459
+// Token: 0x020005C1 RID: 1473
 [RequireComponent(typeof(Collider))]
 public class HandHold : MonoBehaviour, IGorillaGrabable
 {
-	// Token: 0x1400004F RID: 79
-	// (add) Token: 0x06002442 RID: 9282 RVA: 0x000B4CF0 File Offset: 0x000B2EF0
-	// (remove) Token: 0x06002443 RID: 9283 RVA: 0x000B4D24 File Offset: 0x000B2F24
+	// Token: 0x14000050 RID: 80
+	// (add) Token: 0x060024A2 RID: 9378 RVA: 0x00103630 File Offset: 0x00101830
+	// (remove) Token: 0x060024A3 RID: 9379 RVA: 0x00103664 File Offset: 0x00101864
 	public static event HandHold.HandHoldPositionEvent HandPositionRequestOverride;
 
-	// Token: 0x14000050 RID: 80
-	// (add) Token: 0x06002444 RID: 9284 RVA: 0x000B4D58 File Offset: 0x000B2F58
-	// (remove) Token: 0x06002445 RID: 9285 RVA: 0x000B4D8C File Offset: 0x000B2F8C
+	// Token: 0x14000051 RID: 81
+	// (add) Token: 0x060024A4 RID: 9380 RVA: 0x00103698 File Offset: 0x00101898
+	// (remove) Token: 0x060024A5 RID: 9381 RVA: 0x001036CC File Offset: 0x001018CC
 	public static event HandHold.HandHoldEvent HandPositionReleaseOverride;
 
-	// Token: 0x06002446 RID: 9286 RVA: 0x000B4DBF File Offset: 0x000B2FBF
+	// Token: 0x060024A6 RID: 9382 RVA: 0x00103700 File Offset: 0x00101900
+	public void OnDisable()
+	{
+		for (int i = 0; i < this.currentGrabbers.Count; i++)
+		{
+			if (this.currentGrabbers[i].IsNotNull())
+			{
+				this.currentGrabbers[i].Ungrab(this);
+			}
+		}
+	}
+
+	// Token: 0x060024A7 RID: 9383 RVA: 0x00048E07 File Offset: 0x00047007
 	private void Initialize()
 	{
 		if (this.initialized)
@@ -30,13 +44,13 @@ public class HandHold : MonoBehaviour, IGorillaGrabable
 		this.initialized = true;
 	}
 
-	// Token: 0x06002447 RID: 9287 RVA: 0x000444E2 File Offset: 0x000426E2
+	// Token: 0x060024A8 RID: 9384 RVA: 0x00039846 File Offset: 0x00037A46
 	public virtual bool CanBeGrabbed(GorillaGrabber grabber)
 	{
 		return true;
 	}
 
-	// Token: 0x06002448 RID: 9288 RVA: 0x000B4DEC File Offset: 0x000B2FEC
+	// Token: 0x060024A9 RID: 9385 RVA: 0x00103748 File Offset: 0x00101948
 	void IGorillaGrabable.OnGrabbed(GorillaGrabber g, out Transform grabbedTransform, out Vector3 localGrabbedPosition)
 	{
 		this.Initialize();
@@ -45,37 +59,59 @@ public class HandHold : MonoBehaviour, IGorillaGrabable
 		localGrabbedPosition = base.transform.InverseTransformPoint(position);
 		Vector3 arg;
 		g.Player.AddHandHold(base.transform, localGrabbedPosition, g, g.IsRightHand, this.rotatePlayerWhenHeld, out arg);
+		this.currentGrabbers.AddIfNew(g);
 		if (this.handSnapMethod != HandHold.HandSnapMethod.None && HandHold.HandPositionRequestOverride != null)
 		{
 			HandHold.HandPositionRequestOverride(this, g.IsRightHand, this.CalculateOffset(position));
 		}
-		this.OnGrab.Invoke(arg);
-		this.OnGrabHandHold.Invoke(this);
-		this.OnGrabHanded.Invoke(g.IsRightHand);
+		UnityEvent<Vector3> onGrab = this.OnGrab;
+		if (onGrab != null)
+		{
+			onGrab.Invoke(arg);
+		}
+		UnityEvent<HandHold> onGrabHandHold = this.OnGrabHandHold;
+		if (onGrabHandHold != null)
+		{
+			onGrabHandHold.Invoke(this);
+		}
+		UnityEvent<bool> onGrabHanded = this.OnGrabHanded;
+		if (onGrabHanded != null)
+		{
+			onGrabHanded.Invoke(g.IsRightHand);
+		}
 		if (this.myTappable != null)
 		{
 			this.myTappable.OnGrab();
 		}
 	}
 
-	// Token: 0x06002449 RID: 9289 RVA: 0x000B4EB4 File Offset: 0x000B30B4
+	// Token: 0x060024AA RID: 9386 RVA: 0x00103830 File Offset: 0x00101A30
 	void IGorillaGrabable.OnGrabReleased(GorillaGrabber g)
 	{
 		this.Initialize();
 		g.Player.RemoveHandHold(g, g.IsRightHand);
+		this.currentGrabbers.Remove(g);
 		if (this.handSnapMethod != HandHold.HandSnapMethod.None && HandHold.HandPositionReleaseOverride != null)
 		{
 			HandHold.HandPositionReleaseOverride(this, g.IsRightHand);
 		}
-		this.OnRelease.Invoke();
-		this.OnReleaseHandHold.Invoke(this);
+		UnityEvent onRelease = this.OnRelease;
+		if (onRelease != null)
+		{
+			onRelease.Invoke();
+		}
+		UnityEvent<HandHold> onReleaseHandHold = this.OnReleaseHandHold;
+		if (onReleaseHandHold != null)
+		{
+			onReleaseHandHold.Invoke(this);
+		}
 		if (this.myTappable != null)
 		{
 			this.myTappable.OnRelease();
 		}
 	}
 
-	// Token: 0x0600244A RID: 9290 RVA: 0x000B4F2C File Offset: 0x000B312C
+	// Token: 0x060024AB RID: 9387 RVA: 0x001038C0 File Offset: 0x00101AC0
 	private Vector3 CalculateOffset(Vector3 position)
 	{
 		switch (this.handSnapMethod)
@@ -102,85 +138,96 @@ public class HandHold : MonoBehaviour, IGorillaGrabable
 		}
 	}
 
-	// Token: 0x0600244B RID: 9291 RVA: 0x000B506A File Offset: 0x000B326A
+	// Token: 0x060024AC RID: 9388 RVA: 0x00048E31 File Offset: 0x00047031
 	public bool MomentaryGrabOnly()
 	{
 		return this.forceMomentary;
 	}
 
-	// Token: 0x0600244D RID: 9293 RVA: 0x0001227B File Offset: 0x0001047B
+	// Token: 0x060024AD RID: 9389 RVA: 0x00048E39 File Offset: 0x00047039
+	public void CopyProperties(HandHoldSettings handHoldSettings)
+	{
+		this.handSnapMethod = (HandHold.HandSnapMethod)handHoldSettings.handSnapMethod;
+		this.rotatePlayerWhenHeld = handHoldSettings.rotatePlayerWhenHeld;
+		this.forceMomentary = !handHoldSettings.allowPreGrab;
+	}
+
+	// Token: 0x060024AF RID: 9391 RVA: 0x0003261E File Offset: 0x0003081E
 	string IGorillaGrabable.get_name()
 	{
 		return base.name;
 	}
 
-	// Token: 0x0400285C RID: 10332
+	// Token: 0x040028B8 RID: 10424
 	private Dictionary<Transform, Transform> attached = new Dictionary<Transform, Transform>();
 
-	// Token: 0x0400285D RID: 10333
+	// Token: 0x040028B9 RID: 10425
 	[SerializeField]
 	private HandHold.HandSnapMethod handSnapMethod;
 
-	// Token: 0x0400285E RID: 10334
+	// Token: 0x040028BA RID: 10426
 	[SerializeField]
 	private bool rotatePlayerWhenHeld;
 
-	// Token: 0x0400285F RID: 10335
+	// Token: 0x040028BB RID: 10427
 	[SerializeField]
 	private UnityEvent<Vector3> OnGrab;
 
-	// Token: 0x04002860 RID: 10336
+	// Token: 0x040028BC RID: 10428
 	[SerializeField]
 	private UnityEvent<HandHold> OnGrabHandHold;
 
-	// Token: 0x04002861 RID: 10337
+	// Token: 0x040028BD RID: 10429
 	[SerializeField]
 	private UnityEvent<bool> OnGrabHanded;
 
-	// Token: 0x04002862 RID: 10338
+	// Token: 0x040028BE RID: 10430
 	[SerializeField]
 	private UnityEvent OnRelease;
 
-	// Token: 0x04002863 RID: 10339
+	// Token: 0x040028BF RID: 10431
 	[SerializeField]
 	private UnityEvent<HandHold> OnReleaseHandHold;
 
-	// Token: 0x04002864 RID: 10340
+	// Token: 0x040028C0 RID: 10432
 	private bool initialized;
 
-	// Token: 0x04002865 RID: 10341
+	// Token: 0x040028C1 RID: 10433
 	private Collider myCollider;
 
-	// Token: 0x04002866 RID: 10342
+	// Token: 0x040028C2 RID: 10434
 	private Tappable myTappable;
 
-	// Token: 0x04002867 RID: 10343
+	// Token: 0x040028C3 RID: 10435
 	[Tooltip("Turning this on disables \"pregrabbing\". Use pregrabbing to allow players to catch a handhold even if they have squeezed the trigger too soon. Useful if you're anticipating jumping players needed to grab while airborne")]
 	[SerializeField]
 	private bool forceMomentary = true;
 
-	// Token: 0x020005B4 RID: 1460
+	// Token: 0x040028C4 RID: 10436
+	private List<GorillaGrabber> currentGrabbers = new List<GorillaGrabber>();
+
+	// Token: 0x020005C2 RID: 1474
 	private enum HandSnapMethod
 	{
-		// Token: 0x04002869 RID: 10345
+		// Token: 0x040028C6 RID: 10438
 		None,
-		// Token: 0x0400286A RID: 10346
+		// Token: 0x040028C7 RID: 10439
 		SnapToCenterPoint,
-		// Token: 0x0400286B RID: 10347
+		// Token: 0x040028C8 RID: 10440
 		SnapToNearestEdge,
-		// Token: 0x0400286C RID: 10348
+		// Token: 0x040028C9 RID: 10441
 		SnapToXAxisPoint,
-		// Token: 0x0400286D RID: 10349
+		// Token: 0x040028CA RID: 10442
 		SnapToYAxisPoint,
-		// Token: 0x0400286E RID: 10350
+		// Token: 0x040028CB RID: 10443
 		SnapToZAxisPoint
 	}
 
-	// Token: 0x020005B5 RID: 1461
-	// (Invoke) Token: 0x0600244F RID: 9295
+	// Token: 0x020005C3 RID: 1475
+	// (Invoke) Token: 0x060024B1 RID: 9393
 	public delegate void HandHoldPositionEvent(HandHold hh, bool rh, Vector3 pos);
 
-	// Token: 0x020005B6 RID: 1462
-	// (Invoke) Token: 0x06002453 RID: 9299
+	// Token: 0x020005C4 RID: 1476
+	// (Invoke) Token: 0x060024B5 RID: 9397
 	public delegate void HandHoldEvent(HandHold hh, bool rh);
 }

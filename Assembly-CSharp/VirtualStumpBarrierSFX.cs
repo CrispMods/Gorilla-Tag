@@ -4,10 +4,10 @@ using GorillaExtensions;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x0200061B RID: 1563
+// Token: 0x020006A6 RID: 1702
 public class VirtualStumpBarrierSFX : MonoBehaviour
 {
-	// Token: 0x060026F2 RID: 9970 RVA: 0x000BFC34 File Offset: 0x000BDE34
+	// Token: 0x06002A4B RID: 10827 RVA: 0x0011BF90 File Offset: 0x0011A190
 	public void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject == GorillaTagger.Instance.headCollider.gameObject)
@@ -24,7 +24,7 @@ public class VirtualStumpBarrierSFX : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026F3 RID: 9971 RVA: 0x000BFCC4 File Offset: 0x000BDEC4
+	// Token: 0x06002A4C RID: 10828 RVA: 0x0011C020 File Offset: 0x0011A220
 	public void OnTriggerStay(Collider other)
 	{
 		bool flag;
@@ -40,7 +40,7 @@ public class VirtualStumpBarrierSFX : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026F4 RID: 9972 RVA: 0x000BFD30 File Offset: 0x000BDF30
+	// Token: 0x06002A4D RID: 10829 RVA: 0x0011C08C File Offset: 0x0011A28C
 	public void OnTriggerExit(Collider other)
 	{
 		bool flag;
@@ -55,7 +55,7 @@ public class VirtualStumpBarrierSFX : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026F5 RID: 9973 RVA: 0x000BFD9C File Offset: 0x000BDF9C
+	// Token: 0x06002A4E RID: 10830 RVA: 0x0011C0F8 File Offset: 0x0011A2F8
 	public void PlaySFX()
 	{
 		if (this.barrierAudioSource.IsNull())
@@ -66,19 +66,19 @@ public class VirtualStumpBarrierSFX : MonoBehaviour
 		{
 			return;
 		}
-		this.barrierAudioSource.clip = this.PassThroughBarrierSoundClips[Random.Range(0, this.PassThroughBarrierSoundClips.Count)];
+		this.barrierAudioSource.clip = this.PassThroughBarrierSoundClips[UnityEngine.Random.Range(0, this.PassThroughBarrierSoundClips.Count)];
 		this.barrierAudioSource.Play();
 	}
 
-	// Token: 0x04002AD2 RID: 10962
+	// Token: 0x04002FE5 RID: 12261
 	[SerializeField]
 	private AudioSource barrierAudioSource;
 
-	// Token: 0x04002AD3 RID: 10963
+	// Token: 0x04002FE6 RID: 12262
 	[FormerlySerializedAs("teleportingPlayerSoundClips")]
 	[SerializeField]
 	private List<AudioClip> PassThroughBarrierSoundClips = new List<AudioClip>();
 
-	// Token: 0x04002AD4 RID: 10964
+	// Token: 0x04002FE7 RID: 12263
 	private Dictionary<GameObject, bool> trackedGameObjects = new Dictionary<GameObject, bool>();
 }

@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009C6 RID: 2502
+	// Token: 0x020009EC RID: 2540
 	public class LayerChanger : MonoBehaviour
 	{
-		// Token: 0x06003E52 RID: 15954 RVA: 0x001271ED File Offset: 0x001253ED
+		// Token: 0x06003F6A RID: 16234 RVA: 0x00059611 File Offset: 0x00057811
 		public void InitializeLayers(Transform parent)
 		{
 			if (!this.layersStored)
@@ -18,7 +18,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E53 RID: 15955 RVA: 0x00127208 File Offset: 0x00125408
+		// Token: 0x06003F6B RID: 16235 RVA: 0x00168674 File Offset: 0x00166874
 		private void StoreOriginalLayers(Transform parent)
 		{
 			if (!this.includeChildren)
@@ -34,7 +34,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E54 RID: 15956 RVA: 0x00127284 File Offset: 0x00125484
+		// Token: 0x06003F6C RID: 16236 RVA: 0x00059629 File Offset: 0x00057829
 		public void ChangeLayer(Transform parent, string newLayer)
 		{
 			if (!this.layersStored)
@@ -45,7 +45,7 @@ namespace GorillaTagScripts
 			this.ChangeLayers(parent, LayerMask.NameToLayer(newLayer));
 		}
 
-		// Token: 0x06003E55 RID: 15957 RVA: 0x001272A8 File Offset: 0x001254A8
+		// Token: 0x06003F6D RID: 16237 RVA: 0x001686F0 File Offset: 0x001668F0
 		private void ChangeLayers(Transform parent, int newLayer)
 		{
 			if (!this.includeChildren)
@@ -67,7 +67,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E56 RID: 15958 RVA: 0x00127350 File Offset: 0x00125550
+		// Token: 0x06003F6E RID: 16238 RVA: 0x00168798 File Offset: 0x00166998
 		public void RestoreOriginalLayers()
 		{
 			if (!this.layersStored)
@@ -81,16 +81,16 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x04003F83 RID: 16259
+		// Token: 0x0400405D RID: 16477
 		public LayerMask restrictedLayers;
 
-		// Token: 0x04003F84 RID: 16260
+		// Token: 0x0400405E RID: 16478
 		public bool includeChildren = true;
 
-		// Token: 0x04003F85 RID: 16261
+		// Token: 0x0400405F RID: 16479
 		private Dictionary<Transform, int> originalLayers = new Dictionary<Transform, int>();
 
-		// Token: 0x04003F86 RID: 16262
+		// Token: 0x04004060 RID: 16480
 		private bool layersStored;
 	}
 }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x020007E9 RID: 2025
+// Token: 0x02000803 RID: 2051
 public static class FXSystem
 {
-	// Token: 0x0600320E RID: 12814 RVA: 0x000F0620 File Offset: 0x000EE820
+	// Token: 0x060032C4 RID: 12996 RVA: 0x00138968 File Offset: 0x00136B68
 	public static void PlayFXForRig(FXType fxType, IFXContext context, PhotonMessageInfoWrapped info = default(PhotonMessageInfoWrapped))
 	{
 		FXSystemSettings settings = context.settings;
@@ -21,7 +21,7 @@ public static class FXSystem
 		}
 	}
 
-	// Token: 0x0600320F RID: 12815 RVA: 0x000F065C File Offset: 0x000EE85C
+	// Token: 0x060032C5 RID: 12997 RVA: 0x001389A4 File Offset: 0x00136BA4
 	public static void PlayFXForRigValidated(List<int> hashes, FXType fxType, IFXContext context, PhotonMessageInfoWrapped info = default(PhotonMessageInfoWrapped))
 	{
 		for (int i = 0; i < hashes.Count; i++)
@@ -34,7 +34,7 @@ public static class FXSystem
 		FXSystem.PlayFXForRig(fxType, context, info);
 	}
 
-	// Token: 0x06003210 RID: 12816 RVA: 0x000F0698 File Offset: 0x000EE898
+	// Token: 0x060032C6 RID: 12998 RVA: 0x001389E0 File Offset: 0x00136BE0
 	public static void PlayFX<T>(FXType fxType, IFXContextParems<T> context, T args, PhotonMessageInfoWrapped info) where T : FXSArgs
 	{
 		FXSystemSettings settings = context.settings;
@@ -49,7 +49,7 @@ public static class FXSystem
 		}
 	}
 
-	// Token: 0x06003211 RID: 12817 RVA: 0x000F06D4 File Offset: 0x000EE8D4
+	// Token: 0x060032C7 RID: 12999 RVA: 0x00138A1C File Offset: 0x00136C1C
 	public static void PlayFXForRig<T>(FXType fxType, IFXEffectContext<T> context, PhotonMessageInfoWrapped info) where T : IFXEffectContextObject
 	{
 		FXSystemSettings settings = context.settings;
@@ -60,7 +60,7 @@ public static class FXSystem
 		FXSystem.PlayFX(context.effectContext);
 	}
 
-	// Token: 0x06003212 RID: 12818 RVA: 0x000F0714 File Offset: 0x000EE914
+	// Token: 0x060032C8 RID: 13000 RVA: 0x00138A5C File Offset: 0x00136C5C
 	public static void PlayFX(IFXEffectContextObject effectContext)
 	{
 		int[] prefabPoolIds = effectContext.PrefabPoolIds;
@@ -93,7 +93,7 @@ public static class FXSystem
 		}
 	}
 
-	// Token: 0x06003213 RID: 12819 RVA: 0x000F07C4 File Offset: 0x000EE9C4
+	// Token: 0x060032C9 RID: 13001 RVA: 0x00138B0C File Offset: 0x00136D0C
 	public static bool CheckCallSpam(FXSystemSettings settings, int index, double serverTime)
 	{
 		CallLimitType<CallLimiter> callLimitType = settings.callSettings[index];

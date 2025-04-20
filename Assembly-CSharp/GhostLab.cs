@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020000AB RID: 171
+// Token: 0x020000B5 RID: 181
 public class GhostLab : MonoBehaviour, IBuildValidation
 {
-	// Token: 0x06000457 RID: 1111 RVA: 0x00019BF2 File Offset: 0x00017DF2
+	// Token: 0x06000493 RID: 1171 RVA: 0x00033693 File Offset: 0x00031893
 	private void Awake()
 	{
-		this.relState = Object.FindFirstObjectByType<GhostLabReliableState>();
+		this.relState = UnityEngine.Object.FindFirstObjectByType<GhostLabReliableState>();
 		this.doorState = GhostLab.EntranceDoorsState.BothClosed;
 		this.doorOpen = new bool[this.slidingDoor.Length];
 		this.toggleDoorsParent.GetComponentsInChildren<GhostLabButton>();
 	}
 
-	// Token: 0x06000458 RID: 1112 RVA: 0x00019C28 File Offset: 0x00017E28
+	// Token: 0x06000494 RID: 1172 RVA: 0x0007D5FC File Offset: 0x0007B7FC
 	public bool BuildValidationCheck()
 	{
 		if (this.entranceDoorScanner == null)
@@ -57,7 +57,7 @@ public class GhostLab : MonoBehaviour, IBuildValidation
 		return true;
 	}
 
-	// Token: 0x06000459 RID: 1113 RVA: 0x00019D30 File Offset: 0x00017F30
+	// Token: 0x06000495 RID: 1173 RVA: 0x000336C6 File Offset: 0x000318C6
 	public void DoorButtonPress(int buttonIndex, bool forSingleDoor)
 	{
 		if (!forSingleDoor)
@@ -69,7 +69,7 @@ public class GhostLab : MonoBehaviour, IBuildValidation
 		this.relState.UpdateSingleDoorState(buttonIndex);
 	}
 
-	// Token: 0x0600045A RID: 1114 RVA: 0x00019D50 File Offset: 0x00017F50
+	// Token: 0x06000496 RID: 1174 RVA: 0x0007D704 File Offset: 0x0007B904
 	public void UpdateDoorState(int buttonIndex)
 	{
 		if ((this.doorOpen[buttonIndex] && this.slidingDoor[buttonIndex].localPosition == this.singleDoorTravelDistance) || (!this.doorOpen[buttonIndex] && this.slidingDoor[buttonIndex].localPosition == Vector3.zero))
@@ -78,7 +78,7 @@ public class GhostLab : MonoBehaviour, IBuildValidation
 		}
 	}
 
-	// Token: 0x0600045B RID: 1115 RVA: 0x00019DB8 File Offset: 0x00017FB8
+	// Token: 0x06000497 RID: 1175 RVA: 0x0007D76C File Offset: 0x0007B96C
 	public void UpdateEntranceDoorsState(int buttonIndex)
 	{
 		if (this.doorState == GhostLab.EntranceDoorsState.BothClosed)
@@ -102,7 +102,7 @@ public class GhostLab : MonoBehaviour, IBuildValidation
 		this.relState.UpdateEntranceDoorsState(this.doorState);
 	}
 
-	// Token: 0x0600045C RID: 1116 RVA: 0x00019E64 File Offset: 0x00018064
+	// Token: 0x06000498 RID: 1176 RVA: 0x0007D818 File Offset: 0x0007BA18
 	public void Update()
 	{
 		this.SynchStates();
@@ -134,7 +134,7 @@ public class GhostLab : MonoBehaviour, IBuildValidation
 		}
 	}
 
-	// Token: 0x0600045D RID: 1117 RVA: 0x00019F64 File Offset: 0x00018164
+	// Token: 0x06000499 RID: 1177 RVA: 0x0007D918 File Offset: 0x0007BB18
 	private void SynchStates()
 	{
 		this.doorState = this.relState.doorState;
@@ -144,7 +144,7 @@ public class GhostLab : MonoBehaviour, IBuildValidation
 		}
 	}
 
-	// Token: 0x0600045E RID: 1118 RVA: 0x00019FAC File Offset: 0x000181AC
+	// Token: 0x0600049A RID: 1178 RVA: 0x0007D960 File Offset: 0x0007BB60
 	public bool IsDoorMoving(bool singleDoor, int index)
 	{
 		if (singleDoor)
@@ -158,50 +158,50 @@ public class GhostLab : MonoBehaviour, IBuildValidation
 		return (this.doorState == GhostLab.EntranceDoorsState.InnerDoorOpen && this.innerDoor.localPosition != this.doorTravelDistance) || (this.doorState != GhostLab.EntranceDoorsState.InnerDoorOpen && this.innerDoor.localPosition != Vector3.zero);
 	}
 
-	// Token: 0x04000506 RID: 1286
+	// Token: 0x04000546 RID: 1350
 	public IDCardScanner entranceDoorScanner;
 
-	// Token: 0x04000507 RID: 1287
+	// Token: 0x04000547 RID: 1351
 	public Transform outerDoor;
 
-	// Token: 0x04000508 RID: 1288
+	// Token: 0x04000548 RID: 1352
 	public Transform innerDoor;
 
-	// Token: 0x04000509 RID: 1289
+	// Token: 0x04000549 RID: 1353
 	public Vector3 doorTravelDistance;
 
-	// Token: 0x0400050A RID: 1290
+	// Token: 0x0400054A RID: 1354
 	public float doorMoveSpeed;
 
-	// Token: 0x0400050B RID: 1291
+	// Token: 0x0400054B RID: 1355
 	public float singleDoorMoveSpeed;
 
-	// Token: 0x0400050C RID: 1292
+	// Token: 0x0400054C RID: 1356
 	public GhostLab.EntranceDoorsState doorState;
 
-	// Token: 0x0400050D RID: 1293
+	// Token: 0x0400054D RID: 1357
 	public GhostLabReliableState relState;
 
-	// Token: 0x0400050E RID: 1294
+	// Token: 0x0400054E RID: 1358
 	public Transform toggleDoorsParent;
 
-	// Token: 0x0400050F RID: 1295
+	// Token: 0x0400054F RID: 1359
 	public Transform[] slidingDoor;
 
-	// Token: 0x04000510 RID: 1296
+	// Token: 0x04000550 RID: 1360
 	public Vector3 singleDoorTravelDistance;
 
-	// Token: 0x04000511 RID: 1297
+	// Token: 0x04000551 RID: 1361
 	private bool[] doorOpen;
 
-	// Token: 0x020000AC RID: 172
+	// Token: 0x020000B6 RID: 182
 	public enum EntranceDoorsState
 	{
-		// Token: 0x04000513 RID: 1299
+		// Token: 0x04000553 RID: 1363
 		BothClosed,
-		// Token: 0x04000514 RID: 1300
+		// Token: 0x04000554 RID: 1364
 		InnerDoorOpen,
-		// Token: 0x04000515 RID: 1301
+		// Token: 0x04000555 RID: 1365
 		OuterDoorOpen
 	}
 }

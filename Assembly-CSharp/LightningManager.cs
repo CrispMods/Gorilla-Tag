@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x0200071A RID: 1818
+// Token: 0x0200072F RID: 1839
 public class LightningManager : MonoBehaviour
 {
-	// Token: 0x06002CE8 RID: 11496 RVA: 0x000DDFDE File Offset: 0x000DC1DE
+	// Token: 0x06002D7E RID: 11646 RVA: 0x0004EE3B File Offset: 0x0004D03B
 	private void Start()
 	{
 		this.lightningAudio = base.GetComponent<AudioSource>();
@@ -15,7 +15,7 @@ public class LightningManager : MonoBehaviour
 		instance.OnServerTimeUpdated = (Action)Delegate.Combine(instance.OnServerTimeUpdated, new Action(this.OnTimeChanged));
 	}
 
-	// Token: 0x06002CE9 RID: 11497 RVA: 0x000DE014 File Offset: 0x000DC214
+	// Token: 0x06002D7F RID: 11647 RVA: 0x0004EE71 File Offset: 0x0004D071
 	private void OnTimeChanged()
 	{
 		this.InitializeRng();
@@ -26,7 +26,7 @@ public class LightningManager : MonoBehaviour
 		this.lightningRunner = base.StartCoroutine(this.LightningEffectRunner());
 	}
 
-	// Token: 0x06002CEA RID: 11498 RVA: 0x000DE044 File Offset: 0x000DC244
+	// Token: 0x06002D80 RID: 11648 RVA: 0x00128538 File Offset: 0x00126738
 	private void GetHourStart(out long seed, out float timestampRealtime)
 	{
 		DateTime serverTime = GorillaComputer.instance.GetServerTime();
@@ -35,7 +35,7 @@ public class LightningManager : MonoBehaviour
 		seed = d.Ticks;
 	}
 
-	// Token: 0x06002CEB RID: 11499 RVA: 0x000DE0A4 File Offset: 0x000DC2A4
+	// Token: 0x06002D81 RID: 11649 RVA: 0x00128598 File Offset: 0x00126798
 	private void InitializeRng()
 	{
 		long seed;
@@ -62,7 +62,7 @@ public class LightningManager : MonoBehaviour
 		this.lightningTimestampsRealtime[this.lightningTimestampsRealtime.Count - 1] = num + 3605f;
 	}
 
-	// Token: 0x06002CEC RID: 11500 RVA: 0x000DE168 File Offset: 0x000DC368
+	// Token: 0x06002D82 RID: 11650 RVA: 0x0012865C File Offset: 0x0012685C
 	private void DoLightningStrike()
 	{
 		BetterDayNightManager.instance.AnimateLightFlash(this.lightMapIndex, this.flashFadeInDuration, this.flashHoldDuration, this.flashFadeOutDuration);
@@ -70,7 +70,7 @@ public class LightningManager : MonoBehaviour
 		this.lightningAudio.GTPlay();
 	}
 
-	// Token: 0x06002CED RID: 11501 RVA: 0x000DE1C5 File Offset: 0x000DC3C5
+	// Token: 0x06002D83 RID: 11651 RVA: 0x0004EE9F File Offset: 0x0004D09F
 	private IEnumerator LightningEffectRunner()
 	{
 		for (;;)
@@ -94,45 +94,45 @@ public class LightningManager : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04003261 RID: 12897
+	// Token: 0x040032FE RID: 13054
 	public int lightMapIndex;
 
-	// Token: 0x04003262 RID: 12898
+	// Token: 0x040032FF RID: 13055
 	public float minTimeBetweenFlashes;
 
-	// Token: 0x04003263 RID: 12899
+	// Token: 0x04003300 RID: 13056
 	public float maxTimeBetweenFlashes;
 
-	// Token: 0x04003264 RID: 12900
+	// Token: 0x04003301 RID: 13057
 	public float flashFadeInDuration;
 
-	// Token: 0x04003265 RID: 12901
+	// Token: 0x04003302 RID: 13058
 	public float flashHoldDuration;
 
-	// Token: 0x04003266 RID: 12902
+	// Token: 0x04003303 RID: 13059
 	public float flashFadeOutDuration;
 
-	// Token: 0x04003267 RID: 12903
+	// Token: 0x04003304 RID: 13060
 	private AudioSource lightningAudio;
 
-	// Token: 0x04003268 RID: 12904
+	// Token: 0x04003305 RID: 13061
 	private SRand rng;
 
-	// Token: 0x04003269 RID: 12905
+	// Token: 0x04003306 RID: 13062
 	private long currentHourlySeed;
 
-	// Token: 0x0400326A RID: 12906
+	// Token: 0x04003307 RID: 13063
 	private List<float> lightningTimestampsRealtime = new List<float>();
 
-	// Token: 0x0400326B RID: 12907
+	// Token: 0x04003308 RID: 13064
 	private int nextLightningTimestampIndex;
 
-	// Token: 0x0400326C RID: 12908
+	// Token: 0x04003309 RID: 13065
 	public AudioClip regularLightning;
 
-	// Token: 0x0400326D RID: 12909
+	// Token: 0x0400330A RID: 13066
 	public AudioClip muffledLightning;
 
-	// Token: 0x0400326E RID: 12910
+	// Token: 0x0400330B RID: 13067
 	private Coroutine lightningRunner;
 }

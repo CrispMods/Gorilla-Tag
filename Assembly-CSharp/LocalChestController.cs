@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.Playables;
 
-// Token: 0x020001C8 RID: 456
+// Token: 0x020001D3 RID: 467
 public class LocalChestController : MonoBehaviour
 {
-	// Token: 0x06000AA1 RID: 2721 RVA: 0x00039B14 File Offset: 0x00037D14
+	// Token: 0x06000AED RID: 2797 RVA: 0x000991D0 File Offset: 0x000973D0
 	private void OnTriggerEnter(Collider other)
 	{
 		if (this.isOpen)
@@ -35,12 +35,12 @@ public class LocalChestController : MonoBehaviour
 		this.director.Play();
 	}
 
-	// Token: 0x04000D18 RID: 3352
+	// Token: 0x04000D5E RID: 3422
 	public PlayableDirector director;
 
-	// Token: 0x04000D19 RID: 3353
+	// Token: 0x04000D5F RID: 3423
 	public MazePlayerCollection playerCollectionVolume;
 
-	// Token: 0x04000D1A RID: 3354
+	// Token: 0x04000D60 RID: 3424
 	private bool isOpen;
 }

@@ -2,17 +2,17 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-// Token: 0x020002BD RID: 701
+// Token: 0x020002C8 RID: 712
 public class HandedInputSelector : MonoBehaviour
 {
-	// Token: 0x060010E5 RID: 4325 RVA: 0x00051AB2 File Offset: 0x0004FCB2
+	// Token: 0x06001131 RID: 4401 RVA: 0x0003BB25 File Offset: 0x00039D25
 	private void Start()
 	{
-		this.m_CameraRig = Object.FindObjectOfType<OVRCameraRig>();
-		this.m_InputModule = Object.FindObjectOfType<OVRInputModule>();
+		this.m_CameraRig = UnityEngine.Object.FindObjectOfType<OVRCameraRig>();
+		this.m_InputModule = UnityEngine.Object.FindObjectOfType<OVRInputModule>();
 	}
 
-	// Token: 0x060010E6 RID: 4326 RVA: 0x00051ACA File Offset: 0x0004FCCA
+	// Token: 0x06001132 RID: 4402 RVA: 0x0003BB3D File Offset: 0x00039D3D
 	private void Update()
 	{
 		if (OVRInput.GetActiveController() == OVRInput.Controller.LTouch)
@@ -23,7 +23,7 @@ public class HandedInputSelector : MonoBehaviour
 		this.SetActiveController(OVRInput.Controller.RTouch);
 	}
 
-	// Token: 0x060010E7 RID: 4327 RVA: 0x00051AE4 File Offset: 0x0004FCE4
+	// Token: 0x06001133 RID: 4403 RVA: 0x000AD118 File Offset: 0x000AB318
 	private void SetActiveController(OVRInput.Controller c)
 	{
 		Transform rayTransform;
@@ -38,9 +38,9 @@ public class HandedInputSelector : MonoBehaviour
 		this.m_InputModule.rayTransform = rayTransform;
 	}
 
-	// Token: 0x040012E6 RID: 4838
+	// Token: 0x0400132E RID: 4910
 	private OVRCameraRig m_CameraRig;
 
-	// Token: 0x040012E7 RID: 4839
+	// Token: 0x0400132F RID: 4911
 	private OVRInputModule m_InputModule;
 }

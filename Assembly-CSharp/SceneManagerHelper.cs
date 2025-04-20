@@ -6,20 +6,20 @@ using UnityEngine;
 using UnityEngine.Android;
 using UnityEngine.Rendering;
 
-// Token: 0x0200033D RID: 829
+// Token: 0x02000348 RID: 840
 public class SceneManagerHelper
 {
-	// Token: 0x1700022F RID: 559
-	// (get) Token: 0x0600136D RID: 4973 RVA: 0x0005F3D8 File Offset: 0x0005D5D8
+	// Token: 0x17000236 RID: 566
+	// (get) Token: 0x060013B9 RID: 5049 RVA: 0x0003D582 File Offset: 0x0003B782
 	public GameObject AnchorGameObject { get; }
 
-	// Token: 0x0600136E RID: 4974 RVA: 0x0005F3E0 File Offset: 0x0005D5E0
+	// Token: 0x060013BA RID: 5050 RVA: 0x0003D58A File Offset: 0x0003B78A
 	public SceneManagerHelper(GameObject gameObject)
 	{
 		this.AnchorGameObject = gameObject;
 	}
 
-	// Token: 0x0600136F RID: 4975 RVA: 0x0005F3F0 File Offset: 0x0005D5F0
+	// Token: 0x060013BB RID: 5051 RVA: 0x000B8F60 File Offset: 0x000B7160
 	public void SetLocation(OVRLocatable locatable, Camera camera = null)
 	{
 		OVRLocatable.TrackingSpacePose trackingSpacePose;
@@ -36,17 +36,17 @@ public class SceneManagerHelper
 		}
 	}
 
-	// Token: 0x06001370 RID: 4976 RVA: 0x0005F460 File Offset: 0x0005D660
+	// Token: 0x060013BC RID: 5052 RVA: 0x000B8FD0 File Offset: 0x000B71D0
 	public void CreatePlane(OVRBounded2D bounds)
 	{
 		GameObject gameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
 		gameObject.name = "Plane";
 		gameObject.transform.SetParent(this.AnchorGameObject.transform, false);
 		gameObject.transform.localScale = new Vector3(bounds.BoundingBox.size.x, bounds.BoundingBox.size.y, 0.01f);
-		gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Random.ColorHSV());
+		gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", UnityEngine.Random.ColorHSV());
 	}
 
-	// Token: 0x06001371 RID: 4977 RVA: 0x0005F4EC File Offset: 0x0005D6EC
+	// Token: 0x060013BD RID: 5053 RVA: 0x000B905C File Offset: 0x000B725C
 	public void UpdatePlane(OVRBounded2D bounds)
 	{
 		Transform transform = this.AnchorGameObject.transform.Find("Plane");
@@ -58,7 +58,7 @@ public class SceneManagerHelper
 		transform.transform.localScale = new Vector3(bounds.BoundingBox.size.x, bounds.BoundingBox.size.y, 0.01f);
 	}
 
-	// Token: 0x06001372 RID: 4978 RVA: 0x0005F560 File Offset: 0x0005D760
+	// Token: 0x060013BE RID: 5054 RVA: 0x000B90D0 File Offset: 0x000B72D0
 	public void CreateVolume(OVRBounded3D bounds)
 	{
 		GameObject gameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -66,10 +66,10 @@ public class SceneManagerHelper
 		gameObject.transform.SetParent(this.AnchorGameObject.transform, false);
 		gameObject.transform.localPosition = new Vector3(0f, 0f, -bounds.BoundingBox.size.z / 2f);
 		gameObject.transform.localScale = bounds.BoundingBox.size;
-		gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Random.ColorHSV());
+		gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", UnityEngine.Random.ColorHSV());
 	}
 
-	// Token: 0x06001373 RID: 4979 RVA: 0x0005F600 File Offset: 0x0005D800
+	// Token: 0x060013BF RID: 5055 RVA: 0x000B9170 File Offset: 0x000B7370
 	public void UpdateVolume(OVRBounded3D bounds)
 	{
 		Transform transform = this.AnchorGameObject.transform.Find("Volume");
@@ -82,7 +82,7 @@ public class SceneManagerHelper
 		transform.transform.localScale = bounds.BoundingBox.size;
 	}
 
-	// Token: 0x06001374 RID: 4980 RVA: 0x0005F684 File Offset: 0x0005D884
+	// Token: 0x060013C0 RID: 5056 RVA: 0x000B91F4 File Offset: 0x000B73F4
 	public void CreateMesh(OVRTriangleMesh mesh)
 	{
 		int length;
@@ -106,24 +106,24 @@ public class SceneManagerHelper
 					gameObject.transform.SetParent(this.AnchorGameObject.transform, false);
 					gameObject.GetComponent<MeshFilter>().sharedMesh = mesh2;
 					gameObject.GetComponent<MeshCollider>().sharedMesh = mesh2;
-					gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Random.ColorHSV());
+					gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", UnityEngine.Random.ColorHSV());
 				}
 			}
 		}
 	}
 
-	// Token: 0x06001375 RID: 4981 RVA: 0x0005F780 File Offset: 0x0005D980
+	// Token: 0x060013C1 RID: 5057 RVA: 0x000B92F0 File Offset: 0x000B74F0
 	public void UpdateMesh(OVRTriangleMesh mesh)
 	{
 		Transform transform = this.AnchorGameObject.transform.Find("Mesh");
 		if (transform != null)
 		{
-			Object.Destroy(transform);
+			UnityEngine.Object.Destroy(transform);
 		}
 		this.CreateMesh(mesh);
 	}
 
-	// Token: 0x06001376 RID: 4982 RVA: 0x0005F7BC File Offset: 0x0005D9BC
+	// Token: 0x060013C2 RID: 5058 RVA: 0x000B932C File Offset: 0x000B752C
 	public static Task<bool> RequestSceneCapture()
 	{
 		SceneManagerHelper.<RequestSceneCapture>d__11 <RequestSceneCapture>d__;
@@ -133,7 +133,7 @@ public class SceneManagerHelper
 		return <RequestSceneCapture>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06001377 RID: 4983 RVA: 0x0005F7F7 File Offset: 0x0005D9F7
+	// Token: 0x060013C3 RID: 5059 RVA: 0x0003D599 File Offset: 0x0003B799
 	public static void RequestScenePermission()
 	{
 		if (!Permission.HasUserAuthorizedPermission("com.oculus.permission.USE_SCENE"))
@@ -142,6 +142,6 @@ public class SceneManagerHelper
 		}
 	}
 
-	// Token: 0x0400159D RID: 5533
+	// Token: 0x040015E5 RID: 5605
 	private static bool SceneCaptureRunning;
 }

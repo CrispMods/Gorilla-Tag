@@ -4,10 +4,10 @@ using Drawing;
 using GorillaTag;
 using UnityEngine;
 
-// Token: 0x020006D9 RID: 1753
+// Token: 0x020006EE RID: 1774
 public class VolumeCast : MonoBehaviourGizmos
 {
-	// Token: 0x06002BB8 RID: 11192 RVA: 0x000D6B50 File Offset: 0x000D4D50
+	// Token: 0x06002C4E RID: 11342 RVA: 0x00121D84 File Offset: 0x0011FF84
 	public bool CheckOverlaps()
 	{
 		Transform transform = base.transform;
@@ -72,7 +72,7 @@ public class VolumeCast : MonoBehaviourGizmos
 		return this._colliding = (this._hits > 0);
 	}
 
-	// Token: 0x06002BB9 RID: 11193 RVA: 0x000D6D94 File Offset: 0x000D4F94
+	// Token: 0x06002C4F RID: 11343 RVA: 0x00121FC8 File Offset: 0x001201C8
 	private static void GetEndsAndRadius(Transform t, Vector3 center, float height, float radius, out Vector3 a, out Vector3 b, out float r)
 	{
 		float d = height * 0.5f;
@@ -82,82 +82,82 @@ public class VolumeCast : MonoBehaviourGizmos
 		r = Math.Max(Math.Abs(lossyScale.x), Math.Abs(lossyScale.z)) * radius;
 	}
 
-	// Token: 0x040030CE RID: 12494
+	// Token: 0x0400316B RID: 12651
 	public VolumeCast.VolumeShape shape;
 
-	// Token: 0x040030CF RID: 12495
+	// Token: 0x0400316C RID: 12652
 	[Space]
 	public Vector3 center;
 
-	// Token: 0x040030D0 RID: 12496
+	// Token: 0x0400316D RID: 12653
 	public Vector3 size = Vector3.one;
 
-	// Token: 0x040030D1 RID: 12497
+	// Token: 0x0400316E RID: 12654
 	public float height = 1f;
 
-	// Token: 0x040030D2 RID: 12498
+	// Token: 0x0400316F RID: 12655
 	public float radius = 1f;
 
-	// Token: 0x040030D3 RID: 12499
+	// Token: 0x04003170 RID: 12656
 	private const int MAX_HITS = 8;
 
-	// Token: 0x040030D4 RID: 12500
+	// Token: 0x04003171 RID: 12657
 	[Space]
 	public UnityLayerMask physicsMask = UnityLayerMask.Everything;
 
-	// Token: 0x040030D5 RID: 12501
+	// Token: 0x04003172 RID: 12658
 	public bool includeTriggers;
 
-	// Token: 0x040030D6 RID: 12502
+	// Token: 0x04003173 RID: 12659
 	[Space]
 	[SerializeField]
 	private bool _simulateInEditMode;
 
-	// Token: 0x040030D7 RID: 12503
+	// Token: 0x04003174 RID: 12660
 	[DebugReadout]
 	[NonSerialized]
 	private int _capHits;
 
-	// Token: 0x040030D8 RID: 12504
+	// Token: 0x04003175 RID: 12661
 	[DebugReadout]
 	[NonSerialized]
 	private Collider[] _capOverlaps = new Collider[8];
 
-	// Token: 0x040030D9 RID: 12505
+	// Token: 0x04003176 RID: 12662
 	[DebugReadout]
 	[NonSerialized]
 	private int _boxHits;
 
-	// Token: 0x040030DA RID: 12506
+	// Token: 0x04003177 RID: 12663
 	[DebugReadout]
 	[NonSerialized]
 	private Collider[] _boxOverlaps = new Collider[8];
 
-	// Token: 0x040030DB RID: 12507
+	// Token: 0x04003178 RID: 12664
 	[DebugReadout]
 	[NonSerialized]
 	private int _hits;
 
-	// Token: 0x040030DC RID: 12508
+	// Token: 0x04003179 RID: 12665
 	[DebugReadout]
 	[NonSerialized]
 	private Collider[] _overlaps = new Collider[8];
 
-	// Token: 0x040030DD RID: 12509
+	// Token: 0x0400317A RID: 12666
 	[DebugReadout]
 	[NonSerialized]
 	private bool _colliding;
 
-	// Token: 0x040030DE RID: 12510
+	// Token: 0x0400317B RID: 12667
 	[NonSerialized]
 	private HashSet<Collider> _set = new HashSet<Collider>(8);
 
-	// Token: 0x020006DA RID: 1754
+	// Token: 0x020006EF RID: 1775
 	public enum VolumeShape
 	{
-		// Token: 0x040030E0 RID: 12512
+		// Token: 0x0400317D RID: 12669
 		Box,
-		// Token: 0x040030E1 RID: 12513
+		// Token: 0x0400317E RID: 12670
 		Cylinder
 	}
 }

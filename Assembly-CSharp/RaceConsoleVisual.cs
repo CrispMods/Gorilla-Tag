@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001D8 RID: 472
+// Token: 0x020001E3 RID: 483
 public class RaceConsoleVisual : MonoBehaviour
 {
-	// Token: 0x06000AFB RID: 2811 RVA: 0x0003B2D4 File Offset: 0x000394D4
+	// Token: 0x06000B47 RID: 2887 RVA: 0x0009A614 File Offset: 0x00098814
 	public void ShowRaceInProgress(int laps)
 	{
 		this.button1.sharedMaterial = this.inactiveButton;
@@ -30,7 +30,7 @@ public class RaceConsoleVisual : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AFC RID: 2812 RVA: 0x0003B3E8 File Offset: 0x000395E8
+	// Token: 0x06000B48 RID: 2888 RVA: 0x0009A728 File Offset: 0x00098928
 	public void ShowCanStartRace()
 	{
 		this.button1.transform.localPosition = Vector3.zero;
@@ -41,31 +41,31 @@ public class RaceConsoleVisual : MonoBehaviour
 		this.button5.sharedMaterial = this.pressableButton;
 	}
 
-	// Token: 0x04000D60 RID: 3424
+	// Token: 0x04000DA6 RID: 3494
 	[SerializeField]
 	private MeshRenderer button1;
 
-	// Token: 0x04000D61 RID: 3425
+	// Token: 0x04000DA7 RID: 3495
 	[SerializeField]
 	private MeshRenderer button3;
 
-	// Token: 0x04000D62 RID: 3426
+	// Token: 0x04000DA8 RID: 3496
 	[SerializeField]
 	private MeshRenderer button5;
 
-	// Token: 0x04000D63 RID: 3427
+	// Token: 0x04000DA9 RID: 3497
 	[SerializeField]
 	private Vector3 buttonPressedOffset;
 
-	// Token: 0x04000D64 RID: 3428
+	// Token: 0x04000DAA RID: 3498
 	[SerializeField]
 	private Material pressableButton;
 
-	// Token: 0x04000D65 RID: 3429
+	// Token: 0x04000DAB RID: 3499
 	[SerializeField]
 	private Material selectedButton;
 
-	// Token: 0x04000D66 RID: 3430
+	// Token: 0x04000DAC RID: 3500
 	[SerializeField]
 	private Material inactiveButton;
 }

@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 namespace GorillaTagScripts.AI
 {
-	// Token: 0x02000A0F RID: 2575
+	// Token: 0x02000A3C RID: 2620
 	public class AIEntity : MonoBehaviour
 	{
-		// Token: 0x06004085 RID: 16517 RVA: 0x00132F74 File Offset: 0x00131174
+		// Token: 0x060041CA RID: 16842 RVA: 0x00173744 File Offset: 0x00171944
 		protected void Awake()
 		{
 			this.navMeshAgent = base.gameObject.GetComponent<NavMeshAgent>();
@@ -22,14 +22,14 @@ namespace GorillaTagScripts.AI
 			}
 		}
 
-		// Token: 0x06004086 RID: 16518 RVA: 0x00132FDC File Offset: 0x001311DC
+		// Token: 0x060041CB RID: 16843 RVA: 0x001737AC File Offset: 0x001719AC
 		protected void ChooseRandomTarget()
 		{
-			int randomTarget = Random.Range(0, GorillaParent.instance.vrrigs.Count);
+			int randomTarget = UnityEngine.Random.Range(0, GorillaParent.instance.vrrigs.Count);
 			int num = GorillaParent.instance.vrrigs.FindIndex((VRRig x) => x.creator != null && x.creator == GorillaParent.instance.vrrigs[randomTarget].creator);
 			if (num == -1)
 			{
-				num = Random.Range(0, GorillaParent.instance.vrrigs.Count);
+				num = UnityEngine.Random.Range(0, GorillaParent.instance.vrrigs.Count);
 			}
 			if (num < GorillaParent.instance.vrrigs.Count)
 			{
@@ -43,7 +43,7 @@ namespace GorillaTagScripts.AI
 			this.followTarget = null;
 		}
 
-		// Token: 0x06004087 RID: 16519 RVA: 0x001330CC File Offset: 0x001312CC
+		// Token: 0x060041CC RID: 16844 RVA: 0x0017389C File Offset: 0x00171A9C
 		protected void ChooseClosestTarget()
 		{
 			VRRig vrrig = null;
@@ -72,58 +72,58 @@ namespace GorillaTagScripts.AI
 			this.followTarget = null;
 		}
 
-		// Token: 0x040041B9 RID: 16825
+		// Token: 0x040042B3 RID: 17075
 		public GameObject waypointsContainer;
 
-		// Token: 0x040041BA RID: 16826
+		// Token: 0x040042B4 RID: 17076
 		public Transform circleCenter;
 
-		// Token: 0x040041BB RID: 16827
+		// Token: 0x040042B5 RID: 17077
 		public float circleRadius;
 
-		// Token: 0x040041BC RID: 16828
+		// Token: 0x040042B6 RID: 17078
 		public float angularSpeed;
 
-		// Token: 0x040041BD RID: 16829
+		// Token: 0x040042B7 RID: 17079
 		public float patrolSpeed;
 
-		// Token: 0x040041BE RID: 16830
+		// Token: 0x040042B8 RID: 17080
 		public float fleeSpeed;
 
-		// Token: 0x040041BF RID: 16831
+		// Token: 0x040042B9 RID: 17081
 		public NavMeshAgent navMeshAgent;
 
-		// Token: 0x040041C0 RID: 16832
+		// Token: 0x040042BA RID: 17082
 		public Animator animator;
 
-		// Token: 0x040041C1 RID: 16833
+		// Token: 0x040042BB RID: 17083
 		public float fleeRang;
 
-		// Token: 0x040041C2 RID: 16834
+		// Token: 0x040042BC RID: 17084
 		public float fleeSpeedMult;
 
-		// Token: 0x040041C3 RID: 16835
+		// Token: 0x040042BD RID: 17085
 		public float minChaseRange;
 
-		// Token: 0x040041C4 RID: 16836
+		// Token: 0x040042BE RID: 17086
 		public float attackDistance;
 
-		// Token: 0x040041C5 RID: 16837
+		// Token: 0x040042BF RID: 17087
 		public float navMeshSampleRange = 5f;
 
-		// Token: 0x040041C6 RID: 16838
+		// Token: 0x040042C0 RID: 17088
 		internal readonly List<Transform> waypoints = new List<Transform>();
 
-		// Token: 0x040041C7 RID: 16839
+		// Token: 0x040042C1 RID: 17089
 		internal float defaultSpeed;
 
-		// Token: 0x040041C8 RID: 16840
+		// Token: 0x040042C2 RID: 17090
 		public Transform followTarget;
 
-		// Token: 0x040041C9 RID: 16841
+		// Token: 0x040042C3 RID: 17091
 		public NetPlayer targetPlayer;
 
-		// Token: 0x040041CA RID: 16842
+		// Token: 0x040042C4 RID: 17092
 		public bool targetIsOnNavMesh;
 	}
 }

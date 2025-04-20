@@ -4,11 +4,11 @@ using UnityEngine.Events;
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000AB6 RID: 2742
+	// Token: 0x02000AE2 RID: 2786
 	[Serializable]
 	public class GorillaText
 	{
-		// Token: 0x060044DF RID: 17631 RVA: 0x001474BC File Offset: 0x001456BC
+		// Token: 0x06004622 RID: 17954 RVA: 0x0005DC3A File Offset: 0x0005BE3A
 		public void Initialize(Material[] originalMaterials, Material failureMaterial, UnityEvent<string> callback = null, UnityEvent<Material[]> materialCallback = null)
 		{
 			this.failureMaterial = failureMaterial;
@@ -19,9 +19,9 @@ namespace GorillaNetworking
 			this.updateMaterialCallback = materialCallback;
 		}
 
-		// Token: 0x17000713 RID: 1811
-		// (get) Token: 0x060044E0 RID: 17632 RVA: 0x001474F7 File Offset: 0x001456F7
-		// (set) Token: 0x060044E1 RID: 17633 RVA: 0x001474FF File Offset: 0x001456FF
+		// Token: 0x1700072F RID: 1839
+		// (get) Token: 0x06004623 RID: 17955 RVA: 0x0005DC75 File Offset: 0x0005BE75
+		// (set) Token: 0x06004624 RID: 17956 RVA: 0x0005DC7D File Offset: 0x0005BE7D
 		public string Text
 		{
 			get
@@ -47,7 +47,7 @@ namespace GorillaNetworking
 			}
 		}
 
-		// Token: 0x060044E2 RID: 17634 RVA: 0x00147530 File Offset: 0x00145730
+		// Token: 0x06004625 RID: 17957 RVA: 0x00184FCC File Offset: 0x001831CC
 		public void EnableFailedState(string failText)
 		{
 			this.failedState = true;
@@ -67,7 +67,7 @@ namespace GorillaNetworking
 			unityEvent2.Invoke(this.currentMaterials);
 		}
 
-		// Token: 0x060044E3 RID: 17635 RVA: 0x00147598 File Offset: 0x00145798
+		// Token: 0x06004626 RID: 17958 RVA: 0x00185034 File Offset: 0x00183234
 		public void DisableFailedState()
 		{
 			this.failedState = true;
@@ -86,28 +86,28 @@ namespace GorillaNetworking
 			unityEvent2.Invoke(this.currentMaterials);
 		}
 
-		// Token: 0x04004654 RID: 18004
+		// Token: 0x0400474B RID: 18251
 		private string failureText;
 
-		// Token: 0x04004655 RID: 18005
+		// Token: 0x0400474C RID: 18252
 		private string originalText = string.Empty;
 
-		// Token: 0x04004656 RID: 18006
+		// Token: 0x0400474D RID: 18253
 		private bool failedState;
 
-		// Token: 0x04004657 RID: 18007
+		// Token: 0x0400474E RID: 18254
 		private Material[] originalMaterials;
 
-		// Token: 0x04004658 RID: 18008
+		// Token: 0x0400474F RID: 18255
 		private Material failureMaterial;
 
-		// Token: 0x04004659 RID: 18009
+		// Token: 0x04004750 RID: 18256
 		internal Material[] currentMaterials;
 
-		// Token: 0x0400465A RID: 18010
+		// Token: 0x04004751 RID: 18257
 		private UnityEvent<string> updateTextCallback;
 
-		// Token: 0x0400465B RID: 18011
+		// Token: 0x04004752 RID: 18258
 		private UnityEvent<Material[]> updateMaterialCallback;
 	}
 }

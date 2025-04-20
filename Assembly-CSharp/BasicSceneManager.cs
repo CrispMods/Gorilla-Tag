@@ -4,17 +4,17 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using UnityEngine;
 
-// Token: 0x02000329 RID: 809
+// Token: 0x02000334 RID: 820
 public class BasicSceneManager : MonoBehaviour
 {
-	// Token: 0x0600132B RID: 4907 RVA: 0x0005D577 File Offset: 0x0005B777
+	// Token: 0x06001377 RID: 4983 RVA: 0x0003D3D4 File Offset: 0x0003B5D4
 	private void Start()
 	{
 		SceneManagerHelper.RequestScenePermission();
 		this.LoadSceneAsync();
 	}
 
-	// Token: 0x0600132C RID: 4908 RVA: 0x0005D584 File Offset: 0x0005B784
+	// Token: 0x06001378 RID: 4984 RVA: 0x000B72C4 File Offset: 0x000B54C4
 	private void LoadSceneAsync()
 	{
 		BasicSceneManager.<LoadSceneAsync>d__1 <LoadSceneAsync>d__;
@@ -24,7 +24,7 @@ public class BasicSceneManager : MonoBehaviour
 		<LoadSceneAsync>d__.<>t__builder.Start<BasicSceneManager.<LoadSceneAsync>d__1>(ref <LoadSceneAsync>d__);
 	}
 
-	// Token: 0x0600132D RID: 4909 RVA: 0x0005D5BC File Offset: 0x0005B7BC
+	// Token: 0x06001379 RID: 4985 RVA: 0x000B72FC File Offset: 0x000B54FC
 	private Task CreateSceneAnchors(GameObject roomGameObject, List<OVRAnchor> anchors)
 	{
 		BasicSceneManager.<CreateSceneAnchors>d__2 <CreateSceneAnchors>d__;

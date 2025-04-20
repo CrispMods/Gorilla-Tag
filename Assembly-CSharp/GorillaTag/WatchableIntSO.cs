@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B9A RID: 2970
+	// Token: 0x02000BC7 RID: 3015
 	[CreateAssetMenu(fileName = "WatchableIntSO", menuName = "ScriptableObjects/WatchableIntSO")]
 	public class WatchableIntSO : WatchableGenericSO<int>
 	{
-		// Token: 0x170007BE RID: 1982
-		// (get) Token: 0x06004AE7 RID: 19175 RVA: 0x0016A77E File Offset: 0x0016897E
+		// Token: 0x170007DA RID: 2010
+		// (get) Token: 0x06004C32 RID: 19506 RVA: 0x00062276 File Offset: 0x00060476
 		private int currentValue
 		{
 			get

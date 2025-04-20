@@ -2,34 +2,34 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x020008C7 RID: 2247
+// Token: 0x020008E3 RID: 2275
 public class ThrowableBugBeaconActivation : MonoBehaviour
 {
-	// Token: 0x0600364E RID: 13902 RVA: 0x0010121C File Offset: 0x000FF41C
+	// Token: 0x06003716 RID: 14102 RVA: 0x000545A6 File Offset: 0x000527A6
 	private void Awake()
 	{
 		this.tbb = base.GetComponent<ThrowableBugBeacon>();
 	}
 
-	// Token: 0x0600364F RID: 13903 RVA: 0x0010122A File Offset: 0x000FF42A
+	// Token: 0x06003717 RID: 14103 RVA: 0x000545B4 File Offset: 0x000527B4
 	private void OnEnable()
 	{
 		base.StartCoroutine(this.SendSignals());
 	}
 
-	// Token: 0x06003650 RID: 13904 RVA: 0x00019935 File Offset: 0x00017B35
+	// Token: 0x06003718 RID: 14104 RVA: 0x00033636 File Offset: 0x00031836
 	private void OnDisable()
 	{
 		base.StopAllCoroutines();
 	}
 
-	// Token: 0x06003651 RID: 13905 RVA: 0x00101239 File Offset: 0x000FF439
+	// Token: 0x06003719 RID: 14105 RVA: 0x000545C3 File Offset: 0x000527C3
 	private IEnumerator SendSignals()
 	{
 		uint count = 0U;
 		while (this.signalCount == 0U || count < this.signalCount)
 		{
-			yield return new WaitForSeconds(Random.Range(this.minCallTime, this.maxCallTime));
+			yield return new WaitForSeconds(UnityEngine.Random.Range(this.minCallTime, this.maxCallTime));
 			switch (this.mode)
 			{
 			case ThrowableBugBeaconActivation.ActivationMode.CALL:
@@ -48,33 +48,33 @@ public class ThrowableBugBeaconActivation : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04003898 RID: 14488
+	// Token: 0x04003959 RID: 14681
 	[SerializeField]
 	private float minCallTime = 1f;
 
-	// Token: 0x04003899 RID: 14489
+	// Token: 0x0400395A RID: 14682
 	[SerializeField]
 	private float maxCallTime = 5f;
 
-	// Token: 0x0400389A RID: 14490
+	// Token: 0x0400395B RID: 14683
 	[SerializeField]
 	private uint signalCount;
 
-	// Token: 0x0400389B RID: 14491
+	// Token: 0x0400395C RID: 14684
 	[SerializeField]
 	private ThrowableBugBeaconActivation.ActivationMode mode;
 
-	// Token: 0x0400389C RID: 14492
+	// Token: 0x0400395D RID: 14685
 	private ThrowableBugBeacon tbb;
 
-	// Token: 0x020008C8 RID: 2248
+	// Token: 0x020008E4 RID: 2276
 	private enum ActivationMode
 	{
-		// Token: 0x0400389E RID: 14494
+		// Token: 0x0400395F RID: 14687
 		CALL,
-		// Token: 0x0400389F RID: 14495
+		// Token: 0x04003960 RID: 14688
 		DISMISS,
-		// Token: 0x040038A0 RID: 14496
+		// Token: 0x04003961 RID: 14689
 		LOCK
 	}
 }

@@ -2,22 +2,22 @@
 
 namespace GTMathUtil
 {
-	// Token: 0x02000970 RID: 2416
+	// Token: 0x02000996 RID: 2454
 	internal class CriticalSpringDamper
 	{
-		// Token: 0x06003AF3 RID: 15091 RVA: 0x0010D4C2 File Offset: 0x0010B6C2
+		// Token: 0x06003C0B RID: 15371 RVA: 0x00056EAF File Offset: 0x000550AF
 		private static float halflife_to_damping(float halflife, float eps = 1E-05f)
 		{
 			return 2.7725887f / (halflife + eps);
 		}
 
-		// Token: 0x06003AF4 RID: 15092 RVA: 0x0010D1EA File Offset: 0x0010B3EA
+		// Token: 0x06003C0C RID: 15372 RVA: 0x00056E42 File Offset: 0x00055042
 		private static float fast_negexp(float x)
 		{
 			return 1f / (1f + x + 0.48f * x * x + 0.235f * x * x * x);
 		}
 
-		// Token: 0x06003AF5 RID: 15093 RVA: 0x0010F418 File Offset: 0x0010D618
+		// Token: 0x06003C0D RID: 15373 RVA: 0x00152BA0 File Offset: 0x00150DA0
 		public float Update(float dt)
 		{
 			float num = CriticalSpringDamper.halflife_to_damping(this.halfLife, 1E-05f) / 2f;
@@ -29,16 +29,16 @@ namespace GTMathUtil
 			return this.x;
 		}
 
-		// Token: 0x04003BF8 RID: 15352
+		// Token: 0x04003CD2 RID: 15570
 		public float x;
 
-		// Token: 0x04003BF9 RID: 15353
+		// Token: 0x04003CD3 RID: 15571
 		public float xGoal;
 
-		// Token: 0x04003BFA RID: 15354
+		// Token: 0x04003CD4 RID: 15572
 		public float halfLife = 0.1f;
 
-		// Token: 0x04003BFB RID: 15355
+		// Token: 0x04003CD5 RID: 15573
 		private float curVel;
 	}
 }

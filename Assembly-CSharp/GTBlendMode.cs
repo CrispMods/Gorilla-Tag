@@ -1,40 +1,40 @@
 ﻿using System;
 
-// Token: 0x020008D6 RID: 2262
+// Token: 0x020008F2 RID: 2290
 public enum GTBlendMode
 {
-	// Token: 0x04003903 RID: 14595
+	// Token: 0x040039C4 RID: 14788
 	Normal,
-	// Token: 0x04003904 RID: 14596
+	// Token: 0x040039C5 RID: 14789
 	Darken,
-	// Token: 0x04003905 RID: 14597
+	// Token: 0x040039C6 RID: 14790
 	Multiply,
-	// Token: 0x04003906 RID: 14598
+	// Token: 0x040039C7 RID: 14791
 	ColorBurn,
-	// Token: 0x04003907 RID: 14599
+	// Token: 0x040039C8 RID: 14792
 	LinearBurn,
-	// Token: 0x04003908 RID: 14600
+	// Token: 0x040039C9 RID: 14793
 	Lighten,
-	// Token: 0x04003909 RID: 14601
+	// Token: 0x040039CA RID: 14794
 	Screen,
-	// Token: 0x0400390A RID: 14602
+	// Token: 0x040039CB RID: 14795
 	ColorDodge,
-	// Token: 0x0400390B RID: 14603
+	// Token: 0x040039CC RID: 14796
 	LinearDodge,
-	// Token: 0x0400390C RID: 14604
+	// Token: 0x040039CD RID: 14797
 	Overlay,
-	// Token: 0x0400390D RID: 14605
+	// Token: 0x040039CE RID: 14798
 	SoftLight,
-	// Token: 0x0400390E RID: 14606
+	// Token: 0x040039CF RID: 14799
 	HardLight,
-	// Token: 0x0400390F RID: 14607
+	// Token: 0x040039D0 RID: 14800
 	VividLight,
-	// Token: 0x04003910 RID: 14608
+	// Token: 0x040039D1 RID: 14801
 	LinearLight,
-	// Token: 0x04003911 RID: 14609
+	// Token: 0x040039D2 RID: 14802
 	PinLight,
-	// Token: 0x04003912 RID: 14610
+	// Token: 0x040039D3 RID: 14803
 	Difference,
-	// Token: 0x04003913 RID: 14611
+	// Token: 0x040039D4 RID: 14804
 	Exclusion
 }

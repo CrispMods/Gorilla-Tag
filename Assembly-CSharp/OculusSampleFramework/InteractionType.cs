@@ -2,14 +2,14 @@
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A4A RID: 2634
+	// Token: 0x02000A77 RID: 2679
 	public enum InteractionType
 	{
-		// Token: 0x040042B5 RID: 17077
+		// Token: 0x040043AF RID: 17327
 		Enter,
-		// Token: 0x040042B6 RID: 17078
+		// Token: 0x040043B0 RID: 17328
 		Stay,
-		// Token: 0x040042B7 RID: 17079
+		// Token: 0x040043B1 RID: 17329
 		Exit
 	}
 }

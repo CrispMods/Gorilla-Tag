@@ -4,31 +4,31 @@ using UnityEngine;
 
 namespace GorillaTag.GuidedRefs
 {
-	// Token: 0x02000BD0 RID: 3024
+	// Token: 0x02000BFE RID: 3070
 	public static class GRef
 	{
-		// Token: 0x06004C4C RID: 19532 RVA: 0x001735CC File Offset: 0x001717CC
+		// Token: 0x06004D98 RID: 19864 RVA: 0x00062DC5 File Offset: 0x00060FC5
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static bool ShouldResolveNow(GRef.EResolveModes mode)
 		{
 			return Application.isPlaying && (mode & GRef.EResolveModes.Runtime) == GRef.EResolveModes.Runtime;
 		}
 
-		// Token: 0x06004C4D RID: 19533 RVA: 0x001735DD File Offset: 0x001717DD
+		// Token: 0x06004D99 RID: 19865 RVA: 0x00062DD6 File Offset: 0x00060FD6
 		public static bool IsAnyResolveModeOn(GRef.EResolveModes mode)
 		{
 			return mode > GRef.EResolveModes.None;
 		}
 
-		// Token: 0x02000BD1 RID: 3025
+		// Token: 0x02000BFF RID: 3071
 		[Flags]
 		public enum EResolveModes
 		{
-			// Token: 0x04004E31 RID: 20017
+			// Token: 0x04004F27 RID: 20263
 			None = 0,
-			// Token: 0x04004E32 RID: 20018
+			// Token: 0x04004F28 RID: 20264
 			Runtime = 1,
-			// Token: 0x04004E33 RID: 20019
+			// Token: 0x04004F29 RID: 20265
 			SceneProcessing = 2
 		}
 	}

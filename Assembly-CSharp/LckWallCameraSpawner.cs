@@ -5,10 +5,10 @@ using Liv.Lck.GorillaTag;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 
-// Token: 0x02000243 RID: 579
+// Token: 0x0200024E RID: 590
 public class LckWallCameraSpawner : MonoBehaviour
 {
-	// Token: 0x06000D54 RID: 3412 RVA: 0x00044D90 File Offset: 0x00042F90
+	// Token: 0x06000D9F RID: 3487 RVA: 0x000A2440 File Offset: 0x000A0640
 	private LckBodyCameraSpawner GetOrCreateBodyCameraSpawner()
 	{
 		if (LckWallCameraSpawner._bodySpawner != null)
@@ -24,7 +24,7 @@ public class LckWallCameraSpawner : MonoBehaviour
 		LckWallCameraSpawner.AddGTag(Camera.main.gameObject, GtTagType.HMD);
 		LckWallCameraSpawner.AddGTag(instance.gameObject, GtTagType.Player);
 		Transform transform = instance.bodyCollider.transform;
-		GameObject gameObject = Object.Instantiate<GameObject>(this._lckBodySpawnerPrefab, transform.parent);
+		GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(this._lckBodySpawnerPrefab, transform.parent);
 		Transform transform2 = gameObject.transform;
 		transform2.localPosition = Vector3.zero;
 		transform2.localRotation = Quaternion.identity;
@@ -44,7 +44,7 @@ public class LckWallCameraSpawner : MonoBehaviour
 		return LckWallCameraSpawner._bodySpawner;
 	}
 
-	// Token: 0x06000D55 RID: 3413 RVA: 0x00044E77 File Offset: 0x00043077
+	// Token: 0x06000DA0 RID: 3488 RVA: 0x00039ACB File Offset: 0x00037CCB
 	private static void AddGTag(GameObject go, GtTagType gtTagType)
 	{
 		if (go.GetComponent<GtTag>())
@@ -56,9 +56,9 @@ public class LckWallCameraSpawner : MonoBehaviour
 		gtTag.enabled = true;
 	}
 
-	// Token: 0x17000155 RID: 341
-	// (get) Token: 0x06000D56 RID: 3414 RVA: 0x00044E9A File Offset: 0x0004309A
-	// (set) Token: 0x06000D57 RID: 3415 RVA: 0x00044EA4 File Offset: 0x000430A4
+	// Token: 0x1700015C RID: 348
+	// (get) Token: 0x06000DA1 RID: 3489 RVA: 0x00039AEE File Offset: 0x00037CEE
+	// (set) Token: 0x06000DA2 RID: 3490 RVA: 0x000A2528 File Offset: 0x000A0728
 	public LckWallCameraSpawner.WallSpawnerState wallSpawnerState
 	{
 		get
@@ -84,13 +84,13 @@ public class LckWallCameraSpawner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000D58 RID: 3416 RVA: 0x00044EF4 File Offset: 0x000430F4
+	// Token: 0x06000DA3 RID: 3491 RVA: 0x00039AF6 File Offset: 0x00037CF6
 	private void Awake()
 	{
 		this.InitCameraStrap();
 	}
 
-	// Token: 0x06000D59 RID: 3417 RVA: 0x00044EFC File Offset: 0x000430FC
+	// Token: 0x06000DA4 RID: 3492 RVA: 0x00039AFE File Offset: 0x00037CFE
 	private void OnEnable()
 	{
 		this._cameraHandleGrabbable.onGrabbed += this.OnGrabbed;
@@ -98,13 +98,13 @@ public class LckWallCameraSpawner : MonoBehaviour
 		this.wallSpawnerState = LckWallCameraSpawner.WallSpawnerState.CameraOnHook;
 	}
 
-	// Token: 0x06000D5A RID: 3418 RVA: 0x00044F33 File Offset: 0x00043133
+	// Token: 0x06000DA5 RID: 3493 RVA: 0x00039B35 File Offset: 0x00037D35
 	private void Start()
 	{
 		this.CreatePrewarmCamera();
 	}
 
-	// Token: 0x06000D5B RID: 3419 RVA: 0x00044F3C File Offset: 0x0004313C
+	// Token: 0x06000DA6 RID: 3494 RVA: 0x000A2578 File Offset: 0x000A0778
 	private void Update()
 	{
 		LckWallCameraSpawner.WallSpawnerState wallSpawnerState = this._wallSpawnerState;
@@ -144,16 +144,16 @@ public class LckWallCameraSpawner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000D5C RID: 3420 RVA: 0x00045071 File Offset: 0x00043271
+	// Token: 0x06000DA7 RID: 3495 RVA: 0x00039B3D File Offset: 0x00037D3D
 	private void OnDisable()
 	{
 		this._cameraHandleGrabbable.onGrabbed -= this.OnGrabbed;
 		this._cameraHandleGrabbable.onReleased -= this.OnReleased;
 	}
 
-	// Token: 0x17000156 RID: 342
-	// (get) Token: 0x06000D5D RID: 3421 RVA: 0x000450A1 File Offset: 0x000432A1
-	// (set) Token: 0x06000D5E RID: 3422 RVA: 0x000450B3 File Offset: 0x000432B3
+	// Token: 0x1700015D RID: 349
+	// (get) Token: 0x06000DA8 RID: 3496 RVA: 0x00039B6D File Offset: 0x00037D6D
+	// (set) Token: 0x06000DA9 RID: 3497 RVA: 0x00039B7F File Offset: 0x00037D7F
 	private bool cameraVisible
 	{
 		get
@@ -167,7 +167,7 @@ public class LckWallCameraSpawner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000D5F RID: 3423 RVA: 0x000450D7 File Offset: 0x000432D7
+	// Token: 0x06000DAA RID: 3498 RVA: 0x00039BA3 File Offset: 0x00037DA3
 	private void SpawnCamera(GorillaGrabber lastGorillaGrabber)
 	{
 		if (LckWallCameraSpawner._bodySpawner == null)
@@ -180,14 +180,14 @@ public class LckWallCameraSpawner : MonoBehaviour
 		LckWallCameraSpawner._bodySpawner.SpawnCamera(lastGorillaGrabber, lastGorillaGrabber.transform);
 	}
 
-	// Token: 0x06000D60 RID: 3424 RVA: 0x00045114 File Offset: 0x00043314
+	// Token: 0x06000DAB RID: 3499 RVA: 0x00039BE0 File Offset: 0x00037DE0
 	private void InitCameraStrap()
 	{
 		this._cameraStrapRenderer.positionCount = this._cameraStrapPoints.Length;
 		this._cameraStrapPositions = new Vector3[this._cameraStrapPoints.Length];
 	}
 
-	// Token: 0x06000D61 RID: 3425 RVA: 0x0004513C File Offset: 0x0004333C
+	// Token: 0x06000DAC RID: 3500 RVA: 0x000A26B0 File Offset: 0x000A08B0
 	private void UpdateCameraStrap()
 	{
 		for (int i = 0; i < this._cameraStrapPoints.Length; i++)
@@ -201,14 +201,14 @@ public class LckWallCameraSpawner : MonoBehaviour
 		this._cameraStrapRenderer.startColor = (this._cameraStrapRenderer.endColor = this._normalColor);
 	}
 
-	// Token: 0x06000D62 RID: 3426 RVA: 0x000451DE File Offset: 0x000433DE
+	// Token: 0x06000DAD RID: 3501 RVA: 0x00039C08 File Offset: 0x00037E08
 	private void ResetCameraModel()
 	{
 		this._cameraModelTransform.localPosition = Vector3.zero;
 		this._cameraModelTransform.localRotation = Quaternion.identity;
 	}
 
-	// Token: 0x06000D63 RID: 3427 RVA: 0x00045200 File Offset: 0x00043400
+	// Token: 0x06000DAE RID: 3502 RVA: 0x000A2754 File Offset: 0x000A0954
 	private bool ShouldSpawnCamera(Transform gorillaGrabberTransform)
 	{
 		Matrix4x4 worldToLocalMatrix = base.transform.worldToLocalMatrix;
@@ -217,19 +217,19 @@ public class LckWallCameraSpawner : MonoBehaviour
 		return Vector3.SqrMagnitude(a - b) >= this._activateDistance * this._activateDistance;
 	}
 
-	// Token: 0x06000D64 RID: 3428 RVA: 0x00045256 File Offset: 0x00043456
+	// Token: 0x06000DAF RID: 3503 RVA: 0x00039C2A File Offset: 0x00037E2A
 	private void OnGrabbed()
 	{
 		this.wallSpawnerState = LckWallCameraSpawner.WallSpawnerState.CameraDragging;
 	}
 
-	// Token: 0x06000D65 RID: 3429 RVA: 0x0004525F File Offset: 0x0004345F
+	// Token: 0x06000DB0 RID: 3504 RVA: 0x00039C33 File Offset: 0x00037E33
 	private void OnReleased()
 	{
 		this.wallSpawnerState = LckWallCameraSpawner.WallSpawnerState.CameraOnHook;
 	}
 
-	// Token: 0x06000D66 RID: 3430 RVA: 0x00045268 File Offset: 0x00043468
+	// Token: 0x06000DB1 RID: 3505 RVA: 0x000A27AC File Offset: 0x000A09AC
 	private void CreatePrewarmCamera()
 	{
 		if (LckWallCameraSpawner._prewarmCamera != null)
@@ -252,7 +252,7 @@ public class LckWallCameraSpawner : MonoBehaviour
 		base.StartCoroutine(this.DestroyPrewarmCameraDelayed());
 	}
 
-	// Token: 0x06000D67 RID: 3431 RVA: 0x00045360 File Offset: 0x00043560
+	// Token: 0x06000DB2 RID: 3506 RVA: 0x00039C3C File Offset: 0x00037E3C
 	private IEnumerator DestroyPrewarmCameraDelayed()
 	{
 		yield return new WaitForSeconds(1f);
@@ -260,7 +260,7 @@ public class LckWallCameraSpawner : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000D68 RID: 3432 RVA: 0x0004536F File Offset: 0x0004356F
+	// Token: 0x06000DB3 RID: 3507 RVA: 0x00039C4B File Offset: 0x00037E4B
 	private void DestroyPrewarmCamera()
 	{
 		if (LckWallCameraSpawner._prewarmCamera == null)
@@ -270,62 +270,62 @@ public class LckWallCameraSpawner : MonoBehaviour
 		RenderTexture targetTexture = LckWallCameraSpawner._prewarmCamera.targetTexture;
 		LckWallCameraSpawner._prewarmCamera.targetTexture = null;
 		targetTexture.Release();
-		Object.Destroy(LckWallCameraSpawner._prewarmCamera.gameObject);
+		UnityEngine.Object.Destroy(LckWallCameraSpawner._prewarmCamera.gameObject);
 		LckWallCameraSpawner._prewarmCamera = null;
 	}
 
-	// Token: 0x0400108D RID: 4237
+	// Token: 0x040010D3 RID: 4307
 	[SerializeField]
 	private GameObject _lckBodySpawnerPrefab;
 
-	// Token: 0x0400108E RID: 4238
+	// Token: 0x040010D4 RID: 4308
 	[SerializeField]
 	private LckDirectGrabbable _cameraHandleGrabbable;
 
-	// Token: 0x0400108F RID: 4239
+	// Token: 0x040010D5 RID: 4309
 	[SerializeField]
 	private Transform _cameraModelOriginTransform;
 
-	// Token: 0x04001090 RID: 4240
+	// Token: 0x040010D6 RID: 4310
 	[SerializeField]
 	private Transform _cameraModelTransform;
 
-	// Token: 0x04001091 RID: 4241
+	// Token: 0x040010D7 RID: 4311
 	[SerializeField]
 	private LineRenderer _cameraStrapRenderer;
 
-	// Token: 0x04001092 RID: 4242
+	// Token: 0x040010D8 RID: 4312
 	[SerializeField]
 	private float _activateDistance = 0.25f;
 
-	// Token: 0x04001093 RID: 4243
+	// Token: 0x040010D9 RID: 4313
 	[SerializeField]
 	private Transform[] _cameraStrapPoints;
 
-	// Token: 0x04001094 RID: 4244
+	// Token: 0x040010DA RID: 4314
 	private Vector3[] _cameraStrapPositions;
 
-	// Token: 0x04001095 RID: 4245
+	// Token: 0x040010DB RID: 4315
 	[SerializeField]
 	private Color _normalColor = Color.red;
 
-	// Token: 0x04001096 RID: 4246
+	// Token: 0x040010DC RID: 4316
 	private static LckBodyCameraSpawner _bodySpawner;
 
-	// Token: 0x04001097 RID: 4247
+	// Token: 0x040010DD RID: 4317
 	private static Camera _prewarmCamera;
 
-	// Token: 0x04001098 RID: 4248
+	// Token: 0x040010DE RID: 4318
 	private LckWallCameraSpawner.WallSpawnerState _wallSpawnerState;
 
-	// Token: 0x02000244 RID: 580
+	// Token: 0x0200024F RID: 591
 	public enum WallSpawnerState
 	{
-		// Token: 0x0400109A RID: 4250
+		// Token: 0x040010E0 RID: 4320
 		CameraOnHook,
-		// Token: 0x0400109B RID: 4251
+		// Token: 0x040010E1 RID: 4321
 		CameraDragging,
-		// Token: 0x0400109C RID: 4252
+		// Token: 0x040010E2 RID: 4322
 		CameraOffHook
 	}
 }

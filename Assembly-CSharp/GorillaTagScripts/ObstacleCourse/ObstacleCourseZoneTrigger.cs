@@ -3,20 +3,20 @@ using UnityEngine;
 
 namespace GorillaTagScripts.ObstacleCourse
 {
-	// Token: 0x020009DC RID: 2524
+	// Token: 0x02000A18 RID: 2584
 	public class ObstacleCourseZoneTrigger : MonoBehaviour
 	{
-		// Token: 0x1400006F RID: 111
-		// (add) Token: 0x06003EF8 RID: 16120 RVA: 0x0012A7D4 File Offset: 0x001289D4
-		// (remove) Token: 0x06003EF9 RID: 16121 RVA: 0x0012A80C File Offset: 0x00128A0C
+		// Token: 0x14000073 RID: 115
+		// (add) Token: 0x060040BD RID: 16573 RVA: 0x0016E730 File Offset: 0x0016C930
+		// (remove) Token: 0x060040BE RID: 16574 RVA: 0x0016E768 File Offset: 0x0016C968
 		public event ObstacleCourseZoneTrigger.ObstacleCourseTriggerEvent OnPlayerTriggerEnter;
 
-		// Token: 0x14000070 RID: 112
-		// (add) Token: 0x06003EFA RID: 16122 RVA: 0x0012A844 File Offset: 0x00128A44
-		// (remove) Token: 0x06003EFB RID: 16123 RVA: 0x0012A87C File Offset: 0x00128A7C
+		// Token: 0x14000074 RID: 116
+		// (add) Token: 0x060040BF RID: 16575 RVA: 0x0016E7A0 File Offset: 0x0016C9A0
+		// (remove) Token: 0x060040C0 RID: 16576 RVA: 0x0016E7D8 File Offset: 0x0016C9D8
 		public event ObstacleCourseZoneTrigger.ObstacleCourseTriggerEvent OnPlayerTriggerExit;
 
-		// Token: 0x06003EFC RID: 16124 RVA: 0x0012A8B1 File Offset: 0x00128AB1
+		// Token: 0x060040C1 RID: 16577 RVA: 0x0005A5BC File Offset: 0x000587BC
 		private void OnTriggerEnter(Collider other)
 		{
 			if (!other.GetComponent<SphereCollider>())
@@ -34,7 +34,7 @@ namespace GorillaTagScripts.ObstacleCourse
 			}
 		}
 
-		// Token: 0x06003EFD RID: 16125 RVA: 0x0012A8E9 File Offset: 0x00128AE9
+		// Token: 0x060040C2 RID: 16578 RVA: 0x0005A5F4 File Offset: 0x000587F4
 		private void OnTriggerExit(Collider other)
 		{
 			if (!other.GetComponent<SphereCollider>())
@@ -52,11 +52,11 @@ namespace GorillaTagScripts.ObstacleCourse
 			}
 		}
 
-		// Token: 0x04004033 RID: 16435
+		// Token: 0x0400418B RID: 16779
 		public LayerMask bodyLayer;
 
-		// Token: 0x020009DD RID: 2525
-		// (Invoke) Token: 0x06003F00 RID: 16128
+		// Token: 0x02000A19 RID: 2585
+		// (Invoke) Token: 0x060040C5 RID: 16581
 		public delegate void ObstacleCourseTriggerEvent(Collider collider);
 	}
 }

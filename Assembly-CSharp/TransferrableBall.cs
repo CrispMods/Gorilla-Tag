@@ -6,10 +6,10 @@ using GorillaLocomotion.Climbing;
 using UnityEngine;
 using UnityEngine.XR;
 
-// Token: 0x020003F7 RID: 1015
+// Token: 0x02000402 RID: 1026
 public class TransferrableBall : TransferrableObject
 {
-	// Token: 0x060018E0 RID: 6368 RVA: 0x00078FE8 File Offset: 0x000771E8
+	// Token: 0x0600192D RID: 6445 RVA: 0x000CEF54 File Offset: 0x000CD154
 	public override void TriggeredLateUpdate()
 	{
 		base.TriggeredLateUpdate();
@@ -187,7 +187,7 @@ public class TransferrableBall : TransferrableObject
 		}
 	}
 
-	// Token: 0x060018E1 RID: 6369 RVA: 0x00079940 File Offset: 0x00077B40
+	// Token: 0x0600192E RID: 6446 RVA: 0x000CF8AC File Offset: 0x000CDAAC
 	private void TakeOwnershipAndEnablePhysics()
 	{
 		this.currentState = TransferrableObject.PositionState.Dropped;
@@ -204,7 +204,7 @@ public class TransferrableBall : TransferrableObject
 		}
 	}
 
-	// Token: 0x060018E2 RID: 6370 RVA: 0x000799C4 File Offset: 0x00077BC4
+	// Token: 0x0600192F RID: 6447 RVA: 0x000CF930 File Offset: 0x000CDB30
 	private bool CheckCollisionWithHand(Vector3 handCenter, Quaternion handRotation, Vector3 palmForward, out Vector3 hitPoint, out Vector3 hitNormal, out float penetrationDist)
 	{
 		Vector3 position = base.transform.position;
@@ -235,7 +235,7 @@ public class TransferrableBall : TransferrableObject
 		return flag;
 	}
 
-	// Token: 0x060018E3 RID: 6371 RVA: 0x00079B34 File Offset: 0x00077D34
+	// Token: 0x06001930 RID: 6448 RVA: 0x000CFAA0 File Offset: 0x000CDCA0
 	private bool CheckCollisionWithHead(SphereCollider headCollider, out Vector3 hitPoint, out Vector3 hitNormal, out float penetrationDist)
 	{
 		Vector3 a = base.transform.position - headCollider.transform.position;
@@ -255,7 +255,7 @@ public class TransferrableBall : TransferrableObject
 		return false;
 	}
 
-	// Token: 0x060018E4 RID: 6372 RVA: 0x00079BDC File Offset: 0x00077DDC
+	// Token: 0x06001931 RID: 6449 RVA: 0x000CFB48 File Offset: 0x000CDD48
 	private bool ApplyHit(Vector3 hitPoint, Vector3 hitDir, float hitSpeed)
 	{
 		bool result = false;
@@ -309,7 +309,7 @@ public class TransferrableBall : TransferrableObject
 		return result;
 	}
 
-	// Token: 0x060018E5 RID: 6373 RVA: 0x00079E30 File Offset: 0x00078030
+	// Token: 0x06001932 RID: 6450 RVA: 0x000CFD9C File Offset: 0x000CDF9C
 	private void PlayHitSound(float hitSpeed)
 	{
 		float t = Mathf.InverseLerp(this.hitSpeedToAudioMinMax.x, this.hitSpeedToAudioMinMax.y, hitSpeed);
@@ -323,7 +323,7 @@ public class TransferrableBall : TransferrableObject
 		}
 	}
 
-	// Token: 0x060018E6 RID: 6374 RVA: 0x00079EE0 File Offset: 0x000780E0
+	// Token: 0x06001933 RID: 6451 RVA: 0x000410C9 File Offset: 0x0003F2C9
 	private void FixedUpdate()
 	{
 		this.collisionContactsCount = 0;
@@ -331,7 +331,7 @@ public class TransferrableBall : TransferrableObject
 		this.rigidbodyInstance.AddForce(-Physics.gravity * this.gravityCounterAmount, ForceMode.Acceleration);
 	}
 
-	// Token: 0x060018E7 RID: 6375 RVA: 0x00079F14 File Offset: 0x00078114
+	// Token: 0x06001934 RID: 6452 RVA: 0x000CFE4C File Offset: 0x000CE04C
 	private void OnTriggerEnter(Collider other)
 	{
 		GorillaHandClimber component = other.GetComponent<GorillaHandClimber>();
@@ -352,7 +352,7 @@ public class TransferrableBall : TransferrableObject
 		this.handClimberMap.Add(component, 1);
 	}
 
-	// Token: 0x060018E8 RID: 6376 RVA: 0x00079F80 File Offset: 0x00078180
+	// Token: 0x06001935 RID: 6453 RVA: 0x000CFEB8 File Offset: 0x000CE0B8
 	private void OnTriggerExit(Collider other)
 	{
 		GorillaHandClimber component = other.GetComponent<GorillaHandClimber>();
@@ -371,13 +371,13 @@ public class TransferrableBall : TransferrableObject
 		}
 	}
 
-	// Token: 0x060018E9 RID: 6377 RVA: 0x00079FD8 File Offset: 0x000781D8
+	// Token: 0x06001936 RID: 6454 RVA: 0x000CFF10 File Offset: 0x000CE110
 	private void OnCollisionEnter(Collision collision)
 	{
 		this.PlayHitSound(collision.relativeVelocity.magnitude);
 	}
 
-	// Token: 0x060018EA RID: 6378 RVA: 0x00079FFC File Offset: 0x000781FC
+	// Token: 0x06001937 RID: 6455 RVA: 0x000CFF34 File Offset: 0x000CE134
 	private void OnCollisionStay(Collision collision)
 	{
 		this.collisionContactsCount = collision.GetContacts(this.collisionContacts);
@@ -395,134 +395,134 @@ public class TransferrableBall : TransferrableObject
 		this.onGround = (num > num3);
 	}
 
-	// Token: 0x04001B9D RID: 7069
+	// Token: 0x04001BE6 RID: 7142
 	[Header("Transferrable Ball")]
 	public float ballRadius = 0.1f;
 
-	// Token: 0x04001B9E RID: 7070
+	// Token: 0x04001BE7 RID: 7143
 	public float depenetrationSpeed = 5f;
 
-	// Token: 0x04001B9F RID: 7071
+	// Token: 0x04001BE8 RID: 7144
 	[Range(0f, 1f)]
 	public float hitSpeedThreshold = 0.8f;
 
-	// Token: 0x04001BA0 RID: 7072
+	// Token: 0x04001BE9 RID: 7145
 	public float maxHitSpeed = 10f;
 
-	// Token: 0x04001BA1 RID: 7073
+	// Token: 0x04001BEA RID: 7146
 	public Vector2 hitSpeedToHitMultiplierMinMax = Vector2.one;
 
-	// Token: 0x04001BA2 RID: 7074
+	// Token: 0x04001BEB RID: 7147
 	public AnimationCurve hitMultiplierCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-	// Token: 0x04001BA3 RID: 7075
+	// Token: 0x04001BEC RID: 7148
 	public float hitTorqueMultiplier = 0.5f;
 
-	// Token: 0x04001BA4 RID: 7076
+	// Token: 0x04001BED RID: 7149
 	public float reflectOffHandAmount = 0.5f;
 
-	// Token: 0x04001BA5 RID: 7077
+	// Token: 0x04001BEE RID: 7150
 	public float minHitSpeedThreshold = 0.2f;
 
-	// Token: 0x04001BA6 RID: 7078
+	// Token: 0x04001BEF RID: 7151
 	public float surfaceGripDistance = 0.02f;
 
-	// Token: 0x04001BA7 RID: 7079
+	// Token: 0x04001BF0 RID: 7152
 	public Vector2 reflectOffHandSpeedInputMinMax = Vector2.one;
 
-	// Token: 0x04001BA8 RID: 7080
+	// Token: 0x04001BF1 RID: 7153
 	public Vector2 reflectOffHandAmountOutputMinMax = Vector2.one;
 
-	// Token: 0x04001BA9 RID: 7081
+	// Token: 0x04001BF2 RID: 7154
 	public SoundBankPlayer hitSoundBank;
 
-	// Token: 0x04001BAA RID: 7082
+	// Token: 0x04001BF3 RID: 7155
 	public Vector2 hitSpeedToAudioMinMax = Vector2.one;
 
-	// Token: 0x04001BAB RID: 7083
+	// Token: 0x04001BF4 RID: 7156
 	public float handHitAudioMultiplier = 2f;
 
-	// Token: 0x04001BAC RID: 7084
+	// Token: 0x04001BF5 RID: 7157
 	public Vector2 hitSoundPitchMinMax = Vector2.one;
 
-	// Token: 0x04001BAD RID: 7085
+	// Token: 0x04001BF6 RID: 7158
 	public Vector2 hitSoundVolumeMinMax = Vector2.one;
 
-	// Token: 0x04001BAE RID: 7086
+	// Token: 0x04001BF7 RID: 7159
 	public bool allowHeadButting = true;
 
-	// Token: 0x04001BAF RID: 7087
+	// Token: 0x04001BF8 RID: 7160
 	public float headButtRadius = 0.1f;
 
-	// Token: 0x04001BB0 RID: 7088
+	// Token: 0x04001BF9 RID: 7161
 	public float headButtHitMultiplier = 1.5f;
 
-	// Token: 0x04001BB1 RID: 7089
+	// Token: 0x04001BFA RID: 7162
 	public float gravityCounterAmount;
 
-	// Token: 0x04001BB2 RID: 7090
+	// Token: 0x04001BFB RID: 7163
 	public bool debugDraw;
 
-	// Token: 0x04001BB3 RID: 7091
+	// Token: 0x04001BFC RID: 7164
 	private Dictionary<GorillaHandClimber, int> handClimberMap = new Dictionary<GorillaHandClimber, int>();
 
-	// Token: 0x04001BB4 RID: 7092
+	// Token: 0x04001BFD RID: 7165
 	private SphereCollider playerHeadCollider;
 
-	// Token: 0x04001BB5 RID: 7093
+	// Token: 0x04001BFE RID: 7166
 	private ContactPoint[] collisionContacts = new ContactPoint[8];
 
-	// Token: 0x04001BB6 RID: 7094
+	// Token: 0x04001BFF RID: 7167
 	private int collisionContactsCount;
 
-	// Token: 0x04001BB7 RID: 7095
+	// Token: 0x04001C00 RID: 7168
 	private float handRadius = 0.1f;
 
-	// Token: 0x04001BB8 RID: 7096
+	// Token: 0x04001C01 RID: 7169
 	private float depenetrationBias = 1f;
 
-	// Token: 0x04001BB9 RID: 7097
+	// Token: 0x04001C02 RID: 7170
 	private bool leftHandOverlapping;
 
-	// Token: 0x04001BBA RID: 7098
+	// Token: 0x04001C03 RID: 7171
 	private bool rightHandOverlapping;
 
-	// Token: 0x04001BBB RID: 7099
+	// Token: 0x04001C04 RID: 7172
 	private bool headOverlapping;
 
-	// Token: 0x04001BBC RID: 7100
+	// Token: 0x04001C05 RID: 7173
 	private bool onGround;
 
-	// Token: 0x04001BBD RID: 7101
+	// Token: 0x04001C06 RID: 7174
 	private ContactPoint groundContact;
 
-	// Token: 0x04001BBE RID: 7102
+	// Token: 0x04001C07 RID: 7175
 	private bool applyFrictionHolding;
 
-	// Token: 0x04001BBF RID: 7103
+	// Token: 0x04001C08 RID: 7176
 	private Vector3 frictionHoldLocalPosLeft;
 
-	// Token: 0x04001BC0 RID: 7104
+	// Token: 0x04001C09 RID: 7177
 	private Quaternion frictionHoldLocalRotLeft;
 
-	// Token: 0x04001BC1 RID: 7105
+	// Token: 0x04001C0A RID: 7178
 	private Vector3 frictionHoldLocalPosRight;
 
-	// Token: 0x04001BC2 RID: 7106
+	// Token: 0x04001C0B RID: 7179
 	private Quaternion frictionHoldLocalRotRight;
 
-	// Token: 0x04001BC3 RID: 7107
+	// Token: 0x04001C0C RID: 7180
 	private float hitSoundSpamLastHitTime;
 
-	// Token: 0x04001BC4 RID: 7108
+	// Token: 0x04001C0D RID: 7181
 	private int hitSoundSpamCount;
 
-	// Token: 0x04001BC5 RID: 7109
+	// Token: 0x04001C0E RID: 7182
 	private int hitSoundSpamLimit = 5;
 
-	// Token: 0x04001BC6 RID: 7110
+	// Token: 0x04001C0F RID: 7183
 	private float hitSoundSpamCooldownResetTime = 0.2f;
 
-	// Token: 0x04001BC7 RID: 7111
+	// Token: 0x04001C10 RID: 7184
 	private string gorillaHeadTriggerTag = "PlayerHeadTrigger";
 }

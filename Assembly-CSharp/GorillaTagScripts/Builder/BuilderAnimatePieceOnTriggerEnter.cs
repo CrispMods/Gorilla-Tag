@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts.Builder
 {
-	// Token: 0x020009F3 RID: 2547
+	// Token: 0x02000A20 RID: 2592
 	public class BuilderAnimatePieceOnTriggerEnter : MonoBehaviour, IBuilderPieceComponent, IBuilderPieceFunctional
 	{
-		// Token: 0x06003F97 RID: 16279 RVA: 0x0012D6C5 File Offset: 0x0012B8C5
+		// Token: 0x060040DC RID: 16604 RVA: 0x0005A66B File Offset: 0x0005886B
 		private void OnTriggerEnter(Collider other)
 		{
 			if (this.lastAnimateTime + this.animateCooldown < Time.time)
@@ -15,30 +15,30 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003F98 RID: 16280 RVA: 0x0012D6F1 File Offset: 0x0012B8F1
+		// Token: 0x060040DD RID: 16605 RVA: 0x0005A697 File Offset: 0x00058897
 		public void OnPieceCreate(int pieceType, int pieceId)
 		{
 			this.currentState = BuilderAnimatePieceOnTriggerEnter.FunctionalState.Idle;
 			this.trigger.enabled = false;
 		}
 
-		// Token: 0x06003F99 RID: 16281 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x060040DE RID: 16606 RVA: 0x00030607 File Offset: 0x0002E807
 		public void OnPieceDestroy()
 		{
 		}
 
-		// Token: 0x06003F9A RID: 16282 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x060040DF RID: 16607 RVA: 0x00030607 File Offset: 0x0002E807
 		public void OnPiecePlacementDeserialized()
 		{
 		}
 
-		// Token: 0x06003F9B RID: 16283 RVA: 0x0012D706 File Offset: 0x0012B906
+		// Token: 0x060040E0 RID: 16608 RVA: 0x0005A6AC File Offset: 0x000588AC
 		public void OnPieceActivate()
 		{
 			this.trigger.enabled = true;
 		}
 
-		// Token: 0x06003F9C RID: 16284 RVA: 0x0012D714 File Offset: 0x0012B914
+		// Token: 0x060040E1 RID: 16609 RVA: 0x0016EA10 File Offset: 0x0016CC10
 		public void OnPieceDeactivate()
 		{
 			this.trigger.enabled = false;
@@ -49,7 +49,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003F9D RID: 16285 RVA: 0x0012D764 File Offset: 0x0012B964
+		// Token: 0x060040E2 RID: 16610 RVA: 0x0016EA60 File Offset: 0x0016CC60
 		public void OnStateChanged(byte newState, NetPlayer instigator, int timeStamp)
 		{
 			if (!this.IsStateValid(newState))
@@ -66,7 +66,7 @@ namespace GorillaTagScripts.Builder
 			this.currentState = (BuilderAnimatePieceOnTriggerEnter.FunctionalState)newState;
 		}
 
-		// Token: 0x06003F9E RID: 16286 RVA: 0x0012D7BC File Offset: 0x0012B9BC
+		// Token: 0x060040E3 RID: 16611 RVA: 0x0016EAB8 File Offset: 0x0016CCB8
 		public void OnStateRequest(byte newState, NetPlayer instigator, int timeStamp)
 		{
 			if (!NetworkSystem.Instance.IsMasterClient)
@@ -83,13 +83,13 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06003F9F RID: 16287 RVA: 0x0012D814 File Offset: 0x0012BA14
+		// Token: 0x060040E4 RID: 16612 RVA: 0x0005A6BA File Offset: 0x000588BA
 		public bool IsStateValid(byte state)
 		{
 			return state <= 1;
 		}
 
-		// Token: 0x06003FA0 RID: 16288 RVA: 0x0012D820 File Offset: 0x0012BA20
+		// Token: 0x060040E5 RID: 16613 RVA: 0x0016EB10 File Offset: 0x0016CD10
 		public void FunctionalPieceUpdate()
 		{
 			if (this.lastAnimateTime + this.animateCooldown < Time.time)
@@ -99,34 +99,34 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x0400409C RID: 16540
+		// Token: 0x04004196 RID: 16790
 		[SerializeField]
 		private BuilderPiece myPiece;
 
-		// Token: 0x0400409D RID: 16541
+		// Token: 0x04004197 RID: 16791
 		[SerializeField]
 		private Collider trigger;
 
-		// Token: 0x0400409E RID: 16542
+		// Token: 0x04004198 RID: 16792
 		[SerializeField]
 		private Animation anim;
 
-		// Token: 0x0400409F RID: 16543
+		// Token: 0x04004199 RID: 16793
 		[SerializeField]
 		private float animateCooldown = 0.5f;
 
-		// Token: 0x040040A0 RID: 16544
+		// Token: 0x0400419A RID: 16794
 		private float lastAnimateTime;
 
-		// Token: 0x040040A1 RID: 16545
+		// Token: 0x0400419B RID: 16795
 		private BuilderAnimatePieceOnTriggerEnter.FunctionalState currentState;
 
-		// Token: 0x020009F4 RID: 2548
+		// Token: 0x02000A21 RID: 2593
 		private enum FunctionalState
 		{
-			// Token: 0x040040A3 RID: 16547
+			// Token: 0x0400419D RID: 16797
 			Idle,
-			// Token: 0x040040A4 RID: 16548
+			// Token: 0x0400419E RID: 16798
 			Animating
 		}
 	}

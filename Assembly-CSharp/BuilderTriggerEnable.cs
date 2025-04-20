@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020004F8 RID: 1272
+// Token: 0x02000505 RID: 1285
 public class BuilderTriggerEnable : MonoBehaviour
 {
-	// Token: 0x06001EDB RID: 7899 RVA: 0x0009C428 File Offset: 0x0009A628
+	// Token: 0x06001F34 RID: 7988 RVA: 0x000EE83C File Offset: 0x000ECA3C
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.attachedRigidbody == null)
@@ -43,7 +43,7 @@ public class BuilderTriggerEnable : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001EDC RID: 7900 RVA: 0x0009C500 File Offset: 0x0009A700
+	// Token: 0x06001F35 RID: 7989 RVA: 0x000EE914 File Offset: 0x000ECB14
 	private void OnTriggerExit(Collider other)
 	{
 		if (other.attachedRigidbody == null)
@@ -81,15 +81,15 @@ public class BuilderTriggerEnable : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400228D RID: 8845
+	// Token: 0x040022E0 RID: 8928
 	public List<GameObject> activateOnEnter;
 
-	// Token: 0x0400228E RID: 8846
+	// Token: 0x040022E1 RID: 8929
 	public List<GameObject> deactivateOnEnter;
 
-	// Token: 0x0400228F RID: 8847
+	// Token: 0x040022E2 RID: 8930
 	public List<GameObject> activateOnExit;
 
-	// Token: 0x04002290 RID: 8848
+	// Token: 0x040022E3 RID: 8931
 	public List<GameObject> deactivateOnExit;
 }

@@ -8,11 +8,11 @@ using Unity.Burst;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 
-// Token: 0x0200075B RID: 1883
+// Token: 0x02000772 RID: 1906
 [BurstCompile]
 public static class BurstClassInfo
 {
-	// Token: 0x06002E50 RID: 11856 RVA: 0x000E1274 File Offset: 0x000DF474
+	// Token: 0x06002EED RID: 12013 RVA: 0x0012AF64 File Offset: 0x00129164
 	public unsafe static void NewClass<T>(string className, Dictionary<int, FieldInfo> fieldList, Dictionary<int, lua_CFunction> functionList, Dictionary<int, FunctionPointer<lua_CFunction>> functionPtrList)
 	{
 		if (!BurstClassInfo.ClassList.InfoFields.Data.IsCreated)
@@ -76,39 +76,38 @@ public static class BurstClassInfo
 		BurstClassInfo.ClassList.InfoFields.Data.Add(classInfo.NameHash, classInfo);
 	}
 
-	// Token: 0x06002E51 RID: 11857 RVA: 0x000E15A8 File Offset: 0x000DF7A8
+	// Token: 0x06002EEE RID: 12014 RVA: 0x0004F7E6 File Offset: 0x0004D9E6
 	[BurstCompile]
 	[MonoPInvokeCallback(typeof(lua_CFunction))]
 	public unsafe static int Index(lua_State* L)
 	{
-		return BurstClassInfo.Index_00002D3E$BurstDirectCall.Invoke(L);
+		return BurstClassInfo.Index_00002DDB$BurstDirectCall.Invoke(L);
 	}
 
-	// Token: 0x06002E52 RID: 11858 RVA: 0x000E15B0 File Offset: 0x000DF7B0
+	// Token: 0x06002EEF RID: 12015 RVA: 0x0004F7EE File Offset: 0x0004D9EE
 	[BurstCompile]
 	[MonoPInvokeCallback(typeof(lua_CFunction))]
 	public unsafe static int NewIndex(lua_State* L)
 	{
-		return BurstClassInfo.NewIndex_00002D3F$BurstDirectCall.Invoke(L);
+		return BurstClassInfo.NewIndex_00002DDC$BurstDirectCall.Invoke(L);
 	}
 
-	// Token: 0x06002E53 RID: 11859 RVA: 0x000E15B8 File Offset: 0x000DF7B8
+	// Token: 0x06002EF0 RID: 12016 RVA: 0x0004F7F6 File Offset: 0x0004D9F6
 	[BurstCompile]
 	[MonoPInvokeCallback(typeof(lua_CFunction))]
 	public unsafe static int NameCall(lua_State* L)
 	{
-		return BurstClassInfo.NameCall_00002D40$BurstDirectCall.Invoke(L);
+		return BurstClassInfo.NameCall_00002DDD$BurstDirectCall.Invoke(L);
 	}
 
-	// Token: 0x06002E55 RID: 11861 RVA: 0x000E15D4 File Offset: 0x000DF7D4
+	// Token: 0x06002EF2 RID: 12018 RVA: 0x0012B298 File Offset: 0x00129498
 	[BurstCompile]
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public unsafe static int Index$BurstManaged(lua_State* L)
 	{
 		FixedString32Bytes k_metatableLookup = BurstClassInfo._k_metatableLookup;
 		byte* k = (byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref k_metatableLookup) + 2;
-		Luau.lua_getmetatable(L, 1);
-		Luau.lua_getfield(L, -1, k);
+		Luau.luaL_getmetafield(L, 1, k);
 		BurstClassInfo.ClassInfo classInfo;
 		if (!BurstClassInfo.ClassList.InfoFields.Data.TryGetValue((int)Luau.luaL_checknumber(L, -1), out classInfo))
 		{
@@ -116,44 +115,66 @@ public static class BurstClassInfo
 			Luau.luaL_errorL(L, (sbyte*)((byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref fixedString32Bytes) + 2));
 			return 0;
 		}
+		Luau.lua_pop(L, 1);
 		byte* tname = (byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref classInfo.Name) + 2;
-		IntPtr pointer = (IntPtr)Luau.luaL_checkudata(L, 1, tname);
+		IntPtr pointer = IntPtr.Zero;
+		Luau.lua_Types lua_Types = (Luau.lua_Types)Luau.lua_type(L, 1);
+		if (lua_Types == Luau.lua_Types.LUA_TUSERDATA)
+		{
+			pointer = (IntPtr)Luau.luaL_checkudata(L, 1, tname);
+		}
+		else
+		{
+			if (lua_Types != Luau.lua_Types.LUA_TTABLE)
+			{
+				FixedString32Bytes fixedString32Bytes2 = "\"Unknown type for __index\"";
+				Luau.luaL_errorL(L, (sbyte*)((byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref fixedString32Bytes2) + 2));
+				return 0;
+			}
+			pointer = Luau.lua_light_ptr(L, 1);
+		}
 		int len = Luau.lua_objlen(L, 2);
 		int key = LuaHashing.ByteHash(Luau.luaL_checkstring(L, 2), len);
 		BurstClassInfo.BurstFieldInfo burstFieldInfo;
 		if (classInfo.FieldList.TryGetValue(key, out burstFieldInfo))
 		{
-			IntPtr value = pointer + burstFieldInfo.Offset;
+			IntPtr intPtr = pointer + burstFieldInfo.Offset;
 			switch (burstFieldInfo.FieldType)
 			{
 			case BurstClassInfo.EFieldTypes.Float:
-				Luau.lua_pushnumber(L, (double)(*(float*)((void*)value)));
+				Luau.lua_pushnumber(L, (double)(*(float*)((void*)intPtr)));
 				return 1;
 			case BurstClassInfo.EFieldTypes.Int:
-				Luau.lua_pushnumber(L, (double)(*(int*)((void*)value)));
+				Luau.lua_pushnumber(L, (double)(*(int*)((void*)intPtr)));
 				return 1;
 			case BurstClassInfo.EFieldTypes.Double:
-				Luau.lua_pushnumber(L, *(double*)((void*)value));
+				Luau.lua_pushnumber(L, *(double*)((void*)intPtr));
 				return 1;
 			case BurstClassInfo.EFieldTypes.Bool:
-				Luau.lua_pushboolean(L, (*(byte*)((void*)value) != 0) ? 1 : 0);
+				Luau.lua_pushboolean(L, (*(byte*)((void*)intPtr) != 0) ? 1 : 0);
 				return 1;
 			case BurstClassInfo.EFieldTypes.String:
-				Luau.lua_pushstring(L, (byte*)((void*)value) + 2);
+				Luau.lua_pushstring(L, (byte*)((void*)intPtr) + 2);
 				return 1;
 			case BurstClassInfo.EFieldTypes.LightUserData:
-				Luau.lua_pushlightuserdata(L, (void*)value);
-				Luau.luaL_getmetatable(L, (byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref burstFieldInfo.MetatableName) + 2);
-				Luau.lua_setmetatable(L, -2);
+				Luau.lua_class_push(L, burstFieldInfo.MetatableName, intPtr);
 				return 1;
 			}
 		}
-		FixedString32Bytes fixedString32Bytes2 = "\"Unknown Type?\"";
-		Luau.luaL_errorL(L, (sbyte*)((byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref fixedString32Bytes2) + 2));
+		IntPtr ptr;
+		if (classInfo.FunctionList.TryGetValue(key, out ptr))
+		{
+			FunctionPointer<lua_CFunction> fn = new FunctionPointer<lua_CFunction>(ptr);
+			FixedString32Bytes fixedString32Bytes3 = "";
+			Luau.lua_pushcclosurek(L, fn, (byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref fixedString32Bytes3) + 2, 0, null);
+			return 1;
+		}
+		FixedString32Bytes fixedString32Bytes4 = "\"Unknown Type?\"";
+		Luau.luaL_errorL(L, (sbyte*)((byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref fixedString32Bytes4) + 2));
 		return 0;
 	}
 
-	// Token: 0x06002E56 RID: 11862 RVA: 0x000E1768 File Offset: 0x000DF968
+	// Token: 0x06002EF3 RID: 12019 RVA: 0x0012B48C File Offset: 0x0012968C
 	[BurstCompile]
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public unsafe static int NewIndex$BurstManaged(lua_State* L)
@@ -168,8 +189,24 @@ public static class BurstClassInfo
 			Luau.luaL_errorL(L, (sbyte*)((byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref fixedString32Bytes) + 2));
 			return 0;
 		}
+		Luau.lua_pop(L, 1);
 		byte* tname = (byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref classInfo.Name) + 2;
-		IntPtr pointer = (IntPtr)Luau.luaL_checkudata(L, 1, tname);
+		IntPtr pointer = IntPtr.Zero;
+		Luau.lua_Types lua_Types = (Luau.lua_Types)Luau.lua_type(L, 1);
+		if (lua_Types == Luau.lua_Types.LUA_TUSERDATA)
+		{
+			pointer = (IntPtr)Luau.luaL_checkudata(L, 1, tname);
+		}
+		else
+		{
+			if (lua_Types != Luau.lua_Types.LUA_TTABLE)
+			{
+				FixedString32Bytes fixedString32Bytes2 = "\"Unknown type for __newindex\"";
+				Luau.luaL_errorL(L, (sbyte*)((byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref fixedString32Bytes2) + 2));
+				return 0;
+			}
+			pointer = Luau.lua_light_ptr(L, 1);
+		}
 		int len = Luau.lua_objlen(L, 2);
 		int key = LuaHashing.ByteHash(Luau.luaL_checkstring(L, 2), len);
 		BurstClassInfo.BurstFieldInfo burstFieldInfo;
@@ -191,16 +228,16 @@ public static class BurstClassInfo
 				*(byte*)((void*)value) = ((Luau.lua_toboolean(L, 3) != 0) ? 1 : 0);
 				return 0;
 			case BurstClassInfo.EFieldTypes.LightUserData:
-				Buffer.MemoryCopy((void*)((IntPtr)Luau.luaL_checkudata(L, 3, (byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref burstFieldInfo.MetatableName) + 2)), (void*)value, (long)burstFieldInfo.Size, (long)burstFieldInfo.Size);
+				Buffer.MemoryCopy((void*)((IntPtr)((void*)Luau.lua_class_get(L, 3, burstFieldInfo.MetatableName))), (void*)value, (long)burstFieldInfo.Size, (long)burstFieldInfo.Size);
 				return 0;
 			}
 		}
-		FixedString32Bytes fixedString32Bytes2 = "\"Unknown Type\"";
-		Luau.luaL_errorL(L, (sbyte*)((byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref fixedString32Bytes2) + 2));
+		FixedString32Bytes fixedString32Bytes3 = "\"Unknown Type\"";
+		Luau.luaL_errorL(L, (sbyte*)((byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref fixedString32Bytes3) + 2));
 		return 0;
 	}
 
-	// Token: 0x06002E57 RID: 11863 RVA: 0x000E18F4 File Offset: 0x000DFAF4
+	// Token: 0x06002EF4 RID: 12020 RVA: 0x0012B65C File Offset: 0x0012985C
 	[BurstCompile]
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public unsafe static int NameCall$BurstManaged(lua_State* L)
@@ -215,6 +252,7 @@ public static class BurstClassInfo
 			Luau.luaL_errorL(L, (sbyte*)((byte*)UnsafeUtility.AddressOf<FixedString32Bytes>(ref fixedString32Bytes) + 2));
 			return 0;
 		}
+		Luau.lua_pop(L, 1);
 		int key = LuaHashing.ByteHash(Luau.lua_namecallatom(L, null));
 		IntPtr ptr;
 		if (classInfo.FunctionList.TryGetValue(key, out ptr))
@@ -227,135 +265,135 @@ public static class BurstClassInfo
 		return 0;
 	}
 
-	// Token: 0x040032C2 RID: 12994
+	// Token: 0x04003361 RID: 13153
 	private static readonly FixedString32Bytes _k_metatableLookup = "metahash";
 
-	// Token: 0x0200075C RID: 1884
+	// Token: 0x02000773 RID: 1907
 	public enum EFieldTypes
 	{
-		// Token: 0x040032C4 RID: 12996
+		// Token: 0x04003363 RID: 13155
 		Float,
-		// Token: 0x040032C5 RID: 12997
+		// Token: 0x04003364 RID: 13156
 		Int,
-		// Token: 0x040032C6 RID: 12998
+		// Token: 0x04003365 RID: 13157
 		Double,
-		// Token: 0x040032C7 RID: 12999
+		// Token: 0x04003366 RID: 13158
 		Bool,
-		// Token: 0x040032C8 RID: 13000
+		// Token: 0x04003367 RID: 13159
 		String,
-		// Token: 0x040032C9 RID: 13001
+		// Token: 0x04003368 RID: 13160
 		LightUserData
 	}
 
-	// Token: 0x0200075D RID: 1885
+	// Token: 0x02000774 RID: 1908
 	[BurstCompile]
 	public struct BurstFieldInfo
 	{
-		// Token: 0x040032CA RID: 13002
+		// Token: 0x04003369 RID: 13161
 		public int NameHash;
 
-		// Token: 0x040032CB RID: 13003
+		// Token: 0x0400336A RID: 13162
 		public FixedString32Bytes Name;
 
-		// Token: 0x040032CC RID: 13004
+		// Token: 0x0400336B RID: 13163
 		public FixedString32Bytes MetatableName;
 
-		// Token: 0x040032CD RID: 13005
+		// Token: 0x0400336C RID: 13164
 		public int Offset;
 
-		// Token: 0x040032CE RID: 13006
+		// Token: 0x0400336D RID: 13165
 		public BurstClassInfo.EFieldTypes FieldType;
 
-		// Token: 0x040032CF RID: 13007
+		// Token: 0x0400336E RID: 13166
 		public int Size;
 	}
 
-	// Token: 0x0200075E RID: 1886
+	// Token: 0x02000775 RID: 1909
 	[BurstCompile]
 	public struct ClassInfo
 	{
-		// Token: 0x040032D0 RID: 13008
+		// Token: 0x0400336F RID: 13167
 		public int NameHash;
 
-		// Token: 0x040032D1 RID: 13009
+		// Token: 0x04003370 RID: 13168
 		public FixedString32Bytes Name;
 
-		// Token: 0x040032D2 RID: 13010
+		// Token: 0x04003371 RID: 13169
 		public NativeHashMap<int, BurstClassInfo.BurstFieldInfo> FieldList;
 
-		// Token: 0x040032D3 RID: 13011
+		// Token: 0x04003372 RID: 13170
 		public NativeHashMap<int, IntPtr> FunctionList;
 	}
 
-	// Token: 0x0200075F RID: 1887
+	// Token: 0x02000776 RID: 1910
 	public abstract class ClassList
 	{
-		// Token: 0x040032D4 RID: 13012
+		// Token: 0x04003373 RID: 13171
 		public static readonly SharedStatic<NativeHashMap<int, BurstClassInfo.ClassInfo>> InfoFields = SharedStatic<NativeHashMap<int, BurstClassInfo.ClassInfo>>.GetOrCreateUnsafe(0U, -7258312696341931442L, -7445903157129162016L);
 
-		// Token: 0x02000760 RID: 1888
+		// Token: 0x02000777 RID: 1911
 		private class FieldKey
 		{
 		}
 
-		// Token: 0x02000761 RID: 1889
+		// Token: 0x02000778 RID: 1912
 		public static class MetatableNames<T>
 		{
-			// Token: 0x040032D5 RID: 13013
+			// Token: 0x04003374 RID: 13172
 			public static FixedString32Bytes Name;
 		}
 	}
 
-	// Token: 0x02000762 RID: 1890
-	// (Invoke) Token: 0x06002E5C RID: 11868
-	public unsafe delegate int Index_00002D3E$PostfixBurstDelegate(lua_State* L);
+	// Token: 0x02000779 RID: 1913
+	// (Invoke) Token: 0x06002EF9 RID: 12025
+	public unsafe delegate int Index_00002DDB$PostfixBurstDelegate(lua_State* L);
 
-	// Token: 0x02000763 RID: 1891
-	internal static class Index_00002D3E$BurstDirectCall
+	// Token: 0x0200077A RID: 1914
+	internal static class Index_00002DDB$BurstDirectCall
 	{
-		// Token: 0x06002E5F RID: 11871 RVA: 0x000E19C3 File Offset: 0x000DFBC3
+		// Token: 0x06002EFC RID: 12028 RVA: 0x0004F82E File Offset: 0x0004DA2E
 		[BurstDiscard]
 		private unsafe static void GetFunctionPointerDiscard(ref IntPtr A_0)
 		{
-			if (BurstClassInfo.Index_00002D3E$BurstDirectCall.Pointer == 0)
+			if (BurstClassInfo.Index_00002DDB$BurstDirectCall.Pointer == 0)
 			{
-				BurstClassInfo.Index_00002D3E$BurstDirectCall.Pointer = BurstCompiler.GetILPPMethodFunctionPointer2(BurstClassInfo.Index_00002D3E$BurstDirectCall.DeferredCompilation, methodof(BurstClassInfo.Index$BurstManaged(lua_State*)).MethodHandle, typeof(BurstClassInfo.Index_00002D3E$PostfixBurstDelegate).TypeHandle);
+				BurstClassInfo.Index_00002DDB$BurstDirectCall.Pointer = BurstCompiler.GetILPPMethodFunctionPointer2(BurstClassInfo.Index_00002DDB$BurstDirectCall.DeferredCompilation, methodof(BurstClassInfo.Index$BurstManaged(lua_State*)).MethodHandle, typeof(BurstClassInfo.Index_00002DDB$PostfixBurstDelegate).TypeHandle);
 			}
-			A_0 = BurstClassInfo.Index_00002D3E$BurstDirectCall.Pointer;
+			A_0 = BurstClassInfo.Index_00002DDB$BurstDirectCall.Pointer;
 		}
 
-		// Token: 0x06002E60 RID: 11872 RVA: 0x000E19F0 File Offset: 0x000DFBF0
+		// Token: 0x06002EFD RID: 12029 RVA: 0x0012B714 File Offset: 0x00129914
 		private static IntPtr GetFunctionPointer()
 		{
 			IntPtr result = (IntPtr)0;
-			BurstClassInfo.Index_00002D3E$BurstDirectCall.GetFunctionPointerDiscard(ref result);
+			BurstClassInfo.Index_00002DDB$BurstDirectCall.GetFunctionPointerDiscard(ref result);
 			return result;
 		}
 
-		// Token: 0x06002E61 RID: 11873 RVA: 0x000E1A08 File Offset: 0x000DFC08
+		// Token: 0x06002EFE RID: 12030 RVA: 0x0004F85A File Offset: 0x0004DA5A
 		public unsafe static void Constructor()
 		{
-			BurstClassInfo.Index_00002D3E$BurstDirectCall.DeferredCompilation = BurstCompiler.CompileILPPMethod2(methodof(BurstClassInfo.Index(lua_State*)).MethodHandle);
+			BurstClassInfo.Index_00002DDB$BurstDirectCall.DeferredCompilation = BurstCompiler.CompileILPPMethod2(methodof(BurstClassInfo.Index(lua_State*)).MethodHandle);
 		}
 
-		// Token: 0x06002E62 RID: 11874 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06002EFF RID: 12031 RVA: 0x00030607 File Offset: 0x0002E807
 		public static void Initialize()
 		{
 		}
 
-		// Token: 0x06002E63 RID: 11875 RVA: 0x000E1A19 File Offset: 0x000DFC19
+		// Token: 0x06002F00 RID: 12032 RVA: 0x0004F86B File Offset: 0x0004DA6B
 		// Note: this type is marked as 'beforefieldinit'.
-		static Index_00002D3E$BurstDirectCall()
+		static Index_00002DDB$BurstDirectCall()
 		{
-			BurstClassInfo.Index_00002D3E$BurstDirectCall.Constructor();
+			BurstClassInfo.Index_00002DDB$BurstDirectCall.Constructor();
 		}
 
-		// Token: 0x06002E64 RID: 11876 RVA: 0x000E1A20 File Offset: 0x000DFC20
+		// Token: 0x06002F01 RID: 12033 RVA: 0x0012B72C File Offset: 0x0012992C
 		public unsafe static int Invoke(lua_State* L)
 		{
 			if (BurstCompiler.IsEnabled)
 			{
-				IntPtr functionPointer = BurstClassInfo.Index_00002D3E$BurstDirectCall.GetFunctionPointer();
+				IntPtr functionPointer = BurstClassInfo.Index_00002DDB$BurstDirectCall.GetFunctionPointer();
 				if (functionPointer != 0)
 				{
 					return calli(System.Int32(lua_State*), L, functionPointer);
@@ -364,63 +402,63 @@ public static class BurstClassInfo
 			return BurstClassInfo.Index$BurstManaged(L);
 		}
 
-		// Token: 0x040032D6 RID: 13014
+		// Token: 0x04003375 RID: 13173
 		private static IntPtr Pointer;
 
-		// Token: 0x040032D7 RID: 13015
+		// Token: 0x04003376 RID: 13174
 		private static IntPtr DeferredCompilation;
 	}
 
-	// Token: 0x02000764 RID: 1892
-	// (Invoke) Token: 0x06002E66 RID: 11878
-	public unsafe delegate int NewIndex_00002D3F$PostfixBurstDelegate(lua_State* L);
+	// Token: 0x0200077B RID: 1915
+	// (Invoke) Token: 0x06002F03 RID: 12035
+	public unsafe delegate int NewIndex_00002DDC$PostfixBurstDelegate(lua_State* L);
 
-	// Token: 0x02000765 RID: 1893
-	internal static class NewIndex_00002D3F$BurstDirectCall
+	// Token: 0x0200077C RID: 1916
+	internal static class NewIndex_00002DDC$BurstDirectCall
 	{
-		// Token: 0x06002E69 RID: 11881 RVA: 0x000E1A51 File Offset: 0x000DFC51
+		// Token: 0x06002F06 RID: 12038 RVA: 0x0004F872 File Offset: 0x0004DA72
 		[BurstDiscard]
 		private unsafe static void GetFunctionPointerDiscard(ref IntPtr A_0)
 		{
-			if (BurstClassInfo.NewIndex_00002D3F$BurstDirectCall.Pointer == 0)
+			if (BurstClassInfo.NewIndex_00002DDC$BurstDirectCall.Pointer == 0)
 			{
-				BurstClassInfo.NewIndex_00002D3F$BurstDirectCall.Pointer = BurstCompiler.GetILPPMethodFunctionPointer2(BurstClassInfo.NewIndex_00002D3F$BurstDirectCall.DeferredCompilation, methodof(BurstClassInfo.NewIndex$BurstManaged(lua_State*)).MethodHandle, typeof(BurstClassInfo.NewIndex_00002D3F$PostfixBurstDelegate).TypeHandle);
+				BurstClassInfo.NewIndex_00002DDC$BurstDirectCall.Pointer = BurstCompiler.GetILPPMethodFunctionPointer2(BurstClassInfo.NewIndex_00002DDC$BurstDirectCall.DeferredCompilation, methodof(BurstClassInfo.NewIndex$BurstManaged(lua_State*)).MethodHandle, typeof(BurstClassInfo.NewIndex_00002DDC$PostfixBurstDelegate).TypeHandle);
 			}
-			A_0 = BurstClassInfo.NewIndex_00002D3F$BurstDirectCall.Pointer;
+			A_0 = BurstClassInfo.NewIndex_00002DDC$BurstDirectCall.Pointer;
 		}
 
-		// Token: 0x06002E6A RID: 11882 RVA: 0x000E1A80 File Offset: 0x000DFC80
+		// Token: 0x06002F07 RID: 12039 RVA: 0x0012B760 File Offset: 0x00129960
 		private static IntPtr GetFunctionPointer()
 		{
 			IntPtr result = (IntPtr)0;
-			BurstClassInfo.NewIndex_00002D3F$BurstDirectCall.GetFunctionPointerDiscard(ref result);
+			BurstClassInfo.NewIndex_00002DDC$BurstDirectCall.GetFunctionPointerDiscard(ref result);
 			return result;
 		}
 
-		// Token: 0x06002E6B RID: 11883 RVA: 0x000E1A98 File Offset: 0x000DFC98
+		// Token: 0x06002F08 RID: 12040 RVA: 0x0004F89E File Offset: 0x0004DA9E
 		public unsafe static void Constructor()
 		{
-			BurstClassInfo.NewIndex_00002D3F$BurstDirectCall.DeferredCompilation = BurstCompiler.CompileILPPMethod2(methodof(BurstClassInfo.NewIndex(lua_State*)).MethodHandle);
+			BurstClassInfo.NewIndex_00002DDC$BurstDirectCall.DeferredCompilation = BurstCompiler.CompileILPPMethod2(methodof(BurstClassInfo.NewIndex(lua_State*)).MethodHandle);
 		}
 
-		// Token: 0x06002E6C RID: 11884 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06002F09 RID: 12041 RVA: 0x00030607 File Offset: 0x0002E807
 		public static void Initialize()
 		{
 		}
 
-		// Token: 0x06002E6D RID: 11885 RVA: 0x000E1AA9 File Offset: 0x000DFCA9
+		// Token: 0x06002F0A RID: 12042 RVA: 0x0004F8AF File Offset: 0x0004DAAF
 		// Note: this type is marked as 'beforefieldinit'.
-		static NewIndex_00002D3F$BurstDirectCall()
+		static NewIndex_00002DDC$BurstDirectCall()
 		{
-			BurstClassInfo.NewIndex_00002D3F$BurstDirectCall.Constructor();
+			BurstClassInfo.NewIndex_00002DDC$BurstDirectCall.Constructor();
 		}
 
-		// Token: 0x06002E6E RID: 11886 RVA: 0x000E1AB0 File Offset: 0x000DFCB0
+		// Token: 0x06002F0B RID: 12043 RVA: 0x0012B778 File Offset: 0x00129978
 		public unsafe static int Invoke(lua_State* L)
 		{
 			if (BurstCompiler.IsEnabled)
 			{
-				IntPtr functionPointer = BurstClassInfo.NewIndex_00002D3F$BurstDirectCall.GetFunctionPointer();
+				IntPtr functionPointer = BurstClassInfo.NewIndex_00002DDC$BurstDirectCall.GetFunctionPointer();
 				if (functionPointer != 0)
 				{
 					return calli(System.Int32(lua_State*), L, functionPointer);
@@ -429,63 +467,63 @@ public static class BurstClassInfo
 			return BurstClassInfo.NewIndex$BurstManaged(L);
 		}
 
-		// Token: 0x040032D8 RID: 13016
+		// Token: 0x04003377 RID: 13175
 		private static IntPtr Pointer;
 
-		// Token: 0x040032D9 RID: 13017
+		// Token: 0x04003378 RID: 13176
 		private static IntPtr DeferredCompilation;
 	}
 
-	// Token: 0x02000766 RID: 1894
-	// (Invoke) Token: 0x06002E70 RID: 11888
-	public unsafe delegate int NameCall_00002D40$PostfixBurstDelegate(lua_State* L);
+	// Token: 0x0200077D RID: 1917
+	// (Invoke) Token: 0x06002F0D RID: 12045
+	public unsafe delegate int NameCall_00002DDD$PostfixBurstDelegate(lua_State* L);
 
-	// Token: 0x02000767 RID: 1895
-	internal static class NameCall_00002D40$BurstDirectCall
+	// Token: 0x0200077E RID: 1918
+	internal static class NameCall_00002DDD$BurstDirectCall
 	{
-		// Token: 0x06002E73 RID: 11891 RVA: 0x000E1AE1 File Offset: 0x000DFCE1
+		// Token: 0x06002F10 RID: 12048 RVA: 0x0004F8B6 File Offset: 0x0004DAB6
 		[BurstDiscard]
 		private unsafe static void GetFunctionPointerDiscard(ref IntPtr A_0)
 		{
-			if (BurstClassInfo.NameCall_00002D40$BurstDirectCall.Pointer == 0)
+			if (BurstClassInfo.NameCall_00002DDD$BurstDirectCall.Pointer == 0)
 			{
-				BurstClassInfo.NameCall_00002D40$BurstDirectCall.Pointer = BurstCompiler.GetILPPMethodFunctionPointer2(BurstClassInfo.NameCall_00002D40$BurstDirectCall.DeferredCompilation, methodof(BurstClassInfo.NameCall$BurstManaged(lua_State*)).MethodHandle, typeof(BurstClassInfo.NameCall_00002D40$PostfixBurstDelegate).TypeHandle);
+				BurstClassInfo.NameCall_00002DDD$BurstDirectCall.Pointer = BurstCompiler.GetILPPMethodFunctionPointer2(BurstClassInfo.NameCall_00002DDD$BurstDirectCall.DeferredCompilation, methodof(BurstClassInfo.NameCall$BurstManaged(lua_State*)).MethodHandle, typeof(BurstClassInfo.NameCall_00002DDD$PostfixBurstDelegate).TypeHandle);
 			}
-			A_0 = BurstClassInfo.NameCall_00002D40$BurstDirectCall.Pointer;
+			A_0 = BurstClassInfo.NameCall_00002DDD$BurstDirectCall.Pointer;
 		}
 
-		// Token: 0x06002E74 RID: 11892 RVA: 0x000E1B10 File Offset: 0x000DFD10
+		// Token: 0x06002F11 RID: 12049 RVA: 0x0012B7AC File Offset: 0x001299AC
 		private static IntPtr GetFunctionPointer()
 		{
 			IntPtr result = (IntPtr)0;
-			BurstClassInfo.NameCall_00002D40$BurstDirectCall.GetFunctionPointerDiscard(ref result);
+			BurstClassInfo.NameCall_00002DDD$BurstDirectCall.GetFunctionPointerDiscard(ref result);
 			return result;
 		}
 
-		// Token: 0x06002E75 RID: 11893 RVA: 0x000E1B28 File Offset: 0x000DFD28
+		// Token: 0x06002F12 RID: 12050 RVA: 0x0004F8E2 File Offset: 0x0004DAE2
 		public unsafe static void Constructor()
 		{
-			BurstClassInfo.NameCall_00002D40$BurstDirectCall.DeferredCompilation = BurstCompiler.CompileILPPMethod2(methodof(BurstClassInfo.NameCall(lua_State*)).MethodHandle);
+			BurstClassInfo.NameCall_00002DDD$BurstDirectCall.DeferredCompilation = BurstCompiler.CompileILPPMethod2(methodof(BurstClassInfo.NameCall(lua_State*)).MethodHandle);
 		}
 
-		// Token: 0x06002E76 RID: 11894 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06002F13 RID: 12051 RVA: 0x00030607 File Offset: 0x0002E807
 		public static void Initialize()
 		{
 		}
 
-		// Token: 0x06002E77 RID: 11895 RVA: 0x000E1B39 File Offset: 0x000DFD39
+		// Token: 0x06002F14 RID: 12052 RVA: 0x0004F8F3 File Offset: 0x0004DAF3
 		// Note: this type is marked as 'beforefieldinit'.
-		static NameCall_00002D40$BurstDirectCall()
+		static NameCall_00002DDD$BurstDirectCall()
 		{
-			BurstClassInfo.NameCall_00002D40$BurstDirectCall.Constructor();
+			BurstClassInfo.NameCall_00002DDD$BurstDirectCall.Constructor();
 		}
 
-		// Token: 0x06002E78 RID: 11896 RVA: 0x000E1B40 File Offset: 0x000DFD40
+		// Token: 0x06002F15 RID: 12053 RVA: 0x0012B7C4 File Offset: 0x001299C4
 		public unsafe static int Invoke(lua_State* L)
 		{
 			if (BurstCompiler.IsEnabled)
 			{
-				IntPtr functionPointer = BurstClassInfo.NameCall_00002D40$BurstDirectCall.GetFunctionPointer();
+				IntPtr functionPointer = BurstClassInfo.NameCall_00002DDD$BurstDirectCall.GetFunctionPointer();
 				if (functionPointer != 0)
 				{
 					return calli(System.Int32(lua_State*), L, functionPointer);
@@ -494,10 +532,10 @@ public static class BurstClassInfo
 			return BurstClassInfo.NameCall$BurstManaged(L);
 		}
 
-		// Token: 0x040032DA RID: 13018
+		// Token: 0x04003379 RID: 13177
 		private static IntPtr Pointer;
 
-		// Token: 0x040032DB RID: 13019
+		// Token: 0x0400337A RID: 13178
 		private static IntPtr DeferredCompilation;
 	}
 }

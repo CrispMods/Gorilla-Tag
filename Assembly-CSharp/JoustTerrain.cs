@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000231 RID: 561
+// Token: 0x0200023C RID: 572
 public class JoustTerrain : MonoBehaviour
 {
-	// Token: 0x06000CD2 RID: 3282 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000D1D RID: 3357 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Start()
 	{
 	}
 
-	// Token: 0x06000CD3 RID: 3283 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000D1E RID: 3358 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Update()
 	{
 	}

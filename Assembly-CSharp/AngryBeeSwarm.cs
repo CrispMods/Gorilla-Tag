@@ -8,12 +8,12 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
-// Token: 0x020000DD RID: 221
+// Token: 0x020000E7 RID: 231
 [NetworkBehaviourWeaved(3)]
 public class AngryBeeSwarm : NetworkComponent
 {
-	// Token: 0x1700006A RID: 106
-	// (get) Token: 0x060005A6 RID: 1446 RVA: 0x000212AC File Offset: 0x0001F4AC
+	// Token: 0x1700006F RID: 111
+	// (get) Token: 0x060005E7 RID: 1511 RVA: 0x00034668 File Offset: 0x00032868
 	public bool isDormant
 	{
 		get
@@ -22,7 +22,7 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x060005A7 RID: 1447 RVA: 0x000212B8 File Offset: 0x0001F4B8
+	// Token: 0x060005E8 RID: 1512 RVA: 0x00083DE0 File Offset: 0x00081FE0
 	protected override void Awake()
 	{
 		base.Awake();
@@ -33,7 +33,7 @@ public class AngryBeeSwarm : NetworkComponent
 		RoomSystem.JoinedRoomEvent = (Action)Delegate.Combine(RoomSystem.JoinedRoomEvent, new Action(this.OnJoinedRoom));
 	}
 
-	// Token: 0x060005A8 RID: 1448 RVA: 0x0002130C File Offset: 0x0001F50C
+	// Token: 0x060005E9 RID: 1513 RVA: 0x00083E34 File Offset: 0x00082034
 	private void InitializeSwarm()
 	{
 		if (NetworkSystem.Instance.InRoom && base.IsMine)
@@ -44,7 +44,7 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x060005A9 RID: 1449 RVA: 0x00021358 File Offset: 0x0001F558
+	// Token: 0x060005EA RID: 1514 RVA: 0x00083E80 File Offset: 0x00082080
 	private void LateUpdate()
 	{
 		if (!NetworkSystem.Instance.InRoom)
@@ -117,7 +117,7 @@ public class AngryBeeSwarm : NetworkComponent
 		this.UpdateState();
 	}
 
-	// Token: 0x060005AA RID: 1450 RVA: 0x0002153C File Offset: 0x0001F73C
+	// Token: 0x060005EB RID: 1515 RVA: 0x00084064 File Offset: 0x00082264
 	public void UpdateState()
 	{
 		AngryBeeSwarm.ChaseState chaseState = this.currentState;
@@ -161,7 +161,7 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x060005AB RID: 1451 RVA: 0x000215CB File Offset: 0x0001F7CB
+	// Token: 0x060005EC RID: 1516 RVA: 0x00034673 File Offset: 0x00032873
 	public void Emerge(Vector3 fromPosition, Vector3 toPosition)
 	{
 		base.transform.position = fromPosition;
@@ -171,7 +171,7 @@ public class AngryBeeSwarm : NetworkComponent
 		this.emergeStartedTimestamp = Time.time;
 	}
 
-	// Token: 0x060005AC RID: 1452 RVA: 0x000215FC File Offset: 0x0001F7FC
+	// Token: 0x060005ED RID: 1517 RVA: 0x000840F4 File Offset: 0x000822F4
 	private void OnChangeState(AngryBeeSwarm.ChaseState newState)
 	{
 		switch (newState)
@@ -237,7 +237,7 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x060005AD RID: 1453 RVA: 0x000217A4 File Offset: 0x0001F9A4
+	// Token: 0x060005EE RID: 1518 RVA: 0x0008429C File Offset: 0x0008249C
 	private void ChooseClosestTarget()
 	{
 		float num = Mathf.Lerp(this.initialRangeLimit, this.finalRangeLimit, (Time.time + this.totalTimeToEmerge - this.emergeStartedTimestamp) / this.rangeLimitBlendDuration);
@@ -271,13 +271,13 @@ public class AngryBeeSwarm : NetworkComponent
 		this.NextRefreshClosestPlayerTimestamp = Time.time + this.RefreshClosestPlayerInterval;
 	}
 
-	// Token: 0x060005AE RID: 1454 RVA: 0x00021910 File Offset: 0x0001FB10
+	// Token: 0x060005EF RID: 1519 RVA: 0x000346A1 File Offset: 0x000328A1
 	private void SetInitialRotations()
 	{
 		this.beeAnimator.transform.localPosition = Vector3.zero;
 	}
 
-	// Token: 0x060005AF RID: 1455 RVA: 0x00021928 File Offset: 0x0001FB28
+	// Token: 0x060005F0 RID: 1520 RVA: 0x00084408 File Offset: 0x00082608
 	private void SwarmEmergeUpdateShared()
 	{
 		if (Time.time < this.emergeStartedTimestamp + this.totalTimeToEmerge)
@@ -291,7 +291,7 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x060005B0 RID: 1456 RVA: 0x000219A0 File Offset: 0x0001FBA0
+	// Token: 0x060005F1 RID: 1521 RVA: 0x00084480 File Offset: 0x00082680
 	private void RiseGrabbedLocalPlayer()
 	{
 		if (Time.time > this.grabTimestamp + this.minGrabCooldown)
@@ -308,7 +308,7 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x060005B1 RID: 1457 RVA: 0x00021A50 File Offset: 0x0001FC50
+	// Token: 0x060005F2 RID: 1522 RVA: 0x00084530 File Offset: 0x00082730
 	public void UpdateFollowPath(Vector3 destination, float currentSpeed)
 	{
 		if (this.path == null)
@@ -335,7 +335,7 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x060005B2 RID: 1458 RVA: 0x00021B60 File Offset: 0x0001FD60
+	// Token: 0x060005F3 RID: 1523 RVA: 0x00084640 File Offset: 0x00082840
 	private void GetNewPath(Vector3 destination)
 	{
 		this.path = new NavMeshPath();
@@ -354,13 +354,13 @@ public class AngryBeeSwarm : NetworkComponent
 		this.nextPathTimestamp = Time.time + 2f;
 	}
 
-	// Token: 0x060005B3 RID: 1459 RVA: 0x00021C34 File Offset: 0x0001FE34
+	// Token: 0x060005F4 RID: 1524 RVA: 0x000346B8 File Offset: 0x000328B8
 	public void ResetPath()
 	{
 		this.path = null;
 	}
 
-	// Token: 0x060005B4 RID: 1460 RVA: 0x00021C40 File Offset: 0x0001FE40
+	// Token: 0x060005F5 RID: 1525 RVA: 0x00084714 File Offset: 0x00082914
 	private void ChaseHost()
 	{
 		if (this.followTarget != null)
@@ -385,14 +385,14 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x060005B5 RID: 1461 RVA: 0x00021CF8 File Offset: 0x0001FEF8
+	// Token: 0x060005F6 RID: 1526 RVA: 0x000847CC File Offset: 0x000829CC
 	private void MoveBodyShared()
 	{
 		this.noisyOffset = new Vector3(Mathf.PerlinNoise(Time.time, 0f) - 0.5f, Mathf.PerlinNoise(Time.time, 10f) - 0.5f, Mathf.PerlinNoise(Time.time, 20f) - 0.5f);
 		this.beeAnimator.transform.localPosition = this.noisyOffset;
 	}
 
-	// Token: 0x060005B6 RID: 1462 RVA: 0x00021D65 File Offset: 0x0001FF65
+	// Token: 0x060005F7 RID: 1527 RVA: 0x000346C1 File Offset: 0x000328C1
 	private void GrabBodyShared()
 	{
 		if (this.followTarget != null)
@@ -402,9 +402,9 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x1700006B RID: 107
-	// (get) Token: 0x060005B7 RID: 1463 RVA: 0x00021DA1 File Offset: 0x0001FFA1
-	// (set) Token: 0x060005B8 RID: 1464 RVA: 0x00021DCB File Offset: 0x0001FFCB
+	// Token: 0x17000070 RID: 112
+	// (get) Token: 0x060005F8 RID: 1528 RVA: 0x000346FD File Offset: 0x000328FD
+	// (set) Token: 0x060005F9 RID: 1529 RVA: 0x00034727 File Offset: 0x00032927
 	[Networked]
 	[NetworkedWeaved(0, 3)]
 	public unsafe BeeSwarmData Data
@@ -427,13 +427,13 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x060005B9 RID: 1465 RVA: 0x00021DF6 File Offset: 0x0001FFF6
+	// Token: 0x060005FA RID: 1530 RVA: 0x00034752 File Offset: 0x00032952
 	public override void WriteDataFusion()
 	{
 		this.Data = new BeeSwarmData(this.targetPlayer.ActorNumber, (int)this.currentState, this.currentSpeed);
 	}
 
-	// Token: 0x060005BA RID: 1466 RVA: 0x00021E1C File Offset: 0x0002001C
+	// Token: 0x060005FB RID: 1531 RVA: 0x0008483C File Offset: 0x00082A3C
 	public override void ReadDataFusion()
 	{
 		this.targetPlayer = NetworkSystem.Instance.GetPlayer(this.Data.TargetActorNumber);
@@ -444,7 +444,7 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x060005BB RID: 1467 RVA: 0x00021E84 File Offset: 0x00020084
+	// Token: 0x060005FC RID: 1532 RVA: 0x000848A4 File Offset: 0x00082AA4
 	protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (info.Sender != PhotonNetwork.MasterClient)
@@ -456,7 +456,7 @@ public class AngryBeeSwarm : NetworkComponent
 		stream.SendNext(this.currentSpeed);
 	}
 
-	// Token: 0x060005BC RID: 1468 RVA: 0x00021ED8 File Offset: 0x000200D8
+	// Token: 0x060005FD RID: 1533 RVA: 0x000848F8 File Offset: 0x00082AF8
 	protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (info.Sender != PhotonNetwork.MasterClient)
@@ -473,7 +473,7 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x060005BD RID: 1469 RVA: 0x00021F3C File Offset: 0x0002013C
+	// Token: 0x060005FE RID: 1534 RVA: 0x00034776 File Offset: 0x00032976
 	public override void OnOwnerChange(Player newOwner, Player previousOwner)
 	{
 		base.OnOwnerChange(newOwner, previousOwner);
@@ -483,7 +483,7 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x060005BE RID: 1470 RVA: 0x00021F5A File Offset: 0x0002015A
+	// Token: 0x060005FF RID: 1535 RVA: 0x00034794 File Offset: 0x00032994
 	public void OnJoinedRoom()
 	{
 		Debug.Log("Here");
@@ -493,13 +493,13 @@ public class AngryBeeSwarm : NetworkComponent
 		}
 	}
 
-	// Token: 0x060005BF RID: 1471 RVA: 0x00021F78 File Offset: 0x00020178
+	// Token: 0x06000600 RID: 1536 RVA: 0x000347B2 File Offset: 0x000329B2
 	private void TestEmerge()
 	{
 		this.Emerge(this.testEmergeFrom.transform.position, this.testEmergeTo.transform.position);
 	}
 
-	// Token: 0x060005C1 RID: 1473 RVA: 0x0002202C File Offset: 0x0002022C
+	// Token: 0x06000602 RID: 1538 RVA: 0x000347DA File Offset: 0x000329DA
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -507,7 +507,7 @@ public class AngryBeeSwarm : NetworkComponent
 		this.Data = this._Data;
 	}
 
-	// Token: 0x060005C2 RID: 1474 RVA: 0x00022044 File Offset: 0x00020244
+	// Token: 0x06000603 RID: 1539 RVA: 0x000347F2 File Offset: 0x000329F2
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -515,163 +515,163 @@ public class AngryBeeSwarm : NetworkComponent
 		this._Data = this.Data;
 	}
 
-	// Token: 0x040006B4 RID: 1716
+	// Token: 0x040006F5 RID: 1781
 	public static AngryBeeSwarm instance;
 
-	// Token: 0x040006B5 RID: 1717
+	// Token: 0x040006F6 RID: 1782
 	public float heightAboveNavmesh = 0.5f;
 
-	// Token: 0x040006B6 RID: 1718
+	// Token: 0x040006F7 RID: 1783
 	public Transform followTarget;
 
-	// Token: 0x040006B7 RID: 1719
+	// Token: 0x040006F8 RID: 1784
 	[SerializeField]
 	private float velocityStep = 1f;
 
-	// Token: 0x040006B8 RID: 1720
+	// Token: 0x040006F9 RID: 1785
 	private float currentSpeed;
 
-	// Token: 0x040006B9 RID: 1721
+	// Token: 0x040006FA RID: 1786
 	[SerializeField]
 	private float velocityIncreaseInterval = 20f;
 
-	// Token: 0x040006BA RID: 1722
+	// Token: 0x040006FB RID: 1787
 	public Vector3 noisyOffset;
 
-	// Token: 0x040006BB RID: 1723
+	// Token: 0x040006FC RID: 1788
 	public Vector3 ghostOffsetGrabbingLocal;
 
-	// Token: 0x040006BC RID: 1724
+	// Token: 0x040006FD RID: 1789
 	private float emergeStartedTimestamp;
 
-	// Token: 0x040006BD RID: 1725
+	// Token: 0x040006FE RID: 1790
 	private float grabTimestamp;
 
-	// Token: 0x040006BE RID: 1726
+	// Token: 0x040006FF RID: 1791
 	private float lastSpeedIncreased;
 
-	// Token: 0x040006BF RID: 1727
+	// Token: 0x04000700 RID: 1792
 	[SerializeField]
 	private float totalTimeToEmerge;
 
-	// Token: 0x040006C0 RID: 1728
+	// Token: 0x04000701 RID: 1793
 	[SerializeField]
 	private float catchDistance;
 
-	// Token: 0x040006C1 RID: 1729
+	// Token: 0x04000702 RID: 1794
 	[SerializeField]
 	private float grabDuration;
 
-	// Token: 0x040006C2 RID: 1730
+	// Token: 0x04000703 RID: 1795
 	[SerializeField]
 	private float grabSpeed = 1f;
 
-	// Token: 0x040006C3 RID: 1731
+	// Token: 0x04000704 RID: 1796
 	[SerializeField]
 	private float minGrabCooldown;
 
-	// Token: 0x040006C4 RID: 1732
+	// Token: 0x04000705 RID: 1797
 	[SerializeField]
 	private float initialRangeLimit;
 
-	// Token: 0x040006C5 RID: 1733
+	// Token: 0x04000706 RID: 1798
 	[SerializeField]
 	private float finalRangeLimit;
 
-	// Token: 0x040006C6 RID: 1734
+	// Token: 0x04000707 RID: 1799
 	[SerializeField]
 	private float rangeLimitBlendDuration;
 
-	// Token: 0x040006C7 RID: 1735
+	// Token: 0x04000708 RID: 1800
 	[SerializeField]
 	private float boredAfterDuration;
 
-	// Token: 0x040006C8 RID: 1736
+	// Token: 0x04000709 RID: 1801
 	public NetPlayer targetPlayer;
 
-	// Token: 0x040006C9 RID: 1737
+	// Token: 0x0400070A RID: 1802
 	public AngryBeeAnimator beeAnimator;
 
-	// Token: 0x040006CA RID: 1738
+	// Token: 0x0400070B RID: 1803
 	public AngryBeeSwarm.ChaseState currentState;
 
-	// Token: 0x040006CB RID: 1739
+	// Token: 0x0400070C RID: 1804
 	public AngryBeeSwarm.ChaseState lastState;
 
-	// Token: 0x040006CC RID: 1740
+	// Token: 0x0400070D RID: 1805
 	public NetPlayer grabbedPlayer;
 
-	// Token: 0x040006CD RID: 1741
+	// Token: 0x0400070E RID: 1806
 	private bool targetIsOnNavMesh;
 
-	// Token: 0x040006CE RID: 1742
+	// Token: 0x0400070F RID: 1807
 	private const float navMeshSampleRange = 5f;
 
-	// Token: 0x040006CF RID: 1743
+	// Token: 0x04000710 RID: 1808
 	[Tooltip("Haptic vibration when chased by lucy")]
 	public float hapticStrength = 1f;
 
-	// Token: 0x040006D0 RID: 1744
+	// Token: 0x04000711 RID: 1809
 	public float hapticDuration = 1.5f;
 
-	// Token: 0x040006D1 RID: 1745
+	// Token: 0x04000712 RID: 1810
 	public float MinHeightAboveWater = 0.5f;
 
-	// Token: 0x040006D2 RID: 1746
+	// Token: 0x04000713 RID: 1811
 	public float PlayerMinHeightAboveWater = 0.5f;
 
-	// Token: 0x040006D3 RID: 1747
+	// Token: 0x04000714 RID: 1812
 	public float RefreshClosestPlayerInterval = 1f;
 
-	// Token: 0x040006D4 RID: 1748
+	// Token: 0x04000715 RID: 1813
 	private float NextRefreshClosestPlayerTimestamp = 1f;
 
-	// Token: 0x040006D5 RID: 1749
+	// Token: 0x04000716 RID: 1814
 	private float BoredToDeathAtTimestamp = -1f;
 
-	// Token: 0x040006D6 RID: 1750
+	// Token: 0x04000717 RID: 1815
 	[SerializeField]
 	private Transform testEmergeFrom;
 
-	// Token: 0x040006D7 RID: 1751
+	// Token: 0x04000718 RID: 1816
 	[SerializeField]
 	private Transform testEmergeTo;
 
-	// Token: 0x040006D8 RID: 1752
+	// Token: 0x04000719 RID: 1817
 	private Vector3 emergeFromPosition;
 
-	// Token: 0x040006D9 RID: 1753
+	// Token: 0x0400071A RID: 1818
 	private Vector3 emergeToPosition;
 
-	// Token: 0x040006DA RID: 1754
+	// Token: 0x0400071B RID: 1819
 	private NavMeshPath path;
 
-	// Token: 0x040006DB RID: 1755
+	// Token: 0x0400071C RID: 1820
 	public List<Vector3> pathPoints;
 
-	// Token: 0x040006DC RID: 1756
+	// Token: 0x0400071D RID: 1821
 	public int currentPathPointIdx;
 
-	// Token: 0x040006DD RID: 1757
+	// Token: 0x0400071E RID: 1822
 	private float nextPathTimestamp;
 
-	// Token: 0x040006DE RID: 1758
+	// Token: 0x0400071F RID: 1823
 	[WeaverGenerated]
 	[SerializeField]
 	[DefaultForProperty("Data", 0, 3)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
 	private BeeSwarmData _Data;
 
-	// Token: 0x020000DE RID: 222
+	// Token: 0x020000E8 RID: 232
 	public enum ChaseState
 	{
-		// Token: 0x040006E0 RID: 1760
+		// Token: 0x04000721 RID: 1825
 		Dormant = 1,
-		// Token: 0x040006E1 RID: 1761
+		// Token: 0x04000722 RID: 1826
 		InitialEmerge,
-		// Token: 0x040006E2 RID: 1762
+		// Token: 0x04000723 RID: 1827
 		Chasing = 4,
-		// Token: 0x040006E3 RID: 1763
+		// Token: 0x04000724 RID: 1828
 		Grabbing = 8
 	}
 }

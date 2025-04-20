@@ -5,30 +5,30 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-// Token: 0x0200066A RID: 1642
+// Token: 0x02000649 RID: 1609
 public class GorillaPressableButton : MonoBehaviour
 {
-	// Token: 0x14000053 RID: 83
-	// (add) Token: 0x060028A2 RID: 10402 RVA: 0x000C7C3C File Offset: 0x000C5E3C
-	// (remove) Token: 0x060028A3 RID: 10403 RVA: 0x000C7C74 File Offset: 0x000C5E74
+	// Token: 0x14000054 RID: 84
+	// (add) Token: 0x060027CD RID: 10189 RVA: 0x0010EA14 File Offset: 0x0010CC14
+	// (remove) Token: 0x060027CE RID: 10190 RVA: 0x0010EA4C File Offset: 0x0010CC4C
 	public event Action<GorillaPressableButton, bool> onPressed;
 
-	// Token: 0x060028A4 RID: 10404 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060027CF RID: 10191 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void Start()
 	{
 	}
 
-	// Token: 0x060028A5 RID: 10405 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060027D0 RID: 10192 RVA: 0x00030607 File Offset: 0x0002E807
 	private void OnEnable()
 	{
 	}
 
-	// Token: 0x060028A6 RID: 10406 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060027D1 RID: 10193 RVA: 0x00030607 File Offset: 0x0002E807
 	private void OnDisable()
 	{
 	}
 
-	// Token: 0x060028A7 RID: 10407 RVA: 0x000C7CAC File Offset: 0x000C5EAC
+	// Token: 0x060027D2 RID: 10194 RVA: 0x0010EA84 File Offset: 0x0010CC84
 	protected void OnTriggerEnter(Collider collider)
 	{
 		if (!base.enabled)
@@ -74,7 +74,7 @@ public class GorillaPressableButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060028A8 RID: 10408 RVA: 0x000C7DE8 File Offset: 0x000C5FE8
+	// Token: 0x060027D3 RID: 10195 RVA: 0x0010EBC0 File Offset: 0x0010CDC0
 	public virtual void UpdateColor()
 	{
 		if (this.isOn)
@@ -114,72 +114,72 @@ public class GorillaPressableButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060028A9 RID: 10409 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060027D4 RID: 10196 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void ButtonActivation()
 	{
 	}
 
-	// Token: 0x060028AA RID: 10410 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060027D5 RID: 10197 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void ButtonActivationWithHand(bool isLeftHand)
 	{
 	}
 
-	// Token: 0x060028AB RID: 10411 RVA: 0x000C7EDF File Offset: 0x000C60DF
+	// Token: 0x060027D6 RID: 10198 RVA: 0x0004B121 File Offset: 0x00049321
 	public virtual void ResetState()
 	{
 		this.isOn = false;
 		this.UpdateColor();
 	}
 
-	// Token: 0x04002DAD RID: 11693
+	// Token: 0x04002D13 RID: 11539
 	public Material pressedMaterial;
 
-	// Token: 0x04002DAE RID: 11694
+	// Token: 0x04002D14 RID: 11540
 	public Material unpressedMaterial;
 
-	// Token: 0x04002DAF RID: 11695
+	// Token: 0x04002D15 RID: 11541
 	public MeshRenderer buttonRenderer;
 
-	// Token: 0x04002DB0 RID: 11696
+	// Token: 0x04002D16 RID: 11542
 	public int pressButtonSoundIndex = 67;
 
-	// Token: 0x04002DB1 RID: 11697
+	// Token: 0x04002D17 RID: 11543
 	public bool isOn;
 
-	// Token: 0x04002DB2 RID: 11698
+	// Token: 0x04002D18 RID: 11544
 	public float debounceTime = 0.25f;
 
-	// Token: 0x04002DB3 RID: 11699
+	// Token: 0x04002D19 RID: 11545
 	public float touchTime;
 
-	// Token: 0x04002DB4 RID: 11700
+	// Token: 0x04002D1A RID: 11546
 	public bool testPress;
 
-	// Token: 0x04002DB5 RID: 11701
+	// Token: 0x04002D1B RID: 11547
 	public bool testHandLeft;
 
-	// Token: 0x04002DB6 RID: 11702
+	// Token: 0x04002D1C RID: 11548
 	[TextArea]
 	public string offText;
 
-	// Token: 0x04002DB7 RID: 11703
+	// Token: 0x04002D1D RID: 11549
 	[TextArea]
 	public string onText;
 
-	// Token: 0x04002DB8 RID: 11704
+	// Token: 0x04002D1E RID: 11550
 	[SerializeField]
 	[Tooltip("Use this one when you can. Don't use MyText if you can help it!")]
 	public TMP_Text myTmpText;
 
-	// Token: 0x04002DB9 RID: 11705
+	// Token: 0x04002D1F RID: 11551
 	[SerializeField]
 	[Tooltip("Use this one when you can. Don't use MyText if you can help it!")]
 	public TMP_Text myTmpText2;
 
-	// Token: 0x04002DBA RID: 11706
+	// Token: 0x04002D20 RID: 11552
 	public Text myText;
 
-	// Token: 0x04002DBB RID: 11707
+	// Token: 0x04002D21 RID: 11553
 	[Space]
 	public UnityEvent onPressButton;
 }

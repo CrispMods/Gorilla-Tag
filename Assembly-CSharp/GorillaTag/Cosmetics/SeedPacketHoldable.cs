@@ -7,18 +7,18 @@ using UnityEngine.Events;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C2D RID: 3117
+	// Token: 0x02000C5D RID: 3165
 	[RequireComponent(typeof(TransferrableObject))]
 	public class SeedPacketHoldable : MonoBehaviour
 	{
-		// Token: 0x06004DCA RID: 19914 RVA: 0x0017D71A File Offset: 0x0017B91A
+		// Token: 0x06004F22 RID: 20258 RVA: 0x00063A8B File Offset: 0x00061C8B
 		private void Awake()
 		{
 			this.transferrableObject = base.GetComponent<TransferrableObject>();
 			this.flowerEffectHash = PoolUtils.GameObjHashCode(this.flowerEffectPrefab);
 		}
 
-		// Token: 0x06004DCB RID: 19915 RVA: 0x0017D73C File Offset: 0x0017B93C
+		// Token: 0x06004F23 RID: 20259 RVA: 0x001B5E08 File Offset: 0x001B4008
 		private void OnEnable()
 		{
 			if (this._events == null)
@@ -36,7 +36,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DCC RID: 19916 RVA: 0x0017D804 File Offset: 0x0017BA04
+		// Token: 0x06004F24 RID: 20260 RVA: 0x001B5ED0 File Offset: 0x001B40D0
 		private void OnDisable()
 		{
 			if (this._events != null)
@@ -47,13 +47,13 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DCD RID: 19917 RVA: 0x0017D853 File Offset: 0x0017BA53
+		// Token: 0x06004F25 RID: 20261 RVA: 0x00063AAA File Offset: 0x00061CAA
 		private void OnDestroy()
 		{
 			this.pooledObjects.Clear();
 		}
 
-		// Token: 0x06004DCE RID: 19918 RVA: 0x0017D860 File Offset: 0x0017BA60
+		// Token: 0x06004F26 RID: 20262 RVA: 0x001B5F20 File Offset: 0x001B4120
 		private void Update()
 		{
 			if (!this.transferrableObject.InHand())
@@ -76,7 +76,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DCF RID: 19919 RVA: 0x0017D919 File Offset: 0x0017BB19
+		// Token: 0x06004F27 RID: 20263 RVA: 0x00063AB7 File Offset: 0x00061CB7
 		private void StartPouring()
 		{
 			if (this.particles)
@@ -87,7 +87,7 @@ namespace GorillaTag.Cosmetics
 			this.pouringStartedTime = Time.time;
 		}
 
-		// Token: 0x06004DD0 RID: 19920 RVA: 0x0017D948 File Offset: 0x0017BB48
+		// Token: 0x06004F28 RID: 20264 RVA: 0x001B5FDC File Offset: 0x001B41DC
 		private void SpawnEffect()
 		{
 			GameObject gameObject = ObjectPools.instance.Instantiate(this.flowerEffectHash);
@@ -100,7 +100,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DD1 RID: 19921 RVA: 0x0017D9A4 File Offset: 0x0017BBA4
+		// Token: 0x06004F29 RID: 20265 RVA: 0x001B6038 File Offset: 0x001B4238
 		private void SyncTriggerEffectForOthers(OnTriggerEventsHandlerCosmetic onTriggerEventsHandlerCosmeticTriggerEvent)
 		{
 			int num = this.pooledObjects.IndexOf(onTriggerEventsHandlerCosmeticTriggerEvent);
@@ -113,7 +113,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DD2 RID: 19922 RVA: 0x0017DA08 File Offset: 0x0017BC08
+		// Token: 0x06004F2A RID: 20266 RVA: 0x001B609C File Offset: 0x001B429C
 		private void SyncTriggerEffect(int sender, int target, object[] args, PhotonMessageInfoWrapped info)
 		{
 			if (sender != target)
@@ -137,56 +137,56 @@ namespace GorillaTag.Cosmetics
 			this.pooledObjects[num].ToggleEffects();
 		}
 
-		// Token: 0x040050CC RID: 20684
+		// Token: 0x040051D2 RID: 20946
 		[SerializeField]
 		private float cooldown;
 
-		// Token: 0x040050CD RID: 20685
+		// Token: 0x040051D3 RID: 20947
 		[SerializeField]
 		private ParticleSystem particles;
 
-		// Token: 0x040050CE RID: 20686
+		// Token: 0x040051D4 RID: 20948
 		[SerializeField]
 		private float pouringAngle;
 
-		// Token: 0x040050CF RID: 20687
+		// Token: 0x040051D5 RID: 20949
 		[SerializeField]
 		private float pouringRaycastDistance = 5f;
 
-		// Token: 0x040050D0 RID: 20688
+		// Token: 0x040051D6 RID: 20950
 		[SerializeField]
 		private LayerMask raycastLayerMask;
 
-		// Token: 0x040050D1 RID: 20689
+		// Token: 0x040051D7 RID: 20951
 		[SerializeField]
 		private float placeEffectDelayMultiplier = 10f;
 
-		// Token: 0x040050D2 RID: 20690
+		// Token: 0x040051D8 RID: 20952
 		[SerializeField]
 		private GameObject flowerEffectPrefab;
 
-		// Token: 0x040050D3 RID: 20691
+		// Token: 0x040051D9 RID: 20953
 		private List<OnTriggerEventsHandlerCosmetic> pooledObjects = new List<OnTriggerEventsHandlerCosmetic>();
 
-		// Token: 0x040050D4 RID: 20692
+		// Token: 0x040051DA RID: 20954
 		private CallLimiter callLimiter = new CallLimiter(10, 3f, 0.5f);
 
-		// Token: 0x040050D5 RID: 20693
+		// Token: 0x040051DB RID: 20955
 		private int flowerEffectHash;
 
-		// Token: 0x040050D6 RID: 20694
+		// Token: 0x040051DC RID: 20956
 		private Vector3 hitPoint;
 
-		// Token: 0x040050D7 RID: 20695
+		// Token: 0x040051DD RID: 20957
 		private TransferrableObject transferrableObject;
 
-		// Token: 0x040050D8 RID: 20696
+		// Token: 0x040051DE RID: 20958
 		private bool isPouring = true;
 
-		// Token: 0x040050D9 RID: 20697
+		// Token: 0x040051DF RID: 20959
 		private float pouringStartedTime;
 
-		// Token: 0x040050DA RID: 20698
+		// Token: 0x040051E0 RID: 20960
 		private RubberDuckEvents _events;
 	}
 }

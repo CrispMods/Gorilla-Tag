@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-// Token: 0x020008EC RID: 2284
+// Token: 0x02000908 RID: 2312
 public class BoundsCalcs : MonoBehaviour
 {
-	// Token: 0x060036D6 RID: 14038 RVA: 0x00103D58 File Offset: 0x00101F58
+	// Token: 0x0600379E RID: 14238 RVA: 0x00148EA0 File Offset: 0x001470A0
 	public void Compute()
 	{
 		MeshFilter[] array;
@@ -46,27 +46,27 @@ public class BoundsCalcs : MonoBehaviour
 			list2.AddRange(vertices);
 		}
 		this.composite = BoundsInfo.ComputeBounds(list2.ToArray());
-		list.ForEach(new Action<Mesh>(Object.DestroyImmediate));
+		list.ForEach(new Action<Mesh>(UnityEngine.Object.DestroyImmediate));
 	}
 
-	// Token: 0x040039D5 RID: 14805
+	// Token: 0x04003A96 RID: 14998
 	public MeshFilter[] optionalTargets = new MeshFilter[0];
 
-	// Token: 0x040039D6 RID: 14806
+	// Token: 0x04003A97 RID: 14999
 	public bool useRootMeshOnly;
 
-	// Token: 0x040039D7 RID: 14807
+	// Token: 0x04003A98 RID: 15000
 	[Space]
 	public List<BoundsInfo> elements = new List<BoundsInfo>();
 
-	// Token: 0x040039D8 RID: 14808
+	// Token: 0x04003A99 RID: 15001
 	[Space]
 	public BoundsInfo composite;
 
-	// Token: 0x040039D9 RID: 14809
+	// Token: 0x04003A9A RID: 15002
 	[Space]
 	private StateHash _state;
 
-	// Token: 0x040039DA RID: 14810
+	// Token: 0x04003A9B RID: 15003
 	private static MeshFilter[] singleMesh = new MeshFilter[1];
 }

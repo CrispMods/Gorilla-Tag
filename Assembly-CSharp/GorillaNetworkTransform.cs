@@ -5,12 +5,12 @@ using GorillaExtensions;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000534 RID: 1332
+// Token: 0x02000541 RID: 1345
 [NetworkBehaviourWeaved(15)]
 internal class GorillaNetworkTransform : NetworkComponent
 {
-	// Token: 0x17000344 RID: 836
-	// (get) Token: 0x0600203C RID: 8252 RVA: 0x000A24FF File Offset: 0x000A06FF
+	// Token: 0x1700034B RID: 843
+	// (get) Token: 0x06002095 RID: 8341 RVA: 0x00046346 File Offset: 0x00044546
 	public bool RespectOwnership
 	{
 		get
@@ -19,9 +19,9 @@ internal class GorillaNetworkTransform : NetworkComponent
 		}
 	}
 
-	// Token: 0x17000345 RID: 837
-	// (get) Token: 0x0600203D RID: 8253 RVA: 0x000A2507 File Offset: 0x000A0707
-	// (set) Token: 0x0600203E RID: 8254 RVA: 0x000A2531 File Offset: 0x000A0731
+	// Token: 0x1700034C RID: 844
+	// (get) Token: 0x06002096 RID: 8342 RVA: 0x0004634E File Offset: 0x0004454E
+	// (set) Token: 0x06002097 RID: 8343 RVA: 0x00046378 File Offset: 0x00044578
 	[Networked]
 	[NetworkedWeaved(0, 15)]
 	private unsafe GorillaNetworkTransform.NetTransformData data
@@ -44,7 +44,7 @@ internal class GorillaNetworkTransform : NetworkComponent
 		}
 	}
 
-	// Token: 0x0600203F RID: 8255 RVA: 0x000A255C File Offset: 0x000A075C
+	// Token: 0x06002098 RID: 8344 RVA: 0x000F373C File Offset: 0x000F193C
 	public new void Awake()
 	{
 		this.m_StoredPosition = base.transform.localPosition;
@@ -54,7 +54,7 @@ internal class GorillaNetworkTransform : NetworkComponent
 		this.maxDistanceSquare = this.maxDistance * this.maxDistance;
 	}
 
-	// Token: 0x06002040 RID: 8256 RVA: 0x000A25AE File Offset: 0x000A07AE
+	// Token: 0x06002099 RID: 8345 RVA: 0x000463A3 File Offset: 0x000445A3
 	private new void OnEnable()
 	{
 		NetworkBehaviourUtils.InternalOnEnable(this);
@@ -65,7 +65,7 @@ internal class GorillaNetworkTransform : NetworkComponent
 		}
 	}
 
-	// Token: 0x06002041 RID: 8257 RVA: 0x000A25EC File Offset: 0x000A07EC
+	// Token: 0x0600209A RID: 8346 RVA: 0x000F3790 File Offset: 0x000F1990
 	public void Update()
 	{
 		if (!base.IsLocallyOwned)
@@ -81,7 +81,7 @@ internal class GorillaNetworkTransform : NetworkComponent
 		}
 	}
 
-	// Token: 0x06002042 RID: 8258 RVA: 0x000A26F4 File Offset: 0x000A08F4
+	// Token: 0x0600209B RID: 8347 RVA: 0x000F3898 File Offset: 0x000F1A98
 	public override void WriteDataFusion()
 	{
 		GorillaNetworkTransform.NetTransformData data = this.SharedWrite();
@@ -90,13 +90,13 @@ internal class GorillaNetworkTransform : NetworkComponent
 		this.data = data;
 	}
 
-	// Token: 0x06002043 RID: 8259 RVA: 0x000A272E File Offset: 0x000A092E
+	// Token: 0x0600209C RID: 8348 RVA: 0x000463E0 File Offset: 0x000445E0
 	public override void ReadDataFusion()
 	{
 		this.SharedRead(this.data);
 	}
 
-	// Token: 0x06002044 RID: 8260 RVA: 0x000A273C File Offset: 0x000A093C
+	// Token: 0x0600209D RID: 8349 RVA: 0x000F38D4 File Offset: 0x000F1AD4
 	protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		NetPlayer player = NetworkSystem.Instance.GetPlayer(info.Sender);
@@ -120,7 +120,7 @@ internal class GorillaNetworkTransform : NetworkComponent
 		}
 	}
 
-	// Token: 0x06002045 RID: 8261 RVA: 0x000A27D0 File Offset: 0x000A09D0
+	// Token: 0x0600209E RID: 8350 RVA: 0x000F3968 File Offset: 0x000F1B68
 	protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		NetPlayer player = NetworkSystem.Instance.GetPlayer(info.Sender);
@@ -146,7 +146,7 @@ internal class GorillaNetworkTransform : NetworkComponent
 		this.SharedRead(data);
 	}
 
-	// Token: 0x06002046 RID: 8262 RVA: 0x000A2880 File Offset: 0x000A0A80
+	// Token: 0x0600209F RID: 8351 RVA: 0x000F3A18 File Offset: 0x000F1C18
 	private void SharedRead(GorillaNetworkTransform.NetTransformData data)
 	{
 		if (this.m_SynchronizePosition)
@@ -219,7 +219,7 @@ internal class GorillaNetworkTransform : NetworkComponent
 		}
 	}
 
-	// Token: 0x06002047 RID: 8263 RVA: 0x000A2AA8 File Offset: 0x000A0CA8
+	// Token: 0x060020A0 RID: 8352 RVA: 0x000F3C40 File Offset: 0x000F1E40
 	private GorillaNetworkTransform.NetTransformData SharedWrite()
 	{
 		GorillaNetworkTransform.NetTransformData result = default(GorillaNetworkTransform.NetTransformData);
@@ -258,13 +258,13 @@ internal class GorillaNetworkTransform : NetworkComponent
 		return result;
 	}
 
-	// Token: 0x06002048 RID: 8264 RVA: 0x000A2BBB File Offset: 0x000A0DBB
+	// Token: 0x060020A1 RID: 8353 RVA: 0x000463EE File Offset: 0x000445EE
 	public void GTAddition_DoTeleport()
 	{
 		this.m_firstTake = true;
 	}
 
-	// Token: 0x0600204A RID: 8266 RVA: 0x000A2BF3 File Offset: 0x000A0DF3
+	// Token: 0x060020A3 RID: 8355 RVA: 0x00046426 File Offset: 0x00044626
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -272,7 +272,7 @@ internal class GorillaNetworkTransform : NetworkComponent
 		this.data = this._data;
 	}
 
-	// Token: 0x0600204B RID: 8267 RVA: 0x000A2C0B File Offset: 0x000A0E0B
+	// Token: 0x060020A4 RID: 8356 RVA: 0x0004643E File Offset: 0x0004463E
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -280,95 +280,95 @@ internal class GorillaNetworkTransform : NetworkComponent
 		this._data = this.data;
 	}
 
-	// Token: 0x04002456 RID: 9302
+	// Token: 0x040024A9 RID: 9385
 	[Tooltip("Indicates if localPosition and localRotation should be used. Scale ignores this setting, and always uses localScale to avoid issues with lossyScale.")]
 	public bool m_UseLocal;
 
-	// Token: 0x04002457 RID: 9303
+	// Token: 0x040024AA RID: 9386
 	[SerializeField]
 	private bool respectOwnership;
 
-	// Token: 0x04002458 RID: 9304
+	// Token: 0x040024AB RID: 9387
 	[SerializeField]
 	private bool clampDistanceFromSpawn = true;
 
-	// Token: 0x04002459 RID: 9305
+	// Token: 0x040024AC RID: 9388
 	[SerializeField]
 	private float maxDistance = 100f;
 
-	// Token: 0x0400245A RID: 9306
+	// Token: 0x040024AD RID: 9389
 	private float maxDistanceSquare;
 
-	// Token: 0x0400245B RID: 9307
+	// Token: 0x040024AE RID: 9390
 	[SerializeField]
 	private bool clampToSpawn = true;
 
-	// Token: 0x0400245C RID: 9308
+	// Token: 0x040024AF RID: 9391
 	[Tooltip("Use this if clampToSpawn is false, to set the center point to check the synced position against")]
 	[SerializeField]
 	private Vector3 clampOriginPoint;
 
-	// Token: 0x0400245D RID: 9309
+	// Token: 0x040024B0 RID: 9392
 	public bool m_SynchronizePosition = true;
 
-	// Token: 0x0400245E RID: 9310
+	// Token: 0x040024B1 RID: 9393
 	public bool m_SynchronizeRotation = true;
 
-	// Token: 0x0400245F RID: 9311
+	// Token: 0x040024B2 RID: 9394
 	public bool m_SynchronizeScale;
 
-	// Token: 0x04002460 RID: 9312
+	// Token: 0x040024B3 RID: 9395
 	private float m_Distance;
 
-	// Token: 0x04002461 RID: 9313
+	// Token: 0x040024B4 RID: 9396
 	private float m_Angle;
 
-	// Token: 0x04002462 RID: 9314
+	// Token: 0x040024B5 RID: 9397
 	private Vector3 m_Velocity;
 
-	// Token: 0x04002463 RID: 9315
+	// Token: 0x040024B6 RID: 9398
 	private Vector3 m_NetworkPosition;
 
-	// Token: 0x04002464 RID: 9316
+	// Token: 0x040024B7 RID: 9399
 	private Vector3 m_StoredPosition;
 
-	// Token: 0x04002465 RID: 9317
+	// Token: 0x040024B8 RID: 9400
 	private Vector3 m_NetworkScale;
 
-	// Token: 0x04002466 RID: 9318
+	// Token: 0x040024B9 RID: 9401
 	private Quaternion m_NetworkRotation;
 
-	// Token: 0x04002467 RID: 9319
+	// Token: 0x040024BA RID: 9402
 	private bool m_firstTake;
 
-	// Token: 0x04002468 RID: 9320
+	// Token: 0x040024BB RID: 9403
 	[WeaverGenerated]
 	[DefaultForProperty("data", 0, 15)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
 	private GorillaNetworkTransform.NetTransformData _data;
 
-	// Token: 0x02000535 RID: 1333
+	// Token: 0x02000542 RID: 1346
 	[NetworkStructWeaved(15)]
 	[StructLayout(LayoutKind.Explicit, Size = 60)]
 	private struct NetTransformData : INetworkStruct
 	{
-		// Token: 0x04002469 RID: 9321
+		// Token: 0x040024BC RID: 9404
 		[FieldOffset(0)]
 		public Vector3 position;
 
-		// Token: 0x0400246A RID: 9322
+		// Token: 0x040024BD RID: 9405
 		[FieldOffset(12)]
 		public Vector3 velocity;
 
-		// Token: 0x0400246B RID: 9323
+		// Token: 0x040024BE RID: 9406
 		[FieldOffset(24)]
 		public Quaternion rotation;
 
-		// Token: 0x0400246C RID: 9324
+		// Token: 0x040024BF RID: 9407
 		[FieldOffset(40)]
 		public Vector3 scale;
 
-		// Token: 0x0400246D RID: 9325
+		// Token: 0x040024C0 RID: 9408
 		[FieldOffset(52)]
 		public double SentTime;
 	}

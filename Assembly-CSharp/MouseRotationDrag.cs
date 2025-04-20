@@ -4,14 +4,14 @@ using UnityEngine;
 // Token: 0x02000020 RID: 32
 public class MouseRotationDrag : MonoBehaviour
 {
-	// Token: 0x06000077 RID: 119 RVA: 0x00004698 File Offset: 0x00002898
+	// Token: 0x06000077 RID: 119 RVA: 0x00030957 File Offset: 0x0002EB57
 	private void Start()
 	{
 		this.m_currFrameHasFocus = false;
 		this.m_prevFrameHasFocus = false;
 	}
 
-	// Token: 0x06000078 RID: 120 RVA: 0x000046A8 File Offset: 0x000028A8
+	// Token: 0x06000078 RID: 120 RVA: 0x00069984 File Offset: 0x00067B84
 	private void Update()
 	{
 		this.m_currFrameHasFocus = Application.isFocused;

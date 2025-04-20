@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine.UI;
 
-// Token: 0x020004C4 RID: 1220
+// Token: 0x020004D1 RID: 1233
 public class BuilderKioskButton : GorillaPressableButton
 {
-	// Token: 0x06001DA6 RID: 7590 RVA: 0x00091571 File Offset: 0x0008F771
+	// Token: 0x06001DFF RID: 7679 RVA: 0x000447B0 File Offset: 0x000429B0
 	public override void Start()
 	{
 		this.currentPieceSet = BuilderKiosk.nullItem;
 	}
 
-	// Token: 0x06001DA7 RID: 7591 RVA: 0x0009157E File Offset: 0x0008F77E
+	// Token: 0x06001E00 RID: 7680 RVA: 0x000447BD File Offset: 0x000429BD
 	public override void UpdateColor()
 	{
 		if (this.currentPieceSet.isNullItem)
@@ -22,18 +22,18 @@ public class BuilderKioskButton : GorillaPressableButton
 		base.UpdateColor();
 	}
 
-	// Token: 0x06001DA8 RID: 7592 RVA: 0x000915B5 File Offset: 0x0008F7B5
+	// Token: 0x06001E01 RID: 7681 RVA: 0x000447F4 File Offset: 0x000429F4
 	public override void ButtonActivationWithHand(bool isLeftHand)
 	{
 		base.ButtonActivation();
 	}
 
-	// Token: 0x040020CA RID: 8394
+	// Token: 0x0400211D RID: 8477
 	public BuilderSetManager.BuilderSetStoreItem currentPieceSet;
 
-	// Token: 0x040020CB RID: 8395
+	// Token: 0x0400211E RID: 8478
 	public BuilderKiosk kiosk;
 
-	// Token: 0x040020CC RID: 8396
+	// Token: 0x0400211F RID: 8479
 	public Text setNameText;
 }

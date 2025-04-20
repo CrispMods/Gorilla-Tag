@@ -5,10 +5,10 @@ using GorillaTag;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-// Token: 0x0200063D RID: 1597
+// Token: 0x0200061C RID: 1564
 public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 {
-	// Token: 0x060027B3 RID: 10163 RVA: 0x000C1F70 File Offset: 0x000C0170
+	// Token: 0x060026DE RID: 9950 RVA: 0x001095A0 File Offset: 0x001077A0
 	private void Start()
 	{
 		if (this.usingNewSyncedSongsCode)
@@ -30,7 +30,7 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 			this.muteButtons[j].isOn = this.audioSource.mute;
 			this.muteButtons[j].UpdateColor();
 		}
-		this.randomNumberGenerator = new Random(this.mySeed);
+		this.randomNumberGenerator = new System.Random(this.mySeed);
 		this.GenerateSongStartRandomTimes();
 		if (this.twoLayer)
 		{
@@ -42,7 +42,7 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060027B4 RID: 10164 RVA: 0x000C208C File Offset: 0x000C028C
+	// Token: 0x060026DF RID: 9951 RVA: 0x001096BC File Offset: 0x001078BC
 	public void SliceUpdate()
 	{
 		if (this.usingNewSyncedSongsCode)
@@ -60,8 +60,8 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 			this.testPlay = false;
 			if (this.usingMultipleSources && this.usingMultipleSongs)
 			{
-				this.audioSource = this.audioSourceArray[Random.Range(0, this.audioSourceArray.Length)];
-				this.audioSource.clip = this.songsArray[Random.Range(0, this.songsArray.Length)];
+				this.audioSource = this.audioSourceArray[UnityEngine.Random.Range(0, this.audioSourceArray.Length)];
+				this.audioSource.clip = this.songsArray[UnityEngine.Random.Range(0, this.songsArray.Length)];
 				this.audioSource.time = 0f;
 			}
 			if (this.twoLayer)
@@ -118,7 +118,7 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060027B5 RID: 10165 RVA: 0x000C236A File Offset: 0x000C056A
+	// Token: 0x060026E0 RID: 9952 RVA: 0x0004A8B3 File Offset: 0x00048AB3
 	private void StartPlayingSong(long timeStarted, long currentTime)
 	{
 		if (this.audioSource.volume != 0f)
@@ -128,7 +128,7 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 		this.audioSource.time = (float)(currentTime - timeStarted) / 1000f;
 	}
 
-	// Token: 0x060027B6 RID: 10166 RVA: 0x000C23A0 File Offset: 0x000C05A0
+	// Token: 0x060026E1 RID: 9953 RVA: 0x0010999C File Offset: 0x00107B9C
 	private void StartPlayingSongs(long timeStarted, long currentTime)
 	{
 		foreach (AudioSource audioSource in this.audioSourceArray)
@@ -141,7 +141,7 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060027B7 RID: 10167 RVA: 0x000C23EC File Offset: 0x000C05EC
+	// Token: 0x060026E2 RID: 9954 RVA: 0x001099E8 File Offset: 0x00107BE8
 	private void StartPlayingSong(long timeStarted, long currentTime, AudioClip clipToPlay, AudioSource sourceToPlay)
 	{
 		this.audioSource = sourceToPlay;
@@ -153,7 +153,7 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 		sourceToPlay.time = (float)(currentTime - timeStarted) / 1000f;
 	}
 
-	// Token: 0x060027B8 RID: 10168 RVA: 0x000C2438 File Offset: 0x000C0638
+	// Token: 0x060026E3 RID: 9955 RVA: 0x00109A34 File Offset: 0x00107C34
 	private void GenerateSongStartRandomTimes()
 	{
 		this.songStartTimes = new long[500];
@@ -189,7 +189,7 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060027B9 RID: 10169 RVA: 0x000C25C8 File Offset: 0x000C07C8
+	// Token: 0x060026E4 RID: 9956 RVA: 0x00109BC4 File Offset: 0x00107DC4
 	public void MuteAudio(GorillaPressableButton pressedButton)
 	{
 		AudioSource[] array;
@@ -235,7 +235,7 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060027BA RID: 10170 RVA: 0x000C2708 File Offset: 0x000C0908
+	// Token: 0x060026E5 RID: 9957 RVA: 0x00109D04 File Offset: 0x00107F04
 	protected void New_Start()
 	{
 		string text = this.New_Validate();
@@ -281,7 +281,7 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 			}
 		}
 		this.muteButton.UpdateColor();
-		this.randomNumberGenerator = new Random(this.mySeed);
+		this.randomNumberGenerator = new System.Random(this.mySeed);
 		this.New_GeneratePlaylistArrays();
 		foreach (SynchedMusicController.SyncedSongInfo syncedSongInfo in this.syncedSongs)
 		{
@@ -296,20 +296,20 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060027BB RID: 10171 RVA: 0x000C292F File Offset: 0x000C0B2F
+	// Token: 0x060026E6 RID: 9958 RVA: 0x0004A8E7 File Offset: 0x00048AE7
 	public void OnEnable()
 	{
 		this.lastPlayIndex = -1;
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x060027BC RID: 10172 RVA: 0x00015902 File Offset: 0x00013B02
+	// Token: 0x060026E7 RID: 9959 RVA: 0x00032C92 File Offset: 0x00030E92
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x060027BD RID: 10173 RVA: 0x000C2940 File Offset: 0x000C0B40
+	// Token: 0x060026E8 RID: 9960 RVA: 0x00109F2C File Offset: 0x0010812C
 	private void New_Update()
 	{
 		if (!GorillaComputer.hasInstance)
@@ -402,7 +402,7 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060027BE RID: 10174 RVA: 0x000C2BC0 File Offset: 0x000C0DC0
+	// Token: 0x060026E9 RID: 9961 RVA: 0x0010A1AC File Offset: 0x001083AC
 	private string New_Validate()
 	{
 		if (this.syncedSongs == null)
@@ -447,7 +447,7 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 		return string.Empty;
 	}
 
-	// Token: 0x060027BF RID: 10175 RVA: 0x000C2D28 File Offset: 0x000C0F28
+	// Token: 0x060026EA RID: 9962 RVA: 0x0010A314 File Offset: 0x00108514
 	private void New_GeneratePlaylistArrays()
 	{
 		if (this.syncedSongs == null || this.syncedSongs.Length == 0)
@@ -502,136 +502,136 @@ public class SynchedMusicController : MonoBehaviour, IGorillaSliceableSimple
 		this.totalLoopTime = num + num2;
 	}
 
-	// Token: 0x060027C1 RID: 10177 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x060026EC RID: 9964 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x04002B75 RID: 11125
+	// Token: 0x04002ADB RID: 10971
 	[SerializeField]
 	private bool usingNewSyncedSongsCode;
 
-	// Token: 0x04002B76 RID: 11126
+	// Token: 0x04002ADC RID: 10972
 	[SerializeField]
 	private bool shufflePlaylist = true;
 
-	// Token: 0x04002B77 RID: 11127
+	// Token: 0x04002ADD RID: 10973
 	[SerializeField]
 	private SynchedMusicController.SyncedSongInfo[] syncedSongs;
 
-	// Token: 0x04002B78 RID: 11128
+	// Token: 0x04002ADE RID: 10974
 	[Tooltip("This should be unique per sound post. Sound posts that share the same seed and the same song count will play songs a the same times.")]
 	public int mySeed;
 
-	// Token: 0x04002B79 RID: 11129
-	private Random randomNumberGenerator = new Random();
+	// Token: 0x04002ADF RID: 10975
+	private System.Random randomNumberGenerator = new System.Random();
 
-	// Token: 0x04002B7A RID: 11130
+	// Token: 0x04002AE0 RID: 10976
 	[Tooltip("In milliseconds.")]
 	public long minimumWait = 900000L;
 
-	// Token: 0x04002B7B RID: 11131
+	// Token: 0x04002AE1 RID: 10977
 	[Tooltip("In milliseconds. A random value between 0 and this will be picked. The max wait time is randomInterval + minimumWait.")]
 	public int randomInterval = 600000;
 
-	// Token: 0x04002B7C RID: 11132
+	// Token: 0x04002AE2 RID: 10978
 	[DebugReadout]
 	public long[] songStartTimes;
 
-	// Token: 0x04002B7D RID: 11133
+	// Token: 0x04002AE3 RID: 10979
 	[DebugReadout]
 	public int[] audioSourcesForPlaying;
 
-	// Token: 0x04002B7E RID: 11134
+	// Token: 0x04002AE4 RID: 10980
 	[DebugReadout]
 	public int[] audioClipsForPlaying;
 
-	// Token: 0x04002B7F RID: 11135
+	// Token: 0x04002AE5 RID: 10981
 	public AudioSource audioSource;
 
-	// Token: 0x04002B80 RID: 11136
+	// Token: 0x04002AE6 RID: 10982
 	public AudioSource[] audioSourceArray;
 
-	// Token: 0x04002B81 RID: 11137
+	// Token: 0x04002AE7 RID: 10983
 	public AudioClip[] songsArray;
 
-	// Token: 0x04002B82 RID: 11138
+	// Token: 0x04002AE8 RID: 10984
 	[DebugReadout]
 	public int lastPlayIndex;
 
-	// Token: 0x04002B83 RID: 11139
+	// Token: 0x04002AE9 RID: 10985
 	[DebugReadout]
 	public long currentTime;
 
-	// Token: 0x04002B84 RID: 11140
+	// Token: 0x04002AEA RID: 10986
 	[DebugReadout]
 	public long totalLoopTime;
 
-	// Token: 0x04002B85 RID: 11141
+	// Token: 0x04002AEB RID: 10987
 	public GorillaPressableButton muteButton;
 
-	// Token: 0x04002B86 RID: 11142
+	// Token: 0x04002AEC RID: 10988
 	public GorillaPressableButton[] muteButtons;
 
-	// Token: 0x04002B87 RID: 11143
+	// Token: 0x04002AED RID: 10989
 	public bool usingMultipleSongs;
 
-	// Token: 0x04002B88 RID: 11144
+	// Token: 0x04002AEE RID: 10990
 	public bool usingMultipleSources;
 
-	// Token: 0x04002B89 RID: 11145
+	// Token: 0x04002AEF RID: 10991
 	[DebugReadout]
 	public bool isPlayingCurrently;
 
-	// Token: 0x04002B8A RID: 11146
+	// Token: 0x04002AF0 RID: 10992
 	[DebugReadout]
 	public bool testPlay;
 
-	// Token: 0x04002B8B RID: 11147
+	// Token: 0x04002AF1 RID: 10993
 	public bool twoLayer;
 
-	// Token: 0x04002B8C RID: 11148
+	// Token: 0x04002AF2 RID: 10994
 	[Tooltip("Used to store the muted sound posts in player prefs.")]
 	public string locationName;
 
-	// Token: 0x04002B8D RID: 11149
+	// Token: 0x04002AF3 RID: 10995
 	private const int kPlaylistLength = 256;
 
-	// Token: 0x0200063E RID: 1598
+	// Token: 0x0200061D RID: 1565
 	[Serializable]
 	public struct SyncedSongInfo
 	{
-		// Token: 0x04002B8E RID: 11150
+		// Token: 0x04002AF4 RID: 10996
 		[Tooltip("A layer for a song. For no layers, just add a single entry.")]
 		[RequiredListLength(1, null)]
 		public SynchedMusicController.SyncedSongLayerInfo[] songLayers;
 	}
 
-	// Token: 0x0200063F RID: 1599
+	// Token: 0x0200061E RID: 1566
 	[Serializable]
 	public struct SyncedSongLayerInfo
 	{
-		// Token: 0x04002B8F RID: 11151
+		// Token: 0x04002AF5 RID: 10997
 		[Tooltip("The clip that will be played.")]
 		public AudioClip audioClip;
 
-		// Token: 0x04002B90 RID: 11152
+		// Token: 0x04002AF6 RID: 10998
 		public SynchedMusicController.AudioSourcePickMode audioSourcePickMode;
 
-		// Token: 0x04002B91 RID: 11153
+		// Token: 0x04002AF7 RID: 10999
 		[Tooltip("The audio sources that should play the audio clip.")]
 		public AudioSource[] audioSources;
 	}
 
-	// Token: 0x02000640 RID: 1600
+	// Token: 0x0200061F RID: 1567
 	public enum AudioSourcePickMode
 	{
-		// Token: 0x04002B93 RID: 11155
+		// Token: 0x04002AF9 RID: 11001
 		All,
-		// Token: 0x04002B94 RID: 11156
+		// Token: 0x04002AFA RID: 11002
 		Shuffle,
-		// Token: 0x04002B95 RID: 11157
+		// Token: 0x04002AFB RID: 11003
 		Specific
 	}
 }

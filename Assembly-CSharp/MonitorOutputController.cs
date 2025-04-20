@@ -4,28 +4,28 @@ using Liv.Lck;
 using Liv.Lck.GorillaTag;
 using UnityEngine;
 
-// Token: 0x02000246 RID: 582
+// Token: 0x02000251 RID: 593
 public class MonitorOutputController : MonoBehaviour
 {
-	// Token: 0x06000D70 RID: 3440 RVA: 0x00045436 File Offset: 0x00043636
+	// Token: 0x06000DBB RID: 3515 RVA: 0x00039CBF File Offset: 0x00037EBF
 	private void Awake()
 	{
 		this._lckCamera = this._gtLckController.GetActiveCamera();
 	}
 
-	// Token: 0x06000D71 RID: 3441 RVA: 0x00045449 File Offset: 0x00043649
+	// Token: 0x06000DBC RID: 3516 RVA: 0x00039CD2 File Offset: 0x00037ED2
 	private void OnEnable()
 	{
 		this._gtLckController.OnCameraModeChanged += this.OnCameraModeChanged;
 		LckBodyCameraSpawner.OnCameraStateChange += this.CameraStateChanged;
 	}
 
-	// Token: 0x06000D72 RID: 3442 RVA: 0x00045474 File Offset: 0x00043674
+	// Token: 0x06000DBD RID: 3517 RVA: 0x000A28F8 File Offset: 0x000A0AF8
 	private void Update()
 	{
 		if (Application.platform == RuntimePlatform.Android)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 		}
 		if (this._shoulderCamera == null)
 		{
@@ -41,7 +41,7 @@ public class MonitorOutputController : MonoBehaviour
 		this._lckCamera = this._gtLckController.GetActiveCamera();
 	}
 
-	// Token: 0x06000D73 RID: 3443 RVA: 0x0004551A File Offset: 0x0004371A
+	// Token: 0x06000DBE RID: 3518 RVA: 0x00039CFC File Offset: 0x00037EFC
 	private void CameraStateChanged(LckBodyCameraSpawner.CameraState state)
 	{
 		switch (state)
@@ -60,7 +60,7 @@ public class MonitorOutputController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000D74 RID: 3444 RVA: 0x00045543 File Offset: 0x00043743
+	// Token: 0x06000DBF RID: 3519 RVA: 0x00039D25 File Offset: 0x00037F25
 	private void OnDisable()
 	{
 		this._gtLckController.OnCameraModeChanged -= this.OnCameraModeChanged;
@@ -68,14 +68,14 @@ public class MonitorOutputController : MonoBehaviour
 		LckBodyCameraSpawner.OnCameraStateChange -= this.CameraStateChanged;
 	}
 
-	// Token: 0x06000D75 RID: 3445 RVA: 0x00045583 File Offset: 0x00043783
+	// Token: 0x06000DC0 RID: 3520 RVA: 0x00039D65 File Offset: 0x00037F65
 	private void OnCameraModeChanged(CameraMode mode, ILckCamera lckCamera)
 	{
 		this._lckCamera = lckCamera.GetCameraComponent();
 		this._lckActiveCameraMode = mode;
 	}
 
-	// Token: 0x06000D76 RID: 3446 RVA: 0x00045598 File Offset: 0x00043798
+	// Token: 0x06000DC1 RID: 3521 RVA: 0x00039D7A File Offset: 0x00037F7A
 	private void TakeOverShoulderCamera()
 	{
 		this.FindShoulderCamera();
@@ -83,7 +83,7 @@ public class MonitorOutputController : MonoBehaviour
 		this._shoulderCamera.cullingMask &= ~(1 << LayerMask.NameToLayer("LCKHide"));
 	}
 
-	// Token: 0x06000D77 RID: 3447 RVA: 0x000455D8 File Offset: 0x000437D8
+	// Token: 0x06000DC2 RID: 3522 RVA: 0x000A29A0 File Offset: 0x000A0BA0
 	private void RestoreShoulderCamera()
 	{
 		this.FindShoulderCamera();
@@ -92,7 +92,7 @@ public class MonitorOutputController : MonoBehaviour
 		this._shoulderCamera.fieldOfView = this._shoulderCameraFov;
 	}
 
-	// Token: 0x06000D78 RID: 3448 RVA: 0x00045634 File Offset: 0x00043834
+	// Token: 0x06000DC3 RID: 3523 RVA: 0x000A29FC File Offset: 0x000A0BFC
 	private void FindShoulderCamera()
 	{
 		if (this._shoulderCamera != null)
@@ -107,19 +107,19 @@ public class MonitorOutputController : MonoBehaviour
 		this._shoulderCameraFov = this._shoulderCamera.fieldOfView;
 	}
 
-	// Token: 0x040010A0 RID: 4256
+	// Token: 0x040010E6 RID: 4326
 	[SerializeField]
 	private GTLckController _gtLckController;
 
-	// Token: 0x040010A1 RID: 4257
+	// Token: 0x040010E7 RID: 4327
 	private Camera _lckCamera;
 
-	// Token: 0x040010A2 RID: 4258
+	// Token: 0x040010E8 RID: 4328
 	private CameraMode _lckActiveCameraMode;
 
-	// Token: 0x040010A3 RID: 4259
+	// Token: 0x040010E9 RID: 4329
 	private Camera _shoulderCamera;
 
-	// Token: 0x040010A4 RID: 4260
+	// Token: 0x040010EA RID: 4330
 	private float _shoulderCameraFov;
 }

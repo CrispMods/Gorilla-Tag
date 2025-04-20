@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000058 RID: 88
+// Token: 0x0200005D RID: 93
 public class CritterSpawnCriteria : ScriptableObject
 {
-	// Token: 0x06000240 RID: 576 RVA: 0x0000EDB4 File Offset: 0x0000CFB4
+	// Token: 0x0600025E RID: 606 RVA: 0x00073C00 File Offset: 0x00071E00
 	public bool CanSpawn()
 	{
 		if (this.spawnTimings.Length == 0)
@@ -23,6 +23,6 @@ public class CritterSpawnCriteria : ScriptableObject
 		return false;
 	}
 
-	// Token: 0x040002C4 RID: 708
+	// Token: 0x040002E9 RID: 745
 	public string[] spawnTimings;
 }

@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000089 RID: 137
+// Token: 0x02000090 RID: 144
 public class GorillaPressableDelayButton : GorillaPressableButton, IGorillaSliceableSimple
 {
 	// Token: 0x14000009 RID: 9
-	// (add) Token: 0x06000366 RID: 870 RVA: 0x00015734 File Offset: 0x00013934
-	// (remove) Token: 0x06000367 RID: 871 RVA: 0x0001576C File Offset: 0x0001396C
+	// (add) Token: 0x06000398 RID: 920 RVA: 0x0007999C File Offset: 0x00077B9C
+	// (remove) Token: 0x06000399 RID: 921 RVA: 0x000799D4 File Offset: 0x00077BD4
 	public event Action onPressBegin;
 
 	// Token: 0x1400000A RID: 10
-	// (add) Token: 0x06000368 RID: 872 RVA: 0x000157A4 File Offset: 0x000139A4
-	// (remove) Token: 0x06000369 RID: 873 RVA: 0x000157DC File Offset: 0x000139DC
+	// (add) Token: 0x0600039A RID: 922 RVA: 0x00079A0C File Offset: 0x00077C0C
+	// (remove) Token: 0x0600039B RID: 923 RVA: 0x00079A44 File Offset: 0x00077C44
 	public event Action onPressAbort;
 
-	// Token: 0x0600036A RID: 874 RVA: 0x00015814 File Offset: 0x00013A14
+	// Token: 0x0600039C RID: 924 RVA: 0x00079A7C File Offset: 0x00077C7C
 	private void Awake()
 	{
 		if (this.fillBar == null)
@@ -25,7 +25,7 @@ public class GorillaPressableDelayButton : GorillaPressableButton, IGorillaSlice
 		this.UpdateFillBar();
 	}
 
-	// Token: 0x0600036B RID: 875 RVA: 0x00015850 File Offset: 0x00013A50
+	// Token: 0x0600039D RID: 925 RVA: 0x00079AB8 File Offset: 0x00077CB8
 	private new void OnTriggerEnter(Collider collider)
 	{
 		if (!base.enabled)
@@ -55,7 +55,7 @@ public class GorillaPressableDelayButton : GorillaPressableButton, IGorillaSlice
 		action();
 	}
 
-	// Token: 0x0600036C RID: 876 RVA: 0x000158C0 File Offset: 0x00013AC0
+	// Token: 0x0600039E RID: 926 RVA: 0x00032C50 File Offset: 0x00030E50
 	private void OnTriggerExit(Collider other)
 	{
 		if (other != this.touching)
@@ -73,19 +73,19 @@ public class GorillaPressableDelayButton : GorillaPressableButton, IGorillaSlice
 		action();
 	}
 
-	// Token: 0x0600036D RID: 877 RVA: 0x000158F9 File Offset: 0x00013AF9
+	// Token: 0x0600039F RID: 927 RVA: 0x00032C89 File Offset: 0x00030E89
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x0600036E RID: 878 RVA: 0x00015902 File Offset: 0x00013B02
+	// Token: 0x060003A0 RID: 928 RVA: 0x00032C92 File Offset: 0x00030E92
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x0600036F RID: 879 RVA: 0x0001590C File Offset: 0x00013B0C
+	// Token: 0x060003A1 RID: 929 RVA: 0x00079B28 File Offset: 0x00077D28
 	public void SliceUpdate()
 	{
 		if (this.touching == null)
@@ -102,7 +102,7 @@ public class GorillaPressableDelayButton : GorillaPressableButton, IGorillaSlice
 		this.UpdateFillBar();
 	}
 
-	// Token: 0x06000370 RID: 880 RVA: 0x0001596C File Offset: 0x00013B6C
+	// Token: 0x060003A2 RID: 930 RVA: 0x00079B88 File Offset: 0x00077D88
 	public void SetFillBar(Transform newFillBar)
 	{
 		this.fillBar = newFillBar;
@@ -114,7 +114,7 @@ public class GorillaPressableDelayButton : GorillaPressableButton, IGorillaSlice
 		this.UpdateFillBar();
 	}
 
-	// Token: 0x06000371 RID: 881 RVA: 0x000159B0 File Offset: 0x00013BB0
+	// Token: 0x060003A3 RID: 931 RVA: 0x00079BCC File Offset: 0x00077DCC
 	private void UpdateFillBar()
 	{
 		if (this.fillBar == null)
@@ -126,30 +126,30 @@ public class GorillaPressableDelayButton : GorillaPressableButton, IGorillaSlice
 		this.fillBar.localScale = this.fillBarScale;
 	}
 
-	// Token: 0x06000373 RID: 883 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x060003A5 RID: 933 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x040003F4 RID: 1012
+	// Token: 0x04000428 RID: 1064
 	private Collider touching;
 
-	// Token: 0x040003F5 RID: 1013
+	// Token: 0x04000429 RID: 1065
 	private float timer;
 
-	// Token: 0x040003F6 RID: 1014
+	// Token: 0x0400042A RID: 1066
 	[SerializeField]
 	[Range(0.01f, 5f)]
 	public float delayTime = 1f;
 
-	// Token: 0x040003F7 RID: 1015
+	// Token: 0x0400042B RID: 1067
 	[SerializeField]
 	private Transform fillBar;
 
-	// Token: 0x040003F8 RID: 1016
+	// Token: 0x0400042C RID: 1068
 	private Vector3 fillbarStartingScale;
 
-	// Token: 0x040003F9 RID: 1017
+	// Token: 0x0400042D RID: 1069
 	private Vector3 fillBarScale;
 }

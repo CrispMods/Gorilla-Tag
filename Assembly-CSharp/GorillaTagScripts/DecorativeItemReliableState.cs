@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009AE RID: 2478
+	// Token: 0x020009D4 RID: 2516
 	public class DecorativeItemReliableState : MonoBehaviour, IPunObservable
 	{
-		// Token: 0x06003D5C RID: 15708 RVA: 0x00121BA8 File Offset: 0x0011FDA8
+		// Token: 0x06003E74 RID: 15988 RVA: 0x00163BA8 File Offset: 0x00161DA8
 		public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 		{
 			if (stream.IsWriting)
@@ -40,16 +40,16 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x04003EC0 RID: 16064
+		// Token: 0x04003F9A RID: 16282
 		public bool isSnapped;
 
-		// Token: 0x04003EC1 RID: 16065
+		// Token: 0x04003F9B RID: 16283
 		public Vector3 snapPosition = Vector3.zero;
 
-		// Token: 0x04003EC2 RID: 16066
+		// Token: 0x04003F9C RID: 16284
 		public Vector3 respawnPosition = Vector3.zero;
 
-		// Token: 0x04003EC3 RID: 16067
+		// Token: 0x04003F9D RID: 16285
 		public Quaternion respawnRotation = Quaternion.identity;
 	}
 }

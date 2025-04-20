@@ -6,11 +6,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-// Token: 0x020000CA RID: 202
+// Token: 0x020000D4 RID: 212
 public class SnowballThrowable : HoldableObject
 {
-	// Token: 0x17000067 RID: 103
-	// (get) Token: 0x0600053A RID: 1338 RVA: 0x0001F1A5 File Offset: 0x0001D3A5
+	// Token: 0x1700006C RID: 108
+	// (get) Token: 0x0600057A RID: 1402 RVA: 0x00034037 File Offset: 0x00032237
 	internal int ProjectileHash
 	{
 		get
@@ -19,7 +19,7 @@ public class SnowballThrowable : HoldableObject
 		}
 	}
 
-	// Token: 0x0600053B RID: 1339 RVA: 0x0001F1D4 File Offset: 0x0001D3D4
+	// Token: 0x0600057B RID: 1403 RVA: 0x00082320 File Offset: 0x00080520
 	protected virtual void Awake()
 	{
 		if (this.awakeHasBeenCalled)
@@ -42,13 +42,13 @@ public class SnowballThrowable : HoldableObject
 		}
 	}
 
-	// Token: 0x0600053C RID: 1340 RVA: 0x0001F2A8 File Offset: 0x0001D4A8
+	// Token: 0x0600057C RID: 1404 RVA: 0x00034064 File Offset: 0x00032264
 	public bool IsMine()
 	{
 		return this.targetRig != null && this.targetRig.isOfflineVRRig;
 	}
 
-	// Token: 0x0600053D RID: 1341 RVA: 0x0001F2C8 File Offset: 0x0001D4C8
+	// Token: 0x0600057D RID: 1405 RVA: 0x000823F4 File Offset: 0x000805F4
 	public virtual void OnEnable()
 	{
 		if (this.targetRig == null)
@@ -80,17 +80,17 @@ public class SnowballThrowable : HoldableObject
 		this.OnEnableHasBeenCalled = true;
 	}
 
-	// Token: 0x0600053E RID: 1342 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600057E RID: 1406 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void OnDisable()
 	{
 	}
 
-	// Token: 0x0600053F RID: 1343 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600057F RID: 1407 RVA: 0x00030607 File Offset: 0x0002E807
 	protected virtual void OnDestroy()
 	{
 	}
 
-	// Token: 0x06000540 RID: 1344 RVA: 0x0001F3D8 File Offset: 0x0001D5D8
+	// Token: 0x06000580 RID: 1408 RVA: 0x00082504 File Offset: 0x00080704
 	public void SetSnowballActiveLocal(bool enabled)
 	{
 		if (!this.awakeHasBeenCalled)
@@ -136,22 +136,22 @@ public class SnowballThrowable : HoldableObject
 		}
 	}
 
-	// Token: 0x06000541 RID: 1345 RVA: 0x0001F500 File Offset: 0x0001D700
+	// Token: 0x06000581 RID: 1409 RVA: 0x0008262C File Offset: 0x0008082C
 	private int GetRandomModelIndex()
 	{
 		if (this.localModels.Count == 0)
 		{
 			return -1;
 		}
-		this.randModelIndex = Random.Range(0, this.localModels.Count);
-		if ((float)Random.Range(1, 100) <= this.localModels[this.randModelIndex].weightedChance * 100f)
+		this.randModelIndex = UnityEngine.Random.Range(0, this.localModels.Count);
+		if ((float)UnityEngine.Random.Range(1, 100) <= this.localModels[this.randModelIndex].weightedChance * 100f)
 		{
 			return this.randModelIndex;
 		}
 		return this.GetRandomModelIndex();
 	}
 
-	// Token: 0x06000542 RID: 1346 RVA: 0x0001F568 File Offset: 0x0001D768
+	// Token: 0x06000582 RID: 1410 RVA: 0x00082694 File Offset: 0x00080894
 	private void EnableRandomModel(int index, bool enable)
 	{
 		if (this.randModelIndex >= 0 && this.randModelIndex < this.localModels.Count)
@@ -165,7 +165,7 @@ public class SnowballThrowable : HoldableObject
 		}
 	}
 
-	// Token: 0x06000543 RID: 1347 RVA: 0x0001F5DC File Offset: 0x0001D7DC
+	// Token: 0x06000583 RID: 1411 RVA: 0x00082708 File Offset: 0x00080908
 	protected virtual void LateUpdateLocal()
 	{
 		if (this.randomModelSelection && this.randModelIndex > -1 && this.localModels[this.randModelIndex].destroyAfterSeconds > 0f)
@@ -182,23 +182,23 @@ public class SnowballThrowable : HoldableObject
 		}
 	}
 
-	// Token: 0x06000544 RID: 1348 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000584 RID: 1412 RVA: 0x00030607 File Offset: 0x0002E807
 	protected void LateUpdateReplicated()
 	{
 	}
 
-	// Token: 0x06000545 RID: 1349 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000585 RID: 1413 RVA: 0x00030607 File Offset: 0x0002E807
 	protected void LateUpdateShared()
 	{
 	}
 
-	// Token: 0x06000546 RID: 1350 RVA: 0x0001F678 File Offset: 0x0001D878
+	// Token: 0x06000586 RID: 1414 RVA: 0x00034081 File Offset: 0x00032281
 	private Transform Anchor()
 	{
 		return base.transform.parent;
 	}
 
-	// Token: 0x06000547 RID: 1351 RVA: 0x0001F688 File Offset: 0x0001D888
+	// Token: 0x06000587 RID: 1415 RVA: 0x000827A4 File Offset: 0x000809A4
 	private void AnchorToHand()
 	{
 		BodyDockPositions myBodyDockPositions = this.targetRig.myBodyDockPositions;
@@ -215,7 +215,7 @@ public class SnowballThrowable : HoldableObject
 		transform.localRotation = Quaternion.identity;
 	}
 
-	// Token: 0x06000548 RID: 1352 RVA: 0x0001F6E0 File Offset: 0x0001D8E0
+	// Token: 0x06000588 RID: 1416 RVA: 0x0003408E File Offset: 0x0003228E
 	protected void LateUpdate()
 	{
 		if (this.IsMine())
@@ -229,7 +229,7 @@ public class SnowballThrowable : HoldableObject
 		this.LateUpdateShared();
 	}
 
-	// Token: 0x06000549 RID: 1353 RVA: 0x0001F6FE File Offset: 0x0001D8FE
+	// Token: 0x06000589 RID: 1417 RVA: 0x000340AC File Offset: 0x000322AC
 	public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		if (!base.OnRelease(zoneReleased, releasingHand))
@@ -240,13 +240,13 @@ public class SnowballThrowable : HoldableObject
 		return true;
 	}
 
-	// Token: 0x0600054A RID: 1354 RVA: 0x0001F713 File Offset: 0x0001D913
+	// Token: 0x0600058A RID: 1418 RVA: 0x000340C1 File Offset: 0x000322C1
 	protected virtual void OnSnowballRelease()
 	{
 		this.PerformSnowballThrowAuthority();
 	}
 
-	// Token: 0x0600054B RID: 1355 RVA: 0x0001F71C File Offset: 0x0001D91C
+	// Token: 0x0600058B RID: 1419 RVA: 0x000827FC File Offset: 0x000809FC
 	protected virtual void PerformSnowballThrowAuthority()
 	{
 		if (!(this.targetRig != null) || this.targetRig.creator == null || !this.targetRig.creator.IsLocal)
@@ -271,7 +271,7 @@ public class SnowballThrowable : HoldableObject
 		Transform transform = base.transform;
 		Vector3 position = transform.position;
 		float x = transform.lossyScale.x;
-		SlingshotProjectile slingshotProjectile = this.LaunchSnowballLocal(position, velocity, x);
+		SlingshotProjectile slingshotProjectile = this.LaunchSnowballLocal(position, velocity, x, this.randomizeColor, throwableProjectileColor);
 		this.SetSnowballActiveLocal(false);
 		if (this.randModelIndex > -1 && this.randModelIndex < this.localModels.Count && this.localModels[this.randModelIndex].destroyAfterRelease)
 		{
@@ -279,19 +279,16 @@ public class SnowballThrowable : HoldableObject
 		}
 		if (NetworkSystem.Instance.InRoom)
 		{
-			int projectileCount = ProjectileTracker.IncrementLocalPlayerProjectileCount();
-			slingshotProjectile.Launch(base.transform.position, velocity, NetworkSystem.Instance.LocalPlayer, false, false, projectileCount, x, this.randomizeColor, throwableProjectileColor);
-			RoomSystem.SendLaunchProjectile(position, velocity, this.isLeftHanded ? RoomSystem.ProjectileSource.LeftHand : RoomSystem.ProjectileSource.RightHand, projectileCount, this.randomizeColor, throwableProjectileColor.r, throwableProjectileColor.g, throwableProjectileColor.b, throwableProjectileColor.a);
-			return;
+			RoomSystem.SendLaunchProjectile(position, velocity, this.isLeftHanded ? RoomSystem.ProjectileSource.LeftHand : RoomSystem.ProjectileSource.RightHand, slingshotProjectile.myProjectileCount, this.randomizeColor, throwableProjectileColor.r, throwableProjectileColor.g, throwableProjectileColor.b, throwableProjectileColor.a);
 		}
-		slingshotProjectile.Launch(position, velocity, NetworkSystem.Instance.LocalPlayer, false, false, 0, x, this.randomizeColor, throwableProjectileColor);
 	}
 
-	// Token: 0x0600054C RID: 1356 RVA: 0x0001F8F0 File Offset: 0x0001DAF0
-	protected virtual SlingshotProjectile LaunchSnowballLocal(Vector3 location, Vector3 velocity, float scale)
+	// Token: 0x0600058C RID: 1420 RVA: 0x00082980 File Offset: 0x00080B80
+	protected virtual SlingshotProjectile LaunchSnowballLocal(Vector3 location, Vector3 velocity, float scale, bool randomColour, Color colour)
 	{
 		SlingshotProjectile component = ObjectPools.instance.Instantiate(this.randomModelSelection ? this.localModels[this.randModelIndex].projectilePrefab : this.projectilePrefab).GetComponent<SlingshotProjectile>();
-		component.Launch(location, velocity, NetworkSystem.Instance.LocalPlayer, false, false, 0, scale, false, Color.white);
+		int projectileCount = ProjectileTracker.AddAndIncrementLocalProjectile(component, velocity, location, scale);
+		component.Launch(location, velocity, NetworkSystem.Instance.LocalPlayer, false, false, projectileCount, scale, randomColour, colour);
 		if (string.IsNullOrEmpty(this.throwEventName))
 		{
 			PlayerGameEvents.LaunchedProjectile(this.projectilePrefab.name);
@@ -304,7 +301,13 @@ public class SnowballThrowable : HoldableObject
 		return component;
 	}
 
-	// Token: 0x0600054D RID: 1357 RVA: 0x0001F98C File Offset: 0x0001DB8C
+	// Token: 0x0600058D RID: 1421 RVA: 0x000340C9 File Offset: 0x000322C9
+	protected virtual SlingshotProjectile SpawnProjectile()
+	{
+		return ObjectPools.instance.Instantiate(this.randomModelSelection ? this.localModels[this.randModelIndex].projectilePrefab : this.projectilePrefab).GetComponent<SlingshotProjectile>();
+	}
+
+	// Token: 0x0600058E RID: 1422 RVA: 0x00082A24 File Offset: 0x00080C24
 	protected virtual void OnProjectileImpact(SlingshotProjectile projectile, Vector3 impactPos, NetPlayer hitPlayer)
 	{
 		if (hitPlayer != null)
@@ -317,7 +320,7 @@ public class SnowballThrowable : HoldableObject
 		}
 	}
 
-	// Token: 0x0600054E RID: 1358 RVA: 0x0001F9D8 File Offset: 0x0001DBD8
+	// Token: 0x0600058F RID: 1423 RVA: 0x00082A70 File Offset: 0x00080C70
 	private void ApplyColor(Color newColor)
 	{
 		foreach (Renderer renderer in this.renderers)
@@ -342,100 +345,100 @@ public class SnowballThrowable : HoldableObject
 		}
 	}
 
-	// Token: 0x0600054F RID: 1359 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000590 RID: 1424 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnHover(InteractionPoint pointHovered, GameObject hoveringHand)
 	{
 	}
 
-	// Token: 0x06000550 RID: 1360 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000591 RID: 1425 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 	{
 	}
 
-	// Token: 0x06000551 RID: 1361 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000592 RID: 1426 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void DropItemCleanup()
 	{
 	}
 
-	// Token: 0x06000552 RID: 1362 RVA: 0x0001FA65 File Offset: 0x0001DC65
+	// Token: 0x06000593 RID: 1427 RVA: 0x00034100 File Offset: 0x00032300
 	private void HandleOnGorillaHeadTriggerEntered(bool enable)
 	{
 		this.SetSnowballActiveLocal(enable);
 	}
 
-	// Token: 0x0400060C RID: 1548
+	// Token: 0x0400064D RID: 1613
 	[GorillaSoundLookup]
 	public List<int> matDataIndexes = new List<int>
 	{
 		32
 	};
 
-	// Token: 0x0400060D RID: 1549
+	// Token: 0x0400064E RID: 1614
 	public GameObject projectilePrefab;
 
-	// Token: 0x0400060E RID: 1550
+	// Token: 0x0400064F RID: 1615
 	[FormerlySerializedAs("shouldColorize")]
 	public bool randomizeColor;
 
-	// Token: 0x0400060F RID: 1551
+	// Token: 0x04000650 RID: 1616
 	public GTColor.HSVRanges randomColorHSVRanges = new GTColor.HSVRanges(0f, 1f, 0.7f, 1f, 1f, 1f);
 
-	// Token: 0x04000610 RID: 1552
+	// Token: 0x04000651 RID: 1617
 	public GorillaVelocityEstimator velocityEstimator;
 
-	// Token: 0x04000611 RID: 1553
+	// Token: 0x04000652 RID: 1618
 	public SoundBankPlayer pickupSoundBankPlayer;
 
-	// Token: 0x04000612 RID: 1554
+	// Token: 0x04000653 RID: 1619
 	public float linSpeedMultiplier = 1f;
 
-	// Token: 0x04000613 RID: 1555
+	// Token: 0x04000654 RID: 1620
 	public float maxLinSpeed = 12f;
 
-	// Token: 0x04000614 RID: 1556
+	// Token: 0x04000655 RID: 1621
 	public float maxWristSpeed = 4f;
 
-	// Token: 0x04000615 RID: 1557
+	// Token: 0x04000656 RID: 1622
 	public bool isLeftHanded;
 
-	// Token: 0x04000616 RID: 1558
+	// Token: 0x04000657 RID: 1623
 	[Tooltip("Check this part only if we want to randomize the prefab meshes and projectile")]
 	public bool randomModelSelection;
 
-	// Token: 0x04000617 RID: 1559
+	// Token: 0x04000658 RID: 1624
 	public List<BucketThrowable> localModels;
 
-	// Token: 0x04000618 RID: 1560
+	// Token: 0x04000659 RID: 1625
 	[Tooltip("This needs to match the index of the projectilePrefab in Body Dock Position")]
 	public int throwableMakerIndex;
 
-	// Token: 0x04000619 RID: 1561
+	// Token: 0x0400065A RID: 1626
 	public string throwEventName;
 
-	// Token: 0x0400061A RID: 1562
+	// Token: 0x0400065B RID: 1627
 	protected VRRig targetRig;
 
-	// Token: 0x0400061B RID: 1563
+	// Token: 0x0400065C RID: 1628
 	protected bool isOfflineRig;
 
-	// Token: 0x0400061C RID: 1564
+	// Token: 0x0400065D RID: 1629
 	private bool awakeHasBeenCalled;
 
-	// Token: 0x0400061D RID: 1565
+	// Token: 0x0400065E RID: 1630
 	private bool OnEnableHasBeenCalled;
 
-	// Token: 0x0400061E RID: 1566
+	// Token: 0x0400065F RID: 1631
 	private MaterialPropertyBlock matPropBlock;
 
-	// Token: 0x0400061F RID: 1567
+	// Token: 0x04000660 RID: 1632
 	private static readonly int colorShaderProp = Shader.PropertyToID("_Color");
 
-	// Token: 0x04000620 RID: 1568
+	// Token: 0x04000661 RID: 1633
 	private Renderer[] renderers;
 
-	// Token: 0x04000621 RID: 1569
+	// Token: 0x04000662 RID: 1634
 	protected int randModelIndex;
 
-	// Token: 0x04000622 RID: 1570
+	// Token: 0x04000663 RID: 1635
 	private float destroyTimer = -1f;
 }

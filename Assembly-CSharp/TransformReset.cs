@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003AD RID: 941
+// Token: 0x020003B8 RID: 952
 public class TransformReset : MonoBehaviour
 {
-	// Token: 0x060015F7 RID: 5623 RVA: 0x0006A0BC File Offset: 0x000682BC
+	// Token: 0x06001643 RID: 5699 RVA: 0x000C20A0 File Offset: 0x000C02A0
 	private void Awake()
 	{
 		Transform[] componentsInChildren = base.GetComponentsInChildren<Transform>();
@@ -16,7 +16,7 @@ public class TransformReset : MonoBehaviour
 		this.ResetTransforms();
 	}
 
-	// Token: 0x060015F8 RID: 5624 RVA: 0x0006A108 File Offset: 0x00068308
+	// Token: 0x06001644 RID: 5700 RVA: 0x000C20EC File Offset: 0x000C02EC
 	public void ReturnTransforms()
 	{
 		foreach (TransformReset.OriginalGameObjectTransform originalGameObjectTransform in this.tempTransformList)
@@ -26,7 +26,7 @@ public class TransformReset : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060015F9 RID: 5625 RVA: 0x0006A158 File Offset: 0x00068358
+	// Token: 0x06001645 RID: 5701 RVA: 0x000C213C File Offset: 0x000C033C
 	public void SetScale(float ratio)
 	{
 		foreach (TransformReset.OriginalGameObjectTransform originalGameObjectTransform in this.transformList)
@@ -35,7 +35,7 @@ public class TransformReset : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060015FA RID: 5626 RVA: 0x0006A19C File Offset: 0x0006839C
+	// Token: 0x06001646 RID: 5702 RVA: 0x000C2180 File Offset: 0x000C0380
 	public void ResetTransforms()
 	{
 		this.tempTransformList = new TransformReset.OriginalGameObjectTransform[this.transformList.Length];
@@ -50,16 +50,16 @@ public class TransformReset : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001834 RID: 6196
+	// Token: 0x0400187B RID: 6267
 	private TransformReset.OriginalGameObjectTransform[] transformList;
 
-	// Token: 0x04001835 RID: 6197
+	// Token: 0x0400187C RID: 6268
 	private TransformReset.OriginalGameObjectTransform[] tempTransformList;
 
-	// Token: 0x020003AE RID: 942
+	// Token: 0x020003B9 RID: 953
 	private struct OriginalGameObjectTransform
 	{
-		// Token: 0x060015FC RID: 5628 RVA: 0x0006A234 File Offset: 0x00068434
+		// Token: 0x06001648 RID: 5704 RVA: 0x0003F0B2 File Offset: 0x0003D2B2
 		public OriginalGameObjectTransform(Transform constructionTransform)
 		{
 			this._thisTransform = constructionTransform;
@@ -67,9 +67,9 @@ public class TransformReset : MonoBehaviour
 			this._thisRotation = constructionTransform.rotation;
 		}
 
-		// Token: 0x17000262 RID: 610
-		// (get) Token: 0x060015FD RID: 5629 RVA: 0x0006A255 File Offset: 0x00068455
-		// (set) Token: 0x060015FE RID: 5630 RVA: 0x0006A25D File Offset: 0x0006845D
+		// Token: 0x17000269 RID: 617
+		// (get) Token: 0x06001649 RID: 5705 RVA: 0x0003F0D3 File Offset: 0x0003D2D3
+		// (set) Token: 0x0600164A RID: 5706 RVA: 0x0003F0DB File Offset: 0x0003D2DB
 		public Transform thisTransform
 		{
 			get
@@ -82,9 +82,9 @@ public class TransformReset : MonoBehaviour
 			}
 		}
 
-		// Token: 0x17000263 RID: 611
-		// (get) Token: 0x060015FF RID: 5631 RVA: 0x0006A266 File Offset: 0x00068466
-		// (set) Token: 0x06001600 RID: 5632 RVA: 0x0006A26E File Offset: 0x0006846E
+		// Token: 0x1700026A RID: 618
+		// (get) Token: 0x0600164B RID: 5707 RVA: 0x0003F0E4 File Offset: 0x0003D2E4
+		// (set) Token: 0x0600164C RID: 5708 RVA: 0x0003F0EC File Offset: 0x0003D2EC
 		public Vector3 thisPosition
 		{
 			get
@@ -97,9 +97,9 @@ public class TransformReset : MonoBehaviour
 			}
 		}
 
-		// Token: 0x17000264 RID: 612
-		// (get) Token: 0x06001601 RID: 5633 RVA: 0x0006A277 File Offset: 0x00068477
-		// (set) Token: 0x06001602 RID: 5634 RVA: 0x0006A27F File Offset: 0x0006847F
+		// Token: 0x1700026B RID: 619
+		// (get) Token: 0x0600164D RID: 5709 RVA: 0x0003F0F5 File Offset: 0x0003D2F5
+		// (set) Token: 0x0600164E RID: 5710 RVA: 0x0003F0FD File Offset: 0x0003D2FD
 		public Quaternion thisRotation
 		{
 			get
@@ -112,13 +112,13 @@ public class TransformReset : MonoBehaviour
 			}
 		}
 
-		// Token: 0x04001836 RID: 6198
+		// Token: 0x0400187D RID: 6269
 		private Transform _thisTransform;
 
-		// Token: 0x04001837 RID: 6199
+		// Token: 0x0400187E RID: 6270
 		private Vector3 _thisPosition;
 
-		// Token: 0x04001838 RID: 6200
+		// Token: 0x0400187F RID: 6271
 		private Quaternion _thisRotation;
 	}
 }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020007D9 RID: 2009
+// Token: 0x020007F1 RID: 2033
 public class RigOwnedPhysicsBody : MonoBehaviour
 {
-	// Token: 0x060031CD RID: 12749 RVA: 0x000EFA60 File Offset: 0x000EDC60
+	// Token: 0x0600327F RID: 12927 RVA: 0x00137E78 File Offset: 0x00136078
 	private void Awake()
 	{
 		this.hasTransformView = (this.transformView != null);
@@ -29,7 +29,7 @@ public class RigOwnedPhysicsBody : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060031CE RID: 12750 RVA: 0x000EFAF0 File Offset: 0x000EDCF0
+	// Token: 0x06003280 RID: 12928 RVA: 0x00137F08 File Offset: 0x00136108
 	private void OnEnable()
 	{
 		if (!base.gameObject.activeInHierarchy)
@@ -62,7 +62,7 @@ public class RigOwnedPhysicsBody : MonoBehaviour
 		this.OnNetDisconnect();
 	}
 
-	// Token: 0x060031CF RID: 12751 RVA: 0x000EFBB4 File Offset: 0x000EDDB4
+	// Token: 0x06003281 RID: 12929 RVA: 0x00137FCC File Offset: 0x001361CC
 	private void OnDisable()
 	{
 		NetworkSystem.Instance.OnJoinedRoomEvent -= this.OnNetConnect;
@@ -81,7 +81,7 @@ public class RigOwnedPhysicsBody : MonoBehaviour
 		this.OnNetDisconnect();
 	}
 
-	// Token: 0x060031D0 RID: 12752 RVA: 0x000EFC30 File Offset: 0x000EDE30
+	// Token: 0x06003282 RID: 12930 RVA: 0x00138048 File Offset: 0x00136248
 	private void OnNetConnect()
 	{
 		if (this.hasTransformView)
@@ -128,7 +128,7 @@ public class RigOwnedPhysicsBody : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060031D1 RID: 12753 RVA: 0x000EFD48 File Offset: 0x000EDF48
+	// Token: 0x06003283 RID: 12931 RVA: 0x00138160 File Offset: 0x00136360
 	private void OnNetDisconnect()
 	{
 		if (ApplicationQuittingState.IsQuitting)
@@ -167,28 +167,28 @@ public class RigOwnedPhysicsBody : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400355D RID: 13661
+	// Token: 0x04003607 RID: 13831
 	private VRRig rig;
 
-	// Token: 0x0400355E RID: 13662
+	// Token: 0x04003608 RID: 13832
 	public RigOwnedTransformView transformView;
 
-	// Token: 0x0400355F RID: 13663
+	// Token: 0x04003609 RID: 13833
 	private bool hasTransformView;
 
-	// Token: 0x04003560 RID: 13664
+	// Token: 0x0400360A RID: 13834
 	public RigOwnedRigidbodyView rigidbodyView;
 
-	// Token: 0x04003561 RID: 13665
+	// Token: 0x0400360B RID: 13835
 	private bool hasRigidbodyView;
 
-	// Token: 0x04003562 RID: 13666
+	// Token: 0x0400360C RID: 13836
 	public MonoBehaviourPun[] otherComponents;
 
-	// Token: 0x04003563 RID: 13667
+	// Token: 0x0400360D RID: 13837
 	private bool hasRig;
 
-	// Token: 0x04003564 RID: 13668
+	// Token: 0x0400360E RID: 13838
 	[Tooltip("To make a rigidbody unaffected by the movement of the holdable part, put this script on the holdable, make the RigOwnedRigidbodyView a child of it, and check this box")]
 	[SerializeField]
 	private bool detachTransform;

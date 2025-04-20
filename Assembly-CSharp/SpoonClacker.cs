@@ -3,16 +3,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-// Token: 0x02000639 RID: 1593
+// Token: 0x02000618 RID: 1560
 public class SpoonClacker : MonoBehaviour
 {
-	// Token: 0x06002796 RID: 10134 RVA: 0x000C1A7E File Offset: 0x000BFC7E
+	// Token: 0x060026C1 RID: 9921 RVA: 0x0004A72F File Offset: 0x0004892F
 	private void Awake()
 	{
 		this.Setup();
 	}
 
-	// Token: 0x06002797 RID: 10135 RVA: 0x000C1A88 File Offset: 0x000BFC88
+	// Token: 0x060026C2 RID: 9922 RVA: 0x00109234 File Offset: 0x00107434
 	private void Setup()
 	{
 		JointLimits limits = this.hingeJoint.limits;
@@ -20,7 +20,7 @@ public class SpoonClacker : MonoBehaviour
 		this.hingeMax = limits.max;
 	}
 
-	// Token: 0x06002798 RID: 10136 RVA: 0x000C1ABC File Offset: 0x000BFCBC
+	// Token: 0x060026C3 RID: 9923 RVA: 0x00109268 File Offset: 0x00107468
 	private void Update()
 	{
 		if (!this.transferObject)
@@ -63,58 +63,58 @@ public class SpoonClacker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002B54 RID: 11092
+	// Token: 0x04002ABA RID: 10938
 	public TransferrableObject transferObject;
 
-	// Token: 0x04002B55 RID: 11093
+	// Token: 0x04002ABB RID: 10939
 	public SkinnedMeshRenderer skinnedMesh;
 
-	// Token: 0x04002B56 RID: 11094
+	// Token: 0x04002ABC RID: 10940
 	public HingeJoint hingeJoint;
 
-	// Token: 0x04002B57 RID: 11095
+	// Token: 0x04002ABD RID: 10941
 	public int targetBlendShape;
 
-	// Token: 0x04002B58 RID: 11096
+	// Token: 0x04002ABE RID: 10942
 	public float hingeMin;
 
-	// Token: 0x04002B59 RID: 11097
+	// Token: 0x04002ABF RID: 10943
 	public float hingeMax;
 
-	// Token: 0x04002B5A RID: 11098
+	// Token: 0x04002AC0 RID: 10944
 	public bool invertOut;
 
-	// Token: 0x04002B5B RID: 11099
+	// Token: 0x04002AC1 RID: 10945
 	public float minThreshold = 0.01f;
 
-	// Token: 0x04002B5C RID: 11100
+	// Token: 0x04002AC2 RID: 10946
 	public float maxThreshold = 0.01f;
 
-	// Token: 0x04002B5D RID: 11101
+	// Token: 0x04002AC3 RID: 10947
 	public float hysterisisFactor = 4f;
 
-	// Token: 0x04002B5E RID: 11102
+	// Token: 0x04002AC4 RID: 10948
 	public UnityEvent OnHitMin;
 
-	// Token: 0x04002B5F RID: 11103
+	// Token: 0x04002AC5 RID: 10949
 	public UnityEvent OnHitMax;
 
-	// Token: 0x04002B60 RID: 11104
+	// Token: 0x04002AC6 RID: 10950
 	private bool _lockMin;
 
-	// Token: 0x04002B61 RID: 11105
+	// Token: 0x04002AC7 RID: 10951
 	private bool _lockMax;
 
-	// Token: 0x04002B62 RID: 11106
+	// Token: 0x04002AC8 RID: 10952
 	public SoundBankPlayer soundsSingle;
 
-	// Token: 0x04002B63 RID: 11107
+	// Token: 0x04002AC9 RID: 10953
 	public SoundBankPlayer soundsMulti;
 
-	// Token: 0x04002B64 RID: 11108
+	// Token: 0x04002ACA RID: 10954
 	private TimeSince _sincelastHit;
 
-	// Token: 0x04002B65 RID: 11109
+	// Token: 0x04002ACB RID: 10955
 	[FormerlySerializedAs("multiHitInterval")]
 	public float multiHitCutoff = 0.1f;
 }

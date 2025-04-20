@@ -8,10 +8,10 @@ using UnityEngine.XR;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C22 RID: 3106
+	// Token: 0x02000C50 RID: 3152
 	public class RCDragon : RCVehicle
 	{
-		// Token: 0x06004D6B RID: 19819 RVA: 0x0017A140 File Offset: 0x00178340
+		// Token: 0x06004EBC RID: 20156 RVA: 0x001B29C0 File Offset: 0x001B0BC0
 		protected override void AuthorityBeginDocked()
 		{
 			base.AuthorityBeginDocked();
@@ -24,7 +24,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D6C RID: 19820 RVA: 0x0017A1B0 File Offset: 0x001783B0
+		// Token: 0x06004EBD RID: 20157 RVA: 0x001B2A30 File Offset: 0x001B0C30
 		protected override void Awake()
 		{
 			base.Awake();
@@ -45,14 +45,14 @@ namespace GorillaTag.Cosmetics
 			this.nextFlapEventAnimTime = this.flapAnimEventTime;
 		}
 
-		// Token: 0x06004D6D RID: 19821 RVA: 0x0017A2A3 File Offset: 0x001784A3
+		// Token: 0x06004EBE RID: 20158 RVA: 0x00063781 File Offset: 0x00061981
 		protected override void OnDisable()
 		{
 			base.OnDisable();
 			this.audioSource.GTStop();
 		}
 
-		// Token: 0x06004D6E RID: 19822 RVA: 0x0017A2B8 File Offset: 0x001784B8
+		// Token: 0x06004EBF RID: 20159 RVA: 0x001B2B24 File Offset: 0x001B0D24
 		public void StartBreathFire()
 		{
 			if (!string.IsNullOrEmpty(this.mouthBreathFireAnimName))
@@ -67,7 +67,7 @@ namespace GorillaTag.Cosmetics
 			this.fireBreathTimeRemaining = this.fireBreathDuration;
 		}
 
-		// Token: 0x06004D6F RID: 19823 RVA: 0x0017A320 File Offset: 0x00178520
+		// Token: 0x06004EC0 RID: 20160 RVA: 0x001B2B8C File Offset: 0x001B0D8C
 		public void StopBreathFire()
 		{
 			if (!string.IsNullOrEmpty(this.mouthClosedAnimName))
@@ -81,23 +81,23 @@ namespace GorillaTag.Cosmetics
 			this.fireBreathTimeRemaining = -1f;
 		}
 
-		// Token: 0x06004D70 RID: 19824 RVA: 0x0017A375 File Offset: 0x00178575
+		// Token: 0x06004EC1 RID: 20161 RVA: 0x00063794 File Offset: 0x00061994
 		public bool IsBreathingFire()
 		{
 			return this.fireBreathTimeRemaining >= 0f;
 		}
 
-		// Token: 0x06004D71 RID: 19825 RVA: 0x0017A387 File Offset: 0x00178587
+		// Token: 0x06004EC2 RID: 20162 RVA: 0x000637A6 File Offset: 0x000619A6
 		private void PlayRandomSound(List<AudioClip> clips, float volume)
 		{
 			if (clips == null || clips.Count == 0)
 			{
 				return;
 			}
-			this.PlaySound(clips[Random.Range(0, clips.Count)], volume);
+			this.PlaySound(clips[UnityEngine.Random.Range(0, clips.Count)], volume);
 		}
 
-		// Token: 0x06004D72 RID: 19826 RVA: 0x0017A3B0 File Offset: 0x001785B0
+		// Token: 0x06004EC3 RID: 20163 RVA: 0x001B2BE4 File Offset: 0x001B0DE4
 		private void PlaySound(AudioClip clip, float volume)
 		{
 			if (this.audioSource == null || clip == null)
@@ -111,7 +111,7 @@ namespace GorillaTag.Cosmetics
 			this.audioSource.GTPlayOneShot(clip, 1f);
 		}
 
-		// Token: 0x06004D73 RID: 19827 RVA: 0x0017A418 File Offset: 0x00178618
+		// Token: 0x06004EC4 RID: 20164 RVA: 0x001B2C4C File Offset: 0x001B0E4C
 		protected override void AuthorityUpdate(float dt)
 		{
 			base.AuthorityUpdate(dt);
@@ -132,7 +132,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D74 RID: 19828 RVA: 0x0017A514 File Offset: 0x00178714
+		// Token: 0x06004EC5 RID: 20165 RVA: 0x001B2D48 File Offset: 0x001B0F48
 		protected override void RemoteUpdate(float dt)
 		{
 			base.RemoteUpdate(dt);
@@ -147,7 +147,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D75 RID: 19829 RVA: 0x0017A59C File Offset: 0x0017879C
+		// Token: 0x06004EC6 RID: 20166 RVA: 0x001B2DD0 File Offset: 0x001B0FD0
 		protected override void SharedUpdate(float dt)
 		{
 			base.SharedUpdate(dt);
@@ -240,7 +240,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D76 RID: 19830 RVA: 0x0017A838 File Offset: 0x00178A38
+		// Token: 0x06004EC7 RID: 20167 RVA: 0x001B306C File Offset: 0x001B126C
 		private void FixedUpdate()
 		{
 			if (!base.HasLocalAuthority)
@@ -297,7 +297,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D77 RID: 19831 RVA: 0x0017AB1C File Offset: 0x00178D1C
+		// Token: 0x06004EC8 RID: 20168 RVA: 0x001B2478 File Offset: 0x001B0678
 		private void OnTriggerEnter(Collider other)
 		{
 			bool flag = other.gameObject.IsOnLayer(UnityLayer.GorillaThrowable);
@@ -341,171 +341,171 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x04005019 RID: 20505
+		// Token: 0x0400510F RID: 20751
 		[SerializeField]
 		private float maxAscendSpeed = 6f;
 
-		// Token: 0x0400501A RID: 20506
+		// Token: 0x04005110 RID: 20752
 		[SerializeField]
 		private float ascendAccelTime = 3f;
 
-		// Token: 0x0400501B RID: 20507
+		// Token: 0x04005111 RID: 20753
 		[SerializeField]
 		private float ascendWhileFlyingAccelBoost;
 
-		// Token: 0x0400501C RID: 20508
+		// Token: 0x04005112 RID: 20754
 		[SerializeField]
 		private float gravityCompensation = 0.9f;
 
-		// Token: 0x0400501D RID: 20509
+		// Token: 0x04005113 RID: 20755
 		[SerializeField]
 		private float crashedGravityCompensation = 0.5f;
 
-		// Token: 0x0400501E RID: 20510
+		// Token: 0x04005114 RID: 20756
 		[SerializeField]
 		private float maxTurnRate = 90f;
 
-		// Token: 0x0400501F RID: 20511
+		// Token: 0x04005115 RID: 20757
 		[SerializeField]
 		private float turnAccelTime = 0.75f;
 
-		// Token: 0x04005020 RID: 20512
+		// Token: 0x04005116 RID: 20758
 		[SerializeField]
 		private float maxHorizontalSpeed = 6f;
 
-		// Token: 0x04005021 RID: 20513
+		// Token: 0x04005117 RID: 20759
 		[SerializeField]
 		private float horizontalAccelTime = 2f;
 
-		// Token: 0x04005022 RID: 20514
+		// Token: 0x04005118 RID: 20760
 		[SerializeField]
 		private float maxHorizontalTiltAngle = 45f;
 
-		// Token: 0x04005023 RID: 20515
+		// Token: 0x04005119 RID: 20761
 		[SerializeField]
 		private float horizontalTiltTime = 2f;
 
-		// Token: 0x04005024 RID: 20516
+		// Token: 0x0400511A RID: 20762
 		[SerializeField]
 		private Vector2 motorSoundVolumeMinMax = new Vector2(0.1f, 0.8f);
 
-		// Token: 0x04005025 RID: 20517
+		// Token: 0x0400511B RID: 20763
 		[SerializeField]
 		private float crashSoundVolume = 0.1f;
 
-		// Token: 0x04005026 RID: 20518
+		// Token: 0x0400511C RID: 20764
 		[SerializeField]
 		private float breathFireVolume = 0.5f;
 
-		// Token: 0x04005027 RID: 20519
+		// Token: 0x0400511D RID: 20765
 		[SerializeField]
 		private float wingFlapVolume = 0.1f;
 
-		// Token: 0x04005028 RID: 20520
+		// Token: 0x0400511E RID: 20766
 		[SerializeField]
 		private Animation animation;
 
-		// Token: 0x04005029 RID: 20521
+		// Token: 0x0400511F RID: 20767
 		[SerializeField]
 		private string wingFlapAnimName;
 
-		// Token: 0x0400502A RID: 20522
+		// Token: 0x04005120 RID: 20768
 		[SerializeField]
 		private float wingFlapAnimSpeed = 1f;
 
-		// Token: 0x0400502B RID: 20523
+		// Token: 0x04005121 RID: 20769
 		[SerializeField]
 		private string dockedAnimName;
 
-		// Token: 0x0400502C RID: 20524
+		// Token: 0x04005122 RID: 20770
 		[SerializeField]
 		private string idleAnimName;
 
-		// Token: 0x0400502D RID: 20525
+		// Token: 0x04005123 RID: 20771
 		[SerializeField]
 		private string crashAnimName;
 
-		// Token: 0x0400502E RID: 20526
+		// Token: 0x04005124 RID: 20772
 		[SerializeField]
 		private float crashAnimSpeed = 1f;
 
-		// Token: 0x0400502F RID: 20527
+		// Token: 0x04005125 RID: 20773
 		[SerializeField]
 		private string mouthClosedAnimName;
 
-		// Token: 0x04005030 RID: 20528
+		// Token: 0x04005126 RID: 20774
 		[SerializeField]
 		private string mouthBreathFireAnimName;
 
-		// Token: 0x04005031 RID: 20529
+		// Token: 0x04005127 RID: 20775
 		private bool shouldFlap;
 
-		// Token: 0x04005032 RID: 20530
+		// Token: 0x04005128 RID: 20776
 		private bool isFlapping;
 
-		// Token: 0x04005033 RID: 20531
+		// Token: 0x04005129 RID: 20777
 		private float nextFlapEventAnimTime;
 
-		// Token: 0x04005034 RID: 20532
+		// Token: 0x0400512A RID: 20778
 		[SerializeField]
 		private float flapAnimEventTime = 0.25f;
 
-		// Token: 0x04005035 RID: 20533
+		// Token: 0x0400512B RID: 20779
 		[SerializeField]
 		private GameObject fireBreath;
 
-		// Token: 0x04005036 RID: 20534
+		// Token: 0x0400512C RID: 20780
 		[SerializeField]
 		private float fireBreathDuration;
 
-		// Token: 0x04005037 RID: 20535
+		// Token: 0x0400512D RID: 20781
 		private float fireBreathTimeRemaining;
 
-		// Token: 0x04005038 RID: 20536
+		// Token: 0x0400512E RID: 20782
 		[SerializeField]
 		private Collider crashCollider;
 
-		// Token: 0x04005039 RID: 20537
+		// Token: 0x0400512F RID: 20783
 		[SerializeField]
 		private AudioSource audioSource;
 
-		// Token: 0x0400503A RID: 20538
+		// Token: 0x04005130 RID: 20784
 		[SerializeField]
 		private List<AudioClip> breathFireSound;
 
-		// Token: 0x0400503B RID: 20539
+		// Token: 0x04005131 RID: 20785
 		[SerializeField]
 		private List<AudioClip> wingFlapSound;
 
-		// Token: 0x0400503C RID: 20540
+		// Token: 0x04005132 RID: 20786
 		[SerializeField]
 		private AudioClip crashSound;
 
-		// Token: 0x0400503D RID: 20541
+		// Token: 0x04005133 RID: 20787
 		private float turnRate;
 
-		// Token: 0x0400503E RID: 20542
+		// Token: 0x04005134 RID: 20788
 		private float turnAngle;
 
-		// Token: 0x0400503F RID: 20543
+		// Token: 0x04005135 RID: 20789
 		private float tiltAngle;
 
-		// Token: 0x04005040 RID: 20544
+		// Token: 0x04005136 RID: 20790
 		private float ascendAccel;
 
-		// Token: 0x04005041 RID: 20545
+		// Token: 0x04005137 RID: 20791
 		private float turnAccel;
 
-		// Token: 0x04005042 RID: 20546
+		// Token: 0x04005138 RID: 20792
 		private float tiltAccel;
 
-		// Token: 0x04005043 RID: 20547
+		// Token: 0x04005139 RID: 20793
 		private float horizontalAccel;
 
-		// Token: 0x04005044 RID: 20548
+		// Token: 0x0400513A RID: 20794
 		private float motorVolumeRampTime = 1f;
 
-		// Token: 0x04005045 RID: 20549
+		// Token: 0x0400513B RID: 20795
 		private float motorLevel;
 	}
 }

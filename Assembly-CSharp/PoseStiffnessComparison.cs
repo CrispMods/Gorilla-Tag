@@ -7,7 +7,7 @@ using UnityEngine;
 // Token: 0x02000011 RID: 17
 public class PoseStiffnessComparison : MonoBehaviour
 {
-	// Token: 0x06000044 RID: 68 RVA: 0x00002AC8 File Offset: 0x00000CC8
+	// Token: 0x06000044 RID: 68 RVA: 0x000307CD File Offset: 0x0002E9CD
 	private void Start()
 	{
 		this.m_timer = 0f;
@@ -15,7 +15,7 @@ public class PoseStiffnessComparison : MonoBehaviour
 		this.m_yB = this.BonesB.position.y;
 	}
 
-	// Token: 0x06000045 RID: 69 RVA: 0x00002B04 File Offset: 0x00000D04
+	// Token: 0x06000045 RID: 69 RVA: 0x00067F40 File Offset: 0x00066140
 	private void FixedUpdate()
 	{
 		BoingBones[] components = this.BonesA.GetComponents<BoingBones>();

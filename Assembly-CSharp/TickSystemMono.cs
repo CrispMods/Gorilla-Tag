@@ -1,47 +1,47 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000811 RID: 2065
+// Token: 0x0200082B RID: 2091
 internal abstract class TickSystemMono : MonoBehaviour, ITickSystem, ITickSystemPre, ITickSystemTick, ITickSystemPost
 {
-	// Token: 0x17000543 RID: 1347
-	// (get) Token: 0x060032C4 RID: 12996 RVA: 0x000F39BB File Offset: 0x000F1BBB
-	// (set) Token: 0x060032C5 RID: 12997 RVA: 0x000F39C3 File Offset: 0x000F1BC3
+	// Token: 0x17000551 RID: 1361
+	// (get) Token: 0x0600337F RID: 13183 RVA: 0x00051F09 File Offset: 0x00050109
+	// (set) Token: 0x06003380 RID: 13184 RVA: 0x00051F11 File Offset: 0x00050111
 	public bool PreTickRunning { get; set; }
 
-	// Token: 0x17000544 RID: 1348
-	// (get) Token: 0x060032C6 RID: 12998 RVA: 0x000F39CC File Offset: 0x000F1BCC
-	// (set) Token: 0x060032C7 RID: 12999 RVA: 0x000F39D4 File Offset: 0x000F1BD4
+	// Token: 0x17000552 RID: 1362
+	// (get) Token: 0x06003381 RID: 13185 RVA: 0x00051F1A File Offset: 0x0005011A
+	// (set) Token: 0x06003382 RID: 13186 RVA: 0x00051F22 File Offset: 0x00050122
 	public bool TickRunning { get; set; }
 
-	// Token: 0x17000545 RID: 1349
-	// (get) Token: 0x060032C8 RID: 13000 RVA: 0x000F39DD File Offset: 0x000F1BDD
-	// (set) Token: 0x060032C9 RID: 13001 RVA: 0x000F39E5 File Offset: 0x000F1BE5
+	// Token: 0x17000553 RID: 1363
+	// (get) Token: 0x06003383 RID: 13187 RVA: 0x00051F2B File Offset: 0x0005012B
+	// (set) Token: 0x06003384 RID: 13188 RVA: 0x00051F33 File Offset: 0x00050133
 	public bool PostTickRunning { get; set; }
 
-	// Token: 0x060032CA RID: 13002 RVA: 0x000F39EE File Offset: 0x000F1BEE
+	// Token: 0x06003385 RID: 13189 RVA: 0x00051F3C File Offset: 0x0005013C
 	public virtual void OnEnable()
 	{
 		TickSystem<object>.AddTickSystemCallBack(this);
 	}
 
-	// Token: 0x060032CB RID: 13003 RVA: 0x000F39F6 File Offset: 0x000F1BF6
+	// Token: 0x06003386 RID: 13190 RVA: 0x00051F44 File Offset: 0x00050144
 	public virtual void OnDisable()
 	{
 		TickSystem<object>.RemoveTickSystemCallback(this);
 	}
 
-	// Token: 0x060032CC RID: 13004 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003387 RID: 13191 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void PreTick()
 	{
 	}
 
-	// Token: 0x060032CD RID: 13005 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003388 RID: 13192 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void Tick()
 	{
 	}
 
-	// Token: 0x060032CE RID: 13006 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003389 RID: 13193 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void PostTick()
 	{
 	}

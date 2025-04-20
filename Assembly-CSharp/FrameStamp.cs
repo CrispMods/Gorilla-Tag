@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006AE RID: 1710
+// Token: 0x020006C3 RID: 1731
 [Serializable]
 public struct FrameStamp
 {
-	// Token: 0x17000481 RID: 1153
-	// (get) Token: 0x06002A6E RID: 10862 RVA: 0x000D36B1 File Offset: 0x000D18B1
+	// Token: 0x1700048E RID: 1166
+	// (get) Token: 0x06002B04 RID: 11012 RVA: 0x0004CFB8 File Offset: 0x0004B1B8
 	public int framesElapsed
 	{
 		get
@@ -15,7 +15,7 @@ public struct FrameStamp
 		}
 	}
 
-	// Token: 0x06002A6F RID: 10863 RVA: 0x000D36C0 File Offset: 0x000D18C0
+	// Token: 0x06002B05 RID: 11013 RVA: 0x0011FB18 File Offset: 0x0011DD18
 	public static FrameStamp Now()
 	{
 		return new FrameStamp
@@ -24,25 +24,25 @@ public struct FrameStamp
 		};
 	}
 
-	// Token: 0x06002A70 RID: 10864 RVA: 0x000D36E2 File Offset: 0x000D18E2
+	// Token: 0x06002B06 RID: 11014 RVA: 0x0004CFC6 File Offset: 0x0004B1C6
 	public override string ToString()
 	{
 		return string.Format("{0} frames elapsed", this.framesElapsed);
 	}
 
-	// Token: 0x06002A71 RID: 10865 RVA: 0x000D36F9 File Offset: 0x000D18F9
+	// Token: 0x06002B07 RID: 11015 RVA: 0x0004CFDD File Offset: 0x0004B1DD
 	public override int GetHashCode()
 	{
 		return StaticHash.Compute(this._lastFrame);
 	}
 
-	// Token: 0x06002A72 RID: 10866 RVA: 0x000D3706 File Offset: 0x000D1906
+	// Token: 0x06002B08 RID: 11016 RVA: 0x0004CFEA File Offset: 0x0004B1EA
 	public static implicit operator int(FrameStamp fs)
 	{
 		return fs.framesElapsed;
 	}
 
-	// Token: 0x06002A73 RID: 10867 RVA: 0x000D3710 File Offset: 0x000D1910
+	// Token: 0x06002B09 RID: 11017 RVA: 0x0011FB3C File Offset: 0x0011DD3C
 	public static implicit operator FrameStamp(int framesElapsed)
 	{
 		return new FrameStamp
@@ -51,6 +51,6 @@ public struct FrameStamp
 		};
 	}
 
-	// Token: 0x04002FDC RID: 12252
+	// Token: 0x04003079 RID: 12409
 	private int _lastFrame;
 }

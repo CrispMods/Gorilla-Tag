@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x0200030E RID: 782
+// Token: 0x02000319 RID: 793
 public class FlashlightController : MonoBehaviour
 {
-	// Token: 0x0600129C RID: 4764 RVA: 0x00059344 File Offset: 0x00057544
+	// Token: 0x060012E8 RID: 4840 RVA: 0x000B3528 File Offset: 0x000B1728
 	private void Start()
 	{
 		this.localRotation = this.flashlightRoot.localRotation;
@@ -26,7 +26,7 @@ public class FlashlightController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600129D RID: 4765 RVA: 0x0005940C File Offset: 0x0005760C
+	// Token: 0x060012E9 RID: 4841 RVA: 0x000B35F0 File Offset: 0x000B17F0
 	private void LateUpdate()
 	{
 		if (!this.externalController)
@@ -59,12 +59,12 @@ public class FlashlightController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600129E RID: 4766 RVA: 0x000594DC File Offset: 0x000576DC
+	// Token: 0x060012EA RID: 4842 RVA: 0x000B36C0 File Offset: 0x000B18C0
 	private void FindHands()
 	{
 		if (this.skeletons[0] == null || this.skeletons[1] == null)
 		{
-			OVRSkeleton[] array = Object.FindObjectsOfType<OVRSkeleton>();
+			OVRSkeleton[] array = UnityEngine.Object.FindObjectsOfType<OVRSkeleton>();
 			if (array[0])
 			{
 				this.skeletons[0] = array[0];
@@ -93,7 +93,7 @@ public class FlashlightController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600129F RID: 4767 RVA: 0x000595AC File Offset: 0x000577AC
+	// Token: 0x060012EB RID: 4843 RVA: 0x000B3790 File Offset: 0x000B1990
 	private void AlignWithHand(OVRHand hand, OVRSkeleton skeleton)
 	{
 		if (this.pinching)
@@ -115,7 +115,7 @@ public class FlashlightController : MonoBehaviour
 		this.flashlightRoot.rotation = Quaternion.LookRotation(skeleton.Bones[6].Transform.position - skeleton.Bones[0].Transform.position);
 	}
 
-	// Token: 0x060012A0 RID: 4768 RVA: 0x00059664 File Offset: 0x00057864
+	// Token: 0x060012EC RID: 4844 RVA: 0x000B3848 File Offset: 0x000B1A48
 	private void AlignWithController(OVRInput.Controller controller)
 	{
 		base.transform.position = OVRInput.GetLocalControllerPosition(controller);
@@ -124,7 +124,7 @@ public class FlashlightController : MonoBehaviour
 		this.flashlightRoot.localPosition = this.localPosition;
 	}
 
-	// Token: 0x060012A1 RID: 4769 RVA: 0x000596B8 File Offset: 0x000578B8
+	// Token: 0x060012ED RID: 4845 RVA: 0x000B389C File Offset: 0x000B1A9C
 	public void Grab(OVRInput.Controller grabHand)
 	{
 		if (base.GetComponent<Flashlight>())
@@ -135,7 +135,7 @@ public class FlashlightController : MonoBehaviour
 		base.StartCoroutine(this.FadeLighting(new Color(0f, 0f, 0f, 0.95f), 0f, 0.25f));
 	}
 
-	// Token: 0x060012A2 RID: 4770 RVA: 0x00059714 File Offset: 0x00057914
+	// Token: 0x060012EE RID: 4846 RVA: 0x0003CF4D File Offset: 0x0003B14D
 	public void Release()
 	{
 		if (base.GetComponent<Flashlight>())
@@ -146,7 +146,7 @@ public class FlashlightController : MonoBehaviour
 		base.StartCoroutine(this.FadeLighting(Color.clear, 1f, 0.25f));
 	}
 
-	// Token: 0x060012A3 RID: 4771 RVA: 0x00059751 File Offset: 0x00057951
+	// Token: 0x060012EF RID: 4847 RVA: 0x0003CF8A File Offset: 0x0003B18A
 	private IEnumerator FadeLighting(Color newColor, float sceneLightIntensity, float fadeTime)
 	{
 		float timer = 0f;
@@ -166,33 +166,33 @@ public class FlashlightController : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04001487 RID: 5255
+	// Token: 0x040014CF RID: 5327
 	public Light sceneLight;
 
-	// Token: 0x04001488 RID: 5256
+	// Token: 0x040014D0 RID: 5328
 	public Transform flashlightRoot;
 
-	// Token: 0x04001489 RID: 5257
+	// Token: 0x040014D1 RID: 5329
 	private Vector3 localPosition = Vector3.zero;
 
-	// Token: 0x0400148A RID: 5258
+	// Token: 0x040014D2 RID: 5330
 	private Quaternion localRotation = Quaternion.identity;
 
-	// Token: 0x0400148B RID: 5259
+	// Token: 0x040014D3 RID: 5331
 	public TextMesh infoText;
 
-	// Token: 0x0400148C RID: 5260
+	// Token: 0x040014D4 RID: 5332
 	private GrabObject externalController;
 
-	// Token: 0x0400148D RID: 5261
+	// Token: 0x040014D5 RID: 5333
 	private OVRSkeleton[] skeletons;
 
-	// Token: 0x0400148E RID: 5262
+	// Token: 0x040014D6 RID: 5334
 	private OVRHand[] hands;
 
-	// Token: 0x0400148F RID: 5263
+	// Token: 0x040014D7 RID: 5335
 	private int handIndex = -1;
 
-	// Token: 0x04001490 RID: 5264
+	// Token: 0x040014D8 RID: 5336
 	private bool pinching;
 }

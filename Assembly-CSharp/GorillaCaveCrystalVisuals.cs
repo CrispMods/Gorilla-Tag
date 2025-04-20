@@ -2,12 +2,12 @@
 using GorillaTagScripts;
 using UnityEngine;
 
-// Token: 0x02000550 RID: 1360
+// Token: 0x0200055E RID: 1374
 public class GorillaCaveCrystalVisuals : MonoBehaviour
 {
-	// Token: 0x1700036C RID: 876
-	// (get) Token: 0x06002147 RID: 8519 RVA: 0x000A5B4E File Offset: 0x000A3D4E
-	// (set) Token: 0x06002148 RID: 8520 RVA: 0x000A5B56 File Offset: 0x000A3D56
+	// Token: 0x17000374 RID: 884
+	// (get) Token: 0x060021A5 RID: 8613 RVA: 0x00046EDF File Offset: 0x000450DF
+	// (set) Token: 0x060021A6 RID: 8614 RVA: 0x00046EE7 File Offset: 0x000450E7
 	public float lerp
 	{
 		get
@@ -20,7 +20,7 @@ public class GorillaCaveCrystalVisuals : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002149 RID: 8521 RVA: 0x000A5B60 File Offset: 0x000A3D60
+	// Token: 0x060021A7 RID: 8615 RVA: 0x000F62E8 File Offset: 0x000F44E8
 	public void Setup()
 	{
 		base.TryGetComponent<MeshRenderer>(out this._renderer);
@@ -34,14 +34,14 @@ public class GorillaCaveCrystalVisuals : MonoBehaviour
 		this.Update();
 	}
 
-	// Token: 0x0600214A RID: 8522 RVA: 0x000A5BDC File Offset: 0x000A3DDC
+	// Token: 0x060021A8 RID: 8616 RVA: 0x00046EF0 File Offset: 0x000450F0
 	private void Start()
 	{
 		this.UpdateAlbedo();
 		this.ForceUpdate();
 	}
 
-	// Token: 0x0600214B RID: 8523 RVA: 0x000A5BEC File Offset: 0x000A3DEC
+	// Token: 0x060021A9 RID: 8617 RVA: 0x000F6364 File Offset: 0x000F4564
 	public void UpdateAlbedo()
 	{
 		if (!this._initialized)
@@ -61,14 +61,14 @@ public class GorillaCaveCrystalVisuals : MonoBehaviour
 		this._renderer.SetPropertyBlock(this._block);
 	}
 
-	// Token: 0x0600214C RID: 8524 RVA: 0x000A5C61 File Offset: 0x000A3E61
+	// Token: 0x060021AA RID: 8618 RVA: 0x00046EFE File Offset: 0x000450FE
 	private void Awake()
 	{
 		this.UpdateAlbedo();
 		this.Update();
 	}
 
-	// Token: 0x0600214D RID: 8525 RVA: 0x000A5C70 File Offset: 0x000A3E70
+	// Token: 0x060021AB RID: 8619 RVA: 0x000F63DC File Offset: 0x000F45DC
 	private void Update()
 	{
 		if (!this._initialized)
@@ -98,17 +98,17 @@ public class GorillaCaveCrystalVisuals : MonoBehaviour
 		this._renderer.SetPropertyBlock(this._block);
 	}
 
-	// Token: 0x0600214E RID: 8526 RVA: 0x000A5D66 File Offset: 0x000A3F66
+	// Token: 0x060021AC RID: 8620 RVA: 0x00046F0C File Offset: 0x0004510C
 	public void ForceUpdate()
 	{
 		this._lastState = 0;
 		this.Update();
 	}
 
-	// Token: 0x0600214F RID: 8527 RVA: 0x000A5D78 File Offset: 0x000A3F78
+	// Token: 0x060021AD RID: 8621 RVA: 0x000F64D4 File Offset: 0x000F46D4
 	private static void InitializeCrystals()
 	{
-		foreach (GorillaCaveCrystalVisuals gorillaCaveCrystalVisuals in Object.FindObjectsByType<GorillaCaveCrystalVisuals>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID))
+		foreach (GorillaCaveCrystalVisuals gorillaCaveCrystalVisuals in UnityEngine.Object.FindObjectsByType<GorillaCaveCrystalVisuals>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID))
 		{
 			gorillaCaveCrystalVisuals.UpdateAlbedo();
 			gorillaCaveCrystalVisuals.ForceUpdate();
@@ -116,50 +116,50 @@ public class GorillaCaveCrystalVisuals : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040024F3 RID: 9459
+	// Token: 0x0400254B RID: 9547
 	public CrystalVisualsPreset crysalPreset;
 
-	// Token: 0x040024F4 RID: 9460
+	// Token: 0x0400254C RID: 9548
 	[SerializeField]
 	[Range(0f, 1f)]
 	private float _lerp;
 
-	// Token: 0x040024F5 RID: 9461
+	// Token: 0x0400254D RID: 9549
 	[Space]
 	public MeshRenderer _renderer;
 
-	// Token: 0x040024F6 RID: 9462
+	// Token: 0x0400254E RID: 9550
 	public Material _sharedMaterial;
 
-	// Token: 0x040024F7 RID: 9463
+	// Token: 0x0400254F RID: 9551
 	[SerializeField]
 	public Texture2D instanceAlbedo;
 
-	// Token: 0x040024F8 RID: 9464
+	// Token: 0x04002550 RID: 9552
 	[SerializeField]
 	private bool _initialized;
 
-	// Token: 0x040024F9 RID: 9465
+	// Token: 0x04002551 RID: 9553
 	[SerializeField]
 	private int _lastState;
 
-	// Token: 0x040024FA RID: 9466
+	// Token: 0x04002552 RID: 9554
 	[SerializeField]
 	public GorillaCaveCrystalSetup _setup;
 
-	// Token: 0x040024FB RID: 9467
+	// Token: 0x04002553 RID: 9555
 	private MaterialPropertyBlock _block;
 
-	// Token: 0x040024FC RID: 9468
+	// Token: 0x04002554 RID: 9556
 	[NonSerialized]
 	private bool _ranSetupOnce;
 
-	// Token: 0x040024FD RID: 9469
+	// Token: 0x04002555 RID: 9557
 	private static readonly ShaderHashId _Color = "_Color";
 
-	// Token: 0x040024FE RID: 9470
+	// Token: 0x04002556 RID: 9558
 	private static readonly ShaderHashId _EmissionColor = "_EmissionColor";
 
-	// Token: 0x040024FF RID: 9471
+	// Token: 0x04002557 RID: 9559
 	private static readonly ShaderHashId _MainTex = "_MainTex";
 }

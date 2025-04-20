@@ -7,10 +7,10 @@ using UnityEngine;
 
 namespace GorillaNetworking.Store
 {
-	// Token: 0x02000B01 RID: 2817
+	// Token: 0x02000B2E RID: 2862
 	public class StoreController : MonoBehaviour
 	{
-		// Token: 0x06004671 RID: 18033 RVA: 0x0014E97D File Offset: 0x0014CB7D
+		// Token: 0x060047BA RID: 18362 RVA: 0x0005EB6B File Offset: 0x0005CD6B
 		public void Awake()
 		{
 			if (StoreController.instance == null)
@@ -20,12 +20,12 @@ namespace GorillaNetworking.Store
 			}
 			if (StoreController.instance != this)
 			{
-				Object.Destroy(base.gameObject);
+				UnityEngine.Object.Destroy(base.gameObject);
 				return;
 			}
 		}
 
-		// Token: 0x06004672 RID: 18034 RVA: 0x0014E9B4 File Offset: 0x0014CBB4
+		// Token: 0x060047BB RID: 18363 RVA: 0x0018B620 File Offset: 0x00189820
 		public void CreateDynamicCosmeticStandsDictionatary()
 		{
 			this.CosmeticStandsDict = new Dictionary<string, DynamicCosmeticStand>();
@@ -82,7 +82,7 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x06004673 RID: 18035 RVA: 0x0014EB90 File Offset: 0x0014CD90
+		// Token: 0x060047BC RID: 18364 RVA: 0x0018B7FC File Offset: 0x001899FC
 		private void Create_StandsByPlayfabIDDictionary()
 		{
 			this.StandsByPlayfabID = new Dictionary<string, List<DynamicCosmeticStand>>();
@@ -105,22 +105,22 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x06004674 RID: 18036 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x060047BD RID: 18365 RVA: 0x00030607 File Offset: 0x0002E807
 		public void ExportCosmeticStandLayoutWithItems()
 		{
 		}
 
-		// Token: 0x06004675 RID: 18037 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x060047BE RID: 18366 RVA: 0x00030607 File Offset: 0x0002E807
 		public void ExportCosmeticStandLayoutWITHOUTItems()
 		{
 		}
 
-		// Token: 0x06004676 RID: 18038 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x060047BF RID: 18367 RVA: 0x00030607 File Offset: 0x0002E807
 		public void ImportCosmeticStandLayout()
 		{
 		}
 
-		// Token: 0x06004677 RID: 18039 RVA: 0x0014EC50 File Offset: 0x0014CE50
+		// Token: 0x060047C0 RID: 18368 RVA: 0x0018B8BC File Offset: 0x00189ABC
 		public void InitalizeCosmeticStands()
 		{
 			this.CreateDynamicCosmeticStandsDictionatary();
@@ -131,7 +131,7 @@ namespace GorillaNetworking.Store
 			this.Create_StandsByPlayfabIDDictionary();
 		}
 
-		// Token: 0x06004678 RID: 18040 RVA: 0x0014ECB4 File Offset: 0x0014CEB4
+		// Token: 0x060047C1 RID: 18369 RVA: 0x0005EBA0 File Offset: 0x0005CDA0
 		public void LoadCosmeticOntoStand(string standID, string playFabId)
 		{
 			if (this.CosmeticStandsDict.ContainsKey(standID))
@@ -141,7 +141,7 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x06004679 RID: 18041 RVA: 0x0014ECEC File Offset: 0x0014CEEC
+		// Token: 0x060047C2 RID: 18370 RVA: 0x0018B920 File Offset: 0x00189B20
 		public void ClearCosmetics()
 		{
 			foreach (StoreDepartment storeDepartment in this.Departments)
@@ -158,17 +158,17 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x0600467A RID: 18042 RVA: 0x0014ED70 File Offset: 0x0014CF70
+		// Token: 0x060047C3 RID: 18371 RVA: 0x0005EBD8 File Offset: 0x0005CDD8
 		public static CosmeticSO FindCosmeticInAllCosmeticsArraySO(string playfabId)
 		{
 			if (StoreController.instance == null)
 			{
-				StoreController.instance = Object.FindObjectOfType<StoreController>();
+				StoreController.instance = UnityEngine.Object.FindObjectOfType<StoreController>();
 			}
 			return StoreController.instance.AllCosmeticsArraySO.SearchForCosmeticSO(playfabId);
 		}
 
-		// Token: 0x0600467B RID: 18043 RVA: 0x0014EDA0 File Offset: 0x0014CFA0
+		// Token: 0x060047C4 RID: 18372 RVA: 0x0018B9A4 File Offset: 0x00189BA4
 		public DynamicCosmeticStand FindCosmeticStandByCosmeticName(string PlayFabID)
 		{
 			foreach (DynamicCosmeticStand dynamicCosmeticStand in this.CosmeticStandsDict.Values)
@@ -181,13 +181,13 @@ namespace GorillaNetworking.Store
 			return null;
 		}
 
-		// Token: 0x0600467C RID: 18044 RVA: 0x0014EE08 File Offset: 0x0014D008
+		// Token: 0x060047C5 RID: 18373 RVA: 0x0005EC07 File Offset: 0x0005CE07
 		public void FindAllDepartments()
 		{
-			this.Departments = Object.FindObjectsOfType<StoreDepartment>().ToList<StoreDepartment>();
+			this.Departments = UnityEngine.Object.FindObjectsOfType<StoreDepartment>().ToList<StoreDepartment>();
 		}
 
-		// Token: 0x0600467D RID: 18045 RVA: 0x0014EE1C File Offset: 0x0014D01C
+		// Token: 0x060047C6 RID: 18374 RVA: 0x0018BA0C File Offset: 0x00189C0C
 		public void SaveAllCosmeticsPositions()
 		{
 			foreach (StoreDepartment storeDepartment in this.Departments)
@@ -215,12 +215,12 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x0600467E RID: 18046 RVA: 0x0014EF3C File Offset: 0x0014D13C
+		// Token: 0x060047C7 RID: 18375 RVA: 0x0018BB2C File Offset: 0x00189D2C
 		public static void SetForGame()
 		{
 			if (StoreController.instance == null)
 			{
-				StoreController.instance = Object.FindObjectOfType<StoreController>();
+				StoreController.instance = UnityEngine.Object.FindObjectOfType<StoreController>();
 			}
 			StoreController.instance.CreateDynamicCosmeticStandsDictionatary();
 			foreach (DynamicCosmeticStand dynamicCosmeticStand in StoreController.instance.CosmeticStandsDict.Values)
@@ -230,22 +230,22 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x04004802 RID: 18434
+		// Token: 0x040048F7 RID: 18679
 		public static volatile StoreController instance;
 
-		// Token: 0x04004803 RID: 18435
+		// Token: 0x040048F8 RID: 18680
 		public List<StoreDepartment> Departments;
 
-		// Token: 0x04004804 RID: 18436
+		// Token: 0x040048F9 RID: 18681
 		private Dictionary<string, DynamicCosmeticStand> CosmeticStandsDict;
 
-		// Token: 0x04004805 RID: 18437
+		// Token: 0x040048FA RID: 18682
 		public Dictionary<string, List<DynamicCosmeticStand>> StandsByPlayfabID;
 
-		// Token: 0x04004806 RID: 18438
+		// Token: 0x040048FB RID: 18683
 		public AllCosmeticsArraySO AllCosmeticsArraySO;
 
-		// Token: 0x04004807 RID: 18439
+		// Token: 0x040048FC RID: 18684
 		private string exportHeader = "Department ID\tDisplay ID\tStand ID\tStand Type\tPlayFab ID";
 	}
 }

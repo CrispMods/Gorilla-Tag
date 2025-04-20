@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200044A RID: 1098
+// Token: 0x02000456 RID: 1110
 public class MonkeCandle : RubberDuck
 {
-	// Token: 0x06001B05 RID: 6917 RVA: 0x00085170 File Offset: 0x00083370
+	// Token: 0x06001B59 RID: 7001 RVA: 0x000D9CF8 File Offset: 0x000D7EF8
 	protected override void Start()
 	{
 		base.Start();
@@ -16,7 +16,7 @@ public class MonkeCandle : RubberDuck
 		}
 	}
 
-	// Token: 0x06001B06 RID: 6918 RVA: 0x000851C4 File Offset: 0x000833C4
+	// Token: 0x06001B5A RID: 7002 RVA: 0x000D9D4C File Offset: 0x000D7F4C
 	public override void TriggeredLateUpdate()
 	{
 		base.TriggeredLateUpdate();
@@ -72,21 +72,21 @@ public class MonkeCandle : RubberDuck
 		}
 	}
 
-	// Token: 0x04001DF0 RID: 7664
+	// Token: 0x04001E3F RID: 7743
 	private ParticleSystem.Particle[] fxParticleArray = new ParticleSystem.Particle[20];
 
-	// Token: 0x04001DF1 RID: 7665
+	// Token: 0x04001E40 RID: 7744
 	public AudioSource movingFxAudio;
 
-	// Token: 0x04001DF2 RID: 7666
+	// Token: 0x04001E41 RID: 7745
 	public AudioSource fxExplodeAudio;
 
-	// Token: 0x04001DF3 RID: 7667
+	// Token: 0x04001E42 RID: 7746
 	private List<uint> currentParticles = new List<uint>();
 
-	// Token: 0x04001DF4 RID: 7668
+	// Token: 0x04001E43 RID: 7747
 	private Dictionary<uint, Vector3> particleInfoDict = new Dictionary<uint, Vector3>();
 
-	// Token: 0x04001DF5 RID: 7669
+	// Token: 0x04001E44 RID: 7748
 	private Vector3 outPosition;
 }

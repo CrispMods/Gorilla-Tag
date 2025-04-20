@@ -5,11 +5,11 @@ using GorillaTagScripts;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x020004E1 RID: 1249
+// Token: 0x020004EE RID: 1262
 public class BuilderResizeWatch : MonoBehaviour
 {
-	// Token: 0x17000319 RID: 793
-	// (get) Token: 0x06001E60 RID: 7776 RVA: 0x00098A00 File Offset: 0x00096C00
+	// Token: 0x17000320 RID: 800
+	// (get) Token: 0x06001EB9 RID: 7865 RVA: 0x000EB1FC File Offset: 0x000E93FC
 	public int SizeLayerMaskGrow
 	{
 		get
@@ -35,8 +35,8 @@ public class BuilderResizeWatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700031A RID: 794
-	// (get) Token: 0x06001E61 RID: 7777 RVA: 0x00098A54 File Offset: 0x00096C54
+	// Token: 0x17000321 RID: 801
+	// (get) Token: 0x06001EBA RID: 7866 RVA: 0x000EB250 File Offset: 0x000E9450
 	public int SizeLayerMaskShrink
 	{
 		get
@@ -62,7 +62,7 @@ public class BuilderResizeWatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E62 RID: 7778 RVA: 0x00098AA8 File Offset: 0x00096CA8
+	// Token: 0x06001EBB RID: 7867 RVA: 0x000EB2A4 File Offset: 0x000E94A4
 	private void Start()
 	{
 		if (this.enlargeButton != null)
@@ -78,7 +78,7 @@ public class BuilderResizeWatch : MonoBehaviour
 		this.enableDistSq = this.enableDist * this.enableDist;
 	}
 
-	// Token: 0x06001E63 RID: 7779 RVA: 0x00098B40 File Offset: 0x00096D40
+	// Token: 0x06001EBC RID: 7868 RVA: 0x000EB33C File Offset: 0x000E953C
 	private void OnDestroy()
 	{
 		if (this.enlargeButton != null)
@@ -91,7 +91,7 @@ public class BuilderResizeWatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E64 RID: 7780 RVA: 0x00098BA4 File Offset: 0x00096DA4
+	// Token: 0x06001EBD RID: 7869 RVA: 0x000EB3A0 File Offset: 0x000E95A0
 	private void OnEnlargeButtonPressed()
 	{
 		if (this.sizeManager == null)
@@ -116,7 +116,7 @@ public class BuilderResizeWatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E65 RID: 7781 RVA: 0x00098C74 File Offset: 0x00096E74
+	// Token: 0x06001EBE RID: 7870 RVA: 0x000EB470 File Offset: 0x000E9670
 	private void DisableCollisionWithPieces()
 	{
 		int num = Physics.OverlapSphereNonAlloc(GTPlayer.Instance.headCollider.transform.position, 1f, this.tempDisableColliders, BuilderTable.instance.allPiecesMask);
@@ -138,7 +138,7 @@ public class BuilderResizeWatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E66 RID: 7782 RVA: 0x00098D98 File Offset: 0x00096F98
+	// Token: 0x06001EBF RID: 7871 RVA: 0x000EB594 File Offset: 0x000E9794
 	private void EnableCollisionWithPieces()
 	{
 		for (int i = this.collisionDisabledPieces.Count - 1; i >= 0; i--)
@@ -156,7 +156,7 @@ public class BuilderResizeWatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E67 RID: 7783 RVA: 0x00098E28 File Offset: 0x00097028
+	// Token: 0x06001EC0 RID: 7872 RVA: 0x000EB624 File Offset: 0x000E9824
 	private void EnableCollisionWithPiece(BuilderPiece piece)
 	{
 		foreach (Collider collider in piece.colliders)
@@ -169,7 +169,7 @@ public class BuilderResizeWatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E68 RID: 7784 RVA: 0x00098ED8 File Offset: 0x000970D8
+	// Token: 0x06001EC1 RID: 7873 RVA: 0x00044D6F File Offset: 0x00042F6F
 	private void Update()
 	{
 		if (this.updateCollision && (double)Time.time >= this.timeToCheckCollision)
@@ -182,7 +182,7 @@ public class BuilderResizeWatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E69 RID: 7785 RVA: 0x00098F0C File Offset: 0x0009710C
+	// Token: 0x06001EC2 RID: 7874 RVA: 0x000EB6D4 File Offset: 0x000E98D4
 	private void OnShrinkButtonPressed()
 	{
 		if (this.sizeManager == null)
@@ -199,67 +199,67 @@ public class BuilderResizeWatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040021EC RID: 8684
+	// Token: 0x0400223F RID: 8767
 	[SerializeField]
 	private HeldButton enlargeButton;
 
-	// Token: 0x040021ED RID: 8685
+	// Token: 0x04002240 RID: 8768
 	[SerializeField]
 	private HeldButton shrinkButton;
 
-	// Token: 0x040021EE RID: 8686
+	// Token: 0x04002241 RID: 8769
 	[SerializeField]
 	private GameObject fxForLayerChange;
 
-	// Token: 0x040021EF RID: 8687
+	// Token: 0x04002242 RID: 8770
 	private VRRig ownerRig;
 
-	// Token: 0x040021F0 RID: 8688
+	// Token: 0x04002243 RID: 8771
 	private SizeManager sizeManager;
 
-	// Token: 0x040021F1 RID: 8689
+	// Token: 0x04002244 RID: 8772
 	[HideInInspector]
 	public Collider[] tempDisableColliders = new Collider[128];
 
-	// Token: 0x040021F2 RID: 8690
+	// Token: 0x04002245 RID: 8773
 	[HideInInspector]
 	public List<BuilderPiece> collisionDisabledPieces = new List<BuilderPiece>();
 
-	// Token: 0x040021F3 RID: 8691
+	// Token: 0x04002246 RID: 8774
 	private float enableDist = 1f;
 
-	// Token: 0x040021F4 RID: 8692
+	// Token: 0x04002247 RID: 8775
 	private float enableDistSq = 1f;
 
-	// Token: 0x040021F5 RID: 8693
+	// Token: 0x04002248 RID: 8776
 	private bool updateCollision;
 
-	// Token: 0x040021F6 RID: 8694
+	// Token: 0x04002249 RID: 8777
 	private float growDelay = 1f;
 
-	// Token: 0x040021F7 RID: 8695
+	// Token: 0x0400224A RID: 8778
 	private double timeToCheckCollision;
 
-	// Token: 0x040021F8 RID: 8696
+	// Token: 0x0400224B RID: 8779
 	public BuilderResizeWatch.BuilderSizeChangeSettings growSettings;
 
-	// Token: 0x040021F9 RID: 8697
+	// Token: 0x0400224C RID: 8780
 	public BuilderResizeWatch.BuilderSizeChangeSettings shrinkSettings;
 
-	// Token: 0x020004E2 RID: 1250
+	// Token: 0x020004EF RID: 1263
 	[Serializable]
 	public struct BuilderSizeChangeSettings
 	{
-		// Token: 0x040021FA RID: 8698
+		// Token: 0x0400224D RID: 8781
 		public bool affectLayerA;
 
-		// Token: 0x040021FB RID: 8699
+		// Token: 0x0400224E RID: 8782
 		public bool affectLayerB;
 
-		// Token: 0x040021FC RID: 8700
+		// Token: 0x0400224F RID: 8783
 		public bool affectLayerC;
 
-		// Token: 0x040021FD RID: 8701
+		// Token: 0x04002250 RID: 8784
 		public bool affectLayerD;
 	}
 }

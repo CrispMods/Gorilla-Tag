@@ -2,16 +2,16 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x020002EC RID: 748
+// Token: 0x020002F7 RID: 759
 public class TeleportTransitionWarp : TeleportTransition
 {
-	// Token: 0x060011EF RID: 4591 RVA: 0x00054CE7 File Offset: 0x00052EE7
+	// Token: 0x0600123B RID: 4667 RVA: 0x0003C681 File Offset: 0x0003A881
 	protected override void LocomotionTeleportOnEnterStateTeleporting()
 	{
 		base.StartCoroutine(this.DoWarp());
 	}
 
-	// Token: 0x060011F0 RID: 4592 RVA: 0x00054CF6 File Offset: 0x00052EF6
+	// Token: 0x0600123C RID: 4668 RVA: 0x0003C690 File Offset: 0x0003A890
 	private IEnumerator DoWarp()
 	{
 		base.LocomotionTeleport.IsTransitioning = true;
@@ -30,12 +30,12 @@ public class TeleportTransitionWarp : TeleportTransition
 		yield break;
 	}
 
-	// Token: 0x040013C2 RID: 5058
+	// Token: 0x0400140A RID: 5130
 	[Tooltip("How much time the warp transition takes to complete.")]
 	[Range(0.01f, 1f)]
 	public float TransitionDuration = 0.5f;
 
-	// Token: 0x040013C3 RID: 5059
+	// Token: 0x0400140B RID: 5131
 	[HideInInspector]
 	public AnimationCurve PositionLerp = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 }

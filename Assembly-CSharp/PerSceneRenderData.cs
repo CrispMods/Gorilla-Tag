@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-// Token: 0x020001CE RID: 462
+// Token: 0x020001D9 RID: 473
 public class PerSceneRenderData : MonoBehaviour
 {
-	// Token: 0x06000AC2 RID: 2754 RVA: 0x0003A45C File Offset: 0x0003865C
+	// Token: 0x06000B0E RID: 2830 RVA: 0x00099974 File Offset: 0x00097B74
 	private void RefreshRenderer()
 	{
 		int sceneIndex = this.sceneIndex;
 		new List<Renderer>();
-		foreach (Renderer renderer in Object.FindObjectsByType<Renderer>(FindObjectsSortMode.None))
+		foreach (Renderer renderer in UnityEngine.Object.FindObjectsByType<Renderer>(FindObjectsSortMode.None))
 		{
 			if (renderer.gameObject.scene.buildIndex == sceneIndex)
 			{
@@ -21,8 +21,8 @@ public class PerSceneRenderData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000112 RID: 274
-	// (get) Token: 0x06000AC3 RID: 2755 RVA: 0x0003A4B0 File Offset: 0x000386B0
+	// Token: 0x17000119 RID: 281
+	// (get) Token: 0x06000B0F RID: 2831 RVA: 0x000999C8 File Offset: 0x00097BC8
 	public string sceneName
 	{
 		get
@@ -31,8 +31,8 @@ public class PerSceneRenderData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000113 RID: 275
-	// (get) Token: 0x06000AC4 RID: 2756 RVA: 0x0003A4D0 File Offset: 0x000386D0
+	// Token: 0x1700011A RID: 282
+	// (get) Token: 0x06000B10 RID: 2832 RVA: 0x000999E8 File Offset: 0x00097BE8
 	public int sceneIndex
 	{
 		get
@@ -41,7 +41,7 @@ public class PerSceneRenderData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AC5 RID: 2757 RVA: 0x0003A4F0 File Offset: 0x000386F0
+	// Token: 0x06000B11 RID: 2833 RVA: 0x00099A08 File Offset: 0x00097C08
 	private void Awake()
 	{
 		for (int i = 0; i < this.mRendererIndex; i++)
@@ -50,19 +50,19 @@ public class PerSceneRenderData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AC6 RID: 2758 RVA: 0x0003A523 File Offset: 0x00038723
+	// Token: 0x06000B12 RID: 2834 RVA: 0x00037CB8 File Offset: 0x00035EB8
 	private void OnEnable()
 	{
 		BetterDayNightManager.Register(this);
 	}
 
-	// Token: 0x06000AC7 RID: 2759 RVA: 0x0003A52B File Offset: 0x0003872B
+	// Token: 0x06000B13 RID: 2835 RVA: 0x00037CC0 File Offset: 0x00035EC0
 	private void OnDisable()
 	{
 		BetterDayNightManager.Unregister(this);
 	}
 
-	// Token: 0x06000AC8 RID: 2760 RVA: 0x0003A534 File Offset: 0x00038734
+	// Token: 0x06000B14 RID: 2836 RVA: 0x00099A3C File Offset: 0x00097C3C
 	public void AddMeshToList(GameObject _gO, MeshRenderer mR)
 	{
 		try
@@ -79,14 +79,14 @@ public class PerSceneRenderData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AC9 RID: 2761 RVA: 0x0003A580 File Offset: 0x00038780
+	// Token: 0x06000B15 RID: 2837 RVA: 0x00037CC8 File Offset: 0x00035EC8
 	public bool CheckShouldRepopulate()
 	{
 		return this.representativeRenderer.lightmapIndex != this.lastLightmapIndex;
 	}
 
-	// Token: 0x17000114 RID: 276
-	// (get) Token: 0x06000ACA RID: 2762 RVA: 0x0003A598 File Offset: 0x00038798
+	// Token: 0x1700011B RID: 283
+	// (get) Token: 0x06000B16 RID: 2838 RVA: 0x00037CE0 File Offset: 0x00035EE0
 	public bool IsLoadingLightmaps
 	{
 		get
@@ -95,8 +95,8 @@ public class PerSceneRenderData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000115 RID: 277
-	// (get) Token: 0x06000ACB RID: 2763 RVA: 0x0003A5A8 File Offset: 0x000387A8
+	// Token: 0x1700011C RID: 284
+	// (get) Token: 0x06000B17 RID: 2839 RVA: 0x00037CF0 File Offset: 0x00035EF0
 	public int LoadingLightmapsCount
 	{
 		get
@@ -105,7 +105,7 @@ public class PerSceneRenderData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000ACC RID: 2764 RVA: 0x0003A5B8 File Offset: 0x000387B8
+	// Token: 0x06000B18 RID: 2840 RVA: 0x00099A88 File Offset: 0x00097C88
 	private Texture2D GetLightmap(string timeOfDay)
 	{
 		if (this.singleLightmap != null)
@@ -139,7 +139,7 @@ public class PerSceneRenderData : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x06000ACD RID: 2765 RVA: 0x0003A66C File Offset: 0x0003886C
+	// Token: 0x06000B19 RID: 2841 RVA: 0x00099B3C File Offset: 0x00097D3C
 	public void PopulateLightmaps(string fromTimeOfDay, string toTimeOfDay, LightmapData[] lightmaps)
 	{
 		LightmapData lightmapData = new LightmapData();
@@ -159,7 +159,7 @@ public class PerSceneRenderData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000ACE RID: 2766 RVA: 0x0003A724 File Offset: 0x00038924
+	// Token: 0x06000B1A RID: 2842 RVA: 0x00099BF4 File Offset: 0x00097DF4
 	public void ReleaseLightmap(string oldTimeOfDay)
 	{
 		Texture2D assetToUnload;
@@ -169,7 +169,7 @@ public class PerSceneRenderData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000ACF RID: 2767 RVA: 0x0003A748 File Offset: 0x00038948
+	// Token: 0x06000B1B RID: 2843 RVA: 0x00099C18 File Offset: 0x00097E18
 	private void TryGetLightmapOrAsyncLoad(string momentName, Action<Texture2D> callback)
 	{
 		if (this.singleLightmap != null)
@@ -218,7 +218,7 @@ public class PerSceneRenderData : MonoBehaviour
 		};
 	}
 
-	// Token: 0x06000AD0 RID: 2768 RVA: 0x0003A85C File Offset: 0x00038A5C
+	// Token: 0x06000B1C RID: 2844 RVA: 0x00099D2C File Offset: 0x00097F2C
 	public bool IsLightmapWithNameLoaded(string lightmapName)
 	{
 		if (this.singleLightmap != null)
@@ -231,7 +231,7 @@ public class PerSceneRenderData : MonoBehaviour
 		return !string.IsNullOrEmpty(lightmapName) && ((!string.IsNullOrEmpty(text) && text == lightmapName) || (!string.IsNullOrEmpty(text2) && text2 == lightmapName));
 	}
 
-	// Token: 0x06000AD1 RID: 2769 RVA: 0x0003A8B4 File Offset: 0x00038AB4
+	// Token: 0x06000B1D RID: 2845 RVA: 0x00099D84 File Offset: 0x00097F84
 	public bool IsLightmapsWithNamesLoaded(string fromLightmapName, string toLightmapName)
 	{
 		if (this.singleLightmap != null)
@@ -244,7 +244,7 @@ public class PerSceneRenderData : MonoBehaviour
 		return !string.IsNullOrEmpty(fromLightmapName) && !string.IsNullOrEmpty(toLightmapName) && !string.IsNullOrEmpty(text) && text == fromLightmapName && !string.IsNullOrEmpty(text2) && text2 == toLightmapName;
 	}
 
-	// Token: 0x06000AD2 RID: 2770 RVA: 0x0003A910 File Offset: 0x00038B10
+	// Token: 0x06000B1E RID: 2846 RVA: 0x00099DE0 File Offset: 0x00097FE0
 	public void GetFromAndToLightmapNames(out string fromLightmapName, out string toLightmapName)
 	{
 		if (this.singleLightmap != null)
@@ -266,11 +266,11 @@ public class PerSceneRenderData : MonoBehaviour
 		toLightmapName = ((lightmapDir != null) ? lightmapDir.name : null);
 	}
 
-	// Token: 0x06000AD3 RID: 2771 RVA: 0x0003A9AC File Offset: 0x00038BAC
+	// Token: 0x06000B1F RID: 2847 RVA: 0x00099E7C File Offset: 0x0009807C
 	public static void g_StartAllScenesPopulateLightmaps(string fromLightmapName, string toLightmapName)
 	{
 		PerSceneRenderData._g_allScenesPopulateLightmaps_renderDatasHashSet.Clear();
-		PerSceneRenderData[] array = Object.FindObjectsByType<PerSceneRenderData>(FindObjectsSortMode.None);
+		PerSceneRenderData[] array = UnityEngine.Object.FindObjectsByType<PerSceneRenderData>(FindObjectsSortMode.None);
 		PerSceneRenderData._g_allScenesPopulateLightmaps_renderDatasHashSet.UnionWith(array);
 		foreach (PerSceneRenderData perSceneRenderData in array)
 		{
@@ -279,7 +279,7 @@ public class PerSceneRenderData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AD4 RID: 2772 RVA: 0x0003AA14 File Offset: 0x00038C14
+	// Token: 0x06000B20 RID: 2848 RVA: 0x00099EE4 File Offset: 0x000980E4
 	private static void _g_AllScenesPopulateLightmaps_OnOneCompleted(PerSceneRenderData perSceneRenderData)
 	{
 		int count = PerSceneRenderData._g_allScenesPopulateLightmaps_renderDatasHashSet.Count;
@@ -296,8 +296,8 @@ public class PerSceneRenderData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000116 RID: 278
-	// (get) Token: 0x06000AD5 RID: 2773 RVA: 0x0003AA59 File Offset: 0x00038C59
+	// Token: 0x1700011D RID: 285
+	// (get) Token: 0x06000B21 RID: 2849 RVA: 0x00037CFD File Offset: 0x00035EFD
 	public static int g_AllScenesPopulatingLightmapsLoadCount
 	{
 		get
@@ -306,7 +306,7 @@ public class PerSceneRenderData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AD6 RID: 2774 RVA: 0x0003AA68 File Offset: 0x00038C68
+	// Token: 0x06000B22 RID: 2850 RVA: 0x00099F2C File Offset: 0x0009812C
 	public void StartPopulateLightmaps(string fromMomentName, string toMomentName)
 	{
 		PerSceneRenderData._g_allScenesPopulateLightmaps_renderDatasHashSet.Clear();
@@ -318,7 +318,7 @@ public class PerSceneRenderData : MonoBehaviour
 		this.TryGetLightmapOrAsyncLoad(toMomentName, new Action<Texture2D>(this._PopulateLightmaps_OnLoadLightmap));
 	}
 
-	// Token: 0x06000AD7 RID: 2775 RVA: 0x0003AAC4 File Offset: 0x00038CC4
+	// Token: 0x06000B23 RID: 2851 RVA: 0x00099F88 File Offset: 0x00098188
 	private void _PopulateLightmaps_OnLoadLightmap(Texture2D lightmapTex)
 	{
 		if (this == null || ApplicationQuittingState.IsQuitting)
@@ -363,54 +363,54 @@ public class PerSceneRenderData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000D33 RID: 3379
+	// Token: 0x04000D79 RID: 3449
 	public Renderer representativeRenderer;
 
-	// Token: 0x04000D34 RID: 3380
+	// Token: 0x04000D7A RID: 3450
 	public string lightmapsResourcePath;
 
-	// Token: 0x04000D35 RID: 3381
+	// Token: 0x04000D7B RID: 3451
 	public Texture2D singleLightmap;
 
-	// Token: 0x04000D36 RID: 3382
+	// Token: 0x04000D7C RID: 3452
 	private int lastLightmapIndex = -1;
 
-	// Token: 0x04000D37 RID: 3383
+	// Token: 0x04000D7D RID: 3453
 	public GameObject[] gO = new GameObject[5000];
 
-	// Token: 0x04000D38 RID: 3384
+	// Token: 0x04000D7E RID: 3454
 	public MeshRenderer[] mRenderers = new MeshRenderer[5000];
 
-	// Token: 0x04000D39 RID: 3385
+	// Token: 0x04000D7F RID: 3455
 	public int mRendererIndex;
 
-	// Token: 0x04000D3A RID: 3386
+	// Token: 0x04000D80 RID: 3456
 	private readonly Dictionary<string, ResourceRequest> resourceRequests = new Dictionary<string, ResourceRequest>(8);
 
-	// Token: 0x04000D3B RID: 3387
+	// Token: 0x04000D81 RID: 3457
 	private readonly Dictionary<string, Texture2D> lightmapsCache = new Dictionary<string, Texture2D>(8);
 
-	// Token: 0x04000D3C RID: 3388
+	// Token: 0x04000D82 RID: 3458
 	private Dictionary<string, List<Action<Texture2D>>> _momentName_to_callbacks = new Dictionary<string, List<Action<Texture2D>>>(8);
 
-	// Token: 0x04000D3D RID: 3389
+	// Token: 0x04000D83 RID: 3459
 	private static readonly HashSet<PerSceneRenderData> _g_allScenesPopulateLightmaps_renderDatasHashSet = new HashSet<PerSceneRenderData>(32);
 
-	// Token: 0x04000D3E RID: 3390
+	// Token: 0x04000D84 RID: 3460
 	public static Action g_OnAllScenesPopulateLightmapsCompleted;
 
-	// Token: 0x04000D3F RID: 3391
+	// Token: 0x04000D85 RID: 3461
 	private string _populateLightmaps_fromMomentName;
 
-	// Token: 0x04000D40 RID: 3392
+	// Token: 0x04000D86 RID: 3462
 	private string _populateLightmaps_toMomentName;
 
-	// Token: 0x04000D41 RID: 3393
+	// Token: 0x04000D87 RID: 3463
 	private Texture2D _populateLightmaps_fromMomentLightmap;
 
-	// Token: 0x04000D42 RID: 3394
+	// Token: 0x04000D88 RID: 3464
 	private Texture2D _populateLightmaps_toMomentLightmap;
 
-	// Token: 0x04000D43 RID: 3395
+	// Token: 0x04000D89 RID: 3465
 	public Action<PerSceneRenderData> OnPopulateToAndFromLightmapsCompleted;
 }

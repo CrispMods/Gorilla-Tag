@@ -7,15 +7,15 @@ using UnityEngine.Scripting;
 
 namespace GorillaLocomotion.Gameplay
 {
-	// Token: 0x02000B5C RID: 2908
+	// Token: 0x02000B89 RID: 2953
 	public class RopeSwingManager : NetworkSceneObject
 	{
-		// Token: 0x170007A6 RID: 1958
-		// (get) Token: 0x060048BF RID: 18623 RVA: 0x00160CEF File Offset: 0x0015EEEF
-		// (set) Token: 0x060048C0 RID: 18624 RVA: 0x00160CF6 File Offset: 0x0015EEF6
+		// Token: 0x170007C2 RID: 1986
+		// (get) Token: 0x06004A0A RID: 18954 RVA: 0x0006030E File Offset: 0x0005E50E
+		// (set) Token: 0x06004A0B RID: 18955 RVA: 0x00060315 File Offset: 0x0005E515
 		public static RopeSwingManager instance { get; private set; }
 
-		// Token: 0x060048C1 RID: 18625 RVA: 0x00160D00 File Offset: 0x0015EF00
+		// Token: 0x06004A0C RID: 18956 RVA: 0x0019C2A4 File Offset: 0x0019A4A4
 		private void Awake()
 		{
 			if (RopeSwingManager.instance != null && RopeSwingManager.instance != this)
@@ -30,31 +30,31 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x060048C2 RID: 18626 RVA: 0x00160D4C File Offset: 0x0015EF4C
+		// Token: 0x06004A0D RID: 18957 RVA: 0x0006031D File Offset: 0x0005E51D
 		private void RegisterInstance(GorillaRopeSwing t)
 		{
 			this.ropes.Add(t.ropeId, t);
 		}
 
-		// Token: 0x060048C3 RID: 18627 RVA: 0x00160D60 File Offset: 0x0015EF60
+		// Token: 0x06004A0E RID: 18958 RVA: 0x00060331 File Offset: 0x0005E531
 		private void UnregisterInstance(GorillaRopeSwing t)
 		{
 			this.ropes.Remove(t.ropeId);
 		}
 
-		// Token: 0x060048C4 RID: 18628 RVA: 0x00160D74 File Offset: 0x0015EF74
+		// Token: 0x06004A0F RID: 18959 RVA: 0x00060345 File Offset: 0x0005E545
 		public static void Register(GorillaRopeSwing t)
 		{
 			RopeSwingManager.instance.RegisterInstance(t);
 		}
 
-		// Token: 0x060048C5 RID: 18629 RVA: 0x00160D81 File Offset: 0x0015EF81
+		// Token: 0x06004A10 RID: 18960 RVA: 0x00060352 File Offset: 0x0005E552
 		public static void Unregister(GorillaRopeSwing t)
 		{
 			RopeSwingManager.instance.UnregisterInstance(t);
 		}
 
-		// Token: 0x060048C6 RID: 18630 RVA: 0x00160D90 File Offset: 0x0015EF90
+		// Token: 0x06004A11 RID: 18961 RVA: 0x0019C2F0 File Offset: 0x0019A4F0
 		public void SendSetVelocity_RPC(int ropeId, int boneIndex, Vector3 velocity, bool wholeRope)
 		{
 			if (NetworkSystem.Instance.InRoom)
@@ -71,13 +71,13 @@ namespace GorillaLocomotion.Gameplay
 			this.SetVelocityShared(ropeId, boneIndex, velocity, wholeRope, default(PhotonMessageInfoWrapped));
 		}
 
-		// Token: 0x060048C7 RID: 18631 RVA: 0x00160DFA File Offset: 0x0015EFFA
+		// Token: 0x06004A12 RID: 18962 RVA: 0x0006035F File Offset: 0x0005E55F
 		public bool TryGetRope(int ropeId, out GorillaRopeSwing result)
 		{
 			return this.ropes.TryGetValue(ropeId, out result);
 		}
 
-		// Token: 0x060048C8 RID: 18632 RVA: 0x00160E0C File Offset: 0x0015F00C
+		// Token: 0x06004A13 RID: 18963 RVA: 0x0019C35C File Offset: 0x0019A55C
 		[PunRPC]
 		public void SetVelocity(int ropeId, int boneIndex, Vector3 velocity, bool wholeRope, PhotonMessageInfo info)
 		{
@@ -86,7 +86,7 @@ namespace GorillaLocomotion.Gameplay
 			Utils.Log("Receiving RPC for ropes");
 		}
 
-		// Token: 0x060048C9 RID: 18633 RVA: 0x00160E38 File Offset: 0x0015F038
+		// Token: 0x06004A14 RID: 18964 RVA: 0x0019C388 File Offset: 0x0019A588
 		[Rpc]
 		public unsafe static void RPC_SetVelocity(NetworkRunner runner, int ropeId, int boneIndex, Vector3 velocity, bool wholeRope, RpcInfo info = default(RpcInfo))
 		{
@@ -132,7 +132,7 @@ namespace GorillaLocomotion.Gameplay
 			RopeSwingManager.instance.SetVelocityShared(ropeId, boneIndex, velocity, wholeRope, info2);
 		}
 
-		// Token: 0x060048CA RID: 18634 RVA: 0x00160FB0 File Offset: 0x0015F1B0
+		// Token: 0x06004A15 RID: 18965 RVA: 0x0019C500 File Offset: 0x0019A700
 		private void SetVelocityShared(int ropeId, int boneIndex, Vector3 velocity, bool wholeRope, PhotonMessageInfoWrapped info)
 		{
 			if (info.Sender != null)
@@ -146,7 +146,7 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x060048CC RID: 18636 RVA: 0x00161008 File Offset: 0x0015F208
+		// Token: 0x06004A17 RID: 18967 RVA: 0x0019C544 File Offset: 0x0019A744
 		[NetworkRpcStaticWeavedInvoker("System.Void GorillaLocomotion.Gameplay.RopeSwingManager::RPC_SetVelocity(Fusion.NetworkRunner,System.Int32,System.Int32,UnityEngine.Vector3,System.Boolean,Fusion.RpcInfo)")]
 		[Preserve]
 		[WeaverGenerated]
@@ -171,7 +171,7 @@ namespace GorillaLocomotion.Gameplay
 			RopeSwingManager.RPC_SetVelocity(runner, ropeId, boneIndex, velocity, wholeRope, info);
 		}
 
-		// Token: 0x04004B6A RID: 19306
+		// Token: 0x04004C60 RID: 19552
 		private Dictionary<int, GorillaRopeSwing> ropes = new Dictionary<int, GorillaRopeSwing>();
 	}
 }

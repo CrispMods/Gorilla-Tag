@@ -4,31 +4,31 @@ using GorillaTag;
 using GorillaTag.CosmeticSystem;
 using UnityEngine;
 
-// Token: 0x0200016E RID: 366
+// Token: 0x02000179 RID: 377
 public class LookDirectionStabilizer : MonoBehaviour, ISpawnable
 {
-	// Token: 0x170000E4 RID: 228
-	// (get) Token: 0x06000922 RID: 2338 RVA: 0x000316CE File Offset: 0x0002F8CE
-	// (set) Token: 0x06000923 RID: 2339 RVA: 0x000316D6 File Offset: 0x0002F8D6
+	// Token: 0x170000EB RID: 235
+	// (get) Token: 0x0600096F RID: 2415 RVA: 0x00036A4A File Offset: 0x00034C4A
+	// (set) Token: 0x06000970 RID: 2416 RVA: 0x00036A52 File Offset: 0x00034C52
 	public bool IsSpawned { get; set; }
 
-	// Token: 0x170000E5 RID: 229
-	// (get) Token: 0x06000924 RID: 2340 RVA: 0x000316DF File Offset: 0x0002F8DF
-	// (set) Token: 0x06000925 RID: 2341 RVA: 0x000316E7 File Offset: 0x0002F8E7
+	// Token: 0x170000EC RID: 236
+	// (get) Token: 0x06000971 RID: 2417 RVA: 0x00036A5B File Offset: 0x00034C5B
+	// (set) Token: 0x06000972 RID: 2418 RVA: 0x00036A63 File Offset: 0x00034C63
 	public ECosmeticSelectSide CosmeticSelectedSide { get; set; }
 
-	// Token: 0x06000926 RID: 2342 RVA: 0x000316F0 File Offset: 0x0002F8F0
+	// Token: 0x06000973 RID: 2419 RVA: 0x00036A6C File Offset: 0x00034C6C
 	void ISpawnable.OnSpawn(VRRig rig)
 	{
 		this.myRig = rig;
 	}
 
-	// Token: 0x06000927 RID: 2343 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000974 RID: 2420 RVA: 0x00030607 File Offset: 0x0002E807
 	void ISpawnable.OnDespawn()
 	{
 	}
 
-	// Token: 0x06000928 RID: 2344 RVA: 0x000316FC File Offset: 0x0002F8FC
+	// Token: 0x06000975 RID: 2421 RVA: 0x00091EF4 File Offset: 0x000900F4
 	private void Update()
 	{
 		Transform rigTarget = this.myRig.head.rigTarget;
@@ -43,6 +43,6 @@ public class LookDirectionStabilizer : MonoBehaviour, ISpawnable
 		base.transform.localRotation = Quaternion.identity;
 	}
 
-	// Token: 0x04000B29 RID: 2857
+	// Token: 0x04000B70 RID: 2928
 	private VRRig myRig;
 }

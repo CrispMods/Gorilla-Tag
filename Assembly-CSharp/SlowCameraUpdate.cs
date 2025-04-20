@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x02000635 RID: 1589
+// Token: 0x02000614 RID: 1556
 public class SlowCameraUpdate : MonoBehaviour
 {
-	// Token: 0x06002779 RID: 10105 RVA: 0x000C1537 File Offset: 0x000BF737
+	// Token: 0x060026A4 RID: 9892 RVA: 0x0004A5DB File Offset: 0x000487DB
 	public void Awake()
 	{
 		this.frameRate = 30f;
@@ -13,19 +13,19 @@ public class SlowCameraUpdate : MonoBehaviour
 		this.myCamera = base.GetComponent<Camera>();
 	}
 
-	// Token: 0x0600277A RID: 10106 RVA: 0x000C1562 File Offset: 0x000BF762
+	// Token: 0x060026A5 RID: 9893 RVA: 0x0004A606 File Offset: 0x00048806
 	public void OnEnable()
 	{
 		base.StartCoroutine(this.UpdateMirror());
 	}
 
-	// Token: 0x0600277B RID: 10107 RVA: 0x00019935 File Offset: 0x00017B35
+	// Token: 0x060026A6 RID: 9894 RVA: 0x00033636 File Offset: 0x00031836
 	public void OnDisable()
 	{
 		base.StopAllCoroutines();
 	}
 
-	// Token: 0x0600277C RID: 10108 RVA: 0x000C1571 File Offset: 0x000BF771
+	// Token: 0x060026A7 RID: 9895 RVA: 0x0004A615 File Offset: 0x00048815
 	public IEnumerator UpdateMirror()
 	{
 		for (;;)
@@ -40,12 +40,12 @@ public class SlowCameraUpdate : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04002B3C RID: 11068
+	// Token: 0x04002AA2 RID: 10914
 	private Camera myCamera;
 
-	// Token: 0x04002B3D RID: 11069
+	// Token: 0x04002AA3 RID: 10915
 	private float frameRate;
 
-	// Token: 0x04002B3E RID: 11070
+	// Token: 0x04002AA4 RID: 10916
 	private float timeToNextFrame;
 }

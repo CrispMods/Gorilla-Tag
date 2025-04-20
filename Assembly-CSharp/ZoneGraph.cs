@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020008F0 RID: 2288
+// Token: 0x0200090D RID: 2317
 [DefaultExecutionOrder(5555)]
 public class ZoneGraph : MonoBehaviour
 {
-	// Token: 0x060036EF RID: 14063 RVA: 0x001046D4 File Offset: 0x001028D4
+	// Token: 0x060037C0 RID: 14272 RVA: 0x00054D3B File Offset: 0x00052F3B
 	public static ZoneGraph Instance()
 	{
 		return ZoneGraph.gGraph;
 	}
 
-	// Token: 0x060036F0 RID: 14064 RVA: 0x001046DB File Offset: 0x001028DB
+	// Token: 0x060037C1 RID: 14273 RVA: 0x00054D42 File Offset: 0x00052F42
 	public static ZoneDef ColliderToZoneDef(BoxCollider collider)
 	{
 		if (!(collider == null))
@@ -22,7 +22,7 @@ public class ZoneGraph : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x060036F1 RID: 14065 RVA: 0x001046F8 File Offset: 0x001028F8
+	// Token: 0x060037C2 RID: 14274 RVA: 0x00054D5F File Offset: 0x00052F5F
 	public static ZoneNode ColliderToNode(BoxCollider collider)
 	{
 		if (!(collider == null))
@@ -32,12 +32,12 @@ public class ZoneGraph : MonoBehaviour
 		return ZoneNode.Null;
 	}
 
-	// Token: 0x060036F2 RID: 14066 RVA: 0x00104719 File Offset: 0x00102919
+	// Token: 0x060037C3 RID: 14275 RVA: 0x00054D80 File Offset: 0x00052F80
 	private void Awake()
 	{
 		if (ZoneGraph.gGraph != null && ZoneGraph.gGraph != this)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 		}
 		else
 		{
@@ -46,7 +46,7 @@ public class ZoneGraph : MonoBehaviour
 		this.CompileColliderMaps(this._zoneDefs);
 	}
 
-	// Token: 0x060036F3 RID: 14067 RVA: 0x00104750 File Offset: 0x00102950
+	// Token: 0x060037C4 RID: 14276 RVA: 0x001497C8 File Offset: 0x001479C8
 	private void CompileColliderMaps(ZoneDef[] zones)
 	{
 		foreach (ZoneDef zoneDef in zones)
@@ -64,7 +64,7 @@ public class ZoneGraph : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060036F4 RID: 14068 RVA: 0x001047D4 File Offset: 0x001029D4
+	// Token: 0x060037C5 RID: 14277 RVA: 0x0014984C File Offset: 0x00147A4C
 	public static int Compare(ZoneDef x, ZoneDef y)
 	{
 		if (x == null && y == null)
@@ -89,12 +89,12 @@ public class ZoneGraph : MonoBehaviour
 		return num2;
 	}
 
-	// Token: 0x060036F5 RID: 14069 RVA: 0x00104839 File Offset: 0x00102A39
+	// Token: 0x060037C6 RID: 14278 RVA: 0x00054DB6 File Offset: 0x00052FB6
 	public static void Register(ZoneEntity entity)
 	{
 		if (ZoneGraph.gGraph == null)
 		{
-			ZoneGraph.gGraph = Object.FindFirstObjectByType<ZoneGraph>();
+			ZoneGraph.gGraph = UnityEngine.Object.FindFirstObjectByType<ZoneGraph>();
 		}
 		if (!ZoneGraph.gGraph._entityList.Contains(entity))
 		{
@@ -102,39 +102,39 @@ public class ZoneGraph : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060036F6 RID: 14070 RVA: 0x00104874 File Offset: 0x00102A74
+	// Token: 0x060037C7 RID: 14279 RVA: 0x00054DF1 File Offset: 0x00052FF1
 	public static void Unregister(ZoneEntity entity)
 	{
 		ZoneGraph.gGraph._entityList.Remove(entity);
 	}
 
-	// Token: 0x04003A07 RID: 14855
+	// Token: 0x04003ACC RID: 15052
 	[SerializeField]
 	private ZoneDef[] _zoneDefs = new ZoneDef[0];
 
-	// Token: 0x04003A08 RID: 14856
+	// Token: 0x04003ACD RID: 15053
 	[SerializeField]
 	private BoxCollider[] _colliders = new BoxCollider[0];
 
-	// Token: 0x04003A09 RID: 14857
+	// Token: 0x04003ACE RID: 15054
 	[SerializeField]
 	private ZoneNode[] _nodes = new ZoneNode[0];
 
-	// Token: 0x04003A0A RID: 14858
+	// Token: 0x04003ACF RID: 15055
 	[Space]
 	[NonSerialized]
 	private Dictionary<BoxCollider, ZoneDef> _colliderToZoneDef = new Dictionary<BoxCollider, ZoneDef>(64);
 
-	// Token: 0x04003A0B RID: 14859
+	// Token: 0x04003AD0 RID: 15056
 	[Space]
 	[NonSerialized]
 	private Dictionary<BoxCollider, ZoneNode> _colliderToNode = new Dictionary<BoxCollider, ZoneNode>(64);
 
-	// Token: 0x04003A0C RID: 14860
+	// Token: 0x04003AD1 RID: 15057
 	[Space]
 	[NonSerialized]
 	private List<ZoneEntity> _entityList = new List<ZoneEntity>(16);
 
-	// Token: 0x04003A0D RID: 14861
+	// Token: 0x04003AD2 RID: 15058
 	private static ZoneGraph gGraph;
 }

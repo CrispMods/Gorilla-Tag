@@ -6,11 +6,11 @@ using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.Jobs;
 
-// Token: 0x02000570 RID: 1392
+// Token: 0x0200057E RID: 1406
 public class GorillaIKMgr : MonoBehaviour
 {
-	// Token: 0x1700037E RID: 894
-	// (get) Token: 0x06002265 RID: 8805 RVA: 0x000AAB5C File Offset: 0x000A8D5C
+	// Token: 0x17000386 RID: 902
+	// (get) Token: 0x060022C3 RID: 8899 RVA: 0x000478BD File Offset: 0x00045ABD
 	public static GorillaIKMgr Instance
 	{
 		get
@@ -19,7 +19,7 @@ public class GorillaIKMgr : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002266 RID: 8806 RVA: 0x000AAB64 File Offset: 0x000A8D64
+	// Token: 0x060022C4 RID: 8900 RVA: 0x000FA910 File Offset: 0x000F8B10
 	private void Awake()
 	{
 		GorillaIKMgr._instance = this;
@@ -38,7 +38,7 @@ public class GorillaIKMgr : MonoBehaviour
 		};
 	}
 
-	// Token: 0x06002267 RID: 8807 RVA: 0x000AABF8 File Offset: 0x000A8DF8
+	// Token: 0x060022C5 RID: 8901 RVA: 0x000FA9A4 File Offset: 0x000F8BA4
 	private void OnDestroy()
 	{
 		this.jobHandle.Complete();
@@ -50,7 +50,7 @@ public class GorillaIKMgr : MonoBehaviour
 		this.job.output.Dispose();
 	}
 
-	// Token: 0x06002268 RID: 8808 RVA: 0x000AAC68 File Offset: 0x000A8E68
+	// Token: 0x060022C6 RID: 8902 RVA: 0x000FAA14 File Offset: 0x000F8C14
 	public void RegisterIK(GorillaIK ik)
 	{
 		this.ikList.Add(ik);
@@ -62,7 +62,7 @@ public class GorillaIKMgr : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002269 RID: 8809 RVA: 0x000AACB8 File Offset: 0x000A8EB8
+	// Token: 0x060022C7 RID: 8903 RVA: 0x000FAA64 File Offset: 0x000F8C64
 	public void DeregisterIK(GorillaIK ik)
 	{
 		int num = this.ikList.FindIndex((GorillaIK curr) => curr == ik);
@@ -78,7 +78,7 @@ public class GorillaIKMgr : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600226A RID: 8810 RVA: 0x000AAD54 File Offset: 0x000A8F54
+	// Token: 0x060022C8 RID: 8904 RVA: 0x000FAB00 File Offset: 0x000F8D00
 	private void SetConstantData(GorillaIK ik, int index)
 	{
 		this.job.constantInput[index] = new GorillaIKMgr.IKConstantInput
@@ -93,7 +93,7 @@ public class GorillaIKMgr : MonoBehaviour
 		};
 	}
 
-	// Token: 0x0600226B RID: 8811 RVA: 0x000AADCC File Offset: 0x000A8FCC
+	// Token: 0x060022C9 RID: 8905 RVA: 0x000FAB78 File Offset: 0x000F8D78
 	private void CopyInput()
 	{
 		int num = 0;
@@ -114,7 +114,7 @@ public class GorillaIKMgr : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600226C RID: 8812 RVA: 0x000AAE80 File Offset: 0x000A9080
+	// Token: 0x060022CA RID: 8906 RVA: 0x000FAC2C File Offset: 0x000F8E2C
 	private void CopyOutput()
 	{
 		bool flag = false;
@@ -152,7 +152,7 @@ public class GorillaIKMgr : MonoBehaviour
 		this.updatedSinceLastRun = false;
 	}
 
-	// Token: 0x0600226D RID: 8813 RVA: 0x000AB0D0 File Offset: 0x000A92D0
+	// Token: 0x060022CB RID: 8907 RVA: 0x000FAE7C File Offset: 0x000F907C
 	public void LateUpdate()
 	{
 		if (!this.firstFrame)
@@ -167,85 +167,85 @@ public class GorillaIKMgr : MonoBehaviour
 		this.firstFrame = false;
 	}
 
-	// Token: 0x040025F3 RID: 9715
+	// Token: 0x0400264B RID: 9803
 	[OnEnterPlay_SetNull]
 	private static GorillaIKMgr _instance;
 
-	// Token: 0x040025F4 RID: 9716
+	// Token: 0x0400264C RID: 9804
 	private const int MaxSize = 20;
 
-	// Token: 0x040025F5 RID: 9717
+	// Token: 0x0400264D RID: 9805
 	private List<GorillaIK> ikList = new List<GorillaIK>(20);
 
-	// Token: 0x040025F6 RID: 9718
+	// Token: 0x0400264E RID: 9806
 	private int actualListSz;
 
-	// Token: 0x040025F7 RID: 9719
+	// Token: 0x0400264F RID: 9807
 	private JobHandle jobHandle;
 
-	// Token: 0x040025F8 RID: 9720
+	// Token: 0x04002650 RID: 9808
 	private JobHandle jobXformHandle;
 
-	// Token: 0x040025F9 RID: 9721
+	// Token: 0x04002651 RID: 9809
 	private bool firstFrame = true;
 
-	// Token: 0x040025FA RID: 9722
+	// Token: 0x04002652 RID: 9810
 	private TransformAccessArray tAA;
 
-	// Token: 0x040025FB RID: 9723
+	// Token: 0x04002653 RID: 9811
 	private List<Transform> transformList;
 
-	// Token: 0x040025FC RID: 9724
+	// Token: 0x04002654 RID: 9812
 	private bool updatedSinceLastRun;
 
-	// Token: 0x040025FD RID: 9725
+	// Token: 0x04002655 RID: 9813
 	private int tFormCount = 7;
 
-	// Token: 0x040025FE RID: 9726
+	// Token: 0x04002656 RID: 9814
 	private GorillaIKMgr.IKJob job;
 
-	// Token: 0x040025FF RID: 9727
+	// Token: 0x04002657 RID: 9815
 	private GorillaIKMgr.IKTransformJob jobXform;
 
-	// Token: 0x02000571 RID: 1393
+	// Token: 0x0200057F RID: 1407
 	private struct IKConstantInput
 	{
-		// Token: 0x04002600 RID: 9728
+		// Token: 0x04002658 RID: 9816
 		public Quaternion initRotLower;
 
-		// Token: 0x04002601 RID: 9729
+		// Token: 0x04002659 RID: 9817
 		public Quaternion initRotUpper;
 	}
 
-	// Token: 0x02000572 RID: 1394
+	// Token: 0x02000580 RID: 1408
 	private struct IKInput
 	{
-		// Token: 0x04002602 RID: 9730
+		// Token: 0x0400265A RID: 9818
 		public Vector3 targetPos;
 	}
 
-	// Token: 0x02000573 RID: 1395
+	// Token: 0x02000581 RID: 1409
 	private struct IKOutput
 	{
-		// Token: 0x0600226F RID: 8815 RVA: 0x000AB173 File Offset: 0x000A9373
+		// Token: 0x060022CD RID: 8909 RVA: 0x000478E7 File Offset: 0x00045AE7
 		public IKOutput(Quaternion upperArmLocalRot_, Quaternion lowerArmLocalRot_)
 		{
 			this.upperArmLocalRot = upperArmLocalRot_;
 			this.lowerArmLocalRot = lowerArmLocalRot_;
 		}
 
-		// Token: 0x04002603 RID: 9731
+		// Token: 0x0400265B RID: 9819
 		public Quaternion upperArmLocalRot;
 
-		// Token: 0x04002604 RID: 9732
+		// Token: 0x0400265C RID: 9820
 		public Quaternion lowerArmLocalRot;
 	}
 
-	// Token: 0x02000574 RID: 1396
+	// Token: 0x02000582 RID: 1410
 	[BurstCompile]
 	private struct IKJob : IJobParallelFor
 	{
-		// Token: 0x06002270 RID: 8816 RVA: 0x000AB184 File Offset: 0x000A9384
+		// Token: 0x060022CE RID: 8910 RVA: 0x000FAEFC File Offset: 0x000F90FC
 		public void Execute(int i)
 		{
 			Quaternion initRotUpper = this.constantInput[i].initRotUpper;
@@ -277,30 +277,30 @@ public class GorillaIKMgr : MonoBehaviour
 			this.output[i] = new GorillaIKMgr.IKOutput(upperArmLocalRot_, lowerArmLocalRot_);
 		}
 
-		// Token: 0x04002605 RID: 9733
+		// Token: 0x0400265D RID: 9821
 		public NativeArray<GorillaIKMgr.IKConstantInput> constantInput;
 
-		// Token: 0x04002606 RID: 9734
+		// Token: 0x0400265E RID: 9822
 		public NativeArray<GorillaIKMgr.IKInput> input;
 
-		// Token: 0x04002607 RID: 9735
+		// Token: 0x0400265F RID: 9823
 		public NativeArray<GorillaIKMgr.IKOutput> output;
 
-		// Token: 0x04002608 RID: 9736
+		// Token: 0x04002660 RID: 9824
 		private static readonly Vector3 upperArmLocalPos = new Vector3(-0.0002577677f, 0.1454885f, -0.02598158f);
 
-		// Token: 0x04002609 RID: 9737
+		// Token: 0x04002661 RID: 9825
 		private static readonly Vector3 forearmLocalPos = new Vector3(4.204223E-06f, 0.4061671f, -1.043081E-06f);
 
-		// Token: 0x0400260A RID: 9738
+		// Token: 0x04002662 RID: 9826
 		private static readonly Vector3 handLocalPos = new Vector3(3.073364E-08f, 0.3816895f, 1.117587E-08f);
 	}
 
-	// Token: 0x02000575 RID: 1397
+	// Token: 0x02000583 RID: 1411
 	[BurstCompile]
 	private struct IKTransformJob : IJobParallelForTransform
 	{
-		// Token: 0x06002272 RID: 8818 RVA: 0x000AB48C File Offset: 0x000A968C
+		// Token: 0x060022D0 RID: 8912 RVA: 0x000478F7 File Offset: 0x00045AF7
 		public void Execute(int index, TransformAccess xform)
 		{
 			if (index % 7 <= 3)
@@ -311,7 +311,7 @@ public class GorillaIKMgr : MonoBehaviour
 			xform.rotation = this.transformRotations[index];
 		}
 
-		// Token: 0x0400260B RID: 9739
+		// Token: 0x04002663 RID: 9827
 		public NativeArray<Quaternion> transformRotations;
 	}
 }

@@ -2,10 +2,10 @@
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000AC1 RID: 2753
+	// Token: 0x02000AEE RID: 2798
 	public class ReturnQueueStatsRequest
 	{
-		// Token: 0x04004685 RID: 18053
+		// Token: 0x0400477C RID: 18300
 		public string queueName;
 	}
 }

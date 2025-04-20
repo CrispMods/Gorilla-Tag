@@ -2,13 +2,13 @@
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x02000188 RID: 392
+// Token: 0x02000193 RID: 403
 [Serializable]
 public struct GTSturdyComponentRef<T> where T : Component
 {
-	// Token: 0x170000F9 RID: 249
-	// (get) Token: 0x060009C2 RID: 2498 RVA: 0x00036BBD File Offset: 0x00034DBD
-	// (set) Token: 0x060009C3 RID: 2499 RVA: 0x00036BC5 File Offset: 0x00034DC5
+	// Token: 0x17000100 RID: 256
+	// (get) Token: 0x06000A0E RID: 2574 RVA: 0x000370EA File Offset: 0x000352EA
+	// (set) Token: 0x06000A0F RID: 2575 RVA: 0x000370F2 File Offset: 0x000352F2
 	public Transform BaseXform
 	{
 		get
@@ -21,9 +21,9 @@ public struct GTSturdyComponentRef<T> where T : Component
 		}
 	}
 
-	// Token: 0x170000FA RID: 250
-	// (get) Token: 0x060009C4 RID: 2500 RVA: 0x00036BD0 File Offset: 0x00034DD0
-	// (set) Token: 0x060009C5 RID: 2501 RVA: 0x00036C3F File Offset: 0x00034E3F
+	// Token: 0x17000101 RID: 257
+	// (get) Token: 0x06000A10 RID: 2576 RVA: 0x00096CA0 File Offset: 0x00094EA0
+	// (set) Token: 0x06000A11 RID: 2577 RVA: 0x000370FB File Offset: 0x000352FB
 	public T Value
 	{
 		get
@@ -51,13 +51,13 @@ public struct GTSturdyComponentRef<T> where T : Component
 		}
 	}
 
-	// Token: 0x060009C6 RID: 2502 RVA: 0x00036C78 File Offset: 0x00034E78
+	// Token: 0x06000A12 RID: 2578 RVA: 0x00037134 File Offset: 0x00035334
 	public static implicit operator T(GTSturdyComponentRef<T> sturdyRef)
 	{
 		return sturdyRef.Value;
 	}
 
-	// Token: 0x060009C7 RID: 2503 RVA: 0x00036C84 File Offset: 0x00034E84
+	// Token: 0x06000A13 RID: 2579 RVA: 0x00096D10 File Offset: 0x00094F10
 	public static implicit operator GTSturdyComponentRef<T>(T component)
 	{
 		return new GTSturdyComponentRef<T>
@@ -66,15 +66,15 @@ public struct GTSturdyComponentRef<T> where T : Component
 		};
 	}
 
-	// Token: 0x04000BD9 RID: 3033
+	// Token: 0x04000C1F RID: 3103
 	[SerializeField]
 	private T _value;
 
-	// Token: 0x04000BDA RID: 3034
+	// Token: 0x04000C20 RID: 3104
 	[SerializeField]
 	private string _relativePath;
 
-	// Token: 0x04000BDB RID: 3035
+	// Token: 0x04000C21 RID: 3105
 	[SerializeField]
 	private Transform _baseXform;
 }

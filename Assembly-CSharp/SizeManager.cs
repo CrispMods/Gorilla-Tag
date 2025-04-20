@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using GorillaLocomotion;
 using UnityEngine;
 
-// Token: 0x020005E5 RID: 1509
+// Token: 0x020005F3 RID: 1523
 public class SizeManager : MonoBehaviour
 {
-	// Token: 0x170003E0 RID: 992
-	// (get) Token: 0x0600257E RID: 9598 RVA: 0x000B93F0 File Offset: 0x000B75F0
+	// Token: 0x170003E8 RID: 1000
+	// (get) Token: 0x060025E0 RID: 9696 RVA: 0x00049AE4 File Offset: 0x00047CE4
 	public float currentScale
 	{
 		get
@@ -24,9 +24,9 @@ public class SizeManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170003E1 RID: 993
-	// (get) Token: 0x0600257F RID: 9599 RVA: 0x000B942B File Offset: 0x000B762B
-	// (set) Token: 0x06002580 RID: 9600 RVA: 0x000B9460 File Offset: 0x000B7660
+	// Token: 0x170003E9 RID: 1001
+	// (get) Token: 0x060025E1 RID: 9697 RVA: 0x00049B1F File Offset: 0x00047D1F
+	// (set) Token: 0x060025E2 RID: 9698 RVA: 0x0010716C File Offset: 0x0010536C
 	public int currentSizeLayerMaskValue
 	{
 		get
@@ -59,7 +59,7 @@ public class SizeManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002581 RID: 9601 RVA: 0x000B94BA File Offset: 0x000B76BA
+	// Token: 0x060025E3 RID: 9699 RVA: 0x00049B54 File Offset: 0x00047D54
 	private void OnDisable()
 	{
 		this.touchingChangers.Clear();
@@ -67,13 +67,13 @@ public class SizeManager : MonoBehaviour
 		SizeManagerManager.UnregisterSM(this);
 	}
 
-	// Token: 0x06002582 RID: 9602 RVA: 0x000B94D4 File Offset: 0x000B76D4
+	// Token: 0x060025E4 RID: 9700 RVA: 0x00049B6E File Offset: 0x00047D6E
 	private void OnEnable()
 	{
 		SizeManagerManager.RegisterSM(this);
 	}
 
-	// Token: 0x06002583 RID: 9603 RVA: 0x000B94DC File Offset: 0x000B76DC
+	// Token: 0x060025E5 RID: 9701 RVA: 0x001071C8 File Offset: 0x001053C8
 	private void CollectLineRenderers(GameObject obj)
 	{
 		this.lineRenderers = obj.GetComponentsInChildren<LineRenderer>(true);
@@ -84,7 +84,7 @@ public class SizeManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002584 RID: 9604 RVA: 0x000B952C File Offset: 0x000B772C
+	// Token: 0x060025E6 RID: 9702 RVA: 0x00107218 File Offset: 0x00105418
 	public void BuildInitialize()
 	{
 		this.rate = 650f;
@@ -112,7 +112,7 @@ public class SizeManager : MonoBehaviour
 		this.buildInitialized = true;
 	}
 
-	// Token: 0x06002585 RID: 9605 RVA: 0x000B9610 File Offset: 0x000B7810
+	// Token: 0x060025E7 RID: 9703 RVA: 0x00049B76 File Offset: 0x00047D76
 	private void Awake()
 	{
 		if (!this.buildInitialized)
@@ -122,7 +122,7 @@ public class SizeManager : MonoBehaviour
 		SizeManagerManager.RegisterSM(this);
 	}
 
-	// Token: 0x06002586 RID: 9606 RVA: 0x000B9628 File Offset: 0x000B7828
+	// Token: 0x060025E8 RID: 9704 RVA: 0x001072FC File Offset: 0x001054FC
 	public void InvokeFixedUpdate()
 	{
 		float num = 1f;
@@ -168,7 +168,7 @@ public class SizeManager : MonoBehaviour
 		this.lastScale = num;
 	}
 
-	// Token: 0x06002587 RID: 9607 RVA: 0x000B97C8 File Offset: 0x000B79C8
+	// Token: 0x060025E9 RID: 9705 RVA: 0x0010749C File Offset: 0x0010569C
 	private SizeChanger ControllingChanger(Transform t)
 	{
 		for (int i = this.touchingChangers.Count - 1; i >= 0; i--)
@@ -182,7 +182,7 @@ public class SizeManager : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x06002588 RID: 9608 RVA: 0x000B9854 File Offset: 0x000B7A54
+	// Token: 0x060025EA RID: 9706 RVA: 0x00107528 File Offset: 0x00105728
 	private float ScaleFromChanger(SizeChanger sC, Transform t, float deltaTime)
 	{
 		if (sC == null)
@@ -202,7 +202,7 @@ public class SizeManager : MonoBehaviour
 		return 1f;
 	}
 
-	// Token: 0x06002589 RID: 9609 RVA: 0x000B9926 File Offset: 0x000B7B26
+	// Token: 0x060025EB RID: 9707 RVA: 0x00049B8C File Offset: 0x00047D8C
 	private float SizeOverTime(float targetSize, float easing, float deltaTime)
 	{
 		if (easing <= 0f || Mathf.Abs(this.targetRig.ScaleMultiplier - targetSize) < 0.05f)
@@ -212,7 +212,7 @@ public class SizeManager : MonoBehaviour
 		return Mathf.MoveTowards(this.targetRig.ScaleMultiplier, targetSize, deltaTime / easing);
 	}
 
-	// Token: 0x0600258A RID: 9610 RVA: 0x000B9960 File Offset: 0x000B7B60
+	// Token: 0x060025EC RID: 9708 RVA: 0x001075FC File Offset: 0x001057FC
 	private void CheckSizeChangeEvents(float newSize)
 	{
 		if (newSize < this.smallThreshold)
@@ -242,62 +242,62 @@ public class SizeManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040029B5 RID: 10677
+	// Token: 0x04002A14 RID: 10772
 	public List<SizeChanger> touchingChangers;
 
-	// Token: 0x040029B6 RID: 10678
+	// Token: 0x04002A15 RID: 10773
 	private LineRenderer[] lineRenderers;
 
-	// Token: 0x040029B7 RID: 10679
+	// Token: 0x04002A16 RID: 10774
 	private List<float> initLineScalar = new List<float>();
 
-	// Token: 0x040029B8 RID: 10680
+	// Token: 0x04002A17 RID: 10775
 	public VRRig targetRig;
 
-	// Token: 0x040029B9 RID: 10681
+	// Token: 0x04002A18 RID: 10776
 	public GTPlayer targetPlayer;
 
-	// Token: 0x040029BA RID: 10682
+	// Token: 0x04002A19 RID: 10777
 	public float magnitudeThreshold = 0.01f;
 
-	// Token: 0x040029BB RID: 10683
+	// Token: 0x04002A1A RID: 10778
 	public float rate = 650f;
 
-	// Token: 0x040029BC RID: 10684
+	// Token: 0x04002A1B RID: 10779
 	public Transform mainCameraTransform;
 
-	// Token: 0x040029BD RID: 10685
+	// Token: 0x04002A1C RID: 10780
 	public SizeManager.SizeChangerType myType;
 
-	// Token: 0x040029BE RID: 10686
+	// Token: 0x04002A1D RID: 10781
 	public float lastScale;
 
-	// Token: 0x040029BF RID: 10687
+	// Token: 0x04002A1E RID: 10782
 	private bool buildInitialized;
 
-	// Token: 0x040029C0 RID: 10688
+	// Token: 0x04002A1F RID: 10783
 	private const float returnToNormalEasing = 0.33f;
 
-	// Token: 0x040029C1 RID: 10689
+	// Token: 0x04002A20 RID: 10784
 	private float smallThreshold = 0.6f;
 
-	// Token: 0x040029C2 RID: 10690
+	// Token: 0x04002A21 RID: 10785
 	private float largeThreshold = 1.5f;
 
-	// Token: 0x040029C3 RID: 10691
+	// Token: 0x04002A22 RID: 10786
 	private bool isSmall;
 
-	// Token: 0x040029C4 RID: 10692
+	// Token: 0x04002A23 RID: 10787
 	private bool isLarge;
 
-	// Token: 0x020005E6 RID: 1510
+	// Token: 0x020005F4 RID: 1524
 	public enum SizeChangerType
 	{
-		// Token: 0x040029C6 RID: 10694
+		// Token: 0x04002A25 RID: 10789
 		LocalOffline,
-		// Token: 0x040029C7 RID: 10695
+		// Token: 0x04002A26 RID: 10790
 		LocalOnline,
-		// Token: 0x040029C8 RID: 10696
+		// Token: 0x04002A27 RID: 10791
 		OtherOnline
 	}
 }

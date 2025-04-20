@@ -2,10 +2,10 @@
 using System.ComponentModel;
 using UnityEngine;
 
-// Token: 0x02000207 RID: 519
+// Token: 0x02000212 RID: 530
 public static class UnityTagsExt
 {
-	// Token: 0x06000C19 RID: 3097 RVA: 0x0003FF8C File Offset: 0x0003E18C
+	// Token: 0x06000C64 RID: 3172 RVA: 0x0009E6DC File Offset: 0x0009C8DC
 	public static UnityTag ToTag(this string s)
 	{
 		if (string.IsNullOrWhiteSpace(s))
@@ -20,7 +20,7 @@ public static class UnityTagsExt
 		return result;
 	}
 
-	// Token: 0x06000C1A RID: 3098 RVA: 0x0003FFB5 File Offset: 0x0003E1B5
+	// Token: 0x06000C65 RID: 3173 RVA: 0x00038A3B File Offset: 0x00036C3B
 	public static void SetTag(this Component c, UnityTag tag)
 	{
 		if (c == null)
@@ -34,7 +34,7 @@ public static class UnityTagsExt
 		c.tag = UnityTags.StringValues[(int)tag];
 	}
 
-	// Token: 0x06000C1B RID: 3099 RVA: 0x0003FFDD File Offset: 0x0003E1DD
+	// Token: 0x06000C66 RID: 3174 RVA: 0x00038A63 File Offset: 0x00036C63
 	public static void SetTag(this GameObject g, UnityTag tag)
 	{
 		if (g == null)
@@ -48,21 +48,21 @@ public static class UnityTagsExt
 		g.tag = UnityTags.StringValues[(int)tag];
 	}
 
-	// Token: 0x06000C1C RID: 3100 RVA: 0x00040005 File Offset: 0x0003E205
+	// Token: 0x06000C67 RID: 3175 RVA: 0x00038A8B File Offset: 0x00036C8B
 	public static bool TryGetTag(this GameObject g, out UnityTag tag)
 	{
 		tag = UnityTag.Invalid;
 		return !(g == null) && UnityTags.StringToTag.TryGetValue(g.tag, out tag);
 	}
 
-	// Token: 0x06000C1D RID: 3101 RVA: 0x00040026 File Offset: 0x0003E226
+	// Token: 0x06000C68 RID: 3176 RVA: 0x00038AAC File Offset: 0x00036CAC
 	public static bool TryGetTag(this Component c, out UnityTag tag)
 	{
 		tag = UnityTag.Invalid;
 		return !(c == null) && UnityTags.StringToTag.TryGetValue(c.tag, out tag);
 	}
 
-	// Token: 0x06000C1E RID: 3102 RVA: 0x00040047 File Offset: 0x0003E247
+	// Token: 0x06000C69 RID: 3177 RVA: 0x00038ACD File Offset: 0x00036CCD
 	public static bool CompareTag(this GameObject g, UnityTag tag)
 	{
 		if (g == null)
@@ -76,7 +76,7 @@ public static class UnityTagsExt
 		return g.CompareTag(UnityTags.StringValues[(int)tag]);
 	}
 
-	// Token: 0x06000C1F RID: 3103 RVA: 0x00040070 File Offset: 0x0003E270
+	// Token: 0x06000C6A RID: 3178 RVA: 0x00038AF6 File Offset: 0x00036CF6
 	public static bool CompareTag(this Component c, UnityTag tag)
 	{
 		if (c == null)

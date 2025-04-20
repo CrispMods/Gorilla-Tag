@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B85 RID: 2949
+	// Token: 0x02000BB2 RID: 2994
 	[IncludeMyAttributes]
 	public class SoundBankInfoAttribute : Attribute
 	{

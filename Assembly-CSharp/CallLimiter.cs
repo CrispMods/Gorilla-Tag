@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020007E2 RID: 2018
+// Token: 0x020007FC RID: 2044
 [Serializable]
 public class CallLimiter
 {
-	// Token: 0x060031F7 RID: 12791 RVA: 0x00002050 File Offset: 0x00000250
+	// Token: 0x060032AD RID: 12973 RVA: 0x00030490 File Offset: 0x0002E690
 	public CallLimiter()
 	{
 	}
 
-	// Token: 0x060031F8 RID: 12792 RVA: 0x000F0410 File Offset: 0x000EE610
+	// Token: 0x060032AE RID: 12974 RVA: 0x001387A8 File Offset: 0x001369A8
 	public CallLimiter(int historyLength, float coolDown, float latencyMax = 0.5f)
 	{
 		this.callTimeHistory = new float[historyLength];
@@ -23,7 +23,7 @@ public class CallLimiter
 		this.maxLatency = (double)latencyMax;
 	}
 
-	// Token: 0x060031F9 RID: 12793 RVA: 0x000F0460 File Offset: 0x000EE660
+	// Token: 0x060032AF RID: 12975 RVA: 0x001387F8 File Offset: 0x001369F8
 	public bool CheckCallServerTime(double time)
 	{
 		double simTime = NetworkSystem.Instance.SimTime;
@@ -64,7 +64,7 @@ public class CallLimiter
 		return this.CheckCallTime((float)time);
 	}
 
-	// Token: 0x060031FA RID: 12794 RVA: 0x000F0518 File Offset: 0x000EE718
+	// Token: 0x060032B0 RID: 12976 RVA: 0x001388B0 File Offset: 0x00136AB0
 	public virtual bool CheckCallTime(float time)
 	{
 		if (this.callTimeHistory[this.oldTimeIndex] > time)
@@ -81,7 +81,7 @@ public class CallLimiter
 		return true;
 	}
 
-	// Token: 0x060031FB RID: 12795 RVA: 0x000F0580 File Offset: 0x000EE780
+	// Token: 0x060032B1 RID: 12977 RVA: 0x00138918 File Offset: 0x00136B18
 	public virtual void Reset()
 	{
 		if (this.callTimeHistory == null)
@@ -97,32 +97,32 @@ public class CallLimiter
 		this.blockCall = false;
 	}
 
-	// Token: 0x04003584 RID: 13700
+	// Token: 0x0400363A RID: 13882
 	protected const double k_serverMaxTime = 4294967.295;
 
-	// Token: 0x04003585 RID: 13701
+	// Token: 0x0400363B RID: 13883
 	[SerializeField]
 	protected float[] callTimeHistory;
 
-	// Token: 0x04003586 RID: 13702
+	// Token: 0x0400363C RID: 13884
 	[Space]
 	[SerializeField]
 	protected int callHistoryLength;
 
-	// Token: 0x04003587 RID: 13703
+	// Token: 0x0400363D RID: 13885
 	[SerializeField]
 	protected float timeCooldown;
 
-	// Token: 0x04003588 RID: 13704
+	// Token: 0x0400363E RID: 13886
 	[SerializeField]
 	protected double maxLatency;
 
-	// Token: 0x04003589 RID: 13705
+	// Token: 0x0400363F RID: 13887
 	private int oldTimeIndex;
 
-	// Token: 0x0400358A RID: 13706
+	// Token: 0x04003640 RID: 13888
 	protected bool blockCall;
 
-	// Token: 0x0400358B RID: 13707
+	// Token: 0x04003641 RID: 13889
 	protected float blockStartTime;
 }

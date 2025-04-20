@@ -1,10 +1,10 @@
 ﻿using System;
 using Unity.Mathematics;
 
-// Token: 0x02000180 RID: 384
+// Token: 0x0200018B RID: 395
 public static class CosmeticIDUtils
 {
-	// Token: 0x0600099D RID: 2461 RVA: 0x00033078 File Offset: 0x00031278
+	// Token: 0x060009E9 RID: 2537 RVA: 0x00093258 File Offset: 0x00091458
 	public static int PlayFabIdToIndexInCategory(string playFabIdString)
 	{
 		if (playFabIdString == null || playFabIdString.Length < 6)

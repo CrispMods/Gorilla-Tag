@@ -5,16 +5,16 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x02000988 RID: 2440
+	// Token: 0x020009AE RID: 2478
 	public class BuilderFactory : MonoBehaviour
 	{
-		// Token: 0x06003BAE RID: 15278 RVA: 0x00112BFD File Offset: 0x00110DFD
+		// Token: 0x06003CC6 RID: 15558 RVA: 0x00057B2B File Offset: 0x00055D2B
 		private void Awake()
 		{
 			this.InitIfNeeded();
 		}
 
-		// Token: 0x06003BAF RID: 15279 RVA: 0x00112C08 File Offset: 0x00110E08
+		// Token: 0x06003CC7 RID: 15559 RVA: 0x00155B68 File Offset: 0x00153D68
 		public void InitIfNeeded()
 		{
 			if (this.initialized)
@@ -42,7 +42,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003BB0 RID: 15280 RVA: 0x00112D00 File Offset: 0x00110F00
+		// Token: 0x06003CC8 RID: 15560 RVA: 0x00155C60 File Offset: 0x00153E60
 		public void Setup()
 		{
 			this.InitIfNeeded();
@@ -106,13 +106,13 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003BB1 RID: 15281 RVA: 0x00112F5C File Offset: 0x0011115C
+		// Token: 0x06003CC9 RID: 15561 RVA: 0x00057B33 File Offset: 0x00055D33
 		public void Show()
 		{
 			this.RefreshUI();
 		}
 
-		// Token: 0x06003BB2 RID: 15282 RVA: 0x00112F64 File Offset: 0x00111164
+		// Token: 0x06003CCA RID: 15562 RVA: 0x00155EBC File Offset: 0x001540BC
 		public BuilderPiece GetPiecePrefab(int pieceType)
 		{
 			int index;
@@ -127,7 +127,7 @@ namespace GorillaTagScripts
 			return null;
 		}
 
-		// Token: 0x06003BB3 RID: 15283 RVA: 0x00112FA8 File Offset: 0x001111A8
+		// Token: 0x06003CCB RID: 15563 RVA: 0x00155F00 File Offset: 0x00154100
 		public void OnBuildItem(BuilderOptionButton button, bool isLeftHand)
 		{
 			if (this.pieceTypes != null && this.pieceTypes.Count > this.currPieceTypeIndex)
@@ -141,7 +141,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003BB4 RID: 15284 RVA: 0x0011303C File Offset: 0x0011123C
+		// Token: 0x06003CCC RID: 15564 RVA: 0x00155F94 File Offset: 0x00154194
 		public void OnPrevItem(BuilderOptionButton button, bool isLeftHand)
 		{
 			if (this.pieceTypes != null && this.pieceTypes.Count > 0)
@@ -158,7 +158,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003BB5 RID: 15285 RVA: 0x001130BC File Offset: 0x001112BC
+		// Token: 0x06003CCD RID: 15565 RVA: 0x00156014 File Offset: 0x00154214
 		public void OnNextItem(BuilderOptionButton button, bool isLeftHand)
 		{
 			if (this.pieceTypes != null && this.pieceTypes.Count > 0)
@@ -175,7 +175,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003BB6 RID: 15286 RVA: 0x0011313C File Offset: 0x0011133C
+		// Token: 0x06003CCE RID: 15566 RVA: 0x00156094 File Offset: 0x00154294
 		public void OnPrevMaterial(BuilderOptionButton button, bool isLeftHand)
 		{
 			if (this.pieceTypes != null && this.pieceTypes.Count > 0)
@@ -200,7 +200,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003BB7 RID: 15287 RVA: 0x0011320C File Offset: 0x0011140C
+		// Token: 0x06003CCF RID: 15567 RVA: 0x00156164 File Offset: 0x00154364
 		public void OnNextMaterial(BuilderOptionButton button, bool isLeftHand)
 		{
 			if (this.pieceTypes != null && this.pieceTypes.Count > 0)
@@ -225,7 +225,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003BB8 RID: 15288 RVA: 0x001132DC File Offset: 0x001114DC
+		// Token: 0x06003CD0 RID: 15568 RVA: 0x00156234 File Offset: 0x00154434
 		private int GetSelectedMaterialType()
 		{
 			int result = -1;
@@ -241,7 +241,7 @@ namespace GorillaTagScripts
 			return result;
 		}
 
-		// Token: 0x06003BB9 RID: 15289 RVA: 0x00113360 File Offset: 0x00111560
+		// Token: 0x06003CD1 RID: 15569 RVA: 0x001562B8 File Offset: 0x001544B8
 		private string GetSelectedMaterialName()
 		{
 			string result = "DEFAULT";
@@ -257,20 +257,20 @@ namespace GorillaTagScripts
 			return result;
 		}
 
-		// Token: 0x06003BBA RID: 15290 RVA: 0x001133E0 File Offset: 0x001115E0
+		// Token: 0x06003CD2 RID: 15570 RVA: 0x00156338 File Offset: 0x00154538
 		public bool CanBuildPieceType(int pieceType)
 		{
 			BuilderPiece piecePrefab = this.GetPiecePrefab(pieceType);
 			return !(piecePrefab == null) && !piecePrefab.isBuiltIntoTable;
 		}
 
-		// Token: 0x06003BBB RID: 15291 RVA: 0x000444E2 File Offset: 0x000426E2
+		// Token: 0x06003CD3 RID: 15571 RVA: 0x00039846 File Offset: 0x00037A46
 		public bool CanUseMaterialType(int materalType)
 		{
 			return true;
 		}
 
-		// Token: 0x06003BBC RID: 15292 RVA: 0x0011340C File Offset: 0x0011160C
+		// Token: 0x06003CD4 RID: 15572 RVA: 0x00156364 File Offset: 0x00154564
 		public void RefreshUI()
 		{
 			if (this.pieceList != null && this.pieceList.Count > this.currPieceTypeIndex)
@@ -305,7 +305,7 @@ namespace GorillaTagScripts
 			this.RefreshCostUI();
 		}
 
-		// Token: 0x06003BBD RID: 15293 RVA: 0x00113584 File Offset: 0x00111784
+		// Token: 0x06003CD5 RID: 15573 RVA: 0x001564DC File Offset: 0x001546DC
 		private void RefreshCostUI()
 		{
 			List<BuilderResourceQuantity> list = null;
@@ -327,77 +327,77 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003BBE RID: 15294 RVA: 0x0011361E File Offset: 0x0011181E
+		// Token: 0x06003CD6 RID: 15574 RVA: 0x00057B3B File Offset: 0x00055D3B
 		public void OnAvailableResourcesChange()
 		{
 			this.RefreshCostUI();
 		}
 
-		// Token: 0x06003BBF RID: 15295 RVA: 0x00113626 File Offset: 0x00111826
+		// Token: 0x06003CD7 RID: 15575 RVA: 0x00057B43 File Offset: 0x00055D43
 		public void CreateRandomPiece()
 		{
 			Debug.LogError("Create Random Piece No longer implemented");
 		}
 
-		// Token: 0x04003CD7 RID: 15575
+		// Token: 0x04003DB1 RID: 15793
 		public Transform spawnLocation;
 
-		// Token: 0x04003CD8 RID: 15576
+		// Token: 0x04003DB2 RID: 15794
 		private List<int> pieceTypes;
 
-		// Token: 0x04003CD9 RID: 15577
+		// Token: 0x04003DB3 RID: 15795
 		public List<GameObject> itemList;
 
-		// Token: 0x04003CDA RID: 15578
+		// Token: 0x04003DB4 RID: 15796
 		[HideInInspector]
 		public List<BuilderPiece> pieceList;
 
-		// Token: 0x04003CDB RID: 15579
+		// Token: 0x04003DB5 RID: 15797
 		public BuilderOptionButton buildItemButton;
 
-		// Token: 0x04003CDC RID: 15580
+		// Token: 0x04003DB6 RID: 15798
 		public TextMeshPro itemLabel;
 
-		// Token: 0x04003CDD RID: 15581
+		// Token: 0x04003DB7 RID: 15799
 		public BuilderOptionButton prevItemButton;
 
-		// Token: 0x04003CDE RID: 15582
+		// Token: 0x04003DB8 RID: 15800
 		public BuilderOptionButton nextItemButton;
 
-		// Token: 0x04003CDF RID: 15583
+		// Token: 0x04003DB9 RID: 15801
 		public TextMeshPro materialLabel;
 
-		// Token: 0x04003CE0 RID: 15584
+		// Token: 0x04003DBA RID: 15802
 		public BuilderOptionButton prevMaterialButton;
 
-		// Token: 0x04003CE1 RID: 15585
+		// Token: 0x04003DBB RID: 15803
 		public BuilderOptionButton nextMaterialButton;
 
-		// Token: 0x04003CE2 RID: 15586
+		// Token: 0x04003DBC RID: 15804
 		public AudioSource audioSource;
 
-		// Token: 0x04003CE3 RID: 15587
+		// Token: 0x04003DBD RID: 15805
 		public AudioClip buildPieceSound;
 
-		// Token: 0x04003CE4 RID: 15588
+		// Token: 0x04003DBE RID: 15806
 		public Transform previewMarker;
 
-		// Token: 0x04003CE5 RID: 15589
+		// Token: 0x04003DBF RID: 15807
 		public List<BuilderUIResource> resourceCostUIs;
 
-		// Token: 0x04003CE6 RID: 15590
+		// Token: 0x04003DC0 RID: 15808
 		private BuilderPiece previewPiece;
 
-		// Token: 0x04003CE7 RID: 15591
+		// Token: 0x04003DC1 RID: 15809
 		private int currPieceTypeIndex;
 
-		// Token: 0x04003CE8 RID: 15592
+		// Token: 0x04003DC2 RID: 15810
 		private int currPieceMaterialIndex;
 
-		// Token: 0x04003CE9 RID: 15593
+		// Token: 0x04003DC3 RID: 15811
 		private Dictionary<int, int> pieceTypeToIndex;
 
-		// Token: 0x04003CEA RID: 15594
+		// Token: 0x04003DC4 RID: 15812
 		private bool initialized;
 	}
 }

@@ -3,31 +3,31 @@ using UnityEngine;
 
 namespace CjLib
 {
-	// Token: 0x02000C9D RID: 3229
+	// Token: 0x02000CCE RID: 3278
 	public struct FloatSpring
 	{
-		// Token: 0x06005175 RID: 20853 RVA: 0x0018F929 File Offset: 0x0018DB29
+		// Token: 0x060052D7 RID: 21207 RVA: 0x00065AB2 File Offset: 0x00063CB2
 		public void Reset()
 		{
 			this.Value = 0f;
 			this.Velocity = 0f;
 		}
 
-		// Token: 0x06005176 RID: 20854 RVA: 0x0018F941 File Offset: 0x0018DB41
+		// Token: 0x060052D8 RID: 21208 RVA: 0x00065ACA File Offset: 0x00063CCA
 		public void Reset(float initValue)
 		{
 			this.Value = initValue;
 			this.Velocity = 0f;
 		}
 
-		// Token: 0x06005177 RID: 20855 RVA: 0x0018F955 File Offset: 0x0018DB55
+		// Token: 0x060052D9 RID: 21209 RVA: 0x00065ADE File Offset: 0x00063CDE
 		public void Reset(float initValue, float initVelocity)
 		{
 			this.Value = initValue;
 			this.Velocity = initVelocity;
 		}
 
-		// Token: 0x06005178 RID: 20856 RVA: 0x0018F968 File Offset: 0x0018DB68
+		// Token: 0x060052DA RID: 21210 RVA: 0x001C63B0 File Offset: 0x001C45B0
 		public float TrackDampingRatio(float targetValue, float angularFrequency, float dampingRatio, float deltaTime)
 		{
 			if (angularFrequency < MathUtil.Epsilon)
@@ -53,7 +53,7 @@ namespace CjLib
 			return this.Value;
 		}
 
-		// Token: 0x06005179 RID: 20857 RVA: 0x0018FA38 File Offset: 0x0018DC38
+		// Token: 0x060052DB RID: 21211 RVA: 0x001C6480 File Offset: 0x001C4680
 		public float TrackHalfLife(float targetValue, float frequencyHz, float halfLife, float deltaTime)
 		{
 			if (halfLife < MathUtil.Epsilon)
@@ -67,7 +67,7 @@ namespace CjLib
 			return this.TrackDampingRatio(targetValue, num, dampingRatio, deltaTime);
 		}
 
-		// Token: 0x0600517A RID: 20858 RVA: 0x0018FA84 File Offset: 0x0018DC84
+		// Token: 0x060052DC RID: 21212 RVA: 0x001C64CC File Offset: 0x001C46CC
 		public float TrackExponential(float targetValue, float halfLife, float deltaTime)
 		{
 			if (halfLife < MathUtil.Epsilon)
@@ -81,13 +81,13 @@ namespace CjLib
 			return this.TrackDampingRatio(targetValue, angularFrequency, dampingRatio, deltaTime);
 		}
 
-		// Token: 0x040053BE RID: 21438
+		// Token: 0x040054CA RID: 21706
 		public static readonly int Stride = 8;
 
-		// Token: 0x040053BF RID: 21439
+		// Token: 0x040054CB RID: 21707
 		public float Value;
 
-		// Token: 0x040053C0 RID: 21440
+		// Token: 0x040054CC RID: 21708
 		public float Velocity;
 	}
 }

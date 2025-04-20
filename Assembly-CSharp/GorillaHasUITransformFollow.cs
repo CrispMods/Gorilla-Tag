@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000566 RID: 1382
+// Token: 0x02000574 RID: 1396
 public class GorillaHasUITransformFollow : MonoBehaviour
 {
-	// Token: 0x0600221B RID: 8731 RVA: 0x000A8944 File Offset: 0x000A6B44
+	// Token: 0x06002279 RID: 8825 RVA: 0x000F888C File Offset: 0x000F6A8C
 	private void Awake()
 	{
 		GorillaUITransformFollow[] array = this.transformFollowers;
@@ -14,17 +14,17 @@ public class GorillaHasUITransformFollow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600221C RID: 8732 RVA: 0x000A8980 File Offset: 0x000A6B80
+	// Token: 0x0600227A RID: 8826 RVA: 0x000F88C8 File Offset: 0x000F6AC8
 	private void OnDestroy()
 	{
 		GorillaUITransformFollow[] array = this.transformFollowers;
 		for (int i = 0; i < array.Length; i++)
 		{
-			Object.Destroy(array[i].gameObject);
+			UnityEngine.Object.Destroy(array[i].gameObject);
 		}
 	}
 
-	// Token: 0x0600221D RID: 8733 RVA: 0x000A89B0 File Offset: 0x000A6BB0
+	// Token: 0x0600227B RID: 8827 RVA: 0x000F88F8 File Offset: 0x000F6AF8
 	private void OnEnable()
 	{
 		GorillaUITransformFollow[] array = this.transformFollowers;
@@ -34,7 +34,7 @@ public class GorillaHasUITransformFollow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600221E RID: 8734 RVA: 0x000A89E0 File Offset: 0x000A6BE0
+	// Token: 0x0600227C RID: 8828 RVA: 0x000F8928 File Offset: 0x000F6B28
 	private void OnDisable()
 	{
 		GorillaUITransformFollow[] array = this.transformFollowers;
@@ -44,6 +44,6 @@ public class GorillaHasUITransformFollow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002596 RID: 9622
+	// Token: 0x040025EE RID: 9710
 	public GorillaUITransformFollow[] transformFollowers;
 }

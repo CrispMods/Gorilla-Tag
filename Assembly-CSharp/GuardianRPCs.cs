@@ -3,17 +3,17 @@ using GorillaExtensions;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020007EF RID: 2031
+// Token: 0x02000809 RID: 2057
 internal class GuardianRPCs : RPCNetworkBase
 {
-	// Token: 0x0600321A RID: 12826 RVA: 0x000F0996 File Offset: 0x000EEB96
+	// Token: 0x060032D0 RID: 13008 RVA: 0x00051907 File Offset: 0x0004FB07
 	public override void SetClassTarget(IWrappedSerializable target, GorillaWrappedSerializer netHandler)
 	{
 		this.guardianManager = (GorillaGuardianManager)target;
 		this.serializer = (GameModeSerializer)netHandler;
 	}
 
-	// Token: 0x0600321B RID: 12827 RVA: 0x000F09B0 File Offset: 0x000EEBB0
+	// Token: 0x060032D1 RID: 13009 RVA: 0x00138C8C File Offset: 0x00136E8C
 	[PunRPC]
 	public void GuardianRequestEject(PhotonMessageInfo info)
 	{
@@ -25,7 +25,7 @@ internal class GuardianRPCs : RPCNetworkBase
 		}
 	}
 
-	// Token: 0x0600321C RID: 12828 RVA: 0x000F09EC File Offset: 0x000EEBEC
+	// Token: 0x060032D2 RID: 13010 RVA: 0x00138CC8 File Offset: 0x00136EC8
 	[PunRPC]
 	public void GuardianLaunchPlayer(Vector3 velocity, PhotonMessageInfo info)
 	{
@@ -48,7 +48,7 @@ internal class GuardianRPCs : RPCNetworkBase
 		this.guardianManager.LaunchPlayer(photonMessageInfoWrapped.Sender, velocity);
 	}
 
-	// Token: 0x0600321D RID: 12829 RVA: 0x000F0A84 File Offset: 0x000EEC84
+	// Token: 0x060032D3 RID: 13011 RVA: 0x00138D60 File Offset: 0x00136F60
 	[PunRPC]
 	public void ShowSlapEffects(Vector3 location, Vector3 direction, PhotonMessageInfo info)
 	{
@@ -75,7 +75,7 @@ internal class GuardianRPCs : RPCNetworkBase
 		}
 	}
 
-	// Token: 0x0600321E RID: 12830 RVA: 0x000F0B28 File Offset: 0x000EED28
+	// Token: 0x060032D4 RID: 13012 RVA: 0x00138E04 File Offset: 0x00137004
 	[PunRPC]
 	public void ShowSlamEffect(Vector3 location, Vector3 direction, PhotonMessageInfo info)
 	{
@@ -102,18 +102,18 @@ internal class GuardianRPCs : RPCNetworkBase
 		}
 	}
 
-	// Token: 0x040035A5 RID: 13733
+	// Token: 0x04003660 RID: 13920
 	private GameModeSerializer serializer;
 
-	// Token: 0x040035A6 RID: 13734
+	// Token: 0x04003661 RID: 13921
 	private GorillaGuardianManager guardianManager;
 
-	// Token: 0x040035A7 RID: 13735
+	// Token: 0x04003662 RID: 13922
 	private CallLimiter launchCallLimit = new CallLimiter(5, 0.5f, 0.5f);
 
-	// Token: 0x040035A8 RID: 13736
+	// Token: 0x04003663 RID: 13923
 	private CallLimiter slapFXCallLimit = new CallLimiter(5, 0.5f, 0.5f);
 
-	// Token: 0x040035A9 RID: 13737
+	// Token: 0x04003664 RID: 13924
 	private CallLimiter slamFXCallLimit = new CallLimiter(5, 0.5f, 0.5f);
 }

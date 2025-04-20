@@ -2,10 +2,10 @@
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020007AA RID: 1962
+// Token: 0x020007C2 RID: 1986
 internal class OwnershipGaurd : MonoBehaviour
 {
-	// Token: 0x06003069 RID: 12393 RVA: 0x000E993B File Offset: 0x000E7B3B
+	// Token: 0x0600311B RID: 12571 RVA: 0x0005088B File Offset: 0x0004EA8B
 	private void Start()
 	{
 		if (this.autoRegisterAll)
@@ -19,7 +19,7 @@ internal class OwnershipGaurd : MonoBehaviour
 		OwnershipGaurdHandler.RegisterViews(this.NetViews);
 	}
 
-	// Token: 0x0600306A RID: 12394 RVA: 0x000E9965 File Offset: 0x000E7B65
+	// Token: 0x0600311C RID: 12572 RVA: 0x000508B5 File Offset: 0x0004EAB5
 	private void OnDestroy()
 	{
 		if (this.NetViews == null)
@@ -29,11 +29,11 @@ internal class OwnershipGaurd : MonoBehaviour
 		OwnershipGaurdHandler.RemoveViews(this.NetViews);
 	}
 
-	// Token: 0x04003460 RID: 13408
+	// Token: 0x0400350A RID: 13578
 	[SerializeField]
 	private PhotonView[] NetViews;
 
-	// Token: 0x04003461 RID: 13409
+	// Token: 0x0400350B RID: 13579
 	[SerializeField]
 	private bool autoRegisterAll = true;
 }

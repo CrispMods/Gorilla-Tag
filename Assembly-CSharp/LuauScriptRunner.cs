@@ -5,24 +5,25 @@ using System.Text;
 using JetBrains.Annotations;
 using UnityEngine;
 
-// Token: 0x02000778 RID: 1912
+// Token: 0x02000790 RID: 1936
 public class LuauScriptRunner
 {
-	// Token: 0x06002EE7 RID: 12007 RVA: 0x000E2BD0 File Offset: 0x000E0DD0
+	// Token: 0x06002F99 RID: 12185 RVA: 0x0012CB10 File Offset: 0x0012AD10
 	public unsafe static bool ErrorCheck(lua_State* L, int status)
 	{
 		if (status == 2)
 		{
-			Debug.Log(new string(Luau.lua_tostring(L, -1)));
-			sbyte* value = (sbyte*)Luau.lua_debugtrace(L);
-			Debug.Log(new string(value));
+			sbyte* value = Luau.lua_tostring(L, -1);
+			LuauHud.Instance.LuauLog(new string(value));
+			sbyte* value2 = (sbyte*)Luau.lua_debugtrace(L);
+			LuauHud.Instance.LuauLog(new string(value2));
 			Luau.lua_close(L);
 			return true;
 		}
 		return false;
 	}
 
-	// Token: 0x06002EE8 RID: 12008 RVA: 0x000E2C10 File Offset: 0x000E0E10
+	// Token: 0x06002F9A RID: 12186 RVA: 0x0012CB5C File Offset: 0x0012AD5C
 	public bool Tick(float deltaTime)
 	{
 		if (!this.ShouldTick)
@@ -46,7 +47,7 @@ public class LuauScriptRunner
 		return false;
 	}
 
-	// Token: 0x06002EE9 RID: 12009 RVA: 0x000E2CC0 File Offset: 0x000E0EC0
+	// Token: 0x06002F9B RID: 12187 RVA: 0x0012CC0C File Offset: 0x0012AE0C
 	public unsafe LuauScriptRunner(string script, string name, [CanBeNull] lua_CFunction bindings = null, [CanBeNull] lua_CFunction preTick = null, [CanBeNull] lua_CFunction postTick = null)
 	{
 		this.Script = script;
@@ -71,13 +72,13 @@ public class LuauScriptRunner
 		this.ShouldTick = !LuauScriptRunner.ErrorCheck(this.L, status);
 	}
 
-	// Token: 0x06002EEA RID: 12010 RVA: 0x000E2DA7 File Offset: 0x000E0FA7
+	// Token: 0x06002F9C RID: 12188 RVA: 0x0004FB21 File Offset: 0x0004DD21
 	public LuauScriptRunner FromFile(string filePath, [CanBeNull] lua_CFunction bindings = null, [CanBeNull] lua_CFunction tick = null)
 	{
 		return new LuauScriptRunner(File.ReadAllText(Path.Join(Application.persistentDataPath, "Scripts", filePath)), filePath, bindings, tick, null);
 	}
 
-	// Token: 0x06002EEB RID: 12011 RVA: 0x000E2DD8 File Offset: 0x000E0FD8
+	// Token: 0x06002F9D RID: 12189 RVA: 0x0012CCF4 File Offset: 0x0012AEF4
 	~LuauScriptRunner()
 	{
 		LuauVm.ClassBuilders.Clear();
@@ -91,24 +92,24 @@ public class LuauScriptRunner
 		}
 	}
 
-	// Token: 0x04003315 RID: 13077
+	// Token: 0x040033BF RID: 13247
 	public static List<LuauScriptRunner> ScriptRunners = new List<LuauScriptRunner>();
 
-	// Token: 0x04003316 RID: 13078
+	// Token: 0x040033C0 RID: 13248
 	public bool ShouldTick;
 
-	// Token: 0x04003317 RID: 13079
+	// Token: 0x040033C1 RID: 13249
 	private lua_CFunction postTickCallback;
 
-	// Token: 0x04003318 RID: 13080
+	// Token: 0x040033C2 RID: 13250
 	private lua_CFunction preTickCallback;
 
-	// Token: 0x04003319 RID: 13081
+	// Token: 0x040033C3 RID: 13251
 	public string ScriptName;
 
-	// Token: 0x0400331A RID: 13082
+	// Token: 0x040033C4 RID: 13252
 	public string Script;
 
-	// Token: 0x0400331B RID: 13083
+	// Token: 0x040033C5 RID: 13253
 	public unsafe lua_State* L;
 }

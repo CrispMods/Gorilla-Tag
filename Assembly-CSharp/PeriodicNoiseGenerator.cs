@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000073 RID: 115
+// Token: 0x02000079 RID: 121
 public class PeriodicNoiseGenerator : MonoBehaviour
 {
-	// Token: 0x060002EE RID: 750 RVA: 0x000123C5 File Offset: 0x000105C5
+	// Token: 0x0600031D RID: 797 RVA: 0x00032666 File Offset: 0x00030866
 	private void Awake()
 	{
 		this.noiseActor = base.GetComponentInParent<CrittersLoudNoise>();
@@ -12,7 +12,7 @@ public class PeriodicNoiseGenerator : MonoBehaviour
 		this.mR = base.GetComponentInChildren<MeshRenderer>();
 	}
 
-	// Token: 0x060002EF RID: 751 RVA: 0x000123EC File Offset: 0x000105EC
+	// Token: 0x0600031E RID: 798 RVA: 0x00076BF0 File Offset: 0x00074DF0
 	private void Update()
 	{
 		if (!CrittersManager.instance.LocalAuthority())
@@ -21,7 +21,7 @@ public class PeriodicNoiseGenerator : MonoBehaviour
 		}
 		if (Time.time > this.lastTime + this.sleepDuration)
 		{
-			this.lastTime = Time.time + this.randomDuration * Random.value;
+			this.lastTime = Time.time + this.randomDuration * UnityEngine.Random.value;
 			this.noiseActor.SetTimeEnabled();
 			this.noiseActor.soundEnabled = true;
 			this.mR.sharedMaterial = this.solid;
@@ -32,24 +32,24 @@ public class PeriodicNoiseGenerator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000386 RID: 902
+	// Token: 0x040003B8 RID: 952
 	public float sleepDuration;
 
-	// Token: 0x04000387 RID: 903
+	// Token: 0x040003B9 RID: 953
 	public float randomDuration;
 
-	// Token: 0x04000388 RID: 904
+	// Token: 0x040003BA RID: 954
 	public float lastTime;
 
-	// Token: 0x04000389 RID: 905
+	// Token: 0x040003BB RID: 955
 	private CrittersLoudNoise noiseActor;
 
-	// Token: 0x0400038A RID: 906
+	// Token: 0x040003BC RID: 956
 	public Material transparent;
 
-	// Token: 0x0400038B RID: 907
+	// Token: 0x040003BD RID: 957
 	public Material solid;
 
-	// Token: 0x0400038C RID: 908
+	// Token: 0x040003BE RID: 958
 	private MeshRenderer mR;
 }

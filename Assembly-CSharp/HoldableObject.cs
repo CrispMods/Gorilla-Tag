@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003E3 RID: 995
+// Token: 0x020003EE RID: 1006
 public abstract class HoldableObject : MonoBehaviour, IHoldableObject
 {
-	// Token: 0x170002B2 RID: 690
-	// (get) Token: 0x0600181D RID: 6173 RVA: 0x00002076 File Offset: 0x00000276
+	// Token: 0x170002B9 RID: 697
+	// (get) Token: 0x0600186A RID: 6250 RVA: 0x00030498 File Offset: 0x0002E698
 	public virtual bool TwoHanded
 	{
 		get
@@ -14,34 +14,34 @@ public abstract class HoldableObject : MonoBehaviour, IHoldableObject
 		}
 	}
 
-	// Token: 0x0600181E RID: 6174
+	// Token: 0x0600186B RID: 6251
 	public abstract void OnHover(InteractionPoint pointHovered, GameObject hoveringHand);
 
-	// Token: 0x0600181F RID: 6175
+	// Token: 0x0600186C RID: 6252
 	public abstract void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand);
 
-	// Token: 0x06001820 RID: 6176
+	// Token: 0x0600186D RID: 6253
 	public abstract void DropItemCleanup();
 
-	// Token: 0x06001821 RID: 6177 RVA: 0x00075714 File Offset: 0x00073914
+	// Token: 0x0600186E RID: 6254 RVA: 0x000CBE70 File Offset: 0x000CA070
 	public virtual bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		return (EquipmentInteractor.instance.rightHandHeldEquipment != this || !(releasingHand != EquipmentInteractor.instance.rightHand)) && (EquipmentInteractor.instance.leftHandHeldEquipment != this || !(releasingHand != EquipmentInteractor.instance.leftHand));
 	}
 
-	// Token: 0x06001823 RID: 6179 RVA: 0x00012273 File Offset: 0x00010473
+	// Token: 0x06001870 RID: 6256 RVA: 0x00032616 File Offset: 0x00030816
 	GameObject IHoldableObject.get_gameObject()
 	{
 		return base.gameObject;
 	}
 
-	// Token: 0x06001824 RID: 6180 RVA: 0x0001227B File Offset: 0x0001047B
+	// Token: 0x06001871 RID: 6257 RVA: 0x0003261E File Offset: 0x0003081E
 	string IHoldableObject.get_name()
 	{
 		return base.name;
 	}
 
-	// Token: 0x06001825 RID: 6181 RVA: 0x00012283 File Offset: 0x00010483
+	// Token: 0x06001872 RID: 6258 RVA: 0x00032626 File Offset: 0x00030826
 	void IHoldableObject.set_name(string value)
 	{
 		base.name = value;

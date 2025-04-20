@@ -6,12 +6,12 @@ using KID.Model;
 using TMPro;
 using UnityEngine;
 
-// Token: 0x0200058D RID: 1421
+// Token: 0x0200059B RID: 1435
 public class GorillaScoreBoard : MonoBehaviour
 {
-	// Token: 0x17000396 RID: 918
-	// (get) Token: 0x06002329 RID: 9001 RVA: 0x000AE390 File Offset: 0x000AC590
-	// (set) Token: 0x0600232A RID: 9002 RVA: 0x000AE3A7 File Offset: 0x000AC5A7
+	// Token: 0x1700039E RID: 926
+	// (get) Token: 0x06002389 RID: 9097 RVA: 0x00047FD9 File Offset: 0x000461D9
+	// (set) Token: 0x0600238A RID: 9098 RVA: 0x00047FF0 File Offset: 0x000461F0
 	public bool IsDirty
 	{
 		get
@@ -24,7 +24,7 @@ public class GorillaScoreBoard : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600232B RID: 9003 RVA: 0x000AE3B0 File Offset: 0x000AC5B0
+	// Token: 0x0600238B RID: 9099 RVA: 0x00047FF9 File Offset: 0x000461F9
 	public void SetSleepState(bool awake)
 	{
 		this.boardText.enabled = awake;
@@ -35,18 +35,18 @@ public class GorillaScoreBoard : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600232C RID: 9004 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600238C RID: 9100 RVA: 0x00030607 File Offset: 0x0002E807
 	private void OnDestroy()
 	{
 	}
 
-	// Token: 0x0600232D RID: 9005 RVA: 0x000AE3E4 File Offset: 0x000AC5E4
+	// Token: 0x0600238D RID: 9101 RVA: 0x0004802D File Offset: 0x0004622D
 	public string GetBeginningString()
 	{
 		return "ROOM ID: " + (NetworkSystem.Instance.SessionIsPrivate ? "-PRIVATE- GAME: " : (NetworkSystem.Instance.RoomName + "   GAME: ")) + this.RoomType() + "\n  PLAYER     COLOR  MUTE   REPORT";
 	}
 
-	// Token: 0x0600232E RID: 9006 RVA: 0x000AE424 File Offset: 0x000AC624
+	// Token: 0x0600238E RID: 9102 RVA: 0x000FDA7C File Offset: 0x000FBC7C
 	public string RoomType()
 	{
 		this.initialGameMode = RoomSystem.RoomGameMode;
@@ -65,7 +65,7 @@ public class GorillaScoreBoard : MonoBehaviour
 		return this.gmName;
 	}
 
-	// Token: 0x0600232F RID: 9007 RVA: 0x000AE4A4 File Offset: 0x000AC6A4
+	// Token: 0x0600238F RID: 9103 RVA: 0x000FDAFC File Offset: 0x000FBCFC
 	public void RedrawPlayerLines()
 	{
 		this.stringBuilder.Clear();
@@ -111,7 +111,7 @@ public class GorillaScoreBoard : MonoBehaviour
 		this._isDirty = false;
 	}
 
-	// Token: 0x06002330 RID: 9008 RVA: 0x000AE6B4 File Offset: 0x000AC8B4
+	// Token: 0x06002390 RID: 9104 RVA: 0x000FDD0C File Offset: 0x000FBF0C
 	public string NormalizeName(bool doIt, string text)
 	{
 		if (doIt)
@@ -126,80 +126,80 @@ public class GorillaScoreBoard : MonoBehaviour
 		return text;
 	}
 
-	// Token: 0x06002331 RID: 9009 RVA: 0x000AE713 File Offset: 0x000AC913
+	// Token: 0x06002391 RID: 9105 RVA: 0x0004806B File Offset: 0x0004626B
 	private void Start()
 	{
 		GorillaScoreboardTotalUpdater.RegisterScoreboard(this);
 	}
 
-	// Token: 0x06002332 RID: 9010 RVA: 0x000AE71B File Offset: 0x000AC91B
+	// Token: 0x06002392 RID: 9106 RVA: 0x00048073 File Offset: 0x00046273
 	private void OnEnable()
 	{
 		GorillaScoreboardTotalUpdater.RegisterScoreboard(this);
 		this._isDirty = true;
 	}
 
-	// Token: 0x06002333 RID: 9011 RVA: 0x000AE72A File Offset: 0x000AC92A
+	// Token: 0x06002393 RID: 9107 RVA: 0x00048082 File Offset: 0x00046282
 	private void OnDisable()
 	{
 		GorillaScoreboardTotalUpdater.UnregisterScoreboard(this);
 	}
 
-	// Token: 0x040026BA RID: 9914
+	// Token: 0x04002715 RID: 10005
 	public GameObject scoreBoardLinePrefab;
 
-	// Token: 0x040026BB RID: 9915
+	// Token: 0x04002716 RID: 10006
 	public int startingYValue;
 
-	// Token: 0x040026BC RID: 9916
+	// Token: 0x04002717 RID: 10007
 	public int lineHeight;
 
-	// Token: 0x040026BD RID: 9917
+	// Token: 0x04002718 RID: 10008
 	public bool includeMMR;
 
-	// Token: 0x040026BE RID: 9918
+	// Token: 0x04002719 RID: 10009
 	public bool isActive;
 
-	// Token: 0x040026BF RID: 9919
+	// Token: 0x0400271A RID: 10010
 	public GameObject linesParent;
 
-	// Token: 0x040026C0 RID: 9920
+	// Token: 0x0400271B RID: 10011
 	[SerializeField]
 	public List<GorillaPlayerScoreboardLine> lines;
 
-	// Token: 0x040026C1 RID: 9921
+	// Token: 0x0400271C RID: 10012
 	public TextMeshPro boardText;
 
-	// Token: 0x040026C2 RID: 9922
+	// Token: 0x0400271D RID: 10013
 	public TextMeshPro buttonText;
 
-	// Token: 0x040026C3 RID: 9923
+	// Token: 0x0400271E RID: 10014
 	public bool needsUpdate;
 
-	// Token: 0x040026C4 RID: 9924
+	// Token: 0x0400271F RID: 10015
 	public TextMeshPro notInRoomText;
 
-	// Token: 0x040026C5 RID: 9925
+	// Token: 0x04002720 RID: 10016
 	public string initialGameMode;
 
-	// Token: 0x040026C6 RID: 9926
+	// Token: 0x04002721 RID: 10017
 	private string tempGmName;
 
-	// Token: 0x040026C7 RID: 9927
+	// Token: 0x04002722 RID: 10018
 	private string gmName;
 
-	// Token: 0x040026C8 RID: 9928
+	// Token: 0x04002723 RID: 10019
 	private const string error = "ERROR";
 
-	// Token: 0x040026C9 RID: 9929
+	// Token: 0x04002724 RID: 10020
 	private List<string> gmNames;
 
-	// Token: 0x040026CA RID: 9930
+	// Token: 0x04002725 RID: 10021
 	private bool _isDirty = true;
 
-	// Token: 0x040026CB RID: 9931
+	// Token: 0x04002726 RID: 10022
 	private StringBuilder stringBuilder = new StringBuilder(220);
 
-	// Token: 0x040026CC RID: 9932
+	// Token: 0x04002727 RID: 10023
 	private StringBuilder buttonStringBuilder = new StringBuilder(720);
 }

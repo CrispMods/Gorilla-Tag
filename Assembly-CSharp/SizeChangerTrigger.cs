@@ -1,26 +1,26 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005E0 RID: 1504
+// Token: 0x020005EE RID: 1518
 public class SizeChangerTrigger : MonoBehaviour, IBuilderPieceComponent
 {
-	// Token: 0x14000051 RID: 81
-	// (add) Token: 0x0600255F RID: 9567 RVA: 0x000B9004 File Offset: 0x000B7204
-	// (remove) Token: 0x06002560 RID: 9568 RVA: 0x000B903C File Offset: 0x000B723C
+	// Token: 0x14000052 RID: 82
+	// (add) Token: 0x060025C1 RID: 9665 RVA: 0x00106E60 File Offset: 0x00105060
+	// (remove) Token: 0x060025C2 RID: 9666 RVA: 0x00106E98 File Offset: 0x00105098
 	public event SizeChangerTrigger.SizeChangerTriggerEvent OnEnter;
 
-	// Token: 0x14000052 RID: 82
-	// (add) Token: 0x06002561 RID: 9569 RVA: 0x000B9074 File Offset: 0x000B7274
-	// (remove) Token: 0x06002562 RID: 9570 RVA: 0x000B90AC File Offset: 0x000B72AC
+	// Token: 0x14000053 RID: 83
+	// (add) Token: 0x060025C3 RID: 9667 RVA: 0x00106ED0 File Offset: 0x001050D0
+	// (remove) Token: 0x060025C4 RID: 9668 RVA: 0x00106F08 File Offset: 0x00105108
 	public event SizeChangerTrigger.SizeChangerTriggerEvent OnExit;
 
-	// Token: 0x06002563 RID: 9571 RVA: 0x000B90E1 File Offset: 0x000B72E1
+	// Token: 0x060025C5 RID: 9669 RVA: 0x00049A04 File Offset: 0x00047C04
 	private void Awake()
 	{
 		this.myCollider = base.GetComponent<Collider>();
 	}
 
-	// Token: 0x06002564 RID: 9572 RVA: 0x000B90EF File Offset: 0x000B72EF
+	// Token: 0x060025C6 RID: 9670 RVA: 0x00049A12 File Offset: 0x00047C12
 	public void OnTriggerEnter(Collider other)
 	{
 		if (this.OnEnter != null)
@@ -29,7 +29,7 @@ public class SizeChangerTrigger : MonoBehaviour, IBuilderPieceComponent
 		}
 	}
 
-	// Token: 0x06002565 RID: 9573 RVA: 0x000B9105 File Offset: 0x000B7305
+	// Token: 0x060025C7 RID: 9671 RVA: 0x00049A28 File Offset: 0x00047C28
 	public void OnTriggerExit(Collider other)
 	{
 		if (this.OnExit != null)
@@ -38,49 +38,49 @@ public class SizeChangerTrigger : MonoBehaviour, IBuilderPieceComponent
 		}
 	}
 
-	// Token: 0x06002566 RID: 9574 RVA: 0x000B911B File Offset: 0x000B731B
+	// Token: 0x060025C8 RID: 9672 RVA: 0x00049A3E File Offset: 0x00047C3E
 	public Vector3 ClosestPoint(Vector3 position)
 	{
 		return this.myCollider.ClosestPoint(position);
 	}
 
-	// Token: 0x06002567 RID: 9575 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060025C9 RID: 9673 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnPieceCreate(int pieceType, int pieceId)
 	{
 	}
 
-	// Token: 0x06002568 RID: 9576 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060025CA RID: 9674 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnPieceDestroy()
 	{
 	}
 
-	// Token: 0x06002569 RID: 9577 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060025CB RID: 9675 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnPiecePlacementDeserialized()
 	{
 	}
 
-	// Token: 0x0600256A RID: 9578 RVA: 0x000B9129 File Offset: 0x000B7329
+	// Token: 0x060025CC RID: 9676 RVA: 0x00049A4C File Offset: 0x00047C4C
 	public void OnPieceActivate()
 	{
 		Debug.LogError("Size Trigger Pieces no longer work, need reimplementation");
 	}
 
-	// Token: 0x0600256B RID: 9579 RVA: 0x000B9129 File Offset: 0x000B7329
+	// Token: 0x060025CD RID: 9677 RVA: 0x00049A4C File Offset: 0x00047C4C
 	public void OnPieceDeactivate()
 	{
 		Debug.LogError("Size Trigger Pieces no longer work, need reimplementation");
 	}
 
-	// Token: 0x0400299D RID: 10653
+	// Token: 0x040029FC RID: 10748
 	private Collider myCollider;
 
-	// Token: 0x040029A0 RID: 10656
+	// Token: 0x040029FF RID: 10751
 	public bool builderEnterTrigger;
 
-	// Token: 0x040029A1 RID: 10657
+	// Token: 0x04002A00 RID: 10752
 	public bool builderExitOnEnterTrigger;
 
-	// Token: 0x020005E1 RID: 1505
-	// (Invoke) Token: 0x0600256E RID: 9582
+	// Token: 0x020005EF RID: 1519
+	// (Invoke) Token: 0x060025D0 RID: 9680
 	public delegate void SizeChangerTriggerEvent(Collider other);
 }

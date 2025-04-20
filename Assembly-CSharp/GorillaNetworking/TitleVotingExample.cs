@@ -13,10 +13,10 @@ using UnityEngine.Networking;
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000AE8 RID: 2792
+	// Token: 0x02000B15 RID: 2837
 	public class TitleVotingExample : MonoBehaviour
 	{
-		// Token: 0x060045DD RID: 17885 RVA: 0x0014BC5C File Offset: 0x00149E5C
+		// Token: 0x06004725 RID: 18213 RVA: 0x00188E80 File Offset: 0x00187080
 		public void Start()
 		{
 			TitleVotingExample.<Start>d__8 <Start>d__;
@@ -26,12 +26,12 @@ namespace GorillaNetworking
 			<Start>d__.<>t__builder.Start<TitleVotingExample.<Start>d__8>(ref <Start>d__);
 		}
 
-		// Token: 0x060045DE RID: 17886 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004726 RID: 18214 RVA: 0x00030607 File Offset: 0x0002E807
 		public void Update()
 		{
 		}
 
-		// Token: 0x060045DF RID: 17887 RVA: 0x0014BC94 File Offset: 0x00149E94
+		// Token: 0x06004727 RID: 18215 RVA: 0x00188EB8 File Offset: 0x001870B8
 		private Task WaitForSessionToken()
 		{
 			TitleVotingExample.<WaitForSessionToken>d__10 <WaitForSessionToken>d__;
@@ -41,7 +41,7 @@ namespace GorillaNetworking
 			return <WaitForSessionToken>d__.<>t__builder.Task;
 		}
 
-		// Token: 0x060045E0 RID: 17888 RVA: 0x0014BCD0 File Offset: 0x00149ED0
+		// Token: 0x06004728 RID: 18216 RVA: 0x00188EF4 File Offset: 0x001870F4
 		public void FetchPollsAndVote()
 		{
 			base.StartCoroutine(this.DoFetchPolls(new TitleVotingExample.FetchPollsRequest
@@ -53,7 +53,7 @@ namespace GorillaNetworking
 			}, new Action<List<TitleVotingExample.FetchPollsResponse>>(this.OnFetchPollsResponse)));
 		}
 
-		// Token: 0x060045E1 RID: 17889 RVA: 0x0014BD38 File Offset: 0x00149F38
+		// Token: 0x06004729 RID: 18217 RVA: 0x00188F5C File Offset: 0x0018715C
 		private void GetNonceForVotingCallback([CanBeNull] Message<UserProof> message)
 		{
 			if (message != null)
@@ -75,13 +75,13 @@ namespace GorillaNetworking
 			}, new Action<TitleVotingExample.VoteResponse>(this.OnVoteSuccess)));
 		}
 
-		// Token: 0x060045E2 RID: 17890 RVA: 0x0014BE06 File Offset: 0x0014A006
+		// Token: 0x0600472A RID: 18218 RVA: 0x0005E55E File Offset: 0x0005C75E
 		public void Vote()
 		{
 			this.GetNonceForVotingCallback(null);
 		}
 
-		// Token: 0x060045E3 RID: 17891 RVA: 0x0014BE0F File Offset: 0x0014A00F
+		// Token: 0x0600472B RID: 18219 RVA: 0x0005E567 File Offset: 0x0005C767
 		private IEnumerator DoFetchPolls(TitleVotingExample.FetchPollsRequest data, Action<List<TitleVotingExample.FetchPollsResponse>> callback)
 		{
 			UnityWebRequest request = new UnityWebRequest(PlayFabAuthenticatorSettings.VotingApiBaseUrl + "/api/FetchPoll", "POST");
@@ -130,7 +130,7 @@ namespace GorillaNetworking
 			yield break;
 		}
 
-		// Token: 0x060045E4 RID: 17892 RVA: 0x0014BE2C File Offset: 0x0014A02C
+		// Token: 0x0600472C RID: 18220 RVA: 0x0005E584 File Offset: 0x0005C784
 		private IEnumerator DoVote(TitleVotingExample.VoteRequest data, Action<TitleVotingExample.VoteResponse> callback)
 		{
 			UnityWebRequest request = new UnityWebRequest(PlayFabAuthenticatorSettings.VotingApiBaseUrl + "/api/Vote", "POST");
@@ -183,7 +183,7 @@ namespace GorillaNetworking
 			yield break;
 		}
 
-		// Token: 0x060045E5 RID: 17893 RVA: 0x0014BE49 File Offset: 0x0014A049
+		// Token: 0x0600472D RID: 18221 RVA: 0x0005E5A1 File Offset: 0x0005C7A1
 		private void OnFetchPollsResponse([CanBeNull] List<TitleVotingExample.FetchPollsResponse> response)
 		{
 			if (response != null)
@@ -195,7 +195,7 @@ namespace GorillaNetworking
 			Debug.LogError("Error: Could not fetch polls!");
 		}
 
-		// Token: 0x060045E6 RID: 17894 RVA: 0x0014BE74 File Offset: 0x0014A074
+		// Token: 0x0600472E RID: 18222 RVA: 0x0005E5CC File Offset: 0x0005C7CC
 		private void OnVoteSuccess([CanBeNull] TitleVotingExample.VoteResponse response)
 		{
 			if (response != null)
@@ -206,132 +206,132 @@ namespace GorillaNetworking
 			Debug.LogError("Error: Could not vote!");
 		}
 
-		// Token: 0x0400476F RID: 18287
+		// Token: 0x04004864 RID: 18532
 		private string Nonce = "";
 
-		// Token: 0x04004770 RID: 18288
+		// Token: 0x04004865 RID: 18533
 		private int PollId = 5;
 
-		// Token: 0x04004771 RID: 18289
+		// Token: 0x04004866 RID: 18534
 		private bool includeInactive = true;
 
-		// Token: 0x04004772 RID: 18290
+		// Token: 0x04004867 RID: 18535
 		private int Option;
 
-		// Token: 0x04004773 RID: 18291
+		// Token: 0x04004868 RID: 18536
 		private bool isPrediction;
 
-		// Token: 0x04004774 RID: 18292
+		// Token: 0x04004869 RID: 18537
 		private int fetchPollsRetryCount;
 
-		// Token: 0x04004775 RID: 18293
+		// Token: 0x0400486A RID: 18538
 		private int voteRetryCount;
 
-		// Token: 0x04004776 RID: 18294
+		// Token: 0x0400486B RID: 18539
 		private int maxRetriesOnFail = 3;
 
-		// Token: 0x02000AE9 RID: 2793
+		// Token: 0x02000B16 RID: 2838
 		[Serializable]
 		private class FetchPollsRequest
 		{
-			// Token: 0x04004777 RID: 18295
+			// Token: 0x0400486C RID: 18540
 			public string TitleId;
 
-			// Token: 0x04004778 RID: 18296
+			// Token: 0x0400486D RID: 18541
 			public string PlayFabId;
 
-			// Token: 0x04004779 RID: 18297
+			// Token: 0x0400486E RID: 18542
 			public string PlayFabTicket;
 
-			// Token: 0x0400477A RID: 18298
+			// Token: 0x0400486F RID: 18543
 			public bool IncludeInactive;
 		}
 
-		// Token: 0x02000AEA RID: 2794
+		// Token: 0x02000B17 RID: 2839
 		[Serializable]
 		private class FetchPollsResponse
 		{
-			// Token: 0x0400477B RID: 18299
+			// Token: 0x04004870 RID: 18544
 			public int PollId;
 
-			// Token: 0x0400477C RID: 18300
+			// Token: 0x04004871 RID: 18545
 			public string Question;
 
-			// Token: 0x0400477D RID: 18301
+			// Token: 0x04004872 RID: 18546
 			public List<string> VoteOptions;
 
-			// Token: 0x0400477E RID: 18302
+			// Token: 0x04004873 RID: 18547
 			public List<int> VoteCount;
 
-			// Token: 0x0400477F RID: 18303
+			// Token: 0x04004874 RID: 18548
 			public List<int> PredictionCount;
 
-			// Token: 0x04004780 RID: 18304
+			// Token: 0x04004875 RID: 18549
 			public DateTime StartTime;
 
-			// Token: 0x04004781 RID: 18305
+			// Token: 0x04004876 RID: 18550
 			public DateTime EndTime;
 		}
 
-		// Token: 0x02000AEB RID: 2795
+		// Token: 0x02000B18 RID: 2840
 		[Serializable]
 		private class VoteRequest
 		{
-			// Token: 0x04004782 RID: 18306
+			// Token: 0x04004877 RID: 18551
 			public int PollId;
 
-			// Token: 0x04004783 RID: 18307
+			// Token: 0x04004878 RID: 18552
 			public string TitleId;
 
-			// Token: 0x04004784 RID: 18308
+			// Token: 0x04004879 RID: 18553
 			public string PlayFabId;
 
-			// Token: 0x04004785 RID: 18309
+			// Token: 0x0400487A RID: 18554
 			public string OculusId;
 
-			// Token: 0x04004786 RID: 18310
+			// Token: 0x0400487B RID: 18555
 			public string UserNonce;
 
-			// Token: 0x04004787 RID: 18311
+			// Token: 0x0400487C RID: 18556
 			public string UserPlatform;
 
-			// Token: 0x04004788 RID: 18312
+			// Token: 0x0400487D RID: 18557
 			public int OptionIndex;
 
-			// Token: 0x04004789 RID: 18313
+			// Token: 0x0400487E RID: 18558
 			public bool IsPrediction;
 
-			// Token: 0x0400478A RID: 18314
+			// Token: 0x0400487F RID: 18559
 			public string PlayFabTicket;
 		}
 
-		// Token: 0x02000AEC RID: 2796
+		// Token: 0x02000B19 RID: 2841
 		[Serializable]
 		private class VoteResponse
 		{
-			// Token: 0x17000731 RID: 1841
-			// (get) Token: 0x060045EB RID: 17899 RVA: 0x0014BEC1 File Offset: 0x0014A0C1
-			// (set) Token: 0x060045EC RID: 17900 RVA: 0x0014BEC9 File Offset: 0x0014A0C9
+			// Token: 0x1700074D RID: 1869
+			// (get) Token: 0x06004733 RID: 18227 RVA: 0x0005E619 File Offset: 0x0005C819
+			// (set) Token: 0x06004734 RID: 18228 RVA: 0x0005E621 File Offset: 0x0005C821
 			public int PollId { get; set; }
 
-			// Token: 0x17000732 RID: 1842
-			// (get) Token: 0x060045ED RID: 17901 RVA: 0x0014BED2 File Offset: 0x0014A0D2
-			// (set) Token: 0x060045EE RID: 17902 RVA: 0x0014BEDA File Offset: 0x0014A0DA
+			// Token: 0x1700074E RID: 1870
+			// (get) Token: 0x06004735 RID: 18229 RVA: 0x0005E62A File Offset: 0x0005C82A
+			// (set) Token: 0x06004736 RID: 18230 RVA: 0x0005E632 File Offset: 0x0005C832
 			public string TitleId { get; set; }
 
-			// Token: 0x17000733 RID: 1843
-			// (get) Token: 0x060045EF RID: 17903 RVA: 0x0014BEE3 File Offset: 0x0014A0E3
-			// (set) Token: 0x060045F0 RID: 17904 RVA: 0x0014BEEB File Offset: 0x0014A0EB
+			// Token: 0x1700074F RID: 1871
+			// (get) Token: 0x06004737 RID: 18231 RVA: 0x0005E63B File Offset: 0x0005C83B
+			// (set) Token: 0x06004738 RID: 18232 RVA: 0x0005E643 File Offset: 0x0005C843
 			public List<string> VoteOptions { get; set; }
 
-			// Token: 0x17000734 RID: 1844
-			// (get) Token: 0x060045F1 RID: 17905 RVA: 0x0014BEF4 File Offset: 0x0014A0F4
-			// (set) Token: 0x060045F2 RID: 17906 RVA: 0x0014BEFC File Offset: 0x0014A0FC
+			// Token: 0x17000750 RID: 1872
+			// (get) Token: 0x06004739 RID: 18233 RVA: 0x0005E64C File Offset: 0x0005C84C
+			// (set) Token: 0x0600473A RID: 18234 RVA: 0x0005E654 File Offset: 0x0005C854
 			public List<int> VoteCount { get; set; }
 
-			// Token: 0x17000735 RID: 1845
-			// (get) Token: 0x060045F3 RID: 17907 RVA: 0x0014BF05 File Offset: 0x0014A105
-			// (set) Token: 0x060045F4 RID: 17908 RVA: 0x0014BF0D File Offset: 0x0014A10D
+			// Token: 0x17000751 RID: 1873
+			// (get) Token: 0x0600473B RID: 18235 RVA: 0x0005E65D File Offset: 0x0005C85D
+			// (set) Token: 0x0600473C RID: 18236 RVA: 0x0005E665 File Offset: 0x0005C865
 			public List<int> PredictionCount { get; set; }
 		}
 	}

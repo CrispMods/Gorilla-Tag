@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006DC RID: 1756
+// Token: 0x020006F1 RID: 1777
 [Serializable]
 public class XformNode
 {
-	// Token: 0x1700049F RID: 1183
-	// (get) Token: 0x06002BC1 RID: 11201 RVA: 0x000D7104 File Offset: 0x000D5304
+	// Token: 0x170004AC RID: 1196
+	// (get) Token: 0x06002C57 RID: 11351 RVA: 0x001222D0 File Offset: 0x001204D0
 	public Vector4 worldPosition
 	{
 		get
@@ -22,9 +22,9 @@ public class XformNode
 		}
 	}
 
-	// Token: 0x170004A0 RID: 1184
-	// (get) Token: 0x06002BC2 RID: 11202 RVA: 0x000D7142 File Offset: 0x000D5342
-	// (set) Token: 0x06002BC3 RID: 11203 RVA: 0x000D714F File Offset: 0x000D534F
+	// Token: 0x170004AD RID: 1197
+	// (get) Token: 0x06002C58 RID: 11352 RVA: 0x0004E210 File Offset: 0x0004C410
+	// (set) Token: 0x06002C59 RID: 11353 RVA: 0x0004E21D File Offset: 0x0004C41D
 	public float radius
 	{
 		get
@@ -37,15 +37,15 @@ public class XformNode
 		}
 	}
 
-	// Token: 0x06002BC4 RID: 11204 RVA: 0x000D715D File Offset: 0x000D535D
+	// Token: 0x06002C5A RID: 11354 RVA: 0x0004E22B File Offset: 0x0004C42B
 	public Matrix4x4 LocalTRS()
 	{
 		return Matrix4x4.TRS(this.localPosition, Quaternion.identity, Vector3.one);
 	}
 
-	// Token: 0x040030EF RID: 12527
+	// Token: 0x0400318C RID: 12684
 	public Vector4 localPosition;
 
-	// Token: 0x040030F0 RID: 12528
+	// Token: 0x0400318D RID: 12685
 	public Transform parent;
 }

@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000350 RID: 848
+// Token: 0x0200035B RID: 859
 [ExecuteInEditMode]
 public class SimpleResizable : MonoBehaviour
 {
-	// Token: 0x17000239 RID: 569
-	// (get) Token: 0x060013B7 RID: 5047 RVA: 0x00060A79 File Offset: 0x0005EC79
+	// Token: 0x17000240 RID: 576
+	// (get) Token: 0x06001403 RID: 5123 RVA: 0x0003D785 File Offset: 0x0003B985
 	public Vector3 PivotPosition
 	{
 		get
@@ -15,23 +15,23 @@ public class SimpleResizable : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700023A RID: 570
-	// (get) Token: 0x060013B8 RID: 5048 RVA: 0x00060A86 File Offset: 0x0005EC86
-	// (set) Token: 0x060013B9 RID: 5049 RVA: 0x00060A8E File Offset: 0x0005EC8E
+	// Token: 0x17000241 RID: 577
+	// (get) Token: 0x06001404 RID: 5124 RVA: 0x0003D792 File Offset: 0x0003B992
+	// (set) Token: 0x06001405 RID: 5125 RVA: 0x0003D79A File Offset: 0x0003B99A
 	public Vector3 DefaultSize { get; private set; }
 
-	// Token: 0x1700023B RID: 571
-	// (get) Token: 0x060013BA RID: 5050 RVA: 0x00060A97 File Offset: 0x0005EC97
-	// (set) Token: 0x060013BB RID: 5051 RVA: 0x00060A9F File Offset: 0x0005EC9F
+	// Token: 0x17000242 RID: 578
+	// (get) Token: 0x06001406 RID: 5126 RVA: 0x0003D7A3 File Offset: 0x0003B9A3
+	// (set) Token: 0x06001407 RID: 5127 RVA: 0x0003D7AB File Offset: 0x0003B9AB
 	public Mesh OriginalMesh { get; private set; }
 
-	// Token: 0x060013BC RID: 5052 RVA: 0x00060AA8 File Offset: 0x0005ECA8
+	// Token: 0x06001408 RID: 5128 RVA: 0x0003D7B4 File Offset: 0x0003B9B4
 	public void SetNewSize(Vector3 newSize)
 	{
 		this._newSize = newSize;
 	}
 
-	// Token: 0x060013BD RID: 5053 RVA: 0x00060AB4 File Offset: 0x0005ECB4
+	// Token: 0x06001409 RID: 5129 RVA: 0x000BA3F4 File Offset: 0x000B85F4
 	private void Awake()
 	{
 		this._meshFilter = base.GetComponent<MeshFilter>();
@@ -45,7 +45,7 @@ public class SimpleResizable : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060013BE RID: 5054 RVA: 0x00060B34 File Offset: 0x0005ED34
+	// Token: 0x0600140A RID: 5130 RVA: 0x000BA474 File Offset: 0x000B8674
 	private void OnEnable()
 	{
 		this.DefaultSize = this.OriginalMesh.bounds.size;
@@ -55,7 +55,7 @@ public class SimpleResizable : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060013BF RID: 5055 RVA: 0x00060B78 File Offset: 0x0005ED78
+	// Token: 0x0600140B RID: 5131 RVA: 0x000BA4B8 File Offset: 0x000B86B8
 	private void Update()
 	{
 		if (Application.isPlaying && !this._updateInPlayMode)
@@ -71,7 +71,7 @@ public class SimpleResizable : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060013C0 RID: 5056 RVA: 0x00060BE0 File Offset: 0x0005EDE0
+	// Token: 0x0600140C RID: 5132 RVA: 0x000BA520 File Offset: 0x000B8720
 	private void OnDrawGizmos()
 	{
 		if (!this._pivotTransform)
@@ -88,7 +88,7 @@ public class SimpleResizable : MonoBehaviour
 		Gizmos.DrawRay(from3, Vector3.forward * d);
 	}
 
-	// Token: 0x060013C1 RID: 5057 RVA: 0x00060CB0 File Offset: 0x0005EEB0
+	// Token: 0x0600140D RID: 5133 RVA: 0x000BA5F0 File Offset: 0x000B87F0
 	private void OnDrawGizmosSelected()
 	{
 		if (this._meshFilter.sharedMesh == null)
@@ -143,70 +143,70 @@ public class SimpleResizable : MonoBehaviour
 		Gizmos.DrawWireCube(center, this._newSize);
 	}
 
-	// Token: 0x040015DC RID: 5596
+	// Token: 0x04001624 RID: 5668
 	[Space(15f)]
 	public SimpleResizable.Method ScalingX;
 
-	// Token: 0x040015DD RID: 5597
+	// Token: 0x04001625 RID: 5669
 	[Range(0f, 0.5f)]
 	public float PaddingX;
 
-	// Token: 0x040015DE RID: 5598
+	// Token: 0x04001626 RID: 5670
 	[Range(-0.5f, 0f)]
 	public float PaddingXMax;
 
-	// Token: 0x040015DF RID: 5599
+	// Token: 0x04001627 RID: 5671
 	[Space(15f)]
 	public SimpleResizable.Method ScalingY;
 
-	// Token: 0x040015E0 RID: 5600
+	// Token: 0x04001628 RID: 5672
 	[Range(0f, 0.5f)]
 	public float PaddingY;
 
-	// Token: 0x040015E1 RID: 5601
+	// Token: 0x04001629 RID: 5673
 	[Range(-0.5f, 0f)]
 	public float PaddingYMax;
 
-	// Token: 0x040015E2 RID: 5602
+	// Token: 0x0400162A RID: 5674
 	[Space(15f)]
 	public SimpleResizable.Method ScalingZ;
 
-	// Token: 0x040015E3 RID: 5603
+	// Token: 0x0400162B RID: 5675
 	[Range(0f, 0.5f)]
 	public float PaddingZ;
 
-	// Token: 0x040015E4 RID: 5604
+	// Token: 0x0400162C RID: 5676
 	[Range(-0.5f, 0f)]
 	public float PaddingZMax;
 
-	// Token: 0x040015E7 RID: 5607
+	// Token: 0x0400162F RID: 5679
 	private Vector3 _oldSize;
 
-	// Token: 0x040015E8 RID: 5608
+	// Token: 0x04001630 RID: 5680
 	private MeshFilter _meshFilter;
 
-	// Token: 0x040015E9 RID: 5609
+	// Token: 0x04001631 RID: 5681
 	[SerializeField]
 	private Vector3 _newSize;
 
-	// Token: 0x040015EA RID: 5610
+	// Token: 0x04001632 RID: 5682
 	[SerializeField]
 	private bool _updateInPlayMode;
 
-	// Token: 0x040015EB RID: 5611
+	// Token: 0x04001633 RID: 5683
 	[SerializeField]
 	private Transform _pivotTransform;
 
-	// Token: 0x02000351 RID: 849
+	// Token: 0x0200035C RID: 860
 	public enum Method
 	{
-		// Token: 0x040015ED RID: 5613
+		// Token: 0x04001635 RID: 5685
 		Adapt,
-		// Token: 0x040015EE RID: 5614
+		// Token: 0x04001636 RID: 5686
 		AdaptWithAsymmetricalPadding,
-		// Token: 0x040015EF RID: 5615
+		// Token: 0x04001637 RID: 5687
 		Scale,
-		// Token: 0x040015F0 RID: 5616
+		// Token: 0x04001638 RID: 5688
 		None
 	}
 }

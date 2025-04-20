@@ -5,7 +5,7 @@ using UnityEngine;
 // Token: 0x02000015 RID: 21
 public class UFOEffector : MonoBehaviour
 {
-	// Token: 0x06000050 RID: 80 RVA: 0x00003030 File Offset: 0x00001230
+	// Token: 0x06000050 RID: 80 RVA: 0x000683FC File Offset: 0x000665FC
 	public void Start()
 	{
 		BoingEffector component = base.GetComponent<BoingEffector>();
@@ -14,7 +14,7 @@ public class UFOEffector : MonoBehaviour
 		this.m_rotateAngle = component.RotationAngle;
 	}
 
-	// Token: 0x06000051 RID: 81 RVA: 0x00003068 File Offset: 0x00001268
+	// Token: 0x06000051 RID: 81 RVA: 0x00068434 File Offset: 0x00066634
 	public void FixedUpdate()
 	{
 		BoingEffector component = base.GetComponent<BoingEffector>();

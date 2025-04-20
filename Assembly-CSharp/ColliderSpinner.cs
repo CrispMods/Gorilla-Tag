@@ -5,14 +5,14 @@ using UnityEngine;
 // Token: 0x02000013 RID: 19
 public class ColliderSpinner : MonoBehaviour
 {
-	// Token: 0x0600004A RID: 74 RVA: 0x00002EE4 File Offset: 0x000010E4
+	// Token: 0x0600004A RID: 74 RVA: 0x000682B0 File Offset: 0x000664B0
 	private void Start()
 	{
 		this.m_targetOffset = ((this.Target != null) ? (base.transform.position - this.Target.position) : Vector3.zero);
 		this.m_spring.Reset(base.transform.position);
 	}
 
-	// Token: 0x0600004B RID: 75 RVA: 0x00002F40 File Offset: 0x00001140
+	// Token: 0x0600004B RID: 75 RVA: 0x0006830C File Offset: 0x0006650C
 	private void FixedUpdate()
 	{
 		Vector3 targetValue = this.Target.position + this.m_targetOffset;

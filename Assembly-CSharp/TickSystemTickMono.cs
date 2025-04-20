@@ -1,27 +1,27 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000813 RID: 2067
+// Token: 0x0200082D RID: 2093
 internal abstract class TickSystemTickMono : MonoBehaviour, ITickSystemTick
 {
-	// Token: 0x17000547 RID: 1351
-	// (get) Token: 0x060032D6 RID: 13014 RVA: 0x000F3A1F File Offset: 0x000F1C1F
-	// (set) Token: 0x060032D7 RID: 13015 RVA: 0x000F3A27 File Offset: 0x000F1C27
+	// Token: 0x17000555 RID: 1365
+	// (get) Token: 0x06003391 RID: 13201 RVA: 0x00051F6D File Offset: 0x0005016D
+	// (set) Token: 0x06003392 RID: 13202 RVA: 0x00051F75 File Offset: 0x00050175
 	public bool TickRunning { get; set; }
 
-	// Token: 0x060032D8 RID: 13016 RVA: 0x0002B495 File Offset: 0x00029695
+	// Token: 0x06003393 RID: 13203 RVA: 0x00035BD9 File Offset: 0x00033DD9
 	public virtual void OnEnable()
 	{
 		TickSystem<object>.AddTickCallback(this);
 	}
 
-	// Token: 0x060032D9 RID: 13017 RVA: 0x0002B49D File Offset: 0x0002969D
+	// Token: 0x06003394 RID: 13204 RVA: 0x00035BE1 File Offset: 0x00033DE1
 	public virtual void OnDisable()
 	{
 		TickSystem<object>.RemoveTickCallback(this);
 	}
 
-	// Token: 0x060032DA RID: 13018 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003395 RID: 13205 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void Tick()
 	{
 	}

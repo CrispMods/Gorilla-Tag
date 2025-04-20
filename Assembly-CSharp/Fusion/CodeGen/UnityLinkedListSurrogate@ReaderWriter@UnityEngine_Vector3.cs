@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace Fusion.CodeGen
 {
-	// Token: 0x02000D25 RID: 3365
+	// Token: 0x02000D56 RID: 3414
 	[WeaverGenerated]
 	[Serializable]
 	internal class UnityLinkedListSurrogate@ReaderWriter@UnityEngine_Vector3 : UnityLinkedListSurrogate<Vector3, ReaderWriter@UnityEngine_Vector3>
 	{
-		// Token: 0x17000875 RID: 2165
-		// (get) Token: 0x0600540D RID: 21517 RVA: 0x0019C6F0 File Offset: 0x0019A8F0
-		// (set) Token: 0x0600540E RID: 21518 RVA: 0x0019C6F8 File Offset: 0x0019A8F8
+		// Token: 0x17000893 RID: 2195
+		// (get) Token: 0x0600556F RID: 21871 RVA: 0x0006764A File Offset: 0x0006584A
+		// (set) Token: 0x06005570 RID: 21872 RVA: 0x00067652 File Offset: 0x00065852
 		[WeaverGenerated]
 		public override Vector3[] DataProperty
 		{
@@ -27,13 +27,13 @@ namespace Fusion.CodeGen
 			}
 		}
 
-		// Token: 0x0600540F RID: 21519 RVA: 0x0019C701 File Offset: 0x0019A901
+		// Token: 0x06005571 RID: 21873 RVA: 0x0006765B File Offset: 0x0006585B
 		[WeaverGenerated]
 		public UnityLinkedListSurrogate@ReaderWriter@UnityEngine_Vector3()
 		{
 		}
 
-		// Token: 0x040057B1 RID: 22449
+		// Token: 0x040058BD RID: 22717
 		[WeaverGenerated]
 		public Vector3[] Data = Array.Empty<Vector3>();
 	}

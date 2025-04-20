@@ -9,48 +9,48 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-// Token: 0x0200071C RID: 1820
+// Token: 0x02000731 RID: 1841
 public class CustomGameMode : GorillaGameManager
 {
-	// Token: 0x06002CF5 RID: 11509 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002D8B RID: 11659 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnSerializeRead(PhotonStream stream, PhotonMessageInfo info)
 	{
 	}
 
-	// Token: 0x06002CF6 RID: 11510 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002D8C RID: 11660 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnSerializeRead(object obj)
 	{
 	}
 
-	// Token: 0x06002CF7 RID: 11511 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002D8D RID: 11661 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnSerializeWrite(PhotonStream stream, PhotonMessageInfo info)
 	{
 	}
 
-	// Token: 0x06002CF8 RID: 11512 RVA: 0x00042E31 File Offset: 0x00041031
+	// Token: 0x06002D8E RID: 11662 RVA: 0x0003924B File Offset: 0x0003744B
 	public override object OnSerializeWrite()
 	{
 		return null;
 	}
 
-	// Token: 0x06002CF9 RID: 11513 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002D8F RID: 11663 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void AddFusionDataBehaviour(NetworkObject obj)
 	{
 	}
 
-	// Token: 0x06002CFA RID: 11514 RVA: 0x000DE2F6 File Offset: 0x000DC4F6
+	// Token: 0x06002D90 RID: 11664 RVA: 0x0004EED8 File Offset: 0x0004D0D8
 	public override GameModeType GameType()
 	{
 		return GameModeType.Custom;
 	}
 
-	// Token: 0x06002CFB RID: 11515 RVA: 0x000DE2F9 File Offset: 0x000DC4F9
+	// Token: 0x06002D91 RID: 11665 RVA: 0x0004EEDB File Offset: 0x0004D0DB
 	public override string GameModeName()
 	{
 		return "CUSTOM";
 	}
 
-	// Token: 0x06002CFC RID: 11516 RVA: 0x000DE300 File Offset: 0x000DC500
+	// Token: 0x06002D92 RID: 11666 RVA: 0x001287B4 File Offset: 0x001269B4
 	public unsafe override int MyMatIndex(NetPlayer forPlayer)
 	{
 		IntPtr value;
@@ -61,7 +61,7 @@ public class CustomGameMode : GorillaGameManager
 		return 0;
 	}
 
-	// Token: 0x06002CFD RID: 11517 RVA: 0x000DE330 File Offset: 0x000DC530
+	// Token: 0x06002D93 RID: 11667 RVA: 0x001287E4 File Offset: 0x001269E4
 	public unsafe override void OnPlayerEnteredRoom(NetPlayer player)
 	{
 		try
@@ -85,6 +85,7 @@ public class CustomGameMode : GorillaGameManager
 						Bindings.PlayerFunctions.UpdatePlayer(l, vrrig, ptr);
 						Bindings.LuauPlayerList[player.ActorNumber] = (IntPtr)((void*)ptr);
 						Luau.lua_rawseti(CustomGameMode.gameScriptRunner.L, -2, num + 1);
+						ptr->PlayerName = vrrig.playerNameVisible;
 						if (player.IsLocal)
 						{
 							Luau.lua_rawgeti(l, -1, num + 1);
@@ -100,7 +101,7 @@ public class CustomGameMode : GorillaGameManager
 		}
 	}
 
-	// Token: 0x06002CFE RID: 11518 RVA: 0x000DE44C File Offset: 0x000DC64C
+	// Token: 0x06002D94 RID: 11668 RVA: 0x00128920 File Offset: 0x00126B20
 	public unsafe override void OnPlayerLeftRoom(NetPlayer player)
 	{
 		try
@@ -111,18 +112,26 @@ public class CustomGameMode : GorillaGameManager
 				{
 					lua_State* l = CustomGameMode.gameScriptRunner.L;
 					Bindings.LuauPlayerList.Remove(player.ActorNumber);
-					int num = 1;
-					foreach (KeyValuePair<int, IntPtr> keyValuePair in Bindings.LuauPlayerList)
+					Luau.lua_getglobal(l, "Players");
+					int num = Luau.lua_objlen(l, -1);
+					for (int i = 1; i <= num; i++)
 					{
-						Bindings.LuauPlayer luauPlayer = *(Bindings.LuauPlayer*)((void*)keyValuePair.Value);
-						*Luau.lua_class_push<Bindings.LuauPlayer>(l) = luauPlayer;
-						Luau.lua_rawseti(l, -2, num++);
+						Luau.lua_rawgeti(l, -1, i);
+						Bindings.LuauPlayer* ptr = (Bindings.LuauPlayer*)Luau.lua_touserdata(l, -1);
+						Luau.lua_pop(l, 1);
+						if (ptr != null && ptr->PlayerID == player.ActorNumber)
+						{
+							for (int j = i; j < num; j++)
+							{
+								Luau.lua_rawgeti(l, -1, j + 1);
+								Luau.lua_rawseti(l, -2, j);
+							}
+							Luau.lua_pushnil(l);
+							Luau.lua_rawseti(l, -2, num);
+							break;
+						}
 					}
-					for (int i = num; i <= 10; i++)
-					{
-						Luau.lua_pushnil(CustomGameMode.gameScriptRunner.L);
-						Luau.lua_rawseti(CustomGameMode.gameScriptRunner.L, -2, i);
-					}
+					Luau.lua_pop(l, 1);
 				}
 			}
 		}
@@ -132,7 +141,7 @@ public class CustomGameMode : GorillaGameManager
 		}
 	}
 
-	// Token: 0x06002CFF RID: 11519 RVA: 0x000DE54C File Offset: 0x000DC74C
+	// Token: 0x06002D95 RID: 11669 RVA: 0x00128A0C File Offset: 0x00126C0C
 	public unsafe override void OnMasterClientSwitched(NetPlayer newMasterClient)
 	{
 		try
@@ -159,7 +168,7 @@ public class CustomGameMode : GorillaGameManager
 		}
 	}
 
-	// Token: 0x06002D00 RID: 11520 RVA: 0x000DE604 File Offset: 0x000DC804
+	// Token: 0x06002D96 RID: 11670 RVA: 0x00128AC4 File Offset: 0x00126CC4
 	public override void StartPlaying()
 	{
 		base.StartPlaying();
@@ -178,7 +187,7 @@ public class CustomGameMode : GorillaGameManager
 		}
 	}
 
-	// Token: 0x06002D01 RID: 11521 RVA: 0x000DE658 File Offset: 0x000DC858
+	// Token: 0x06002D97 RID: 11671 RVA: 0x00128B18 File Offset: 0x00126D18
 	public unsafe static void LuaStart()
 	{
 		if (CustomGameMode.LuaScript == "")
@@ -188,6 +197,7 @@ public class CustomGameMode : GorillaGameManager
 		CustomGameMode.RunGamemodeScript(CustomGameMode.LuaScript);
 		if (CustomGameMode.gameScriptRunner.ShouldTick)
 		{
+			CustomGameMode.GameModeInitialized = true;
 			lua_State* l = CustomGameMode.gameScriptRunner.L;
 			Bindings.LuauPlayerList.Clear();
 			Luau.lua_getglobal(l, "Players");
@@ -208,6 +218,7 @@ public class CustomGameMode : GorillaGameManager
 					ptr->PlayerName = rig.playerNameVisible;
 					Bindings.LuauVRRigList[netPlayer.ActorNumber] = rig;
 					Bindings.PlayerFunctions.UpdatePlayer(l, rig, ptr);
+					ptr->PlayerName = rig.playerNameVisible;
 					Luau.lua_rawseti(l, -2, i + 1);
 					if (netPlayer.IsLocal)
 					{
@@ -226,26 +237,10 @@ public class CustomGameMode : GorillaGameManager
 				Luau.lua_pushnil(l);
 				Luau.lua_rawseti(l, -2, j + 1);
 			}
-			if (!Bindings.LuauPlayerList.ContainsKey(PhotonNetwork.LocalPlayer.ActorNumber))
-			{
-				NetPlayer netPlayer2 = PhotonNetwork.LocalPlayer;
-				Bindings.LuauPlayer* ptr2 = Luau.lua_class_push<Bindings.LuauPlayer>(l);
-				ptr2->PlayerID = netPlayer2.ActorNumber;
-				ptr2->PlayerMaterial = 0;
-				ptr2->IsMasterClient = netPlayer2.IsMasterClient;
-				Bindings.LuauPlayerList[netPlayer2.ActorNumber] = (IntPtr)((void*)ptr2);
-				RigContainer rigContainer2;
-				VRRigCache.Instance.TryGetVrrig(netPlayer2, out rigContainer2);
-				VRRig rig2 = rigContainer2.Rig;
-				ptr2->PlayerName = rig2.playerNameVisible;
-				Bindings.LuauVRRigList[netPlayer2.ActorNumber] = rig2;
-				Bindings.PlayerFunctions.UpdatePlayer(l, rig2, ptr2);
-				Luau.lua_setglobal(l, "LocalPlayer");
-			}
 		}
 	}
 
-	// Token: 0x06002D02 RID: 11522 RVA: 0x000DE87C File Offset: 0x000DCA7C
+	// Token: 0x06002D98 RID: 11672 RVA: 0x00128C9C File Offset: 0x00126E9C
 	public override void StopPlaying()
 	{
 		base.StopPlaying();
@@ -263,9 +258,10 @@ public class CustomGameMode : GorillaGameManager
 		}
 	}
 
-	// Token: 0x06002D03 RID: 11523 RVA: 0x000DE8C0 File Offset: 0x000DCAC0
+	// Token: 0x06002D99 RID: 11673 RVA: 0x00128CE0 File Offset: 0x00126EE0
 	public static void StopScript()
 	{
+		CustomGameMode.GameModeInitialized = false;
 		if (CustomGameMode.gameScriptRunner.ShouldTick)
 		{
 			Luau.lua_close(CustomGameMode.gameScriptRunner.L);
@@ -284,7 +280,7 @@ public class CustomGameMode : GorillaGameManager
 		}
 	}
 
-	// Token: 0x06002D04 RID: 11524 RVA: 0x000DE95C File Offset: 0x000DCB5C
+	// Token: 0x06002D9A RID: 11674 RVA: 0x00128D84 File Offset: 0x00126F84
 	public unsafe static void TouchPlayer(NetPlayer touchedPlayer)
 	{
 		if (CustomGameMode.gameScriptRunner == null)
@@ -299,35 +295,45 @@ public class CustomGameMode : GorillaGameManager
 		Luau.lua_getfield(l, -10002, "onEvent");
 		if (Luau.lua_type(l, -1) == 7)
 		{
-			Luau.lua_pushstring(l, "touchedPlayer");
-			IntPtr value;
-			if (Bindings.LuauPlayerList.TryGetValue(touchedPlayer.ActorNumber, out value))
+			IntPtr ptr;
+			if (Bindings.LuauPlayerList.TryGetValue(touchedPlayer.ActorNumber, out ptr))
 			{
-				Luau.lua_pushlightuserdata(l, (void*)value);
-				Luau.luaL_getmetatable(l, "Player");
-				Luau.lua_setmetatable(l, -2);
+				Luau.lua_pushstring(l, "touchedPlayer");
+				Luau.lua_class_push(l, "Player", ptr);
+				Luau.lua_pcall(l, 2, 0, 0);
+				return;
 			}
-			else
-			{
-				Bindings.LuauPlayer* ptr = Luau.lua_class_push<Bindings.LuauPlayer>(l);
-				ptr->PlayerID = touchedPlayer.ActorNumber;
-				ptr->PlayerMaterial = 0;
-				ptr->IsMasterClient = touchedPlayer.IsMasterClient;
-				RigContainer rigContainer;
-				VRRigCache.Instance.TryGetVrrig(touchedPlayer, out rigContainer);
-				VRRig rig = rigContainer.Rig;
-				ptr->PlayerName = rig.playerNameVisible;
-				Bindings.LuauVRRigList[touchedPlayer.ActorNumber] = rig;
-				Bindings.PlayerFunctions.UpdatePlayer(l, rig, ptr);
-				Bindings.LuauPlayerList[touchedPlayer.ActorNumber] = (IntPtr)((void*)ptr);
-			}
+		}
+		else
+		{
+			Luau.lua_pop(l, 1);
+		}
+	}
+
+	// Token: 0x06002D9B RID: 11675 RVA: 0x00128E10 File Offset: 0x00127010
+	public unsafe static void TaggedByEnvironment()
+	{
+		if (CustomGameMode.gameScriptRunner == null)
+		{
+			return;
+		}
+		if (!CustomGameMode.gameScriptRunner.ShouldTick)
+		{
+			return;
+		}
+		lua_State* l = CustomGameMode.gameScriptRunner.L;
+		Luau.lua_getfield(l, -10002, "onEvent");
+		if (Luau.lua_type(l, -1) == 7)
+		{
+			Luau.lua_pushstring(l, "taggedByEnvironment");
+			Luau.lua_pushnil(l);
 			Luau.lua_pcall(l, 2, 0, 0);
 			return;
 		}
 		Luau.lua_pop(l, 1);
 	}
 
-	// Token: 0x06002D05 RID: 11525 RVA: 0x000DEA7C File Offset: 0x000DCC7C
+	// Token: 0x06002D9C RID: 11676 RVA: 0x00128E7C File Offset: 0x0012707C
 	[MonoPInvokeCallback(typeof(lua_CFunction))]
 	public unsafe static int GameModeBindings(lua_State* L)
 	{
@@ -342,7 +348,7 @@ public class CustomGameMode : GorillaGameManager
 		return 0;
 	}
 
-	// Token: 0x06002D06 RID: 11526 RVA: 0x000DEAF8 File Offset: 0x000DCCF8
+	// Token: 0x06002D9D RID: 11677 RVA: 0x00128EF8 File Offset: 0x001270F8
 	public unsafe override float[] LocalPlayerSpeed()
 	{
 		if (Bindings.LocomotionSettings == null || CustomGameMode.gameScriptRunner == null || !CustomGameMode.gameScriptRunner.ShouldTick)
@@ -358,87 +364,101 @@ public class CustomGameMode : GorillaGameManager
 		return this.playerSpeed;
 	}
 
-	// Token: 0x06002D07 RID: 11527 RVA: 0x000DEB88 File Offset: 0x000DCD88
+	// Token: 0x06002D9E RID: 11678 RVA: 0x00128F88 File Offset: 0x00127188
 	[MonoPInvokeCallback(typeof(lua_CFunction))]
 	public unsafe static int AfterTickGamemode(lua_State* L)
 	{
-		foreach (KeyValuePair<GameObject, IntPtr> keyValuePair in Bindings.LuauGameObjectList)
+		try
 		{
-			GameObject key = keyValuePair.Key;
-			if (key.IsNotNull())
+			foreach (KeyValuePair<GameObject, IntPtr> keyValuePair in Bindings.LuauGameObjectList)
 			{
-				Transform transform = key.transform;
-				Bindings.LuauGameObject* ptr = (Bindings.LuauGameObject*)((void*)keyValuePair.Value);
-				transform.SetPositionAndRotation(ptr->Position, ptr->Rotation);
-				transform.localScale = ptr->Scale;
+				GameObject key = keyValuePair.Key;
+				if (key.IsNotNull())
+				{
+					Transform transform = key.transform;
+					Bindings.LuauGameObject* ptr = (Bindings.LuauGameObject*)((void*)keyValuePair.Value);
+					Vector3 position = ptr->Position;
+					position = new Vector3((float)Math.Round((double)position.x, 4), (float)Math.Round((double)position.y, 4), (float)Math.Round((double)position.z, 4));
+					transform.SetPositionAndRotation(position, ptr->Rotation);
+					transform.localScale = ptr->Scale;
+				}
 			}
+		}
+		catch (Exception)
+		{
 		}
 		return 0;
 	}
 
-	// Token: 0x06002D08 RID: 11528 RVA: 0x000DEC14 File Offset: 0x000DCE14
+	// Token: 0x06002D9F RID: 11679 RVA: 0x00129064 File Offset: 0x00127264
 	[MonoPInvokeCallback(typeof(lua_CFunction))]
 	public unsafe static int PreTickGamemode(lua_State* L)
 	{
-		Luau.lua_pushboolean(L, (PhotonNetwork.InRoom && CustomGameMode.WasInRoom) ? 1 : 0);
-		Luau.lua_setglobal(L, "InRoom");
-		foreach (KeyValuePair<int, IntPtr> keyValuePair in Bindings.LuauPlayerList)
+		try
 		{
-			Bindings.LuauPlayer* ptr = (Bindings.LuauPlayer*)((void*)keyValuePair.Value);
-			VRRig vrrig;
-			Bindings.LuauVRRigList.TryGetValue(keyValuePair.Key, out vrrig);
-			if (vrrig == null)
+			Luau.lua_pushboolean(L, (PhotonNetwork.InRoom && CustomGameMode.WasInRoom) ? 1 : 0);
+			Luau.lua_setglobal(L, "InRoom");
+			foreach (KeyValuePair<int, IntPtr> keyValuePair in Bindings.LuauPlayerList)
 			{
-				Debug.LogError("Unknown Rig for player");
-			}
-			else
-			{
-				if (keyValuePair.Key == PhotonNetwork.LocalPlayer.ActorNumber)
+				Bindings.LuauPlayer* ptr = (Bindings.LuauPlayer*)((void*)keyValuePair.Value);
+				VRRig vrrig;
+				Bindings.LuauVRRigList.TryGetValue(keyValuePair.Key, out vrrig);
+				if (!vrrig.IsNotNull())
 				{
-					ptr->IsMasterClient = PhotonNetwork.LocalPlayer.IsMasterClient;
+					LuauHud.Instance.LuauLog("Unknown Rig for player");
 				}
-				Bindings.PlayerFunctions.UpdatePlayer(L, vrrig, ptr);
+				else
+				{
+					if (keyValuePair.Key == PhotonNetwork.LocalPlayer.ActorNumber)
+					{
+						ptr->IsMasterClient = PhotonNetwork.LocalPlayer.IsMasterClient;
+					}
+					Bindings.PlayerFunctions.UpdatePlayer(L, vrrig, ptr);
+				}
 			}
-		}
-		foreach (KeyValuePair<GameObject, IntPtr> keyValuePair2 in Bindings.LuauGameObjectList)
-		{
-			GameObject key = keyValuePair2.Key;
-			if (key.IsNotNull())
+			foreach (KeyValuePair<GameObject, IntPtr> keyValuePair2 in Bindings.LuauGameObjectList)
 			{
-				Transform transform = key.transform;
-				Bindings.LuauGameObject* ptr2 = (Bindings.LuauGameObject*)((void*)keyValuePair2.Value);
-				Vector3 position = transform.position;
-				position = new Vector3((float)Math.Round((double)position.x, 4), (float)Math.Round((double)position.y, 4), (float)Math.Round((double)position.z, 4));
-				ptr2->Position = position;
-				ptr2->Rotation = transform.rotation;
-				ptr2->Scale = transform.localScale;
+				GameObject key = keyValuePair2.Key;
+				if (key.IsNotNull())
+				{
+					Transform transform = key.transform;
+					Bindings.LuauGameObject* ptr2 = (Bindings.LuauGameObject*)((void*)keyValuePair2.Value);
+					Vector3 position = transform.position;
+					position = new Vector3((float)Math.Round((double)position.x, 4), (float)Math.Round((double)position.y, 4), (float)Math.Round((double)position.z, 4));
+					ptr2->Position = position;
+					ptr2->Rotation = transform.rotation;
+					ptr2->Scale = transform.localScale;
+				}
 			}
+			CustomGameMode.WasInRoom = PhotonNetwork.InRoom;
 		}
-		CustomGameMode.WasInRoom = PhotonNetwork.InRoom;
+		catch (Exception)
+		{
+		}
 		return 0;
 	}
 
-	// Token: 0x06002D09 RID: 11529 RVA: 0x000DEDBC File Offset: 0x000DCFBC
+	// Token: 0x06002DA0 RID: 11680 RVA: 0x0004EEE2 File Offset: 0x0004D0E2
 	private static void RunGamemodeScript(string script)
 	{
 		CustomGameMode.gameScriptRunner = new LuauScriptRunner(script, "GameMode", new lua_CFunction(CustomGameMode.GameModeBindings), new lua_CFunction(CustomGameMode.PreTickGamemode), new lua_CFunction(CustomGameMode.AfterTickGamemode));
 	}
 
-	// Token: 0x06002D0A RID: 11530 RVA: 0x000DEDF2 File Offset: 0x000DCFF2
+	// Token: 0x06002DA1 RID: 11681 RVA: 0x0004EF18 File Offset: 0x0004D118
 	private static void RunGamemodeScriptFromFile(string filename)
 	{
 		CustomGameMode.RunGamemodeScript(File.ReadAllText(Path.Join(Application.persistentDataPath, "Scripts", filename)));
 	}
 
-	// Token: 0x04003272 RID: 12914
+	// Token: 0x0400330F RID: 13071
 	public static LuauScriptRunner gameScriptRunner;
 
-	// Token: 0x04003273 RID: 12915
+	// Token: 0x04003310 RID: 13072
 	public static string LuaScript = "";
 
-	// Token: 0x04003274 RID: 12916
+	// Token: 0x04003311 RID: 13073
 	private static bool WasInRoom = false;
 
-	// Token: 0x04003275 RID: 12917
+	// Token: 0x04003312 RID: 13074
 	public static bool GameModeInitialized;
 }

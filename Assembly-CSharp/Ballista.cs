@@ -5,23 +5,23 @@ using GorillaLocomotion;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020000B8 RID: 184
+// Token: 0x020000C2 RID: 194
 public class Ballista : MonoBehaviourPun
 {
-	// Token: 0x060004C3 RID: 1219 RVA: 0x0001C869 File Offset: 0x0001AA69
+	// Token: 0x060004FF RID: 1279 RVA: 0x00033C1D File Offset: 0x00031E1D
 	public void TriggerLoad()
 	{
 		this.animator.SetTrigger(this.loadTriggerHash);
 	}
 
-	// Token: 0x060004C4 RID: 1220 RVA: 0x0001C87C File Offset: 0x0001AA7C
+	// Token: 0x06000500 RID: 1280 RVA: 0x00033C30 File Offset: 0x00031E30
 	public void TriggerFire()
 	{
 		this.animator.SetTrigger(this.fireTriggerHash);
 	}
 
-	// Token: 0x17000059 RID: 89
-	// (get) Token: 0x060004C5 RID: 1221 RVA: 0x0001C88F File Offset: 0x0001AA8F
+	// Token: 0x1700005E RID: 94
+	// (get) Token: 0x06000501 RID: 1281 RVA: 0x00033C43 File Offset: 0x00031E43
 	private float LaunchSpeed
 	{
 		get
@@ -34,7 +34,7 @@ public class Ballista : MonoBehaviourPun
 		}
 	}
 
-	// Token: 0x060004C6 RID: 1222 RVA: 0x0001C8B0 File Offset: 0x0001AAB0
+	// Token: 0x06000502 RID: 1282 RVA: 0x0007FCE0 File Offset: 0x0007DEE0
 	private void Awake()
 	{
 		this.launchDirection = this.launchEnd.position - this.launchStart.position;
@@ -48,7 +48,7 @@ public class Ballista : MonoBehaviourPun
 		this.RefreshButtonColors();
 	}
 
-	// Token: 0x060004C7 RID: 1223 RVA: 0x0001C960 File Offset: 0x0001AB60
+	// Token: 0x06000503 RID: 1283 RVA: 0x0007FD90 File Offset: 0x0007DF90
 	private void Update()
 	{
 		float deltaTime = Time.deltaTime;
@@ -116,7 +116,7 @@ public class Ballista : MonoBehaviourPun
 		this.prevStateHash = currentAnimatorStateInfo.shortNameHash;
 	}
 
-	// Token: 0x060004C8 RID: 1224 RVA: 0x0001CC55 File Offset: 0x0001AE55
+	// Token: 0x06000504 RID: 1284 RVA: 0x00033C61 File Offset: 0x00031E61
 	private void FireLocal()
 	{
 		this.animator.SetTrigger(this.fireTriggerHash);
@@ -127,13 +127,13 @@ public class Ballista : MonoBehaviourPun
 		}
 	}
 
-	// Token: 0x060004C9 RID: 1225 RVA: 0x0001CC84 File Offset: 0x0001AE84
+	// Token: 0x06000505 RID: 1285 RVA: 0x00080088 File Offset: 0x0007E288
 	private Vector3 GetPlayerBodyCenterPosition(GTPlayer player)
 	{
 		return player.headCollider.transform.position + Quaternion.Euler(0f, player.headCollider.transform.rotation.eulerAngles.y, 0f) * new Vector3(0f, 0f, -0.15f) + Vector3.down * 0.4f;
 	}
 
-	// Token: 0x060004CA RID: 1226 RVA: 0x0001CD00 File Offset: 0x0001AF00
+	// Token: 0x06000506 RID: 1286 RVA: 0x00080104 File Offset: 0x0007E304
 	private void OnTriggerEnter(Collider other)
 	{
 		GTPlayer instance = GTPlayer.Instance;
@@ -143,7 +143,7 @@ public class Ballista : MonoBehaviourPun
 		}
 	}
 
-	// Token: 0x060004CB RID: 1227 RVA: 0x0001CD34 File Offset: 0x0001AF34
+	// Token: 0x06000507 RID: 1287 RVA: 0x00080138 File Offset: 0x0007E338
 	private void OnTriggerExit(Collider other)
 	{
 		GTPlayer instance = GTPlayer.Instance;
@@ -153,14 +153,14 @@ public class Ballista : MonoBehaviourPun
 		}
 	}
 
-	// Token: 0x060004CC RID: 1228 RVA: 0x0001CD65 File Offset: 0x0001AF65
+	// Token: 0x06000508 RID: 1288 RVA: 0x00033C8F File Offset: 0x00031E8F
 	[PunRPC]
 	public void FireBallistaRPC(PhotonMessageInfo info)
 	{
 		this.FireLocal();
 	}
 
-	// Token: 0x060004CD RID: 1229 RVA: 0x0001CD70 File Offset: 0x0001AF70
+	// Token: 0x06000509 RID: 1289 RVA: 0x0008016C File Offset: 0x0007E36C
 	private void UpdatePredictionLine()
 	{
 		float d = 0.033333335f;
@@ -174,7 +174,7 @@ public class Ballista : MonoBehaviourPun
 		}
 	}
 
-	// Token: 0x060004CE RID: 1230 RVA: 0x0001CE0A File Offset: 0x0001B00A
+	// Token: 0x0600050A RID: 1290 RVA: 0x00033C97 File Offset: 0x00031E97
 	private IEnumerator DebugDrawTrajectory(float duration)
 	{
 		this.UpdatePredictionLine();
@@ -188,7 +188,7 @@ public class Ballista : MonoBehaviourPun
 		yield break;
 	}
 
-	// Token: 0x060004CF RID: 1231 RVA: 0x0001CE20 File Offset: 0x0001B020
+	// Token: 0x0600050B RID: 1291 RVA: 0x00080208 File Offset: 0x0007E408
 	private void OnDrawGizmosSelected()
 	{
 		if (this.launchStart != null && this.launchEnd != null)
@@ -200,7 +200,7 @@ public class Ballista : MonoBehaviourPun
 		}
 	}
 
-	// Token: 0x060004D0 RID: 1232 RVA: 0x0001CE84 File Offset: 0x0001B084
+	// Token: 0x0600050C RID: 1292 RVA: 0x0008026C File Offset: 0x0007E46C
 	public void RefreshButtonColors()
 	{
 		this.speedZeroButton.isOn = (this.currentSpeedIndex == 0);
@@ -213,45 +213,45 @@ public class Ballista : MonoBehaviourPun
 		this.speedThreeButton.UpdateColor();
 	}
 
-	// Token: 0x060004D1 RID: 1233 RVA: 0x0001CF0D File Offset: 0x0001B10D
+	// Token: 0x0600050D RID: 1293 RVA: 0x00033CAD File Offset: 0x00031EAD
 	public void SetSpeedIndex(int index)
 	{
 		this.currentSpeedIndex = index;
 		this.RefreshButtonColors();
 	}
 
-	// Token: 0x04000576 RID: 1398
+	// Token: 0x040005B6 RID: 1462
 	public Animator animator;
 
-	// Token: 0x04000577 RID: 1399
+	// Token: 0x040005B7 RID: 1463
 	public Transform launchStart;
 
-	// Token: 0x04000578 RID: 1400
+	// Token: 0x040005B8 RID: 1464
 	public Transform launchEnd;
 
-	// Token: 0x04000579 RID: 1401
+	// Token: 0x040005B9 RID: 1465
 	public Transform launchBone;
 
-	// Token: 0x0400057A RID: 1402
+	// Token: 0x040005BA RID: 1466
 	public float reloadDelay = 1f;
 
-	// Token: 0x0400057B RID: 1403
+	// Token: 0x040005BB RID: 1467
 	public float loadTime = 1.933f;
 
-	// Token: 0x0400057C RID: 1404
+	// Token: 0x040005BC RID: 1468
 	public float playerMagnetismStrength = 3f;
 
-	// Token: 0x0400057D RID: 1405
+	// Token: 0x040005BD RID: 1469
 	public float launchSpeed = 20f;
 
-	// Token: 0x0400057E RID: 1406
+	// Token: 0x040005BE RID: 1470
 	[Range(0f, 1f)]
 	public float pitch;
 
-	// Token: 0x0400057F RID: 1407
+	// Token: 0x040005BF RID: 1471
 	private bool useSpeedOptions;
 
-	// Token: 0x04000580 RID: 1408
+	// Token: 0x040005C0 RID: 1472
 	public float[] speedOptions = new float[]
 	{
 		10f,
@@ -260,87 +260,87 @@ public class Ballista : MonoBehaviourPun
 		25f
 	};
 
-	// Token: 0x04000581 RID: 1409
+	// Token: 0x040005C1 RID: 1473
 	public int currentSpeedIndex;
 
-	// Token: 0x04000582 RID: 1410
+	// Token: 0x040005C2 RID: 1474
 	public GorillaPressableButton speedZeroButton;
 
-	// Token: 0x04000583 RID: 1411
+	// Token: 0x040005C3 RID: 1475
 	public GorillaPressableButton speedOneButton;
 
-	// Token: 0x04000584 RID: 1412
+	// Token: 0x040005C4 RID: 1476
 	public GorillaPressableButton speedTwoButton;
 
-	// Token: 0x04000585 RID: 1413
+	// Token: 0x040005C5 RID: 1477
 	public GorillaPressableButton speedThreeButton;
 
-	// Token: 0x04000586 RID: 1414
+	// Token: 0x040005C6 RID: 1478
 	private bool debugDrawTrajectoryOnLaunch;
 
-	// Token: 0x04000587 RID: 1415
+	// Token: 0x040005C7 RID: 1479
 	private int loadTriggerHash = Animator.StringToHash("Load");
 
-	// Token: 0x04000588 RID: 1416
+	// Token: 0x040005C8 RID: 1480
 	private int fireTriggerHash = Animator.StringToHash("Fire");
 
-	// Token: 0x04000589 RID: 1417
+	// Token: 0x040005C9 RID: 1481
 	private int pitchParamHash = Animator.StringToHash("Pitch");
 
-	// Token: 0x0400058A RID: 1418
+	// Token: 0x040005CA RID: 1482
 	private int idleStateHash = Animator.StringToHash("Idle");
 
-	// Token: 0x0400058B RID: 1419
+	// Token: 0x040005CB RID: 1483
 	private int loadStateHash = Animator.StringToHash("Load");
 
-	// Token: 0x0400058C RID: 1420
+	// Token: 0x040005CC RID: 1484
 	private int fireStateHash = Animator.StringToHash("Fire");
 
-	// Token: 0x0400058D RID: 1421
+	// Token: 0x040005CD RID: 1485
 	private int prevStateHash = Animator.StringToHash("Idle");
 
-	// Token: 0x0400058E RID: 1422
+	// Token: 0x040005CE RID: 1486
 	private float fireCompleteTime;
 
-	// Token: 0x0400058F RID: 1423
+	// Token: 0x040005CF RID: 1487
 	private float loadStartTime;
 
-	// Token: 0x04000590 RID: 1424
+	// Token: 0x040005D0 RID: 1488
 	private bool playerInTrigger;
 
-	// Token: 0x04000591 RID: 1425
+	// Token: 0x040005D1 RID: 1489
 	private bool playerReadyToFire;
 
-	// Token: 0x04000592 RID: 1426
+	// Token: 0x040005D2 RID: 1490
 	private bool playerLaunched;
 
-	// Token: 0x04000593 RID: 1427
+	// Token: 0x040005D3 RID: 1491
 	private float playerReadyToFireDist = 0.1f;
 
-	// Token: 0x04000594 RID: 1428
+	// Token: 0x040005D4 RID: 1492
 	private Vector3 playerBodyOffsetFromHead = new Vector3(0f, -0.4f, -0.15f);
 
-	// Token: 0x04000595 RID: 1429
+	// Token: 0x040005D5 RID: 1493
 	private Vector3 launchDirection;
 
-	// Token: 0x04000596 RID: 1430
+	// Token: 0x040005D6 RID: 1494
 	private float launchRampDistance;
 
-	// Token: 0x04000597 RID: 1431
+	// Token: 0x040005D7 RID: 1495
 	private int collidingLayer;
 
-	// Token: 0x04000598 RID: 1432
+	// Token: 0x040005D8 RID: 1496
 	private int notCollidingLayer;
 
-	// Token: 0x04000599 RID: 1433
+	// Token: 0x040005D9 RID: 1497
 	private float playerPullInRate;
 
-	// Token: 0x0400059A RID: 1434
+	// Token: 0x040005DA RID: 1498
 	private float appliedAnimatorPitch;
 
-	// Token: 0x0400059B RID: 1435
+	// Token: 0x040005DB RID: 1499
 	private const int predictionLineSamples = 240;
 
-	// Token: 0x0400059C RID: 1436
+	// Token: 0x040005DC RID: 1500
 	private Vector3[] predictionLinePoints = new Vector3[240];
 }

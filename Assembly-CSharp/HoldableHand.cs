@@ -3,11 +3,11 @@ using GorillaGameModes;
 using GorillaLocomotion;
 using UnityEngine;
 
-// Token: 0x020005BC RID: 1468
+// Token: 0x020005CA RID: 1482
 public class HoldableHand : HoldableObject
 {
-	// Token: 0x170003B5 RID: 949
-	// (get) Token: 0x06002471 RID: 9329 RVA: 0x000B5938 File Offset: 0x000B3B38
+	// Token: 0x170003BD RID: 957
+	// (get) Token: 0x060024D3 RID: 9427 RVA: 0x00048FBE File Offset: 0x000471BE
 	public VRRig Rig
 	{
 		get
@@ -16,7 +16,7 @@ public class HoldableHand : HoldableObject
 		}
 	}
 
-	// Token: 0x06002472 RID: 9330 RVA: 0x000B5940 File Offset: 0x000B3B40
+	// Token: 0x060024D4 RID: 9428 RVA: 0x00048FC6 File Offset: 0x000471C6
 	private void Start()
 	{
 		if (this.myPlayer.isOfflineVRRig)
@@ -25,7 +25,7 @@ public class HoldableHand : HoldableObject
 		}
 	}
 
-	// Token: 0x06002473 RID: 9331 RVA: 0x000B595C File Offset: 0x000B3B5C
+	// Token: 0x060024D5 RID: 9429 RVA: 0x001041BC File Offset: 0x001023BC
 	public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 	{
 		GorillaGuardianManager gorillaGuardianManager = GameMode.ActiveGameMode as GorillaGuardianManager;
@@ -44,7 +44,7 @@ public class HoldableHand : HoldableObject
 		}
 	}
 
-	// Token: 0x06002474 RID: 9332 RVA: 0x000B5A34 File Offset: 0x000B3C34
+	// Token: 0x060024D6 RID: 9430 RVA: 0x00104294 File Offset: 0x00102494
 	public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		if (!base.OnRelease(zoneReleased, releasingHand))
@@ -72,18 +72,18 @@ public class HoldableHand : HoldableObject
 		return true;
 	}
 
-	// Token: 0x06002475 RID: 9333 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060024D7 RID: 9431 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnHover(InteractionPoint pointHovered, GameObject hoveringHand)
 	{
 	}
 
-	// Token: 0x06002476 RID: 9334 RVA: 0x000B5B25 File Offset: 0x000B3D25
+	// Token: 0x060024D8 RID: 9432 RVA: 0x00048FE1 File Offset: 0x000471E1
 	public override void DropItemCleanup()
 	{
 		this.myPlayer.ClearLocalGrabOverride();
 	}
 
-	// Token: 0x06002477 RID: 9335 RVA: 0x000B5B34 File Offset: 0x000B3D34
+	// Token: 0x060024D9 RID: 9433 RVA: 0x00104388 File Offset: 0x00102588
 	private void ClearOtherGrabs(bool grabbedLeft)
 	{
 		IHoldableObject holdableObject = grabbedLeft ? EquipmentInteractor.instance.rightHandHeldEquipment : EquipmentInteractor.instance.leftHandHeldEquipment;
@@ -109,15 +109,15 @@ public class HoldableHand : HoldableObject
 		}
 	}
 
-	// Token: 0x0400289D RID: 10397
+	// Token: 0x040028FC RID: 10492
 	[SerializeField]
 	private VRRig myPlayer;
 
-	// Token: 0x0400289E RID: 10398
+	// Token: 0x040028FD RID: 10493
 	[SerializeField]
 	private bool isBody;
 
-	// Token: 0x0400289F RID: 10399
+	// Token: 0x040028FE RID: 10494
 	[SerializeField]
 	private bool isLeftHand;
 }

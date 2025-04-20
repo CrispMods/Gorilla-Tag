@@ -10,10 +10,10 @@ using UnityEngine.Events;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009CF RID: 2511
+	// Token: 0x020009F5 RID: 2549
 	public class PlayerTimerManager : MonoBehaviourPunCallbacks
 	{
-		// Token: 0x06003EA0 RID: 16032 RVA: 0x00128C00 File Offset: 0x00126E00
+		// Token: 0x06003FB8 RID: 16312 RVA: 0x00169C0C File Offset: 0x00167E0C
 		private void Awake()
 		{
 			if (PlayerTimerManager.instance == null)
@@ -22,7 +22,7 @@ namespace GorillaTagScripts
 			}
 			else if (PlayerTimerManager.instance != this)
 			{
-				Object.Destroy(base.gameObject);
+				UnityEngine.Object.Destroy(base.gameObject);
 				return;
 			}
 			this.callLimiters = new CallLimiter[2];
@@ -34,7 +34,7 @@ namespace GorillaTagScripts
 			this.serializedTimerData = new byte[256];
 		}
 
-		// Token: 0x06003EA1 RID: 16033 RVA: 0x00128CB0 File Offset: 0x00126EB0
+		// Token: 0x06003FB9 RID: 16313 RVA: 0x00169CBC File Offset: 0x00167EBC
 		private CallLimiter CreateLimiterFromPool()
 		{
 			if (this.limiterPool.Count > 0)
@@ -46,7 +46,7 @@ namespace GorillaTagScripts
 			return new CallLimiter(5, 1f, 0.5f);
 		}
 
-		// Token: 0x06003EA2 RID: 16034 RVA: 0x00128D0C File Offset: 0x00126F0C
+		// Token: 0x06003FBA RID: 16314 RVA: 0x00059A87 File Offset: 0x00057C87
 		private void ReturnCallLimiterToPool(CallLimiter limiter)
 		{
 			if (limiter == null)
@@ -57,7 +57,7 @@ namespace GorillaTagScripts
 			this.limiterPool.Add(limiter);
 		}
 
-		// Token: 0x06003EA3 RID: 16035 RVA: 0x00128D24 File Offset: 0x00126F24
+		// Token: 0x06003FBB RID: 16315 RVA: 0x00059A9F File Offset: 0x00057C9F
 		public void RegisterTimerBoard(PlayerTimerBoard board)
 		{
 			if (!PlayerTimerManager.timerBoards.Contains(board))
@@ -67,20 +67,20 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003EA4 RID: 16036 RVA: 0x00128D45 File Offset: 0x00126F45
+		// Token: 0x06003FBC RID: 16316 RVA: 0x00059AC0 File Offset: 0x00057CC0
 		public void UnregisterTimerBoard(PlayerTimerBoard board)
 		{
 			PlayerTimerManager.timerBoards.Remove(board);
 		}
 
-		// Token: 0x06003EA5 RID: 16037 RVA: 0x00128D54 File Offset: 0x00126F54
+		// Token: 0x06003FBD RID: 16317 RVA: 0x00169D18 File Offset: 0x00167F18
 		public bool IsLocalTimerStarted()
 		{
 			PlayerTimerManager.PlayerTimerData playerTimerData;
 			return this.playerTimerData.TryGetValue(NetworkSystem.Instance.LocalPlayer.ActorNumber, out playerTimerData) && playerTimerData.isStarted;
 		}
 
-		// Token: 0x06003EA6 RID: 16038 RVA: 0x00128D88 File Offset: 0x00126F88
+		// Token: 0x06003FBE RID: 16318 RVA: 0x00169D4C File Offset: 0x00167F4C
 		public float GetTimeForPlayer(int actorNumber)
 		{
 			PlayerTimerManager.PlayerTimerData playerTimerData;
@@ -95,7 +95,7 @@ namespace GorillaTagScripts
 			return Mathf.Clamp(playerTimerData.lastTimerDuration / 1000f, 0f, 3599.99f);
 		}
 
-		// Token: 0x06003EA7 RID: 16039 RVA: 0x00128DF4 File Offset: 0x00126FF4
+		// Token: 0x06003FBF RID: 16319 RVA: 0x00169DB8 File Offset: 0x00167FB8
 		public float GetLastDurationForPlayer(int actorNumber)
 		{
 			PlayerTimerManager.PlayerTimerData playerTimerData;
@@ -106,7 +106,7 @@ namespace GorillaTagScripts
 			return -1f;
 		}
 
-		// Token: 0x06003EA8 RID: 16040 RVA: 0x00128E34 File Offset: 0x00127034
+		// Token: 0x06003FC0 RID: 16320 RVA: 0x00169DF8 File Offset: 0x00167FF8
 		[PunRPC]
 		private void InitTimersMasterRPC(int numBytes, byte[] bytes, PhotonMessageInfo info)
 		{
@@ -128,7 +128,7 @@ namespace GorillaTagScripts
 			this.UpdateAllTimerBoards();
 		}
 
-		// Token: 0x06003EA9 RID: 16041 RVA: 0x00128E88 File Offset: 0x00127088
+		// Token: 0x06003FC1 RID: 16321 RVA: 0x00169E4C File Offset: 0x0016804C
 		private int SerializeTimerState()
 		{
 			Array.Clear(this.serializedTimerData, 0, this.serializedTimerData.Length);
@@ -150,7 +150,7 @@ namespace GorillaTagScripts
 			return (int)memoryStream.Position;
 		}
 
-		// Token: 0x06003EAA RID: 16042 RVA: 0x00128F84 File Offset: 0x00127184
+		// Token: 0x06003FC2 RID: 16322 RVA: 0x00169F48 File Offset: 0x00168148
 		private void DeserializeTimerState(int numBytes, byte[] bytes)
 		{
 			if (numBytes <= 0 || numBytes > 256)
@@ -218,7 +218,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003EAB RID: 16043 RVA: 0x00129148 File Offset: 0x00127348
+		// Token: 0x06003FC3 RID: 16323 RVA: 0x0016A10C File Offset: 0x0016830C
 		private void ClearOldPlayerData()
 		{
 			List<int> list = new List<int>(this.playerTimerData.Count);
@@ -240,7 +240,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003EAC RID: 16044 RVA: 0x00129228 File Offset: 0x00127428
+		// Token: 0x06003FC4 RID: 16324 RVA: 0x00059ACE File Offset: 0x00057CCE
 		public void RequestTimerToggle(bool startTimer)
 		{
 			this.requestSendTime = Time.time;
@@ -251,7 +251,7 @@ namespace GorillaTagScripts
 			});
 		}
 
-		// Token: 0x06003EAD RID: 16045 RVA: 0x0012925C File Offset: 0x0012745C
+		// Token: 0x06003FC5 RID: 16325 RVA: 0x0016A1EC File Offset: 0x001683EC
 		[PunRPC]
 		private void RequestTimerToggleRPC(bool startTimer, PhotonMessageInfo info)
 		{
@@ -300,7 +300,7 @@ namespace GorillaTagScripts
 			});
 		}
 
-		// Token: 0x06003EAE RID: 16046 RVA: 0x00129374 File Offset: 0x00127574
+		// Token: 0x06003FC6 RID: 16326 RVA: 0x0016A304 File Offset: 0x00168504
 		[PunRPC]
 		private void TimerToggledMasterRPC(bool startTimer, int toggleTimeStamp, Player player, PhotonMessageInfo info)
 		{
@@ -334,7 +334,7 @@ namespace GorillaTagScripts
 			this.OnToggleTimerForPlayer(startTimer, player, num);
 		}
 
-		// Token: 0x06003EAF RID: 16047 RVA: 0x0012941C File Offset: 0x0012761C
+		// Token: 0x06003FC7 RID: 16327 RVA: 0x0016A3AC File Offset: 0x001685AC
 		private void OnToggleTimerForPlayer(bool startTimer, Player player, int toggleTime)
 		{
 			PlayerTimerManager.PlayerTimerData playerTimerData;
@@ -398,13 +398,13 @@ namespace GorillaTagScripts
 			this.UpdateAllTimerBoards();
 		}
 
-		// Token: 0x06003EB0 RID: 16048 RVA: 0x00129574 File Offset: 0x00127774
+		// Token: 0x06003FC8 RID: 16328 RVA: 0x0016A504 File Offset: 0x00168704
 		private bool ValidateCallLimits(PlayerTimerManager.RPC rpcCall, PhotonMessageInfo info)
 		{
 			return rpcCall >= PlayerTimerManager.RPC.InitTimersMaster && rpcCall < PlayerTimerManager.RPC.Count && this.callLimiters[(int)rpcCall].CheckCallTime(Time.time);
 		}
 
-		// Token: 0x06003EB1 RID: 16049 RVA: 0x001295A4 File Offset: 0x001277A4
+		// Token: 0x06003FC9 RID: 16329 RVA: 0x0016A534 File Offset: 0x00168734
 		public override void OnMasterClientSwitched(Player newMasterClient)
 		{
 			base.OnMasterClientSwitched(newMasterClient);
@@ -422,7 +422,7 @@ namespace GorillaTagScripts
 			this.areTimersInitialized = false;
 		}
 
-		// Token: 0x06003EB2 RID: 16050 RVA: 0x00129604 File Offset: 0x00127804
+		// Token: 0x06003FCA RID: 16330 RVA: 0x0016A594 File Offset: 0x00168794
 		public override void OnPlayerEnteredRoom(Player newPlayer)
 		{
 			base.OnPlayerEnteredRoom(newPlayer);
@@ -438,7 +438,7 @@ namespace GorillaTagScripts
 			this.UpdateAllTimerBoards();
 		}
 
-		// Token: 0x06003EB3 RID: 16051 RVA: 0x00129660 File Offset: 0x00127860
+		// Token: 0x06003FCB RID: 16331 RVA: 0x0016A5F0 File Offset: 0x001687F0
 		public override void OnPlayerLeftRoom(Player otherPlayer)
 		{
 			base.OnPlayerLeftRoom(otherPlayer);
@@ -452,7 +452,7 @@ namespace GorillaTagScripts
 			this.UpdateAllTimerBoards();
 		}
 
-		// Token: 0x06003EB4 RID: 16052 RVA: 0x001296BC File Offset: 0x001278BC
+		// Token: 0x06003FCC RID: 16332 RVA: 0x0016A64C File Offset: 0x0016884C
 		public override void OnJoinedRoom()
 		{
 			base.OnJoinedRoom();
@@ -473,7 +473,7 @@ namespace GorillaTagScripts
 			this.areTimersInitialized = false;
 		}
 
-		// Token: 0x06003EB5 RID: 16053 RVA: 0x00129760 File Offset: 0x00127960
+		// Token: 0x06003FCD RID: 16333 RVA: 0x0016A6F0 File Offset: 0x001688F0
 		public override void OnLeftRoom()
 		{
 			base.OnLeftRoom();
@@ -490,7 +490,7 @@ namespace GorillaTagScripts
 			this.UpdateAllTimerBoards();
 		}
 
-		// Token: 0x06003EB6 RID: 16054 RVA: 0x001297FC File Offset: 0x001279FC
+		// Token: 0x06003FCE RID: 16334 RVA: 0x0016A78C File Offset: 0x0016898C
 		private void UpdateAllTimerBoards()
 		{
 			foreach (PlayerTimerBoard board in PlayerTimerManager.timerBoards)
@@ -499,7 +499,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003EB7 RID: 16055 RVA: 0x00129850 File Offset: 0x00127A50
+		// Token: 0x06003FCF RID: 16335 RVA: 0x0016A7E0 File Offset: 0x001689E0
 		private void UpdateTimerBoard(PlayerTimerBoard board)
 		{
 			board.SetSleepState(this.joinedRoom);
@@ -542,81 +542,81 @@ namespace GorillaTagScripts
 			board.RedrawPlayerLines();
 		}
 
-		// Token: 0x04003FE5 RID: 16357
+		// Token: 0x040040BF RID: 16575
 		public static PlayerTimerManager instance;
 
-		// Token: 0x04003FE6 RID: 16358
+		// Token: 0x040040C0 RID: 16576
 		public PhotonView timerPV;
 
-		// Token: 0x04003FE7 RID: 16359
+		// Token: 0x040040C1 RID: 16577
 		public UnityEvent OnLocalTimerStarted;
 
-		// Token: 0x04003FE8 RID: 16360
+		// Token: 0x040040C2 RID: 16578
 		public UnityEvent<int> OnTimerStartedForPlayer;
 
-		// Token: 0x04003FE9 RID: 16361
+		// Token: 0x040040C3 RID: 16579
 		public UnityEvent<int, int> OnTimerStopped;
 
-		// Token: 0x04003FEA RID: 16362
+		// Token: 0x040040C4 RID: 16580
 		public const float MAX_DURATION_SECONDS = 3599.99f;
 
-		// Token: 0x04003FEB RID: 16363
+		// Token: 0x040040C5 RID: 16581
 		private float requestSendTime;
 
-		// Token: 0x04003FEC RID: 16364
+		// Token: 0x040040C6 RID: 16582
 		private bool localPlayerRequestedStart;
 
-		// Token: 0x04003FED RID: 16365
+		// Token: 0x040040C7 RID: 16583
 		private CallLimiter[] callLimiters;
 
-		// Token: 0x04003FEE RID: 16366
+		// Token: 0x040040C8 RID: 16584
 		private Dictionary<int, CallLimiter> timerToggleLimiters;
 
-		// Token: 0x04003FEF RID: 16367
+		// Token: 0x040040C9 RID: 16585
 		private List<CallLimiter> limiterPool;
 
-		// Token: 0x04003FF0 RID: 16368
+		// Token: 0x040040CA RID: 16586
 		private bool areTimersInitialized;
 
-		// Token: 0x04003FF1 RID: 16369
+		// Token: 0x040040CB RID: 16587
 		private Dictionary<int, PlayerTimerManager.PlayerTimerData> playerTimerData;
 
-		// Token: 0x04003FF2 RID: 16370
+		// Token: 0x040040CC RID: 16588
 		private const int MAX_TIMER_INIT_BYTES = 256;
 
-		// Token: 0x04003FF3 RID: 16371
+		// Token: 0x040040CD RID: 16589
 		private byte[] serializedTimerData;
 
-		// Token: 0x04003FF4 RID: 16372
+		// Token: 0x040040CE RID: 16590
 		private static List<PlayerTimerBoard> timerBoards = new List<PlayerTimerBoard>(10);
 
-		// Token: 0x04003FF5 RID: 16373
+		// Token: 0x040040CF RID: 16591
 		private bool joinedRoom;
 
-		// Token: 0x020009D0 RID: 2512
+		// Token: 0x020009F6 RID: 2550
 		private enum RPC
 		{
-			// Token: 0x04003FF7 RID: 16375
+			// Token: 0x040040D1 RID: 16593
 			InitTimersMaster,
-			// Token: 0x04003FF8 RID: 16376
+			// Token: 0x040040D2 RID: 16594
 			ToggleTimerMaster,
-			// Token: 0x04003FF9 RID: 16377
+			// Token: 0x040040D3 RID: 16595
 			Count
 		}
 
-		// Token: 0x020009D1 RID: 2513
+		// Token: 0x020009F7 RID: 2551
 		public struct PlayerTimerData
 		{
-			// Token: 0x04003FFA RID: 16378
+			// Token: 0x040040D4 RID: 16596
 			public int startTimeStamp;
 
-			// Token: 0x04003FFB RID: 16379
+			// Token: 0x040040D5 RID: 16597
 			public int endTimeStamp;
 
-			// Token: 0x04003FFC RID: 16380
+			// Token: 0x040040D6 RID: 16598
 			public bool isStarted;
 
-			// Token: 0x04003FFD RID: 16381
+			// Token: 0x040040D7 RID: 16599
 			public uint lastTimerDuration;
 		}
 	}

@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-// Token: 0x0200085B RID: 2139
+// Token: 0x02000877 RID: 2167
 public static class MeshUtils
 {
-	// Token: 0x060033F7 RID: 13303 RVA: 0x000F7FDC File Offset: 0x000F61DC
+	// Token: 0x060034C3 RID: 13507 RVA: 0x0013F3A8 File Offset: 0x0013D5A8
 	public static Mesh CreateReadableMeshCopy(this Mesh sourceMesh)
 	{
 		Mesh mesh = new Mesh();

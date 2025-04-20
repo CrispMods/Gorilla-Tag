@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace GorillaTag.GuidedRefs
 {
-	// Token: 0x02000BD9 RID: 3033
+	// Token: 0x02000C07 RID: 3079
 	[Serializable]
 	public struct GuidedRefReceiverFieldInfo
 	{
-		// Token: 0x06004C70 RID: 19568 RVA: 0x00174774 File Offset: 0x00172974
+		// Token: 0x06004DBC RID: 19900 RVA: 0x00062E87 File Offset: 0x00061087
 		public GuidedRefReceiverFieldInfo(bool useRecommendedDefaults)
 		{
 			this.resolveModes = (useRecommendedDefaults ? (GRef.EResolveModes.Runtime | GRef.EResolveModes.SceneProcessing) : GRef.EResolveModes.None);
@@ -16,20 +16,20 @@ namespace GorillaTag.GuidedRefs
 			this.fieldId = 0;
 		}
 
-		// Token: 0x04004E45 RID: 20037
+		// Token: 0x04004F3B RID: 20283
 		[SerializeField]
 		public GRef.EResolveModes resolveModes;
 
-		// Token: 0x04004E46 RID: 20038
+		// Token: 0x04004F3C RID: 20284
 		[SerializeField]
 		public GuidedRefTargetIdSO targetId;
 
-		// Token: 0x04004E47 RID: 20039
+		// Token: 0x04004F3D RID: 20285
 		[Tooltip("(Required) Used to filter down which relay the target can belong to. Only one GuidedRefRelayHub will be used.")]
 		[SerializeField]
 		public GuidedRefHubIdSO hubId;
 
-		// Token: 0x04004E48 RID: 20040
+		// Token: 0x04004F3E RID: 20286
 		[NonSerialized]
 		public int fieldId;
 	}

@@ -1,24 +1,24 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005C8 RID: 1480
+// Token: 0x020005D6 RID: 1494
 public interface IRangedVariable<T> : IVariable<T>, IVariable
 {
-	// Token: 0x170003C0 RID: 960
-	// (get) Token: 0x060024C4 RID: 9412
-	// (set) Token: 0x060024C5 RID: 9413
+	// Token: 0x170003C8 RID: 968
+	// (get) Token: 0x06002526 RID: 9510
+	// (set) Token: 0x06002527 RID: 9511
 	T Min { get; set; }
 
-	// Token: 0x170003C1 RID: 961
-	// (get) Token: 0x060024C6 RID: 9414
-	// (set) Token: 0x060024C7 RID: 9415
+	// Token: 0x170003C9 RID: 969
+	// (get) Token: 0x06002528 RID: 9512
+	// (set) Token: 0x06002529 RID: 9513
 	T Max { get; set; }
 
-	// Token: 0x170003C2 RID: 962
-	// (get) Token: 0x060024C8 RID: 9416
+	// Token: 0x170003CA RID: 970
+	// (get) Token: 0x0600252A RID: 9514
 	T Range { get; }
 
-	// Token: 0x170003C3 RID: 963
-	// (get) Token: 0x060024C9 RID: 9417
+	// Token: 0x170003CB RID: 971
+	// (get) Token: 0x0600252B RID: 9515
 	AnimationCurve Curve { get; }
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000442 RID: 1090
+// Token: 0x0200044E RID: 1102
 public class PlayerColoredCosmetic : MonoBehaviour
 {
-	// Token: 0x06001ADD RID: 6877 RVA: 0x00084454 File Offset: 0x00082654
+	// Token: 0x06001B31 RID: 6961 RVA: 0x000D9188 File Offset: 0x000D7388
 	public void Awake()
 	{
 		for (int i = 0; i < this.coloringRules.Length; i++)
@@ -13,7 +13,7 @@ public class PlayerColoredCosmetic : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001ADE RID: 6878 RVA: 0x00084488 File Offset: 0x00082688
+	// Token: 0x06001B32 RID: 6962 RVA: 0x000D91BC File Offset: 0x000D73BC
 	private void OnEnable()
 	{
 		if (!this.didInit)
@@ -32,7 +32,7 @@ public class PlayerColoredCosmetic : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001ADF RID: 6879 RVA: 0x00084511 File Offset: 0x00082711
+	// Token: 0x06001B33 RID: 6963 RVA: 0x000427A2 File Offset: 0x000409A2
 	private void OnDisable()
 	{
 		if (this.rig != null)
@@ -41,7 +41,7 @@ public class PlayerColoredCosmetic : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001AE0 RID: 6880 RVA: 0x00084538 File Offset: 0x00082738
+	// Token: 0x06001B34 RID: 6964 RVA: 0x000D9248 File Offset: 0x000D7448
 	private void UpdateColor(Color color)
 	{
 		foreach (PlayerColoredCosmetic.ColoringRule coloringRule in this.coloringRules)
@@ -50,21 +50,21 @@ public class PlayerColoredCosmetic : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001DBA RID: 7610
+	// Token: 0x04001E09 RID: 7689
 	private bool didInit;
 
-	// Token: 0x04001DBB RID: 7611
+	// Token: 0x04001E0A RID: 7690
 	private VRRig rig;
 
-	// Token: 0x04001DBC RID: 7612
+	// Token: 0x04001E0B RID: 7691
 	[SerializeField]
 	private PlayerColoredCosmetic.ColoringRule[] coloringRules;
 
-	// Token: 0x02000443 RID: 1091
+	// Token: 0x0200044F RID: 1103
 	[Serializable]
 	private struct ColoringRule
 	{
-		// Token: 0x06001AE2 RID: 6882 RVA: 0x0008456C File Offset: 0x0008276C
+		// Token: 0x06001B36 RID: 6966 RVA: 0x000D927C File Offset: 0x000D747C
 		public void Init()
 		{
 			this.hashId = new ShaderHashId(this.shaderColorProperty);
@@ -74,28 +74,28 @@ public class PlayerColoredCosmetic : MonoBehaviour
 			this.meshRenderer.sharedMaterials = sharedMaterials;
 		}
 
-		// Token: 0x06001AE3 RID: 6883 RVA: 0x000845C3 File Offset: 0x000827C3
+		// Token: 0x06001B37 RID: 6967 RVA: 0x000427C9 File Offset: 0x000409C9
 		public void Apply(Color color)
 		{
 			this.instancedMaterial.SetColor(this.hashId, color);
 		}
 
-		// Token: 0x04001DBD RID: 7613
+		// Token: 0x04001E0C RID: 7692
 		[SerializeField]
 		private string shaderColorProperty;
 
-		// Token: 0x04001DBE RID: 7614
+		// Token: 0x04001E0D RID: 7693
 		private ShaderHashId hashId;
 
-		// Token: 0x04001DBF RID: 7615
+		// Token: 0x04001E0E RID: 7694
 		[SerializeField]
 		private Renderer meshRenderer;
 
-		// Token: 0x04001DC0 RID: 7616
+		// Token: 0x04001E0F RID: 7695
 		[SerializeField]
 		private int materialIndex;
 
-		// Token: 0x04001DC1 RID: 7617
+		// Token: 0x04001E10 RID: 7696
 		private Material instancedMaterial;
 	}
 }

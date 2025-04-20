@@ -6,17 +6,17 @@ using Unity.Burst;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 
-// Token: 0x02000769 RID: 1897
+// Token: 0x02000780 RID: 1920
 public class LuauClassBuilder<[IsUnmanaged] T> where T : struct, ValueType
 {
-	// Token: 0x06002E7D RID: 11901 RVA: 0x000E1CAC File Offset: 0x000DFEAC
+	// Token: 0x06002F1A RID: 12058 RVA: 0x0012B930 File Offset: 0x00129B30
 	public LuauClassBuilder(string className)
 	{
 		this._className = className;
 		this._classType = typeof(T);
 	}
 
-	// Token: 0x06002E7E RID: 11902 RVA: 0x000E1D24 File Offset: 0x000DFF24
+	// Token: 0x06002F1B RID: 12059 RVA: 0x0012B9A8 File Offset: 0x00129BA8
 	public LuauClassBuilder<T> AddField(string luaName, string fieldName = null)
 	{
 		if (fieldName == null)
@@ -39,35 +39,35 @@ public class LuauClassBuilder<[IsUnmanaged] T> where T : struct, ValueType
 		return this;
 	}
 
-	// Token: 0x06002E7F RID: 11903 RVA: 0x000E1DA6 File Offset: 0x000DFFA6
+	// Token: 0x06002F1C RID: 12060 RVA: 0x0004F8FA File Offset: 0x0004DAFA
 	public LuauClassBuilder<T> AddStaticFunction(string luaName, lua_CFunction function)
 	{
 		this._staticFunctions.TryAdd(luaName, function);
 		return this;
 	}
 
-	// Token: 0x06002E80 RID: 11904 RVA: 0x000E1DB7 File Offset: 0x000DFFB7
+	// Token: 0x06002F1D RID: 12061 RVA: 0x0004F90B File Offset: 0x0004DB0B
 	public LuauClassBuilder<T> AddStaticFunction(string luaName, FunctionPointer<lua_CFunction> function)
 	{
 		this._staticFunctionPtrs.TryAdd(luaName, function);
 		return this;
 	}
 
-	// Token: 0x06002E81 RID: 11905 RVA: 0x000E1DC8 File Offset: 0x000DFFC8
+	// Token: 0x06002F1E RID: 12062 RVA: 0x0004F91C File Offset: 0x0004DB1C
 	public LuauClassBuilder<T> AddProperty(string luaName, lua_CFunction function)
 	{
 		this._properties.TryAdd(luaName, function);
 		return this;
 	}
 
-	// Token: 0x06002E82 RID: 11906 RVA: 0x000E1DD9 File Offset: 0x000DFFD9
+	// Token: 0x06002F1F RID: 12063 RVA: 0x0004F92D File Offset: 0x0004DB2D
 	public LuauClassBuilder<T> AddProperty(string luaName, FunctionPointer<lua_CFunction> function)
 	{
 		this._propertyPtrs.TryAdd(luaName, function);
 		return this;
 	}
 
-	// Token: 0x06002E83 RID: 11907 RVA: 0x000E1DEA File Offset: 0x000DFFEA
+	// Token: 0x06002F20 RID: 12064 RVA: 0x0004F93E File Offset: 0x0004DB3E
 	public LuauClassBuilder<T> AddFunction(string luaName, lua_CFunction function)
 	{
 		if (luaName.StartsWith("__"))
@@ -78,7 +78,7 @@ public class LuauClassBuilder<[IsUnmanaged] T> where T : struct, ValueType
 		return this;
 	}
 
-	// Token: 0x06002E84 RID: 11908 RVA: 0x000E1E1B File Offset: 0x000E001B
+	// Token: 0x06002F21 RID: 12065 RVA: 0x0004F96F File Offset: 0x0004DB6F
 	public LuauClassBuilder<T> AddFunction(string luaName, FunctionPointer<lua_CFunction> function)
 	{
 		if (luaName.StartsWith("__"))
@@ -89,7 +89,7 @@ public class LuauClassBuilder<[IsUnmanaged] T> where T : struct, ValueType
 		return this;
 	}
 
-	// Token: 0x06002E85 RID: 11909 RVA: 0x000E1E4C File Offset: 0x000E004C
+	// Token: 0x06002F22 RID: 12066 RVA: 0x0012BA2C File Offset: 0x00129C2C
 	public unsafe LuauClassBuilder<T> Build(lua_State* L, bool global)
 	{
 		BurstClassInfo.NewClass<T>(this._className, this._classFields, this._functions, this._functionPtrs);
@@ -141,30 +141,30 @@ public class LuauClassBuilder<[IsUnmanaged] T> where T : struct, ValueType
 		return this;
 	}
 
-	// Token: 0x040032DE RID: 13022
+	// Token: 0x0400337D RID: 13181
 	private string _className;
 
-	// Token: 0x040032DF RID: 13023
+	// Token: 0x0400337E RID: 13182
 	private Type _classType;
 
-	// Token: 0x040032E0 RID: 13024
+	// Token: 0x0400337F RID: 13183
 	private Dictionary<string, lua_CFunction> _staticFunctions = new Dictionary<string, lua_CFunction>();
 
-	// Token: 0x040032E1 RID: 13025
+	// Token: 0x04003380 RID: 13184
 	private Dictionary<string, FunctionPointer<lua_CFunction>> _staticFunctionPtrs = new Dictionary<string, FunctionPointer<lua_CFunction>>();
 
-	// Token: 0x040032E2 RID: 13026
+	// Token: 0x04003381 RID: 13185
 	private Dictionary<int, FieldInfo> _classFields = new Dictionary<int, FieldInfo>();
 
-	// Token: 0x040032E3 RID: 13027
+	// Token: 0x04003382 RID: 13186
 	private Dictionary<string, lua_CFunction> _properties = new Dictionary<string, lua_CFunction>();
 
-	// Token: 0x040032E4 RID: 13028
+	// Token: 0x04003383 RID: 13187
 	private Dictionary<string, FunctionPointer<lua_CFunction>> _propertyPtrs = new Dictionary<string, FunctionPointer<lua_CFunction>>();
 
-	// Token: 0x040032E5 RID: 13029
+	// Token: 0x04003384 RID: 13188
 	private Dictionary<int, lua_CFunction> _functions = new Dictionary<int, lua_CFunction>();
 
-	// Token: 0x040032E6 RID: 13030
+	// Token: 0x04003385 RID: 13189
 	private Dictionary<int, FunctionPointer<lua_CFunction>> _functionPtrs = new Dictionary<int, FunctionPointer<lua_CFunction>>();
 }

@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x020006C1 RID: 1729
+// Token: 0x020006D6 RID: 1750
 public class LifeCycleEventTrigger : MonoBehaviour
 {
-	// Token: 0x06002AD1 RID: 10961 RVA: 0x000D466F File Offset: 0x000D286F
+	// Token: 0x06002B67 RID: 11111 RVA: 0x0004D476 File Offset: 0x0004B676
 	private void Awake()
 	{
 		UnityEvent onAwake = this._onAwake;
@@ -16,7 +16,7 @@ public class LifeCycleEventTrigger : MonoBehaviour
 		onAwake.Invoke();
 	}
 
-	// Token: 0x06002AD2 RID: 10962 RVA: 0x000D4681 File Offset: 0x000D2881
+	// Token: 0x06002B68 RID: 11112 RVA: 0x0004D488 File Offset: 0x0004B688
 	private void Start()
 	{
 		UnityEvent onStart = this._onStart;
@@ -27,7 +27,7 @@ public class LifeCycleEventTrigger : MonoBehaviour
 		onStart.Invoke();
 	}
 
-	// Token: 0x06002AD3 RID: 10963 RVA: 0x000D4693 File Offset: 0x000D2893
+	// Token: 0x06002B69 RID: 11113 RVA: 0x0004D49A File Offset: 0x0004B69A
 	private void OnEnable()
 	{
 		UnityEvent onEnable = this._onEnable;
@@ -38,7 +38,7 @@ public class LifeCycleEventTrigger : MonoBehaviour
 		onEnable.Invoke();
 	}
 
-	// Token: 0x06002AD4 RID: 10964 RVA: 0x000D46A5 File Offset: 0x000D28A5
+	// Token: 0x06002B6A RID: 11114 RVA: 0x0004D4AC File Offset: 0x0004B6AC
 	private void OnDisable()
 	{
 		UnityEvent onDisable = this._onDisable;
@@ -49,7 +49,7 @@ public class LifeCycleEventTrigger : MonoBehaviour
 		onDisable.Invoke();
 	}
 
-	// Token: 0x06002AD5 RID: 10965 RVA: 0x000D46B7 File Offset: 0x000D28B7
+	// Token: 0x06002B6B RID: 11115 RVA: 0x0004D4BE File Offset: 0x0004B6BE
 	private void OnDestroy()
 	{
 		UnityEvent onDestroy = this._onDestroy;
@@ -60,23 +60,23 @@ public class LifeCycleEventTrigger : MonoBehaviour
 		onDestroy.Invoke();
 	}
 
-	// Token: 0x04003031 RID: 12337
+	// Token: 0x040030CE RID: 12494
 	[SerializeField]
 	private UnityEvent _onAwake;
 
-	// Token: 0x04003032 RID: 12338
+	// Token: 0x040030CF RID: 12495
 	[SerializeField]
 	private UnityEvent _onStart;
 
-	// Token: 0x04003033 RID: 12339
+	// Token: 0x040030D0 RID: 12496
 	[SerializeField]
 	private UnityEvent _onEnable;
 
-	// Token: 0x04003034 RID: 12340
+	// Token: 0x040030D1 RID: 12497
 	[SerializeField]
 	private UnityEvent _onDisable;
 
-	// Token: 0x04003035 RID: 12341
+	// Token: 0x040030D2 RID: 12498
 	[SerializeField]
 	private UnityEvent _onDestroy;
 }

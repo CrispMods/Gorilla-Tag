@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000060 RID: 96
+// Token: 0x02000066 RID: 102
 public class CrittersStunBomb : CrittersToolThrowable
 {
-	// Token: 0x06000264 RID: 612 RVA: 0x0000F5DC File Offset: 0x0000D7DC
+	// Token: 0x06000291 RID: 657 RVA: 0x000743B0 File Offset: 0x000725B0
 	protected override void OnImpact(Vector3 hitPosition, Vector3 hitNormal)
 	{
 		if (CrittersManager.instance.LocalAuthority())
@@ -24,7 +24,7 @@ public class CrittersStunBomb : CrittersToolThrowable
 		}
 	}
 
-	// Token: 0x06000265 RID: 613 RVA: 0x0000F670 File Offset: 0x0000D870
+	// Token: 0x06000292 RID: 658 RVA: 0x00031FFC File Offset: 0x000301FC
 	protected override void OnImpactCritter(CrittersPawn impactedCritter)
 	{
 		if (CrittersManager.instance.LocalAuthority())
@@ -33,10 +33,10 @@ public class CrittersStunBomb : CrittersToolThrowable
 		}
 	}
 
-	// Token: 0x040002DE RID: 734
+	// Token: 0x0400030D RID: 781
 	[Header("Stun Bomb")]
 	public float radius = 1f;
 
-	// Token: 0x040002DF RID: 735
+	// Token: 0x0400030E RID: 782
 	public float stunDuration = 5f;
 }

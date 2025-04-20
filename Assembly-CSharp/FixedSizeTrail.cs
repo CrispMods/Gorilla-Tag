@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200051B RID: 1307
+// Token: 0x02000528 RID: 1320
 [RequireComponent(typeof(LineRenderer))]
 public class FixedSizeTrail : MonoBehaviour
 {
-	// Token: 0x17000336 RID: 822
-	// (get) Token: 0x06001FA5 RID: 8101 RVA: 0x0009F7AE File Offset: 0x0009D9AE
+	// Token: 0x1700033D RID: 829
+	// (get) Token: 0x06001FFE RID: 8190 RVA: 0x00045C76 File Offset: 0x00043E76
 	public LineRenderer renderer
 	{
 		get
@@ -15,9 +15,9 @@ public class FixedSizeTrail : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000337 RID: 823
-	// (get) Token: 0x06001FA6 RID: 8102 RVA: 0x0009F7B6 File Offset: 0x0009D9B6
-	// (set) Token: 0x06001FA7 RID: 8103 RVA: 0x0009F7BE File Offset: 0x0009D9BE
+	// Token: 0x1700033E RID: 830
+	// (get) Token: 0x06001FFF RID: 8191 RVA: 0x00045C7E File Offset: 0x00043E7E
+	// (set) Token: 0x06002000 RID: 8192 RVA: 0x00045C86 File Offset: 0x00043E86
 	public float length
 	{
 		get
@@ -30,8 +30,8 @@ public class FixedSizeTrail : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000338 RID: 824
-	// (get) Token: 0x06001FA8 RID: 8104 RVA: 0x0009F7D6 File Offset: 0x0009D9D6
+	// Token: 0x1700033F RID: 831
+	// (get) Token: 0x06002001 RID: 8193 RVA: 0x00045C9E File Offset: 0x00043E9E
 	public Vector3[] points
 	{
 		get
@@ -40,19 +40,19 @@ public class FixedSizeTrail : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001FA9 RID: 8105 RVA: 0x0009F7DE File Offset: 0x0009D9DE
+	// Token: 0x06002002 RID: 8194 RVA: 0x00045CA6 File Offset: 0x00043EA6
 	private void Reset()
 	{
 		this.Setup();
 	}
 
-	// Token: 0x06001FAA RID: 8106 RVA: 0x0009F7DE File Offset: 0x0009D9DE
+	// Token: 0x06002003 RID: 8195 RVA: 0x00045CA6 File Offset: 0x00043EA6
 	private void Awake()
 	{
 		this.Setup();
 	}
 
-	// Token: 0x06001FAB RID: 8107 RVA: 0x0009F7E8 File Offset: 0x0009D9E8
+	// Token: 0x06002004 RID: 8196 RVA: 0x000F10D8 File Offset: 0x000EF2D8
 	private void Setup()
 	{
 		this._transform = base.transform;
@@ -79,7 +79,7 @@ public class FixedSizeTrail : MonoBehaviour
 		this.Update();
 	}
 
-	// Token: 0x06001FAC RID: 8108 RVA: 0x0009F8C6 File Offset: 0x0009DAC6
+	// Token: 0x06002005 RID: 8197 RVA: 0x00045CAE File Offset: 0x00043EAE
 	private void Update()
 	{
 		if (!this.manualUpdate)
@@ -88,7 +88,7 @@ public class FixedSizeTrail : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001FAD RID: 8109 RVA: 0x0009F8DC File Offset: 0x0009DADC
+	// Token: 0x06002006 RID: 8198 RVA: 0x000F11B8 File Offset: 0x000EF3B8
 	private void FixedUpdate()
 	{
 		if (!this.applyPhysics)
@@ -108,7 +108,7 @@ public class FixedSizeTrail : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001FAE RID: 8110 RVA: 0x0009F980 File Offset: 0x0009DB80
+	// Token: 0x06002007 RID: 8199 RVA: 0x000F125C File Offset: 0x000EF45C
 	public void Update(float dt)
 	{
 		float num = this._length / (float)(this._segments - 1);
@@ -145,7 +145,7 @@ public class FixedSizeTrail : MonoBehaviour
 		this._lineRenderer.SetPositions(this._points);
 	}
 
-	// Token: 0x06001FAF RID: 8111 RVA: 0x0009FB38 File Offset: 0x0009DD38
+	// Token: 0x06002008 RID: 8200 RVA: 0x000F1414 File Offset: 0x000EF614
 	private static float CalcLength(in Vector3[] positions)
 	{
 		float num = 0f;
@@ -156,37 +156,37 @@ public class FixedSizeTrail : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x0400239E RID: 9118
+	// Token: 0x040023F1 RID: 9201
 	[SerializeField]
 	private Transform _transform;
 
-	// Token: 0x0400239F RID: 9119
+	// Token: 0x040023F2 RID: 9202
 	[SerializeField]
 	private LineRenderer _lineRenderer;
 
-	// Token: 0x040023A0 RID: 9120
+	// Token: 0x040023F3 RID: 9203
 	[SerializeField]
 	[Range(1f, 128f)]
 	private int _segments = 8;
 
-	// Token: 0x040023A1 RID: 9121
+	// Token: 0x040023F4 RID: 9204
 	[SerializeField]
 	private float _length = 8f;
 
-	// Token: 0x040023A2 RID: 9122
+	// Token: 0x040023F5 RID: 9205
 	public bool manualUpdate;
 
-	// Token: 0x040023A3 RID: 9123
+	// Token: 0x040023F6 RID: 9206
 	[Space]
 	public bool applyPhysics;
 
-	// Token: 0x040023A4 RID: 9124
+	// Token: 0x040023F7 RID: 9207
 	public Vector3 gravity = new Vector3(0f, -9.8f, 0f);
 
-	// Token: 0x040023A5 RID: 9125
+	// Token: 0x040023F8 RID: 9208
 	public AnimationCurve gravityCurve = AnimationCurves.EaseInCubic;
 
-	// Token: 0x040023A6 RID: 9126
+	// Token: 0x040023F9 RID: 9209
 	[Space]
 	private Vector3[] _points = new Vector3[8];
 }

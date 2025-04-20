@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace GorillaLocomotion.Swimming
 {
-	// Token: 0x02000B46 RID: 2886
+	// Token: 0x02000B73 RID: 2931
 	public class UnderwaterParticleEffects : MonoBehaviour
 	{
-		// Token: 0x06004829 RID: 18473 RVA: 0x0015C6FC File Offset: 0x0015A8FC
+		// Token: 0x06004972 RID: 18802 RVA: 0x00198288 File Offset: 0x00196488
 		public void UpdateParticleEffect(bool waterSurfaceDetected, ref WaterVolume.SurfaceQuery waterSurface)
 		{
 			GTPlayer instance = GTPlayer.Instance;
@@ -85,34 +85,34 @@ namespace GorillaLocomotion.Swimming
 			}
 		}
 
-		// Token: 0x0600482A RID: 18474 RVA: 0x0015CC31 File Offset: 0x0015AE31
+		// Token: 0x06004973 RID: 18803 RVA: 0x0005FCF6 File Offset: 0x0005DEF6
 		private bool IsValid(Vector3 vector)
 		{
 			return !float.IsNaN(vector.x) && !float.IsNaN(vector.y) && !float.IsNaN(vector.z);
 		}
 
-		// Token: 0x04004A9E RID: 19102
+		// Token: 0x04004B94 RID: 19348
 		public ParticleSystem underwaterFloaterParticles;
 
-		// Token: 0x04004A9F RID: 19103
+		// Token: 0x04004B95 RID: 19349
 		public ParticleSystem underwaterBubbleParticles;
 
-		// Token: 0x04004AA0 RID: 19104
+		// Token: 0x04004B96 RID: 19350
 		public Camera playerCamera;
 
-		// Token: 0x04004AA1 RID: 19105
+		// Token: 0x04004B97 RID: 19351
 		public Vector3 floaterParticleBoxExtents = Vector3.one;
 
-		// Token: 0x04004AA2 RID: 19106
+		// Token: 0x04004B98 RID: 19352
 		public Vector3 floaterParticleBaseOffset = Vector3.forward;
 
-		// Token: 0x04004AA3 RID: 19107
+		// Token: 0x04004B99 RID: 19353
 		public AnimationCurve floaterSpeedVsOffsetDist = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04004AA4 RID: 19108
+		// Token: 0x04004B9A RID: 19354
 		public Vector2 floaterSpeedVsOffsetDistMinMax = new Vector2(0f, 1f);
 
-		// Token: 0x04004AA5 RID: 19109
+		// Token: 0x04004B9B RID: 19355
 		private bool debugDraw;
 	}
 }

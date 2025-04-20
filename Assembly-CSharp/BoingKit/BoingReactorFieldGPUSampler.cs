@@ -3,22 +3,22 @@ using UnityEngine;
 
 namespace BoingKit
 {
-	// Token: 0x02000CD5 RID: 3285
+	// Token: 0x02000D06 RID: 3334
 	public class BoingReactorFieldGPUSampler : MonoBehaviour
 	{
-		// Token: 0x060052CE RID: 21198 RVA: 0x00197138 File Offset: 0x00195338
+		// Token: 0x06005430 RID: 21552 RVA: 0x00066938 File Offset: 0x00064B38
 		public void OnEnable()
 		{
 			BoingManager.Register(this);
 		}
 
-		// Token: 0x060052CF RID: 21199 RVA: 0x00197140 File Offset: 0x00195340
+		// Token: 0x06005431 RID: 21553 RVA: 0x00066940 File Offset: 0x00064B40
 		public void OnDisable()
 		{
 			BoingManager.Unregister(this);
 		}
 
-		// Token: 0x060052D0 RID: 21200 RVA: 0x00197148 File Offset: 0x00195348
+		// Token: 0x06005432 RID: 21554 RVA: 0x001CCD44 File Offset: 0x001CAF44
 		public void Update()
 		{
 			if (this.ReactorField == null)
@@ -58,23 +58,23 @@ namespace BoingKit
 			}
 		}
 
-		// Token: 0x04005540 RID: 21824
+		// Token: 0x0400564C RID: 22092
 		public BoingReactorField ReactorField;
 
-		// Token: 0x04005541 RID: 21825
+		// Token: 0x0400564D RID: 22093
 		[Range(0f, 10f)]
 		[Tooltip("Multiplier on positional samples from reactor field.\n1.0 means 100%.")]
 		public float PositionSampleMultiplier = 1f;
 
-		// Token: 0x04005542 RID: 21826
+		// Token: 0x0400564E RID: 22094
 		[Range(0f, 10f)]
 		[Tooltip("Multiplier on rotational samples from reactor field.\n1.0 means 100%.")]
 		public float RotationSampleMultiplier = 1f;
 
-		// Token: 0x04005543 RID: 21827
+		// Token: 0x0400564F RID: 22095
 		private MaterialPropertyBlock m_matProps;
 
-		// Token: 0x04005544 RID: 21828
+		// Token: 0x04005650 RID: 22096
 		private int m_fieldResourceSetId = -1;
 	}
 }

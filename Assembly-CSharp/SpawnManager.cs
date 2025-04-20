@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200089C RID: 2204
+// Token: 0x020008B8 RID: 2232
 public class SpawnManager : MonoBehaviour
 {
-	// Token: 0x0600355B RID: 13659 RVA: 0x000FE212 File Offset: 0x000FC412
+	// Token: 0x06003623 RID: 13859 RVA: 0x000539FF File Offset: 0x00051BFF
 	public Transform[] ChildrenXfs()
 	{
 		return base.transform.GetComponentsInChildren<Transform>();

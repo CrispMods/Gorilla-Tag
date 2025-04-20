@@ -1,14 +1,14 @@
 ﻿using System;
 
-// Token: 0x0200014F RID: 335
+// Token: 0x02000159 RID: 345
 public enum ScratchSoundType
 {
-	// Token: 0x04000A2D RID: 2605
+	// Token: 0x04000A70 RID: 2672
 	Pause,
-	// Token: 0x04000A2E RID: 2606
+	// Token: 0x04000A71 RID: 2673
 	Resume,
-	// Token: 0x04000A2F RID: 2607
+	// Token: 0x04000A72 RID: 2674
 	Forward,
-	// Token: 0x04000A30 RID: 2608
+	// Token: 0x04000A73 RID: 2675
 	Back
 }

@@ -5,16 +5,16 @@ using GorillaNetworking;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-// Token: 0x020003AB RID: 939
+// Token: 0x020003B6 RID: 950
 public class CalibrationCube : MonoBehaviour
 {
-	// Token: 0x060015ED RID: 5613 RVA: 0x00069E1B File Offset: 0x0006801B
+	// Token: 0x06001639 RID: 5689 RVA: 0x0003F070 File Offset: 0x0003D270
 	private void Awake()
 	{
 		this.calibratedLength = this.baseLength;
 	}
 
-	// Token: 0x060015EE RID: 5614 RVA: 0x00069E2C File Offset: 0x0006802C
+	// Token: 0x0600163A RID: 5690 RVA: 0x000C1E44 File Offset: 0x000C0044
 	private void Start()
 	{
 		try
@@ -26,17 +26,17 @@ public class CalibrationCube : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060015EF RID: 5615 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600163B RID: 5691 RVA: 0x00030607 File Offset: 0x0002E807
 	private void OnTriggerEnter(Collider other)
 	{
 	}
 
-	// Token: 0x060015F0 RID: 5616 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600163C RID: 5692 RVA: 0x00030607 File Offset: 0x0002E807
 	private void OnTriggerExit(Collider other)
 	{
 	}
 
-	// Token: 0x060015F1 RID: 5617 RVA: 0x00069E58 File Offset: 0x00068058
+	// Token: 0x0600163D RID: 5693 RVA: 0x000C1E70 File Offset: 0x000C0070
 	public void RecalibrateSize(bool pressed)
 	{
 		this.lastCalibratedLength = this.calibratedLength;
@@ -54,12 +54,12 @@ public class CalibrationCube : MonoBehaviour
 		GorillaPlaySpace.Instance.bodyCollider.gameObject.transform.localScale *= d;
 	}
 
-	// Token: 0x060015F2 RID: 5618 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600163E RID: 5694 RVA: 0x00030607 File Offset: 0x0002E807
 	private void OnCollisionEnter(Collision collision)
 	{
 	}
 
-	// Token: 0x060015F3 RID: 5619 RVA: 0x00069FB4 File Offset: 0x000681B4
+	// Token: 0x0600163F RID: 5695 RVA: 0x000C1FCC File Offset: 0x000C01CC
 	private void OnCollisionExit(Collision collision)
 	{
 		try
@@ -84,51 +84,51 @@ public class CalibrationCube : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001821 RID: 6177
+	// Token: 0x04001868 RID: 6248
 	public PrimaryButtonWatcher watcher;
 
-	// Token: 0x04001822 RID: 6178
+	// Token: 0x04001869 RID: 6249
 	public GameObject rightController;
 
-	// Token: 0x04001823 RID: 6179
+	// Token: 0x0400186A RID: 6250
 	public GameObject leftController;
 
-	// Token: 0x04001824 RID: 6180
+	// Token: 0x0400186B RID: 6251
 	public GameObject playerBody;
 
-	// Token: 0x04001825 RID: 6181
+	// Token: 0x0400186C RID: 6252
 	private float calibratedLength;
 
-	// Token: 0x04001826 RID: 6182
+	// Token: 0x0400186D RID: 6253
 	private float lastCalibratedLength;
 
-	// Token: 0x04001827 RID: 6183
+	// Token: 0x0400186E RID: 6254
 	public float minLength = 1f;
 
-	// Token: 0x04001828 RID: 6184
+	// Token: 0x0400186F RID: 6255
 	public float maxLength = 2.5f;
 
-	// Token: 0x04001829 RID: 6185
+	// Token: 0x04001870 RID: 6256
 	public float baseLength = 1.61f;
 
-	// Token: 0x0400182A RID: 6186
+	// Token: 0x04001871 RID: 6257
 	public string[] calibrationPresets;
 
-	// Token: 0x0400182B RID: 6187
+	// Token: 0x04001872 RID: 6258
 	public string[] calibrationPresetsTest;
 
-	// Token: 0x0400182C RID: 6188
+	// Token: 0x04001873 RID: 6259
 	public string[] calibrationPresetsTest2;
 
-	// Token: 0x0400182D RID: 6189
+	// Token: 0x04001874 RID: 6260
 	public string[] calibrationPresetsTest3;
 
-	// Token: 0x0400182E RID: 6190
+	// Token: 0x04001875 RID: 6261
 	public string[] calibrationPresetsTest4;
 
-	// Token: 0x0400182F RID: 6191
+	// Token: 0x04001876 RID: 6262
 	public string outputstring;
 
-	// Token: 0x04001830 RID: 6192
+	// Token: 0x04001877 RID: 6263
 	private List<string> stringList = new List<string>();
 }

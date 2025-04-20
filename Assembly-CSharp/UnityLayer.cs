@@ -1,70 +1,70 @@
 ﻿using System;
 
-// Token: 0x02000205 RID: 517
+// Token: 0x02000210 RID: 528
 public enum UnityLayer
 {
-	// Token: 0x04000E82 RID: 3714
+	// Token: 0x04000EC8 RID: 3784
 	Default,
-	// Token: 0x04000E83 RID: 3715
+	// Token: 0x04000EC9 RID: 3785
 	TransparentFX,
-	// Token: 0x04000E84 RID: 3716
+	// Token: 0x04000ECA RID: 3786
 	IgnoreRaycast,
-	// Token: 0x04000E85 RID: 3717
+	// Token: 0x04000ECB RID: 3787
 	Zone,
-	// Token: 0x04000E86 RID: 3718
+	// Token: 0x04000ECC RID: 3788
 	Water,
-	// Token: 0x04000E87 RID: 3719
+	// Token: 0x04000ECD RID: 3789
 	UI,
-	// Token: 0x04000E88 RID: 3720
+	// Token: 0x04000ECE RID: 3790
 	MeshBakerAtlas,
-	// Token: 0x04000E89 RID: 3721
+	// Token: 0x04000ECF RID: 3791
 	GorillaEquipment,
-	// Token: 0x04000E8A RID: 3722
+	// Token: 0x04000ED0 RID: 3792
 	GorillaBodyCollider,
-	// Token: 0x04000E8B RID: 3723
+	// Token: 0x04000ED1 RID: 3793
 	GorillaObject,
-	// Token: 0x04000E8C RID: 3724
+	// Token: 0x04000ED2 RID: 3794
 	GorillaHand,
-	// Token: 0x04000E8D RID: 3725
+	// Token: 0x04000ED3 RID: 3795
 	GorillaTrigger,
-	// Token: 0x04000E8E RID: 3726
+	// Token: 0x04000ED4 RID: 3796
 	MetaReportScreen,
-	// Token: 0x04000E8F RID: 3727
+	// Token: 0x04000ED5 RID: 3797
 	GorillaHead,
-	// Token: 0x04000E90 RID: 3728
+	// Token: 0x04000ED6 RID: 3798
 	GorillaTagCollider,
-	// Token: 0x04000E91 RID: 3729
+	// Token: 0x04000ED7 RID: 3799
 	GorillaBoundary,
-	// Token: 0x04000E92 RID: 3730
+	// Token: 0x04000ED8 RID: 3800
 	GorillaEquipmentContainer,
-	// Token: 0x04000E93 RID: 3731
+	// Token: 0x04000ED9 RID: 3801
 	LCKHide,
-	// Token: 0x04000E94 RID: 3732
+	// Token: 0x04000EDA RID: 3802
 	GorillaInteractable,
-	// Token: 0x04000E95 RID: 3733
+	// Token: 0x04000EDB RID: 3803
 	FirstPersonOnly,
-	// Token: 0x04000E96 RID: 3734
+	// Token: 0x04000EDC RID: 3804
 	GorillaParticle,
-	// Token: 0x04000E97 RID: 3735
+	// Token: 0x04000EDD RID: 3805
 	GorillaCosmetics,
-	// Token: 0x04000E98 RID: 3736
+	// Token: 0x04000EDE RID: 3806
 	MirrorOnly,
-	// Token: 0x04000E99 RID: 3737
+	// Token: 0x04000EDF RID: 3807
 	GorillaThrowable,
-	// Token: 0x04000E9A RID: 3738
+	// Token: 0x04000EE0 RID: 3808
 	GorillaHandSocket,
-	// Token: 0x04000E9B RID: 3739
+	// Token: 0x04000EE1 RID: 3809
 	GorillaCosmeticParticle,
-	// Token: 0x04000E9C RID: 3740
+	// Token: 0x04000EE2 RID: 3810
 	BuilderProp,
-	// Token: 0x04000E9D RID: 3741
+	// Token: 0x04000EE3 RID: 3811
 	NoMirror,
-	// Token: 0x04000E9E RID: 3742
+	// Token: 0x04000EE4 RID: 3812
 	GorillaSlingshotCollider,
-	// Token: 0x04000E9F RID: 3743
+	// Token: 0x04000EE5 RID: 3813
 	RopeSwing,
-	// Token: 0x04000EA0 RID: 3744
+	// Token: 0x04000EE6 RID: 3814
 	Prop,
-	// Token: 0x04000EA1 RID: 3745
+	// Token: 0x04000EE7 RID: 3815
 	Bake
 }

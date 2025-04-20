@@ -4,10 +4,10 @@ using GorillaNetworking;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x02000383 RID: 899
+// Token: 0x0200038E RID: 910
 public class Slingshot : ProjectileWeapon
 {
-	// Token: 0x0600150D RID: 5389 RVA: 0x00066FA0 File Offset: 0x000651A0
+	// Token: 0x06001559 RID: 5465 RVA: 0x000BF9C0 File Offset: 0x000BDBC0
 	private void DestroyDummyProjectile()
 	{
 		if (this.hasDummyProjectile)
@@ -20,21 +20,21 @@ public class Slingshot : ProjectileWeapon
 		}
 	}
 
-	// Token: 0x0600150E RID: 5390 RVA: 0x00067004 File Offset: 0x00065204
+	// Token: 0x0600155A RID: 5466 RVA: 0x0003E684 File Offset: 0x0003C884
 	protected override void Awake()
 	{
 		base.Awake();
 		this._elasticIntialWidthMultiplier = this.elasticLeft.widthMultiplier;
 	}
 
-	// Token: 0x0600150F RID: 5391 RVA: 0x0006701D File Offset: 0x0006521D
+	// Token: 0x0600155B RID: 5467 RVA: 0x0003E69D File Offset: 0x0003C89D
 	public override void OnSpawn(VRRig rig)
 	{
 		base.OnSpawn(rig);
 		this.myRig = rig;
 	}
 
-	// Token: 0x06001510 RID: 5392 RVA: 0x00067030 File Offset: 0x00065230
+	// Token: 0x0600155C RID: 5468 RVA: 0x000BFA24 File Offset: 0x000BDC24
 	internal override void OnEnable()
 	{
 		this.leftHandSnap = this.myRig.cosmeticReferences.Get(CosmeticRefID.SlingshotSnapLeft).transform;
@@ -47,14 +47,14 @@ public class Slingshot : ProjectileWeapon
 		base.OnEnable();
 	}
 
-	// Token: 0x06001511 RID: 5393 RVA: 0x000670A9 File Offset: 0x000652A9
+	// Token: 0x0600155D RID: 5469 RVA: 0x0003E6AD File Offset: 0x0003C8AD
 	internal override void OnDisable()
 	{
 		this.DestroyDummyProjectile();
 		base.OnDisable();
 	}
 
-	// Token: 0x06001512 RID: 5394 RVA: 0x000670B8 File Offset: 0x000652B8
+	// Token: 0x0600155E RID: 5470 RVA: 0x000BFAA0 File Offset: 0x000BDCA0
 	protected override void LateUpdateShared()
 	{
 		base.LateUpdateShared();
@@ -104,7 +104,7 @@ public class Slingshot : ProjectileWeapon
 		}
 	}
 
-	// Token: 0x06001513 RID: 5395 RVA: 0x000672FD File Offset: 0x000654FD
+	// Token: 0x0600155F RID: 5471 RVA: 0x0003E6BB File Offset: 0x0003C8BB
 	protected override void LateUpdateLocal()
 	{
 		base.LateUpdateLocal();
@@ -119,7 +119,7 @@ public class Slingshot : ProjectileWeapon
 		}
 	}
 
-	// Token: 0x06001514 RID: 5396 RVA: 0x0006733A File Offset: 0x0006553A
+	// Token: 0x06001560 RID: 5472 RVA: 0x0003E6F8 File Offset: 0x0003C8F8
 	protected override void LateUpdateReplicated()
 	{
 		base.LateUpdateReplicated();
@@ -134,13 +134,13 @@ public class Slingshot : ProjectileWeapon
 		}
 	}
 
-	// Token: 0x06001515 RID: 5397 RVA: 0x00067375 File Offset: 0x00065575
+	// Token: 0x06001561 RID: 5473 RVA: 0x0003E733 File Offset: 0x0003C933
 	public static bool IsSlingShotEnabled()
 	{
 		return !(GorillaTagger.Instance == null) && !(GorillaTagger.Instance.offlineVRRig == null) && GorillaTagger.Instance.offlineVRRig.cosmeticSet.HasItemOfCategory(CosmeticsController.CosmeticCategory.Chest);
 	}
 
-	// Token: 0x06001516 RID: 5398 RVA: 0x000673B0 File Offset: 0x000655B0
+	// Token: 0x06001562 RID: 5474 RVA: 0x000BFCE8 File Offset: 0x000BDEE8
 	public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 	{
 		if (!this.IsMyItem())
@@ -180,7 +180,7 @@ public class Slingshot : ProjectileWeapon
 		}
 	}
 
-	// Token: 0x06001517 RID: 5399 RVA: 0x0006748C File Offset: 0x0006568C
+	// Token: 0x06001563 RID: 5475 RVA: 0x000BFDC4 File Offset: 0x000BDFC4
 	public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		base.OnRelease(zoneReleased, releasingHand);
@@ -217,7 +217,7 @@ public class Slingshot : ProjectileWeapon
 		return true;
 	}
 
-	// Token: 0x06001518 RID: 5400 RVA: 0x0006756D File Offset: 0x0006576D
+	// Token: 0x06001564 RID: 5476 RVA: 0x0003E76B File Offset: 0x0003C96B
 	public override void DropItemCleanup()
 	{
 		base.DropItemCleanup();
@@ -225,31 +225,31 @@ public class Slingshot : ProjectileWeapon
 		this.itemState = TransferrableObject.ItemStates.State0;
 	}
 
-	// Token: 0x06001519 RID: 5401 RVA: 0x000444E2 File Offset: 0x000426E2
+	// Token: 0x06001565 RID: 5477 RVA: 0x00039846 File Offset: 0x00037A46
 	public override bool AutoGrabTrue(bool leftGrabbingHand)
 	{
 		return true;
 	}
 
-	// Token: 0x0600151A RID: 5402 RVA: 0x00067584 File Offset: 0x00065784
+	// Token: 0x06001566 RID: 5478 RVA: 0x0003E782 File Offset: 0x0003C982
 	private bool ForLeftHandSlingshot()
 	{
 		return this.itemState == TransferrableObject.ItemStates.State2 || this.currentState == TransferrableObject.PositionState.InLeftHand;
 	}
 
-	// Token: 0x0600151B RID: 5403 RVA: 0x0006759A File Offset: 0x0006579A
+	// Token: 0x06001567 RID: 5479 RVA: 0x0003E798 File Offset: 0x0003C998
 	private bool InDrawingState()
 	{
 		return this.itemState == TransferrableObject.ItemStates.State2 || this.itemState == TransferrableObject.ItemStates.State3;
 	}
 
-	// Token: 0x0600151C RID: 5404 RVA: 0x000675B0 File Offset: 0x000657B0
+	// Token: 0x06001568 RID: 5480 RVA: 0x0003E7AE File Offset: 0x0003C9AE
 	protected override Vector3 GetLaunchPosition()
 	{
 		return this.dummyProjectile.transform.position;
 	}
 
-	// Token: 0x0600151D RID: 5405 RVA: 0x000675C4 File Offset: 0x000657C4
+	// Token: 0x06001569 RID: 5481 RVA: 0x000BFEA8 File Offset: 0x000BE0A8
 	protected override Vector3 GetLaunchVelocity()
 	{
 		float d = Mathf.Abs(base.transform.lossyScale.x);
@@ -260,101 +260,101 @@ public class Slingshot : ProjectileWeapon
 		return a2 + averagedVelocity;
 	}
 
-	// Token: 0x04001754 RID: 5972
+	// Token: 0x0400179C RID: 6044
 	[FormerlySerializedAs("elastic")]
 	public LineRenderer elasticLeft;
 
-	// Token: 0x04001755 RID: 5973
+	// Token: 0x0400179D RID: 6045
 	public LineRenderer elasticRight;
 
-	// Token: 0x04001756 RID: 5974
+	// Token: 0x0400179E RID: 6046
 	public Transform leftArm;
 
-	// Token: 0x04001757 RID: 5975
+	// Token: 0x0400179F RID: 6047
 	public Transform rightArm;
 
-	// Token: 0x04001758 RID: 5976
+	// Token: 0x040017A0 RID: 6048
 	public Transform center;
 
-	// Token: 0x04001759 RID: 5977
+	// Token: 0x040017A1 RID: 6049
 	public Transform centerOrigin;
 
-	// Token: 0x0400175A RID: 5978
+	// Token: 0x040017A2 RID: 6050
 	private GameObject dummyProjectile;
 
-	// Token: 0x0400175B RID: 5979
+	// Token: 0x040017A3 RID: 6051
 	public GameObject drawingHand;
 
-	// Token: 0x0400175C RID: 5980
+	// Token: 0x040017A4 RID: 6052
 	public InteractionPoint nock;
 
-	// Token: 0x0400175D RID: 5981
+	// Token: 0x040017A5 RID: 6053
 	public InteractionPoint grip;
 
-	// Token: 0x0400175E RID: 5982
+	// Token: 0x040017A6 RID: 6054
 	public float springConstant;
 
-	// Token: 0x0400175F RID: 5983
+	// Token: 0x040017A7 RID: 6055
 	public float maxDraw;
 
-	// Token: 0x04001760 RID: 5984
+	// Token: 0x040017A8 RID: 6056
 	private Transform leftHandSnap;
 
-	// Token: 0x04001761 RID: 5985
+	// Token: 0x040017A9 RID: 6057
 	private Transform rightHandSnap;
 
-	// Token: 0x04001762 RID: 5986
+	// Token: 0x040017AA RID: 6058
 	public bool disableWhenNotInRoom;
 
-	// Token: 0x04001763 RID: 5987
+	// Token: 0x040017AB RID: 6059
 	private bool hasDummyProjectile;
 
-	// Token: 0x04001764 RID: 5988
+	// Token: 0x040017AC RID: 6060
 	private float delayLaunchTime = 0.07f;
 
-	// Token: 0x04001765 RID: 5989
+	// Token: 0x040017AD RID: 6061
 	private float minTimeToLaunch = -1f;
 
-	// Token: 0x04001766 RID: 5990
+	// Token: 0x040017AE RID: 6062
 	private float dummyProjectileColliderRadius;
 
-	// Token: 0x04001767 RID: 5991
+	// Token: 0x040017AF RID: 6063
 	private float dummyProjectileInitialScale;
 
-	// Token: 0x04001768 RID: 5992
+	// Token: 0x040017B0 RID: 6064
 	private int projectileCount;
 
-	// Token: 0x04001769 RID: 5993
+	// Token: 0x040017B1 RID: 6065
 	private Vector3[] elasticLeftPoints = new Vector3[2];
 
-	// Token: 0x0400176A RID: 5994
+	// Token: 0x040017B2 RID: 6066
 	private Vector3[] elasticRightPoints = new Vector3[2];
 
-	// Token: 0x0400176B RID: 5995
+	// Token: 0x040017B3 RID: 6067
 	private float _elasticIntialWidthMultiplier;
 
-	// Token: 0x0400176C RID: 5996
+	// Token: 0x040017B4 RID: 6068
 	private new VRRig myRig;
 
-	// Token: 0x02000384 RID: 900
+	// Token: 0x0200038F RID: 911
 	public enum SlingshotState
 	{
-		// Token: 0x0400176E RID: 5998
+		// Token: 0x040017B6 RID: 6070
 		NoState = 1,
-		// Token: 0x0400176F RID: 5999
+		// Token: 0x040017B7 RID: 6071
 		OnChest,
-		// Token: 0x04001770 RID: 6000
+		// Token: 0x040017B8 RID: 6072
 		LeftHandDrawing = 4,
-		// Token: 0x04001771 RID: 6001
+		// Token: 0x040017B9 RID: 6073
 		RightHandDrawing = 8
 	}
 
-	// Token: 0x02000385 RID: 901
+	// Token: 0x02000390 RID: 912
 	public enum SlingshotActions
 	{
-		// Token: 0x04001773 RID: 6003
+		// Token: 0x040017BB RID: 6075
 		Grab,
-		// Token: 0x04001774 RID: 6004
+		// Token: 0x040017BC RID: 6076
 		Release
 	}
 }

@@ -2,10 +2,10 @@
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x020003F3 RID: 1011
+// Token: 0x020003FE RID: 1022
 public class OwlLook : MonoBehaviour
 {
-	// Token: 0x060018C1 RID: 6337 RVA: 0x0007875F File Offset: 0x0007695F
+	// Token: 0x0600190E RID: 6414 RVA: 0x00040F1A File Offset: 0x0003F11A
 	private void Awake()
 	{
 		this.overlapRigs = new VRRig[(int)PhotonNetworkController.Instance.GetRoomSize(null)];
@@ -15,7 +15,7 @@ public class OwlLook : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060018C2 RID: 6338 RVA: 0x00078794 File Offset: 0x00076994
+	// Token: 0x0600190F RID: 6415 RVA: 0x000CE87C File Offset: 0x000CCA7C
 	private void LateUpdate()
 	{
 		if (NetworkSystem.Instance.InRoom)
@@ -71,39 +71,39 @@ public class OwlLook : MonoBehaviour
 		this.head.rotation = Quaternion.LookRotation(forward, this.neck.up);
 	}
 
-	// Token: 0x04001B7A RID: 7034
+	// Token: 0x04001BC3 RID: 7107
 	public Transform head;
 
-	// Token: 0x04001B7B RID: 7035
+	// Token: 0x04001BC4 RID: 7108
 	public Transform lookTarget;
 
-	// Token: 0x04001B7C RID: 7036
+	// Token: 0x04001BC5 RID: 7109
 	public Transform neck;
 
-	// Token: 0x04001B7D RID: 7037
+	// Token: 0x04001BC6 RID: 7110
 	public float lookRadius = 0.5f;
 
-	// Token: 0x04001B7E RID: 7038
+	// Token: 0x04001BC7 RID: 7111
 	public Collider[] overlapColliders;
 
-	// Token: 0x04001B7F RID: 7039
+	// Token: 0x04001BC8 RID: 7112
 	public VRRig[] rigs = new VRRig[10];
 
-	// Token: 0x04001B80 RID: 7040
+	// Token: 0x04001BC9 RID: 7113
 	public VRRig[] overlapRigs;
 
-	// Token: 0x04001B81 RID: 7041
+	// Token: 0x04001BCA RID: 7114
 	public float rotSpeed = 1f;
 
-	// Token: 0x04001B82 RID: 7042
+	// Token: 0x04001BCB RID: 7115
 	public float lookAtAngleDegrees = 60f;
 
-	// Token: 0x04001B83 RID: 7043
+	// Token: 0x04001BCC RID: 7116
 	public float maxNeckY;
 
-	// Token: 0x04001B84 RID: 7044
+	// Token: 0x04001BCD RID: 7117
 	public float minNeckY;
 
-	// Token: 0x04001B85 RID: 7045
+	// Token: 0x04001BCE RID: 7118
 	public VRRig myRig;
 }

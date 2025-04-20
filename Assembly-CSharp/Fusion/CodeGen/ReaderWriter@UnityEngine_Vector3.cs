@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace Fusion.CodeGen
 {
-	// Token: 0x02000D0E RID: 3342
+	// Token: 0x02000D3F RID: 3391
 	[WeaverGenerated]
 	[PreserveInPlugin]
 	internal struct ReaderWriter@UnityEngine_Vector3 : IElementReaderWriter<Vector3>
 	{
-		// Token: 0x060053CE RID: 21454 RVA: 0x0019C361 File Offset: 0x0019A561
+		// Token: 0x06005530 RID: 21808 RVA: 0x00067463 File Offset: 0x00065663
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -18,7 +18,7 @@ namespace Fusion.CodeGen
 			return *(Vector3*)(data + index * 12);
 		}
 
-		// Token: 0x060053CF RID: 21455 RVA: 0x0019C371 File Offset: 0x0019A571
+		// Token: 0x06005531 RID: 21809 RVA: 0x00067473 File Offset: 0x00065673
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -27,7 +27,7 @@ namespace Fusion.CodeGen
 			return ref *(Vector3*)(data + index * 12);
 		}
 
-		// Token: 0x060053D0 RID: 21456 RVA: 0x0019C37C File Offset: 0x0019A57C
+		// Token: 0x06005532 RID: 21810 RVA: 0x0006747E File Offset: 0x0006567E
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -36,7 +36,7 @@ namespace Fusion.CodeGen
 			*(Vector3*)(data + index * 12) = val;
 		}
 
-		// Token: 0x060053D1 RID: 21457 RVA: 0x000AC7BA File Offset: 0x000AA9BA
+		// Token: 0x06005533 RID: 21811 RVA: 0x00047CA2 File Offset: 0x00045EA2
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -45,7 +45,7 @@ namespace Fusion.CodeGen
 			return 3;
 		}
 
-		// Token: 0x060053D2 RID: 21458 RVA: 0x0019C390 File Offset: 0x0019A590
+		// Token: 0x06005534 RID: 21812 RVA: 0x001D12DC File Offset: 0x001CF4DC
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -54,7 +54,7 @@ namespace Fusion.CodeGen
 			return val.GetHashCode();
 		}
 
-		// Token: 0x060053D3 RID: 21459 RVA: 0x0019C3AC File Offset: 0x0019A5AC
+		// Token: 0x06005535 RID: 21813 RVA: 0x001D12F8 File Offset: 0x001CF4F8
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[WeaverGenerated]
 		public static IElementReaderWriter<Vector3> GetInstance()
@@ -66,7 +66,7 @@ namespace Fusion.CodeGen
 			return ReaderWriter@UnityEngine_Vector3.Instance;
 		}
 
-		// Token: 0x04005628 RID: 22056
+		// Token: 0x04005734 RID: 22324
 		[WeaverGenerated]
 		public static IElementReaderWriter<Vector3> Instance;
 	}

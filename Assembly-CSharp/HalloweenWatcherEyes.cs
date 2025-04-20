@@ -3,19 +3,19 @@ using System.Collections;
 using GorillaLocomotion;
 using UnityEngine;
 
-// Token: 0x0200069D RID: 1693
+// Token: 0x020006B2 RID: 1714
 public class HalloweenWatcherEyes : MonoBehaviour
 {
-	// Token: 0x06002A08 RID: 10760 RVA: 0x000D0DB4 File Offset: 0x000CEFB4
+	// Token: 0x06002A9E RID: 10910 RVA: 0x0011D4A0 File Offset: 0x0011B6A0
 	private void Start()
 	{
 		this.playersViewCenterCosAngle = Mathf.Cos(this.playersViewCenterAngle * 0.017453292f);
 		this.watchMinCosAngle = Mathf.Cos(this.watchMaxAngle * 0.017453292f);
-		base.StartCoroutine(this.CheckIfNearPlayer(Random.Range(0f, this.timeBetweenUpdates)));
+		base.StartCoroutine(this.CheckIfNearPlayer(UnityEngine.Random.Range(0f, this.timeBetweenUpdates)));
 		base.enabled = false;
 	}
 
-	// Token: 0x06002A09 RID: 10761 RVA: 0x000D0E13 File Offset: 0x000CF013
+	// Token: 0x06002A9F RID: 10911 RVA: 0x0004CD36 File Offset: 0x0004AF36
 	private IEnumerator CheckIfNearPlayer(float initialSleep)
 	{
 		yield return new WaitForSeconds(initialSleep);
@@ -31,7 +31,7 @@ public class HalloweenWatcherEyes : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06002A0A RID: 10762 RVA: 0x000D0E2C File Offset: 0x000CF02C
+	// Token: 0x06002AA0 RID: 10912 RVA: 0x0011D500 File Offset: 0x0011B700
 	private void Update()
 	{
 		Vector3 normalized = (GTPlayer.Instance.headCollider.transform.position - base.transform.position).normalized;
@@ -61,7 +61,7 @@ public class HalloweenWatcherEyes : MonoBehaviour
 		this.lerpValue = 1f;
 	}
 
-	// Token: 0x06002A0B RID: 10763 RVA: 0x000D0F5A File Offset: 0x000CF15A
+	// Token: 0x06002AA1 RID: 10913 RVA: 0x0004CD4C File Offset: 0x0004AF4C
 	private void LookNormal()
 	{
 		this.leftEye.transform.localRotation = Quaternion.identity;
@@ -69,39 +69,39 @@ public class HalloweenWatcherEyes : MonoBehaviour
 		this.lerpValue = 0f;
 	}
 
-	// Token: 0x04002F8C RID: 12172
+	// Token: 0x04003029 RID: 12329
 	public float timeBetweenUpdates = 5f;
 
-	// Token: 0x04002F8D RID: 12173
+	// Token: 0x0400302A RID: 12330
 	public float watchRange;
 
-	// Token: 0x04002F8E RID: 12174
+	// Token: 0x0400302B RID: 12331
 	public float watchMaxAngle;
 
-	// Token: 0x04002F8F RID: 12175
+	// Token: 0x0400302C RID: 12332
 	public float lerpDuration = 1f;
 
-	// Token: 0x04002F90 RID: 12176
+	// Token: 0x0400302D RID: 12333
 	public float playersViewCenterAngle = 30f;
 
-	// Token: 0x04002F91 RID: 12177
+	// Token: 0x0400302E RID: 12334
 	public float durationToBeNormalWhenPlayerLooks = 3f;
 
-	// Token: 0x04002F92 RID: 12178
+	// Token: 0x0400302F RID: 12335
 	public GameObject leftEye;
 
-	// Token: 0x04002F93 RID: 12179
+	// Token: 0x04003030 RID: 12336
 	public GameObject rightEye;
 
-	// Token: 0x04002F94 RID: 12180
+	// Token: 0x04003031 RID: 12337
 	private float playersViewCenterCosAngle;
 
-	// Token: 0x04002F95 RID: 12181
+	// Token: 0x04003032 RID: 12338
 	private float watchMinCosAngle;
 
-	// Token: 0x04002F96 RID: 12182
+	// Token: 0x04003033 RID: 12339
 	private float pretendingToBeNormalUntilTimestamp;
 
-	// Token: 0x04002F97 RID: 12183
+	// Token: 0x04003034 RID: 12340
 	private float lerpValue;
 }

@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace MTAssets.EasyMeshCombiner
 {
-	// Token: 0x02000B16 RID: 2838
+	// Token: 0x02000B43 RID: 2883
 	public class EnviromentMovement : MonoBehaviour
 	{
-		// Token: 0x060046F4 RID: 18164 RVA: 0x00150BDB File Offset: 0x0014EDDB
+		// Token: 0x0600483D RID: 18493 RVA: 0x0005EFEE File Offset: 0x0005D1EE
 		private void Start()
 		{
 			this.thisTransform = base.gameObject.GetComponent<Transform>();
 			this.nextPosition = this.pos1;
 		}
 
-		// Token: 0x060046F5 RID: 18165 RVA: 0x00150BFC File Offset: 0x0014EDFC
+		// Token: 0x0600483E RID: 18494 RVA: 0x0018D3F0 File Offset: 0x0018B5F0
 		private void Update()
 		{
 			if (Vector3.Distance(this.thisTransform.position, this.nextPosition) > 0.5f)
@@ -33,16 +33,16 @@ namespace MTAssets.EasyMeshCombiner
 			}
 		}
 
-		// Token: 0x04004861 RID: 18529
+		// Token: 0x04004956 RID: 18774
 		private Vector3 nextPosition = Vector3.zero;
 
-		// Token: 0x04004862 RID: 18530
+		// Token: 0x04004957 RID: 18775
 		private Transform thisTransform;
 
-		// Token: 0x04004863 RID: 18531
+		// Token: 0x04004958 RID: 18776
 		public Vector3 pos1;
 
-		// Token: 0x04004864 RID: 18532
+		// Token: 0x04004959 RID: 18777
 		public Vector3 pos2;
 	}
 }

@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 namespace GorillaNetworking.Store
 {
-	// Token: 0x02000AFD RID: 2813
+	// Token: 0x02000B2A RID: 2858
 	public class DynamicCosmeticStand : MonoBehaviour, iFlagForBaking
 	{
-		// Token: 0x06004654 RID: 18004 RVA: 0x0014D9D8 File Offset: 0x0014BBD8
+		// Token: 0x0600479C RID: 18332 RVA: 0x0018A718 File Offset: 0x00188918
 		public virtual void SetForBaking()
 		{
 			this.GorillaHeadModel.SetActive(true);
@@ -20,16 +20,16 @@ namespace GorillaNetworking.Store
 			this.DisplayHeadModel.gameObject.SetActive(false);
 		}
 
-		// Token: 0x06004655 RID: 18005 RVA: 0x0014DA3E File Offset: 0x0014BC3E
+		// Token: 0x0600479D RID: 18333 RVA: 0x0005EA37 File Offset: 0x0005CC37
 		public virtual void SetForGame()
 		{
 			this.DisplayHeadModel.gameObject.SetActive(true);
 			this.SetStandType(this.DisplayHeadModel.bustType);
 		}
 
-		// Token: 0x17000744 RID: 1860
-		// (get) Token: 0x06004656 RID: 18006 RVA: 0x0014DA62 File Offset: 0x0014BC62
-		// (set) Token: 0x06004657 RID: 18007 RVA: 0x0014DA6A File Offset: 0x0014BC6A
+		// Token: 0x17000760 RID: 1888
+		// (get) Token: 0x0600479E RID: 18334 RVA: 0x0005EA5B File Offset: 0x0005CC5B
+		// (set) Token: 0x0600479F RID: 18335 RVA: 0x0005EA63 File Offset: 0x0005CC63
 		public string thisCosmeticName
 		{
 			get
@@ -42,7 +42,7 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x06004658 RID: 18008 RVA: 0x0014DA74 File Offset: 0x0014BC74
+		// Token: 0x060047A0 RID: 18336 RVA: 0x0018A780 File Offset: 0x00188980
 		public void InitializeCosmetic()
 		{
 			this.thisCosmeticItem = CosmeticsController.instance.allCosmetics.Find((CosmeticsController.CosmeticItem x) => this.thisCosmeticName == x.displayName || this.thisCosmeticName == x.overrideDisplayName || this.thisCosmeticName == x.itemName);
@@ -52,9 +52,10 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x06004659 RID: 18009 RVA: 0x0014DAF4 File Offset: 0x0014BCF4
+		// Token: 0x060047A1 RID: 18337 RVA: 0x0018A800 File Offset: 0x00188A00
 		public void SpawnItemOntoStand(string PlayFabID)
 		{
+			this.ClearCosmetics();
 			if (PlayFabID.IsNullOrEmpty())
 			{
 				Debug.LogWarning("ManuallyInitialize: PlayFabID is null or empty for " + this.StandName);
@@ -68,14 +69,15 @@ namespace GorillaNetworking.Store
 			this.DisplayHeadModel.LoadCosmeticParts(StoreController.FindCosmeticInAllCosmeticsArraySO(this.thisCosmeticName), false);
 		}
 
-		// Token: 0x0600465A RID: 18010 RVA: 0x0014DB61 File Offset: 0x0014BD61
+		// Token: 0x060047A2 RID: 18338 RVA: 0x0005EA6C File Offset: 0x0005CC6C
 		public void ClearCosmetics()
 		{
+			this.thisCosmeticName = "";
 			this.DisplayHeadModel.ClearManuallySpawnedCosmeticParts();
 			this.DisplayHeadModel.ClearCosmetics();
 		}
 
-		// Token: 0x0600465B RID: 18011 RVA: 0x0014DB7C File Offset: 0x0014BD7C
+		// Token: 0x060047A3 RID: 18339 RVA: 0x0018A874 File Offset: 0x00188A74
 		public void SetStandType(HeadModel_CosmeticStand.BustType newBustType)
 		{
 			this.DisplayHeadModel.SetStandType(newBustType);
@@ -85,9 +87,17 @@ namespace GorillaNetworking.Store
 			this.GorillaMannequinModel.SetActive(false);
 			this.GuitarStandModel.SetActive(false);
 			this.JeweleryBoxModel.SetActive(false);
+			this.AddToCartButton.gameObject.SetActive(true);
+			this.slotPriceText.gameObject.SetActive(true);
+			this.addToCartText.gameObject.SetActive(true);
 			switch (newBustType)
 			{
 			case HeadModel_CosmeticStand.BustType.Disabled:
+				this.ClearCosmetics();
+				this.thisCosmeticName = "";
+				this.AddToCartButton.gameObject.SetActive(false);
+				this.slotPriceText.gameObject.SetActive(false);
+				this.addToCartText.gameObject.SetActive(false);
 				this.DisplayHeadModel.transform.localPosition = Vector3.zero;
 				this.DisplayHeadModel.transform.localRotation = Quaternion.identity;
 				this.root.SetActive(false);
@@ -150,7 +160,7 @@ namespace GorillaNetworking.Store
 			this.SpawnItemOntoStand(this.thisCosmeticName);
 		}
 
-		// Token: 0x0600465C RID: 18012 RVA: 0x0014DF6C File Offset: 0x0014C16C
+		// Token: 0x060047A4 RID: 18340 RVA: 0x0018ACDC File Offset: 0x00188EDC
 		public void CopyChildsName()
 		{
 			foreach (DynamicCosmeticStand dynamicCosmeticStand in base.gameObject.GetComponentsInChildren<DynamicCosmeticStand>(true))
@@ -162,7 +172,7 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x0600465D RID: 18013 RVA: 0x0014DFB0 File Offset: 0x0014C1B0
+		// Token: 0x060047A5 RID: 18341 RVA: 0x0018AD20 File Offset: 0x00188F20
 		public void PressCosmeticStandButton()
 		{
 			this.searchIndex = CosmeticsController.instance.currentCart.IndexOf(this.thisCosmeticItem);
@@ -205,7 +215,7 @@ namespace GorillaNetworking.Store
 			CosmeticsController.instance.UpdateShoppingCart();
 		}
 
-		// Token: 0x0600465E RID: 18014 RVA: 0x0014E240 File Offset: 0x0014C440
+		// Token: 0x060047A6 RID: 18342 RVA: 0x0018AFB0 File Offset: 0x001891B0
 		public void SetStandTypeString(string bustTypeString)
 		{
 			uint num = <PrivateImplementationDetails>.ComputeStringHash(bustTypeString);
@@ -301,78 +311,78 @@ namespace GorillaNetworking.Store
 			this.SetStandType(HeadModel_CosmeticStand.BustType.Table);
 		}
 
-		// Token: 0x0600465F RID: 18015 RVA: 0x0014E3EE File Offset: 0x0014C5EE
+		// Token: 0x060047A7 RID: 18343 RVA: 0x0005EA8F File Offset: 0x0005CC8F
 		public void UpdateCosmeticsMountPositions()
 		{
 			this.DisplayHeadModel.UpdateCosmeticsMountPositions(StoreController.FindCosmeticInAllCosmeticsArraySO(this.thisCosmeticName));
 		}
 
-		// Token: 0x040047DD RID: 18397
+		// Token: 0x040048D2 RID: 18642
 		public HeadModel_CosmeticStand DisplayHeadModel;
 
-		// Token: 0x040047DE RID: 18398
+		// Token: 0x040048D3 RID: 18643
 		public GorillaPressableButton AddToCartButton;
 
-		// Token: 0x040047DF RID: 18399
+		// Token: 0x040048D4 RID: 18644
 		public Text slotPriceText;
 
-		// Token: 0x040047E0 RID: 18400
+		// Token: 0x040048D5 RID: 18645
 		public Text addToCartText;
 
-		// Token: 0x040047E1 RID: 18401
+		// Token: 0x040048D6 RID: 18646
 		private CosmeticsController.CosmeticItem thisCosmeticItem;
 
-		// Token: 0x040047E2 RID: 18402
+		// Token: 0x040048D7 RID: 18647
 		[FormerlySerializedAs("StandID")]
 		public string StandName;
 
-		// Token: 0x040047E3 RID: 18403
+		// Token: 0x040048D8 RID: 18648
 		public string _thisCosmeticName = "";
 
-		// Token: 0x040047E4 RID: 18404
+		// Token: 0x040048D9 RID: 18649
 		public GameObject GorillaHeadModel;
 
-		// Token: 0x040047E5 RID: 18405
+		// Token: 0x040048DA RID: 18650
 		public GameObject GorillaTorsoModel;
 
-		// Token: 0x040047E6 RID: 18406
+		// Token: 0x040048DB RID: 18651
 		public GameObject GorillaTorsoPostModel;
 
-		// Token: 0x040047E7 RID: 18407
+		// Token: 0x040048DC RID: 18652
 		public GameObject GorillaMannequinModel;
 
-		// Token: 0x040047E8 RID: 18408
+		// Token: 0x040048DD RID: 18653
 		public GameObject GuitarStandModel;
 
-		// Token: 0x040047E9 RID: 18409
+		// Token: 0x040048DE RID: 18654
 		public GameObject GuitarStandMount;
 
-		// Token: 0x040047EA RID: 18410
+		// Token: 0x040048DF RID: 18655
 		public GameObject JeweleryBoxModel;
 
-		// Token: 0x040047EB RID: 18411
+		// Token: 0x040048E0 RID: 18656
 		public GameObject JeweleryBoxMount;
 
-		// Token: 0x040047EC RID: 18412
+		// Token: 0x040048E1 RID: 18657
 		public GameObject TableMount;
 
-		// Token: 0x040047ED RID: 18413
+		// Token: 0x040048E2 RID: 18658
 		[FormerlySerializedAs("PinDisplayMountn")]
 		public GameObject PinDisplayMounnt;
 
-		// Token: 0x040047EE RID: 18414
+		// Token: 0x040048E3 RID: 18659
 		public GameObject root;
 
-		// Token: 0x040047EF RID: 18415
+		// Token: 0x040048E4 RID: 18660
 		public GameObject TagEffectDisplayMount;
 
-		// Token: 0x040047F0 RID: 18416
+		// Token: 0x040048E5 RID: 18661
 		public GameObject TageEffectDisplayModel;
 
-		// Token: 0x040047F1 RID: 18417
+		// Token: 0x040048E6 RID: 18662
 		public GameObject PinDisplayMountn;
 
-		// Token: 0x040047F2 RID: 18418
+		// Token: 0x040048E7 RID: 18663
 		private int searchIndex;
 	}
 }

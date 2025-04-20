@@ -1,11 +1,12 @@
 ﻿using System;
+using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x02000066 RID: 102
+// Token: 0x0200006C RID: 108
 public class CritterVisuals : MonoBehaviour
 {
-	// Token: 0x17000024 RID: 36
-	// (get) Token: 0x0600028C RID: 652 RVA: 0x00010C17 File Offset: 0x0000EE17
+	// Token: 0x17000027 RID: 39
+	// (get) Token: 0x060002BA RID: 698 RVA: 0x000321A2 File Offset: 0x000303A2
 	public CritterAppearance Appearance
 	{
 		get
@@ -14,11 +15,12 @@ public class CritterVisuals : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600028D RID: 653 RVA: 0x00010C20 File Offset: 0x0000EE20
+	// Token: 0x060002BB RID: 699 RVA: 0x000758E8 File Offset: 0x00073AE8
 	public void SetAppearance(CritterAppearance appearance)
 	{
 		this._appearance = appearance;
-		this.bodyRoot.localScale = new Vector3(this._appearance.size, this._appearance.size, this._appearance.size);
+		float num = this._appearance.size.ClampSafe(0.25f, 1.5f);
+		this.bodyRoot.localScale = new Vector3(num, num, num);
 		if (!string.IsNullOrEmpty(appearance.hatName))
 		{
 			foreach (GameObject gameObject in this.hats)
@@ -31,37 +33,37 @@ public class CritterVisuals : MonoBehaviour
 		this.hatRoot.gameObject.SetActive(false);
 	}
 
-	// Token: 0x0600028E RID: 654 RVA: 0x00010CC8 File Offset: 0x0000EEC8
+	// Token: 0x060002BC RID: 700 RVA: 0x000321AA File Offset: 0x000303AA
 	public void ApplyMesh(Mesh newMesh)
 	{
 		this.myMeshFilter.sharedMesh = newMesh;
 	}
 
-	// Token: 0x0600028F RID: 655 RVA: 0x00010CD6 File Offset: 0x0000EED6
+	// Token: 0x060002BD RID: 701 RVA: 0x000321B8 File Offset: 0x000303B8
 	public void ApplyMaterial(Material mat)
 	{
 		this.myRenderer.sharedMaterial = mat;
 	}
 
-	// Token: 0x04000337 RID: 823
+	// Token: 0x04000369 RID: 873
 	public int critterType;
 
-	// Token: 0x04000338 RID: 824
+	// Token: 0x0400036A RID: 874
 	[Header("Visuals")]
 	public Transform bodyRoot;
 
-	// Token: 0x04000339 RID: 825
+	// Token: 0x0400036B RID: 875
 	public MeshRenderer myRenderer;
 
-	// Token: 0x0400033A RID: 826
+	// Token: 0x0400036C RID: 876
 	public MeshFilter myMeshFilter;
 
-	// Token: 0x0400033B RID: 827
+	// Token: 0x0400036D RID: 877
 	public Transform hatRoot;
 
-	// Token: 0x0400033C RID: 828
+	// Token: 0x0400036E RID: 878
 	public GameObject[] hats;
 
-	// Token: 0x0400033D RID: 829
+	// Token: 0x0400036F RID: 879
 	private CritterAppearance _appearance;
 }

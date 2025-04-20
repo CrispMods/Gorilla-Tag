@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// Token: 0x0200008A RID: 138
+// Token: 0x02000091 RID: 145
 public class EyeScannableMono : MonoBehaviour, IEyeScannable
 {
 	// Token: 0x1400000B RID: 11
-	// (add) Token: 0x06000374 RID: 884 RVA: 0x00015A3C File Offset: 0x00013C3C
-	// (remove) Token: 0x06000375 RID: 885 RVA: 0x00015A74 File Offset: 0x00013C74
+	// (add) Token: 0x060003A6 RID: 934 RVA: 0x00079C48 File Offset: 0x00077E48
+	// (remove) Token: 0x060003A7 RID: 935 RVA: 0x00079C80 File Offset: 0x00077E80
 	public event Action OnDataChange;
 
-	// Token: 0x17000031 RID: 49
-	// (get) Token: 0x06000376 RID: 886 RVA: 0x00015AA9 File Offset: 0x00013CA9
+	// Token: 0x17000035 RID: 53
+	// (get) Token: 0x060003A8 RID: 936 RVA: 0x00032CAE File Offset: 0x00030EAE
 	int IEyeScannable.scannableId
 	{
 		get
@@ -21,8 +21,8 @@ public class EyeScannableMono : MonoBehaviour, IEyeScannable
 		}
 	}
 
-	// Token: 0x17000032 RID: 50
-	// (get) Token: 0x06000377 RID: 887 RVA: 0x00015AB1 File Offset: 0x00013CB1
+	// Token: 0x17000036 RID: 54
+	// (get) Token: 0x060003A9 RID: 937 RVA: 0x00032CB6 File Offset: 0x00030EB6
 	Vector3 IEyeScannable.Position
 	{
 		get
@@ -31,8 +31,8 @@ public class EyeScannableMono : MonoBehaviour, IEyeScannable
 		}
 	}
 
-	// Token: 0x17000033 RID: 51
-	// (get) Token: 0x06000378 RID: 888 RVA: 0x00015AD9 File Offset: 0x00013CD9
+	// Token: 0x17000037 RID: 55
+	// (get) Token: 0x060003AA RID: 938 RVA: 0x00032CDE File Offset: 0x00030EDE
 	Bounds IEyeScannable.Bounds
 	{
 		get
@@ -41,8 +41,8 @@ public class EyeScannableMono : MonoBehaviour, IEyeScannable
 		}
 	}
 
-	// Token: 0x17000034 RID: 52
-	// (get) Token: 0x06000379 RID: 889 RVA: 0x00015AE1 File Offset: 0x00013CE1
+	// Token: 0x17000038 RID: 56
+	// (get) Token: 0x060003AB RID: 939 RVA: 0x00032CE6 File Offset: 0x00030EE6
 	IList<KeyValueStringPair> IEyeScannable.Entries
 	{
 		get
@@ -51,26 +51,26 @@ public class EyeScannableMono : MonoBehaviour, IEyeScannable
 		}
 	}
 
-	// Token: 0x0600037A RID: 890 RVA: 0x00015AEE File Offset: 0x00013CEE
+	// Token: 0x060003AC RID: 940 RVA: 0x00032CF3 File Offset: 0x00030EF3
 	private void Awake()
 	{
 		this.RecalculateBounds();
 	}
 
-	// Token: 0x0600037B RID: 891 RVA: 0x00015AF6 File Offset: 0x00013CF6
+	// Token: 0x060003AD RID: 941 RVA: 0x00032CFB File Offset: 0x00030EFB
 	public void OnEnable()
 	{
 		this.RecalculateBoundsLater();
 		EyeScannerMono.Register(this);
 	}
 
-	// Token: 0x0600037C RID: 892 RVA: 0x000120B9 File Offset: 0x000102B9
+	// Token: 0x060003AE RID: 942 RVA: 0x000325C8 File Offset: 0x000307C8
 	public void OnDisable()
 	{
 		EyeScannerMono.Unregister(this);
 	}
 
-	// Token: 0x0600037D RID: 893 RVA: 0x00015B04 File Offset: 0x00013D04
+	// Token: 0x060003AF RID: 943 RVA: 0x00079CB8 File Offset: 0x00077EB8
 	private void RecalculateBoundsLater()
 	{
 		EyeScannableMono.<RecalculateBoundsLater>d__17 <RecalculateBoundsLater>d__;
@@ -80,7 +80,7 @@ public class EyeScannableMono : MonoBehaviour, IEyeScannable
 		<RecalculateBoundsLater>d__.<>t__builder.Start<EyeScannableMono.<RecalculateBoundsLater>d__17>(ref <RecalculateBoundsLater>d__);
 	}
 
-	// Token: 0x0600037E RID: 894 RVA: 0x00015B3C File Offset: 0x00013D3C
+	// Token: 0x060003B0 RID: 944 RVA: 0x00079CF0 File Offset: 0x00077EF0
 	private void RecalculateBounds()
 	{
 		this._initialPosition = base.transform.position;
@@ -99,13 +99,13 @@ public class EyeScannableMono : MonoBehaviour, IEyeScannable
 		}
 	}
 
-	// Token: 0x040003FD RID: 1021
+	// Token: 0x04000431 RID: 1073
 	[SerializeField]
 	private KeyValuePairSet data;
 
-	// Token: 0x040003FE RID: 1022
+	// Token: 0x04000432 RID: 1074
 	private Bounds _bounds;
 
-	// Token: 0x040003FF RID: 1023
+	// Token: 0x04000433 RID: 1075
 	private Vector3 _initialPosition;
 }

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using GorillaLocomotion;
 using UnityEngine;
 
-// Token: 0x0200061D RID: 1565
+// Token: 0x020005FC RID: 1532
 public class MusicFadeArea : MonoBehaviour
 {
-	// Token: 0x060026FF RID: 9983 RVA: 0x000C0104 File Offset: 0x000BE304
+	// Token: 0x0600262A RID: 9770 RVA: 0x00108050 File Offset: 0x00106250
 	private void Awake()
 	{
 		for (int i = 0; i < this.sourcesToFadeIn.Count; i++)
@@ -17,7 +17,7 @@ public class MusicFadeArea : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002700 RID: 9984 RVA: 0x000C0158 File Offset: 0x000BE358
+	// Token: 0x0600262B RID: 9771 RVA: 0x001080A4 File Offset: 0x001062A4
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other == GTPlayer.Instance.headCollider)
@@ -34,7 +34,7 @@ public class MusicFadeArea : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002701 RID: 9985 RVA: 0x000C01C0 File Offset: 0x000BE3C0
+	// Token: 0x0600262C RID: 9772 RVA: 0x0010810C File Offset: 0x0010630C
 	private void OnTriggerExit(Collider other)
 	{
 		if (other == GTPlayer.Instance.headCollider)
@@ -51,7 +51,7 @@ public class MusicFadeArea : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002702 RID: 9986 RVA: 0x000C0225 File Offset: 0x000BE425
+	// Token: 0x0600262D RID: 9773 RVA: 0x00049F66 File Offset: 0x00048166
 	private IEnumerator FadeInSources()
 	{
 		for (int i = 0; i < this.sourcesToFadeIn.Count; i++)
@@ -75,7 +75,7 @@ public class MusicFadeArea : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06002703 RID: 9987 RVA: 0x000C0234 File Offset: 0x000BE434
+	// Token: 0x0600262E RID: 9774 RVA: 0x00049F75 File Offset: 0x00048175
 	private IEnumerator FadeOutSources()
 	{
 		for (int i = 0; i < this.sourcesToFadeIn.Count; i++)
@@ -99,28 +99,28 @@ public class MusicFadeArea : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04002ADA RID: 10970
+	// Token: 0x04002A40 RID: 10816
 	[SerializeField]
 	private List<MusicFadeArea.AudioSourceEntry> sourcesToFadeIn = new List<MusicFadeArea.AudioSourceEntry>();
 
-	// Token: 0x04002ADB RID: 10971
+	// Token: 0x04002A41 RID: 10817
 	[SerializeField]
 	private float fadeDuration = 3f;
 
-	// Token: 0x04002ADC RID: 10972
+	// Token: 0x04002A42 RID: 10818
 	private float fadeProgress;
 
-	// Token: 0x04002ADD RID: 10973
+	// Token: 0x04002A43 RID: 10819
 	private Coroutine fadeCoroutine;
 
-	// Token: 0x0200061E RID: 1566
+	// Token: 0x020005FD RID: 1533
 	[Serializable]
 	public struct AudioSourceEntry
 	{
-		// Token: 0x04002ADE RID: 10974
+		// Token: 0x04002A44 RID: 10820
 		public AudioSource audioSource;
 
-		// Token: 0x04002ADF RID: 10975
+		// Token: 0x04002A45 RID: 10821
 		public float maxVolume;
 	}
 }

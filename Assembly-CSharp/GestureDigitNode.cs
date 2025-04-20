@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x02000158 RID: 344
+// Token: 0x02000163 RID: 355
 [Serializable]
 public class GestureDigitNode : GestureNode
 {

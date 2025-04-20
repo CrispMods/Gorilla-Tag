@@ -7,11 +7,11 @@ using Photon.Voice.PUN;
 using Photon.Voice.Unity;
 using UnityEngine;
 
-// Token: 0x02000591 RID: 1425
+// Token: 0x0200059F RID: 1439
 public class GorillaSpeakerLoudness : MonoBehaviour, IGorillaSliceableSimple, IDynamicFloat
 {
-	// Token: 0x17000397 RID: 919
-	// (get) Token: 0x06002341 RID: 9025 RVA: 0x000AEC3F File Offset: 0x000ACE3F
+	// Token: 0x1700039F RID: 927
+	// (get) Token: 0x060023A1 RID: 9121 RVA: 0x00048126 File Offset: 0x00046326
 	public bool IsSpeaking
 	{
 		get
@@ -20,8 +20,8 @@ public class GorillaSpeakerLoudness : MonoBehaviour, IGorillaSliceableSimple, ID
 		}
 	}
 
-	// Token: 0x17000398 RID: 920
-	// (get) Token: 0x06002342 RID: 9026 RVA: 0x000AEC47 File Offset: 0x000ACE47
+	// Token: 0x170003A0 RID: 928
+	// (get) Token: 0x060023A2 RID: 9122 RVA: 0x0004812E File Offset: 0x0004632E
 	public float Loudness
 	{
 		get
@@ -30,8 +30,8 @@ public class GorillaSpeakerLoudness : MonoBehaviour, IGorillaSliceableSimple, ID
 		}
 	}
 
-	// Token: 0x17000399 RID: 921
-	// (get) Token: 0x06002343 RID: 9027 RVA: 0x000AEC4F File Offset: 0x000ACE4F
+	// Token: 0x170003A1 RID: 929
+	// (get) Token: 0x060023A3 RID: 9123 RVA: 0x00048136 File Offset: 0x00046336
 	public float LoudnessNormalized
 	{
 		get
@@ -40,8 +40,8 @@ public class GorillaSpeakerLoudness : MonoBehaviour, IGorillaSliceableSimple, ID
 		}
 	}
 
-	// Token: 0x1700039A RID: 922
-	// (get) Token: 0x06002344 RID: 9028 RVA: 0x000AEC68 File Offset: 0x000ACE68
+	// Token: 0x170003A2 RID: 930
+	// (get) Token: 0x060023A4 RID: 9124 RVA: 0x0004814F File Offset: 0x0004634F
 	public float floatValue
 	{
 		get
@@ -50,8 +50,8 @@ public class GorillaSpeakerLoudness : MonoBehaviour, IGorillaSliceableSimple, ID
 		}
 	}
 
-	// Token: 0x1700039B RID: 923
-	// (get) Token: 0x06002345 RID: 9029 RVA: 0x000AEC70 File Offset: 0x000ACE70
+	// Token: 0x170003A3 RID: 931
+	// (get) Token: 0x060023A5 RID: 9125 RVA: 0x00048157 File Offset: 0x00046357
 	public bool IsMicEnabled
 	{
 		get
@@ -60,8 +60,8 @@ public class GorillaSpeakerLoudness : MonoBehaviour, IGorillaSliceableSimple, ID
 		}
 	}
 
-	// Token: 0x1700039C RID: 924
-	// (get) Token: 0x06002346 RID: 9030 RVA: 0x000AEC78 File Offset: 0x000ACE78
+	// Token: 0x170003A4 RID: 932
+	// (get) Token: 0x060023A6 RID: 9126 RVA: 0x0004815F File Offset: 0x0004635F
 	public float SmoothedLoudness
 	{
 		get
@@ -70,7 +70,7 @@ public class GorillaSpeakerLoudness : MonoBehaviour, IGorillaSliceableSimple, ID
 		}
 	}
 
-	// Token: 0x06002347 RID: 9031 RVA: 0x000AEC80 File Offset: 0x000ACE80
+	// Token: 0x060023A7 RID: 9127 RVA: 0x00048167 File Offset: 0x00046367
 	private void Start()
 	{
 		this.rigContainer = base.GetComponent<RigContainer>();
@@ -78,19 +78,19 @@ public class GorillaSpeakerLoudness : MonoBehaviour, IGorillaSliceableSimple, ID
 		this.deltaTime = Time.deltaTime;
 	}
 
-	// Token: 0x06002348 RID: 9032 RVA: 0x0000F862 File Offset: 0x0000DA62
+	// Token: 0x060023A8 RID: 9128 RVA: 0x000320BF File Offset: 0x000302BF
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.LateUpdate);
 	}
 
-	// Token: 0x06002349 RID: 9033 RVA: 0x0000F86B File Offset: 0x0000DA6B
+	// Token: 0x060023A9 RID: 9129 RVA: 0x000320C8 File Offset: 0x000302C8
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.LateUpdate);
 	}
 
-	// Token: 0x0600234A RID: 9034 RVA: 0x000AECA4 File Offset: 0x000ACEA4
+	// Token: 0x060023AA RID: 9130 RVA: 0x0004818B File Offset: 0x0004638B
 	public void SliceUpdate()
 	{
 		this.deltaTime = Time.time - this.timeLastUpdated;
@@ -100,7 +100,7 @@ public class GorillaSpeakerLoudness : MonoBehaviour, IGorillaSliceableSimple, ID
 		this.UpdateSmoothedLoudness();
 	}
 
-	// Token: 0x0600234B RID: 9035 RVA: 0x000AECD8 File Offset: 0x000ACED8
+	// Token: 0x060023AB RID: 9131 RVA: 0x000FE23C File Offset: 0x000FC43C
 	private void UpdateMicEnabled()
 	{
 		if (this.rigContainer == null)
@@ -122,7 +122,7 @@ public class GorillaSpeakerLoudness : MonoBehaviour, IGorillaSliceableSimple, ID
 		this.isMicEnabled = rig.IsMicEnabled;
 	}
 
-	// Token: 0x0600234C RID: 9036 RVA: 0x000AED74 File Offset: 0x000ACF74
+	// Token: 0x060023AC RID: 9132 RVA: 0x000FE2D8 File Offset: 0x000FC4D8
 	private void UpdateLoudness()
 	{
 		if (this.rigContainer == null)
@@ -185,7 +185,7 @@ public class GorillaSpeakerLoudness : MonoBehaviour, IGorillaSliceableSimple, ID
 		}
 	}
 
-	// Token: 0x0600234D RID: 9037 RVA: 0x000AEF5C File Offset: 0x000AD15C
+	// Token: 0x060023AD RID: 9133 RVA: 0x000FE4C0 File Offset: 0x000FC6C0
 	private void UpdateSmoothedLoudness()
 	{
 		if (!this.isSpeaking)
@@ -209,64 +209,64 @@ public class GorillaSpeakerLoudness : MonoBehaviour, IGorillaSliceableSimple, ID
 		this.timeSinceLoudnessChange += this.deltaTime;
 	}
 
-	// Token: 0x0600234F RID: 9039 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x060023AF RID: 9135 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x040026DD RID: 9949
+	// Token: 0x04002738 RID: 10040
 	private bool isSpeaking;
 
-	// Token: 0x040026DE RID: 9950
+	// Token: 0x04002739 RID: 10041
 	private float loudness;
 
-	// Token: 0x040026DF RID: 9951
+	// Token: 0x0400273A RID: 10042
 	[SerializeField]
 	private float normalizedMax = 0.175f;
 
-	// Token: 0x040026E0 RID: 9952
+	// Token: 0x0400273B RID: 10043
 	private bool isMicEnabled;
 
-	// Token: 0x040026E1 RID: 9953
+	// Token: 0x0400273C RID: 10044
 	private RigContainer rigContainer;
 
-	// Token: 0x040026E2 RID: 9954
+	// Token: 0x0400273D RID: 10045
 	private Speaker speaker;
 
-	// Token: 0x040026E3 RID: 9955
+	// Token: 0x0400273E RID: 10046
 	private SpeakerVoiceToLoudness speakerVoiceToLoudness;
 
-	// Token: 0x040026E4 RID: 9956
+	// Token: 0x0400273F RID: 10047
 	private Recorder recorder;
 
-	// Token: 0x040026E5 RID: 9957
+	// Token: 0x04002740 RID: 10048
 	private VoiceToLoudness voiceToLoudness;
 
-	// Token: 0x040026E6 RID: 9958
+	// Token: 0x04002741 RID: 10049
 	private float smoothedLoudness;
 
-	// Token: 0x040026E7 RID: 9959
+	// Token: 0x04002742 RID: 10050
 	private float lastLoudness;
 
-	// Token: 0x040026E8 RID: 9960
+	// Token: 0x04002743 RID: 10051
 	private float timeSinceLoudnessChange;
 
-	// Token: 0x040026E9 RID: 9961
+	// Token: 0x04002744 RID: 10052
 	private float loudnessUpdateCheckRate = 0.2f;
 
-	// Token: 0x040026EA RID: 9962
+	// Token: 0x04002745 RID: 10053
 	private float loudnessBlendStrength = 2f;
 
-	// Token: 0x040026EB RID: 9963
+	// Token: 0x04002746 RID: 10054
 	private bool permission;
 
-	// Token: 0x040026EC RID: 9964
+	// Token: 0x04002747 RID: 10055
 	private bool micConnected;
 
-	// Token: 0x040026ED RID: 9965
+	// Token: 0x04002748 RID: 10056
 	private float timeLastUpdated;
 
-	// Token: 0x040026EE RID: 9966
+	// Token: 0x04002749 RID: 10057
 	private float deltaTime;
 }

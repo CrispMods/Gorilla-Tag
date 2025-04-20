@@ -2,14 +2,14 @@
 
 namespace GorillaTag
 {
-	// Token: 0x02000B7C RID: 2940
+	// Token: 0x02000BA9 RID: 2985
 	public enum EHandedness
 	{
-		// Token: 0x04004C1A RID: 19482
+		// Token: 0x04004D10 RID: 19728
 		None,
-		// Token: 0x04004C1B RID: 19483
+		// Token: 0x04004D11 RID: 19729
 		Left,
-		// Token: 0x04004C1C RID: 19484
+		// Token: 0x04004D12 RID: 19730
 		Right
 	}
 }

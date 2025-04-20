@@ -9,11 +9,11 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-// Token: 0x020000F4 RID: 244
+// Token: 0x020000FE RID: 254
 public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallbacks
 {
-	// Token: 0x17000092 RID: 146
-	// (get) Token: 0x0600065A RID: 1626 RVA: 0x00025316 File Offset: 0x00023516
+	// Token: 0x17000097 RID: 151
+	// (get) Token: 0x0600069B RID: 1691 RVA: 0x00034DA9 File Offset: 0x00032FA9
 	public bool GreyZoneActive
 	{
 		get
@@ -22,8 +22,8 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x17000093 RID: 147
-	// (get) Token: 0x0600065B RID: 1627 RVA: 0x00025320 File Offset: 0x00023520
+	// Token: 0x17000098 RID: 152
+	// (get) Token: 0x0600069C RID: 1692 RVA: 0x00087704 File Offset: 0x00085904
 	public bool GreyZoneAvailable
 	{
 		get
@@ -37,8 +37,8 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x17000094 RID: 148
-	// (get) Token: 0x0600065C RID: 1628 RVA: 0x0002535F File Offset: 0x0002355F
+	// Token: 0x17000099 RID: 153
+	// (get) Token: 0x0600069D RID: 1693 RVA: 0x00034DB1 File Offset: 0x00032FB1
 	public int GravityFactorSelection
 	{
 		get
@@ -47,9 +47,9 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x17000095 RID: 149
-	// (get) Token: 0x0600065D RID: 1629 RVA: 0x00025367 File Offset: 0x00023567
-	// (set) Token: 0x0600065E RID: 1630 RVA: 0x0002536F File Offset: 0x0002356F
+	// Token: 0x1700009A RID: 154
+	// (get) Token: 0x0600069E RID: 1694 RVA: 0x00034DB9 File Offset: 0x00032FB9
+	// (set) Token: 0x0600069F RID: 1695 RVA: 0x00034DC1 File Offset: 0x00032FC1
 	public bool TickRunning
 	{
 		get
@@ -62,8 +62,8 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x17000096 RID: 150
-	// (get) Token: 0x0600065F RID: 1631 RVA: 0x00025378 File Offset: 0x00023578
+	// Token: 0x1700009B RID: 155
+	// (get) Token: 0x060006A0 RID: 1696 RVA: 0x00034DCA File Offset: 0x00032FCA
 	public bool HasAuthority
 	{
 		get
@@ -72,8 +72,8 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x17000097 RID: 151
-	// (get) Token: 0x06000660 RID: 1632 RVA: 0x0002538E File Offset: 0x0002358E
+	// Token: 0x1700009C RID: 156
+	// (get) Token: 0x060006A1 RID: 1697 RVA: 0x00034DE0 File Offset: 0x00032FE0
 	public float SummoningProgress
 	{
 		get
@@ -82,7 +82,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x06000661 RID: 1633 RVA: 0x00025396 File Offset: 0x00023596
+	// Token: 0x060006A2 RID: 1698 RVA: 0x00034DE8 File Offset: 0x00032FE8
 	public void RegisterSummoner(GreyZoneSummoner summoner)
 	{
 		if (!this.activeSummoners.Contains(summoner))
@@ -91,7 +91,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x06000662 RID: 1634 RVA: 0x000253B2 File Offset: 0x000235B2
+	// Token: 0x060006A3 RID: 1699 RVA: 0x00034E04 File Offset: 0x00033004
 	public void DeregisterSummoner(GreyZoneSummoner summoner)
 	{
 		if (this.activeSummoners.Contains(summoner))
@@ -100,13 +100,13 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x06000663 RID: 1635 RVA: 0x000253CF File Offset: 0x000235CF
+	// Token: 0x060006A4 RID: 1700 RVA: 0x00034E21 File Offset: 0x00033021
 	public void RegisterMoon(MoonController moon)
 	{
 		this.moonController = moon;
 	}
 
-	// Token: 0x06000664 RID: 1636 RVA: 0x000253D8 File Offset: 0x000235D8
+	// Token: 0x060006A5 RID: 1701 RVA: 0x00034E2A File Offset: 0x0003302A
 	public void UnregisterMoon(MoonController moon)
 	{
 		if (this.moonController == moon)
@@ -115,7 +115,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x06000665 RID: 1637 RVA: 0x000253EF File Offset: 0x000235EF
+	// Token: 0x060006A6 RID: 1702 RVA: 0x00034E41 File Offset: 0x00033041
 	public void ActivateGreyZoneAuthority()
 	{
 		this.greyZoneActive = true;
@@ -124,7 +124,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		this.ActivateGreyZoneLocal();
 	}
 
-	// Token: 0x06000666 RID: 1638 RVA: 0x00025424 File Offset: 0x00023624
+	// Token: 0x060006A7 RID: 1703 RVA: 0x00087744 File Offset: 0x00085944
 	private void ActivateGreyZoneLocal()
 	{
 		Shader.SetGlobalInt(this._GreyZoneActive, 1);
@@ -160,7 +160,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x06000667 RID: 1639 RVA: 0x00025538 File Offset: 0x00023738
+	// Token: 0x060006A8 RID: 1704 RVA: 0x00087858 File Offset: 0x00085A58
 	public void DeactivateGreyZoneAuthority()
 	{
 		this.greyZoneActive = false;
@@ -171,7 +171,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		this.DeactivateGreyZoneLocal();
 	}
 
-	// Token: 0x06000668 RID: 1640 RVA: 0x000255A8 File Offset: 0x000237A8
+	// Token: 0x060006A9 RID: 1705 RVA: 0x000878C8 File Offset: 0x00085AC8
 	private void DeactivateGreyZoneLocal()
 	{
 		Shader.SetGlobalInt(this._GreyZoneActive, 0);
@@ -193,7 +193,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x06000669 RID: 1641 RVA: 0x00025650 File Offset: 0x00023850
+	// Token: 0x060006AA RID: 1706 RVA: 0x00087970 File Offset: 0x00085B70
 	public void ForceStopGreyZone()
 	{
 		this.greyZoneActive = false;
@@ -226,7 +226,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x0600066A RID: 1642 RVA: 0x00025730 File Offset: 0x00023930
+	// Token: 0x060006AB RID: 1707 RVA: 0x00087A50 File Offset: 0x00085C50
 	public void GravityOverrideFunction(GTPlayer player)
 	{
 		this.gravityReductionAmount = 0f;
@@ -238,7 +238,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		player.AddForce(Physics.gravity * d * player.scale, ForceMode.Acceleration);
 	}
 
-	// Token: 0x0600066B RID: 1643 RVA: 0x000257B9 File Offset: 0x000239B9
+	// Token: 0x060006AC RID: 1708 RVA: 0x00034E76 File Offset: 0x00033076
 	private IEnumerator FadeAudioIn(AudioSource source, float maxVolume, float duration)
 	{
 		if (source != null)
@@ -256,7 +256,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		yield break;
 	}
 
-	// Token: 0x0600066C RID: 1644 RVA: 0x000257D6 File Offset: 0x000239D6
+	// Token: 0x060006AD RID: 1709 RVA: 0x00034E93 File Offset: 0x00033093
 	private IEnumerator FadeAudioOut(AudioSource source, float duration)
 	{
 		if (source != null)
@@ -274,7 +274,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		yield break;
 	}
 
-	// Token: 0x0600066D RID: 1645 RVA: 0x000257EC File Offset: 0x000239EC
+	// Token: 0x060006AE RID: 1710 RVA: 0x00087ADC File Offset: 0x00085CDC
 	public void VRRigEnteredSummonerProximity(VRRig rig, GreyZoneSummoner summoner)
 	{
 		if (!this.summoningPlayers.ContainsKey(rig.Creator.ActorNumber))
@@ -284,7 +284,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x0600066E RID: 1646 RVA: 0x0002584C File Offset: 0x00023A4C
+	// Token: 0x060006AF RID: 1711 RVA: 0x00087B3C File Offset: 0x00085D3C
 	public void VRRigExitedSummonerProximity(VRRig rig, GreyZoneSummoner summoner)
 	{
 		if (this.summoningPlayers.ContainsKey(rig.Creator.ActorNumber))
@@ -294,7 +294,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x0600066F RID: 1647 RVA: 0x000258A0 File Offset: 0x00023AA0
+	// Token: 0x060006B0 RID: 1712 RVA: 0x00087B90 File Offset: 0x00085D90
 	private void UpdateSummonerVisuals()
 	{
 		bool greyZoneAvailable = this.GreyZoneAvailable;
@@ -304,7 +304,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x06000670 RID: 1648 RVA: 0x000258DC File Offset: 0x00023ADC
+	// Token: 0x060006B1 RID: 1713 RVA: 0x00087BCC File Offset: 0x00085DCC
 	private void ValidateSummoningPlayers()
 	{
 		this.invalidSummoners.Clear();
@@ -324,7 +324,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x06000671 RID: 1649 RVA: 0x00025A04 File Offset: 0x00023C04
+	// Token: 0x060006B2 RID: 1714 RVA: 0x00087CF4 File Offset: 0x00085EF4
 	private int DayNightOverrideFunction(int inputIndex)
 	{
 		int num = 0;
@@ -342,7 +342,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		return num;
 	}
 
-	// Token: 0x06000672 RID: 1650 RVA: 0x00025A2E File Offset: 0x00023C2E
+	// Token: 0x060006B3 RID: 1715 RVA: 0x00034EA9 File Offset: 0x000330A9
 	private void Awake()
 	{
 		if (GreyZoneManager.Instance == null)
@@ -351,10 +351,10 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 			this.greyZoneAmbienceVolume = this.greyZoneAmbience.volume;
 			return;
 		}
-		Object.Destroy(this);
+		UnityEngine.Object.Destroy(this);
 	}
 
-	// Token: 0x06000673 RID: 1651 RVA: 0x00025A64 File Offset: 0x00023C64
+	// Token: 0x060006B4 RID: 1716 RVA: 0x00087D20 File Offset: 0x00085F20
 	private void OnEnable()
 	{
 		if (this.forceTimeOfDayToNight)
@@ -367,7 +367,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x06000674 RID: 1652 RVA: 0x00025A9C File Offset: 0x00023C9C
+	// Token: 0x060006B5 RID: 1717 RVA: 0x00087D58 File Offset: 0x00085F58
 	private void OnDisable()
 	{
 		this.ForceStopGreyZone();
@@ -381,7 +381,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x06000675 RID: 1653 RVA: 0x00025ACE File Offset: 0x00023CCE
+	// Token: 0x060006B6 RID: 1718 RVA: 0x00034EDC File Offset: 0x000330DC
 	private void Update()
 	{
 		if (this.HasAuthority)
@@ -391,7 +391,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		this.SharedUpdate();
 	}
 
-	// Token: 0x06000676 RID: 1654 RVA: 0x00025AE4 File Offset: 0x00023CE4
+	// Token: 0x060006B7 RID: 1719 RVA: 0x00087D8C File Offset: 0x00085F8C
 	private void AuthorityUpdate()
 	{
 		float deltaTime = Time.deltaTime;
@@ -459,7 +459,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x06000677 RID: 1655 RVA: 0x00025D3C File Offset: 0x00023F3C
+	// Token: 0x060006B8 RID: 1720 RVA: 0x00087FE4 File Offset: 0x000861E4
 	private void SharedUpdate()
 	{
 		GTPlayer instance = GTPlayer.Instance;
@@ -486,7 +486,7 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x06000678 RID: 1656 RVA: 0x00025E50 File Offset: 0x00024050
+	// Token: 0x060006B9 RID: 1721 RVA: 0x000880F8 File Offset: 0x000862F8
 	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.IsWriting)
@@ -519,42 +519,42 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		}
 	}
 
-	// Token: 0x06000679 RID: 1657 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060006BA RID: 1722 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnPlayerEnteredRoom(Player newPlayer)
 	{
 	}
 
-	// Token: 0x0600067A RID: 1658 RVA: 0x00025F71 File Offset: 0x00024171
+	// Token: 0x060006BB RID: 1723 RVA: 0x00034EF2 File Offset: 0x000330F2
 	public void OnPlayerLeftRoom(Player otherPlayer)
 	{
 		this.ValidateSummoningPlayers();
 	}
 
-	// Token: 0x0600067B RID: 1659 RVA: 0x000023F4 File Offset: 0x000005F4
-	public void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
+	// Token: 0x060006BC RID: 1724 RVA: 0x00030607 File Offset: 0x0002E807
+	public void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
 	{
 	}
 
-	// Token: 0x0600067C RID: 1660 RVA: 0x000023F4 File Offset: 0x000005F4
-	public void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
+	// Token: 0x060006BD RID: 1725 RVA: 0x00030607 File Offset: 0x0002E807
+	public void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
 	{
 	}
 
-	// Token: 0x0600067D RID: 1661 RVA: 0x00025F71 File Offset: 0x00024171
+	// Token: 0x060006BE RID: 1726 RVA: 0x00034EF2 File Offset: 0x000330F2
 	public void OnMasterClientSwitched(Player newMasterClient)
 	{
 		this.ValidateSummoningPlayers();
 	}
 
-	// Token: 0x040007A7 RID: 1959
+	// Token: 0x040007E8 RID: 2024
 	[OnEnterPlay_SetNull]
 	public static volatile GreyZoneManager Instance;
 
-	// Token: 0x040007A8 RID: 1960
+	// Token: 0x040007E9 RID: 2025
 	[SerializeField]
 	private float greyZoneActiveDuration = 90f;
 
-	// Token: 0x040007A9 RID: 1961
+	// Token: 0x040007EA RID: 2026
 	[SerializeField]
 	private float[] gravityFactorOptions = new float[]
 	{
@@ -563,109 +563,109 @@ public class GreyZoneManager : MonoBehaviourPun, IPunObservable, IInRoomCallback
 		0.75f
 	};
 
-	// Token: 0x040007AA RID: 1962
+	// Token: 0x040007EB RID: 2027
 	[SerializeField]
 	private int gravityFactorOptionSelection = 1;
 
-	// Token: 0x040007AB RID: 1963
+	// Token: 0x040007EC RID: 2028
 	[SerializeField]
 	private float summoningActivationTime = 3f;
 
-	// Token: 0x040007AC RID: 1964
+	// Token: 0x040007ED RID: 2029
 	[SerializeField]
 	private AudioSource greyZoneAmbience;
 
-	// Token: 0x040007AD RID: 1965
+	// Token: 0x040007EE RID: 2030
 	[SerializeField]
 	private float ambienceFadeTime = 4f;
 
-	// Token: 0x040007AE RID: 1966
+	// Token: 0x040007EF RID: 2031
 	[SerializeField]
 	private bool forceTimeOfDayToNight;
 
-	// Token: 0x040007AF RID: 1967
+	// Token: 0x040007F0 RID: 2032
 	[SerializeField]
 	private float skyMonsterMovementEnterTime = 4.5f;
 
-	// Token: 0x040007B0 RID: 1968
+	// Token: 0x040007F1 RID: 2033
 	[SerializeField]
 	private float skyMonsterMovementExitTime = 3.2f;
 
-	// Token: 0x040007B1 RID: 1969
+	// Token: 0x040007F2 RID: 2034
 	[SerializeField]
 	private float skyMonsterDistGravityRampBuffer = 0.15f;
 
-	// Token: 0x040007B2 RID: 1970
+	// Token: 0x040007F3 RID: 2035
 	[SerializeField]
 	[Range(0f, 1f)]
 	private float gravityReductionAmount = 1f;
 
-	// Token: 0x040007B3 RID: 1971
+	// Token: 0x040007F4 RID: 2036
 	[SerializeField]
 	private ParticleSystem greyZoneParticles;
 
-	// Token: 0x040007B4 RID: 1972
+	// Token: 0x040007F5 RID: 2037
 	[SerializeField]
 	private float particlePredictiveSpawnMaxDist = 4f;
 
-	// Token: 0x040007B5 RID: 1973
+	// Token: 0x040007F6 RID: 2038
 	[SerializeField]
 	private float particlePredictiveSpawnVelocityFactor = 0.5f;
 
-	// Token: 0x040007B6 RID: 1974
+	// Token: 0x040007F7 RID: 2039
 	private bool photonConnectedDuringActivation;
 
-	// Token: 0x040007B7 RID: 1975
+	// Token: 0x040007F8 RID: 2040
 	private double greyZoneActivationTime;
 
-	// Token: 0x040007B8 RID: 1976
+	// Token: 0x040007F9 RID: 2041
 	private bool greyZoneActive;
 
-	// Token: 0x040007B9 RID: 1977
+	// Token: 0x040007FA RID: 2042
 	private bool _tickRunning;
 
-	// Token: 0x040007BA RID: 1978
+	// Token: 0x040007FB RID: 2043
 	private float summoningProgress;
 
-	// Token: 0x040007BB RID: 1979
+	// Token: 0x040007FC RID: 2044
 	private List<GreyZoneSummoner> activeSummoners = new List<GreyZoneSummoner>();
 
-	// Token: 0x040007BC RID: 1980
+	// Token: 0x040007FD RID: 2045
 	private Dictionary<int, ValueTuple<VRRig, GreyZoneSummoner>> summoningPlayers = new Dictionary<int, ValueTuple<VRRig, GreyZoneSummoner>>();
 
-	// Token: 0x040007BD RID: 1981
+	// Token: 0x040007FE RID: 2046
 	private Dictionary<int, float> summoningPlayerProgress = new Dictionary<int, float>();
 
-	// Token: 0x040007BE RID: 1982
+	// Token: 0x040007FF RID: 2047
 	private HashSet<int> invalidSummoners = new HashSet<int>();
 
-	// Token: 0x040007BF RID: 1983
+	// Token: 0x04000800 RID: 2048
 	private Coroutine audioFadeCoroutine;
 
-	// Token: 0x040007C0 RID: 1984
+	// Token: 0x04000801 RID: 2049
 	private Player[] roomPlayerList;
 
-	// Token: 0x040007C1 RID: 1985
+	// Token: 0x04000802 RID: 2050
 	private ShaderHashId _GreyZoneActive = new ShaderHashId("_GreyZoneActive");
 
-	// Token: 0x040007C2 RID: 1986
+	// Token: 0x04000803 RID: 2051
 	private MoonController moonController;
 
-	// Token: 0x040007C3 RID: 1987
+	// Token: 0x04000804 RID: 2052
 	private float skyMonsterMovementVelocity;
 
-	// Token: 0x040007C4 RID: 1988
+	// Token: 0x04000805 RID: 2053
 	private bool gravityOverrideSet;
 
-	// Token: 0x040007C5 RID: 1989
+	// Token: 0x04000806 RID: 2054
 	private float greyZoneAmbienceVolume = 0.15f;
 
-	// Token: 0x040007C6 RID: 1990
+	// Token: 0x04000807 RID: 2055
 	private int greyZoneAvailableDayOfYear = new DateTime(2024, 10, 25).DayOfYear;
 
-	// Token: 0x040007C7 RID: 1991
+	// Token: 0x04000808 RID: 2056
 	public Action OnGreyZoneActivated;
 
-	// Token: 0x040007C8 RID: 1992
+	// Token: 0x04000809 RID: 2057
 	public Action OnGreyZoneDeactivated;
 }

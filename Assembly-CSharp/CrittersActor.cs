@@ -6,21 +6,40 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-// Token: 0x02000030 RID: 48
+// Token: 0x02000033 RID: 51
 public class CrittersActor : MonoBehaviour
 {
 	// Token: 0x14000001 RID: 1
-	// (add) Token: 0x060000B4 RID: 180 RVA: 0x0000535C File Offset: 0x0000355C
-	// (remove) Token: 0x060000B5 RID: 181 RVA: 0x00005394 File Offset: 0x00003594
+	// (add) Token: 0x060000C2 RID: 194 RVA: 0x0006A930 File Offset: 0x00068B30
+	// (remove) Token: 0x060000C3 RID: 195 RVA: 0x0006A968 File Offset: 0x00068B68
 	public event Action<CrittersActor> OnGrabbedChild;
 
-	// Token: 0x060000B6 RID: 182 RVA: 0x000053C9 File Offset: 0x000035C9
+	// Token: 0x060000C4 RID: 196 RVA: 0x0006A9A0 File Offset: 0x00068BA0
+	public virtual void UpdateAverageSpeed()
+	{
+		this.averageSpeed[this.averageSpeedIndex] = (base.transform.position - this.lastPosition).magnitude;
+		this.averageSpeedIndex++;
+		this.averageSpeedIndex %= 6;
+		this.lastPosition = base.transform.position;
+	}
+
+	// Token: 0x1700000E RID: 14
+	// (get) Token: 0x060000C5 RID: 197 RVA: 0x00030D1A File Offset: 0x0002EF1A
+	public float GetAverageSpeed
+	{
+		get
+		{
+			return (this.averageSpeed[0] + this.averageSpeed[1] + this.averageSpeed[2] + this.averageSpeed[3] + this.averageSpeed[4] + this.averageSpeed[5]) / 6f;
+		}
+	}
+
+	// Token: 0x060000C6 RID: 198 RVA: 0x00030D57 File Offset: 0x0002EF57
 	protected virtual void Awake()
 	{
 		this._isOnPlayerDefault = this.isOnPlayer;
 	}
 
-	// Token: 0x060000B7 RID: 183 RVA: 0x000053D8 File Offset: 0x000035D8
+	// Token: 0x060000C7 RID: 199 RVA: 0x0006AA08 File Offset: 0x00068C08
 	public virtual void Initialize()
 	{
 		if (this.defaultParentTransform == null)
@@ -71,20 +90,30 @@ public class CrittersActor : MonoBehaviour
 		this.rb.excludeLayers = CrittersManager.instance.containerLayer;
 	}
 
-	// Token: 0x060000B8 RID: 184 RVA: 0x00005576 File Offset: 0x00003776
+	// Token: 0x060000C8 RID: 200 RVA: 0x00030D65 File Offset: 0x0002EF65
 	public virtual void OnEnable()
 	{
 		CrittersManager.RegisterActor(this);
 		this.Initialize();
 	}
 
-	// Token: 0x060000B9 RID: 185 RVA: 0x00005584 File Offset: 0x00003784
+	// Token: 0x060000C9 RID: 201 RVA: 0x00030D73 File Offset: 0x0002EF73
 	public virtual void OnDisable()
 	{
 		this.CleanupActor();
 	}
 
-	// Token: 0x060000BA RID: 186 RVA: 0x0000558C File Offset: 0x0000378C
+	// Token: 0x060000CA RID: 202 RVA: 0x00030D7B File Offset: 0x0002EF7B
+	public virtual string GetActorSubtype()
+	{
+		if (this.subObjectIndex >= 0 && this.subObjectIndex < this.subObjects.Length)
+		{
+			return this.subObjects[this.subObjectIndex].name;
+		}
+		return base.name;
+	}
+
+	// Token: 0x060000CB RID: 203 RVA: 0x0006ABA8 File Offset: 0x00068DA8
 	protected virtual void CleanupActor()
 	{
 		CrittersManager.DeregisterActor(this);
@@ -129,7 +158,7 @@ public class CrittersActor : MonoBehaviour
 		this.localCanStore = false;
 	}
 
-	// Token: 0x060000BB RID: 187 RVA: 0x00005700 File Offset: 0x00003900
+	// Token: 0x060000CC RID: 204 RVA: 0x0006AD1C File Offset: 0x00068F1C
 	public virtual bool ProcessLocal()
 	{
 		this.updatedSinceLastFrame |= (this.isEnabled != this.wasEnabled || this.parentActorId != this.lastParentActorId);
@@ -138,7 +167,7 @@ public class CrittersActor : MonoBehaviour
 		return this.updatedSinceLastFrame;
 	}
 
-	// Token: 0x060000BC RID: 188 RVA: 0x0000575C File Offset: 0x0000395C
+	// Token: 0x060000CD RID: 205 RVA: 0x0006AD78 File Offset: 0x00068F78
 	public virtual void ProcessRemote()
 	{
 		bool flag = this.forceUpdate;
@@ -173,6 +202,7 @@ public class CrittersActor : MonoBehaviour
 				}
 				this.parentActor = crittersActor.transform;
 				base.transform.SetParent(this.parentActor, true);
+				this.SetImpulse();
 				if (crittersActor is CrittersBag)
 				{
 					((CrittersBag)crittersActor).AddStoredObjectCollider(this);
@@ -182,18 +212,24 @@ public class CrittersActor : MonoBehaviour
 					this.lastGrabbedPlayer = crittersActor.rigPlayerId;
 				}
 				crittersActor.RemoteGrabbed(this);
+				return;
 			}
 			else if (this.parentActorId == -1)
 			{
 				this.parentActor = null;
 				this.SetTransformToDefaultParent(false);
 				this.HandleRemoteReleased();
+				this.SetImpulse();
+				return;
 			}
 		}
-		this.SetImpulse();
+		else
+		{
+			this.SetImpulse();
+		}
 	}
 
-	// Token: 0x060000BD RID: 189 RVA: 0x0000589C File Offset: 0x00003A9C
+	// Token: 0x060000CE RID: 206 RVA: 0x0006AEC4 File Offset: 0x000690C4
 	public virtual void SetImpulse()
 	{
 		if (this.isOnPlayer || this.isSceneActor)
@@ -210,8 +246,8 @@ public class CrittersActor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000BE RID: 190 RVA: 0x00005930 File Offset: 0x00003B30
-	public void TogglePhysics(bool enable)
+	// Token: 0x060000CF RID: 207 RVA: 0x0006AF58 File Offset: 0x00069158
+	public virtual void TogglePhysics(bool enable)
 	{
 		if (enable)
 		{
@@ -225,7 +261,7 @@ public class CrittersActor : MonoBehaviour
 		this.rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
 	}
 
-	// Token: 0x060000BF RID: 191 RVA: 0x0000598C File Offset: 0x00003B8C
+	// Token: 0x060000D0 RID: 208 RVA: 0x0006AFB4 File Offset: 0x000691B4
 	public void AddPlayerCrittersActorDataToList(ref List<object> objList)
 	{
 		objList.Add(this.actorId);
@@ -234,7 +270,7 @@ public class CrittersActor : MonoBehaviour
 		objList.Add(this.rigIndex);
 	}
 
-	// Token: 0x060000C0 RID: 192 RVA: 0x000059E4 File Offset: 0x00003BE4
+	// Token: 0x060000D1 RID: 209 RVA: 0x0006B00C File Offset: 0x0006920C
 	public virtual int AddActorDataToList(ref List<object> objList)
 	{
 		objList.Add(this.actorId);
@@ -249,19 +285,19 @@ public class CrittersActor : MonoBehaviour
 		return this.BaseActorDataLength();
 	}
 
-	// Token: 0x060000C1 RID: 193 RVA: 0x00005A99 File Offset: 0x00003C99
+	// Token: 0x060000D2 RID: 210 RVA: 0x00030DAF File Offset: 0x0002EFAF
 	public int BaseActorDataLength()
 	{
 		return 9;
 	}
 
-	// Token: 0x060000C2 RID: 194 RVA: 0x00005A99 File Offset: 0x00003C99
+	// Token: 0x060000D3 RID: 211 RVA: 0x00030DAF File Offset: 0x0002EFAF
 	public virtual int TotalActorDataLength()
 	{
 		return 9;
 	}
 
-	// Token: 0x060000C3 RID: 195 RVA: 0x00005AA0 File Offset: 0x00003CA0
+	// Token: 0x060000D4 RID: 212 RVA: 0x0006B0C4 File Offset: 0x000692C4
 	public virtual int UpdateFromRPC(object[] data, int startingIndex)
 	{
 		double value;
@@ -324,7 +360,7 @@ public class CrittersActor : MonoBehaviour
 		return this.BaseActorDataLength();
 	}
 
-	// Token: 0x060000C4 RID: 196 RVA: 0x00005C00 File Offset: 0x00003E00
+	// Token: 0x060000D5 RID: 213 RVA: 0x0006B224 File Offset: 0x00069424
 	public int UpdatePlayerCrittersActorFromRPC(object[] data, int startingIndex)
 	{
 		bool flag;
@@ -353,7 +389,7 @@ public class CrittersActor : MonoBehaviour
 		return 4;
 	}
 
-	// Token: 0x060000C5 RID: 197 RVA: 0x00005C94 File Offset: 0x00003E94
+	// Token: 0x060000D6 RID: 214 RVA: 0x0006B2B8 File Offset: 0x000694B8
 	public virtual bool UpdateSpecificActor(PhotonStream stream)
 	{
 		double num;
@@ -412,7 +448,7 @@ public class CrittersActor : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x060000C6 RID: 198 RVA: 0x00005E38 File Offset: 0x00004038
+	// Token: 0x060000D7 RID: 215 RVA: 0x0006B45C File Offset: 0x0006965C
 	public virtual void SendDataByCrittersActorType(PhotonStream stream)
 	{
 		stream.SendNext(this.actorId);
@@ -427,19 +463,19 @@ public class CrittersActor : MonoBehaviour
 		this.updatedSinceLastFrame = false;
 	}
 
-	// Token: 0x060000C7 RID: 199 RVA: 0x00005EE5 File Offset: 0x000040E5
+	// Token: 0x060000D8 RID: 216 RVA: 0x00030DB3 File Offset: 0x0002EFB3
 	public virtual void OnHover(bool isLeft)
 	{
 		GorillaTagger.Instance.StartVibration(isLeft, GorillaTagger.Instance.tapHapticStrength / 8f, GorillaTagger.Instance.tapHapticDuration * 0.5f);
 	}
 
-	// Token: 0x060000C8 RID: 200 RVA: 0x00005F12 File Offset: 0x00004112
+	// Token: 0x060000D9 RID: 217 RVA: 0x00030DE0 File Offset: 0x0002EFE0
 	public virtual bool CanBeGrabbed(CrittersActor grabbedBy)
 	{
 		return !this.isGrabDisabled && this.grabbable;
 	}
 
-	// Token: 0x060000C9 RID: 201 RVA: 0x00005F24 File Offset: 0x00004124
+	// Token: 0x060000DA RID: 218 RVA: 0x0006B50C File Offset: 0x0006970C
 	public static CrittersActor GetRootActor(int actorId)
 	{
 		CrittersActor crittersActor;
@@ -454,51 +490,92 @@ public class CrittersActor : MonoBehaviour
 		return crittersActor;
 	}
 
-	// Token: 0x060000CA RID: 202 RVA: 0x00005F60 File Offset: 0x00004160
+	// Token: 0x060000DB RID: 219 RVA: 0x0006B548 File Offset: 0x00069748
+	public static CrittersActor GetParentActor(int actorId)
+	{
+		CrittersActor result;
+		if (CrittersManager.instance.actorById.TryGetValue(actorId, out result))
+		{
+			return result;
+		}
+		return null;
+	}
+
+	// Token: 0x060000DC RID: 220 RVA: 0x0006B570 File Offset: 0x00069770
 	public bool AllowGrabbingActor(CrittersActor grabbedBy)
 	{
 		if (this.parentActorId == -1)
 		{
 			return true;
 		}
-		CrittersActor crittersActor;
-		if (this.crittersActorType == CrittersActor.CrittersActorType.Bag)
+		if (grabbedBy.crittersActorType != CrittersActor.CrittersActorType.Grabber)
 		{
-			if (!CrittersManager.instance.allowGrabbingEntireBag)
-			{
-				CrittersActor rootActor = CrittersActor.GetRootActor(this.actorId);
-				return rootActor.rigPlayerId == grabbedBy.rigPlayerId || rootActor.rigPlayerId == -1;
-			}
+			return true;
 		}
-		else if (CrittersManager.instance.actorById.TryGetValue(this.parentActorId, out crittersActor))
+		CrittersActor rootActor = CrittersActor.GetRootActor(grabbedBy.actorId);
+		CrittersActor crittersActor;
+		if (CrittersManager.instance.actorById.TryGetValue(this.parentActorId, out crittersActor))
 		{
 			if (crittersActor.crittersActorType == CrittersActor.CrittersActorType.Bag)
 			{
 				if (!CrittersManager.instance.allowGrabbingFromBags)
 				{
 					CrittersActor rootActor2 = CrittersActor.GetRootActor(this.actorId);
-					return rootActor2.rigPlayerId == grabbedBy.rigPlayerId || rootActor2.rigPlayerId == -1;
+					Debug.Log(string.Format("Grieffing - FromBag {0} == {1} || {2} == -1 || {3} == -1  - ", new object[]
+					{
+						rootActor2.rigPlayerId,
+						rootActor.rigPlayerId,
+						crittersActor.parentActorId,
+						rootActor.rigPlayerId
+					}) + string.Format(" {0}", rootActor2.rigPlayerId == rootActor.rigPlayerId || rootActor2.rigPlayerId == -1 || rootActor.rigPlayerId == -1));
+					return rootActor2.rigPlayerId == rootActor.rigPlayerId || rootActor2.rigPlayerId == -1 || rootActor.rigPlayerId == -1;
+				}
+			}
+			else if (crittersActor.crittersActorType == CrittersActor.CrittersActorType.BodyAttachPoint)
+			{
+				if (!CrittersManager.instance.allowGrabbingEntireBag)
+				{
+					Debug.Log(string.Format("Grieffing - EntireBag {0} == {1} || {2} == -1 || {3} == -1  -  {4}", new object[]
+					{
+						crittersActor.rigPlayerId,
+						rootActor.rigPlayerId,
+						crittersActor.parentActorId,
+						rootActor.rigPlayerId,
+						crittersActor.rigPlayerId == rootActor.rigPlayerId || crittersActor.rigPlayerId == -1 || rootActor.rigPlayerId == -1
+					}));
+					return crittersActor.rigPlayerId == rootActor.rigPlayerId || crittersActor.rigPlayerId == -1 || rootActor.rigPlayerId == -1;
 				}
 			}
 			else if (crittersActor.crittersActorType == CrittersActor.CrittersActorType.Grabber && !CrittersManager.instance.allowGrabbingOutOfHands)
 			{
-				CrittersActor rootActor3 = CrittersActor.GetRootActor(this.actorId);
-				return rootActor3.rigPlayerId == grabbedBy.rigPlayerId || rootActor3.rigPlayerId == -1 || (grabbedBy.rigPlayerId == 0 && grabbedBy.crittersActorType == CrittersActor.CrittersActorType.AttachPoint && grabbedBy.isSceneActor);
+				Debug.Log(string.Format("Grieffing - InHand {0} == {1} || {2} == -1 || {3} == -1  -  {4}", new object[]
+				{
+					crittersActor.rigPlayerId,
+					rootActor.rigPlayerId,
+					crittersActor.parentActorId,
+					rootActor.rigPlayerId,
+					crittersActor.rigPlayerId == rootActor.rigPlayerId || crittersActor.rigPlayerId == -1 || rootActor.rigPlayerId == -1
+				}));
+				return crittersActor.rigPlayerId == rootActor.rigPlayerId || crittersActor.rigPlayerId == -1 || rootActor.rigPlayerId == -1;
 			}
 		}
 		return true;
 	}
 
-	// Token: 0x060000CB RID: 203 RVA: 0x00006070 File Offset: 0x00004270
+	// Token: 0x060000DD RID: 221 RVA: 0x0006B804 File Offset: 0x00069A04
 	public bool IsCurrentlyAttachedToBag()
 	{
 		CrittersActor crittersActor;
 		return CrittersManager.instance.actorById.TryGetValue(this.parentActorId, out crittersActor) && crittersActor.crittersActorType == CrittersActor.CrittersActorType.Bag;
 	}
 
-	// Token: 0x060000CC RID: 204 RVA: 0x000060A4 File Offset: 0x000042A4
+	// Token: 0x060000DE RID: 222 RVA: 0x00030DF2 File Offset: 0x0002EFF2
 	public void SetTransformToDefaultParent(bool resetOrigin = false)
 	{
+		if (this.IsNull())
+		{
+			return;
+		}
 		base.transform.SetParent(this.defaultParentTransform, true);
 		if (resetOrigin)
 		{
@@ -507,13 +584,13 @@ public class CrittersActor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000CD RID: 205 RVA: 0x000060DB File Offset: 0x000042DB
+	// Token: 0x060000DF RID: 223 RVA: 0x00030E32 File Offset: 0x0002F032
 	public void SetDefaultParent(Transform newDefaultParent)
 	{
 		this.defaultParentTransform = newDefaultParent;
 	}
 
-	// Token: 0x060000CE RID: 206 RVA: 0x000060E4 File Offset: 0x000042E4
+	// Token: 0x060000E0 RID: 224 RVA: 0x00030E3B File Offset: 0x0002F03B
 	protected virtual void RemoteGrabbed(CrittersActor actor)
 	{
 		Action<CrittersActor> onGrabbedChild = this.OnGrabbedChild;
@@ -524,13 +601,13 @@ public class CrittersActor : MonoBehaviour
 		actor.RemoteGrabbedBy(this);
 	}
 
-	// Token: 0x060000CF RID: 207 RVA: 0x000060FF File Offset: 0x000042FF
+	// Token: 0x060000E1 RID: 225 RVA: 0x00030E56 File Offset: 0x0002F056
 	protected virtual void RemoteGrabbedBy(CrittersActor grabbingActor)
 	{
 		this.GlobalGrabbedBy(grabbingActor);
 	}
 
-	// Token: 0x060000D0 RID: 208 RVA: 0x00006108 File Offset: 0x00004308
+	// Token: 0x060000E2 RID: 226 RVA: 0x0006B838 File Offset: 0x00069A38
 	public virtual void GrabbedBy(CrittersActor grabbingActor, bool positionOverride = false, Quaternion localRotation = default(Quaternion), Vector3 localOffset = default(Vector3), bool disableGrabbing = false)
 	{
 		this.GlobalGrabbedBy(grabbingActor);
@@ -576,18 +653,18 @@ public class CrittersActor : MonoBehaviour
 		this.AttemptAddStoredObjectCollider(grabbingActor);
 	}
 
-	// Token: 0x060000D1 RID: 209 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060000E3 RID: 227 RVA: 0x00030607 File Offset: 0x0002E807
 	protected virtual void GlobalGrabbedBy(CrittersActor grabbingActor)
 	{
 	}
 
-	// Token: 0x060000D2 RID: 210 RVA: 0x0000628F File Offset: 0x0000448F
+	// Token: 0x060000E4 RID: 228 RVA: 0x00030E5F File Offset: 0x0002F05F
 	protected virtual void HandleRemoteReleased()
 	{
 		this.DisconnectJoint();
 	}
 
-	// Token: 0x060000D3 RID: 211 RVA: 0x00006298 File Offset: 0x00004498
+	// Token: 0x060000E5 RID: 229 RVA: 0x0006B9C0 File Offset: 0x00069BC0
 	public virtual void Released(bool keepWorldPosition, Quaternion rotation = default(Quaternion), Vector3 position = default(Vector3), Vector3 impulseVelocity = default(Vector3), Vector3 impulseAngularVelocity = default(Vector3))
 	{
 		if (this.parentActorId >= 0)
@@ -645,7 +722,7 @@ public class CrittersActor : MonoBehaviour
 		this.ReleasedEvent.RemoveAllListeners();
 	}
 
-	// Token: 0x060000D4 RID: 212 RVA: 0x00006458 File Offset: 0x00004658
+	// Token: 0x060000E6 RID: 230 RVA: 0x0006BB80 File Offset: 0x00069D80
 	public void PlacePlayerCrittersActor()
 	{
 		if (this.rigIndex == -1)
@@ -683,7 +760,7 @@ public class CrittersActor : MonoBehaviour
 		};
 	}
 
-	// Token: 0x060000D5 RID: 213 RVA: 0x000065D4 File Offset: 0x000047D4
+	// Token: 0x060000E7 RID: 231 RVA: 0x0006BCFC File Offset: 0x00069EFC
 	public void MoveActor(Vector3 position, Quaternion rotation, bool local = false, bool updateImpulses = true, bool updateImpulseTime = true)
 	{
 		bool isKinematic = this.rb.isKinematic;
@@ -712,7 +789,7 @@ public class CrittersActor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000D6 RID: 214 RVA: 0x00006654 File Offset: 0x00004854
+	// Token: 0x060000E8 RID: 232 RVA: 0x0006BD7C File Offset: 0x00069F7C
 	public void UpdateImpulses(bool local = false, bool updateTime = false)
 	{
 		if (local)
@@ -731,7 +808,7 @@ public class CrittersActor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000D7 RID: 215 RVA: 0x000066B3 File Offset: 0x000048B3
+	// Token: 0x060000E9 RID: 233 RVA: 0x00030E67 File Offset: 0x0002F067
 	public void UpdateImpulseVelocity()
 	{
 		if (this.rb)
@@ -741,38 +818,38 @@ public class CrittersActor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000D8 RID: 216 RVA: 0x000066E4 File Offset: 0x000048E4
+	// Token: 0x060000EA RID: 234 RVA: 0x0006BDDC File Offset: 0x00069FDC
 	public virtual void CalculateFear(CrittersPawn critter, float multiplier)
 	{
 		critter.IncreaseFear(this.FearCurve.Evaluate(Vector3.Distance(critter.transform.position, base.transform.position) / this.maxRangeOfFearAttraction) * multiplier * this.FearAmount * Time.deltaTime, this);
 	}
 
-	// Token: 0x060000D9 RID: 217 RVA: 0x00006734 File Offset: 0x00004934
+	// Token: 0x060000EB RID: 235 RVA: 0x0006BE2C File Offset: 0x0006A02C
 	public virtual void CalculateAttraction(CrittersPawn critter, float multiplier)
 	{
 		critter.IncreaseAttraction(this.AttractionCurve.Evaluate(Vector3.Distance(critter.transform.position, base.transform.position) / this.maxRangeOfFearAttraction) * multiplier * this.AttractionAmount * Time.deltaTime, this);
 	}
 
-	// Token: 0x060000DA RID: 218 RVA: 0x00006784 File Offset: 0x00004984
+	// Token: 0x060000EC RID: 236 RVA: 0x00030E98 File Offset: 0x0002F098
 	public void SetImpulseVelocity(Vector3 velocity, Vector3 angularVelocity)
 	{
 		this.lastImpulseVelocity = velocity;
 		this.lastImpulseAngularVelocity = angularVelocity;
 	}
 
-	// Token: 0x060000DB RID: 219 RVA: 0x00006794 File Offset: 0x00004994
+	// Token: 0x060000ED RID: 237 RVA: 0x00030EA8 File Offset: 0x0002F0A8
 	public void SetImpulseTime()
 	{
 		this.lastImpulseTime = (PhotonNetwork.InRoom ? PhotonNetwork.Time : ((double)Time.time));
 	}
 
-	// Token: 0x060000DC RID: 220 RVA: 0x000067B0 File Offset: 0x000049B0
+	// Token: 0x060000EE RID: 238 RVA: 0x0006BE7C File Offset: 0x0006A07C
 	public virtual bool ShouldDespawn()
 	{
 		return this.despawnWhenIdle && this.parentActorId == -1 && !this.isDespawnBlocked && 0.0 < this.despawnTime && this.despawnTime <= (PhotonNetwork.InRoom ? PhotonNetwork.Time : ((double)Time.time));
 	}
 
-	// Token: 0x060000DD RID: 221 RVA: 0x00006806 File Offset: 0x00004A06
+	// Token: 0x060000EF RID: 239 RVA: 0x00030EC4 File Offset: 0x0002F0C4
 	public void RemoveDespawnBlock()
 	{
 		if (this.despawnWhenIdle)
@@ -782,7 +859,7 @@ public class CrittersActor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000DE RID: 222 RVA: 0x0000683C File Offset: 0x00004A3C
+	// Token: 0x060000F0 RID: 240 RVA: 0x0006BED4 File Offset: 0x0006A0D4
 	public virtual bool CheckStorable()
 	{
 		if (!this.localCanStore)
@@ -794,6 +871,11 @@ public class CrittersActor : MonoBehaviour
 		bool flag = false;
 		CrittersBag crittersBag = null;
 		bool flag2 = true;
+		CrittersActor crittersActor = null;
+		if (this.lastGrabbedPlayer == PhotonNetwork.LocalPlayer.ActorNumber && CrittersManager.instance.actorById.TryGetValue(this.parentActorId, out crittersActor) && crittersActor.GetAverageSpeed > CrittersManager.instance.MaxAttachSpeed)
+		{
+			return false;
+		}
 		if (num > 0)
 		{
 			for (int i = 0; i < num; i++)
@@ -810,32 +892,34 @@ public class CrittersActor : MonoBehaviour
 							flag2 = false;
 							break;
 						}
-						if (crittersBag2.attachableCollider != this.colliders[i] && !this.colliders[i].isTrigger)
+						if (crittersBag2.IsActorValidStore(this))
 						{
-							Vector3 vector;
-							float num2;
-							Physics.ComputePenetration(this.colliders[i], this.colliders[i].transform.position, this.colliders[i].transform.rotation, this.storeCollider, this.storeCollider.transform.position, this.storeCollider.transform.rotation, out vector, out num2);
-							if (num2 >= CrittersManager.instance.overlapDistanceMax)
+							if (crittersBag2.attachableCollider != this.colliders[i] && !this.colliders[i].isTrigger)
 							{
-								flag2 = false;
-								break;
+								Vector3 vector;
+								float num2;
+								Physics.ComputePenetration(this.colliders[i], this.colliders[i].transform.position, this.colliders[i].transform.rotation, this.storeCollider, this.storeCollider.transform.position, this.storeCollider.transform.rotation, out vector, out num2);
+								if (num2 >= CrittersManager.instance.overlapDistanceMax)
+								{
+									flag2 = false;
+									break;
+								}
 							}
-						}
-						else
-						{
-							crittersBag = crittersBag2;
+							else
+							{
+								crittersBag = crittersBag2;
+							}
 						}
 					}
 				}
 			}
 		}
-		if (crittersBag != null && flag2)
+		if (crittersBag.IsNotNull() && flag2)
 		{
-			CrittersActor crittersActor;
-			if (this.lastGrabbedPlayer == PhotonNetwork.LocalPlayer.ActorNumber && CrittersManager.instance.actorById.TryGetValue(this.parentActorId, out crittersActor))
+			if (crittersActor.IsNotNull())
 			{
 				CrittersGrabber crittersGrabber = crittersActor as CrittersGrabber;
-				if (crittersGrabber != null)
+				if (crittersGrabber.IsNotNull())
 				{
 					GorillaTagger.Instance.StartVibration(crittersGrabber.isLeft, GorillaTagger.Instance.tapHapticStrength / 2f, GorillaTagger.Instance.tapHapticDuration * 0.5f);
 				}
@@ -853,13 +937,16 @@ public class CrittersActor : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x060000DF RID: 223 RVA: 0x00006AC8 File Offset: 0x00004CC8
+	// Token: 0x060000F1 RID: 241 RVA: 0x0006C18C File Offset: 0x0006A38C
 	public void SetJointRigid(Rigidbody rbToConnect)
 	{
 		if (this.joint != null)
 		{
 			return;
 		}
+		string str = "Critters SetJointRigid ";
+		GameObject gameObject = base.gameObject;
+		Debug.Log(str + ((gameObject != null) ? gameObject.ToString() : null));
 		this.CreateJoint(rbToConnect, false);
 		this.joint.xMotion = ConfigurableJointMotion.Locked;
 		this.joint.yMotion = ConfigurableJointMotion.Locked;
@@ -871,13 +958,16 @@ public class CrittersActor : MonoBehaviour
 		this.TogglePhysics(true);
 	}
 
-	// Token: 0x060000E0 RID: 224 RVA: 0x00006B54 File Offset: 0x00004D54
+	// Token: 0x060000F2 RID: 242 RVA: 0x0006C238 File Offset: 0x0006A438
 	public void SetJointSoft(Rigidbody rbToConnect)
 	{
 		if (this.joint != null)
 		{
 			return;
 		}
+		string str = "Critters SetJointSoft ";
+		GameObject gameObject = base.gameObject;
+		Debug.Log(str + ((gameObject != null) ? gameObject.ToString() : null));
 		this.CreateJoint(rbToConnect, true);
 		this.joint.xMotion = ConfigurableJointMotion.Limited;
 		this.joint.yMotion = ConfigurableJointMotion.Limited;
@@ -889,7 +979,7 @@ public class CrittersActor : MonoBehaviour
 		this.TogglePhysics(true);
 	}
 
-	// Token: 0x060000E1 RID: 225 RVA: 0x00006BE0 File Offset: 0x00004DE0
+	// Token: 0x060000F3 RID: 243 RVA: 0x0006C2E4 File Offset: 0x0006A4E4
 	private void CreateJoint(Rigidbody rbToConnect, bool setParentNull = true)
 	{
 		if (this.joint != null)
@@ -937,14 +1027,14 @@ public class CrittersActor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000E2 RID: 226 RVA: 0x00006DD0 File Offset: 0x00004FD0
+	// Token: 0x060000F4 RID: 244 RVA: 0x0006C4D4 File Offset: 0x0006A6D4
 	public void DisconnectJoint()
 	{
 		this.rb.excludeLayers = CrittersManager.instance.containerLayer;
 		this.rb.useGravity = true;
 		if (this.joint != null)
 		{
-			Object.Destroy(this.joint);
+			UnityEngine.Object.Destroy(this.joint);
 		}
 		this.joint = null;
 		if (this.parentActorId != -1)
@@ -957,7 +1047,7 @@ public class CrittersActor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000E3 RID: 227 RVA: 0x00006E74 File Offset: 0x00005074
+	// Token: 0x060000F5 RID: 245 RVA: 0x0006C578 File Offset: 0x0006A778
 	public void AttemptRemoveStoredObjectCollider(int oldParentId, bool playSound = true)
 	{
 		CrittersActor crittersActor;
@@ -967,7 +1057,7 @@ public class CrittersActor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000E4 RID: 228 RVA: 0x00006EAC File Offset: 0x000050AC
+	// Token: 0x060000F6 RID: 246 RVA: 0x00030EF7 File Offset: 0x0002F0F7
 	public void AttemptAddStoredObjectCollider(CrittersActor actor)
 	{
 		if (actor is CrittersBag)
@@ -976,7 +1066,7 @@ public class CrittersActor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000E5 RID: 229 RVA: 0x00006EC2 File Offset: 0x000050C2
+	// Token: 0x060000F7 RID: 247 RVA: 0x00030F0D File Offset: 0x0002F10D
 	public bool AttemptSetEquipmentStorable()
 	{
 		if (!this.equipmentStorable)
@@ -987,222 +1077,231 @@ public class CrittersActor : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x040000D6 RID: 214
+	// Token: 0x040000DC RID: 220
 	public CrittersActor.CrittersActorType crittersActorType;
 
-	// Token: 0x040000D7 RID: 215
+	// Token: 0x040000DD RID: 221
 	public bool isSceneActor;
 
-	// Token: 0x040000D8 RID: 216
+	// Token: 0x040000DE RID: 222
 	public bool isOnPlayer;
 
-	// Token: 0x040000D9 RID: 217
+	// Token: 0x040000DF RID: 223
 	[NonSerialized]
 	protected bool _isOnPlayerDefault;
 
-	// Token: 0x040000DA RID: 218
+	// Token: 0x040000E0 RID: 224
 	public int rigPlayerId;
 
-	// Token: 0x040000DB RID: 219
+	// Token: 0x040000E1 RID: 225
 	public int rigIndex;
 
-	// Token: 0x040000DC RID: 220
+	// Token: 0x040000E2 RID: 226
 	public bool grabbable;
 
-	// Token: 0x040000DD RID: 221
+	// Token: 0x040000E3 RID: 227
 	protected bool isGrabDisabled;
 
-	// Token: 0x040000DE RID: 222
+	// Token: 0x040000E4 RID: 228
 	public int lastGrabbedPlayer;
 
-	// Token: 0x040000DF RID: 223
+	// Token: 0x040000E5 RID: 229
 	public UnityEvent<CrittersActor> ReleasedEvent;
 
-	// Token: 0x040000E1 RID: 225
-	public Rigidbody rb;
-
-	// Token: 0x040000E2 RID: 226
-	[NonSerialized]
-	public int actorId;
-
-	// Token: 0x040000E3 RID: 227
-	[NonSerialized]
-	protected Transform defaultParentTransform;
-
-	// Token: 0x040000E4 RID: 228
-	[NonSerialized]
-	public int parentActorId = -1;
-
-	// Token: 0x040000E5 RID: 229
-	[NonSerialized]
-	protected int lastParentActorId;
-
-	// Token: 0x040000E6 RID: 230
-	[NonSerialized]
-	public Vector3 lastImpulsePosition;
-
 	// Token: 0x040000E7 RID: 231
-	[NonSerialized]
-	public Vector3 lastImpulseVelocity;
+	public Rigidbody rb;
 
 	// Token: 0x040000E8 RID: 232
 	[NonSerialized]
-	public Vector3 lastImpulseAngularVelocity;
+	public int actorId;
 
 	// Token: 0x040000E9 RID: 233
 	[NonSerialized]
-	public Quaternion lastImpulseQuaternion;
+	protected Transform defaultParentTransform;
 
 	// Token: 0x040000EA RID: 234
 	[NonSerialized]
-	public double lastImpulseTime;
+	public int parentActorId = -1;
 
 	// Token: 0x040000EB RID: 235
 	[NonSerialized]
-	public bool updatedSinceLastFrame;
+	protected int lastParentActorId;
 
 	// Token: 0x040000EC RID: 236
-	public bool isEnabled = true;
+	[NonSerialized]
+	public Vector3 lastImpulsePosition;
 
 	// Token: 0x040000ED RID: 237
-	public bool wasEnabled = true;
+	[NonSerialized]
+	public Vector3 lastImpulseVelocity;
 
 	// Token: 0x040000EE RID: 238
 	[NonSerialized]
-	protected double localLastImpulse;
+	public Vector3 lastImpulseAngularVelocity;
 
 	// Token: 0x040000EF RID: 239
 	[NonSerialized]
-	protected Transform parentActor;
+	public Quaternion lastImpulseQuaternion;
 
 	// Token: 0x040000F0 RID: 240
-	public GameObject[] subObjects;
+	[NonSerialized]
+	public double lastImpulseTime;
 
 	// Token: 0x040000F1 RID: 241
-	public int subObjectIndex = -1;
+	[NonSerialized]
+	public bool updatedSinceLastFrame;
 
 	// Token: 0x040000F2 RID: 242
-	public bool usesRB;
+	public bool isEnabled = true;
 
 	// Token: 0x040000F3 RID: 243
-	public bool resetPhysicsOnSpawn;
+	public bool wasEnabled = true;
 
 	// Token: 0x040000F4 RID: 244
-	public bool despawnWhenIdle;
+	[NonSerialized]
+	protected double localLastImpulse;
 
 	// Token: 0x040000F5 RID: 245
-	public bool preventDespawnUntilGrabbed;
+	[NonSerialized]
+	protected Transform parentActor;
 
 	// Token: 0x040000F6 RID: 246
-	public int despawnDelay;
+	public GameObject[] subObjects;
 
 	// Token: 0x040000F7 RID: 247
-	public double despawnTime;
+	public int subObjectIndex = -1;
 
 	// Token: 0x040000F8 RID: 248
-	public bool isDespawnBlocked;
+	public bool usesRB;
 
 	// Token: 0x040000F9 RID: 249
-	public bool equipmentStorable;
+	public bool resetPhysicsOnSpawn;
 
 	// Token: 0x040000FA RID: 250
-	public bool localCanStore;
+	public bool despawnWhenIdle;
 
 	// Token: 0x040000FB RID: 251
-	public CrittersActor lastStoredObject;
+	public bool preventDespawnUntilGrabbed;
 
 	// Token: 0x040000FC RID: 252
-	public CapsuleCollider storeCollider;
+	public int despawnDelay;
 
 	// Token: 0x040000FD RID: 253
+	public double despawnTime;
+
+	// Token: 0x040000FE RID: 254
+	public bool isDespawnBlocked;
+
+	// Token: 0x040000FF RID: 255
+	public bool equipmentStorable;
+
+	// Token: 0x04000100 RID: 256
+	public bool localCanStore;
+
+	// Token: 0x04000101 RID: 257
+	public CrittersActor lastStoredObject;
+
+	// Token: 0x04000102 RID: 258
+	public CapsuleCollider storeCollider;
+
+	// Token: 0x04000103 RID: 259
 	[NonSerialized]
 	public Collider[] colliders;
 
-	// Token: 0x040000FE RID: 254
+	// Token: 0x04000104 RID: 260
 	[NonSerialized]
 	public ConfigurableJoint joint;
 
-	// Token: 0x040000FF RID: 255
+	// Token: 0x04000105 RID: 261
 	[NonSerialized]
 	public float timeLastTouched;
 
-	// Token: 0x04000100 RID: 256
+	// Token: 0x04000106 RID: 262
 	private JointDrive drive;
 
-	// Token: 0x04000101 RID: 257
+	// Token: 0x04000107 RID: 263
 	private JointDrive angularDrive;
 
-	// Token: 0x04000102 RID: 258
+	// Token: 0x04000108 RID: 264
 	private SoftJointLimit linearLimitDrive;
 
-	// Token: 0x04000103 RID: 259
+	// Token: 0x04000109 RID: 265
 	private SoftJointLimitSpring linearLimitSpringDrive;
 
-	// Token: 0x04000104 RID: 260
+	// Token: 0x0400010A RID: 266
 	public CapsuleCollider equipmentStoreTriggerCollider;
 
-	// Token: 0x04000105 RID: 261
+	// Token: 0x0400010B RID: 267
 	public bool disconnectJointFlag;
 
-	// Token: 0x04000106 RID: 262
+	// Token: 0x0400010C RID: 268
 	public bool forceUpdate;
 
-	// Token: 0x04000107 RID: 263
+	// Token: 0x0400010D RID: 269
 	public float FearAmount = 1f;
 
-	// Token: 0x04000108 RID: 264
+	// Token: 0x0400010E RID: 270
 	public AnimationCurve FearCurve = AnimationCurve.Linear(0f, 1f, 1f, 1f);
 
-	// Token: 0x04000109 RID: 265
+	// Token: 0x0400010F RID: 271
 	public float AttractionAmount = 1f;
 
-	// Token: 0x0400010A RID: 266
+	// Token: 0x04000110 RID: 272
 	public AnimationCurve AttractionCurve = AnimationCurve.Linear(0f, 1f, 1f, 1f);
 
-	// Token: 0x0400010B RID: 267
+	// Token: 0x04000111 RID: 273
 	[FormerlySerializedAs("maxDetectionDistance")]
 	public float maxRangeOfFearAttraction = 3f;
 
-	// Token: 0x02000031 RID: 49
+	// Token: 0x04000112 RID: 274
+	protected float[] averageSpeed = new float[6];
+
+	// Token: 0x04000113 RID: 275
+	protected int averageSpeedIndex;
+
+	// Token: 0x04000114 RID: 276
+	private Vector3 lastPosition = Vector3.zero;
+
+	// Token: 0x02000034 RID: 52
 	public enum CrittersActorType
 	{
-		// Token: 0x0400010D RID: 269
-		Creature,
-		// Token: 0x0400010E RID: 270
-		Food,
-		// Token: 0x0400010F RID: 271
-		LoudNoise,
-		// Token: 0x04000110 RID: 272
-		BrightLight,
-		// Token: 0x04000111 RID: 273
-		Darkness,
-		// Token: 0x04000112 RID: 274
-		HidingArea,
-		// Token: 0x04000113 RID: 275
-		Disappear,
-		// Token: 0x04000114 RID: 276
-		Spawn,
-		// Token: 0x04000115 RID: 277
-		Player,
 		// Token: 0x04000116 RID: 278
-		Grabber,
+		Creature,
 		// Token: 0x04000117 RID: 279
-		Cage,
+		Food,
 		// Token: 0x04000118 RID: 280
-		FoodSpawner,
+		LoudNoise,
 		// Token: 0x04000119 RID: 281
-		AttachPoint,
+		BrightLight,
 		// Token: 0x0400011A RID: 282
-		StunBomb,
+		Darkness,
 		// Token: 0x0400011B RID: 283
-		Bag,
+		HidingArea,
 		// Token: 0x0400011C RID: 284
-		BodyAttachPoint,
+		Disappear,
 		// Token: 0x0400011D RID: 285
-		NoiseMaker,
+		Spawn,
 		// Token: 0x0400011E RID: 286
-		StickyTrap,
+		Player,
 		// Token: 0x0400011F RID: 287
+		Grabber,
+		// Token: 0x04000120 RID: 288
+		Cage,
+		// Token: 0x04000121 RID: 289
+		FoodSpawner,
+		// Token: 0x04000122 RID: 290
+		AttachPoint,
+		// Token: 0x04000123 RID: 291
+		StunBomb,
+		// Token: 0x04000124 RID: 292
+		Bag,
+		// Token: 0x04000125 RID: 293
+		BodyAttachPoint,
+		// Token: 0x04000126 RID: 294
+		NoiseMaker,
+		// Token: 0x04000127 RID: 295
+		StickyTrap,
+		// Token: 0x04000128 RID: 296
 		StickyGoo
 	}
 }

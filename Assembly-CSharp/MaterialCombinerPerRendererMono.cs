@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001E3 RID: 483
+// Token: 0x020001EE RID: 494
 public class MaterialCombinerPerRendererMono : MonoBehaviour
 {
-	// Token: 0x06000B59 RID: 2905 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000BA5 RID: 2981 RVA: 0x00030607 File Offset: 0x0002E807
 	protected void Awake()
 	{
 	}

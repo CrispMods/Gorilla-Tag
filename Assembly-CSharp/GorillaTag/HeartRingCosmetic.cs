@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B75 RID: 2933
+	// Token: 0x02000BA2 RID: 2978
 	[DefaultExecutionOrder(1250)]
 	public class HeartRingCosmetic : MonoBehaviour
 	{
-		// Token: 0x06004A51 RID: 19025 RVA: 0x00168673 File Offset: 0x00166873
+		// Token: 0x06004B9C RID: 19356 RVA: 0x00061B85 File Offset: 0x0005FD85
 		protected void Awake()
 		{
 			Application.quitting += delegate()
@@ -17,7 +17,7 @@ namespace GorillaTag
 			};
 		}
 
-		// Token: 0x06004A52 RID: 19026 RVA: 0x00168688 File Offset: 0x00166888
+		// Token: 0x06004B9D RID: 19357 RVA: 0x001A2364 File Offset: 0x001A0564
 		protected void OnEnable()
 		{
 			this.particleSystem = this.effects.GetComponentInChildren<ParticleSystem>(true);
@@ -36,7 +36,7 @@ namespace GorillaTag
 			this.maxVolume = this.audioSource.volume;
 		}
 
-		// Token: 0x06004A53 RID: 19027 RVA: 0x00168790 File Offset: 0x00166990
+		// Token: 0x06004B9E RID: 19358 RVA: 0x001A246C File Offset: 0x001A066C
 		protected void LateUpdate()
 		{
 			Transform transform = base.transform;
@@ -54,46 +54,46 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x04004BDA RID: 19418
+		// Token: 0x04004CD0 RID: 19664
 		public GameObject effects;
 
-		// Token: 0x04004BDB RID: 19419
+		// Token: 0x04004CD1 RID: 19665
 		[SerializeField]
 		private bool isHauntedVoiceChanger;
 
-		// Token: 0x04004BDC RID: 19420
+		// Token: 0x04004CD2 RID: 19666
 		[SerializeField]
 		private float hauntedVoicePitch = 0.75f;
 
-		// Token: 0x04004BDD RID: 19421
+		// Token: 0x04004CD3 RID: 19667
 		[AssignInCorePrefab]
 		public float effectActivationRadius = 0.15f;
 
-		// Token: 0x04004BDE RID: 19422
+		// Token: 0x04004CD4 RID: 19668
 		private readonly Vector3 headToMouthOffset = new Vector3(0f, 0.0208f, 0.171f);
 
-		// Token: 0x04004BDF RID: 19423
+		// Token: 0x04004CD5 RID: 19669
 		private VRRig ownerRig;
 
-		// Token: 0x04004BE0 RID: 19424
+		// Token: 0x04004CD6 RID: 19670
 		private Transform ownerHead;
 
-		// Token: 0x04004BE1 RID: 19425
+		// Token: 0x04004CD7 RID: 19671
 		private ParticleSystem particleSystem;
 
-		// Token: 0x04004BE2 RID: 19426
+		// Token: 0x04004CD8 RID: 19672
 		private AudioSource audioSource;
 
-		// Token: 0x04004BE3 RID: 19427
+		// Token: 0x04004CD9 RID: 19673
 		private float maxEmissionRate;
 
-		// Token: 0x04004BE4 RID: 19428
+		// Token: 0x04004CDA RID: 19674
 		private float maxVolume;
 
-		// Token: 0x04004BE5 RID: 19429
+		// Token: 0x04004CDB RID: 19675
 		private const float emissionFadeTime = 0.1f;
 
-		// Token: 0x04004BE6 RID: 19430
+		// Token: 0x04004CDC RID: 19676
 		private const float volumeFadeTime = 2f;
 	}
 }

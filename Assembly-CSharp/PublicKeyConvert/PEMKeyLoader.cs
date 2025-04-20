@@ -4,10 +4,10 @@ using System.Security.Cryptography;
 
 namespace PublicKeyConvert
 {
-	// Token: 0x020008F5 RID: 2293
+	// Token: 0x02000912 RID: 2322
 	public class PEMKeyLoader
 	{
-		// Token: 0x06003719 RID: 14105 RVA: 0x00104CF8 File Offset: 0x00102EF8
+		// Token: 0x060037EA RID: 14314 RVA: 0x00149B60 File Offset: 0x00147D60
 		private static bool CompareBytearrays(byte[] a, byte[] b)
 		{
 			if (a.Length != b.Length)
@@ -26,7 +26,7 @@ namespace PublicKeyConvert
 			return true;
 		}
 
-		// Token: 0x0600371A RID: 14106 RVA: 0x00104D30 File Offset: 0x00102F30
+		// Token: 0x060037EB RID: 14315 RVA: 0x00149B98 File Offset: 0x00147D98
 		public static RSACryptoServiceProvider CryptoServiceProviderFromPublicKeyInfo(byte[] x509key)
 		{
 			new byte[15];
@@ -141,7 +141,7 @@ namespace PublicKeyConvert
 			return result;
 		}
 
-		// Token: 0x0600371B RID: 14107 RVA: 0x00104EFC File Offset: 0x001030FC
+		// Token: 0x060037EC RID: 14316 RVA: 0x00149D64 File Offset: 0x00147F64
 		public static RSACryptoServiceProvider CryptoServiceProviderFromPublicKeyInfo(string base64EncodedKey)
 		{
 			try
@@ -154,7 +154,7 @@ namespace PublicKeyConvert
 			return null;
 		}
 
-		// Token: 0x04003A1E RID: 14878
+		// Token: 0x04003AE3 RID: 15075
 		private static byte[] SeqOID = new byte[]
 		{
 			48,

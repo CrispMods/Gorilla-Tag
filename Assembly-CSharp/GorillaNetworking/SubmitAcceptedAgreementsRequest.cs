@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000ABD RID: 2749
+	// Token: 0x02000AEA RID: 2794
 	public class SubmitAcceptedAgreementsRequest
 	{
-		// Token: 0x04004680 RID: 18048
+		// Token: 0x04004777 RID: 18295
 		public Dictionary<string, string> Agreements;
 	}
 }

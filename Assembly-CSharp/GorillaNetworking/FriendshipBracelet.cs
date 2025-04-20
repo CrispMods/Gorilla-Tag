@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000A9F RID: 2719
+	// Token: 0x02000ACC RID: 2764
 	public class FriendshipBracelet : MonoBehaviour
 	{
-		// Token: 0x060043F2 RID: 17394 RVA: 0x00142056 File Offset: 0x00140256
+		// Token: 0x06004537 RID: 17719 RVA: 0x0005D1AF File Offset: 0x0005B3AF
 		protected void Awake()
 		{
 			this.ownerRig = base.GetComponentInParent<VRRig>();
 		}
 
-		// Token: 0x060043F3 RID: 17395 RVA: 0x00142064 File Offset: 0x00140264
+		// Token: 0x06004538 RID: 17720 RVA: 0x0005D1BD File Offset: 0x0005B3BD
 		private AudioSource GetAudioSource()
 		{
 			if (!this.isLeftHand)
@@ -23,13 +23,13 @@ namespace GorillaNetworking
 			return this.ownerRig.leftHandPlayer;
 		}
 
-		// Token: 0x060043F4 RID: 17396 RVA: 0x00142085 File Offset: 0x00140285
+		// Token: 0x06004539 RID: 17721 RVA: 0x0005D1DE File Offset: 0x0005B3DE
 		private void OnEnable()
 		{
 			this.PlayAppearEffects();
 		}
 
-		// Token: 0x060043F5 RID: 17397 RVA: 0x0014208D File Offset: 0x0014028D
+		// Token: 0x0600453A RID: 17722 RVA: 0x0005D1E6 File Offset: 0x0005B3E6
 		public void PlayAppearEffects()
 		{
 			this.GetAudioSource().GTPlayOneShot(this.braceletFormedSound, 1f);
@@ -39,7 +39,7 @@ namespace GorillaNetworking
 			}
 		}
 
-		// Token: 0x060043F6 RID: 17398 RVA: 0x001420C0 File Offset: 0x001402C0
+		// Token: 0x0600453B RID: 17723 RVA: 0x00180640 File Offset: 0x0017E840
 		private void OnDisable()
 		{
 			if (!this.ownerRig.gameObject.activeInHierarchy)
@@ -53,7 +53,7 @@ namespace GorillaNetworking
 			}
 		}
 
-		// Token: 0x060043F7 RID: 17399 RVA: 0x00142110 File Offset: 0x00140310
+		// Token: 0x0600453C RID: 17724 RVA: 0x00180690 File Offset: 0x0017E890
 		public void UpdateBeads(List<Color> colors, int selfIndex)
 		{
 			int num = colors.Count - 1;
@@ -80,39 +80,39 @@ namespace GorillaNetworking
 			}
 		}
 
-		// Token: 0x04004543 RID: 17731
+		// Token: 0x0400463A RID: 17978
 		[SerializeField]
 		private SkinnedMeshRenderer[] braceletStrings;
 
-		// Token: 0x04004544 RID: 17732
+		// Token: 0x0400463B RID: 17979
 		[SerializeField]
 		private MeshRenderer[] braceletBeads;
 
-		// Token: 0x04004545 RID: 17733
+		// Token: 0x0400463C RID: 17980
 		[SerializeField]
 		private MeshRenderer[] braceletBananas;
 
-		// Token: 0x04004546 RID: 17734
+		// Token: 0x0400463D RID: 17981
 		[SerializeField]
 		private bool isLeftHand;
 
-		// Token: 0x04004547 RID: 17735
+		// Token: 0x0400463E RID: 17982
 		[SerializeField]
 		private AudioClip braceletFormedSound;
 
-		// Token: 0x04004548 RID: 17736
+		// Token: 0x0400463F RID: 17983
 		[SerializeField]
 		private AudioClip braceletBrokenSound;
 
-		// Token: 0x04004549 RID: 17737
+		// Token: 0x04004640 RID: 17984
 		[SerializeField]
 		private ParticleSystem braceletFormedParticle;
 
-		// Token: 0x0400454A RID: 17738
+		// Token: 0x04004641 RID: 17985
 		[SerializeField]
 		private ParticleSystem braceletBrokenParticle;
 
-		// Token: 0x0400454B RID: 17739
+		// Token: 0x04004642 RID: 17986
 		private VRRig ownerRig;
 	}
 }

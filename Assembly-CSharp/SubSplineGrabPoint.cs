@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000400 RID: 1024
+// Token: 0x0200040B RID: 1035
 [Serializable]
 public class SubSplineGrabPoint : SubLineGrabPoint
 {
-	// Token: 0x0600190B RID: 6411 RVA: 0x0007AB3D File Offset: 0x00078D3D
+	// Token: 0x06001958 RID: 6488 RVA: 0x000411B7 File Offset: 0x0003F3B7
 	public override Matrix4x4 GetTransformation_GripPointLocalToAdvOriginLocal(AdvancedItemState.PreData advancedItemState, SlotTransformOverride slotTransformOverride)
 	{
 		return CatmullRomSpline.Evaluate(this.controlPointsTransformsRelativeToGrabOrigin, advancedItemState.distAlongLine);
 	}
 
-	// Token: 0x0600190C RID: 6412 RVA: 0x0007AB50 File Offset: 0x00078D50
+	// Token: 0x06001959 RID: 6489 RVA: 0x000D0984 File Offset: 0x000CEB84
 	public override void InitializePoints(Transform anchor, Transform grabPointAnchor, Transform advancedGrabPointOrigin)
 	{
 		base.InitializePoints(anchor, grabPointAnchor, advancedGrabPointOrigin);
@@ -24,7 +24,7 @@ public class SubSplineGrabPoint : SubLineGrabPoint
 		}
 	}
 
-	// Token: 0x0600190D RID: 6413 RVA: 0x0007ABC4 File Offset: 0x00078DC4
+	// Token: 0x0600195A RID: 6490 RVA: 0x000D09F8 File Offset: 0x000CEBF8
 	public override AdvancedItemState.PreData GetPreData(Transform objectTransform, Transform handTransform, Transform targetDock, SlotTransformOverride slotTransformOverride)
 	{
 		Vector3 worldPoint = objectTransform.InverseTransformPoint(handTransform.position);
@@ -36,7 +36,7 @@ public class SubSplineGrabPoint : SubLineGrabPoint
 		};
 	}
 
-	// Token: 0x0600190E RID: 6414 RVA: 0x0007AC00 File Offset: 0x00078E00
+	// Token: 0x0600195B RID: 6491 RVA: 0x000D0A34 File Offset: 0x000CEC34
 	public override float EvaluateScore(Transform objectTransform, Transform handTransform, Transform targetDock)
 	{
 		Vector3 vector = objectTransform.InverseTransformPoint(handTransform.position);
@@ -45,12 +45,12 @@ public class SubSplineGrabPoint : SubLineGrabPoint
 		return Vector3.SqrMagnitude(a - vector);
 	}
 
-	// Token: 0x04001BEE RID: 7150
+	// Token: 0x04001C37 RID: 7223
 	public CatmullRomSpline spline;
 
-	// Token: 0x04001BEF RID: 7151
+	// Token: 0x04001C38 RID: 7224
 	public List<Vector3> controlPointsRelativeToGrabOrigin = new List<Vector3>();
 
-	// Token: 0x04001BF0 RID: 7152
+	// Token: 0x04001C39 RID: 7225
 	public List<Matrix4x4> controlPointsTransformsRelativeToGrabOrigin = new List<Matrix4x4>();
 }

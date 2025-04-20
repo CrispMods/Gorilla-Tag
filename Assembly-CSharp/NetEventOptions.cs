@@ -1,11 +1,11 @@
 ﻿using System;
 using Photon.Realtime;
 
-// Token: 0x02000292 RID: 658
+// Token: 0x0200029D RID: 669
 public class NetEventOptions
 {
-	// Token: 0x170001BA RID: 442
-	// (get) Token: 0x06000FE3 RID: 4067 RVA: 0x0004D147 File Offset: 0x0004B347
+	// Token: 0x170001C1 RID: 449
+	// (get) Token: 0x0600102E RID: 4142 RVA: 0x0003B183 File Offset: 0x00039383
 	public bool HasWebHooks
 	{
 		get
@@ -14,12 +14,12 @@ public class NetEventOptions
 		}
 	}
 
-	// Token: 0x06000FE4 RID: 4068 RVA: 0x0004D159 File Offset: 0x0004B359
+	// Token: 0x0600102F RID: 4143 RVA: 0x0003B195 File Offset: 0x00039395
 	public NetEventOptions()
 	{
 	}
 
-	// Token: 0x06000FE5 RID: 4069 RVA: 0x0004D16C File Offset: 0x0004B36C
+	// Token: 0x06001030 RID: 4144 RVA: 0x0003B1A8 File Offset: 0x000393A8
 	public NetEventOptions(int reciever, int[] actors, byte flags)
 	{
 		this.Reciever = (NetEventOptions.RecieverTarget)reciever;
@@ -27,23 +27,23 @@ public class NetEventOptions
 		this.Flags = new WebFlags(flags);
 	}
 
-	// Token: 0x04001205 RID: 4613
+	// Token: 0x0400124D RID: 4685
 	public NetEventOptions.RecieverTarget Reciever;
 
-	// Token: 0x04001206 RID: 4614
+	// Token: 0x0400124E RID: 4686
 	public int[] TargetActors;
 
-	// Token: 0x04001207 RID: 4615
+	// Token: 0x0400124F RID: 4687
 	public WebFlags Flags = WebFlags.Default;
 
-	// Token: 0x02000293 RID: 659
+	// Token: 0x0200029E RID: 670
 	public enum RecieverTarget
 	{
-		// Token: 0x04001209 RID: 4617
+		// Token: 0x04001251 RID: 4689
 		others,
-		// Token: 0x0400120A RID: 4618
+		// Token: 0x04001252 RID: 4690
 		all,
-		// Token: 0x0400120B RID: 4619
+		// Token: 0x04001253 RID: 4691
 		master
 	}
 }

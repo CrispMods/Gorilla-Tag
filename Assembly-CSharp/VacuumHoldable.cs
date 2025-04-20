@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000D8 RID: 216
+// Token: 0x020000E2 RID: 226
 public class VacuumHoldable : TransferrableObject
 {
-	// Token: 0x06000587 RID: 1415 RVA: 0x00020A30 File Offset: 0x0001EC30
+	// Token: 0x060005C8 RID: 1480 RVA: 0x00034496 File Offset: 0x00032696
 	public override void OnSpawn(VRRig rig)
 	{
 		base.OnSpawn(rig);
 		this.itemState = TransferrableObject.ItemStates.State0;
 	}
 
-	// Token: 0x06000588 RID: 1416 RVA: 0x00020A40 File Offset: 0x0001EC40
+	// Token: 0x060005C9 RID: 1481 RVA: 0x000344A6 File Offset: 0x000326A6
 	internal override void OnEnable()
 	{
 		base.OnEnable();
@@ -19,7 +19,7 @@ public class VacuumHoldable : TransferrableObject
 		this.hasAudioSource = (this.audioSource != null && this.audioSource.clip != null);
 	}
 
-	// Token: 0x06000589 RID: 1417 RVA: 0x00020A78 File Offset: 0x0001EC78
+	// Token: 0x060005CA RID: 1482 RVA: 0x00083738 File Offset: 0x00081938
 	internal override void OnDisable()
 	{
 		base.OnDisable();
@@ -34,7 +34,7 @@ public class VacuumHoldable : TransferrableObject
 		}
 	}
 
-	// Token: 0x0600058A RID: 1418 RVA: 0x00020ACC File Offset: 0x0001ECCC
+	// Token: 0x060005CB RID: 1483 RVA: 0x0008378C File Offset: 0x0008198C
 	private void InitToDefault()
 	{
 		this.itemState = TransferrableObject.ItemStates.State0;
@@ -48,14 +48,14 @@ public class VacuumHoldable : TransferrableObject
 		}
 	}
 
-	// Token: 0x0600058B RID: 1419 RVA: 0x00020B18 File Offset: 0x0001ED18
+	// Token: 0x060005CC RID: 1484 RVA: 0x000344DD File Offset: 0x000326DD
 	public override void ResetToDefaultState()
 	{
 		base.ResetToDefaultState();
 		this.InitToDefault();
 	}
 
-	// Token: 0x0600058C RID: 1420 RVA: 0x00020B28 File Offset: 0x0001ED28
+	// Token: 0x060005CD RID: 1485 RVA: 0x000837D8 File Offset: 0x000819D8
 	protected override void LateUpdateShared()
 	{
 		base.LateUpdateShared();
@@ -92,7 +92,7 @@ public class VacuumHoldable : TransferrableObject
 		}
 	}
 
-	// Token: 0x0600058D RID: 1421 RVA: 0x00020C1C File Offset: 0x0001EE1C
+	// Token: 0x060005CE RID: 1486 RVA: 0x000838CC File Offset: 0x00081ACC
 	public override void OnActivate()
 	{
 		base.OnActivate();
@@ -104,42 +104,42 @@ public class VacuumHoldable : TransferrableObject
 		}
 	}
 
-	// Token: 0x0600058E RID: 1422 RVA: 0x00020C68 File Offset: 0x0001EE68
+	// Token: 0x060005CF RID: 1487 RVA: 0x000344EB File Offset: 0x000326EB
 	public override void OnDeactivate()
 	{
 		base.OnDeactivate();
 		this.itemState = TransferrableObject.ItemStates.State0;
 	}
 
-	// Token: 0x04000682 RID: 1666
+	// Token: 0x040006C3 RID: 1731
 	[Tooltip("Emission rate will be increase when the trigger button is pressed.")]
 	public ParticleSystem particleFX;
 
-	// Token: 0x04000683 RID: 1667
+	// Token: 0x040006C4 RID: 1732
 	[Tooltip("Sound will loop and fade in/out volume when trigger pressed.")]
 	public AudioSource audioSource;
 
-	// Token: 0x04000684 RID: 1668
+	// Token: 0x040006C5 RID: 1733
 	private float activationVibrationStartStrength = 0.8f;
 
-	// Token: 0x04000685 RID: 1669
+	// Token: 0x040006C6 RID: 1734
 	private float activationVibrationStartDuration = 0.05f;
 
-	// Token: 0x04000686 RID: 1670
+	// Token: 0x040006C7 RID: 1735
 	private float activationVibrationLoopStrength = 0.005f;
 
-	// Token: 0x04000687 RID: 1671
+	// Token: 0x040006C8 RID: 1736
 	private float activationStartTime;
 
-	// Token: 0x04000688 RID: 1672
+	// Token: 0x040006C9 RID: 1737
 	private bool hasAudioSource;
 
-	// Token: 0x020000D9 RID: 217
+	// Token: 0x020000E3 RID: 227
 	private enum VacuumState
 	{
-		// Token: 0x0400068A RID: 1674
+		// Token: 0x040006CB RID: 1739
 		None = 1,
-		// Token: 0x0400068B RID: 1675
+		// Token: 0x040006CC RID: 1740
 		Active
 	}
 }

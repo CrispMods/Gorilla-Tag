@@ -7,20 +7,20 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-// Token: 0x020001DA RID: 474
+// Token: 0x020001E5 RID: 485
 public class RacingManager : NetworkSceneObject, ITickSystemTick
 {
-	// Token: 0x17000119 RID: 281
-	// (get) Token: 0x06000B12 RID: 2834 RVA: 0x0003B67D File Offset: 0x0003987D
-	// (set) Token: 0x06000B13 RID: 2835 RVA: 0x0003B684 File Offset: 0x00039884
+	// Token: 0x17000120 RID: 288
+	// (get) Token: 0x06000B5E RID: 2910 RVA: 0x00038068 File Offset: 0x00036268
+	// (set) Token: 0x06000B5F RID: 2911 RVA: 0x0003806F File Offset: 0x0003626F
 	public static RacingManager instance { get; private set; }
 
-	// Token: 0x1700011A RID: 282
-	// (get) Token: 0x06000B14 RID: 2836 RVA: 0x0003B68C File Offset: 0x0003988C
-	// (set) Token: 0x06000B15 RID: 2837 RVA: 0x0003B694 File Offset: 0x00039894
+	// Token: 0x17000121 RID: 289
+	// (get) Token: 0x06000B60 RID: 2912 RVA: 0x00038077 File Offset: 0x00036277
+	// (set) Token: 0x06000B61 RID: 2913 RVA: 0x0003807F File Offset: 0x0003627F
 	public bool TickRunning { get; set; }
 
-	// Token: 0x06000B16 RID: 2838 RVA: 0x0003B6A0 File Offset: 0x000398A0
+	// Token: 0x06000B62 RID: 2914 RVA: 0x0009A7E4 File Offset: 0x000989E4
 	private void Awake()
 	{
 		RacingManager.instance = this;
@@ -34,7 +34,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		RoomSystem.PlayerJoinedEvent = (Action<NetPlayer>)Delegate.Combine(RoomSystem.PlayerJoinedEvent, new Action<NetPlayer>(this.OnPlayerJoined));
 	}
 
-	// Token: 0x06000B17 RID: 2839 RVA: 0x0003B740 File Offset: 0x00039940
+	// Token: 0x06000B63 RID: 2915 RVA: 0x00038088 File Offset: 0x00036288
 	protected override void OnEnable()
 	{
 		NetworkBehaviourUtils.InternalOnEnable(this);
@@ -42,7 +42,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		base.OnEnable();
 	}
 
-	// Token: 0x06000B18 RID: 2840 RVA: 0x0003B754 File Offset: 0x00039954
+	// Token: 0x06000B64 RID: 2916 RVA: 0x0003809C File Offset: 0x0003629C
 	protected override void OnDisable()
 	{
 		NetworkBehaviourUtils.InternalOnDisable(this);
@@ -50,7 +50,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		base.OnDisable();
 	}
 
-	// Token: 0x06000B19 RID: 2841 RVA: 0x0003B768 File Offset: 0x00039968
+	// Token: 0x06000B65 RID: 2917 RVA: 0x0009A884 File Offset: 0x00098A84
 	private void OnRoomJoin()
 	{
 		for (int i = 0; i < this.races.Length; i++)
@@ -59,7 +59,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		}
 	}
 
-	// Token: 0x06000B1A RID: 2842 RVA: 0x0003B798 File Offset: 0x00039998
+	// Token: 0x06000B66 RID: 2918 RVA: 0x0009A8B4 File Offset: 0x00098AB4
 	private void OnPlayerJoined(NetPlayer player)
 	{
 		if (!NetworkSystem.Instance.IsMasterClient)
@@ -72,7 +72,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		}
 	}
 
-	// Token: 0x06000B1B RID: 2843 RVA: 0x0003B7D4 File Offset: 0x000399D4
+	// Token: 0x06000B67 RID: 2919 RVA: 0x0009A8F0 File Offset: 0x00098AF0
 	public void RegisterVisual(RaceVisual visual)
 	{
 		int raceId = visual.raceId;
@@ -82,7 +82,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		}
 	}
 
-	// Token: 0x06000B1C RID: 2844 RVA: 0x0003B805 File Offset: 0x00039A05
+	// Token: 0x06000B68 RID: 2920 RVA: 0x000380B0 File Offset: 0x000362B0
 	public void Button_StartRace(int raceId, int laps)
 	{
 		if (raceId >= 0 && raceId < this.races.Length)
@@ -91,7 +91,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		}
 	}
 
-	// Token: 0x06000B1D RID: 2845 RVA: 0x0003B824 File Offset: 0x00039A24
+	// Token: 0x06000B69 RID: 2921 RVA: 0x0009A924 File Offset: 0x00098B24
 	[PunRPC]
 	private void RequestRaceStart_RPC(int raceId, int laps, PhotonMessageInfo info)
 	{
@@ -110,7 +110,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		}
 	}
 
-	// Token: 0x06000B1E RID: 2846 RVA: 0x0003B87C File Offset: 0x00039A7C
+	// Token: 0x06000B6A RID: 2922 RVA: 0x0009A97C File Offset: 0x00098B7C
 	[PunRPC]
 	private void RaceBeginCountdown_RPC(byte raceId, byte laps, double startTime, PhotonMessageInfo info)
 	{
@@ -137,7 +137,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		}
 	}
 
-	// Token: 0x06000B1F RID: 2847 RVA: 0x0003B8F4 File Offset: 0x00039AF4
+	// Token: 0x06000B6B RID: 2923 RVA: 0x0009A9F4 File Offset: 0x00098BF4
 	[PunRPC]
 	private void RaceLockInParticipants_RPC(byte raceId, int[] participantActorNumbers, PhotonMessageInfo info)
 	{
@@ -163,7 +163,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		}
 	}
 
-	// Token: 0x06000B20 RID: 2848 RVA: 0x0003B959 File Offset: 0x00039B59
+	// Token: 0x06000B6C RID: 2924 RVA: 0x000380CF File Offset: 0x000362CF
 	public void OnCheckpointPassed(int raceId, int checkpointIndex)
 	{
 		this.photonView.RPC("PassCheckpoint_RPC", RpcTarget.All, new object[]
@@ -173,7 +173,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		});
 	}
 
-	// Token: 0x06000B21 RID: 2849 RVA: 0x0003B986 File Offset: 0x00039B86
+	// Token: 0x06000B6D RID: 2925 RVA: 0x000380FC File Offset: 0x000362FC
 	[PunRPC]
 	private void PassCheckpoint_RPC(byte raceId, byte checkpointIndex, PhotonMessageInfo info)
 	{
@@ -184,7 +184,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		}
 	}
 
-	// Token: 0x06000B22 RID: 2850 RVA: 0x0003B9BD File Offset: 0x00039BBD
+	// Token: 0x06000B6E RID: 2926 RVA: 0x00038133 File Offset: 0x00036333
 	[PunRPC]
 	private void RaceEnded_RPC(byte raceId, PhotonMessageInfo info)
 	{
@@ -199,7 +199,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		}
 	}
 
-	// Token: 0x06000B23 RID: 2851 RVA: 0x0003B9F4 File Offset: 0x00039BF4
+	// Token: 0x06000B6F RID: 2927 RVA: 0x0009AA5C File Offset: 0x00098C5C
 	void ITickSystemTick.Tick()
 	{
 		for (int i = 0; i < this.races.Length; i++)
@@ -208,7 +208,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		}
 	}
 
-	// Token: 0x06000B24 RID: 2852 RVA: 0x0003BA24 File Offset: 0x00039C24
+	// Token: 0x06000B70 RID: 2928 RVA: 0x0009AA8C File Offset: 0x00098C8C
 	public bool IsActorLockedIntoAnyRace(int actorNumber)
 	{
 		for (int i = 0; i < this.races.Length; i++)
@@ -221,59 +221,59 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 		return false;
 	}
 
-	// Token: 0x04000D78 RID: 3448
+	// Token: 0x04000DBE RID: 3518
 	[SerializeField]
 	private RacingManager.RaceSetup[] raceSetups;
 
-	// Token: 0x04000D79 RID: 3449
+	// Token: 0x04000DBF RID: 3519
 	private const int MinPlayersInRace = 1;
 
-	// Token: 0x04000D7A RID: 3450
+	// Token: 0x04000DC0 RID: 3520
 	private const float ResultsDuration = 10f;
 
-	// Token: 0x04000D7B RID: 3451
+	// Token: 0x04000DC1 RID: 3521
 	private RacingManager.Race[] races;
 
-	// Token: 0x020001DB RID: 475
+	// Token: 0x020001E6 RID: 486
 	[Serializable]
 	private struct RaceSetup
 	{
-		// Token: 0x04000D7C RID: 3452
+		// Token: 0x04000DC2 RID: 3522
 		public BoxCollider startVolume;
 
-		// Token: 0x04000D7D RID: 3453
+		// Token: 0x04000DC3 RID: 3523
 		public int numCheckpoints;
 
-		// Token: 0x04000D7E RID: 3454
+		// Token: 0x04000DC4 RID: 3524
 		public float dqBaseDuration;
 
-		// Token: 0x04000D7F RID: 3455
+		// Token: 0x04000DC5 RID: 3525
 		public float dqInterval;
 	}
 
-	// Token: 0x020001DC RID: 476
+	// Token: 0x020001E7 RID: 487
 	private struct RacerData
 	{
-		// Token: 0x04000D80 RID: 3456
+		// Token: 0x04000DC6 RID: 3526
 		public int actorNumber;
 
-		// Token: 0x04000D81 RID: 3457
+		// Token: 0x04000DC7 RID: 3527
 		public string playerName;
 
-		// Token: 0x04000D82 RID: 3458
+		// Token: 0x04000DC8 RID: 3528
 		public int numCheckpointsPassed;
 
-		// Token: 0x04000D83 RID: 3459
+		// Token: 0x04000DC9 RID: 3529
 		public double latestCheckpointTime;
 
-		// Token: 0x04000D84 RID: 3460
+		// Token: 0x04000DCA RID: 3530
 		public bool isDisqualified;
 	}
 
-	// Token: 0x020001DD RID: 477
+	// Token: 0x020001E8 RID: 488
 	private class RacerComparer : IComparer<RacingManager.RacerData>
 	{
-		// Token: 0x06000B26 RID: 2854 RVA: 0x0003BA60 File Offset: 0x00039C60
+		// Token: 0x06000B72 RID: 2930 RVA: 0x0009AAC0 File Offset: 0x00098CC0
 		public int Compare(RacingManager.RacerData a, RacingManager.RacerData b)
 		{
 			int num = a.isDisqualified.CompareTo(b.isDisqualified);
@@ -293,27 +293,27 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			return a.actorNumber.CompareTo(b.actorNumber);
 		}
 
-		// Token: 0x04000D85 RID: 3461
+		// Token: 0x04000DCB RID: 3531
 		public static RacingManager.RacerComparer instance = new RacingManager.RacerComparer();
 	}
 
-	// Token: 0x020001DE RID: 478
+	// Token: 0x020001E9 RID: 489
 	public enum RacingState
 	{
-		// Token: 0x04000D87 RID: 3463
+		// Token: 0x04000DCD RID: 3533
 		Inactive,
-		// Token: 0x04000D88 RID: 3464
+		// Token: 0x04000DCE RID: 3534
 		Countdown,
-		// Token: 0x04000D89 RID: 3465
+		// Token: 0x04000DCF RID: 3535
 		InProgress,
-		// Token: 0x04000D8A RID: 3466
+		// Token: 0x04000DD0 RID: 3536
 		Results
 	}
 
-	// Token: 0x020001DF RID: 479
+	// Token: 0x020001EA RID: 490
 	private class Race
 	{
-		// Token: 0x06000B29 RID: 2857 RVA: 0x0003BAD8 File Offset: 0x00039CD8
+		// Token: 0x06000B75 RID: 2933 RVA: 0x0009AB2C File Offset: 0x00098D2C
 		public Race(int raceIndex, RacingManager.RaceSetup setup, HashSet<int> actorsInAnyRace, PhotonView photonView)
 		{
 			this.raceIndex = raceIndex;
@@ -324,18 +324,18 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			this.photonView = photonView;
 		}
 
-		// Token: 0x1700011B RID: 283
-		// (get) Token: 0x06000B2A RID: 2858 RVA: 0x0003BB6A File Offset: 0x00039D6A
-		// (set) Token: 0x06000B2B RID: 2859 RVA: 0x0003BB72 File Offset: 0x00039D72
+		// Token: 0x17000122 RID: 290
+		// (get) Token: 0x06000B76 RID: 2934 RVA: 0x0003817E File Offset: 0x0003637E
+		// (set) Token: 0x06000B77 RID: 2935 RVA: 0x00038186 File Offset: 0x00036386
 		public RacingManager.RacingState racingState { get; private set; }
 
-		// Token: 0x06000B2C RID: 2860 RVA: 0x0003BB7B File Offset: 0x00039D7B
+		// Token: 0x06000B78 RID: 2936 RVA: 0x0003818F File Offset: 0x0003638F
 		public void RegisterVisual(RaceVisual visual)
 		{
 			this.raceVisual = visual;
 		}
 
-		// Token: 0x06000B2D RID: 2861 RVA: 0x0003BB84 File Offset: 0x00039D84
+		// Token: 0x06000B79 RID: 2937 RVA: 0x00038198 File Offset: 0x00036398
 		public void Clear()
 		{
 			this.hasLockedInParticipants = false;
@@ -344,7 +344,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			this.racingState = RacingManager.RacingState.Inactive;
 		}
 
-		// Token: 0x06000B2E RID: 2862 RVA: 0x0003BBAC File Offset: 0x00039DAC
+		// Token: 0x06000B7A RID: 2938 RVA: 0x0009ABC0 File Offset: 0x00098DC0
 		public bool IsActorLockedIntoRace(int actorNumber)
 		{
 			if (this.racingState != RacingManager.RacingState.InProgress || !this.hasLockedInParticipants)
@@ -361,7 +361,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			return false;
 		}
 
-		// Token: 0x06000B2F RID: 2863 RVA: 0x0003BBFC File Offset: 0x00039DFC
+		// Token: 0x06000B7B RID: 2939 RVA: 0x0009AC10 File Offset: 0x00098E10
 		public void SendStateToNewPlayer(NetPlayer newPlayer)
 		{
 			switch (this.racingState)
@@ -384,7 +384,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			}
 		}
 
-		// Token: 0x06000B30 RID: 2864 RVA: 0x0003BC6C File Offset: 0x00039E6C
+		// Token: 0x06000B7C RID: 2940 RVA: 0x000381BE File Offset: 0x000363BE
 		public void Tick()
 		{
 			if (Time.time >= this.nextTickTimestamp)
@@ -393,7 +393,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			}
 		}
 
-		// Token: 0x06000B31 RID: 2865 RVA: 0x0003BC90 File Offset: 0x00039E90
+		// Token: 0x06000B7D RID: 2941 RVA: 0x0009AC80 File Offset: 0x00098E80
 		public float TickWithNextDelay()
 		{
 			bool flag = this.raceVisual != null;
@@ -468,7 +468,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			}
 		}
 
-		// Token: 0x06000B32 RID: 2866 RVA: 0x0003BE04 File Offset: 0x0003A004
+		// Token: 0x06000B7E RID: 2942 RVA: 0x0009ADF4 File Offset: 0x00098FF4
 		public void RaceEnded()
 		{
 			if (this.racingState != RacingManager.RacingState.InProgress)
@@ -503,7 +503,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			}
 		}
 
-		// Token: 0x06000B33 RID: 2867 RVA: 0x0003BF04 File Offset: 0x0003A104
+		// Token: 0x06000B7F RID: 2943 RVA: 0x0009AEF4 File Offset: 0x000990F4
 		private void RefreshStartingPlayerList()
 		{
 			if (this.raceVisual != null && this.UpdateActorsInStartZone())
@@ -519,7 +519,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			}
 		}
 
-		// Token: 0x06000B34 RID: 2868 RVA: 0x0003BFA7 File Offset: 0x0003A1A7
+		// Token: 0x06000B80 RID: 2944 RVA: 0x000381DF File Offset: 0x000363DF
 		public void Button_StartRace(int laps)
 		{
 			if (this.racingState != RacingManager.RacingState.Inactive)
@@ -533,7 +533,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			});
 		}
 
-		// Token: 0x06000B35 RID: 2869 RVA: 0x0003BFE0 File Offset: 0x0003A1E0
+		// Token: 0x06000B81 RID: 2945 RVA: 0x0009AF98 File Offset: 0x00099198
 		public void Host_RequestRaceStart(int laps, int requestedByActorNumber)
 		{
 			if (this.racingState != RacingManager.RacingState.Inactive)
@@ -552,7 +552,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			}
 		}
 
-		// Token: 0x06000B36 RID: 2870 RVA: 0x0003C054 File Offset: 0x0003A254
+		// Token: 0x06000B82 RID: 2946 RVA: 0x0009B00C File Offset: 0x0009920C
 		public void BeginCountdown(double startTime, int laps)
 		{
 			if (this.racingState != RacingManager.RacingState.Inactive)
@@ -571,7 +571,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			}
 		}
 
-		// Token: 0x06000B37 RID: 2871 RVA: 0x0003C0C8 File Offset: 0x0003A2C8
+		// Token: 0x06000B83 RID: 2947 RVA: 0x0009B080 File Offset: 0x00099280
 		public void RaceCountdownEnds()
 		{
 			if (this.racingState != RacingManager.RacingState.Countdown)
@@ -599,7 +599,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			}
 		}
 
-		// Token: 0x06000B38 RID: 2872 RVA: 0x0003C164 File Offset: 0x0003A364
+		// Token: 0x06000B84 RID: 2948 RVA: 0x0009B11C File Offset: 0x0009931C
 		public void LockInParticipants(int[] participantActorNumbers, bool isProvisional = false)
 		{
 			if (this.hasLockedInParticipants)
@@ -641,7 +641,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			this.OnRacerOrderChanged();
 		}
 
-		// Token: 0x06000B39 RID: 2873 RVA: 0x0003C278 File Offset: 0x0003A478
+		// Token: 0x06000B85 RID: 2949 RVA: 0x0009B230 File Offset: 0x00099430
 		public void PassCheckpoint(Player player, int checkpointIndex, double time)
 		{
 			if (this.racingState == RacingManager.RacingState.Inactive)
@@ -727,7 +727,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			}
 		}
 
-		// Token: 0x06000B3A RID: 2874 RVA: 0x0003C4BC File Offset: 0x0003A6BC
+		// Token: 0x06000B86 RID: 2950 RVA: 0x0009B474 File Offset: 0x00099674
 		private void OnRacerOrderChanged()
 		{
 			if (this.raceVisual != null)
@@ -785,7 +785,7 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			}
 		}
 
-		// Token: 0x06000B3B RID: 2875 RVA: 0x0003C6C8 File Offset: 0x0003A8C8
+		// Token: 0x06000B87 RID: 2951 RVA: 0x0009B680 File Offset: 0x00099880
 		private bool UpdateActorsInStartZone()
 		{
 			if (Time.time < this.nextStartZoneUpdateTimestamp)
@@ -858,79 +858,79 @@ public class RacingManager : NetworkSceneObject, ITickSystemTick
 			return false;
 		}
 
-		// Token: 0x04000D8B RID: 3467
+		// Token: 0x04000DD1 RID: 3537
 		private int raceIndex;
 
-		// Token: 0x04000D8C RID: 3468
+		// Token: 0x04000DD2 RID: 3538
 		private int numCheckpoints;
 
-		// Token: 0x04000D8D RID: 3469
+		// Token: 0x04000DD3 RID: 3539
 		private float dqBaseDuration;
 
-		// Token: 0x04000D8E RID: 3470
+		// Token: 0x04000DD4 RID: 3540
 		private float dqInterval;
 
-		// Token: 0x04000D8F RID: 3471
+		// Token: 0x04000DD5 RID: 3541
 		private BoxCollider raceStartZone;
 
-		// Token: 0x04000D90 RID: 3472
+		// Token: 0x04000DD6 RID: 3542
 		private PhotonView photonView;
 
-		// Token: 0x04000D91 RID: 3473
+		// Token: 0x04000DD7 RID: 3543
 		private List<RacingManager.RacerData> racers = new List<RacingManager.RacerData>(10);
 
-		// Token: 0x04000D92 RID: 3474
+		// Token: 0x04000DD8 RID: 3544
 		private Dictionary<NetPlayer, int> playerLookup = new Dictionary<NetPlayer, int>();
 
-		// Token: 0x04000D93 RID: 3475
+		// Token: 0x04000DD9 RID: 3545
 		private List<int> actorsInStartZone = new List<int>();
 
-		// Token: 0x04000D94 RID: 3476
+		// Token: 0x04000DDA RID: 3546
 		private List<int> actorsInStartZone2 = new List<int>();
 
-		// Token: 0x04000D95 RID: 3477
+		// Token: 0x04000DDB RID: 3547
 		private Dictionary<int, string> playerNamesInStartZone = new Dictionary<int, string>();
 
-		// Token: 0x04000D96 RID: 3478
+		// Token: 0x04000DDC RID: 3548
 		private int numLapsSelected = 1;
 
-		// Token: 0x04000D98 RID: 3480
+		// Token: 0x04000DDE RID: 3550
 		private double raceStartTime;
 
-		// Token: 0x04000D99 RID: 3481
+		// Token: 0x04000DDF RID: 3551
 		private double abortRaceAtTimestamp;
 
-		// Token: 0x04000D9A RID: 3482
+		// Token: 0x04000DE0 RID: 3552
 		private float resultsEndTimestamp;
 
-		// Token: 0x04000D9B RID: 3483
+		// Token: 0x04000DE1 RID: 3553
 		private bool isInstanceLoaded;
 
-		// Token: 0x04000D9C RID: 3484
+		// Token: 0x04000DE2 RID: 3554
 		private int numCheckpointsToWin;
 
-		// Token: 0x04000D9D RID: 3485
+		// Token: 0x04000DE3 RID: 3555
 		private RaceVisual raceVisual;
 
-		// Token: 0x04000D9E RID: 3486
+		// Token: 0x04000DE4 RID: 3556
 		private bool hasLockedInParticipants;
 
-		// Token: 0x04000D9F RID: 3487
+		// Token: 0x04000DE5 RID: 3557
 		private float nextTickTimestamp;
 
-		// Token: 0x04000DA0 RID: 3488
+		// Token: 0x04000DE6 RID: 3558
 		private static StringBuilder stringBuilder = new StringBuilder();
 
-		// Token: 0x04000DA1 RID: 3489
+		// Token: 0x04000DE7 RID: 3559
 		private static StringBuilder timesStringBuilder = new StringBuilder();
 
-		// Token: 0x04000DA2 RID: 3490
+		// Token: 0x04000DE8 RID: 3560
 		private static Collider[] overlapColliders = new Collider[20];
 
-		// Token: 0x04000DA3 RID: 3491
+		// Token: 0x04000DE9 RID: 3561
 		private static int playerLayerMask = UnityLayer.GorillaBodyCollider.ToLayerMask() | UnityLayer.GorillaTagCollider.ToLayerMask();
 
-		// Token: 0x04000DA4 RID: 3492
+		// Token: 0x04000DEA RID: 3562
 		private float nextStartZoneUpdateTimestamp;
 	}
 }

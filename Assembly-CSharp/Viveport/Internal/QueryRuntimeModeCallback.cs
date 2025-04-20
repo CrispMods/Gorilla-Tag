@@ -3,8 +3,8 @@ using System.Runtime.InteropServices;
 
 namespace Viveport.Internal
 {
-	// Token: 0x02000924 RID: 2340
-	// (Invoke) Token: 0x06003870 RID: 14448
+	// Token: 0x02000941 RID: 2369
+	// (Invoke) Token: 0x06003941 RID: 14657
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	internal delegate void QueryRuntimeModeCallback(int nResult, int nMode);
 }

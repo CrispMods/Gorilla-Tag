@@ -3,16 +3,16 @@ using System.Diagnostics;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020005E9 RID: 1513
+// Token: 0x020005F7 RID: 1527
 public class Tappable : MonoBehaviour
 {
-	// Token: 0x06002597 RID: 9623 RVA: 0x000B9B8A File Offset: 0x000B7D8A
+	// Token: 0x060025F9 RID: 9721 RVA: 0x00049CCA File Offset: 0x00047ECA
 	public void Validate()
 	{
 		this.CalculateId(true);
 	}
 
-	// Token: 0x06002598 RID: 9624 RVA: 0x000B9B93 File Offset: 0x000B7D93
+	// Token: 0x060025FA RID: 9722 RVA: 0x00049CD3 File Offset: 0x00047ED3
 	protected virtual void OnEnable()
 	{
 		if (!this.useStaticId)
@@ -22,19 +22,19 @@ public class Tappable : MonoBehaviour
 		TappableManager.Register(this);
 	}
 
-	// Token: 0x06002599 RID: 9625 RVA: 0x000B9BAA File Offset: 0x000B7DAA
+	// Token: 0x060025FB RID: 9723 RVA: 0x00049CEA File Offset: 0x00047EEA
 	protected virtual void OnDisable()
 	{
 		TappableManager.Unregister(this);
 	}
 
-	// Token: 0x0600259A RID: 9626 RVA: 0x000444E2 File Offset: 0x000426E2
+	// Token: 0x060025FC RID: 9724 RVA: 0x00039846 File Offset: 0x00037A46
 	public virtual bool CanTap(bool isLeftHand)
 	{
 		return true;
 	}
 
-	// Token: 0x0600259B RID: 9627 RVA: 0x000B9BB4 File Offset: 0x000B7DB4
+	// Token: 0x060025FD RID: 9725 RVA: 0x00107724 File Offset: 0x00105924
 	public void OnTap(float tapStrength)
 	{
 		if (!NetworkSystem.Instance.InRoom)
@@ -52,7 +52,7 @@ public class Tappable : MonoBehaviour
 		});
 	}
 
-	// Token: 0x0600259C RID: 9628 RVA: 0x000B9C10 File Offset: 0x000B7E10
+	// Token: 0x060025FE RID: 9726 RVA: 0x00107780 File Offset: 0x00105980
 	public void OnGrab()
 	{
 		if (!NetworkSystem.Instance.InRoom)
@@ -69,7 +69,7 @@ public class Tappable : MonoBehaviour
 		});
 	}
 
-	// Token: 0x0600259D RID: 9629 RVA: 0x000B9C64 File Offset: 0x000B7E64
+	// Token: 0x060025FF RID: 9727 RVA: 0x001077D4 File Offset: 0x001059D4
 	public void OnRelease()
 	{
 		if (!NetworkSystem.Instance.InRoom)
@@ -86,28 +86,28 @@ public class Tappable : MonoBehaviour
 		});
 	}
 
-	// Token: 0x0600259E RID: 9630 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002600 RID: 9728 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void OnTapLocal(float tapStrength, float tapTime, PhotonMessageInfoWrapped sender)
 	{
 	}
 
-	// Token: 0x0600259F RID: 9631 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002601 RID: 9729 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void OnGrabLocal(float tapTime, PhotonMessageInfoWrapped sender)
 	{
 	}
 
-	// Token: 0x060025A0 RID: 9632 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002602 RID: 9730 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void OnReleaseLocal(float tapTime, PhotonMessageInfoWrapped sender)
 	{
 	}
 
-	// Token: 0x060025A1 RID: 9633 RVA: 0x000B9B8A File Offset: 0x000B7D8A
+	// Token: 0x06002603 RID: 9731 RVA: 0x00049CCA File Offset: 0x00047ECA
 	private void EdRecalculateId()
 	{
 		this.CalculateId(true);
 	}
 
-	// Token: 0x060025A2 RID: 9634 RVA: 0x000B9CB8 File Offset: 0x000B7EB8
+	// Token: 0x06002604 RID: 9732 RVA: 0x00107828 File Offset: 0x00105A28
 	private void CalculateId(bool force = false)
 	{
 		Transform transform = base.transform;
@@ -129,30 +129,30 @@ public class Tappable : MonoBehaviour
 		this.tappableId = (Application.isPlaying ? num : 0);
 	}
 
-	// Token: 0x060025A3 RID: 9635 RVA: 0x000B9D82 File Offset: 0x000B7F82
+	// Token: 0x06002605 RID: 9733 RVA: 0x00049CF2 File Offset: 0x00047EF2
 	[Conditional("UNITY_EDITOR")]
 	private void OnValidate()
 	{
 		this.CalculateId(false);
 	}
 
-	// Token: 0x040029CF RID: 10703
+	// Token: 0x04002A2E RID: 10798
 	public int tappableId;
 
-	// Token: 0x040029D0 RID: 10704
+	// Token: 0x04002A2F RID: 10799
 	public string staticId;
 
-	// Token: 0x040029D1 RID: 10705
+	// Token: 0x04002A30 RID: 10800
 	public bool useStaticId;
 
-	// Token: 0x040029D2 RID: 10706
+	// Token: 0x04002A31 RID: 10801
 	[Tooltip("If true, tap cooldown will be ignored.  Tapping will be allowed/disallowed based on result of CanTap()")]
 	public bool overrideTapCooldown;
 
-	// Token: 0x040029D3 RID: 10707
+	// Token: 0x04002A32 RID: 10802
 	[Space]
 	public TappableManager manager;
 
-	// Token: 0x040029D4 RID: 10708
+	// Token: 0x04002A33 RID: 10803
 	public RpcTarget rpcTarget;
 }

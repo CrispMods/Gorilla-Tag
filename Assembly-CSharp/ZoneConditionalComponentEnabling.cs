@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200021D RID: 541
+// Token: 0x02000228 RID: 552
 public class ZoneConditionalComponentEnabling : MonoBehaviour
 {
-	// Token: 0x06000C89 RID: 3209 RVA: 0x0004275F File Offset: 0x0004095F
+	// Token: 0x06000CD4 RID: 3284 RVA: 0x00038F6A File Offset: 0x0003716A
 	private void Start()
 	{
 		this.OnZoneChanged();
@@ -12,14 +12,14 @@ public class ZoneConditionalComponentEnabling : MonoBehaviour
 		instance.onZoneChanged = (Action)Delegate.Combine(instance.onZoneChanged, new Action(this.OnZoneChanged));
 	}
 
-	// Token: 0x06000C8A RID: 3210 RVA: 0x0004278D File Offset: 0x0004098D
+	// Token: 0x06000CD5 RID: 3285 RVA: 0x00038F98 File Offset: 0x00037198
 	private void OnDestroy()
 	{
 		ZoneManagement instance = ZoneManagement.instance;
 		instance.onZoneChanged = (Action)Delegate.Remove(instance.onZoneChanged, new Action(this.OnZoneChanged));
 	}
 
-	// Token: 0x06000C8B RID: 3211 RVA: 0x000427B8 File Offset: 0x000409B8
+	// Token: 0x06000CD6 RID: 3286 RVA: 0x000A096C File Offset: 0x0009EB6C
 	private void OnZoneChanged()
 	{
 		bool flag = ZoneManagement.IsInZone(this.zone);
@@ -56,23 +56,23 @@ public class ZoneConditionalComponentEnabling : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000FE7 RID: 4071
+	// Token: 0x0400102D RID: 4141
 	[SerializeField]
 	private GTZone zone;
 
-	// Token: 0x04000FE8 RID: 4072
+	// Token: 0x0400102E RID: 4142
 	[SerializeField]
 	private bool invisibleWhileLoaded;
 
-	// Token: 0x04000FE9 RID: 4073
+	// Token: 0x0400102F RID: 4143
 	[SerializeField]
 	private Behaviour[] components;
 
-	// Token: 0x04000FEA RID: 4074
+	// Token: 0x04001030 RID: 4144
 	[SerializeField]
 	private Renderer[] m_renderers;
 
-	// Token: 0x04000FEB RID: 4075
+	// Token: 0x04001031 RID: 4145
 	[SerializeField]
 	private Collider[] m_colliders;
 }

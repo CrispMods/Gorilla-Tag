@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x020008AC RID: 2220
+// Token: 0x020008C8 RID: 2248
 public class ServerTimeEvent : TimeEvent
 {
-	// Token: 0x060035C7 RID: 13767 RVA: 0x000FEF95 File Offset: 0x000FD195
+	// Token: 0x0600368F RID: 13967 RVA: 0x00053F96 File Offset: 0x00052196
 	private void Awake()
 	{
 		this.eventTimes = new HashSet<ServerTimeEvent.EventTime>(this.times);
 	}
 
-	// Token: 0x060035C8 RID: 13768 RVA: 0x000FEFA8 File Offset: 0x000FD1A8
+	// Token: 0x06003690 RID: 13968 RVA: 0x00144D4C File Offset: 0x00142F4C
 	private void Update()
 	{
 		if (GorillaComputer.instance == null || Time.time - this.lastQueryTime < this.queryTime)
@@ -32,35 +32,35 @@ public class ServerTimeEvent : TimeEvent
 		this.lastQueryTime = Time.time;
 	}
 
-	// Token: 0x040037F9 RID: 14329
+	// Token: 0x040038BA RID: 14522
 	[SerializeField]
 	private ServerTimeEvent.EventTime[] times;
 
-	// Token: 0x040037FA RID: 14330
+	// Token: 0x040038BB RID: 14523
 	[SerializeField]
 	private float queryTime = 60f;
 
-	// Token: 0x040037FB RID: 14331
+	// Token: 0x040038BC RID: 14524
 	private float lastQueryTime;
 
-	// Token: 0x040037FC RID: 14332
+	// Token: 0x040038BD RID: 14525
 	private HashSet<ServerTimeEvent.EventTime> eventTimes;
 
-	// Token: 0x020008AD RID: 2221
+	// Token: 0x020008C9 RID: 2249
 	[Serializable]
 	public struct EventTime
 	{
-		// Token: 0x060035CA RID: 13770 RVA: 0x000FF057 File Offset: 0x000FD257
+		// Token: 0x06003692 RID: 13970 RVA: 0x00053FBC File Offset: 0x000521BC
 		public EventTime(int h, int m)
 		{
 			this.hour = h;
 			this.minute = m;
 		}
 
-		// Token: 0x040037FD RID: 14333
+		// Token: 0x040038BE RID: 14526
 		public int hour;
 
-		// Token: 0x040037FE RID: 14334
+		// Token: 0x040038BF RID: 14527
 		public int minute;
 	}
 }

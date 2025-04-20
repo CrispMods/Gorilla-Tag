@@ -3,12 +3,12 @@ using Drawing;
 using Unity.Mathematics;
 using UnityEngine;
 
-// Token: 0x020006DB RID: 1755
+// Token: 0x020006F0 RID: 1776
 [ExecuteAlways]
 public class Xform : MonoBehaviour
 {
-	// Token: 0x1700049E RID: 1182
-	// (get) Token: 0x06002BBB RID: 11195 RVA: 0x000D6E77 File Offset: 0x000D5077
+	// Token: 0x170004AB RID: 1195
+	// (get) Token: 0x06002C51 RID: 11345 RVA: 0x0004E1A9 File Offset: 0x0004C3A9
 	public float3 localExtents
 	{
 		get
@@ -17,13 +17,13 @@ public class Xform : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002BBC RID: 11196 RVA: 0x000D6E89 File Offset: 0x000D5089
+	// Token: 0x06002C52 RID: 11346 RVA: 0x0004E1BB File Offset: 0x0004C3BB
 	public Matrix4x4 LocalTRS()
 	{
 		return Matrix4x4.TRS(this.localPosition, this.localRotation, this.localScale);
 	}
 
-	// Token: 0x06002BBD RID: 11197 RVA: 0x000D6EAC File Offset: 0x000D50AC
+	// Token: 0x06002C53 RID: 11347 RVA: 0x0004E1DE File Offset: 0x0004C3DE
 	public Matrix4x4 TRS()
 	{
 		if (this.parent.AsNull<Transform>() == null)
@@ -33,7 +33,7 @@ public class Xform : MonoBehaviour
 		return this.parent.localToWorldMatrix * this.LocalTRS();
 	}
 
-	// Token: 0x06002BBE RID: 11198 RVA: 0x000D6EE0 File Offset: 0x000D50E0
+	// Token: 0x06002C54 RID: 11348 RVA: 0x001220AC File Offset: 0x001202AC
 	private unsafe void Update()
 	{
 		Matrix4x4 matrix = this.TRS();
@@ -50,44 +50,44 @@ public class Xform : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040030E2 RID: 12514
+	// Token: 0x0400317F RID: 12671
 	public Transform parent;
 
-	// Token: 0x040030E3 RID: 12515
+	// Token: 0x04003180 RID: 12672
 	[Space]
 	public Color displayColor = SRand.New().NextColor();
 
-	// Token: 0x040030E4 RID: 12516
+	// Token: 0x04003181 RID: 12673
 	[Space]
 	public float3 localPosition = float3.zero;
 
-	// Token: 0x040030E5 RID: 12517
+	// Token: 0x04003182 RID: 12674
 	public float3 localScale = Vector3.one;
 
-	// Token: 0x040030E6 RID: 12518
+	// Token: 0x04003183 RID: 12675
 	public Quaternion localRotation = quaternion.identity;
 
-	// Token: 0x040030E7 RID: 12519
+	// Token: 0x04003184 RID: 12676
 	private static readonly float3 F3_ONE = 1f;
 
-	// Token: 0x040030E8 RID: 12520
+	// Token: 0x04003185 RID: 12677
 	private static readonly float2 F2_ONE = 1f;
 
-	// Token: 0x040030E9 RID: 12521
+	// Token: 0x04003186 RID: 12678
 	private static readonly float3 AXIS_ZB_FW = new float3(0f, 0f, 1f);
 
-	// Token: 0x040030EA RID: 12522
+	// Token: 0x04003187 RID: 12679
 	private static readonly float3 AXIS_YG_UP = new float3(0f, 1f, 0f);
 
-	// Token: 0x040030EB RID: 12523
+	// Token: 0x04003188 RID: 12680
 	private static readonly float3 AXIS_XR_RT = new float3(1f, 0f, 0f);
 
-	// Token: 0x040030EC RID: 12524
+	// Token: 0x04003189 RID: 12681
 	private static readonly Color CR = new Color(1f, 0f, 0f, 0.24f);
 
-	// Token: 0x040030ED RID: 12525
+	// Token: 0x0400318A RID: 12682
 	private static readonly Color CG = new Color(0f, 1f, 0f, 0.24f);
 
-	// Token: 0x040030EE RID: 12526
+	// Token: 0x0400318B RID: 12683
 	private static readonly Color CB = new Color(0f, 0f, 1f, 0.24f);
 }

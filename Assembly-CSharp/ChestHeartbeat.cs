@@ -3,10 +3,10 @@ using System.Collections;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000506 RID: 1286
+// Token: 0x02000513 RID: 1299
 public class ChestHeartbeat : MonoBehaviour
 {
-	// Token: 0x06001F3E RID: 7998 RVA: 0x0009DF68 File Offset: 0x0009C168
+	// Token: 0x06001F97 RID: 8087 RVA: 0x000EFD80 File Offset: 0x000EDF80
 	public void Update()
 	{
 		if (PhotonNetwork.InRoom)
@@ -27,7 +27,7 @@ public class ChestHeartbeat : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001F3F RID: 7999 RVA: 0x0009E076 File Offset: 0x0009C276
+	// Token: 0x06001F98 RID: 8088 RVA: 0x00045740 File Offset: 0x00043940
 	private IEnumerator HeartBeat()
 	{
 		float startTime = Time.time;
@@ -53,39 +53,39 @@ public class ChestHeartbeat : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04002319 RID: 8985
+	// Token: 0x0400236C RID: 9068
 	public int millisToWait;
 
-	// Token: 0x0400231A RID: 8986
+	// Token: 0x0400236D RID: 9069
 	public int millisMin = 300;
 
-	// Token: 0x0400231B RID: 8987
+	// Token: 0x0400236E RID: 9070
 	public int lastShot;
 
-	// Token: 0x0400231C RID: 8988
+	// Token: 0x0400236F RID: 9071
 	public AudioSource audioSource;
 
-	// Token: 0x0400231D RID: 8989
+	// Token: 0x04002370 RID: 9072
 	public Transform scaleTransform;
 
-	// Token: 0x0400231E RID: 8990
+	// Token: 0x04002371 RID: 9073
 	private float deltaTime;
 
-	// Token: 0x0400231F RID: 8991
+	// Token: 0x04002372 RID: 9074
 	private float heartMinSize = 0.9f;
 
-	// Token: 0x04002320 RID: 8992
+	// Token: 0x04002373 RID: 9075
 	private float heartMaxSize = 1.2f;
 
-	// Token: 0x04002321 RID: 8993
+	// Token: 0x04002374 RID: 9076
 	private float minTime = 0.05f;
 
-	// Token: 0x04002322 RID: 8994
+	// Token: 0x04002375 RID: 9077
 	private float maxTime = 0.1f;
 
-	// Token: 0x04002323 RID: 8995
+	// Token: 0x04002376 RID: 9078
 	private float endtime = 0.25f;
 
-	// Token: 0x04002324 RID: 8996
+	// Token: 0x04002377 RID: 9079
 	private float currentTime;
 }

@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Diagnostics;
 
-// Token: 0x02000137 RID: 311
+// Token: 0x02000141 RID: 321
 [Conditional("UNITY_EDITOR")]
 public class DarkBoxAttribute : Attribute
 {
-	// Token: 0x06000829 RID: 2089 RVA: 0x0000224E File Offset: 0x0000044E
+	// Token: 0x0600086D RID: 2157 RVA: 0x00030532 File Offset: 0x0002E732
 	public DarkBoxAttribute()
 	{
 	}
 
-	// Token: 0x0600082A RID: 2090 RVA: 0x0002CEC9 File Offset: 0x0002B0C9
+	// Token: 0x0600086E RID: 2158 RVA: 0x00035F3E File Offset: 0x0003413E
 	public DarkBoxAttribute(bool withBorders)
 	{
 		this.withBorders = withBorders;
 	}
 
-	// Token: 0x04000990 RID: 2448
+	// Token: 0x040009D3 RID: 2515
 	public readonly bool withBorders;
 }

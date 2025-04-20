@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000049 RID: 73
+// Token: 0x0200004E RID: 78
 public class CrittersGrabberSettings : CrittersActorSettings
 {
-	// Token: 0x06000166 RID: 358 RVA: 0x0000946C File Offset: 0x0000766C
+	// Token: 0x06000180 RID: 384 RVA: 0x00031533 File Offset: 0x0002F733
 	public override void UpdateActorSettings()
 	{
 		base.UpdateActorSettings();
@@ -13,9 +13,9 @@ public class CrittersGrabberSettings : CrittersActorSettings
 		crittersGrabber.grabDistance = this._grabDistance;
 	}
 
-	// Token: 0x040001B8 RID: 440
+	// Token: 0x040001DB RID: 475
 	public Transform _grabPosition;
 
-	// Token: 0x040001B9 RID: 441
+	// Token: 0x040001DC RID: 476
 	public float _grabDistance;
 }

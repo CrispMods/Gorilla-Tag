@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C44 RID: 3140
+	// Token: 0x02000C75 RID: 3189
 	public class GlowBugsInJar : MonoBehaviour
 	{
-		// Token: 0x06004E53 RID: 20051 RVA: 0x00181328 File Offset: 0x0017F528
+		// Token: 0x06004FB3 RID: 20403 RVA: 0x001B999C File Offset: 0x001B7B9C
 		private void OnEnable()
 		{
 			this.shakeStarted = false;
@@ -28,7 +28,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E54 RID: 20052 RVA: 0x00181400 File Offset: 0x0017F600
+		// Token: 0x06004FB4 RID: 20404 RVA: 0x001B9A74 File Offset: 0x001B7C74
 		private void OnDisable()
 		{
 			if (this._events != null)
@@ -39,7 +39,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E55 RID: 20053 RVA: 0x00181450 File Offset: 0x0017F650
+		// Token: 0x06004FB5 RID: 20405 RVA: 0x001B9AC4 File Offset: 0x001B7CC4
 		private void OnShakeEvent(int sender, int target, object[] args, PhotonMessageInfoWrapped info)
 		{
 			if (sender != target)
@@ -68,7 +68,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E56 RID: 20054 RVA: 0x001814B0 File Offset: 0x0017F6B0
+		// Token: 0x06004FB6 RID: 20406 RVA: 0x001B9B24 File Offset: 0x001B7D24
 		public void HandleOnShakeStart()
 		{
 			if (PhotonNetwork.InRoom && this._events != null && this._events.Activate != null)
@@ -81,7 +81,7 @@ namespace GorillaTag.Cosmetics
 			this.ShakeStartLocal();
 		}
 
-		// Token: 0x06004E57 RID: 20055 RVA: 0x0018150A File Offset: 0x0017F70A
+		// Token: 0x06004FB7 RID: 20407 RVA: 0x000640BA File Offset: 0x000622BA
 		private void ShakeStartLocal()
 		{
 			this.currentGlowAmount = 0f;
@@ -89,7 +89,7 @@ namespace GorillaTag.Cosmetics
 			this.shakeTimer = 0f;
 		}
 
-		// Token: 0x06004E58 RID: 20056 RVA: 0x0018152C File Offset: 0x0017F72C
+		// Token: 0x06004FB8 RID: 20408 RVA: 0x001B9B80 File Offset: 0x001B7D80
 		public void HandleOnShakeEnd()
 		{
 			if (PhotonNetwork.InRoom && this._events != null && this._events.Activate != null)
@@ -102,14 +102,14 @@ namespace GorillaTag.Cosmetics
 			this.ShakeEndLocal();
 		}
 
-		// Token: 0x06004E59 RID: 20057 RVA: 0x00181586 File Offset: 0x0017F786
+		// Token: 0x06004FB9 RID: 20409 RVA: 0x000640D9 File Offset: 0x000622D9
 		private void ShakeEndLocal()
 		{
 			this.shakeStarted = false;
 			this.shakeTimer = 0f;
 		}
 
-		// Token: 0x06004E5A RID: 20058 RVA: 0x0018159C File Offset: 0x0017F79C
+		// Token: 0x06004FBA RID: 20410 RVA: 0x001B9BDC File Offset: 0x001B7DDC
 		public void Update()
 		{
 			if (this.shakeStarted)
@@ -135,7 +135,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E5B RID: 20059 RVA: 0x00181668 File Offset: 0x0017F868
+		// Token: 0x06004FBB RID: 20411 RVA: 0x001B9CA8 File Offset: 0x001B7EA8
 		private void UpdateGlow(float value)
 		{
 			if (this.renderers.Length != 0)
@@ -151,51 +151,51 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x040051E3 RID: 20963
+		// Token: 0x040052EF RID: 21231
 		[SerializeField]
 		private TransferrableObject transferrableObject;
 
-		// Token: 0x040051E4 RID: 20964
+		// Token: 0x040052F0 RID: 21232
 		[Space]
 		[Tooltip("Time interval - every X seconds update the glow value")]
 		[SerializeField]
 		private float glowUpdateInterval = 2f;
 
-		// Token: 0x040051E5 RID: 20965
+		// Token: 0x040052F1 RID: 21233
 		[Tooltip("step increment - increase the glow value one step for N amount")]
 		[SerializeField]
 		private float glowIncreaseStepAmount = 0.1f;
 
-		// Token: 0x040051E6 RID: 20966
+		// Token: 0x040052F2 RID: 21234
 		[Tooltip("step decrement - decrease the glow value one step for N amount")]
 		[SerializeField]
 		private float glowDecreaseStepAmount = 0.2f;
 
-		// Token: 0x040051E7 RID: 20967
+		// Token: 0x040052F3 RID: 21235
 		[Space]
 		[SerializeField]
 		private string shaderProperty = "_EmissionColor";
 
-		// Token: 0x040051E8 RID: 20968
+		// Token: 0x040052F4 RID: 21236
 		[SerializeField]
 		private Renderer[] renderers;
 
-		// Token: 0x040051E9 RID: 20969
+		// Token: 0x040052F5 RID: 21237
 		private bool shakeStarted = true;
 
-		// Token: 0x040051EA RID: 20970
+		// Token: 0x040052F6 RID: 21238
 		private static int EmissionColor;
 
-		// Token: 0x040051EB RID: 20971
+		// Token: 0x040052F7 RID: 21239
 		private float currentGlowAmount;
 
-		// Token: 0x040051EC RID: 20972
+		// Token: 0x040052F8 RID: 21240
 		private float shakeTimer;
 
-		// Token: 0x040051ED RID: 20973
+		// Token: 0x040052F9 RID: 21241
 		private RubberDuckEvents _events;
 
-		// Token: 0x040051EE RID: 20974
+		// Token: 0x040052FA RID: 21242
 		private CallLimiter callLimiter = new CallLimiter(10, 2f, 0.5f);
 	}
 }

@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B8A RID: 2954
+	// Token: 0x02000BB7 RID: 2999
 	public class InspectorNote : MonoBehaviour
 	{
-		// Token: 0x06004AB1 RID: 19121 RVA: 0x00037516 File Offset: 0x00035716
+		// Token: 0x06004BFC RID: 19452 RVA: 0x000373D8 File Offset: 0x000355D8
 		protected void Awake()
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 		}
 	}
 }

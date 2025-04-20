@@ -4,20 +4,20 @@ using GorillaTag;
 using GorillaTag.CosmeticSystem;
 using UnityEngine;
 
-// Token: 0x020001BB RID: 443
+// Token: 0x020001C6 RID: 454
 public class GTPosRotConstraints : MonoBehaviour, ISpawnable
 {
-	// Token: 0x1700010C RID: 268
-	// (get) Token: 0x06000A6F RID: 2671 RVA: 0x00038EA0 File Offset: 0x000370A0
-	// (set) Token: 0x06000A70 RID: 2672 RVA: 0x00038EA8 File Offset: 0x000370A8
+	// Token: 0x17000113 RID: 275
+	// (get) Token: 0x06000ABB RID: 2747 RVA: 0x0003783E File Offset: 0x00035A3E
+	// (set) Token: 0x06000ABC RID: 2748 RVA: 0x00037846 File Offset: 0x00035A46
 	public bool IsSpawned { get; set; }
 
-	// Token: 0x1700010D RID: 269
-	// (get) Token: 0x06000A71 RID: 2673 RVA: 0x00038EB1 File Offset: 0x000370B1
-	// (set) Token: 0x06000A72 RID: 2674 RVA: 0x00038EB9 File Offset: 0x000370B9
+	// Token: 0x17000114 RID: 276
+	// (get) Token: 0x06000ABD RID: 2749 RVA: 0x0003784F File Offset: 0x00035A4F
+	// (set) Token: 0x06000ABE RID: 2750 RVA: 0x00037857 File Offset: 0x00035A57
 	ECosmeticSelectSide ISpawnable.CosmeticSelectedSide { get; set; }
 
-	// Token: 0x06000A73 RID: 2675 RVA: 0x00038EC4 File Offset: 0x000370C4
+	// Token: 0x06000ABF RID: 2751 RVA: 0x00098830 File Offset: 0x00096A30
 	void ISpawnable.OnSpawn(VRRig rig)
 	{
 		Transform[] array = Array.Empty<Transform>();
@@ -111,12 +111,12 @@ public class GTPosRotConstraints : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x06000A74 RID: 2676 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000AC0 RID: 2752 RVA: 0x00030607 File Offset: 0x0002E807
 	void ISpawnable.OnDespawn()
 	{
 	}
 
-	// Token: 0x06000A75 RID: 2677 RVA: 0x00039233 File Offset: 0x00037433
+	// Token: 0x06000AC1 RID: 2753 RVA: 0x00037860 File Offset: 0x00035A60
 	protected void OnEnable()
 	{
 		if (this.IsSpawned)
@@ -125,12 +125,12 @@ public class GTPosRotConstraints : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x06000A76 RID: 2678 RVA: 0x00039243 File Offset: 0x00037443
+	// Token: 0x06000AC2 RID: 2754 RVA: 0x00037870 File Offset: 0x00035A70
 	protected void OnDisable()
 	{
 		GTPosRotConstraintManager.Unregister(this);
 	}
 
-	// Token: 0x04000CC0 RID: 3264
+	// Token: 0x04000D06 RID: 3334
 	public GorillaPosRotConstraint[] constraints;
 }

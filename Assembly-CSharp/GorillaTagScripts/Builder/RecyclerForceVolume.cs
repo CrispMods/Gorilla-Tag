@@ -5,10 +5,10 @@ using UnityEngine.Serialization;
 
 namespace GorillaTagScripts.Builder
 {
-	// Token: 0x02000A0E RID: 2574
+	// Token: 0x02000A3B RID: 2619
 	public class RecyclerForceVolume : MonoBehaviour
 	{
-		// Token: 0x0600407F RID: 16511 RVA: 0x00132AE6 File Offset: 0x00130CE6
+		// Token: 0x060041C4 RID: 16836 RVA: 0x0005B00F File Offset: 0x0005920F
 		private void Awake()
 		{
 			this.volume = base.GetComponent<Collider>();
@@ -19,7 +19,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004080 RID: 16512 RVA: 0x00132B1C File Offset: 0x00130D1C
+		// Token: 0x060041C5 RID: 16837 RVA: 0x0012CDBC File Offset: 0x0012AFBC
 		private bool TriggerFilter(Collider other, out Rigidbody rb, out Transform xf)
 		{
 			rb = null;
@@ -32,7 +32,7 @@ namespace GorillaTagScripts.Builder
 			return rb != null && xf != null;
 		}
 
-		// Token: 0x06004081 RID: 16513 RVA: 0x00132B7C File Offset: 0x00130D7C
+		// Token: 0x060041C6 RID: 16838 RVA: 0x00173380 File Offset: 0x00171580
 		public void OnTriggerEnter(Collider other)
 		{
 			Rigidbody rigidbody = null;
@@ -50,7 +50,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004082 RID: 16514 RVA: 0x00132C28 File Offset: 0x00130E28
+		// Token: 0x060041C7 RID: 16839 RVA: 0x0017342C File Offset: 0x0017162C
 		public void OnTriggerExit(Collider other)
 		{
 			Rigidbody rigidbody = null;
@@ -65,7 +65,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004083 RID: 16515 RVA: 0x00132C5C File Offset: 0x00130E5C
+		// Token: 0x060041C8 RID: 16840 RVA: 0x00173460 File Offset: 0x00171660
 		public void OnTriggerStay(Collider other)
 		{
 			Rigidbody rigidbody = null;
@@ -140,69 +140,69 @@ namespace GorillaTagScripts.Builder
 			rigidbody.velocity = vector;
 		}
 
-		// Token: 0x040041A8 RID: 16808
+		// Token: 0x040042A2 RID: 17058
 		[SerializeField]
 		public bool scaleWithSize = true;
 
-		// Token: 0x040041A9 RID: 16809
+		// Token: 0x040042A3 RID: 17059
 		[SerializeField]
 		private float accel;
 
-		// Token: 0x040041AA RID: 16810
+		// Token: 0x040042A4 RID: 17060
 		[SerializeField]
 		private float maxDepth = -1f;
 
-		// Token: 0x040041AB RID: 16811
+		// Token: 0x040042A5 RID: 17061
 		[SerializeField]
 		private float maxSpeed;
 
-		// Token: 0x040041AC RID: 16812
+		// Token: 0x040042A6 RID: 17062
 		[SerializeField]
 		private bool disableGrip;
 
-		// Token: 0x040041AD RID: 16813
+		// Token: 0x040042A7 RID: 17063
 		[SerializeField]
 		private bool dampenLateralVelocity = true;
 
-		// Token: 0x040041AE RID: 16814
+		// Token: 0x040042A8 RID: 17064
 		[SerializeField]
 		private float dampenXVelPerc;
 
-		// Token: 0x040041AF RID: 16815
+		// Token: 0x040042A9 RID: 17065
 		[FormerlySerializedAs("dampenZVelPerc")]
 		[SerializeField]
 		private float dampenYVelPerc;
 
-		// Token: 0x040041B0 RID: 16816
+		// Token: 0x040042AA RID: 17066
 		[SerializeField]
 		private bool applyPullToCenterAcceleration = true;
 
-		// Token: 0x040041B1 RID: 16817
+		// Token: 0x040042AB RID: 17067
 		[SerializeField]
 		private float pullToCenterAccel;
 
-		// Token: 0x040041B2 RID: 16818
+		// Token: 0x040042AC RID: 17068
 		[SerializeField]
 		private float pullToCenterMaxSpeed;
 
-		// Token: 0x040041B3 RID: 16819
+		// Token: 0x040042AD RID: 17069
 		[SerializeField]
 		private float pullTOCenterMinDistance = 0.1f;
 
-		// Token: 0x040041B4 RID: 16820
+		// Token: 0x040042AE RID: 17070
 		private Collider volume;
 
-		// Token: 0x040041B5 RID: 16821
+		// Token: 0x040042AF RID: 17071
 		public GameObject windSFX;
 
-		// Token: 0x040041B6 RID: 16822
+		// Token: 0x040042B0 RID: 17072
 		[SerializeField]
 		private MeshRenderer windEffectRenderer;
 
-		// Token: 0x040041B7 RID: 16823
+		// Token: 0x040042B1 RID: 17073
 		private bool hasWindFX;
 
-		// Token: 0x040041B8 RID: 16824
+		// Token: 0x040042B2 RID: 17074
 		private Vector3 enterPos;
 	}
 }

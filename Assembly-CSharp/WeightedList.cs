@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// Token: 0x02000077 RID: 119
+// Token: 0x0200007E RID: 126
 public class WeightedList<T>
 {
-	// Token: 0x1700002C RID: 44
-	// (get) Token: 0x060002F9 RID: 761 RVA: 0x000126B4 File Offset: 0x000108B4
+	// Token: 0x1700002F RID: 47
+	// (get) Token: 0x0600032A RID: 810 RVA: 0x00032734 File Offset: 0x00030934
 	public int Count
 	{
 		get
@@ -16,7 +16,17 @@ public class WeightedList<T>
 		}
 	}
 
-	// Token: 0x060002FA RID: 762 RVA: 0x000126C4 File Offset: 0x000108C4
+	// Token: 0x17000030 RID: 48
+	// (get) Token: 0x0600032B RID: 811 RVA: 0x00032741 File Offset: 0x00030941
+	public List<T> Items
+	{
+		get
+		{
+			return this.items;
+		}
+	}
+
+	// Token: 0x0600032C RID: 812 RVA: 0x00076E3C File Offset: 0x0007503C
 	public void Add(T item, float weight)
 	{
 		if (weight <= 0f)
@@ -29,7 +39,7 @@ public class WeightedList<T>
 		this.cumulativeWeights.Add(this.totalWeight);
 	}
 
-	// Token: 0x1700002D RID: 45
+	// Token: 0x17000031 RID: 49
 	[TupleElementNames(new string[]
 	{
 		"Item",
@@ -52,20 +62,20 @@ public class WeightedList<T>
 		}
 	}
 
-	// Token: 0x060002FC RID: 764 RVA: 0x00012752 File Offset: 0x00010952
+	// Token: 0x0600032E RID: 814 RVA: 0x00032780 File Offset: 0x00030980
 	public T GetRandomItem()
 	{
 		return this.items[this.GetRandomIndex()];
 	}
 
-	// Token: 0x060002FD RID: 765 RVA: 0x00012768 File Offset: 0x00010968
+	// Token: 0x0600032F RID: 815 RVA: 0x00076E94 File Offset: 0x00075094
 	public int GetRandomIndex()
 	{
 		if (this.items.Count == 0)
 		{
 			throw new InvalidOperationException("The list is empty.");
 		}
-		float item = Random.value * this.totalWeight;
+		float item = UnityEngine.Random.value * this.totalWeight;
 		int num = this.cumulativeWeights.BinarySearch(item);
 		if (num < 0)
 		{
@@ -74,7 +84,7 @@ public class WeightedList<T>
 		return num;
 	}
 
-	// Token: 0x060002FE RID: 766 RVA: 0x000127B0 File Offset: 0x000109B0
+	// Token: 0x06000330 RID: 816 RVA: 0x00076EDC File Offset: 0x000750DC
 	public bool Remove(T item)
 	{
 		int num = this.items.IndexOf(item);
@@ -86,7 +96,7 @@ public class WeightedList<T>
 		return true;
 	}
 
-	// Token: 0x060002FF RID: 767 RVA: 0x000127D8 File Offset: 0x000109D8
+	// Token: 0x06000331 RID: 817 RVA: 0x00076F04 File Offset: 0x00075104
 	public void RemoveAt(int index)
 	{
 		if (index < 0 || index >= this.items.Count)
@@ -99,7 +109,7 @@ public class WeightedList<T>
 		this.RecalculateCumulativeWeights();
 	}
 
-	// Token: 0x06000300 RID: 768 RVA: 0x0001283C File Offset: 0x00010A3C
+	// Token: 0x06000332 RID: 818 RVA: 0x00076F68 File Offset: 0x00075168
 	private void RecalculateCumulativeWeights()
 	{
 		this.cumulativeWeights.Clear();
@@ -112,7 +122,7 @@ public class WeightedList<T>
 		this.totalWeight = num;
 	}
 
-	// Token: 0x06000301 RID: 769 RVA: 0x000128B0 File Offset: 0x00010AB0
+	// Token: 0x06000333 RID: 819 RVA: 0x00032793 File Offset: 0x00030993
 	public void Clear()
 	{
 		this.items.Clear();
@@ -121,15 +131,15 @@ public class WeightedList<T>
 		this.totalWeight = 0f;
 	}
 
-	// Token: 0x0400039C RID: 924
+	// Token: 0x040003D0 RID: 976
 	private List<T> items = new List<T>();
 
-	// Token: 0x0400039D RID: 925
+	// Token: 0x040003D1 RID: 977
 	private List<float> weights = new List<float>();
 
-	// Token: 0x0400039E RID: 926
+	// Token: 0x040003D2 RID: 978
 	private List<float> cumulativeWeights = new List<float>();
 
-	// Token: 0x0400039F RID: 927
+	// Token: 0x040003D3 RID: 979
 	private float totalWeight;
 }

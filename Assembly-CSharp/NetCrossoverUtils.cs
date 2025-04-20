@@ -7,16 +7,16 @@ using Fusion;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x0200027A RID: 634
+// Token: 0x02000285 RID: 645
 public static class NetCrossoverUtils
 {
-	// Token: 0x06000EDB RID: 3803 RVA: 0x0004BA21 File Offset: 0x00049C21
+	// Token: 0x06000F26 RID: 3878 RVA: 0x0003AA16 File Offset: 0x00038C16
 	public static void Prewarm()
 	{
 		NetCrossoverUtils.FixedBuffer = new byte[2048];
 	}
 
-	// Token: 0x06000EDC RID: 3804 RVA: 0x0004BA34 File Offset: 0x00049C34
+	// Token: 0x06000F27 RID: 3879 RVA: 0x000A8160 File Offset: 0x000A6360
 	public static void WriteNetDataToBuffer<T>(this T data, PhotonStream stream) where T : struct, INetworkStruct
 	{
 		if (stream.IsReading)
@@ -43,7 +43,7 @@ public static class NetCrossoverUtils
 		}
 	}
 
-	// Token: 0x06000EDD RID: 3805 RVA: 0x0004BACC File Offset: 0x00049CCC
+	// Token: 0x06000F28 RID: 3880 RVA: 0x000A81F8 File Offset: 0x000A63F8
 	public static object ReadNetDataFromBuffer<T>(PhotonStream stream) where T : struct, INetworkStruct
 	{
 		if (stream.IsWriting)
@@ -81,7 +81,7 @@ public static class NetCrossoverUtils
 		return result;
 	}
 
-	// Token: 0x06000EDE RID: 3806 RVA: 0x0004BBB4 File Offset: 0x00049DB4
+	// Token: 0x06000F29 RID: 3881 RVA: 0x000A82E0 File Offset: 0x000A64E0
 	public static void WriteNetDataToBuffer(this object data, PhotonStream stream)
 	{
 		if (stream.IsReading)
@@ -108,7 +108,7 @@ public static class NetCrossoverUtils
 		}
 	}
 
-	// Token: 0x06000EDF RID: 3807 RVA: 0x0004BC48 File Offset: 0x00049E48
+	// Token: 0x06000F2A RID: 3882 RVA: 0x000A8374 File Offset: 0x000A6574
 	public static void SerializeToRPCData<T>(this RPCArgBuffer<T> argBuffer) where T : struct
 	{
 		IntPtr intPtr = 0;
@@ -125,7 +125,7 @@ public static class NetCrossoverUtils
 		}
 	}
 
-	// Token: 0x06000EE0 RID: 3808 RVA: 0x0004BCA8 File Offset: 0x00049EA8
+	// Token: 0x06000F2B RID: 3883 RVA: 0x000A83D4 File Offset: 0x000A65D4
 	public static void PopulateWithRPCData<T>(this RPCArgBuffer<T> argBuffer, byte[] data) where T : struct
 	{
 		IntPtr intPtr = 0;
@@ -142,8 +142,8 @@ public static class NetCrossoverUtils
 		}
 	}
 
-	// Token: 0x06000EE1 RID: 3809 RVA: 0x0004BD04 File Offset: 0x00049F04
-	public static Dictionary<string, SessionProperty> ToPropDict(this Hashtable hash)
+	// Token: 0x06000F2C RID: 3884 RVA: 0x000A8430 File Offset: 0x000A6630
+	public static Dictionary<string, SessionProperty> ToPropDict(this ExitGames.Client.Photon.Hashtable hash)
 	{
 		Dictionary<string, SessionProperty> dictionary = new Dictionary<string, SessionProperty>();
 		foreach (DictionaryEntry dictionaryEntry in hash)
@@ -153,9 +153,9 @@ public static class NetCrossoverUtils
 		return dictionary;
 	}
 
-	// Token: 0x04001199 RID: 4505
+	// Token: 0x040011DF RID: 4575
 	private const int MaxParameterByteLength = 2048;
 
-	// Token: 0x0400119A RID: 4506
+	// Token: 0x040011E0 RID: 4576
 	private static byte[] FixedBuffer;
 }

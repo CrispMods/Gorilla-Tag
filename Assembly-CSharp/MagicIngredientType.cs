@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005D7 RID: 1495
+// Token: 0x020005E5 RID: 1509
 [CreateAssetMenu(fileName = "IngredientTypeSO", menuName = "ScriptableObjects/Add New Magic Ingredient Type")]
 public class MagicIngredientType : ScriptableObject
 {
-	// Token: 0x0400293D RID: 10557
+	// Token: 0x0400299C RID: 10652
 	public Color color;
 }

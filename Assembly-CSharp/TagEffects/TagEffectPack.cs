@@ -3,35 +3,35 @@ using UnityEngine;
 
 namespace TagEffects
 {
-	// Token: 0x02000B2D RID: 2861
+	// Token: 0x02000B5A RID: 2906
 	[CreateAssetMenu(fileName = "New Tag Effect Pack", menuName = "Tag Effect Pack")]
 	public class TagEffectPack : ScriptableObject
 	{
-		// Token: 0x040048E8 RID: 18664
+		// Token: 0x040049DD RID: 18909
 		public GameObject thirdPerson;
 
-		// Token: 0x040048E9 RID: 18665
+		// Token: 0x040049DE RID: 18910
 		public bool thirdPersonParentEffect = true;
 
-		// Token: 0x040048EA RID: 18666
+		// Token: 0x040049DF RID: 18911
 		public GameObject firstPerson;
 
-		// Token: 0x040048EB RID: 18667
+		// Token: 0x040049E0 RID: 18912
 		public bool firstPersonParentEffect = true;
 
-		// Token: 0x040048EC RID: 18668
+		// Token: 0x040049E1 RID: 18913
 		public GameObject highFive;
 
-		// Token: 0x040048ED RID: 18669
+		// Token: 0x040049E2 RID: 18914
 		public bool highFiveParentEffect;
 
-		// Token: 0x040048EE RID: 18670
+		// Token: 0x040049E3 RID: 18915
 		public GameObject fistBump;
 
-		// Token: 0x040048EF RID: 18671
+		// Token: 0x040049E4 RID: 18916
 		public bool fistBumpParentEffect;
 
-		// Token: 0x040048F0 RID: 18672
+		// Token: 0x040049E5 RID: 18917
 		public bool shouldFaceTagger;
 	}
 }

@@ -2,10 +2,10 @@
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x0200017A RID: 378
+// Token: 0x02000185 RID: 389
 public class SpringyWobbler : MonoBehaviour
 {
-	// Token: 0x06000974 RID: 2420 RVA: 0x000324FC File Offset: 0x000306FC
+	// Token: 0x060009C0 RID: 2496 RVA: 0x00092854 File Offset: 0x00090A54
 	private void Start()
 	{
 		int num = 1;
@@ -28,7 +28,7 @@ public class SpringyWobbler : MonoBehaviour
 		this.lastEndpointWorldPos = this.children[this.children.Length - 1].transform.position;
 	}
 
-	// Token: 0x06000975 RID: 2421 RVA: 0x00032588 File Offset: 0x00030788
+	// Token: 0x060009C1 RID: 2497 RVA: 0x000928E0 File Offset: 0x00090AE0
 	private void Update()
 	{
 		float x = base.transform.lossyScale.x;
@@ -59,43 +59,43 @@ public class SpringyWobbler : MonoBehaviour
 		this.lastEndpointWorldPos = vector2;
 	}
 
-	// Token: 0x04000B66 RID: 2918
+	// Token: 0x04000BAC RID: 2988
 	[SerializeField]
 	private float stabilizingForce;
 
-	// Token: 0x04000B67 RID: 2919
+	// Token: 0x04000BAD RID: 2989
 	[SerializeField]
 	private float drag;
 
-	// Token: 0x04000B68 RID: 2920
+	// Token: 0x04000BAE RID: 2990
 	[SerializeField]
 	private float maxDisplacement;
 
-	// Token: 0x04000B69 RID: 2921
+	// Token: 0x04000BAF RID: 2991
 	private Transform[] children;
 
-	// Token: 0x04000B6A RID: 2922
+	// Token: 0x04000BB0 RID: 2992
 	[SerializeField]
 	private Vector3 idealEndpointLocalPos;
 
-	// Token: 0x04000B6B RID: 2923
+	// Token: 0x04000BB1 RID: 2993
 	[SerializeField]
 	private Vector3 rotateToFaceLocalPos;
 
-	// Token: 0x04000B6C RID: 2924
+	// Token: 0x04000BB2 RID: 2994
 	[SerializeField]
 	private float startStiffness;
 
-	// Token: 0x04000B6D RID: 2925
+	// Token: 0x04000BB3 RID: 2995
 	[SerializeField]
 	private float endStiffness;
 
-	// Token: 0x04000B6E RID: 2926
+	// Token: 0x04000BB4 RID: 2996
 	private Vector3 lastIdealEndpointWorldPos;
 
-	// Token: 0x04000B6F RID: 2927
+	// Token: 0x04000BB5 RID: 2997
 	private Vector3 lastEndpointWorldPos;
 
-	// Token: 0x04000B70 RID: 2928
+	// Token: 0x04000BB6 RID: 2998
 	private Vector3 endpointVelocity;
 }

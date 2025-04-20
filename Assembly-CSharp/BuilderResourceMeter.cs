@@ -3,10 +3,10 @@ using GorillaTagScripts;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x020004E3 RID: 1251
+// Token: 0x020004F0 RID: 1264
 public class BuilderResourceMeter : MonoBehaviour
 {
-	// Token: 0x06001E6B RID: 7787 RVA: 0x00098FD4 File Offset: 0x000971D4
+	// Token: 0x06001EC4 RID: 7876 RVA: 0x000EB79C File Offset: 0x000E999C
 	private void Awake()
 	{
 		this.fillColor = this.resourceColors.GetColorForType(this._resourceType);
@@ -19,7 +19,7 @@ public class BuilderResourceMeter : MonoBehaviour
 		this.fillAmount = this.fillTarget;
 	}
 
-	// Token: 0x06001E6C RID: 7788 RVA: 0x00099050 File Offset: 0x00097250
+	// Token: 0x06001EC5 RID: 7877 RVA: 0x00044DA2 File Offset: 0x00042FA2
 	private void Start()
 	{
 		ZoneManagement instance = ZoneManagement.instance;
@@ -27,7 +27,7 @@ public class BuilderResourceMeter : MonoBehaviour
 		this.OnZoneChanged();
 	}
 
-	// Token: 0x06001E6D RID: 7789 RVA: 0x0009907E File Offset: 0x0009727E
+	// Token: 0x06001EC6 RID: 7878 RVA: 0x00044DD0 File Offset: 0x00042FD0
 	private void OnDestroy()
 	{
 		if (ZoneManagement.instance != null)
@@ -37,7 +37,7 @@ public class BuilderResourceMeter : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E6E RID: 7790 RVA: 0x000990B4 File Offset: 0x000972B4
+	// Token: 0x06001EC7 RID: 7879 RVA: 0x000EB818 File Offset: 0x000E9A18
 	private void OnZoneChanged()
 	{
 		bool flag = ZoneManagement.instance.IsZoneActive(GTZone.monkeBlocks);
@@ -56,7 +56,7 @@ public class BuilderResourceMeter : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E6F RID: 7791 RVA: 0x00099118 File Offset: 0x00097318
+	// Token: 0x06001EC8 RID: 7880 RVA: 0x000EB87C File Offset: 0x000E9A7C
 	public void OnAvailableResourcesChange()
 	{
 		this.resourceMax = BuilderTable.instance.maxResources[(int)this._resourceType];
@@ -68,7 +68,7 @@ public class BuilderResourceMeter : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E70 RID: 7792 RVA: 0x0009917C File Offset: 0x0009737C
+	// Token: 0x06001EC9 RID: 7881 RVA: 0x000EB8E0 File Offset: 0x000E9AE0
 	public void UpdateMeterFill()
 	{
 		if (this.animatingMeter)
@@ -78,7 +78,7 @@ public class BuilderResourceMeter : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E71 RID: 7793 RVA: 0x000991B8 File Offset: 0x000973B8
+	// Token: 0x06001ECA RID: 7882 RVA: 0x000EB91C File Offset: 0x000E9B1C
 	private void UpdateFill(float newFill)
 	{
 		this.fillAmount = newFill;
@@ -127,58 +127,58 @@ public class BuilderResourceMeter : MonoBehaviour
 		this.emptyCube.enabled = true;
 	}
 
-	// Token: 0x06001E72 RID: 7794 RVA: 0x0009948C File Offset: 0x0009768C
+	// Token: 0x06001ECB RID: 7883 RVA: 0x00044E05 File Offset: 0x00043005
 	public void SetNormalizedFillTarget(float fill)
 	{
 		this.fillTarget = Mathf.Clamp(fill, 0f, 1f);
 		this.animatingMeter = true;
 	}
 
-	// Token: 0x040021FE RID: 8702
+	// Token: 0x04002251 RID: 8785
 	public BuilderResourceColors resourceColors;
 
-	// Token: 0x040021FF RID: 8703
+	// Token: 0x04002252 RID: 8786
 	public MeshRenderer fillCube;
 
-	// Token: 0x04002200 RID: 8704
+	// Token: 0x04002253 RID: 8787
 	public MeshRenderer emptyCube;
 
-	// Token: 0x04002201 RID: 8705
+	// Token: 0x04002254 RID: 8788
 	private Color fillColor = Color.white;
 
-	// Token: 0x04002202 RID: 8706
+	// Token: 0x04002255 RID: 8789
 	public Color emptyColor = Color.black;
 
-	// Token: 0x04002203 RID: 8707
+	// Token: 0x04002256 RID: 8790
 	[FormerlySerializedAs("MeterHeight")]
 	public float meterHeight = 2f;
 
-	// Token: 0x04002204 RID: 8708
+	// Token: 0x04002257 RID: 8791
 	public float meshHeight = 1f;
 
-	// Token: 0x04002205 RID: 8709
+	// Token: 0x04002258 RID: 8792
 	public BuilderResourceType _resourceType;
 
-	// Token: 0x04002206 RID: 8710
+	// Token: 0x04002259 RID: 8793
 	private float fillAmount;
 
-	// Token: 0x04002207 RID: 8711
+	// Token: 0x0400225A RID: 8794
 	[Range(0f, 1f)]
 	[SerializeField]
 	private float fillTarget;
 
-	// Token: 0x04002208 RID: 8712
+	// Token: 0x0400225B RID: 8795
 	public float lerpSpeed = 0.5f;
 
-	// Token: 0x04002209 RID: 8713
+	// Token: 0x0400225C RID: 8796
 	private bool animatingMeter;
 
-	// Token: 0x0400220A RID: 8714
+	// Token: 0x0400225D RID: 8797
 	private int resourceMax = -1;
 
-	// Token: 0x0400220B RID: 8715
+	// Token: 0x0400225E RID: 8798
 	private int usedResource = -1;
 
-	// Token: 0x0400220C RID: 8716
+	// Token: 0x0400225F RID: 8799
 	private bool inBuilderZone;
 }

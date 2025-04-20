@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x020005FD RID: 1533
+// Token: 0x02000678 RID: 1656
 public class ModIOLinkButton : GorillaPressableButton
 {
-	// Token: 0x06002610 RID: 9744 RVA: 0x000BBED6 File Offset: 0x000BA0D6
+	// Token: 0x0600291E RID: 10526 RVA: 0x0004BD8A File Offset: 0x00049F8A
 	public override void ButtonActivation()
 	{
 		base.ButtonActivation();
@@ -16,7 +16,7 @@ public class ModIOLinkButton : GorillaPressableButton
 		}
 	}
 
-	// Token: 0x06002611 RID: 9745 RVA: 0x000BBF04 File Offset: 0x000BA104
+	// Token: 0x0600291F RID: 10527 RVA: 0x0004BDB8 File Offset: 0x00049FB8
 	private IEnumerator ButtonPressed_Local()
 	{
 		this.isOn = true;
@@ -27,11 +27,11 @@ public class ModIOLinkButton : GorillaPressableButton
 		yield break;
 	}
 
-	// Token: 0x04002A19 RID: 10777
+	// Token: 0x04002E79 RID: 11897
 	[SerializeField]
 	private float pressedTime = 0.2f;
 
-	// Token: 0x04002A1A RID: 10778
+	// Token: 0x04002E7A RID: 11898
 	[SerializeField]
 	private ModIOAccountLinkingTerminal AccountLinkingTerminal;
 }

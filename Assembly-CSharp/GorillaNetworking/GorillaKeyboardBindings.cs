@@ -2,94 +2,94 @@
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000AB4 RID: 2740
+	// Token: 0x02000AE0 RID: 2784
 	public enum GorillaKeyboardBindings
 	{
-		// Token: 0x04004629 RID: 17961
+		// Token: 0x04004720 RID: 18208
 		zero,
-		// Token: 0x0400462A RID: 17962
+		// Token: 0x04004721 RID: 18209
 		one,
-		// Token: 0x0400462B RID: 17963
+		// Token: 0x04004722 RID: 18210
 		two,
-		// Token: 0x0400462C RID: 17964
+		// Token: 0x04004723 RID: 18211
 		three,
-		// Token: 0x0400462D RID: 17965
+		// Token: 0x04004724 RID: 18212
 		four,
-		// Token: 0x0400462E RID: 17966
+		// Token: 0x04004725 RID: 18213
 		five,
-		// Token: 0x0400462F RID: 17967
+		// Token: 0x04004726 RID: 18214
 		six,
-		// Token: 0x04004630 RID: 17968
+		// Token: 0x04004727 RID: 18215
 		seven,
-		// Token: 0x04004631 RID: 17969
+		// Token: 0x04004728 RID: 18216
 		eight,
-		// Token: 0x04004632 RID: 17970
+		// Token: 0x04004729 RID: 18217
 		nine,
-		// Token: 0x04004633 RID: 17971
+		// Token: 0x0400472A RID: 18218
 		up,
-		// Token: 0x04004634 RID: 17972
+		// Token: 0x0400472B RID: 18219
 		down,
-		// Token: 0x04004635 RID: 17973
+		// Token: 0x0400472C RID: 18220
 		delete,
-		// Token: 0x04004636 RID: 17974
+		// Token: 0x0400472D RID: 18221
 		enter,
-		// Token: 0x04004637 RID: 17975
+		// Token: 0x0400472E RID: 18222
 		option1,
-		// Token: 0x04004638 RID: 17976
+		// Token: 0x0400472F RID: 18223
 		option2,
-		// Token: 0x04004639 RID: 17977
+		// Token: 0x04004730 RID: 18224
 		option3,
-		// Token: 0x0400463A RID: 17978
+		// Token: 0x04004731 RID: 18225
 		A,
-		// Token: 0x0400463B RID: 17979
+		// Token: 0x04004732 RID: 18226
 		B,
-		// Token: 0x0400463C RID: 17980
+		// Token: 0x04004733 RID: 18227
 		C,
-		// Token: 0x0400463D RID: 17981
+		// Token: 0x04004734 RID: 18228
 		D,
-		// Token: 0x0400463E RID: 17982
+		// Token: 0x04004735 RID: 18229
 		E,
-		// Token: 0x0400463F RID: 17983
+		// Token: 0x04004736 RID: 18230
 		F,
-		// Token: 0x04004640 RID: 17984
+		// Token: 0x04004737 RID: 18231
 		G,
-		// Token: 0x04004641 RID: 17985
+		// Token: 0x04004738 RID: 18232
 		H,
-		// Token: 0x04004642 RID: 17986
+		// Token: 0x04004739 RID: 18233
 		I,
-		// Token: 0x04004643 RID: 17987
+		// Token: 0x0400473A RID: 18234
 		J,
-		// Token: 0x04004644 RID: 17988
+		// Token: 0x0400473B RID: 18235
 		K,
-		// Token: 0x04004645 RID: 17989
+		// Token: 0x0400473C RID: 18236
 		L,
-		// Token: 0x04004646 RID: 17990
+		// Token: 0x0400473D RID: 18237
 		M,
-		// Token: 0x04004647 RID: 17991
+		// Token: 0x0400473E RID: 18238
 		N,
-		// Token: 0x04004648 RID: 17992
+		// Token: 0x0400473F RID: 18239
 		O,
-		// Token: 0x04004649 RID: 17993
+		// Token: 0x04004740 RID: 18240
 		P,
-		// Token: 0x0400464A RID: 17994
+		// Token: 0x04004741 RID: 18241
 		Q,
-		// Token: 0x0400464B RID: 17995
+		// Token: 0x04004742 RID: 18242
 		R,
-		// Token: 0x0400464C RID: 17996
+		// Token: 0x04004743 RID: 18243
 		S,
-		// Token: 0x0400464D RID: 17997
+		// Token: 0x04004744 RID: 18244
 		T,
-		// Token: 0x0400464E RID: 17998
+		// Token: 0x04004745 RID: 18245
 		U,
-		// Token: 0x0400464F RID: 17999
+		// Token: 0x04004746 RID: 18246
 		V,
-		// Token: 0x04004650 RID: 18000
+		// Token: 0x04004747 RID: 18247
 		W,
-		// Token: 0x04004651 RID: 18001
+		// Token: 0x04004748 RID: 18248
 		X,
-		// Token: 0x04004652 RID: 18002
+		// Token: 0x04004749 RID: 18249
 		Y,
-		// Token: 0x04004653 RID: 18003
+		// Token: 0x0400474A RID: 18250
 		Z
 	}
 }

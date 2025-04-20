@@ -2,12 +2,12 @@
 using GorillaLocomotion.Swimming;
 using UnityEngine;
 
-// Token: 0x0200020D RID: 525
+// Token: 0x02000218 RID: 536
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class WaterRippleEffect : MonoBehaviour
 {
-	// Token: 0x06000C38 RID: 3128 RVA: 0x00041281 File Offset: 0x0003F481
+	// Token: 0x06000C83 RID: 3203 RVA: 0x00038C35 File Offset: 0x00036E35
 	private void Awake()
 	{
 		this.animator = base.GetComponent<Animator>();
@@ -15,14 +15,14 @@ public class WaterRippleEffect : MonoBehaviour
 		this.ripplePlaybackSpeedHash = Animator.StringToHash(this.ripplePlaybackSpeedName);
 	}
 
-	// Token: 0x06000C39 RID: 3129 RVA: 0x000412AC File Offset: 0x0003F4AC
+	// Token: 0x06000C84 RID: 3204 RVA: 0x00038C60 File Offset: 0x00036E60
 	public void Destroy()
 	{
 		this.waterVolume = null;
 		ObjectPools.instance.Destroy(base.gameObject);
 	}
 
-	// Token: 0x06000C3A RID: 3130 RVA: 0x000412C8 File Offset: 0x0003F4C8
+	// Token: 0x06000C85 RID: 3205 RVA: 0x0009F7CC File Offset: 0x0009D9CC
 	public void PlayEffect(WaterVolume volume = null)
 	{
 		this.waterVolume = volume;
@@ -37,7 +37,7 @@ public class WaterRippleEffect : MonoBehaviour
 		this.renderer.color = color;
 	}
 
-	// Token: 0x06000C3B RID: 3131 RVA: 0x00041360 File Offset: 0x0003F560
+	// Token: 0x06000C86 RID: 3206 RVA: 0x0009F864 File Offset: 0x0009DA64
 	private void Update()
 	{
 		if (this.waterVolume != null && !this.waterVolume.isStationary && this.waterVolume.surfacePlane != null)
@@ -56,33 +56,33 @@ public class WaterRippleEffect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000F71 RID: 3953
+	// Token: 0x04000FB7 RID: 4023
 	[SerializeField]
 	private float ripplePlaybackSpeed = 1f;
 
-	// Token: 0x04000F72 RID: 3954
+	// Token: 0x04000FB8 RID: 4024
 	[SerializeField]
 	private float fadeOutDelay = 0.5f;
 
-	// Token: 0x04000F73 RID: 3955
+	// Token: 0x04000FB9 RID: 4025
 	[SerializeField]
 	private float fadeOutTime = 1f;
 
-	// Token: 0x04000F74 RID: 3956
+	// Token: 0x04000FBA RID: 4026
 	private string ripplePlaybackSpeedName = "RipplePlaybackSpeed";
 
-	// Token: 0x04000F75 RID: 3957
+	// Token: 0x04000FBB RID: 4027
 	private int ripplePlaybackSpeedHash;
 
-	// Token: 0x04000F76 RID: 3958
+	// Token: 0x04000FBC RID: 4028
 	private float rippleStartTime = -1f;
 
-	// Token: 0x04000F77 RID: 3959
+	// Token: 0x04000FBD RID: 4029
 	private Animator animator;
 
-	// Token: 0x04000F78 RID: 3960
+	// Token: 0x04000FBE RID: 4030
 	private SpriteRenderer renderer;
 
-	// Token: 0x04000F79 RID: 3961
+	// Token: 0x04000FBF RID: 4031
 	private WaterVolume waterVolume;
 }

@@ -1,22 +1,22 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-// Token: 0x02000851 RID: 2129
+// Token: 0x0200086B RID: 2155
 public static class JsonUtils
 {
-	// Token: 0x060033A7 RID: 13223 RVA: 0x000F6797 File Offset: 0x000F4997
+	// Token: 0x06003462 RID: 13410 RVA: 0x0005281A File Offset: 0x00050A1A
 	public static string ToJson<T>(this T obj, bool indent = true)
 	{
 		return JsonConvert.SerializeObject(obj, indent ? Formatting.Indented : Formatting.None);
 	}
 
-	// Token: 0x060033A8 RID: 13224 RVA: 0x000F67AB File Offset: 0x000F49AB
+	// Token: 0x06003463 RID: 13411 RVA: 0x0005282E File Offset: 0x00050A2E
 	public static T FromJson<T>(this string s)
 	{
 		return JsonConvert.DeserializeObject<T>(s);
 	}
 
-	// Token: 0x060033A9 RID: 13225 RVA: 0x000F67B4 File Offset: 0x000F49B4
+	// Token: 0x06003464 RID: 13412 RVA: 0x0013DEC8 File Offset: 0x0013C0C8
 	public static string JsonSerializeEventData<T>(this T obj)
 	{
 		JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
@@ -29,7 +29,7 @@ public static class JsonUtils
 		return JsonConvert.SerializeObject(obj, jsonSerializerSettings);
 	}
 
-	// Token: 0x060033AA RID: 13226 RVA: 0x000F67F8 File Offset: 0x000F49F8
+	// Token: 0x06003465 RID: 13413 RVA: 0x0013DF0C File Offset: 0x0013C10C
 	public static T JsonDeserializeEventData<T>(this string s)
 	{
 		JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings

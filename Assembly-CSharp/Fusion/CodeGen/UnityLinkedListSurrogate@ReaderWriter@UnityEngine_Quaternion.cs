@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace Fusion.CodeGen
 {
-	// Token: 0x02000D28 RID: 3368
+	// Token: 0x02000D59 RID: 3417
 	[WeaverGenerated]
 	[Serializable]
 	internal class UnityLinkedListSurrogate@ReaderWriter@UnityEngine_Quaternion : UnityLinkedListSurrogate<Quaternion, ReaderWriter@UnityEngine_Quaternion>
 	{
-		// Token: 0x17000876 RID: 2166
-		// (get) Token: 0x06005410 RID: 21520 RVA: 0x0019C714 File Offset: 0x0019A914
-		// (set) Token: 0x06005411 RID: 21521 RVA: 0x0019C71C File Offset: 0x0019A91C
+		// Token: 0x17000894 RID: 2196
+		// (get) Token: 0x06005572 RID: 21874 RVA: 0x0006766E File Offset: 0x0006586E
+		// (set) Token: 0x06005573 RID: 21875 RVA: 0x00067676 File Offset: 0x00065876
 		[WeaverGenerated]
 		public override Quaternion[] DataProperty
 		{
@@ -27,13 +27,13 @@ namespace Fusion.CodeGen
 			}
 		}
 
-		// Token: 0x06005412 RID: 21522 RVA: 0x0019C725 File Offset: 0x0019A925
+		// Token: 0x06005574 RID: 21876 RVA: 0x0006767F File Offset: 0x0006587F
 		[WeaverGenerated]
 		public UnityLinkedListSurrogate@ReaderWriter@UnityEngine_Quaternion()
 		{
 		}
 
-		// Token: 0x0400586A RID: 22634
+		// Token: 0x04005976 RID: 22902
 		[WeaverGenerated]
 		public Quaternion[] Data = Array.Empty<Quaternion>();
 	}

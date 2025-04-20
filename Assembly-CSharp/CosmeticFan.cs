@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000144 RID: 324
+// Token: 0x0200014E RID: 334
 public class CosmeticFan : MonoBehaviour
 {
-	// Token: 0x0600084E RID: 2126 RVA: 0x0002DA5F File Offset: 0x0002BC5F
+	// Token: 0x06000892 RID: 2194 RVA: 0x0003607C File Offset: 0x0003427C
 	private void Start()
 	{
 		this.spinUpRate = this.maxSpeed / this.spinUpDuration;
 		this.spinDownRate = this.maxSpeed / this.spinDownDuration;
 	}
 
-	// Token: 0x0600084F RID: 2127 RVA: 0x0002DA88 File Offset: 0x0002BC88
+	// Token: 0x06000893 RID: 2195 RVA: 0x0008EC00 File Offset: 0x0008CE00
 	public void Run()
 	{
 		this.targetSpeed = this.maxSpeed;
@@ -27,7 +27,7 @@ public class CosmeticFan : MonoBehaviour
 		base.enabled = true;
 	}
 
-	// Token: 0x06000850 RID: 2128 RVA: 0x0002DAD6 File Offset: 0x0002BCD6
+	// Token: 0x06000894 RID: 2196 RVA: 0x000360A4 File Offset: 0x000342A4
 	public void Stop()
 	{
 		this.targetSpeed = 0f;
@@ -40,7 +40,7 @@ public class CosmeticFan : MonoBehaviour
 		this.currentSpeed = 0f;
 	}
 
-	// Token: 0x06000851 RID: 2129 RVA: 0x0002DB0F File Offset: 0x0002BD0F
+	// Token: 0x06000895 RID: 2197 RVA: 0x000360DD File Offset: 0x000342DD
 	public void InstantStop()
 	{
 		this.targetSpeed = 0f;
@@ -48,7 +48,7 @@ public class CosmeticFan : MonoBehaviour
 		base.enabled = false;
 	}
 
-	// Token: 0x06000852 RID: 2130 RVA: 0x0002DB30 File Offset: 0x0002BD30
+	// Token: 0x06000896 RID: 2198 RVA: 0x0008EC50 File Offset: 0x0008CE50
 	private void Update()
 	{
 		this.currentSpeed = Mathf.MoveTowards(this.currentSpeed, this.targetSpeed, this.currentAccelRate * Time.deltaTime);
@@ -59,34 +59,34 @@ public class CosmeticFan : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040009CF RID: 2511
+	// Token: 0x04000A12 RID: 2578
 	[SerializeField]
 	private Vector3 axis;
 
-	// Token: 0x040009D0 RID: 2512
+	// Token: 0x04000A13 RID: 2579
 	[SerializeField]
 	private float spinUpDuration = 0.3f;
 
-	// Token: 0x040009D1 RID: 2513
+	// Token: 0x04000A14 RID: 2580
 	[SerializeField]
 	private float spinDownDuration = 0.3f;
 
-	// Token: 0x040009D2 RID: 2514
+	// Token: 0x04000A15 RID: 2581
 	[SerializeField]
 	private float maxSpeed = 360f;
 
-	// Token: 0x040009D3 RID: 2515
+	// Token: 0x04000A16 RID: 2582
 	private float currentSpeed;
 
-	// Token: 0x040009D4 RID: 2516
+	// Token: 0x04000A17 RID: 2583
 	private float targetSpeed;
 
-	// Token: 0x040009D5 RID: 2517
+	// Token: 0x04000A18 RID: 2584
 	private float currentAccelRate;
 
-	// Token: 0x040009D6 RID: 2518
+	// Token: 0x04000A19 RID: 2585
 	private float spinUpRate;
 
-	// Token: 0x040009D7 RID: 2519
+	// Token: 0x04000A1A RID: 2586
 	private float spinDownRate;
 }

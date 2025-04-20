@@ -2,14 +2,14 @@
 
 namespace BoingKit
 {
-	// Token: 0x02000CE3 RID: 3299
+	// Token: 0x02000D14 RID: 3348
 	public enum ParameterMode
 	{
-		// Token: 0x040055A5 RID: 21925
+		// Token: 0x040056B1 RID: 22193
 		Exponential,
-		// Token: 0x040055A6 RID: 21926
+		// Token: 0x040056B2 RID: 22194
 		OscillationByHalfLife,
-		// Token: 0x040055A7 RID: 21927
+		// Token: 0x040056B3 RID: 22195
 		OscillationByDampingRatio
 	}
 }

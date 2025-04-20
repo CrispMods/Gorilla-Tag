@@ -6,11 +6,11 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-// Token: 0x02000093 RID: 147
+// Token: 0x0200009D RID: 157
 [NetworkBehaviourWeaved(3)]
 public class BarrelCannon : NetworkComponent
 {
-	// Token: 0x060003B6 RID: 950 RVA: 0x00016689 File Offset: 0x00014889
+	// Token: 0x060003F2 RID: 1010 RVA: 0x00032F8A File Offset: 0x0003118A
 	private void Update()
 	{
 		if (base.IsMine)
@@ -24,7 +24,7 @@ public class BarrelCannon : NetworkComponent
 		this.SharedUpdate();
 	}
 
-	// Token: 0x060003B7 RID: 951 RVA: 0x000166A8 File Offset: 0x000148A8
+	// Token: 0x060003F3 RID: 1011 RVA: 0x0007A794 File Offset: 0x00078994
 	private void AuthorityUpdate()
 	{
 		float time = Time.time;
@@ -125,7 +125,7 @@ public class BarrelCannon : NetworkComponent
 		}
 	}
 
-	// Token: 0x060003B8 RID: 952 RVA: 0x000169AC File Offset: 0x00014BAC
+	// Token: 0x060003F4 RID: 1012 RVA: 0x00032FA8 File Offset: 0x000311A8
 	private void ClientUpdate()
 	{
 		if (!this.syncedState.hasAuthorityPassenger && this.syncedState.currentState == BarrelCannon.BarrelCannonState.Idle && this.localPlayerInside)
@@ -134,7 +134,7 @@ public class BarrelCannon : NetworkComponent
 		}
 	}
 
-	// Token: 0x060003B9 RID: 953 RVA: 0x000169D8 File Offset: 0x00014BD8
+	// Token: 0x060003F5 RID: 1013 RVA: 0x0007AA98 File Offset: 0x00078C98
 	private void SharedUpdate()
 	{
 		if (this.syncedState.firingPositionLerpValue != this.localFiringPositionLerpValue)
@@ -145,14 +145,14 @@ public class BarrelCannon : NetworkComponent
 		}
 	}
 
-	// Token: 0x060003BA RID: 954 RVA: 0x00016A66 File Offset: 0x00014C66
+	// Token: 0x060003F6 RID: 1014 RVA: 0x00032FD2 File Offset: 0x000311D2
 	[PunRPC]
 	private void FireBarrelCannonRPC(Vector3 cannonCenter, Vector3 firingDirection)
 	{
 		this.FireBarrelCannonLocal(cannonCenter, firingDirection);
 	}
 
-	// Token: 0x060003BB RID: 955 RVA: 0x00016A70 File Offset: 0x00014C70
+	// Token: 0x060003F7 RID: 1015 RVA: 0x0007AB28 File Offset: 0x00078D28
 	private void FireBarrelCannonLocal(Vector3 cannonCenter, Vector3 firingDirection)
 	{
 		if (this.audioSource != null)
@@ -167,7 +167,7 @@ public class BarrelCannon : NetworkComponent
 		}
 	}
 
-	// Token: 0x060003BC RID: 956 RVA: 0x00016AFC File Offset: 0x00014CFC
+	// Token: 0x060003F8 RID: 1016 RVA: 0x0007ABB4 File Offset: 0x00078DB4
 	private void OnTriggerEnter(Collider other)
 	{
 		Rigidbody rigidbody;
@@ -178,7 +178,7 @@ public class BarrelCannon : NetworkComponent
 		}
 	}
 
-	// Token: 0x060003BD RID: 957 RVA: 0x00016B24 File Offset: 0x00014D24
+	// Token: 0x060003F9 RID: 1017 RVA: 0x0007ABDC File Offset: 0x00078DDC
 	private void OnTriggerExit(Collider other)
 	{
 		Rigidbody rigidbody;
@@ -189,7 +189,7 @@ public class BarrelCannon : NetworkComponent
 		}
 	}
 
-	// Token: 0x060003BE RID: 958 RVA: 0x00016B4A File Offset: 0x00014D4A
+	// Token: 0x060003FA RID: 1018 RVA: 0x00032FDC File Offset: 0x000311DC
 	private bool LocalPlayerTriggerFilter(Collider other, out Rigidbody rb)
 	{
 		rb = null;
@@ -200,7 +200,7 @@ public class BarrelCannon : NetworkComponent
 		return rb != null;
 	}
 
-	// Token: 0x060003BF RID: 959 RVA: 0x00016B80 File Offset: 0x00014D80
+	// Token: 0x060003FB RID: 1019 RVA: 0x0007AC04 File Offset: 0x00078E04
 	private bool IsLocalPlayerInCannon()
 	{
 		Vector3 point;
@@ -218,7 +218,7 @@ public class BarrelCannon : NetworkComponent
 		return false;
 	}
 
-	// Token: 0x060003C0 RID: 960 RVA: 0x00016BE0 File Offset: 0x00014DE0
+	// Token: 0x060003FC RID: 1020 RVA: 0x0007AC64 File Offset: 0x00078E64
 	private void GetCapsulePoints(CapsuleCollider capsule, out Vector3 pointA, out Vector3 pointB)
 	{
 		float d = capsule.height * 0.5f - capsule.radius;
@@ -226,9 +226,9 @@ public class BarrelCannon : NetworkComponent
 		pointB = capsule.transform.position - capsule.transform.up * d;
 	}
 
-	// Token: 0x1700003F RID: 63
-	// (get) Token: 0x060003C1 RID: 961 RVA: 0x00016C4F File Offset: 0x00014E4F
-	// (set) Token: 0x060003C2 RID: 962 RVA: 0x00016C79 File Offset: 0x00014E79
+	// Token: 0x17000044 RID: 68
+	// (get) Token: 0x060003FD RID: 1021 RVA: 0x00033011 File Offset: 0x00031211
+	// (set) Token: 0x060003FE RID: 1022 RVA: 0x0003303B File Offset: 0x0003123B
 	[Networked]
 	[NetworkedWeaved(0, 3)]
 	private unsafe BarrelCannon.BarrelCannonSyncedStateData Data
@@ -251,34 +251,34 @@ public class BarrelCannon : NetworkComponent
 		}
 	}
 
-	// Token: 0x060003C3 RID: 963 RVA: 0x00016CA4 File Offset: 0x00014EA4
+	// Token: 0x060003FF RID: 1023 RVA: 0x00033066 File Offset: 0x00031266
 	public override void WriteDataFusion()
 	{
 		this.Data = this.syncedState;
 	}
 
-	// Token: 0x060003C4 RID: 964 RVA: 0x00016CB8 File Offset: 0x00014EB8
+	// Token: 0x06000400 RID: 1024 RVA: 0x0007ACD4 File Offset: 0x00078ED4
 	public override void ReadDataFusion()
 	{
 		this.syncedState.currentState = this.Data.CurrentState;
 		this.syncedState.hasAuthorityPassenger = this.Data.HasAuthorityPassenger;
 	}
 
-	// Token: 0x060003C5 RID: 965 RVA: 0x00016CFC File Offset: 0x00014EFC
+	// Token: 0x06000401 RID: 1025 RVA: 0x00033079 File Offset: 0x00031279
 	protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		stream.SendNext(this.syncedState.currentState);
 		stream.SendNext(this.syncedState.hasAuthorityPassenger);
 	}
 
-	// Token: 0x060003C6 RID: 966 RVA: 0x00016D2A File Offset: 0x00014F2A
+	// Token: 0x06000402 RID: 1026 RVA: 0x000330A7 File Offset: 0x000312A7
 	protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		this.syncedState.currentState = (BarrelCannon.BarrelCannonState)stream.ReceiveNext();
 		this.syncedState.hasAuthorityPassenger = (bool)stream.ReceiveNext();
 	}
 
-	// Token: 0x060003C7 RID: 967 RVA: 0x00016D58 File Offset: 0x00014F58
+	// Token: 0x06000403 RID: 1027 RVA: 0x000330D5 File Offset: 0x000312D5
 	public override void OnOwnershipRequest(PhotonView targetView, Player requestingPlayer)
 	{
 		if (!this.localPlayerInside)
@@ -287,7 +287,7 @@ public class BarrelCannon : NetworkComponent
 		}
 	}
 
-	// Token: 0x060003C9 RID: 969 RVA: 0x00016E2D File Offset: 0x0001502D
+	// Token: 0x06000405 RID: 1029 RVA: 0x000330E6 File Offset: 0x000312E6
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -295,7 +295,7 @@ public class BarrelCannon : NetworkComponent
 		this.Data = this._Data;
 	}
 
-	// Token: 0x060003CA RID: 970 RVA: 0x00016E45 File Offset: 0x00015045
+	// Token: 0x06000406 RID: 1030 RVA: 0x000330FE File Offset: 0x000312FE
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -303,126 +303,126 @@ public class BarrelCannon : NetworkComponent
 		this._Data = this.Data;
 	}
 
-	// Token: 0x04000434 RID: 1076
+	// Token: 0x04000474 RID: 1140
 	[SerializeField]
 	private float firingSpeed = 10f;
 
-	// Token: 0x04000435 RID: 1077
+	// Token: 0x04000475 RID: 1141
 	[Header("Cannon's Movement Before Firing")]
 	[SerializeField]
 	private Vector3 firingPositionOffset = Vector3.zero;
 
-	// Token: 0x04000436 RID: 1078
+	// Token: 0x04000476 RID: 1142
 	[SerializeField]
 	private Vector3 firingRotationOffset = Vector3.zero;
 
-	// Token: 0x04000437 RID: 1079
+	// Token: 0x04000477 RID: 1143
 	[SerializeField]
 	private AnimationCurve firePositionAnimationCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-	// Token: 0x04000438 RID: 1080
+	// Token: 0x04000478 RID: 1144
 	[SerializeField]
 	private AnimationCurve fireRotationAnimationCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-	// Token: 0x04000439 RID: 1081
+	// Token: 0x04000479 RID: 1145
 	[Header("Cannon State Change Timing Parameters")]
 	[SerializeField]
 	private float moveToFiringPositionTime = 0.5f;
 
-	// Token: 0x0400043A RID: 1082
+	// Token: 0x0400047A RID: 1146
 	[SerializeField]
 	[Tooltip("The minimum time to wait after a gorilla enters the cannon before it starts moving into the firing position.")]
 	private float cannonEntryDelayTime = 0.25f;
 
-	// Token: 0x0400043B RID: 1083
+	// Token: 0x0400047B RID: 1147
 	[SerializeField]
 	[Tooltip("The minimum time to wait after a gorilla enters the cannon before it starts moving into the firing position.")]
 	private float preFiringDelayTime = 0.25f;
 
-	// Token: 0x0400043C RID: 1084
+	// Token: 0x0400047C RID: 1148
 	[SerializeField]
 	[Tooltip("The minimum time to wait after the cannon fires before it starts moving back to the idle position.")]
 	private float postFiringCooldownTime = 0.25f;
 
-	// Token: 0x0400043D RID: 1085
+	// Token: 0x0400047D RID: 1149
 	[SerializeField]
 	private float returnToIdlePositionTime = 1f;
 
-	// Token: 0x0400043E RID: 1086
+	// Token: 0x0400047E RID: 1150
 	[Header("Component References")]
 	[SerializeField]
 	private AudioSource audioSource;
 
-	// Token: 0x0400043F RID: 1087
+	// Token: 0x0400047F RID: 1151
 	[SerializeField]
 	private CapsuleCollider triggerCollider;
 
-	// Token: 0x04000440 RID: 1088
+	// Token: 0x04000480 RID: 1152
 	[SerializeField]
 	private Collider[] colliders;
 
-	// Token: 0x04000441 RID: 1089
+	// Token: 0x04000481 RID: 1153
 	private BarrelCannon.BarrelCannonSyncedState syncedState = new BarrelCannon.BarrelCannonSyncedState();
 
-	// Token: 0x04000442 RID: 1090
+	// Token: 0x04000482 RID: 1154
 	private Collider[] triggerOverlapResults = new Collider[16];
 
-	// Token: 0x04000443 RID: 1091
+	// Token: 0x04000483 RID: 1155
 	private bool localPlayerInside;
 
-	// Token: 0x04000444 RID: 1092
+	// Token: 0x04000484 RID: 1156
 	private Rigidbody localPlayerRigidbody;
 
-	// Token: 0x04000445 RID: 1093
+	// Token: 0x04000485 RID: 1157
 	private float stateStartTime;
 
-	// Token: 0x04000446 RID: 1094
+	// Token: 0x04000486 RID: 1158
 	private float localFiringPositionLerpValue;
 
-	// Token: 0x04000447 RID: 1095
+	// Token: 0x04000487 RID: 1159
 	[WeaverGenerated]
 	[DefaultForProperty("Data", 0, 3)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
 	private BarrelCannon.BarrelCannonSyncedStateData _Data;
 
-	// Token: 0x02000094 RID: 148
+	// Token: 0x0200009E RID: 158
 	private enum BarrelCannonState
 	{
-		// Token: 0x04000449 RID: 1097
+		// Token: 0x04000489 RID: 1161
 		Idle,
-		// Token: 0x0400044A RID: 1098
+		// Token: 0x0400048A RID: 1162
 		Loaded,
-		// Token: 0x0400044B RID: 1099
+		// Token: 0x0400048B RID: 1163
 		MovingToFirePosition,
-		// Token: 0x0400044C RID: 1100
+		// Token: 0x0400048C RID: 1164
 		Firing,
-		// Token: 0x0400044D RID: 1101
+		// Token: 0x0400048D RID: 1165
 		PostFireCooldown,
-		// Token: 0x0400044E RID: 1102
+		// Token: 0x0400048E RID: 1166
 		ReturningToIdlePosition
 	}
 
-	// Token: 0x02000095 RID: 149
+	// Token: 0x0200009F RID: 159
 	private class BarrelCannonSyncedState
 	{
-		// Token: 0x0400044F RID: 1103
+		// Token: 0x0400048F RID: 1167
 		public BarrelCannon.BarrelCannonState currentState;
 
-		// Token: 0x04000450 RID: 1104
+		// Token: 0x04000490 RID: 1168
 		public bool hasAuthorityPassenger;
 
-		// Token: 0x04000451 RID: 1105
+		// Token: 0x04000491 RID: 1169
 		public float firingPositionLerpValue;
 	}
 
-	// Token: 0x02000096 RID: 150
+	// Token: 0x020000A0 RID: 160
 	[NetworkStructWeaved(3)]
 	[StructLayout(LayoutKind.Explicit, Size = 12)]
 	private struct BarrelCannonSyncedStateData : INetworkStruct
 	{
-		// Token: 0x17000040 RID: 64
-		// (get) Token: 0x060003CC RID: 972 RVA: 0x00016E59 File Offset: 0x00015059
-		// (set) Token: 0x060003CD RID: 973 RVA: 0x00016E6B File Offset: 0x0001506B
+		// Token: 0x17000045 RID: 69
+		// (get) Token: 0x06000408 RID: 1032 RVA: 0x00033112 File Offset: 0x00031312
+		// (set) Token: 0x06000409 RID: 1033 RVA: 0x00033124 File Offset: 0x00031324
 		[Networked]
 		public unsafe BarrelCannon.BarrelCannonState CurrentState
 		{
@@ -436,9 +436,9 @@ public class BarrelCannon : NetworkComponent
 			}
 		}
 
-		// Token: 0x17000041 RID: 65
-		// (get) Token: 0x060003CE RID: 974 RVA: 0x00016E7E File Offset: 0x0001507E
-		// (set) Token: 0x060003CF RID: 975 RVA: 0x00016E90 File Offset: 0x00015090
+		// Token: 0x17000046 RID: 70
+		// (get) Token: 0x0600040A RID: 1034 RVA: 0x00033137 File Offset: 0x00031337
+		// (set) Token: 0x0600040B RID: 1035 RVA: 0x00033149 File Offset: 0x00031349
 		[Networked]
 		public unsafe NetworkBool HasAuthorityPassenger
 		{
@@ -452,12 +452,12 @@ public class BarrelCannon : NetworkComponent
 			}
 		}
 
-		// Token: 0x17000042 RID: 66
-		// (get) Token: 0x060003D0 RID: 976 RVA: 0x00016EA3 File Offset: 0x000150A3
-		// (set) Token: 0x060003D1 RID: 977 RVA: 0x00016EAB File Offset: 0x000150AB
+		// Token: 0x17000047 RID: 71
+		// (get) Token: 0x0600040C RID: 1036 RVA: 0x0003315C File Offset: 0x0003135C
+		// (set) Token: 0x0600040D RID: 1037 RVA: 0x00033164 File Offset: 0x00031364
 		public float FiringPositionLerpValue { readonly get; set; }
 
-		// Token: 0x060003D2 RID: 978 RVA: 0x00016EB4 File Offset: 0x000150B4
+		// Token: 0x0600040E RID: 1038 RVA: 0x0003316D File Offset: 0x0003136D
 		public BarrelCannonSyncedStateData(BarrelCannon.BarrelCannonState state, bool hasAuthPassenger, float firingPosLerpVal)
 		{
 			this.CurrentState = state;
@@ -465,20 +465,20 @@ public class BarrelCannon : NetworkComponent
 			this.FiringPositionLerpValue = firingPosLerpVal;
 		}
 
-		// Token: 0x060003D3 RID: 979 RVA: 0x00016ED0 File Offset: 0x000150D0
+		// Token: 0x0600040F RID: 1039 RVA: 0x00033189 File Offset: 0x00031389
 		public static implicit operator BarrelCannon.BarrelCannonSyncedStateData(BarrelCannon.BarrelCannonSyncedState state)
 		{
 			return new BarrelCannon.BarrelCannonSyncedStateData(state.currentState, state.hasAuthorityPassenger, state.firingPositionLerpValue);
 		}
 
-		// Token: 0x04000452 RID: 1106
+		// Token: 0x04000492 RID: 1170
 		[FixedBufferProperty(typeof(BarrelCannon.BarrelCannonState), typeof(UnityValueSurrogate@ReaderWriter@BarrelCannon__BarrelCannonState), 0, order = -2147483647)]
 		[WeaverGenerated]
 		[SerializeField]
 		[FieldOffset(0)]
 		private FixedStorage@1 _CurrentState;
 
-		// Token: 0x04000453 RID: 1107
+		// Token: 0x04000493 RID: 1171
 		[FixedBufferProperty(typeof(NetworkBool), typeof(UnityValueSurrogate@ReaderWriter@Fusion_NetworkBool), 0, order = -2147483647)]
 		[WeaverGenerated]
 		[SerializeField]

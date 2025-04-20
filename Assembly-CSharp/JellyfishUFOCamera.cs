@@ -5,7 +5,7 @@ using UnityEngine;
 // Token: 0x0200000F RID: 15
 public class JellyfishUFOCamera : MonoBehaviour
 {
-	// Token: 0x0600003E RID: 62 RVA: 0x00002836 File Offset: 0x00000A36
+	// Token: 0x0600003E RID: 62 RVA: 0x00030760 File Offset: 0x0002E960
 	private void Start()
 	{
 		if (this.Target == null)
@@ -15,7 +15,7 @@ public class JellyfishUFOCamera : MonoBehaviour
 		this.m_spring.Reset(this.Target.transform.position);
 	}
 
-	// Token: 0x0600003F RID: 63 RVA: 0x00002864 File Offset: 0x00000A64
+	// Token: 0x0600003F RID: 63 RVA: 0x00067D1C File Offset: 0x00065F1C
 	private void FixedUpdate()
 	{
 		if (this.Target == null)

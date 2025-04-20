@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000251 RID: 593
+// Token: 0x0200025C RID: 604
 [Serializable]
 public class NativeSizeChangerSettings
 {
-	// Token: 0x1700015A RID: 346
-	// (get) Token: 0x06000DC1 RID: 3521 RVA: 0x00046101 File Offset: 0x00044301
-	// (set) Token: 0x06000DC2 RID: 3522 RVA: 0x00046109 File Offset: 0x00044309
+	// Token: 0x17000161 RID: 353
+	// (get) Token: 0x06000E0C RID: 3596 RVA: 0x0003A0F2 File Offset: 0x000382F2
+	// (set) Token: 0x06000E0D RID: 3597 RVA: 0x0003A0FA File Offset: 0x000382FA
 	public Vector3 WorldPosition
 	{
 		get
@@ -20,9 +20,9 @@ public class NativeSizeChangerSettings
 		}
 	}
 
-	// Token: 0x1700015B RID: 347
-	// (get) Token: 0x06000DC3 RID: 3523 RVA: 0x00046112 File Offset: 0x00044312
-	// (set) Token: 0x06000DC4 RID: 3524 RVA: 0x0004611A File Offset: 0x0004431A
+	// Token: 0x17000162 RID: 354
+	// (get) Token: 0x06000E0E RID: 3598 RVA: 0x0003A103 File Offset: 0x00038303
+	// (set) Token: 0x06000E0F RID: 3599 RVA: 0x0003A10B File Offset: 0x0003830B
 	public float ActivationTime
 	{
 		get
@@ -35,31 +35,31 @@ public class NativeSizeChangerSettings
 		}
 	}
 
-	// Token: 0x040010C7 RID: 4295
+	// Token: 0x0400110D RID: 4365
 	public const float MinAllowedSize = 0.1f;
 
-	// Token: 0x040010C8 RID: 4296
+	// Token: 0x0400110E RID: 4366
 	public const float MaxAllowedSize = 10f;
 
-	// Token: 0x040010C9 RID: 4297
+	// Token: 0x0400110F RID: 4367
 	private Vector3 worldPosition;
 
-	// Token: 0x040010CA RID: 4298
+	// Token: 0x04001110 RID: 4368
 	private float activationTime;
 
-	// Token: 0x040010CB RID: 4299
+	// Token: 0x04001111 RID: 4369
 	[Range(0.1f, 10f)]
 	public float playerSizeScale = 1f;
 
-	// Token: 0x040010CC RID: 4300
+	// Token: 0x04001112 RID: 4370
 	public bool ExpireOnRoomJoin = true;
 
-	// Token: 0x040010CD RID: 4301
+	// Token: 0x04001113 RID: 4371
 	public bool ExpireInWater = true;
 
-	// Token: 0x040010CE RID: 4302
+	// Token: 0x04001114 RID: 4372
 	public float ExpireAfterSeconds;
 
-	// Token: 0x040010CF RID: 4303
+	// Token: 0x04001115 RID: 4373
 	public float ExpireOnDistance;
 }

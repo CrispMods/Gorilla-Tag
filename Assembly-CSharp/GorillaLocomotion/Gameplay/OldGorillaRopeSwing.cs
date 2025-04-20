@@ -7,21 +7,21 @@ using UnityEngine.XR;
 
 namespace GorillaLocomotion.Gameplay
 {
-	// Token: 0x02000B5B RID: 2907
+	// Token: 0x02000B88 RID: 2952
 	public class OldGorillaRopeSwing : MonoBehaviourPun
 	{
-		// Token: 0x170007A5 RID: 1957
-		// (get) Token: 0x060048AF RID: 18607 RVA: 0x00160658 File Offset: 0x0015E858
-		// (set) Token: 0x060048B0 RID: 18608 RVA: 0x00160660 File Offset: 0x0015E860
+		// Token: 0x170007C1 RID: 1985
+		// (get) Token: 0x060049FA RID: 18938 RVA: 0x00060256 File Offset: 0x0005E456
+		// (set) Token: 0x060049FB RID: 18939 RVA: 0x0006025E File Offset: 0x0005E45E
 		public bool isIdle { get; private set; }
 
-		// Token: 0x060048B1 RID: 18609 RVA: 0x00160669 File Offset: 0x0015E869
+		// Token: 0x060049FC RID: 18940 RVA: 0x00060267 File Offset: 0x0005E467
 		private void Awake()
 		{
 			this.SetIsIdle(true);
 		}
 
-		// Token: 0x060048B2 RID: 18610 RVA: 0x00160672 File Offset: 0x0015E872
+		// Token: 0x060049FD RID: 18941 RVA: 0x00060270 File Offset: 0x0005E470
 		private void OnDisable()
 		{
 			if (!this.isIdle)
@@ -30,7 +30,7 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x060048B3 RID: 18611 RVA: 0x00160684 File Offset: 0x0015E884
+		// Token: 0x060049FE RID: 18942 RVA: 0x0019BCC4 File Offset: 0x00199EC4
 		private void Update()
 		{
 			if (this.localPlayerOn && this.localGrabbedRigid)
@@ -85,7 +85,7 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x060048B4 RID: 18612 RVA: 0x00160830 File Offset: 0x0015EA30
+		// Token: 0x060049FF RID: 18943 RVA: 0x0019BE70 File Offset: 0x0019A070
 		private void SetIsIdle(bool idle)
 		{
 			this.isIdle = idle;
@@ -101,7 +101,7 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x060048B5 RID: 18613 RVA: 0x0016089C File Offset: 0x0015EA9C
+		// Token: 0x06004A00 RID: 18944 RVA: 0x0019BEDC File Offset: 0x0019A0DC
 		private void ToggleIsKinematic(bool kinematic)
 		{
 			for (int i = 0; i < this.bones.Length; i++)
@@ -118,7 +118,7 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x060048B6 RID: 18614 RVA: 0x001608EB File Offset: 0x0015EAEB
+		// Token: 0x06004A01 RID: 18945 RVA: 0x00060281 File Offset: 0x0005E481
 		public Rigidbody GetBone(int index)
 		{
 			if (index >= this.bones.Length)
@@ -128,7 +128,7 @@ namespace GorillaLocomotion.Gameplay
 			return this.bones[index];
 		}
 
-		// Token: 0x060048B7 RID: 18615 RVA: 0x0016090C File Offset: 0x0015EB0C
+		// Token: 0x06004A02 RID: 18946 RVA: 0x0019BF2C File Offset: 0x0019A12C
 		public int GetBoneIndex(Rigidbody r)
 		{
 			for (int i = 0; i < this.bones.Length; i++)
@@ -141,7 +141,7 @@ namespace GorillaLocomotion.Gameplay
 			return this.bones.Length - 1;
 		}
 
-		// Token: 0x060048B8 RID: 18616 RVA: 0x00160948 File Offset: 0x0015EB48
+		// Token: 0x06004A03 RID: 18947 RVA: 0x0019BF68 File Offset: 0x0019A168
 		public void AttachLocalPlayer(XRNode xrNode, Rigidbody rigid, Vector3 offset, Vector3 velocity)
 		{
 			int boneIndex = this.GetBoneIndex(rigid);
@@ -175,7 +175,7 @@ namespace GorillaLocomotion.Gameplay
 			this.localGrabbedRigid = rigid;
 		}
 
-		// Token: 0x060048B9 RID: 18617 RVA: 0x00160ACB File Offset: 0x0015ECCB
+		// Token: 0x06004A04 RID: 18948 RVA: 0x000602A2 File Offset: 0x0005E4A2
 		public void DetachLocalPlayer()
 		{
 			if (GorillaTagger.hasInstance && GorillaTagger.Instance.offlineVRRig)
@@ -186,7 +186,7 @@ namespace GorillaLocomotion.Gameplay
 			this.localGrabbedRigid = null;
 		}
 
-		// Token: 0x060048BA RID: 18618 RVA: 0x00160B04 File Offset: 0x0015ED04
+		// Token: 0x06004A05 RID: 18949 RVA: 0x0019C0EC File Offset: 0x0019A2EC
 		public bool AttachRemotePlayer(int playerId, int boneIndex, Transform offsetTransform, Vector3 offset)
 		{
 			Rigidbody bone = this.GetBone(boneIndex);
@@ -206,13 +206,13 @@ namespace GorillaLocomotion.Gameplay
 			return true;
 		}
 
-		// Token: 0x060048BB RID: 18619 RVA: 0x00160B6B File Offset: 0x0015ED6B
+		// Token: 0x06004A06 RID: 18950 RVA: 0x000602DA File Offset: 0x0005E4DA
 		public void DetachRemotePlayer(int playerId)
 		{
 			this.remotePlayers.Remove(playerId);
 		}
 
-		// Token: 0x060048BC RID: 18620 RVA: 0x00160B7C File Offset: 0x0015ED7C
+		// Token: 0x06004A07 RID: 18951 RVA: 0x0019C154 File Offset: 0x0019A354
 		public void SetVelocity_RPC(int boneIndex, Vector3 velocity, bool wholeRope = true, Vector3[] ropeRotations = null, Vector3[] ropeVelocities = null)
 		{
 			if (NetworkSystem.Instance.InRoom)
@@ -230,7 +230,7 @@ namespace GorillaLocomotion.Gameplay
 			this.SetVelocity(boneIndex, velocity, wholeRope, ropeRotations, ropeVelocities);
 		}
 
-		// Token: 0x060048BD RID: 18621 RVA: 0x00160BE0 File Offset: 0x0015EDE0
+		// Token: 0x06004A08 RID: 18952 RVA: 0x0019C1B8 File Offset: 0x0019A3B8
 		[PunRPC]
 		public void SetVelocity(int boneIndex, Vector3 velocity, bool wholeRope = true, Vector3[] ropeRotations = null, Vector3[] ropeVelocities = null)
 		{
@@ -268,57 +268,57 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x04004B58 RID: 19288
+		// Token: 0x04004C4E RID: 19534
 		public const float kPlayerMass = 0.8f;
 
-		// Token: 0x04004B59 RID: 19289
+		// Token: 0x04004C4F RID: 19535
 		public const float ropeBitGenOffset = 1f;
 
-		// Token: 0x04004B5A RID: 19290
+		// Token: 0x04004C50 RID: 19536
 		public const float MAX_ROPE_SPEED = 15f;
 
-		// Token: 0x04004B5B RID: 19291
+		// Token: 0x04004C51 RID: 19537
 		[SerializeField]
 		private GameObject prefabRopeBit;
 
-		// Token: 0x04004B5C RID: 19292
+		// Token: 0x04004C52 RID: 19538
 		public Rigidbody[] bones = Array.Empty<Rigidbody>();
 
-		// Token: 0x04004B5D RID: 19293
+		// Token: 0x04004C53 RID: 19539
 		private Dictionary<int, int> remotePlayers = new Dictionary<int, int>();
 
-		// Token: 0x04004B5E RID: 19294
+		// Token: 0x04004C54 RID: 19540
 		[NonSerialized]
 		public float lastGrabTime;
 
-		// Token: 0x04004B5F RID: 19295
+		// Token: 0x04004C55 RID: 19541
 		[SerializeField]
 		private AudioSource ropeCreakSFX;
 
-		// Token: 0x04004B60 RID: 19296
+		// Token: 0x04004C56 RID: 19542
 		private bool localPlayerOn;
 
-		// Token: 0x04004B61 RID: 19297
+		// Token: 0x04004C57 RID: 19543
 		private XRNode localPlayerXRNode;
 
-		// Token: 0x04004B62 RID: 19298
+		// Token: 0x04004C58 RID: 19544
 		private Rigidbody localGrabbedRigid;
 
-		// Token: 0x04004B63 RID: 19299
+		// Token: 0x04004C59 RID: 19545
 		private const float MAX_VELOCITY_FOR_IDLE = 0.1f;
 
-		// Token: 0x04004B64 RID: 19300
+		// Token: 0x04004C5A RID: 19546
 		private const float TIME_FOR_IDLE = 2f;
 
-		// Token: 0x04004B66 RID: 19302
+		// Token: 0x04004C5C RID: 19548
 		private float potentialIdleTimer;
 
-		// Token: 0x04004B67 RID: 19303
+		// Token: 0x04004C5D RID: 19549
 		[Header("Config")]
 		[SerializeField]
 		private int ropeLength = 8;
 
-		// Token: 0x04004B68 RID: 19304
+		// Token: 0x04004C5E RID: 19550
 		[SerializeField]
 		private GorillaRopeSwingSettings settings;
 	}

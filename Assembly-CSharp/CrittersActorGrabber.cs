@@ -5,11 +5,11 @@ using GorillaExtensions;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000033 RID: 51
+// Token: 0x02000036 RID: 54
 [DefaultExecutionOrder(9999)]
 public class CrittersActorGrabber : MonoBehaviour
 {
-	// Token: 0x060000ED RID: 237 RVA: 0x00007084 File Offset: 0x00005284
+	// Token: 0x060000FF RID: 255 RVA: 0x0006C750 File Offset: 0x0006A950
 	private void Awake()
 	{
 		if (this.grabber == null)
@@ -23,7 +23,7 @@ public class CrittersActorGrabber : MonoBehaviour
 		this.actorsStillPresent = new List<CrittersActor>();
 	}
 
-	// Token: 0x060000EE RID: 238 RVA: 0x000070F0 File Offset: 0x000052F0
+	// Token: 0x06000100 RID: 256 RVA: 0x0006C7BC File Offset: 0x0006A9BC
 	private void LateUpdate()
 	{
 		if (this.isLeft)
@@ -122,7 +122,7 @@ public class CrittersActorGrabber : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000EF RID: 239 RVA: 0x0000736C File Offset: 0x0000556C
+	// Token: 0x06000101 RID: 257 RVA: 0x0006CA38 File Offset: 0x0006AC38
 	private CrittersActor FindGrabTargets()
 	{
 		int num = Physics.OverlapSphereNonAlloc(base.transform.position, this.grabRadius, this.colliders, CrittersManager.instance.objectLayers | CrittersManager.instance.containerLayer);
@@ -157,13 +157,13 @@ public class CrittersActorGrabber : MonoBehaviour
 		return collider.attachedRigidbody.GetComponent<CrittersActor>();
 	}
 
-	// Token: 0x060000F0 RID: 240 RVA: 0x000074E5 File Offset: 0x000056E5
+	// Token: 0x06000102 RID: 258 RVA: 0x00030F42 File Offset: 0x0002F142
 	private void DoHover()
 	{
 		this.validGrabTarget.OnHover(this.isLeft);
 	}
 
-	// Token: 0x060000F1 RID: 241 RVA: 0x000074F8 File Offset: 0x000056F8
+	// Token: 0x06000103 RID: 259 RVA: 0x0006CBB4 File Offset: 0x0006ADB4
 	private void DoGrab()
 	{
 		if (this.validGrabTarget.IsNull())
@@ -180,10 +180,6 @@ public class CrittersActorGrabber : MonoBehaviour
 			EquipmentInteractor.instance.disableRightGrab = true;
 		}
 		this.isHandGrabbingDisabled = true;
-		if (!this.validGrabTarget.AllowGrabbingActor(this.grabber))
-		{
-			return;
-		}
 		this.remainingGrabDuration = 0f;
 		Vector3 localOffset = this.grabber.transform.InverseTransformPoint(this.validGrabTarget.transform.position);
 		Quaternion localRotation = this.grabber.transform.InverseTransformRotation(this.validGrabTarget.transform.rotation);
@@ -194,10 +190,13 @@ public class CrittersActorGrabber : MonoBehaviour
 			this.queuedRelativeGrabRotation = localRotation;
 			return;
 		}
-		this.ApplyGrab(this.validGrabTarget, localRotation, localOffset);
+		if (this.validGrabTarget.AllowGrabbingActor(this.grabber))
+		{
+			this.ApplyGrab(this.validGrabTarget, localRotation, localOffset);
+		}
 	}
 
-	// Token: 0x060000F2 RID: 242 RVA: 0x000075E4 File Offset: 0x000057E4
+	// Token: 0x06000104 RID: 260 RVA: 0x0006CC9C File Offset: 0x0006AE9C
 	private void ApplyGrab(CrittersActor grabTarget, Quaternion localRotation, Vector3 localOffset)
 	{
 		if (grabTarget.AttemptSetEquipmentStorable())
@@ -215,7 +214,7 @@ public class CrittersActorGrabber : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000F3 RID: 243 RVA: 0x00007650 File Offset: 0x00005850
+	// Token: 0x06000105 RID: 261 RVA: 0x0006CD08 File Offset: 0x0006AF08
 	private void DoRelease()
 	{
 		this.queuedGrab = null;
@@ -224,8 +223,9 @@ public class CrittersActorGrabber : MonoBehaviour
 		for (int i = this.grabber.grabbedActors.Count - 1; i >= 0; i--)
 		{
 			CrittersActor crittersActor = this.grabber.grabbedActors[i];
-			float d = 1f + MathF.Max(0f, this.estimator.linearVelocity.magnitude - CrittersManager.instance.fastThrowThreshold) * CrittersManager.instance.fastThrowMultiplier;
-			crittersActor.Released(true, crittersActor.transform.rotation, crittersActor.transform.position, this.estimator.linearVelocity * d, this.estimator.angularVelocity);
+			float magnitude = this.estimator.linearVelocity.magnitude;
+			float d = magnitude + Mathf.Max(0f, magnitude - CrittersManager.instance.fastThrowThreshold) * CrittersManager.instance.fastThrowMultiplier;
+			crittersActor.Released(true, crittersActor.transform.rotation, crittersActor.transform.position, this.estimator.linearVelocity.normalized * d, this.estimator.angularVelocity);
 			if (i < this.grabber.grabbedActors.Count)
 			{
 				this.grabber.grabbedActors.RemoveAt(i);
@@ -244,18 +244,21 @@ public class CrittersActorGrabber : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000F4 RID: 244 RVA: 0x00007780 File Offset: 0x00005980
+	// Token: 0x06000106 RID: 262 RVA: 0x0006CE40 File Offset: 0x0006B040
 	private void CheckApplyQueuedGrab()
 	{
 		if (Vector3.Magnitude(this.grabber.transform.InverseTransformPoint(this.queuedGrab.transform.position) - this.queuedRelativeGrabOffset) > this.grabDetachFromBagDist)
 		{
 			GorillaTagger.Instance.StartVibration(this.isLeft, GorillaTagger.Instance.tapHapticStrength / 4f, GorillaTagger.Instance.tapHapticDuration * 0.5f);
-			this.ApplyGrab(this.queuedGrab, this.queuedRelativeGrabRotation, this.queuedRelativeGrabOffset);
+			if (this.queuedGrab.AllowGrabbingActor(this.grabber))
+			{
+				this.ApplyGrab(this.queuedGrab, this.queuedRelativeGrabRotation, this.queuedRelativeGrabOffset);
+			}
 			this.queuedGrab = null;
 		}
 	}
 
-	// Token: 0x060000F5 RID: 245 RVA: 0x00007814 File Offset: 0x00005A14
+	// Token: 0x06000107 RID: 263 RVA: 0x0006CEE8 File Offset: 0x0006B0E8
 	private void VerifyExistingGrab()
 	{
 		for (int i = this.grabber.grabbedActors.Count - 1; i >= 0; i--)
@@ -273,7 +276,7 @@ public class CrittersActorGrabber : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000F6 RID: 246 RVA: 0x00007898 File Offset: 0x00005A98
+	// Token: 0x06000108 RID: 264 RVA: 0x0006CF6C File Offset: 0x0006B16C
 	public void PlayHaptics(AudioClip clip, float strength)
 	{
 		if (clip == null)
@@ -288,7 +291,7 @@ public class CrittersActorGrabber : MonoBehaviour
 		this.haptics = base.StartCoroutine(this.PlayHapticsOnLoop());
 	}
 
-	// Token: 0x060000F7 RID: 247 RVA: 0x000078E8 File Offset: 0x00005AE8
+	// Token: 0x06000109 RID: 265 RVA: 0x00030F55 File Offset: 0x0002F155
 	public void StopHaptics()
 	{
 		if (this.playingHaptics)
@@ -300,7 +303,7 @@ public class CrittersActorGrabber : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000F8 RID: 248 RVA: 0x0000791C File Offset: 0x00005B1C
+	// Token: 0x0600010A RID: 266 RVA: 0x00030F89 File Offset: 0x0002F189
 	private IEnumerator PlayHapticsOnLoop()
 	{
 		for (;;)
@@ -311,7 +314,7 @@ public class CrittersActorGrabber : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060000F9 RID: 249 RVA: 0x0000792C File Offset: 0x00005B2C
+	// Token: 0x0600010B RID: 267 RVA: 0x0006CFBC File Offset: 0x0006B1BC
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.attachedRigidbody == null)
@@ -327,8 +330,8 @@ public class CrittersActorGrabber : MonoBehaviour
 		this.ActivateJoints(component, softJoint);
 	}
 
-	// Token: 0x060000FA RID: 250 RVA: 0x00007968 File Offset: 0x00005B68
-	public void ActivateJoints(CrittersActor rigidJoint, CrittersActor softJoint)
+	// Token: 0x0600010C RID: 268 RVA: 0x0006CFF8 File Offset: 0x0006B1F8
+	private void ActivateJoints(CrittersActor rigidJoint, CrittersActor softJoint)
 	{
 		softJoint.SetJointSoft(this.grabber.rb);
 		if (rigidJoint.parentActorId != -1)
@@ -338,8 +341,8 @@ public class CrittersActorGrabber : MonoBehaviour
 		CrittersGrabberSharedData.AddEnteredActor(rigidJoint);
 	}
 
-	// Token: 0x060000FB RID: 251 RVA: 0x000079B8 File Offset: 0x00005BB8
-	public bool DoesActorActivateJoint(CrittersActor potentialBagActor, out CrittersActor heldStorableActor)
+	// Token: 0x0600010D RID: 269 RVA: 0x0006D048 File Offset: 0x0006B248
+	private bool DoesActorActivateJoint(CrittersActor potentialBagActor, out CrittersActor heldStorableActor)
 	{
 		heldStorableActor = null;
 		for (int i = 0; i < this.grabber.grabbedActors.Count; i++)
@@ -353,8 +356,8 @@ public class CrittersActorGrabber : MonoBehaviour
 		return !(heldStorableActor == null) && potentialBagActor is CrittersBag && (!CrittersManager.instance.actorById.TryGetValue(potentialBagActor.parentActorId, out crittersActor) || !(crittersActor is CrittersAttachPoint) || (crittersActor as CrittersAttachPoint).rigPlayerId != PhotonNetwork.LocalPlayer.ActorNumber || (crittersActor as CrittersAttachPoint).anchorLocation != CrittersAttachPoint.AnchoredLocationTypes.Arm || (crittersActor as CrittersAttachPoint).isLeft != this.isLeft);
 	}
 
-	// Token: 0x060000FC RID: 252 RVA: 0x00007A84 File Offset: 0x00005C84
-	public void AddGrabberPhysicsTrigger(CrittersActor actor)
+	// Token: 0x0600010E RID: 270 RVA: 0x0006D114 File Offset: 0x0006B314
+	private void AddGrabberPhysicsTrigger(CrittersActor actor)
 	{
 		CapsuleCollider capsuleCollider = CrittersManager.DuplicateCapsuleCollider(base.transform, actor.equipmentStoreTriggerCollider);
 		capsuleCollider.isTrigger = true;
@@ -363,20 +366,20 @@ public class CrittersActorGrabber : MonoBehaviour
 		this.rb.includeLayers = CrittersManager.instance.containerLayer;
 	}
 
-	// Token: 0x060000FD RID: 253 RVA: 0x00007AD4 File Offset: 0x00005CD4
-	public void RemoveGrabberPhysicsTrigger()
+	// Token: 0x0600010F RID: 271 RVA: 0x0006D164 File Offset: 0x0006B364
+	private void RemoveGrabberPhysicsTrigger()
 	{
 		if (this.triggerCollider != null)
 		{
 			CrittersGrabberSharedData.RemoveTrigger(this.triggerCollider);
-			Object.Destroy(this.triggerCollider.gameObject);
+			UnityEngine.Object.Destroy(this.triggerCollider.gameObject);
 		}
 		this.triggerCollider = null;
 		this.rb.includeLayers = 0;
 	}
 
-	// Token: 0x060000FE RID: 254 RVA: 0x00007B24 File Offset: 0x00005D24
-	public void NewJointMethod()
+	// Token: 0x06000110 RID: 272 RVA: 0x0006D1B4 File Offset: 0x0006B3B4
+	private void NewJointMethod()
 	{
 		if (CrittersGrabberSharedData.triggerCollidersToCheck.Count == 0 && CrittersGrabberSharedData.enteredCritterActor.Count == 0)
 		{
@@ -437,90 +440,90 @@ public class CrittersActorGrabber : MonoBehaviour
 		CrittersGrabberSharedData.DisableEmptyGrabberJoints();
 	}
 
-	// Token: 0x04000126 RID: 294
+	// Token: 0x0400012F RID: 303
 	public bool isGrabbing;
 
-	// Token: 0x04000127 RID: 295
+	// Token: 0x04000130 RID: 304
 	public Collider[] colliders = new Collider[50];
 
-	// Token: 0x04000128 RID: 296
+	// Token: 0x04000131 RID: 305
 	public bool isLeft;
 
-	// Token: 0x04000129 RID: 297
+	// Token: 0x04000132 RID: 306
 	public float grabRadius = 0.05f;
 
-	// Token: 0x0400012A RID: 298
+	// Token: 0x04000133 RID: 307
 	public float grabBreakRadius = 0.15f;
 
-	// Token: 0x0400012B RID: 299
+	// Token: 0x04000134 RID: 308
 	private float grabDetachFromBagDist = 0.05f;
 
-	// Token: 0x0400012C RID: 300
+	// Token: 0x04000135 RID: 309
 	public Transform transformToFollow;
 
-	// Token: 0x0400012D RID: 301
+	// Token: 0x04000136 RID: 310
 	public GorillaVelocityEstimator estimator;
 
-	// Token: 0x0400012E RID: 302
+	// Token: 0x04000137 RID: 311
 	public CrittersGrabber grabber;
 
-	// Token: 0x0400012F RID: 303
+	// Token: 0x04000138 RID: 312
 	public float vibrationStartDistance;
 
-	// Token: 0x04000130 RID: 304
+	// Token: 0x04000139 RID: 313
 	public float vibrationEndDistance;
 
-	// Token: 0x04000131 RID: 305
+	// Token: 0x0400013A RID: 314
 	public CrittersActorGrabber otherHand;
 
-	// Token: 0x04000132 RID: 306
+	// Token: 0x0400013B RID: 315
 	private bool isHandGrabbingDisabled;
 
-	// Token: 0x04000133 RID: 307
+	// Token: 0x0400013C RID: 316
 	private float grabDuration = 0.3f;
 
-	// Token: 0x04000134 RID: 308
+	// Token: 0x0400013D RID: 317
 	private float remainingGrabDuration;
 
-	// Token: 0x04000135 RID: 309
+	// Token: 0x0400013E RID: 318
 	private bool playingHaptics;
 
-	// Token: 0x04000136 RID: 310
+	// Token: 0x0400013F RID: 319
 	private AudioClip hapticsClip;
 
-	// Token: 0x04000137 RID: 311
+	// Token: 0x04000140 RID: 320
 	private float hapticsStrength;
 
-	// Token: 0x04000138 RID: 312
+	// Token: 0x04000141 RID: 321
 	private float hapticsLength;
 
-	// Token: 0x04000139 RID: 313
+	// Token: 0x04000142 RID: 322
 	private Coroutine haptics;
 
-	// Token: 0x0400013A RID: 314
+	// Token: 0x04000143 RID: 323
 	public CapsuleCollider triggerCollider;
 
-	// Token: 0x0400013B RID: 315
+	// Token: 0x04000144 RID: 324
 	private Rigidbody rb;
 
-	// Token: 0x0400013C RID: 316
+	// Token: 0x04000145 RID: 325
 	private CrittersActor validGrabTarget;
 
-	// Token: 0x0400013D RID: 317
+	// Token: 0x04000146 RID: 326
 	private CrittersActor lastHover;
 
-	// Token: 0x0400013E RID: 318
+	// Token: 0x04000147 RID: 327
 	private Vector3 localGrabOffset;
 
-	// Token: 0x0400013F RID: 319
+	// Token: 0x04000148 RID: 328
 	private CrittersActor queuedGrab;
 
-	// Token: 0x04000140 RID: 320
+	// Token: 0x04000149 RID: 329
 	private Vector3 queuedRelativeGrabOffset;
 
-	// Token: 0x04000141 RID: 321
+	// Token: 0x0400014A RID: 330
 	private Quaternion queuedRelativeGrabRotation;
 
-	// Token: 0x04000142 RID: 322
+	// Token: 0x0400014B RID: 331
 	public List<CrittersActor> actorsStillPresent;
 }

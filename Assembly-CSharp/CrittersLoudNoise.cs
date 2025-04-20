@@ -4,17 +4,17 @@ using GorillaExtensions;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x0200004A RID: 74
+// Token: 0x0200004F RID: 79
 public class CrittersLoudNoise : CrittersActor
 {
-	// Token: 0x06000168 RID: 360 RVA: 0x00009496 File Offset: 0x00007696
+	// Token: 0x06000182 RID: 386 RVA: 0x0003155D File Offset: 0x0002F75D
 	public override void OnEnable()
 	{
 		base.OnEnable();
 		this.SetTimeEnabled();
 	}
 
-	// Token: 0x06000169 RID: 361 RVA: 0x000094A4 File Offset: 0x000076A4
+	// Token: 0x06000183 RID: 387 RVA: 0x0003156B File Offset: 0x0002F76B
 	public void SpawnData(float _soundVolume, float _soundDuration, float _soundMultiplier, bool _soundEnabled)
 	{
 		this.soundVolume = _soundVolume;
@@ -24,7 +24,7 @@ public class CrittersLoudNoise : CrittersActor
 		this.Initialize();
 	}
 
-	// Token: 0x0600016A RID: 362 RVA: 0x000094CC File Offset: 0x000076CC
+	// Token: 0x06000184 RID: 388 RVA: 0x0006E880 File Offset: 0x0006CA80
 	public override bool ProcessLocal()
 	{
 		bool flag = base.ProcessLocal();
@@ -57,7 +57,7 @@ public class CrittersLoudNoise : CrittersActor
 		return this.updatedSinceLastFrame;
 	}
 
-	// Token: 0x0600016B RID: 363 RVA: 0x000095D0 File Offset: 0x000077D0
+	// Token: 0x06000185 RID: 389 RVA: 0x00031590 File Offset: 0x0002F790
 	public override void ProcessRemote()
 	{
 		if (!this.wasEnabled && this.isEnabled)
@@ -66,7 +66,7 @@ public class CrittersLoudNoise : CrittersActor
 		}
 	}
 
-	// Token: 0x0600016C RID: 364 RVA: 0x000095E8 File Offset: 0x000077E8
+	// Token: 0x06000186 RID: 390 RVA: 0x000315A8 File Offset: 0x0002F7A8
 	public void SetTimeEnabled()
 	{
 		if (PhotonNetwork.InRoom)
@@ -77,7 +77,7 @@ public class CrittersLoudNoise : CrittersActor
 		this.timeSoundEnabled = (double)Time.time;
 	}
 
-	// Token: 0x0600016D RID: 365 RVA: 0x0000960C File Offset: 0x0000780C
+	// Token: 0x06000187 RID: 391 RVA: 0x0006E984 File Offset: 0x0006CB84
 	public override void CalculateFear(CrittersPawn critter, float multiplier)
 	{
 		if (this.soundEnabled)
@@ -94,7 +94,7 @@ public class CrittersLoudNoise : CrittersActor
 		}
 	}
 
-	// Token: 0x0600016E RID: 366 RVA: 0x00009688 File Offset: 0x00007888
+	// Token: 0x06000188 RID: 392 RVA: 0x0006EA00 File Offset: 0x0006CC00
 	public override void CalculateAttraction(CrittersPawn critter, float multiplier)
 	{
 		if (this.soundEnabled)
@@ -111,7 +111,7 @@ public class CrittersLoudNoise : CrittersActor
 		}
 	}
 
-	// Token: 0x0600016F RID: 367 RVA: 0x00009704 File Offset: 0x00007904
+	// Token: 0x06000189 RID: 393 RVA: 0x0006EA7C File Offset: 0x0006CC7C
 	public override bool UpdateSpecificActor(PhotonStream stream)
 	{
 		float value;
@@ -129,7 +129,7 @@ public class CrittersLoudNoise : CrittersActor
 		return true;
 	}
 
-	// Token: 0x06000170 RID: 368 RVA: 0x00009780 File Offset: 0x00007980
+	// Token: 0x0600018A RID: 394 RVA: 0x0006EAF8 File Offset: 0x0006CCF8
 	public override void SendDataByCrittersActorType(PhotonStream stream)
 	{
 		base.SendDataByCrittersActorType(stream);
@@ -139,7 +139,7 @@ public class CrittersLoudNoise : CrittersActor
 		stream.SendNext(this.volumeFearAttractionMultiplier);
 	}
 
-	// Token: 0x06000171 RID: 369 RVA: 0x000097D8 File Offset: 0x000079D8
+	// Token: 0x0600018B RID: 395 RVA: 0x0006EB50 File Offset: 0x0006CD50
 	public override int AddActorDataToList(ref List<object> objList)
 	{
 		base.AddActorDataToList(ref objList);
@@ -150,13 +150,13 @@ public class CrittersLoudNoise : CrittersActor
 		return this.TotalActorDataLength();
 	}
 
-	// Token: 0x06000172 RID: 370 RVA: 0x0000983B File Offset: 0x00007A3B
+	// Token: 0x0600018C RID: 396 RVA: 0x000315C9 File Offset: 0x0002F7C9
 	public override int TotalActorDataLength()
 	{
 		return base.BaseActorDataLength() + 4;
 	}
 
-	// Token: 0x06000173 RID: 371 RVA: 0x00009848 File Offset: 0x00007A48
+	// Token: 0x0600018D RID: 397 RVA: 0x0006EBB4 File Offset: 0x0006CDB4
 	public override int UpdateFromRPC(object[] data, int startingIndex)
 	{
 		startingIndex += base.UpdateFromRPC(data, startingIndex);
@@ -187,21 +187,21 @@ public class CrittersLoudNoise : CrittersActor
 		return this.TotalActorDataLength();
 	}
 
-	// Token: 0x06000174 RID: 372 RVA: 0x000098E4 File Offset: 0x00007AE4
+	// Token: 0x0600018E RID: 398 RVA: 0x000315D3 File Offset: 0x0002F7D3
 	public void PlayHandTapLocal(bool isLeft)
 	{
 		this.timeSoundEnabled = (PhotonNetwork.InRoom ? PhotonNetwork.Time : ((double)Time.time));
 		this.soundEnabled = true;
 	}
 
-	// Token: 0x06000175 RID: 373 RVA: 0x00009907 File Offset: 0x00007B07
+	// Token: 0x0600018F RID: 399 RVA: 0x000315F6 File Offset: 0x0002F7F6
 	public void PlayHandTapRemote(double serverTime, bool isLeft)
 	{
 		this.timeSoundEnabled = serverTime;
 		this.soundEnabled = true;
 	}
 
-	// Token: 0x06000176 RID: 374 RVA: 0x00009917 File Offset: 0x00007B17
+	// Token: 0x06000190 RID: 400 RVA: 0x00031606 File Offset: 0x0002F806
 	public void PlayVoiceSpeechLocal(double serverTime, float duration, float volume)
 	{
 		this.soundDuration = duration;
@@ -210,24 +210,24 @@ public class CrittersLoudNoise : CrittersActor
 		this.soundEnabled = true;
 	}
 
-	// Token: 0x040001BA RID: 442
+	// Token: 0x040001DD RID: 477
 	public float soundVolume;
 
-	// Token: 0x040001BB RID: 443
+	// Token: 0x040001DE RID: 478
 	public float volumeFearAttractionMultiplier;
 
-	// Token: 0x040001BC RID: 444
+	// Token: 0x040001DF RID: 479
 	public float soundDuration;
 
-	// Token: 0x040001BD RID: 445
+	// Token: 0x040001E0 RID: 480
 	public double timeSoundEnabled;
 
-	// Token: 0x040001BE RID: 446
+	// Token: 0x040001E1 RID: 481
 	public bool soundEnabled;
 
-	// Token: 0x040001BF RID: 447
+	// Token: 0x040001E2 RID: 482
 	private bool wasSoundEnabled;
 
-	// Token: 0x040001C0 RID: 448
+	// Token: 0x040001E3 RID: 483
 	public bool disableWhenSoundDisabled;
 }

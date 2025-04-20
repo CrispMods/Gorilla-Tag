@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001B4 RID: 436
+// Token: 0x020001BF RID: 447
 public class GTDisableStaticOnAwake : MonoBehaviour
 {
-	// Token: 0x06000A4C RID: 2636 RVA: 0x00037E4C File Offset: 0x0003604C
+	// Token: 0x06000A98 RID: 2712 RVA: 0x000376C4 File Offset: 0x000358C4
 	private void Awake()
 	{
 		base.gameObject.isStatic = false;
-		Object.Destroy(this);
+		UnityEngine.Object.Destroy(this);
 	}
 }

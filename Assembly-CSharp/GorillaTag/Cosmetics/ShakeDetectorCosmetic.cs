@@ -6,22 +6,22 @@ using UnityEngine.Serialization;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C54 RID: 3156
+	// Token: 0x02000C85 RID: 3205
 	public class ShakeDetectorCosmetic : MonoBehaviour
 	{
-		// Token: 0x17000820 RID: 2080
-		// (get) Token: 0x06004EAB RID: 20139 RVA: 0x00182490 File Offset: 0x00180690
-		// (set) Token: 0x06004EAC RID: 20140 RVA: 0x00182498 File Offset: 0x00180698
+		// Token: 0x1700083E RID: 2110
+		// (get) Token: 0x0600500B RID: 20491 RVA: 0x000644A1 File Offset: 0x000626A1
+		// (set) Token: 0x0600500C RID: 20492 RVA: 0x000644A9 File Offset: 0x000626A9
 		public Vector3 HandVelocity { get; private set; }
 
-		// Token: 0x06004EAD RID: 20141 RVA: 0x001824A1 File Offset: 0x001806A1
+		// Token: 0x0600500D RID: 20493 RVA: 0x000644B2 File Offset: 0x000626B2
 		private void Awake()
 		{
 			this.HandVelocity = Vector3.zero;
 			this.shakeEndTime = 0f;
 		}
 
-		// Token: 0x06004EAE RID: 20142 RVA: 0x001824BC File Offset: 0x001806BC
+		// Token: 0x0600500E RID: 20494 RVA: 0x001BA724 File Offset: 0x001B8924
 		private void UpdateShakeVelocity()
 		{
 			if (!this.parentTransferrable)
@@ -42,7 +42,7 @@ namespace GorillaTag.Cosmetics
 			this.HandVelocity = Vector3.ClampMagnitude(this.HandVelocity, this.maxHandVelocity);
 		}
 
-		// Token: 0x06004EAF RID: 20143 RVA: 0x00182564 File Offset: 0x00180764
+		// Token: 0x0600500F RID: 20495 RVA: 0x001BA7CC File Offset: 0x001B89CC
 		public void Update()
 		{
 			this.UpdateShakeVelocity();
@@ -67,45 +67,45 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x04005245 RID: 21061
+		// Token: 0x04005351 RID: 21329
 		[SerializeField]
 		private TransferrableObject parentTransferrable;
 
-		// Token: 0x04005246 RID: 21062
+		// Token: 0x04005352 RID: 21330
 		[Tooltip("for velocity equal or above this, we fire a Shake Start event")]
 		[SerializeField]
 		private float shakeStartVelocityThreshold;
 
-		// Token: 0x04005247 RID: 21063
+		// Token: 0x04005353 RID: 21331
 		[Tooltip("for velocity under this, we fire a Shake End event")]
 		[SerializeField]
 		private float shakeEndVelocityThreshold;
 
-		// Token: 0x04005248 RID: 21064
+		// Token: 0x04005354 RID: 21332
 		[Tooltip("cooldown starts when shaking ends")]
 		[SerializeField]
 		private float cooldown;
 
-		// Token: 0x04005249 RID: 21065
+		// Token: 0x04005355 RID: 21333
 		[Tooltip("Use for clamping hand velocity value")]
 		[SerializeField]
 		private float maxHandVelocity = 20f;
 
-		// Token: 0x0400524A RID: 21066
+		// Token: 0x04005356 RID: 21334
 		[FormerlySerializedAs("onShakeStart")]
 		public UnityEvent<bool, float> onShakeStartLocal;
 
-		// Token: 0x0400524B RID: 21067
+		// Token: 0x04005357 RID: 21335
 		[FormerlySerializedAs("onShakeEnd")]
 		public UnityEvent<bool, float> onShakeEndLocal;
 
-		// Token: 0x0400524D RID: 21069
+		// Token: 0x04005359 RID: 21337
 		private bool isShaking;
 
-		// Token: 0x0400524E RID: 21070
+		// Token: 0x0400535A RID: 21338
 		private float shakeEndTime;
 
-		// Token: 0x0400524F RID: 21071
+		// Token: 0x0400535B RID: 21339
 		private bool isLeftHand;
 	}
 }

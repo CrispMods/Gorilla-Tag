@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000794 RID: 1940
+// Token: 0x020007AC RID: 1964
 public class FriendSystem : MonoBehaviour
 {
-	// Token: 0x170004FF RID: 1279
-	// (get) Token: 0x06002FFF RID: 12287 RVA: 0x000E7C52 File Offset: 0x000E5E52
+	// Token: 0x1700050D RID: 1293
+	// (get) Token: 0x060030B1 RID: 12465 RVA: 0x00050480 File Offset: 0x0004E680
 	public FriendSystem.PlayerPrivacy LocalPlayerPrivacy
 	{
 		get
@@ -15,12 +15,12 @@ public class FriendSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x14000059 RID: 89
-	// (add) Token: 0x06003000 RID: 12288 RVA: 0x000E7C5C File Offset: 0x000E5E5C
-	// (remove) Token: 0x06003001 RID: 12289 RVA: 0x000E7C94 File Offset: 0x000E5E94
+	// Token: 0x1400005D RID: 93
+	// (add) Token: 0x060030B2 RID: 12466 RVA: 0x00131298 File Offset: 0x0012F498
+	// (remove) Token: 0x060030B3 RID: 12467 RVA: 0x001312D0 File Offset: 0x0012F4D0
 	public event Action<List<FriendBackendController.Friend>> OnFriendListRefresh;
 
-	// Token: 0x06003002 RID: 12290 RVA: 0x000E7CCC File Offset: 0x000E5ECC
+	// Token: 0x060030B4 RID: 12468 RVA: 0x00131308 File Offset: 0x0012F508
 	public void SetLocalPlayerPrivacy(FriendSystem.PlayerPrivacy privacyState)
 	{
 		this.localPlayerPrivacy = privacyState;
@@ -40,13 +40,13 @@ public class FriendSystem : MonoBehaviour
 		FriendBackendController.Instance.SetPrivacyState(privacyState2);
 	}
 
-	// Token: 0x06003003 RID: 12291 RVA: 0x000E7D09 File Offset: 0x000E5F09
+	// Token: 0x060030B5 RID: 12469 RVA: 0x00050488 File Offset: 0x0004E688
 	public void RefreshFriendsList()
 	{
 		FriendBackendController.Instance.GetFriends();
 	}
 
-	// Token: 0x06003004 RID: 12292 RVA: 0x000E7D18 File Offset: 0x000E5F18
+	// Token: 0x060030B6 RID: 12470 RVA: 0x00131348 File Offset: 0x0012F548
 	public void SendFriendRequest(NetPlayer targetPlayer, GTZone stationZone, FriendSystem.FriendRequestCallback callback)
 	{
 		FriendSystem.FriendRequestData item = new FriendSystem.FriendRequestData
@@ -61,7 +61,7 @@ public class FriendSystem : MonoBehaviour
 		FriendBackendController.Instance.AddFriend(targetPlayer);
 	}
 
-	// Token: 0x06003005 RID: 12293 RVA: 0x000E7D94 File Offset: 0x000E5F94
+	// Token: 0x060030B7 RID: 12471 RVA: 0x001313C4 File Offset: 0x0012F5C4
 	public void RemoveFriend(FriendBackendController.Friend friend, FriendSystem.FriendRemovalCallback callback = null)
 	{
 		this.pendingFriendRemovals.Add(new FriendSystem.FriendRemovalData
@@ -73,7 +73,7 @@ public class FriendSystem : MonoBehaviour
 		FriendBackendController.Instance.RemoveFriend(friend);
 	}
 
-	// Token: 0x06003006 RID: 12294 RVA: 0x000E7DF0 File Offset: 0x000E5FF0
+	// Token: 0x060030B8 RID: 12472 RVA: 0x00131420 File Offset: 0x0012F620
 	public bool HasPendingFriendRequest(GTZone zone, int senderId)
 	{
 		for (int i = 0; i < this.pendingFriendRequests.Count; i++)
@@ -86,7 +86,7 @@ public class FriendSystem : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06003007 RID: 12295 RVA: 0x000E7E40 File Offset: 0x000E6040
+	// Token: 0x060030B9 RID: 12473 RVA: 0x00131470 File Offset: 0x0012F670
 	public bool CheckFriendshipWithPlayer(int targetActorNumber)
 	{
 		NetPlayer player = NetworkSystem.Instance.GetPlayer(targetActorNumber);
@@ -105,7 +105,7 @@ public class FriendSystem : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06003008 RID: 12296 RVA: 0x000E7EB9 File Offset: 0x000E60B9
+	// Token: 0x060030BA RID: 12474 RVA: 0x00050496 File Offset: 0x0004E696
 	private void Awake()
 	{
 		if (FriendSystem.Instance == null)
@@ -113,10 +113,10 @@ public class FriendSystem : MonoBehaviour
 			FriendSystem.Instance = this;
 			return;
 		}
-		Object.Destroy(this);
+		UnityEngine.Object.Destroy(this);
 	}
 
-	// Token: 0x06003009 RID: 12297 RVA: 0x000E7EDC File Offset: 0x000E60DC
+	// Token: 0x060030BB RID: 12475 RVA: 0x001314EC File Offset: 0x0012F6EC
 	private void Start()
 	{
 		FriendBackendController.Instance.OnGetFriendsComplete += this.OnGetFriendsReturned;
@@ -124,7 +124,7 @@ public class FriendSystem : MonoBehaviour
 		FriendBackendController.Instance.OnRemoveFriendComplete += this.OnRemoveFriendReturned;
 	}
 
-	// Token: 0x0600300A RID: 12298 RVA: 0x000E7F34 File Offset: 0x000E6134
+	// Token: 0x060030BC RID: 12476 RVA: 0x00131544 File Offset: 0x0012F744
 	private void OnDestroy()
 	{
 		if (FriendBackendController.Instance != null)
@@ -135,7 +135,7 @@ public class FriendSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600300B RID: 12299 RVA: 0x000E7F98 File Offset: 0x000E6198
+	// Token: 0x060030BD RID: 12477 RVA: 0x001315A8 File Offset: 0x0012F7A8
 	private void OnGetFriendsReturned(bool succeeded)
 	{
 		if (succeeded)
@@ -162,7 +162,7 @@ public class FriendSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600300C RID: 12300 RVA: 0x000E8008 File Offset: 0x000E6208
+	// Token: 0x060030BE RID: 12478 RVA: 0x00131618 File Offset: 0x0012F818
 	private void OnAddFriendReturned(NetPlayer targetPlayer, bool succeeded)
 	{
 		int hashCode = targetPlayer.UserId.GetHashCode();
@@ -189,7 +189,7 @@ public class FriendSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600300D RID: 12301 RVA: 0x000E8114 File Offset: 0x000E6314
+	// Token: 0x060030BF RID: 12479 RVA: 0x00131724 File Offset: 0x0012F924
 	private void OnRemoveFriendReturned(FriendBackendController.Friend friend, bool succeeded)
 	{
 		if (friend != null && friend.Presence != null)
@@ -219,88 +219,88 @@ public class FriendSystem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040033F2 RID: 13298
+	// Token: 0x0400349C RID: 13468
 	[OnEnterPlay_SetNull]
 	public static volatile FriendSystem Instance;
 
-	// Token: 0x040033F3 RID: 13299
+	// Token: 0x0400349D RID: 13469
 	[SerializeField]
 	private float friendRequestExpirationTime = 10f;
 
-	// Token: 0x040033F4 RID: 13300
+	// Token: 0x0400349E RID: 13470
 	private FriendSystem.PlayerPrivacy localPlayerPrivacy;
 
-	// Token: 0x040033F5 RID: 13301
+	// Token: 0x0400349F RID: 13471
 	private List<FriendSystem.FriendRequestData> pendingFriendRequests = new List<FriendSystem.FriendRequestData>();
 
-	// Token: 0x040033F6 RID: 13302
+	// Token: 0x040034A0 RID: 13472
 	private List<FriendSystem.FriendRemovalData> pendingFriendRemovals = new List<FriendSystem.FriendRemovalData>();
 
-	// Token: 0x040033F7 RID: 13303
+	// Token: 0x040034A1 RID: 13473
 	private List<int> indexesToRemove = new List<int>();
 
-	// Token: 0x040033F9 RID: 13305
+	// Token: 0x040034A3 RID: 13475
 	private float lastFriendsListRefresh;
 
-	// Token: 0x02000795 RID: 1941
-	// (Invoke) Token: 0x06003010 RID: 12304
+	// Token: 0x020007AD RID: 1965
+	// (Invoke) Token: 0x060030C2 RID: 12482
 	public delegate void FriendRequestCallback(GTZone zone, int localId, int friendId, bool success);
 
-	// Token: 0x02000796 RID: 1942
+	// Token: 0x020007AE RID: 1966
 	private struct FriendRequestData
 	{
-		// Token: 0x040033FA RID: 13306
+		// Token: 0x040034A4 RID: 13476
 		public GTZone zone;
 
-		// Token: 0x040033FB RID: 13307
+		// Token: 0x040034A5 RID: 13477
 		public int sendingPlayerId;
 
-		// Token: 0x040033FC RID: 13308
+		// Token: 0x040034A6 RID: 13478
 		public int targetPlayerId;
 
-		// Token: 0x040033FD RID: 13309
+		// Token: 0x040034A7 RID: 13479
 		public float localTimeSent;
 
-		// Token: 0x040033FE RID: 13310
+		// Token: 0x040034A8 RID: 13480
 		public FriendSystem.FriendRequestCallback completionCallback;
 	}
 
-	// Token: 0x02000797 RID: 1943
-	// (Invoke) Token: 0x06003014 RID: 12308
+	// Token: 0x020007AF RID: 1967
+	// (Invoke) Token: 0x060030C6 RID: 12486
 	public delegate void FriendRemovalCallback(int friendId, bool success);
 
-	// Token: 0x02000798 RID: 1944
+	// Token: 0x020007B0 RID: 1968
 	private struct FriendRemovalData
 	{
-		// Token: 0x040033FF RID: 13311
+		// Token: 0x040034A9 RID: 13481
 		public int targetPlayerId;
 
-		// Token: 0x04003400 RID: 13312
+		// Token: 0x040034AA RID: 13482
 		public float localTimeSent;
 
-		// Token: 0x04003401 RID: 13313
+		// Token: 0x040034AB RID: 13483
 		public FriendSystem.FriendRemovalCallback completionCallback;
 	}
 
-	// Token: 0x02000799 RID: 1945
+	// Token: 0x020007B1 RID: 1969
 	private enum FriendRequestStatus
 	{
-		// Token: 0x04003403 RID: 13315
+		// Token: 0x040034AD RID: 13485
 		Pending,
-		// Token: 0x04003404 RID: 13316
+		// Token: 0x040034AE RID: 13486
 		Succeeded,
-		// Token: 0x04003405 RID: 13317
+		// Token: 0x040034AF RID: 13487
 		Failed
 	}
 
-	// Token: 0x0200079A RID: 1946
+	// Token: 0x020007B2 RID: 1970
 	public enum PlayerPrivacy
 	{
-		// Token: 0x04003407 RID: 13319
+		// Token: 0x040034B1 RID: 13489
 		Visible,
-		// Token: 0x04003408 RID: 13320
+		// Token: 0x040034B2 RID: 13490
 		PublicOnly,
-		// Token: 0x04003409 RID: 13321
+		// Token: 0x040034B3 RID: 13491
 		Hidden
 	}
 }

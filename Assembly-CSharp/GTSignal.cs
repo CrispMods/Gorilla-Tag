@@ -5,17 +5,17 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-// Token: 0x020005A9 RID: 1449
+// Token: 0x020005B7 RID: 1463
 public static class GTSignal
 {
-	// Token: 0x060023EC RID: 9196 RVA: 0x000B317C File Offset: 0x000B137C
+	// Token: 0x0600244C RID: 9292 RVA: 0x00102014 File Offset: 0x00100214
 	private static void _Emit(GTSignal.EmitMode mode, int signalID, object[] data)
 	{
 		object[] eventContent = GTSignal._ToEventContent(signalID, PhotonNetwork.Time, data);
 		PhotonNetwork.RaiseEvent(186, eventContent, GTSignal.gTargetsToOptions[mode], GTSignal.gSendOptions);
 	}
 
-	// Token: 0x060023ED RID: 9197 RVA: 0x000B31B4 File Offset: 0x000B13B4
+	// Token: 0x0600244D RID: 9293 RVA: 0x0010204C File Offset: 0x0010024C
 	private static void _Emit(int[] targetActors, int signalID, object[] data)
 	{
 		if (targetActors.IsNullOrEmpty<int>())
@@ -27,7 +27,7 @@ public static class GTSignal
 		PhotonNetwork.RaiseEvent(186, eventContent, GTSignal.gCustomTargetOptions, GTSignal.gSendOptions);
 	}
 
-	// Token: 0x060023EE RID: 9198 RVA: 0x000B31F8 File Offset: 0x000B13F8
+	// Token: 0x0600244E RID: 9294 RVA: 0x00102090 File Offset: 0x00100290
 	private static object[] _ToEventContent(int signalID, double time, object[] data)
 	{
 		int num = data.Length;
@@ -47,7 +47,7 @@ public static class GTSignal
 		return array;
 	}
 
-	// Token: 0x060023EF RID: 9199 RVA: 0x000B3256 File Offset: 0x000B1456
+	// Token: 0x0600244F RID: 9295 RVA: 0x000488B9 File Offset: 0x00046AB9
 	public static int ComputeID(string s)
 	{
 		if (!string.IsNullOrWhiteSpace(s))
@@ -57,7 +57,7 @@ public static class GTSignal
 		return 0;
 	}
 
-	// Token: 0x060023F0 RID: 9200 RVA: 0x000B3270 File Offset: 0x000B1470
+	// Token: 0x06002450 RID: 9296 RVA: 0x001020F0 File Offset: 0x001002F0
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 	private static void InitializeOnLoad()
 	{
@@ -76,31 +76,31 @@ public static class GTSignal
 		GTSignal.gTargetsToOptions.Add(GTSignal.EmitMode.Host, default3);
 	}
 
-	// Token: 0x060023F1 RID: 9201 RVA: 0x000B32F2 File Offset: 0x000B14F2
+	// Token: 0x06002451 RID: 9297 RVA: 0x000488D1 File Offset: 0x00046AD1
 	public static void Emit(string signal, params object[] data)
 	{
 		GTSignal._Emit(GTSignal.EmitMode.All, GTSignal.ComputeID(signal), data);
 	}
 
-	// Token: 0x060023F2 RID: 9202 RVA: 0x000B3301 File Offset: 0x000B1501
+	// Token: 0x06002452 RID: 9298 RVA: 0x000488E0 File Offset: 0x00046AE0
 	public static void Emit(GTSignal.EmitMode mode, string signal, params object[] data)
 	{
 		GTSignal._Emit(mode, GTSignal.ComputeID(signal), data);
 	}
 
-	// Token: 0x060023F3 RID: 9203 RVA: 0x000B3310 File Offset: 0x000B1510
+	// Token: 0x06002453 RID: 9299 RVA: 0x000488EF File Offset: 0x00046AEF
 	public static void Emit(int signalID, params object[] data)
 	{
 		GTSignal._Emit(GTSignal.EmitMode.All, signalID, data);
 	}
 
-	// Token: 0x060023F4 RID: 9204 RVA: 0x000B331A File Offset: 0x000B151A
+	// Token: 0x06002454 RID: 9300 RVA: 0x000488F9 File Offset: 0x00046AF9
 	public static void Emit(GTSignal.EmitMode mode, int signalID, params object[] data)
 	{
 		GTSignal._Emit(mode, signalID, data);
 	}
 
-	// Token: 0x060023F5 RID: 9205 RVA: 0x000B3324 File Offset: 0x000B1524
+	// Token: 0x06002455 RID: 9301 RVA: 0x00048903 File Offset: 0x00046B03
 	public static void Emit(int target, int signalID, params object[] data)
 	{
 		int[] array = GTSignal.gLengthToTargetsArray[1];
@@ -108,7 +108,7 @@ public static class GTSignal
 		GTSignal._Emit(array, signalID, data);
 	}
 
-	// Token: 0x060023F6 RID: 9206 RVA: 0x000B333C File Offset: 0x000B153C
+	// Token: 0x06002456 RID: 9302 RVA: 0x0004891B File Offset: 0x00046B1B
 	public static void Emit(int target1, int target2, int signalID, params object[] data)
 	{
 		int[] array = GTSignal.gLengthToTargetsArray[2];
@@ -117,7 +117,7 @@ public static class GTSignal
 		GTSignal._Emit(array, signalID, data);
 	}
 
-	// Token: 0x060023F7 RID: 9207 RVA: 0x000B3358 File Offset: 0x000B1558
+	// Token: 0x06002457 RID: 9303 RVA: 0x00048937 File Offset: 0x00046B37
 	public static void Emit(int target1, int target2, int target3, int signalID, params object[] data)
 	{
 		int[] array = GTSignal.gLengthToTargetsArray[3];
@@ -127,7 +127,7 @@ public static class GTSignal
 		GTSignal._Emit(array, signalID, data);
 	}
 
-	// Token: 0x060023F8 RID: 9208 RVA: 0x000B3379 File Offset: 0x000B1579
+	// Token: 0x06002458 RID: 9304 RVA: 0x00048958 File Offset: 0x00046B58
 	public static void Emit(int target1, int target2, int target3, int target4, int signalID, params object[] data)
 	{
 		int[] array = GTSignal.gLengthToTargetsArray[4];
@@ -138,7 +138,7 @@ public static class GTSignal
 		GTSignal._Emit(array, signalID, data);
 	}
 
-	// Token: 0x060023F9 RID: 9209 RVA: 0x000B339F File Offset: 0x000B159F
+	// Token: 0x06002459 RID: 9305 RVA: 0x0004897E File Offset: 0x00046B7E
 	public static void Emit(int target1, int target2, int target3, int target4, int target5, int signalID, params object[] data)
 	{
 		int[] array = GTSignal.gLengthToTargetsArray[5];
@@ -150,7 +150,7 @@ public static class GTSignal
 		GTSignal._Emit(array, signalID, data);
 	}
 
-	// Token: 0x060023FA RID: 9210 RVA: 0x000B33CA File Offset: 0x000B15CA
+	// Token: 0x0600245A RID: 9306 RVA: 0x000489A9 File Offset: 0x00046BA9
 	public static void Emit(int target1, int target2, int target3, int target4, int target5, int target6, int signalID, params object[] data)
 	{
 		int[] array = GTSignal.gLengthToTargetsArray[6];
@@ -163,7 +163,7 @@ public static class GTSignal
 		GTSignal._Emit(array, signalID, data);
 	}
 
-	// Token: 0x060023FB RID: 9211 RVA: 0x000B33FA File Offset: 0x000B15FA
+	// Token: 0x0600245B RID: 9307 RVA: 0x000489D9 File Offset: 0x00046BD9
 	public static void Emit(int target1, int target2, int target3, int target4, int target5, int target6, int target7, int signalID, params object[] data)
 	{
 		int[] array = GTSignal.gLengthToTargetsArray[7];
@@ -177,7 +177,7 @@ public static class GTSignal
 		GTSignal._Emit(array, signalID, data);
 	}
 
-	// Token: 0x060023FC RID: 9212 RVA: 0x000B342F File Offset: 0x000B162F
+	// Token: 0x0600245C RID: 9308 RVA: 0x00048A0E File Offset: 0x00046C0E
 	public static void Emit(int target1, int target2, int target3, int target4, int target5, int target6, int target7, int target8, int signalID, params object[] data)
 	{
 		int[] array = GTSignal.gLengthToTargetsArray[8];
@@ -192,7 +192,7 @@ public static class GTSignal
 		GTSignal._Emit(array, signalID, data);
 	}
 
-	// Token: 0x060023FD RID: 9213 RVA: 0x000B3469 File Offset: 0x000B1669
+	// Token: 0x0600245D RID: 9309 RVA: 0x00048A48 File Offset: 0x00046C48
 	public static void Emit(int target1, int target2, int target3, int target4, int target5, int target6, int target7, int target8, int target9, int signalID, params object[] data)
 	{
 		int[] array = GTSignal.gLengthToTargetsArray[9];
@@ -208,7 +208,7 @@ public static class GTSignal
 		GTSignal._Emit(array, signalID, data);
 	}
 
-	// Token: 0x060023FE RID: 9214 RVA: 0x000B34AC File Offset: 0x000B16AC
+	// Token: 0x0600245E RID: 9310 RVA: 0x00102174 File Offset: 0x00100374
 	public static void Emit(int target1, int target2, int target3, int target4, int target5, int target6, int target7, int target8, int target9, int target10, int signalID, params object[] data)
 	{
 		int[] array = GTSignal.gLengthToTargetsArray[10];
@@ -225,7 +225,7 @@ public static class GTSignal
 		GTSignal._Emit(array, signalID, data);
 	}
 
-	// Token: 0x060023FF RID: 9215 RVA: 0x000B3500 File Offset: 0x000B1700
+	// Token: 0x0600245F RID: 9311 RVA: 0x001021C8 File Offset: 0x001003C8
 	// Note: this type is marked as 'beforefieldinit'.
 	static GTSignal()
 	{
@@ -261,36 +261,36 @@ public static class GTSignal
 		GTSignal.gLengthToTargetsArray = dictionary2;
 	}
 
-	// Token: 0x040027EB RID: 10219
+	// Token: 0x04002847 RID: 10311
 	public const byte PHOTON_CODE = 186;
 
-	// Token: 0x040027EC RID: 10220
+	// Token: 0x04002848 RID: 10312
 	private static Dictionary<GTSignal.EmitMode, RaiseEventOptions> gTargetsToOptions;
 
-	// Token: 0x040027ED RID: 10221
+	// Token: 0x04002849 RID: 10313
 	private static Dictionary<int, object[]> gLengthToContentArray;
 
-	// Token: 0x040027EE RID: 10222
+	// Token: 0x0400284A RID: 10314
 	private static Dictionary<int, int[]> gLengthToTargetsArray;
 
-	// Token: 0x040027EF RID: 10223
+	// Token: 0x0400284B RID: 10315
 	private static SendOptions gSendOptions;
 
-	// Token: 0x040027F0 RID: 10224
+	// Token: 0x0400284C RID: 10316
 	private static RaiseEventOptions gCustomTargetOptions;
 
-	// Token: 0x020005AA RID: 1450
+	// Token: 0x020005B8 RID: 1464
 	public enum EmitMode
 	{
-		// Token: 0x040027F2 RID: 10226
+		// Token: 0x0400284E RID: 10318
 		None = -1,
-		// Token: 0x040027F3 RID: 10227
+		// Token: 0x0400284F RID: 10319
 		Others,
-		// Token: 0x040027F4 RID: 10228
+		// Token: 0x04002850 RID: 10320
 		Targets,
-		// Token: 0x040027F5 RID: 10229
+		// Token: 0x04002851 RID: 10321
 		All,
-		// Token: 0x040027F6 RID: 10230
+		// Token: 0x04002852 RID: 10322
 		Host
 	}
 }

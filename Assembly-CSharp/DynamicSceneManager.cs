@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 using DynamicSceneManagerHelper;
 using UnityEngine;
 
-// Token: 0x0200032F RID: 815
+// Token: 0x0200033A RID: 826
 public class DynamicSceneManager : MonoBehaviour
 {
-	// Token: 0x0600133A RID: 4922 RVA: 0x0005DD3E File Offset: 0x0005BF3E
+	// Token: 0x06001386 RID: 4998 RVA: 0x0003D419 File Offset: 0x0003B619
 	private void Start()
 	{
 		SceneManagerHelper.RequestScenePermission();
 		base.StartCoroutine(this.UpdateScenePeriodically());
 	}
 
-	// Token: 0x0600133B RID: 4923 RVA: 0x0005DD52 File Offset: 0x0005BF52
+	// Token: 0x06001387 RID: 4999 RVA: 0x0003D42D File Offset: 0x0003B62D
 	private void Update()
 	{
 		if (OVRInput.GetDown(OVRInput.RawButton.A, OVRInput.Controller.Active))
@@ -26,7 +26,7 @@ public class DynamicSceneManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600133C RID: 4924 RVA: 0x0005DD67 File Offset: 0x0005BF67
+	// Token: 0x06001388 RID: 5000 RVA: 0x0003D442 File Offset: 0x0003B642
 	private IEnumerator UpdateScenePeriodically()
 	{
 		for (;;)
@@ -38,7 +38,7 @@ public class DynamicSceneManager : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600133D RID: 4925 RVA: 0x0005DD78 File Offset: 0x0005BF78
+	// Token: 0x06001389 RID: 5001 RVA: 0x000B7A40 File Offset: 0x000B5C40
 	private Task UpdateScene()
 	{
 		DynamicSceneManager.<UpdateScene>d__7 <UpdateScene>d__;
@@ -49,7 +49,7 @@ public class DynamicSceneManager : MonoBehaviour
 		return <UpdateScene>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x0600133E RID: 4926 RVA: 0x0005DDBC File Offset: 0x0005BFBC
+	// Token: 0x0600138A RID: 5002 RVA: 0x000B7A84 File Offset: 0x000B5C84
 	private Task<SceneSnapshot> LoadSceneSnapshotAsync()
 	{
 		DynamicSceneManager.<LoadSceneSnapshotAsync>d__8 <LoadSceneSnapshotAsync>d__;
@@ -59,7 +59,7 @@ public class DynamicSceneManager : MonoBehaviour
 		return <LoadSceneSnapshotAsync>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x0600133F RID: 4927 RVA: 0x0005DDF8 File Offset: 0x0005BFF8
+	// Token: 0x0600138B RID: 5003 RVA: 0x000B7AC0 File Offset: 0x000B5CC0
 	private Task UpdateUnityObjects(List<ValueTuple<OVRAnchor, SnapshotComparer.ChangeType>> changes, SceneSnapshot newSnapshot)
 	{
 		DynamicSceneManager.<UpdateUnityObjects>d__9 <UpdateUnityObjects>d__;
@@ -72,7 +72,7 @@ public class DynamicSceneManager : MonoBehaviour
 		return <UpdateUnityObjects>d__.<>t__builder.Task;
 	}
 
-	// Token: 0x06001340 RID: 4928 RVA: 0x0005DE4C File Offset: 0x0005C04C
+	// Token: 0x0600138C RID: 5004 RVA: 0x000B7B14 File Offset: 0x000B5D14
 	private List<OVRAnchor> FilterChanges(List<ValueTuple<OVRAnchor, SnapshotComparer.ChangeType>> changes, SnapshotComparer.ChangeType changeType)
 	{
 		return (from tuple in changes
@@ -80,7 +80,7 @@ public class DynamicSceneManager : MonoBehaviour
 		select tuple.Item1).ToList<OVRAnchor>();
 	}
 
-	// Token: 0x06001341 RID: 4929 RVA: 0x0005DEA4 File Offset: 0x0005C0A4
+	// Token: 0x0600138D RID: 5005 RVA: 0x000B7B6C File Offset: 0x000B5D6C
 	private List<ValueTuple<OVRAnchor, OVRAnchor>> FindAnchorPairs(List<OVRAnchor> allAnchors, SceneSnapshot newSnapshot)
 	{
 		IEnumerable<OVRAnchor> enumerable = allAnchors.Where(new Func<OVRAnchor, bool>(this._snapshot.Contains));
@@ -100,13 +100,13 @@ public class DynamicSceneManager : MonoBehaviour
 		return list;
 	}
 
-	// Token: 0x06001342 RID: 4930 RVA: 0x0005DF84 File Offset: 0x0005C184
+	// Token: 0x0600138E RID: 5006 RVA: 0x000B7C4C File Offset: 0x000B5E4C
 	private bool AreAnchorsEqual(SceneSnapshot.Data anchor1Data, SceneSnapshot.Data anchor2Data)
 	{
 		return anchor1Data.Children != null && anchor2Data.Children != null && (anchor1Data.Children.Any(new Func<OVRAnchor, bool>(anchor2Data.Children.Contains)) || anchor2Data.Children.Any(new Func<OVRAnchor, bool>(anchor1Data.Children.Contains)));
 	}
 
-	// Token: 0x06001343 RID: 4931 RVA: 0x0005DFE4 File Offset: 0x0005C1E4
+	// Token: 0x0600138F RID: 5007 RVA: 0x000B7CAC File Offset: 0x000B5EAC
 	private OVRAnchor GetParentAnchor(OVRAnchor childAnchor, SceneSnapshot snapshot)
 	{
 		foreach (KeyValuePair<OVRAnchor, SceneSnapshot.Data> keyValuePair in snapshot.Anchors)
@@ -120,15 +120,15 @@ public class DynamicSceneManager : MonoBehaviour
 		return OVRAnchor.Null;
 	}
 
-	// Token: 0x0400154C RID: 5452
+	// Token: 0x04001594 RID: 5524
 	public float UpdateFrequencySeconds = 5f;
 
-	// Token: 0x0400154D RID: 5453
+	// Token: 0x04001595 RID: 5525
 	private SceneSnapshot _snapshot = new SceneSnapshot();
 
-	// Token: 0x0400154E RID: 5454
+	// Token: 0x04001596 RID: 5526
 	private Dictionary<OVRAnchor, GameObject> _sceneGameObjects = new Dictionary<OVRAnchor, GameObject>();
 
-	// Token: 0x0400154F RID: 5455
+	// Token: 0x04001597 RID: 5527
 	private Task _updateSceneTask;
 }

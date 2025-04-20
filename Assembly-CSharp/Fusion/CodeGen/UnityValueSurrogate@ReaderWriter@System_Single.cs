@@ -3,14 +3,14 @@ using Fusion.Internal;
 
 namespace Fusion.CodeGen
 {
-	// Token: 0x02000D11 RID: 3345
+	// Token: 0x02000D42 RID: 3394
 	[WeaverGenerated]
 	[Serializable]
 	internal class UnityValueSurrogate@ReaderWriter@System_Single : UnityValueSurrogate<float, ReaderWriter@System_Single>
 	{
-		// Token: 0x1700086D RID: 2157
-		// (get) Token: 0x060053DD RID: 21469 RVA: 0x0019C44C File Offset: 0x0019A64C
-		// (set) Token: 0x060053DE RID: 21470 RVA: 0x0019C454 File Offset: 0x0019A654
+		// Token: 0x1700088B RID: 2187
+		// (get) Token: 0x0600553F RID: 21823 RVA: 0x000674C1 File Offset: 0x000656C1
+		// (set) Token: 0x06005540 RID: 21824 RVA: 0x000674C9 File Offset: 0x000656C9
 		[WeaverGenerated]
 		public override float DataProperty
 		{
@@ -26,13 +26,13 @@ namespace Fusion.CodeGen
 			}
 		}
 
-		// Token: 0x060053DF RID: 21471 RVA: 0x0019C45D File Offset: 0x0019A65D
+		// Token: 0x06005541 RID: 21825 RVA: 0x000674D2 File Offset: 0x000656D2
 		[WeaverGenerated]
 		public UnityValueSurrogate@ReaderWriter@System_Single()
 		{
 		}
 
-		// Token: 0x0400562B RID: 22059
+		// Token: 0x04005737 RID: 22327
 		[WeaverGenerated]
 		public float Data;
 	}

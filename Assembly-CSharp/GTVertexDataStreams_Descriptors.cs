@@ -3,10 +3,10 @@ using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-// Token: 0x020001E8 RID: 488
+// Token: 0x020001F3 RID: 499
 public static class GTVertexDataStreams_Descriptors
 {
-	// Token: 0x06000B61 RID: 2913 RVA: 0x0003CFD4 File Offset: 0x0003B1D4
+	// Token: 0x06000BAD RID: 2989 RVA: 0x0009BD30 File Offset: 0x00099F30
 	public static void DoSetVertexBufferParams(ref Mesh.MeshData writeData, int totalVertexCount)
 	{
 		NativeArray<VertexAttributeDescriptor> attributes = new NativeArray<VertexAttributeDescriptor>(6, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
@@ -21,21 +21,21 @@ public static class GTVertexDataStreams_Descriptors
 		attributes.Dispose();
 	}
 
-	// Token: 0x04000DF7 RID: 3575
+	// Token: 0x04000E3D RID: 3645
 	public static readonly VertexAttributeDescriptor position = new VertexAttributeDescriptor(VertexAttribute.Position, VertexAttributeFormat.Float32, 3, 0);
 
-	// Token: 0x04000DF8 RID: 3576
+	// Token: 0x04000E3E RID: 3646
 	public static readonly VertexAttributeDescriptor color = new VertexAttributeDescriptor(VertexAttribute.Color, VertexAttributeFormat.UNorm8, 4, 0);
 
-	// Token: 0x04000DF9 RID: 3577
+	// Token: 0x04000E3F RID: 3647
 	public static readonly VertexAttributeDescriptor uv1 = new VertexAttributeDescriptor(VertexAttribute.TexCoord0, VertexAttributeFormat.Float16, 4, 0);
 
-	// Token: 0x04000DFA RID: 3578
+	// Token: 0x04000E40 RID: 3648
 	public static readonly VertexAttributeDescriptor lightmapUv = new VertexAttributeDescriptor(VertexAttribute.TexCoord1, VertexAttributeFormat.Float16, 2, 0);
 
-	// Token: 0x04000DFB RID: 3579
+	// Token: 0x04000E41 RID: 3649
 	public static readonly VertexAttributeDescriptor normal = new VertexAttributeDescriptor(VertexAttribute.Normal, VertexAttributeFormat.Float32, 3, 1);
 
-	// Token: 0x04000DFC RID: 3580
+	// Token: 0x04000E42 RID: 3650
 	public static readonly VertexAttributeDescriptor tangent = new VertexAttributeDescriptor(VertexAttribute.Tangent, VertexAttributeFormat.SNorm8, 4, 1);
 }

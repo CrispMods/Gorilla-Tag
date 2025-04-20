@@ -3,20 +3,20 @@ using UnityEngine;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x02000974 RID: 2420
+	// Token: 0x0200099A RID: 2458
 	public class MoleTypes : MonoBehaviour
 	{
-		// Token: 0x17000620 RID: 1568
-		// (get) Token: 0x06003B0A RID: 15114 RVA: 0x0010F99E File Offset: 0x0010DB9E
-		// (set) Token: 0x06003B0B RID: 15115 RVA: 0x0010F9A6 File Offset: 0x0010DBA6
+		// Token: 0x17000638 RID: 1592
+		// (get) Token: 0x06003C22 RID: 15394 RVA: 0x000573ED File Offset: 0x000555ED
+		// (set) Token: 0x06003C23 RID: 15395 RVA: 0x000573F5 File Offset: 0x000555F5
 		public bool IsLeftSideMoleType { get; set; }
 
-		// Token: 0x17000621 RID: 1569
-		// (get) Token: 0x06003B0C RID: 15116 RVA: 0x0010F9AF File Offset: 0x0010DBAF
-		// (set) Token: 0x06003B0D RID: 15117 RVA: 0x0010F9B7 File Offset: 0x0010DBB7
+		// Token: 0x17000639 RID: 1593
+		// (get) Token: 0x06003C24 RID: 15396 RVA: 0x000573FE File Offset: 0x000555FE
+		// (set) Token: 0x06003C25 RID: 15397 RVA: 0x00057406 File Offset: 0x00055606
 		public Mole MoleContainerParent { get; set; }
 
-		// Token: 0x06003B0E RID: 15118 RVA: 0x0010F9C0 File Offset: 0x0010DBC0
+		// Token: 0x06003C26 RID: 15398 RVA: 0x0005740F File Offset: 0x0005560F
 		private void Start()
 		{
 			this.MoleContainerParent = base.GetComponentInParent<Mole>();
@@ -26,19 +26,19 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x04003C1A RID: 15386
+		// Token: 0x04003CF4 RID: 15604
 		public bool isHazard;
 
-		// Token: 0x04003C1B RID: 15387
+		// Token: 0x04003CF5 RID: 15605
 		public int scorePoint = 1;
 
-		// Token: 0x04003C1C RID: 15388
+		// Token: 0x04003CF6 RID: 15606
 		public MeshRenderer MeshRenderer;
 
-		// Token: 0x04003C1D RID: 15389
+		// Token: 0x04003CF7 RID: 15607
 		public Material monkeMoleDefaultMaterial;
 
-		// Token: 0x04003C1E RID: 15390
+		// Token: 0x04003CF8 RID: 15608
 		public Material monkeMoleHitMaterial;
 	}
 }

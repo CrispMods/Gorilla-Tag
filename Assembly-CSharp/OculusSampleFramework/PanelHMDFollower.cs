@@ -4,17 +4,17 @@ using UnityEngine;
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A66 RID: 2662
+	// Token: 0x02000A93 RID: 2707
 	public class PanelHMDFollower : MonoBehaviour
 	{
-		// Token: 0x06004258 RID: 16984 RVA: 0x00139072 File Offset: 0x00137272
+		// Token: 0x0600439D RID: 17309 RVA: 0x0005C17B File Offset: 0x0005A37B
 		private void Awake()
 		{
-			this._cameraRig = Object.FindObjectOfType<OVRCameraRig>();
+			this._cameraRig = UnityEngine.Object.FindObjectOfType<OVRCameraRig>();
 			this._panelInitialPosition = base.transform.position;
 		}
 
-		// Token: 0x06004259 RID: 16985 RVA: 0x00139090 File Offset: 0x00137290
+		// Token: 0x0600439E RID: 17310 RVA: 0x00178740 File Offset: 0x00176940
 		private void Update()
 		{
 			Vector3 position = this._cameraRig.centerEyeAnchor.position;
@@ -30,13 +30,13 @@ namespace OculusSampleFramework
 			this._prevPos = this._cameraRig.centerEyeAnchor.position;
 		}
 
-		// Token: 0x0600425A RID: 16986 RVA: 0x0013916A File Offset: 0x0013736A
+		// Token: 0x0600439F RID: 17311 RVA: 0x0005C199 File Offset: 0x0005A399
 		private Vector3 CalculateIdealAnchorPosition()
 		{
 			return this._cameraRig.centerEyeAnchor.position + this._panelInitialPosition;
 		}
 
-		// Token: 0x0600425B RID: 16987 RVA: 0x00139187 File Offset: 0x00137387
+		// Token: 0x060043A0 RID: 17312 RVA: 0x0005C1B6 File Offset: 0x0005A3B6
 		private IEnumerator LerpToHMD()
 		{
 			Vector3 newPanelPosition = this.CalculateIdealAnchorPosition();
@@ -53,37 +53,37 @@ namespace OculusSampleFramework
 			yield break;
 		}
 
-		// Token: 0x04004349 RID: 17225
+		// Token: 0x04004443 RID: 17475
 		private const float TOTAL_DURATION = 3f;
 
-		// Token: 0x0400434A RID: 17226
+		// Token: 0x04004444 RID: 17476
 		private const float HMD_MOVEMENT_THRESHOLD = 0.3f;
 
-		// Token: 0x0400434B RID: 17227
+		// Token: 0x04004445 RID: 17477
 		[SerializeField]
 		private float _maxDistance = 0.3f;
 
-		// Token: 0x0400434C RID: 17228
+		// Token: 0x04004446 RID: 17478
 		[SerializeField]
 		private float _minDistance = 0.05f;
 
-		// Token: 0x0400434D RID: 17229
+		// Token: 0x04004447 RID: 17479
 		[SerializeField]
 		private float _minZDistance = 0.05f;
 
-		// Token: 0x0400434E RID: 17230
+		// Token: 0x04004448 RID: 17480
 		private OVRCameraRig _cameraRig;
 
-		// Token: 0x0400434F RID: 17231
+		// Token: 0x04004449 RID: 17481
 		private Vector3 _panelInitialPosition = Vector3.zero;
 
-		// Token: 0x04004350 RID: 17232
+		// Token: 0x0400444A RID: 17482
 		private Coroutine _coroutine;
 
-		// Token: 0x04004351 RID: 17233
+		// Token: 0x0400444B RID: 17483
 		private Vector3 _prevPos = Vector3.zero;
 
-		// Token: 0x04004352 RID: 17234
+		// Token: 0x0400444C RID: 17484
 		private Vector3 _lastMovedToPos = Vector3.zero;
 	}
 }

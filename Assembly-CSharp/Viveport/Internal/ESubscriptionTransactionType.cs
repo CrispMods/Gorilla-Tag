@@ -2,16 +2,16 @@
 
 namespace Viveport.Internal
 {
-	// Token: 0x0200092A RID: 2346
+	// Token: 0x02000947 RID: 2375
 	internal enum ESubscriptionTransactionType
 	{
-		// Token: 0x04003AE0 RID: 15072
+		// Token: 0x04003BA5 RID: 15269
 		UNKNOWN,
-		// Token: 0x04003AE1 RID: 15073
+		// Token: 0x04003BA6 RID: 15270
 		PAID,
-		// Token: 0x04003AE2 RID: 15074
+		// Token: 0x04003BA7 RID: 15271
 		REDEEM,
-		// Token: 0x04003AE3 RID: 15075
+		// Token: 0x04003BA8 RID: 15272
 		FREEE_TRIAL
 	}
 }

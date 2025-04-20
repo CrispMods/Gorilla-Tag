@@ -6,16 +6,16 @@ using UnityEngine.Events;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009C2 RID: 2498
+	// Token: 0x020009E8 RID: 2536
 	public class GorillaTimer : MonoBehaviourPun
 	{
-		// Token: 0x06003E35 RID: 15925 RVA: 0x00126F69 File Offset: 0x00125169
+		// Token: 0x06003F4D RID: 16205 RVA: 0x00059416 File Offset: 0x00057616
 		private void Awake()
 		{
 			this.ResetTimer();
 		}
 
-		// Token: 0x06003E36 RID: 15926 RVA: 0x00126F71 File Offset: 0x00125171
+		// Token: 0x06003F4E RID: 16206 RVA: 0x0005941E File Offset: 0x0005761E
 		public void StartTimer()
 		{
 			this.startTimer = true;
@@ -27,7 +27,7 @@ namespace GorillaTagScripts
 			unityEvent.Invoke(this);
 		}
 
-		// Token: 0x06003E37 RID: 15927 RVA: 0x00126F8B File Offset: 0x0012518B
+		// Token: 0x06003F4F RID: 16207 RVA: 0x00059438 File Offset: 0x00057638
 		public IEnumerator DelayedReStartTimer(float delayTime)
 		{
 			yield return new WaitForSeconds(delayTime);
@@ -35,7 +35,7 @@ namespace GorillaTagScripts
 			yield break;
 		}
 
-		// Token: 0x06003E38 RID: 15928 RVA: 0x00126FA1 File Offset: 0x001251A1
+		// Token: 0x06003F50 RID: 16208 RVA: 0x0005944E File Offset: 0x0005764E
 		private void StopTimer()
 		{
 			this.startTimer = false;
@@ -47,30 +47,30 @@ namespace GorillaTagScripts
 			unityEvent.Invoke(this);
 		}
 
-		// Token: 0x06003E39 RID: 15929 RVA: 0x00126FBB File Offset: 0x001251BB
+		// Token: 0x06003F51 RID: 16209 RVA: 0x00059468 File Offset: 0x00057668
 		private void ResetTimer()
 		{
 			this.passedTime = 0f;
 		}
 
-		// Token: 0x06003E3A RID: 15930 RVA: 0x00126FC8 File Offset: 0x001251C8
+		// Token: 0x06003F52 RID: 16210 RVA: 0x00059475 File Offset: 0x00057675
 		public void RestartTimer()
 		{
 			if (this.useRandomDuration)
 			{
-				this.SetTimerDuration(Random.Range(this.randTimeMin, this.randTimeMax));
+				this.SetTimerDuration(UnityEngine.Random.Range(this.randTimeMin, this.randTimeMax));
 			}
 			this.ResetTimer();
 			this.StartTimer();
 		}
 
-		// Token: 0x06003E3B RID: 15931 RVA: 0x00126FF5 File Offset: 0x001251F5
+		// Token: 0x06003F53 RID: 16211 RVA: 0x000594A2 File Offset: 0x000576A2
 		public void SetTimerDuration(float timer)
 		{
 			this.timerDuration = timer;
 		}
 
-		// Token: 0x06003E3C RID: 15932 RVA: 0x00126FFE File Offset: 0x001251FE
+		// Token: 0x06003F54 RID: 16212 RVA: 0x000594AB File Offset: 0x000576AB
 		public void InvokeUpdate()
 		{
 			if (this.startTimer)
@@ -84,65 +84,65 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E3D RID: 15933 RVA: 0x0012703C File Offset: 0x0012523C
+		// Token: 0x06003F55 RID: 16213 RVA: 0x000594E9 File Offset: 0x000576E9
 		public float GetPassedTime()
 		{
 			return this.passedTime;
 		}
 
-		// Token: 0x06003E3E RID: 15934 RVA: 0x00127044 File Offset: 0x00125244
+		// Token: 0x06003F56 RID: 16214 RVA: 0x000594F1 File Offset: 0x000576F1
 		public void SetPassedTime(float time)
 		{
 			this.passedTime = time;
 		}
 
-		// Token: 0x06003E3F RID: 15935 RVA: 0x0012704D File Offset: 0x0012524D
+		// Token: 0x06003F57 RID: 16215 RVA: 0x000594FA File Offset: 0x000576FA
 		public float GetRemainingTime()
 		{
 			return this.timerDuration - this.passedTime;
 		}
 
-		// Token: 0x06003E40 RID: 15936 RVA: 0x0012705C File Offset: 0x0012525C
+		// Token: 0x06003F58 RID: 16216 RVA: 0x00059509 File Offset: 0x00057709
 		public void OnEnable()
 		{
 			GorillaTimerManager.RegisterGorillaTimer(this);
 		}
 
-		// Token: 0x06003E41 RID: 15937 RVA: 0x00127064 File Offset: 0x00125264
+		// Token: 0x06003F59 RID: 16217 RVA: 0x00059511 File Offset: 0x00057711
 		public void OnDisable()
 		{
 			GorillaTimerManager.UnregisterGorillaTimer(this);
 		}
 
-		// Token: 0x04003F70 RID: 16240
+		// Token: 0x0400404A RID: 16458
 		[SerializeField]
 		private float timerDuration;
 
-		// Token: 0x04003F71 RID: 16241
+		// Token: 0x0400404B RID: 16459
 		[SerializeField]
 		private bool useRandomDuration;
 
-		// Token: 0x04003F72 RID: 16242
+		// Token: 0x0400404C RID: 16460
 		[SerializeField]
 		private float randTimeMin;
 
-		// Token: 0x04003F73 RID: 16243
+		// Token: 0x0400404D RID: 16461
 		[SerializeField]
 		private float randTimeMax;
 
-		// Token: 0x04003F74 RID: 16244
+		// Token: 0x0400404E RID: 16462
 		private float passedTime;
 
-		// Token: 0x04003F75 RID: 16245
+		// Token: 0x0400404F RID: 16463
 		private bool startTimer;
 
-		// Token: 0x04003F76 RID: 16246
+		// Token: 0x04004050 RID: 16464
 		private bool resetTimer;
 
-		// Token: 0x04003F77 RID: 16247
+		// Token: 0x04004051 RID: 16465
 		public UnityEvent<GorillaTimer> onTimerStarted;
 
-		// Token: 0x04003F78 RID: 16248
+		// Token: 0x04004052 RID: 16466
 		public UnityEvent<GorillaTimer> onTimerStopped;
 	}
 }

@@ -3,22 +3,22 @@ using GorillaLocomotion.Gameplay;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020005E3 RID: 1507
+// Token: 0x020005F1 RID: 1521
 public class SizeLayerChangerGrabable : MonoBehaviour, IGorillaGrabable
 {
-	// Token: 0x06002576 RID: 9590 RVA: 0x000B92BA File Offset: 0x000B74BA
+	// Token: 0x060025D8 RID: 9688 RVA: 0x00049A9B File Offset: 0x00047C9B
 	public bool MomentaryGrabOnly()
 	{
 		return this.momentaryGrabOnly;
 	}
 
-	// Token: 0x06002577 RID: 9591 RVA: 0x000444E2 File Offset: 0x000426E2
+	// Token: 0x060025D9 RID: 9689 RVA: 0x00039846 File Offset: 0x00037A46
 	bool IGorillaGrabable.CanBeGrabbed(GorillaGrabber grabber)
 	{
 		return true;
 	}
 
-	// Token: 0x06002578 RID: 9592 RVA: 0x000B92C4 File Offset: 0x000B74C4
+	// Token: 0x060025DA RID: 9690 RVA: 0x00107080 File Offset: 0x00105280
 	void IGorillaGrabable.OnGrabbed(GorillaGrabber g, out Transform grabbedObject, out Vector3 grabbedLocalPosiiton)
 	{
 		if (this.grabChangesSizeLayer)
@@ -31,7 +31,7 @@ public class SizeLayerChangerGrabable : MonoBehaviour, IGorillaGrabable
 		grabbedLocalPosiiton = base.transform.InverseTransformPoint(g.transform.position);
 	}
 
-	// Token: 0x06002579 RID: 9593 RVA: 0x000B932C File Offset: 0x000B752C
+	// Token: 0x060025DB RID: 9691 RVA: 0x001070E8 File Offset: 0x001052E8
 	void IGorillaGrabable.OnGrabReleased(GorillaGrabber g)
 	{
 		if (this.releaseChangesSizeLayer)
@@ -42,29 +42,29 @@ public class SizeLayerChangerGrabable : MonoBehaviour, IGorillaGrabable
 		}
 	}
 
-	// Token: 0x0600257B RID: 9595 RVA: 0x0001227B File Offset: 0x0001047B
+	// Token: 0x060025DD RID: 9693 RVA: 0x0003261E File Offset: 0x0003081E
 	string IGorillaGrabable.get_name()
 	{
 		return base.name;
 	}
 
-	// Token: 0x040029AC RID: 10668
+	// Token: 0x04002A0B RID: 10763
 	[SerializeField]
 	private bool grabChangesSizeLayer = true;
 
-	// Token: 0x040029AD RID: 10669
+	// Token: 0x04002A0C RID: 10764
 	[SerializeField]
 	private bool releaseChangesSizeLayer = true;
 
-	// Token: 0x040029AE RID: 10670
+	// Token: 0x04002A0D RID: 10765
 	[SerializeField]
 	private SizeLayerMask grabbedSizeLayerMask;
 
-	// Token: 0x040029AF RID: 10671
+	// Token: 0x04002A0E RID: 10766
 	[SerializeField]
 	private SizeLayerMask releasedSizeLayerMask;
 
-	// Token: 0x040029B0 RID: 10672
+	// Token: 0x04002A0F RID: 10767
 	[SerializeField]
 	private bool momentaryGrabOnly = true;
 }

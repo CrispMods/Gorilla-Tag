@@ -2,22 +2,22 @@
 
 namespace LitJson
 {
-	// Token: 0x02000954 RID: 2388
+	// Token: 0x02000971 RID: 2417
 	internal class WriterContext
 	{
-		// Token: 0x04003B69 RID: 15209
+		// Token: 0x04003C2E RID: 15406
 		public int Count;
 
-		// Token: 0x04003B6A RID: 15210
+		// Token: 0x04003C2F RID: 15407
 		public bool InArray;
 
-		// Token: 0x04003B6B RID: 15211
+		// Token: 0x04003C30 RID: 15408
 		public bool InObject;
 
-		// Token: 0x04003B6C RID: 15212
+		// Token: 0x04003C31 RID: 15409
 		public bool ExpectingValue;
 
-		// Token: 0x04003B6D RID: 15213
+		// Token: 0x04003C32 RID: 15410
 		public int Padding;
 	}
 }

@@ -10,10 +10,10 @@ using PlayFab.ClientModels;
 using PlayFab.EventsModels;
 using UnityEngine;
 
-// Token: 0x0200059C RID: 1436
+// Token: 0x020005AA RID: 1450
 public static class GorillaTelemetry
 {
-	// Token: 0x060023B8 RID: 9144 RVA: 0x000B2348 File Offset: 0x000B0548
+	// Token: 0x06002418 RID: 9240 RVA: 0x00101384 File Offset: 0x000FF584
 	static GorillaTelemetry()
 	{
 		Dictionary<string, object> dictionary = new Dictionary<string, object>();
@@ -87,17 +87,17 @@ public static class GorillaTelemetry
 		dictionary8["CustomMapCreator"] = null;
 		GorillaTelemetry.gCustomMapDownloadMetrics = dictionary8;
 		GameObject gameObject = new GameObject("GorillaTelemetryBatcher");
-		Object.DontDestroyOnLoad(gameObject);
+		UnityEngine.Object.DontDestroyOnLoad(gameObject);
 		gameObject.AddComponent<GorillaTelemetry.BatchRunner>();
 	}
 
-	// Token: 0x060023B9 RID: 9145 RVA: 0x000B2677 File Offset: 0x000B0877
+	// Token: 0x06002419 RID: 9241 RVA: 0x00048718 File Offset: 0x00046918
 	private static void QueueTelemetryEvent(EventContents eventContent)
 	{
 		GorillaTelemetry.telemetryEventsQueue.Enqueue(eventContent);
 	}
 
-	// Token: 0x060023BA RID: 9146 RVA: 0x000B2684 File Offset: 0x000B0884
+	// Token: 0x0600241A RID: 9242 RVA: 0x001016B4 File Offset: 0x000FF8B4
 	private static void FlushTelemetry()
 	{
 		int count = GorillaTelemetry.telemetryEventsQueue.Count;
@@ -135,7 +135,7 @@ public static class GorillaTelemetry
 		}
 	}
 
-	// Token: 0x060023BB RID: 9147 RVA: 0x000B2754 File Offset: 0x000B0954
+	// Token: 0x0600241B RID: 9243 RVA: 0x00101784 File Offset: 0x000FF984
 	private static List<EventContents> GetEventListForArray(EventContents[] array, int count)
 	{
 		int num = 0;
@@ -166,7 +166,7 @@ public static class GorillaTelemetry
 		return list;
 	}
 
-	// Token: 0x060023BC RID: 9148 RVA: 0x000B27BE File Offset: 0x000B09BE
+	// Token: 0x0600241C RID: 9244 RVA: 0x00048725 File Offset: 0x00046925
 	private static bool IsConnected()
 	{
 		if (!NetworkSystem.Instance.InRoom)
@@ -180,13 +180,13 @@ public static class GorillaTelemetry
 		return !(GorillaTelemetry.gPlayFabAuth == null);
 	}
 
-	// Token: 0x060023BD RID: 9149 RVA: 0x000B27F1 File Offset: 0x000B09F1
+	// Token: 0x0600241D RID: 9245 RVA: 0x00048758 File Offset: 0x00046958
 	private static string PlayFabUserId()
 	{
 		return GorillaTelemetry.gPlayFabAuth.GetPlayFabPlayerId();
 	}
 
-	// Token: 0x060023BE RID: 9150 RVA: 0x000B2800 File Offset: 0x000B0A00
+	// Token: 0x0600241E RID: 9246 RVA: 0x001017F0 File Offset: 0x000FF9F0
 	public static void PostZoneEvent(GTZone zone, GTSubZone subZone, GTZoneEventType zoneEvent)
 	{
 		if (!GorillaTelemetry.IsConnected())
@@ -210,7 +210,7 @@ public static class GorillaTelemetry
 		});
 	}
 
-	// Token: 0x060023BF RID: 9151 RVA: 0x000B2893 File Offset: 0x000B0A93
+	// Token: 0x0600241F RID: 9247 RVA: 0x00048764 File Offset: 0x00046964
 	public static void PostShopEvent(VRRig playerRig, GTShopEventType shopEvent, CosmeticsController.CosmeticItem item)
 	{
 		GorillaTelemetry.gSingleItemParam[0] = item;
@@ -218,7 +218,7 @@ public static class GorillaTelemetry
 		GorillaTelemetry.gSingleItemParam[0] = default(CosmeticsController.CosmeticItem);
 	}
 
-	// Token: 0x060023C0 RID: 9152 RVA: 0x000B28C0 File Offset: 0x000B0AC0
+	// Token: 0x06002420 RID: 9248 RVA: 0x00101884 File Offset: 0x000FFA84
 	private static string[] FetchItemArgs(IList<CosmeticsController.CosmeticItem> items)
 	{
 		int count = items.Count;
@@ -245,7 +245,7 @@ public static class GorillaTelemetry
 		return array;
 	}
 
-	// Token: 0x060023C1 RID: 9153 RVA: 0x000B294C File Offset: 0x000B0B4C
+	// Token: 0x06002421 RID: 9249 RVA: 0x00101910 File Offset: 0x000FFB10
 	public static void PostShopEvent(VRRig playerRig, GTShopEventType shopEvent, IList<CosmeticsController.CosmeticItem> items)
 	{
 		if (!GorillaTelemetry.IsConnected())
@@ -270,17 +270,17 @@ public static class GorillaTelemetry
 		}, new Action<WriteEventResponse>(GorillaTelemetry.PostShopEvent_OnResult), new Action<PlayFabError>(GorillaTelemetry.PostShopEvent_OnError), null, null);
 	}
 
-	// Token: 0x060023C2 RID: 9154 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002422 RID: 9250 RVA: 0x00030607 File Offset: 0x0002E807
 	private static void PostShopEvent_OnResult(WriteEventResponse result)
 	{
 	}
 
-	// Token: 0x060023C3 RID: 9155 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002423 RID: 9251 RVA: 0x00030607 File Offset: 0x0002E807
 	private static void PostShopEvent_OnError(PlayFabError error)
 	{
 	}
 
-	// Token: 0x060023C4 RID: 9156 RVA: 0x000B29DE File Offset: 0x000B0BDE
+	// Token: 0x06002424 RID: 9252 RVA: 0x0004878F File Offset: 0x0004698F
 	public static void PostBuilderKioskEvent(VRRig playerRig, GTShopEventType shopEvent, BuilderSetManager.BuilderSetStoreItem item)
 	{
 		GorillaTelemetry.gSingleItemBuilderParam[0] = item;
@@ -288,7 +288,7 @@ public static class GorillaTelemetry
 		GorillaTelemetry.gSingleItemBuilderParam[0] = default(BuilderSetManager.BuilderSetStoreItem);
 	}
 
-	// Token: 0x060023C5 RID: 9157 RVA: 0x000B2A0C File Offset: 0x000B0C0C
+	// Token: 0x06002425 RID: 9253 RVA: 0x001019A4 File Offset: 0x000FFBA4
 	private static string[] BuilderItemsToStrings(IList<BuilderSetManager.BuilderSetStoreItem> items)
 	{
 		int count = items.Count;
@@ -315,7 +315,7 @@ public static class GorillaTelemetry
 		return array;
 	}
 
-	// Token: 0x060023C6 RID: 9158 RVA: 0x000B2A98 File Offset: 0x000B0C98
+	// Token: 0x06002426 RID: 9254 RVA: 0x00101A30 File Offset: 0x000FFC30
 	public static void PostBuilderKioskEvent(VRRig playerRig, GTShopEventType shopEvent, IList<BuilderSetManager.BuilderSetStoreItem> items)
 	{
 		if (!GorillaTelemetry.IsConnected())
@@ -340,10 +340,10 @@ public static class GorillaTelemetry
 		}, new Action<WriteEventResponse>(GorillaTelemetry.PostShopEvent_OnResult), new Action<PlayFabError>(GorillaTelemetry.PostShopEvent_OnError), null, null);
 	}
 
-	// Token: 0x060023C7 RID: 9159 RVA: 0x000B2B2C File Offset: 0x000B0D2C
+	// Token: 0x06002427 RID: 9255 RVA: 0x00101AC4 File Offset: 0x000FFCC4
 	public static void PostKidEvent(bool joinGroupsEnabled, bool voiceChatEnabled, bool customUsernamesEnabled, AgeStatusType ageCategory, GTKidEventType kidEvent)
 	{
-		if ((double)Random.value < 0.1)
+		if ((double)UnityEngine.Random.value < 0.1)
 		{
 			return;
 		}
@@ -372,7 +372,7 @@ public static class GorillaTelemetry
 		});
 	}
 
-	// Token: 0x060023C8 RID: 9160 RVA: 0x000B2C1C File Offset: 0x000B0E1C
+	// Token: 0x06002428 RID: 9256 RVA: 0x00101BB4 File Offset: 0x000FFDB4
 	public static void WamGameStart(string playerId, string gameId, string machineId)
 	{
 		if (!GorillaTelemetry.IsConnected())
@@ -390,7 +390,7 @@ public static class GorillaTelemetry
 		});
 	}
 
-	// Token: 0x060023C9 RID: 9161 RVA: 0x000B2C8C File Offset: 0x000B0E8C
+	// Token: 0x06002429 RID: 9257 RVA: 0x00101C24 File Offset: 0x000FFE24
 	public static void WamLevelEnd(string playerId, int gameId, string machineId, int currentLevelNumber, int levelGoodMolesShown, int levelHazardMolesShown, int levelMinScore, int currentScore, int levelHazardMolesHit, string currentGameResult)
 	{
 		if (!GorillaTelemetry.IsConnected())
@@ -415,7 +415,7 @@ public static class GorillaTelemetry
 		});
 	}
 
-	// Token: 0x060023CA RID: 9162 RVA: 0x000B2D98 File Offset: 0x000B0F98
+	// Token: 0x0600242A RID: 9258 RVA: 0x00101D30 File Offset: 0x000FFF30
 	public static void PostCustomMapPerformance(string mapName, long mapModId, int lowestFPS, int lowestDC, int lowestPC, int avgFPS, int avgDC, int avgPC, int highestFPS, int highestDC, int highestPC, int playtime)
 	{
 		if (!GorillaTelemetry.IsConnected())
@@ -443,7 +443,7 @@ public static class GorillaTelemetry
 		});
 	}
 
-	// Token: 0x060023CB RID: 9163 RVA: 0x000B2EAC File Offset: 0x000B10AC
+	// Token: 0x0600242B RID: 9259 RVA: 0x00101E44 File Offset: 0x00100044
 	public static void PostCustomMapTracking(string mapName, long mapModId, string mapCreatorUsername, int minPlayers, int maxPlayers, int playtime, bool privateRoom)
 	{
 		if (!GorillaTelemetry.IsConnected())
@@ -473,196 +473,196 @@ public static class GorillaTelemetry
 		});
 	}
 
-	// Token: 0x060023CC RID: 9164 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600242C RID: 9260 RVA: 0x00030607 File Offset: 0x0002E807
 	public static void PostCustomMapDownloadEvent(string mapName, long mapModId, string mapCreatorUsername)
 	{
 	}
 
-	// Token: 0x04002793 RID: 10131
+	// Token: 0x040027EF RID: 10223
 	private static readonly float TELEMETRY_FLUSH_SEC = 10f;
 
-	// Token: 0x04002794 RID: 10132
+	// Token: 0x040027F0 RID: 10224
 	private static readonly ConcurrentQueue<EventContents> telemetryEventsQueue = new ConcurrentQueue<EventContents>();
 
-	// Token: 0x04002795 RID: 10133
+	// Token: 0x040027F1 RID: 10225
 	private static readonly Dictionary<int, List<EventContents>> gListPool = new Dictionary<int, List<EventContents>>();
 
-	// Token: 0x04002796 RID: 10134
+	// Token: 0x040027F2 RID: 10226
 	private static readonly string namespacePrefix = "custom";
 
-	// Token: 0x04002797 RID: 10135
+	// Token: 0x040027F3 RID: 10227
 	private static readonly string EVENT_NAMESPACE = GorillaTelemetry.namespacePrefix + "." + PlayFabAuthenticatorSettings.TitleId;
 
-	// Token: 0x04002798 RID: 10136
+	// Token: 0x040027F4 RID: 10228
 	private static PlayFabAuthenticator gPlayFabAuth;
 
-	// Token: 0x04002799 RID: 10137
+	// Token: 0x040027F5 RID: 10229
 	private static readonly Dictionary<string, object> gZoneEventArgs;
 
-	// Token: 0x0400279A RID: 10138
+	// Token: 0x040027F6 RID: 10230
 	public static GTZone CurrentZone;
 
-	// Token: 0x0400279B RID: 10139
+	// Token: 0x040027F7 RID: 10231
 	public static GTSubZone CurrentSubZone;
 
-	// Token: 0x0400279C RID: 10140
+	// Token: 0x040027F8 RID: 10232
 	private static readonly Dictionary<string, object> gShopEventArgs;
 
-	// Token: 0x0400279D RID: 10141
+	// Token: 0x040027F9 RID: 10233
 	private static CosmeticsController.CosmeticItem[] gSingleItemParam;
 
-	// Token: 0x0400279E RID: 10142
+	// Token: 0x040027FA RID: 10234
 	private static BuilderSetManager.BuilderSetStoreItem[] gSingleItemBuilderParam;
 
-	// Token: 0x0400279F RID: 10143
+	// Token: 0x040027FB RID: 10235
 	private static Dictionary<string, object> gKidEventArgs;
 
-	// Token: 0x040027A0 RID: 10144
+	// Token: 0x040027FC RID: 10236
 	private static readonly Dictionary<string, object> gWamGameStartArgs;
 
-	// Token: 0x040027A1 RID: 10145
+	// Token: 0x040027FD RID: 10237
 	private static readonly Dictionary<string, object> gWamLevelEndArgs;
 
-	// Token: 0x040027A2 RID: 10146
+	// Token: 0x040027FE RID: 10238
 	private static Dictionary<string, object> gCustomMapPerfArgs;
 
-	// Token: 0x040027A3 RID: 10147
+	// Token: 0x040027FF RID: 10239
 	private static Dictionary<string, object> gCustomMapTrackingMetrics;
 
-	// Token: 0x040027A4 RID: 10148
+	// Token: 0x04002800 RID: 10240
 	private static Dictionary<string, object> gCustomMapDownloadMetrics;
 
-	// Token: 0x0200059D RID: 1437
+	// Token: 0x020005AB RID: 1451
 	public static class k
 	{
-		// Token: 0x040027A5 RID: 10149
+		// Token: 0x04002801 RID: 10241
 		public const string User = "User";
 
-		// Token: 0x040027A6 RID: 10150
+		// Token: 0x04002802 RID: 10242
 		public const string ZoneId = "ZoneId";
 
-		// Token: 0x040027A7 RID: 10151
+		// Token: 0x04002803 RID: 10243
 		public const string SubZoneId = "SubZoneId";
 
-		// Token: 0x040027A8 RID: 10152
+		// Token: 0x04002804 RID: 10244
 		public const string EventType = "EventType";
 
-		// Token: 0x040027A9 RID: 10153
+		// Token: 0x04002805 RID: 10245
 		public const string Items = "Items";
 
-		// Token: 0x040027AA RID: 10154
+		// Token: 0x04002806 RID: 10246
 		public const string VoiceChatEnabled = "VoiceChatEnabled";
 
-		// Token: 0x040027AB RID: 10155
+		// Token: 0x04002807 RID: 10247
 		public const string JoinGroups = "JoinGroups";
 
-		// Token: 0x040027AC RID: 10156
+		// Token: 0x04002808 RID: 10248
 		public const string CustomUsernameEnabled = "CustomUsernameEnabled";
 
-		// Token: 0x040027AD RID: 10157
+		// Token: 0x04002809 RID: 10249
 		public const string AgeCategory = "AgeCategory";
 
-		// Token: 0x040027AE RID: 10158
+		// Token: 0x0400280A RID: 10250
 		public const string telemetry_zone_event = "telemetry_zone_event";
 
-		// Token: 0x040027AF RID: 10159
+		// Token: 0x0400280B RID: 10251
 		public const string telemetry_shop_event = "telemetry_shop_event";
 
-		// Token: 0x040027B0 RID: 10160
+		// Token: 0x0400280C RID: 10252
 		public const string telemetry_kid_event = "telemetry_kid_event";
 
-		// Token: 0x040027B1 RID: 10161
+		// Token: 0x0400280D RID: 10253
 		public const string NOTHING = "NOTHING";
 
-		// Token: 0x040027B2 RID: 10162
+		// Token: 0x0400280E RID: 10254
 		public const string telemetry_wam_gameStartEvent = "telemetry_wam_gameStartEvent";
 
-		// Token: 0x040027B3 RID: 10163
+		// Token: 0x0400280F RID: 10255
 		public const string telemetry_wam_levelEndEvent = "telemetry_wam_levelEndEvent";
 
-		// Token: 0x040027B4 RID: 10164
+		// Token: 0x04002810 RID: 10256
 		public const string WamMachineId = "WamMachineId";
 
-		// Token: 0x040027B5 RID: 10165
+		// Token: 0x04002811 RID: 10257
 		public const string WamGameId = "WamGameId";
 
-		// Token: 0x040027B6 RID: 10166
+		// Token: 0x04002812 RID: 10258
 		public const string WamMLevelNumber = "WamMLevelNumber";
 
-		// Token: 0x040027B7 RID: 10167
+		// Token: 0x04002813 RID: 10259
 		public const string WamGoodMolesShown = "WamGoodMolesShown";
 
-		// Token: 0x040027B8 RID: 10168
+		// Token: 0x04002814 RID: 10260
 		public const string WamHazardMolesShown = "WamHazardMolesShown";
 
-		// Token: 0x040027B9 RID: 10169
+		// Token: 0x04002815 RID: 10261
 		public const string WamLevelMinScore = "WamLevelMinScore";
 
-		// Token: 0x040027BA RID: 10170
+		// Token: 0x04002816 RID: 10262
 		public const string WamLevelScore = "WamLevelScore";
 
-		// Token: 0x040027BB RID: 10171
+		// Token: 0x04002817 RID: 10263
 		public const string WamHazardMolesHit = "WamHazardMolesHit";
 
-		// Token: 0x040027BC RID: 10172
+		// Token: 0x04002818 RID: 10264
 		public const string WamGameState = "WamGameState";
 
-		// Token: 0x040027BD RID: 10173
+		// Token: 0x04002819 RID: 10265
 		public const string CustomMapName = "CustomMapName";
 
-		// Token: 0x040027BE RID: 10174
+		// Token: 0x0400281A RID: 10266
 		public const string LowestFPS = "LowestFPS";
 
-		// Token: 0x040027BF RID: 10175
+		// Token: 0x0400281B RID: 10267
 		public const string LowestFPSDrawCalls = "LowestFPSDrawCalls";
 
-		// Token: 0x040027C0 RID: 10176
+		// Token: 0x0400281C RID: 10268
 		public const string LowestFPSPlayerCount = "LowestFPSPlayerCount";
 
-		// Token: 0x040027C1 RID: 10177
+		// Token: 0x0400281D RID: 10269
 		public const string AverageFPS = "AverageFPS";
 
-		// Token: 0x040027C2 RID: 10178
+		// Token: 0x0400281E RID: 10270
 		public const string AverageDrawCalls = "AverageDrawCalls";
 
-		// Token: 0x040027C3 RID: 10179
+		// Token: 0x0400281F RID: 10271
 		public const string AveragePlayerCount = "AveragePlayerCount";
 
-		// Token: 0x040027C4 RID: 10180
+		// Token: 0x04002820 RID: 10272
 		public const string HighestFPS = "HighestFPS";
 
-		// Token: 0x040027C5 RID: 10181
+		// Token: 0x04002821 RID: 10273
 		public const string HighestFPSDrawCalls = "HighestFPSDrawCalls";
 
-		// Token: 0x040027C6 RID: 10182
+		// Token: 0x04002822 RID: 10274
 		public const string HighestFPSPlayerCount = "HighestFPSPlayerCount";
 
-		// Token: 0x040027C7 RID: 10183
+		// Token: 0x04002823 RID: 10275
 		public const string CustomMapCreator = "CustomMapCreator";
 
-		// Token: 0x040027C8 RID: 10184
+		// Token: 0x04002824 RID: 10276
 		public const string CustomMapModId = "CustomMapModId";
 
-		// Token: 0x040027C9 RID: 10185
+		// Token: 0x04002825 RID: 10277
 		public const string MinPlayerCount = "MinPlayerCount";
 
-		// Token: 0x040027CA RID: 10186
+		// Token: 0x04002826 RID: 10278
 		public const string MaxPlayerCount = "MaxPlayerCount";
 
-		// Token: 0x040027CB RID: 10187
+		// Token: 0x04002827 RID: 10279
 		public const string PlaytimeOnMap = "PlaytimeOnMap";
 
-		// Token: 0x040027CC RID: 10188
+		// Token: 0x04002828 RID: 10280
 		public const string PlaytimeInSeconds = "PlaytimeInSeconds";
 
-		// Token: 0x040027CD RID: 10189
+		// Token: 0x04002829 RID: 10281
 		public const string PrivateRoom = "PrivateRoom";
 	}
 
-	// Token: 0x0200059E RID: 1438
+	// Token: 0x020005AC RID: 1452
 	private class BatchRunner : MonoBehaviour
 	{
-		// Token: 0x060023CD RID: 9165 RVA: 0x000B2FBC File Offset: 0x000B11BC
+		// Token: 0x0600242D RID: 9261 RVA: 0x000487BA File Offset: 0x000469BA
 		private IEnumerator Start()
 		{
 			for (;;)

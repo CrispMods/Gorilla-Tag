@@ -2,16 +2,16 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x02000633 RID: 1587
+// Token: 0x02000612 RID: 1554
 public class SodaBubble : MonoBehaviour
 {
-	// Token: 0x06002770 RID: 10096 RVA: 0x000C1457 File Offset: 0x000BF657
+	// Token: 0x0600269B RID: 9883 RVA: 0x0004A5A6 File Offset: 0x000487A6
 	public void Pop()
 	{
 		base.StartCoroutine(this.PopCoroutine());
 	}
 
-	// Token: 0x06002771 RID: 10097 RVA: 0x000C1466 File Offset: 0x000BF666
+	// Token: 0x0600269C RID: 9884 RVA: 0x0004A5B5 File Offset: 0x000487B5
 	private IEnumerator PopCoroutine()
 	{
 		this.audioSource.GTPlay();
@@ -24,15 +24,15 @@ public class SodaBubble : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04002B35 RID: 11061
+	// Token: 0x04002A9B RID: 10907
 	public MeshRenderer bubbleMesh;
 
-	// Token: 0x04002B36 RID: 11062
+	// Token: 0x04002A9C RID: 10908
 	public Rigidbody body;
 
-	// Token: 0x04002B37 RID: 11063
+	// Token: 0x04002A9D RID: 10909
 	public MeshCollider bubbleCollider;
 
-	// Token: 0x04002B38 RID: 11064
+	// Token: 0x04002A9E RID: 10910
 	public AudioSource audioSource;
 }

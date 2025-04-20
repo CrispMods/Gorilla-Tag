@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000315 RID: 789
+// Token: 0x02000320 RID: 800
 public class HandMeshMask : MonoBehaviour
 {
-	// Token: 0x060012BB RID: 4795 RVA: 0x00059918 File Offset: 0x00057B18
+	// Token: 0x06001307 RID: 4871 RVA: 0x000B3A00 File Offset: 0x000B1C00
 	private void Awake()
 	{
 		base.transform.position = Vector3.zero;
@@ -18,7 +18,7 @@ public class HandMeshMask : MonoBehaviour
 		this.maskMeshObject.GetComponent<MeshRenderer>().material = this.maskMaterial;
 	}
 
-	// Token: 0x060012BC RID: 4796 RVA: 0x000599C0 File Offset: 0x00057BC0
+	// Token: 0x06001308 RID: 4872 RVA: 0x000B3AA8 File Offset: 0x000B1CA8
 	private void Update()
 	{
 		this.radialDivisions = Mathf.Max(2, this.radialDivisions);
@@ -31,7 +31,7 @@ public class HandMeshMask : MonoBehaviour
 		this.maskMeshObject.SetActive(active);
 	}
 
-	// Token: 0x060012BD RID: 4797 RVA: 0x00059A34 File Offset: 0x00057C34
+	// Token: 0x06001309 RID: 4873 RVA: 0x000B3B1C File Offset: 0x000B1D1C
 	private void CreateHandMesh()
 	{
 		int num = 8 + (this.radialDivisions - 2) * 2;
@@ -73,7 +73,7 @@ public class HandMeshMask : MonoBehaviour
 		this.maskMesh.triangles = this.handTriangles;
 	}
 
-	// Token: 0x060012BE RID: 4798 RVA: 0x00059C94 File Offset: 0x00057E94
+	// Token: 0x0600130A RID: 4874 RVA: 0x000B3D7C File Offset: 0x000B1F7C
 	private void AddKnuckleMesh(int knuckleVerts, float point1scale, float point2scale, Vector3 point1, Vector3 point2)
 	{
 		int num = this.vertCounter;
@@ -176,7 +176,7 @@ public class HandMeshMask : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012BF RID: 4799 RVA: 0x0005A024 File Offset: 0x00058224
+	// Token: 0x0600130B RID: 4875 RVA: 0x000B410C File Offset: 0x000B230C
 	private void AddPalmMesh(int knuckleVerts)
 	{
 		int num = this.vertCounter;
@@ -480,7 +480,7 @@ public class HandMeshMask : MonoBehaviour
 		this.AddKnuckleMesh(knuckleVerts, 1.3f, 1f, this.referenceHand.Bones[0].Transform.position, this.referenceHand.Bones[6].Transform.position);
 	}
 
-	// Token: 0x060012C0 RID: 4800 RVA: 0x0005AE04 File Offset: 0x00059004
+	// Token: 0x0600130C RID: 4876 RVA: 0x000B4EEC File Offset: 0x000B30EC
 	private void AddVertex(Vector3 position, Vector2 uv, Color color)
 	{
 		this.handVertices[this.vertCounter] = position;
@@ -489,56 +489,56 @@ public class HandMeshMask : MonoBehaviour
 		this.vertCounter++;
 	}
 
-	// Token: 0x040014AA RID: 5290
+	// Token: 0x040014F2 RID: 5362
 	public OVRSkeleton referenceHand;
 
-	// Token: 0x040014AB RID: 5291
+	// Token: 0x040014F3 RID: 5363
 	public Material maskMaterial;
 
-	// Token: 0x040014AC RID: 5292
+	// Token: 0x040014F4 RID: 5364
 	[Tooltip("The segments around the tip of a finger")]
 	public int radialDivisions = 9;
 
-	// Token: 0x040014AD RID: 5293
+	// Token: 0x040014F5 RID: 5365
 	[Tooltip("The fade range (finger width is 2x this)")]
 	public float borderSize = 0.2f;
 
-	// Token: 0x040014AE RID: 5294
+	// Token: 0x040014F6 RID: 5366
 	[Tooltip("Along the fingers, each knuckle scales down by this amount. Default is zero for uniform width along entire finger.")]
 	public float fingerTaper = 0.13f;
 
-	// Token: 0x040014AF RID: 5295
+	// Token: 0x040014F7 RID: 5367
 	[Tooltip("Shorten the last bone of each finger; need this to account for bone structure (end bone is at finger tip instead of center). Default is 1.")]
 	public float fingerTipLength = 0.8f;
 
-	// Token: 0x040014B0 RID: 5296
+	// Token: 0x040014F8 RID: 5368
 	[Tooltip("Move the base of the 4 main fingers towards the tips, to avoid a visible mesh crack between finger webbing. Default is 0.")]
 	public float webOffset = 0.25f;
 
-	// Token: 0x040014B1 RID: 5297
+	// Token: 0x040014F9 RID: 5369
 	private float handScale = 1f;
 
-	// Token: 0x040014B2 RID: 5298
+	// Token: 0x040014FA RID: 5370
 	private GameObject maskMeshObject;
 
-	// Token: 0x040014B3 RID: 5299
+	// Token: 0x040014FB RID: 5371
 	private Mesh maskMesh;
 
-	// Token: 0x040014B4 RID: 5300
+	// Token: 0x040014FC RID: 5372
 	private Vector3[] handVertices;
 
-	// Token: 0x040014B5 RID: 5301
+	// Token: 0x040014FD RID: 5373
 	private Vector2[] handUVs;
 
-	// Token: 0x040014B6 RID: 5302
+	// Token: 0x040014FE RID: 5374
 	private Color32[] handColors;
 
-	// Token: 0x040014B7 RID: 5303
+	// Token: 0x040014FF RID: 5375
 	private int[] handTriangles;
 
-	// Token: 0x040014B8 RID: 5304
+	// Token: 0x04001500 RID: 5376
 	private int vertCounter;
 
-	// Token: 0x040014B9 RID: 5305
+	// Token: 0x04001501 RID: 5377
 	private int triCounter;
 }

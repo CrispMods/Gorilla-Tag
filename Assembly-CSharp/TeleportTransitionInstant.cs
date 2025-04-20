@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x020002EB RID: 747
+// Token: 0x020002F6 RID: 758
 public class TeleportTransitionInstant : TeleportTransition
 {
-	// Token: 0x060011ED RID: 4589 RVA: 0x00054CD2 File Offset: 0x00052ED2
+	// Token: 0x06001239 RID: 4665 RVA: 0x0003C66C File Offset: 0x0003A86C
 	protected override void LocomotionTeleportOnEnterStateTeleporting()
 	{
 		base.LocomotionTeleport.DoTeleport();

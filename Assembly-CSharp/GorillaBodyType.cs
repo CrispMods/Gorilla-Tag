@@ -1,12 +1,12 @@
 ﻿using System;
 
-// Token: 0x0200054C RID: 1356
+// Token: 0x0200055A RID: 1370
 public enum GorillaBodyType : uint
 {
-	// Token: 0x040024D9 RID: 9433
+	// Token: 0x04002531 RID: 9521
 	Default,
-	// Token: 0x040024DA RID: 9434
+	// Token: 0x04002532 RID: 9522
 	NoHead,
-	// Token: 0x040024DB RID: 9435
+	// Token: 0x04002533 RID: 9523
 	Skeleton
 }

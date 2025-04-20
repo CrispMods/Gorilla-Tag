@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020004A1 RID: 1185
+// Token: 0x020004AD RID: 1197
 public class MonkeBallGoalZone : MonoBehaviour
 {
-	// Token: 0x06001CD2 RID: 7378 RVA: 0x0008CACC File Offset: 0x0008ACCC
+	// Token: 0x06001D26 RID: 7462 RVA: 0x000E0054 File Offset: 0x000DE254
 	private void Update()
 	{
 		if (!PhotonNetwork.IsMasterClient)
@@ -38,7 +38,7 @@ public class MonkeBallGoalZone : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001CD3 RID: 7379 RVA: 0x0008CBAC File Offset: 0x0008ADAC
+	// Token: 0x06001D27 RID: 7463 RVA: 0x000E0134 File Offset: 0x000DE334
 	private void OnTriggerEnter(Collider other)
 	{
 		GamePlayer gamePlayer = GamePlayer.GetGamePlayer(other, true);
@@ -53,7 +53,7 @@ public class MonkeBallGoalZone : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001CD4 RID: 7380 RVA: 0x0008CBFC File Offset: 0x0008ADFC
+	// Token: 0x06001D28 RID: 7464 RVA: 0x000E0184 File Offset: 0x000DE384
 	private void OnTriggerExit(Collider other)
 	{
 		GamePlayer gamePlayer = GamePlayer.GetGamePlayer(other, true);
@@ -68,15 +68,15 @@ public class MonkeBallGoalZone : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001CD5 RID: 7381 RVA: 0x0008CC4C File Offset: 0x0008AE4C
+	// Token: 0x06001D29 RID: 7465 RVA: 0x00043F15 File Offset: 0x00042115
 	public void CleanupPlayer(MonkeBallPlayer player)
 	{
 		this.playersInGoalZone.Remove(player);
 	}
 
-	// Token: 0x04001FBE RID: 8126
+	// Token: 0x0400200D RID: 8205
 	public int teamId;
 
-	// Token: 0x04001FBF RID: 8127
+	// Token: 0x0400200E RID: 8206
 	public List<MonkeBallPlayer> playersInGoalZone;
 }

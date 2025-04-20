@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000035 RID: 53
+// Token: 0x02000038 RID: 56
 public static class CrittersGrabberSharedData
 {
-	// Token: 0x06000106 RID: 262 RVA: 0x00007E41 File Offset: 0x00006041
+	// Token: 0x06000118 RID: 280 RVA: 0x00030FAF File Offset: 0x0002F1AF
 	public static void Initialize()
 	{
 		if (CrittersGrabberSharedData.initialized)
@@ -19,7 +19,7 @@ public static class CrittersGrabberSharedData
 		CrittersGrabberSharedData.actorGrabbers = new List<CrittersActorGrabber>();
 	}
 
-	// Token: 0x06000107 RID: 263 RVA: 0x00007E79 File Offset: 0x00006079
+	// Token: 0x06000119 RID: 281 RVA: 0x00030FE7 File Offset: 0x0002F1E7
 	public static void AddEnteredActor(CrittersActor actor)
 	{
 		CrittersGrabberSharedData.Initialize();
@@ -30,7 +30,7 @@ public static class CrittersGrabberSharedData
 		CrittersGrabberSharedData.enteredCritterActor.Add(actor);
 	}
 
-	// Token: 0x06000108 RID: 264 RVA: 0x00007E99 File Offset: 0x00006099
+	// Token: 0x0600011A RID: 282 RVA: 0x00031007 File Offset: 0x0002F207
 	public static void RemoveEnteredActor(CrittersActor actor)
 	{
 		CrittersGrabberSharedData.Initialize();
@@ -41,7 +41,7 @@ public static class CrittersGrabberSharedData
 		CrittersGrabberSharedData.enteredCritterActor.Remove(actor);
 	}
 
-	// Token: 0x06000109 RID: 265 RVA: 0x00007EBA File Offset: 0x000060BA
+	// Token: 0x0600011B RID: 283 RVA: 0x00031028 File Offset: 0x0002F228
 	public static void AddTrigger(CapsuleCollider trigger)
 	{
 		CrittersGrabberSharedData.Initialize();
@@ -52,7 +52,7 @@ public static class CrittersGrabberSharedData
 		CrittersGrabberSharedData.triggerCollidersToCheck.Add(trigger);
 	}
 
-	// Token: 0x0600010A RID: 266 RVA: 0x00007EDA File Offset: 0x000060DA
+	// Token: 0x0600011C RID: 284 RVA: 0x00031048 File Offset: 0x0002F248
 	public static void RemoveTrigger(CapsuleCollider trigger)
 	{
 		CrittersGrabberSharedData.Initialize();
@@ -63,7 +63,7 @@ public static class CrittersGrabberSharedData
 		CrittersGrabberSharedData.triggerCollidersToCheck.Remove(trigger);
 	}
 
-	// Token: 0x0600010B RID: 267 RVA: 0x00007EFB File Offset: 0x000060FB
+	// Token: 0x0600011D RID: 285 RVA: 0x00031069 File Offset: 0x0002F269
 	public static void AddActorGrabber(CrittersActorGrabber grabber)
 	{
 		CrittersGrabberSharedData.Initialize();
@@ -74,7 +74,7 @@ public static class CrittersGrabberSharedData
 		CrittersGrabberSharedData.actorGrabbers.Add(grabber);
 	}
 
-	// Token: 0x0600010C RID: 268 RVA: 0x00007F1B File Offset: 0x0000611B
+	// Token: 0x0600011E RID: 286 RVA: 0x00031089 File Offset: 0x0002F289
 	public static void RemoveActorGrabber(CrittersActorGrabber grabber)
 	{
 		CrittersGrabberSharedData.Initialize();
@@ -85,7 +85,7 @@ public static class CrittersGrabberSharedData
 		CrittersGrabberSharedData.actorGrabbers.Remove(grabber);
 	}
 
-	// Token: 0x0600010D RID: 269 RVA: 0x00007F3C File Offset: 0x0000613C
+	// Token: 0x0600011F RID: 287 RVA: 0x0006D4BC File Offset: 0x0006B6BC
 	public static void DisableEmptyGrabberJoints()
 	{
 		CrittersGrabberSharedData.Initialize();
@@ -101,18 +101,18 @@ public static class CrittersGrabberSharedData
 		}
 	}
 
-	// Token: 0x04000146 RID: 326
+	// Token: 0x0400014F RID: 335
 	public static List<CrittersActor> enteredCritterActor;
 
-	// Token: 0x04000147 RID: 327
+	// Token: 0x04000150 RID: 336
 	public static List<CapsuleCollider> triggerCollidersToCheck;
 
-	// Token: 0x04000148 RID: 328
+	// Token: 0x04000151 RID: 337
 	public static List<CrittersActor> heldActor;
 
-	// Token: 0x04000149 RID: 329
+	// Token: 0x04000152 RID: 338
 	public static List<CrittersActorGrabber> actorGrabbers;
 
-	// Token: 0x0400014A RID: 330
+	// Token: 0x04000153 RID: 339
 	private static bool initialized;
 }

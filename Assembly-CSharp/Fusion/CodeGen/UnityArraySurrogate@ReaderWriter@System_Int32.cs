@@ -3,14 +3,14 @@ using Fusion.Internal;
 
 namespace Fusion.CodeGen
 {
-	// Token: 0x02000D20 RID: 3360
+	// Token: 0x02000D51 RID: 3409
 	[WeaverGenerated]
 	[Serializable]
 	internal class UnityArraySurrogate@ReaderWriter@System_Int32 : UnityArraySurrogate<int, ReaderWriter@System_Int32>
 	{
-		// Token: 0x17000873 RID: 2163
-		// (get) Token: 0x06005401 RID: 21505 RVA: 0x0019C63C File Offset: 0x0019A83C
-		// (set) Token: 0x06005402 RID: 21506 RVA: 0x0019C644 File Offset: 0x0019A844
+		// Token: 0x17000891 RID: 2193
+		// (get) Token: 0x06005563 RID: 21859 RVA: 0x000675E1 File Offset: 0x000657E1
+		// (set) Token: 0x06005564 RID: 21860 RVA: 0x000675E9 File Offset: 0x000657E9
 		[WeaverGenerated]
 		public override int[] DataProperty
 		{
@@ -26,13 +26,13 @@ namespace Fusion.CodeGen
 			}
 		}
 
-		// Token: 0x06005403 RID: 21507 RVA: 0x0019C64D File Offset: 0x0019A84D
+		// Token: 0x06005565 RID: 21861 RVA: 0x000675F2 File Offset: 0x000657F2
 		[WeaverGenerated]
 		public UnityArraySurrogate@ReaderWriter@System_Int32()
 		{
 		}
 
-		// Token: 0x04005714 RID: 22292
+		// Token: 0x04005820 RID: 22560
 		[WeaverGenerated]
 		public int[] Data = Array.Empty<int>();
 	}

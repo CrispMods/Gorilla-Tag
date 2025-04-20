@@ -4,38 +4,38 @@ using UnityEngine;
 
 namespace GorillaLocomotion.Swimming
 {
-	// Token: 0x02000B43 RID: 2883
+	// Token: 0x02000B70 RID: 2928
 	public class RigidbodyWaterInteractionManager : MonoBehaviour
 	{
-		// Token: 0x06004816 RID: 18454 RVA: 0x0015BD3E File Offset: 0x00159F3E
+		// Token: 0x0600495F RID: 18783 RVA: 0x0005FC10 File Offset: 0x0005DE10
 		protected void Awake()
 		{
 			if (RigidbodyWaterInteractionManager.hasInstance && RigidbodyWaterInteractionManager.instance != this)
 			{
-				Object.Destroy(this);
+				UnityEngine.Object.Destroy(this);
 				return;
 			}
 			RigidbodyWaterInteractionManager.SetInstance(this);
 		}
 
-		// Token: 0x06004817 RID: 18455 RVA: 0x0015BD61 File Offset: 0x00159F61
+		// Token: 0x06004960 RID: 18784 RVA: 0x0005FC33 File Offset: 0x0005DE33
 		public static void CreateManager()
 		{
 			RigidbodyWaterInteractionManager.SetInstance(new GameObject("RigidbodyWaterInteractionManager").AddComponent<RigidbodyWaterInteractionManager>());
 		}
 
-		// Token: 0x06004818 RID: 18456 RVA: 0x0015BD77 File Offset: 0x00159F77
+		// Token: 0x06004961 RID: 18785 RVA: 0x0005FC49 File Offset: 0x0005DE49
 		private static void SetInstance(RigidbodyWaterInteractionManager manager)
 		{
 			RigidbodyWaterInteractionManager.instance = manager;
 			RigidbodyWaterInteractionManager.hasInstance = true;
 			if (Application.isPlaying)
 			{
-				Object.DontDestroyOnLoad(manager);
+				UnityEngine.Object.DontDestroyOnLoad(manager);
 			}
 		}
 
-		// Token: 0x06004819 RID: 18457 RVA: 0x0015BD92 File Offset: 0x00159F92
+		// Token: 0x06004962 RID: 18786 RVA: 0x0005FC64 File Offset: 0x0005DE64
 		public static void RegisterRBWI(RigidbodyWaterInteraction rbWI)
 		{
 			if (!RigidbodyWaterInteractionManager.hasInstance)
@@ -48,7 +48,7 @@ namespace GorillaLocomotion.Swimming
 			}
 		}
 
-		// Token: 0x0600481A RID: 18458 RVA: 0x0015BDB8 File Offset: 0x00159FB8
+		// Token: 0x06004963 RID: 18787 RVA: 0x0005FC8A File Offset: 0x0005DE8A
 		public static void UnregisterRBWI(RigidbodyWaterInteraction rbWI)
 		{
 			if (!RigidbodyWaterInteractionManager.hasInstance)
@@ -61,7 +61,7 @@ namespace GorillaLocomotion.Swimming
 			}
 		}
 
-		// Token: 0x0600481B RID: 18459 RVA: 0x0015BDE0 File Offset: 0x00159FE0
+		// Token: 0x06004964 RID: 18788 RVA: 0x001979B0 File Offset: 0x00195BB0
 		public void FixedUpdate()
 		{
 			for (int i = 0; i < RigidbodyWaterInteractionManager.allrBWI.Count; i++)
@@ -70,14 +70,14 @@ namespace GorillaLocomotion.Swimming
 			}
 		}
 
-		// Token: 0x04004A85 RID: 19077
+		// Token: 0x04004B7B RID: 19323
 		public static RigidbodyWaterInteractionManager instance;
 
-		// Token: 0x04004A86 RID: 19078
+		// Token: 0x04004B7C RID: 19324
 		[OnEnterPlay_Set(false)]
 		public static bool hasInstance = false;
 
-		// Token: 0x04004A87 RID: 19079
+		// Token: 0x04004B7D RID: 19325
 		public static List<RigidbodyWaterInteraction> allrBWI = new List<RigidbodyWaterInteraction>();
 	}
 }

@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-// Token: 0x0200009F RID: 159
+// Token: 0x020000A9 RID: 169
 public class SkyboxController : MonoBehaviour
 {
-	// Token: 0x06000426 RID: 1062 RVA: 0x00018F94 File Offset: 0x00017194
+	// Token: 0x06000462 RID: 1122 RVA: 0x0007CB64 File Offset: 0x0007AD64
 	private void Start()
 	{
 		if (this._dayNightManager.AsNull<BetterDayNightManager>() == null)
@@ -23,7 +23,7 @@ public class SkyboxController : MonoBehaviour
 		this._totalSecondsInRange = Math.Floor(this._totalSecondsInRange);
 	}
 
-	// Token: 0x06000427 RID: 1063 RVA: 0x00019022 File Offset: 0x00017222
+	// Token: 0x06000463 RID: 1123 RVA: 0x000334C5 File Offset: 0x000316C5
 	private void Update()
 	{
 		if (!this.lastUpdate.HasElapsed(1f, true))
@@ -34,13 +34,13 @@ public class SkyboxController : MonoBehaviour
 		this.UpdateSky();
 	}
 
-	// Token: 0x06000428 RID: 1064 RVA: 0x00019044 File Offset: 0x00017244
+	// Token: 0x06000464 RID: 1124 RVA: 0x000334E7 File Offset: 0x000316E7
 	private void OnValidate()
 	{
 		this.UpdateSky();
 	}
 
-	// Token: 0x06000429 RID: 1065 RVA: 0x0001904C File Offset: 0x0001724C
+	// Token: 0x06000465 RID: 1125 RVA: 0x000334EF File Offset: 0x000316EF
 	private void UpdateTime()
 	{
 		this._currentSeconds = ((ITimeOfDaySystem)this._dayNightManager).currentTimeInSeconds;
@@ -48,7 +48,7 @@ public class SkyboxController : MonoBehaviour
 		this._currentTime = (float)(this._currentSeconds / this._totalSecondsInRange);
 	}
 
-	// Token: 0x0600042A RID: 1066 RVA: 0x00019084 File Offset: 0x00017284
+	// Token: 0x06000466 RID: 1126 RVA: 0x0007CBF4 File Offset: 0x0007ADF4
 	private void UpdateSky()
 	{
 		if (this.skyMaterials == null || this.skyMaterials.Length == 0)
@@ -75,7 +75,7 @@ public class SkyboxController : MonoBehaviour
 		this._currentSky.SetFloat(SkyboxController._SkyAlpha, 1f - num5);
 	}
 
-	// Token: 0x0600042B RID: 1067 RVA: 0x00019168 File Offset: 0x00017368
+	// Token: 0x06000467 RID: 1127 RVA: 0x0007CCD8 File Offset: 0x0007AED8
 	private void SetFrontToTransparent()
 	{
 		bool flag = false;
@@ -98,7 +98,7 @@ public class SkyboxController : MonoBehaviour
 		sharedMaterial.SetFloat("_DstBlendAlpha", (float)blendMode4);
 	}
 
-	// Token: 0x0600042C RID: 1068 RVA: 0x00019228 File Offset: 0x00017428
+	// Token: 0x06000468 RID: 1128 RVA: 0x0007CD98 File Offset: 0x0007AF98
 	private void SetFrontToOpaque()
 	{
 		bool flag = false;
@@ -121,7 +121,7 @@ public class SkyboxController : MonoBehaviour
 		sharedMaterial.SetFloat("_DstBlendAlpha", (float)blendMode4);
 	}
 
-	// Token: 0x0600042D RID: 1069 RVA: 0x000192E8 File Offset: 0x000174E8
+	// Token: 0x06000469 RID: 1129 RVA: 0x0007CE58 File Offset: 0x0007B058
 	private void SetBackToOpaque()
 	{
 		bool flag = false;
@@ -144,43 +144,43 @@ public class SkyboxController : MonoBehaviour
 		sharedMaterial.SetFloat("_DstBlendAlpha", (float)blendMode4);
 	}
 
-	// Token: 0x040004C5 RID: 1221
+	// Token: 0x04000505 RID: 1285
 	public MeshRenderer skyFront;
 
-	// Token: 0x040004C6 RID: 1222
+	// Token: 0x04000506 RID: 1286
 	public MeshRenderer skyBack;
 
-	// Token: 0x040004C7 RID: 1223
+	// Token: 0x04000507 RID: 1287
 	public Material[] skyMaterials = new Material[0];
 
-	// Token: 0x040004C8 RID: 1224
+	// Token: 0x04000508 RID: 1288
 	[Range(0f, 1f)]
 	public float lerpValue;
 
-	// Token: 0x040004C9 RID: 1225
+	// Token: 0x04000509 RID: 1289
 	[NonSerialized]
 	private Material _currentSky;
 
-	// Token: 0x040004CA RID: 1226
+	// Token: 0x0400050A RID: 1290
 	[NonSerialized]
 	private Material _nextSky;
 
-	// Token: 0x040004CB RID: 1227
+	// Token: 0x0400050B RID: 1291
 	private TimeSince lastUpdate = TimeSince.Now();
 
-	// Token: 0x040004CC RID: 1228
+	// Token: 0x0400050C RID: 1292
 	[Space]
 	private BetterDayNightManager _dayNightManager;
 
-	// Token: 0x040004CD RID: 1229
+	// Token: 0x0400050D RID: 1293
 	private double _currentSeconds = -1.0;
 
-	// Token: 0x040004CE RID: 1230
+	// Token: 0x0400050E RID: 1294
 	private double _totalSecondsInRange = -1.0;
 
-	// Token: 0x040004CF RID: 1231
+	// Token: 0x0400050F RID: 1295
 	private float _currentTime = -1f;
 
-	// Token: 0x040004D0 RID: 1232
+	// Token: 0x04000510 RID: 1296
 	private static ShaderHashId _SkyAlpha = "_SkyAlpha";
 }

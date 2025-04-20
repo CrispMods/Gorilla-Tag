@@ -4,7 +4,7 @@ using UnityEngine;
 // Token: 0x02000021 RID: 33
 public class Oscillator : MonoBehaviour
 {
-	// Token: 0x0600007A RID: 122 RVA: 0x00004761 File Offset: 0x00002961
+	// Token: 0x0600007A RID: 122 RVA: 0x00030967 File Offset: 0x0002EB67
 	public void Init(Vector3 center, Vector3 radius, Vector3 frequency, Vector3 startPhase)
 	{
 		this.Center = center;
@@ -13,7 +13,7 @@ public class Oscillator : MonoBehaviour
 		this.Phase = startPhase;
 	}
 
-	// Token: 0x0600007B RID: 123 RVA: 0x00004780 File Offset: 0x00002980
+	// Token: 0x0600007B RID: 123 RVA: 0x00069A40 File Offset: 0x00067C40
 	private float SampleWave(float phase)
 	{
 		switch (this.WaveType)
@@ -47,13 +47,13 @@ public class Oscillator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600007C RID: 124 RVA: 0x0000483B File Offset: 0x00002A3B
+	// Token: 0x0600007C RID: 124 RVA: 0x00030986 File Offset: 0x0002EB86
 	public void OnEnable()
 	{
 		this.m_initCenter = base.transform.position;
 	}
 
-	// Token: 0x0600007D RID: 125 RVA: 0x00004850 File Offset: 0x00002A50
+	// Token: 0x0600007D RID: 125 RVA: 0x00069AFC File Offset: 0x00067CFC
 	public void Update()
 	{
 		this.Phase += this.Frequency * 2f * 3.1415927f * Time.deltaTime;

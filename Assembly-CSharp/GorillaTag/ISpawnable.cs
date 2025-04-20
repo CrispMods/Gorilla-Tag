@@ -3,23 +3,23 @@ using GorillaTag.CosmeticSystem;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B7E RID: 2942
+	// Token: 0x02000BAB RID: 2987
 	public interface ISpawnable
 	{
-		// Token: 0x170007B6 RID: 1974
-		// (get) Token: 0x06004A82 RID: 19074
-		// (set) Token: 0x06004A83 RID: 19075
+		// Token: 0x170007D2 RID: 2002
+		// (get) Token: 0x06004BCD RID: 19405
+		// (set) Token: 0x06004BCE RID: 19406
 		bool IsSpawned { get; set; }
 
-		// Token: 0x170007B7 RID: 1975
-		// (get) Token: 0x06004A84 RID: 19076
-		// (set) Token: 0x06004A85 RID: 19077
+		// Token: 0x170007D3 RID: 2003
+		// (get) Token: 0x06004BCF RID: 19407
+		// (set) Token: 0x06004BD0 RID: 19408
 		ECosmeticSelectSide CosmeticSelectedSide { get; set; }
 
-		// Token: 0x06004A86 RID: 19078
+		// Token: 0x06004BD1 RID: 19409
 		void OnSpawn(VRRig rig);
 
-		// Token: 0x06004A87 RID: 19079
+		// Token: 0x06004BD2 RID: 19410
 		void OnDespawn();
 	}
 }

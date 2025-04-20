@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200021C RID: 540
+// Token: 0x02000227 RID: 551
 public class XSceneRefTarget : MonoBehaviour
 {
-	// Token: 0x06000C80 RID: 3200 RVA: 0x00042648 File Offset: 0x00040848
+	// Token: 0x06000CCB RID: 3275 RVA: 0x00038F00 File Offset: 0x00037100
 	private void Awake()
 	{
 		this.Register(false);
 	}
 
-	// Token: 0x06000C81 RID: 3201 RVA: 0x00042651 File Offset: 0x00040851
+	// Token: 0x06000CCC RID: 3276 RVA: 0x00038F09 File Offset: 0x00037109
 	private void Reset()
 	{
 		this.UniqueID = XSceneRefTarget.CreateNewID();
 	}
 
-	// Token: 0x06000C82 RID: 3202 RVA: 0x0004265E File Offset: 0x0004085E
+	// Token: 0x06000CCD RID: 3277 RVA: 0x00038F16 File Offset: 0x00037116
 	private void OnValidate()
 	{
 		if (!Application.isPlaying)
@@ -25,7 +25,7 @@ public class XSceneRefTarget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000C83 RID: 3203 RVA: 0x00042670 File Offset: 0x00040870
+	// Token: 0x06000CCE RID: 3278 RVA: 0x000A08C0 File Offset: 0x0009EAC0
 	public void Register(bool force = false)
 	{
 		if (this.UniqueID == this.lastRegisteredID && !force)
@@ -40,20 +40,20 @@ public class XSceneRefTarget : MonoBehaviour
 		this.lastRegisteredID = this.UniqueID;
 	}
 
-	// Token: 0x06000C84 RID: 3204 RVA: 0x000426BC File Offset: 0x000408BC
+	// Token: 0x06000CCF RID: 3279 RVA: 0x00038F26 File Offset: 0x00037126
 	private void OnDestroy()
 	{
 		XSceneRefGlobalHub.Unregister(this.UniqueID, this);
 	}
 
-	// Token: 0x06000C85 RID: 3205 RVA: 0x000426CA File Offset: 0x000408CA
+	// Token: 0x06000CD0 RID: 3280 RVA: 0x00038F34 File Offset: 0x00037134
 	private void AssignNewID()
 	{
 		this.UniqueID = XSceneRefTarget.CreateNewID();
 		this.Register(false);
 	}
 
-	// Token: 0x06000C86 RID: 3206 RVA: 0x000426E0 File Offset: 0x000408E0
+	// Token: 0x06000CD1 RID: 3281 RVA: 0x000A090C File Offset: 0x0009EB0C
 	public static int CreateNewID()
 	{
 		int num = (int)((DateTime.Now - XSceneRefTarget.epoch).TotalSeconds * 8.0 % 2147483646.0) + 1;
@@ -66,16 +66,16 @@ public class XSceneRefTarget : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x04000FE3 RID: 4067
+	// Token: 0x04001029 RID: 4137
 	public int UniqueID;
 
-	// Token: 0x04000FE4 RID: 4068
+	// Token: 0x0400102A RID: 4138
 	[NonSerialized]
 	private int lastRegisteredID = -1;
 
-	// Token: 0x04000FE5 RID: 4069
+	// Token: 0x0400102B RID: 4139
 	private static DateTime epoch = new DateTime(2024, 1, 1);
 
-	// Token: 0x04000FE6 RID: 4070
+	// Token: 0x0400102C RID: 4140
 	private static int lastAssignedID;
 }

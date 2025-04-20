@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x0200003F RID: 63
+// Token: 0x02000043 RID: 67
 public static class CrittersBiomeExtensions
 {
-	// Token: 0x0600012F RID: 303 RVA: 0x000087B4 File Offset: 0x000069B4
+	// Token: 0x06000145 RID: 325 RVA: 0x0006DD0C File Offset: 0x0006BF0C
 	static CrittersBiomeExtensions()
 	{
 		CrittersBiomeExtensions._allScannableBiomes = new List<CrittersBiome>();
@@ -18,7 +18,7 @@ public static class CrittersBiomeExtensions
 		}
 	}
 
-	// Token: 0x06000130 RID: 304 RVA: 0x0000883C File Offset: 0x00006A3C
+	// Token: 0x06000146 RID: 326 RVA: 0x0006DD94 File Offset: 0x0006BF94
 	public static string GetHabitatDescription(this CrittersBiome biome)
 	{
 		string text;
@@ -49,12 +49,12 @@ public static class CrittersBiomeExtensions
 		return text;
 	}
 
-	// Token: 0x0400017C RID: 380
+	// Token: 0x0400018F RID: 399
 	private static List<CrittersBiome> _allScannableBiomes;
 
-	// Token: 0x0400017D RID: 381
+	// Token: 0x04000190 RID: 400
 	private static Dictionary<CrittersBiome, string> _habitatLookup = new Dictionary<CrittersBiome, string>();
 
-	// Token: 0x0400017E RID: 382
+	// Token: 0x04000191 RID: 401
 	private static List<CrittersBiome> _habitatBiomes;
 }

@@ -2,25 +2,25 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000197 RID: 407
+// Token: 0x020001A2 RID: 418
 public class DevErrorSoundAnnoyer : MonoBehaviour
 {
-	// Token: 0x04000C39 RID: 3129
+	// Token: 0x04000C7F RID: 3199
 	[SerializeField]
 	private AudioClip errorSound;
 
-	// Token: 0x04000C3A RID: 3130
+	// Token: 0x04000C80 RID: 3200
 	[SerializeField]
 	private AudioSource audioSource;
 
-	// Token: 0x04000C3B RID: 3131
+	// Token: 0x04000C81 RID: 3201
 	[SerializeField]
 	private Text errorUIText;
 
-	// Token: 0x04000C3C RID: 3132
+	// Token: 0x04000C82 RID: 3202
 	[SerializeField]
 	private Font errorFont;
 
-	// Token: 0x04000C3D RID: 3133
+	// Token: 0x04000C83 RID: 3203
 	public string displayedText;
 }

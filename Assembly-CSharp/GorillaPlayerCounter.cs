@@ -5,16 +5,16 @@ using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x0200050F RID: 1295
+// Token: 0x0200051C RID: 1308
 public class GorillaPlayerCounter : MonoBehaviour
 {
-	// Token: 0x06001F77 RID: 8055 RVA: 0x0009E830 File Offset: 0x0009CA30
+	// Token: 0x06001FD0 RID: 8144 RVA: 0x000459E0 File Offset: 0x00043BE0
 	private void Awake()
 	{
 		this.text = base.gameObject.GetComponent<Text>();
 	}
 
-	// Token: 0x06001F78 RID: 8056 RVA: 0x0009E844 File Offset: 0x0009CA44
+	// Token: 0x06001FD1 RID: 8145 RVA: 0x000F03F0 File Offset: 0x000EE5F0
 	private void Update()
 	{
 		if (PhotonNetwork.CurrentRoom != null)
@@ -31,12 +31,12 @@ public class GorillaPlayerCounter : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002344 RID: 9028
+	// Token: 0x04002397 RID: 9111
 	public bool isRedTeam;
 
-	// Token: 0x04002345 RID: 9029
+	// Token: 0x04002398 RID: 9112
 	public Text text;
 
-	// Token: 0x04002346 RID: 9030
+	// Token: 0x04002399 RID: 9113
 	public string attribute;
 }

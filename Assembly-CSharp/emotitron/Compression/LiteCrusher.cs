@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace emotitron.Compression
 {
-	// Token: 0x02000C6C RID: 3180
+	// Token: 0x02000C9D RID: 3229
 	[Serializable]
 	public abstract class LiteCrusher
 	{
-		// Token: 0x0600502A RID: 20522 RVA: 0x00186698 File Offset: 0x00184898
+		// Token: 0x0600518A RID: 20874 RVA: 0x001BDCFC File Offset: 0x001BBEFC
 		public static int GetBitsForMaxValue(uint maxvalue)
 		{
 			for (int i = 0; i < 32; i++)
@@ -20,7 +20,7 @@ namespace emotitron.Compression
 			return 32;
 		}
 
-		// Token: 0x040052CA RID: 21194
+		// Token: 0x040053D6 RID: 21462
 		[SerializeField]
 		protected int bits;
 	}

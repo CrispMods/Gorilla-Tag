@@ -4,30 +4,30 @@ using UnityEngine;
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A70 RID: 2672
+	// Token: 0x02000A9D RID: 2717
 	public class TrainCrossingController : MonoBehaviour
 	{
-		// Token: 0x0600429C RID: 17052 RVA: 0x0013A24E File Offset: 0x0013844E
+		// Token: 0x060043E1 RID: 17377 RVA: 0x0005C3E8 File Offset: 0x0005A5E8
 		private void Awake()
 		{
 			this._lightsSide1Mat = this._lightSide1Renderer.material;
 			this._lightsSide2Mat = this._lightSide2Renderer.material;
 		}
 
-		// Token: 0x0600429D RID: 17053 RVA: 0x0013A272 File Offset: 0x00138472
+		// Token: 0x060043E2 RID: 17378 RVA: 0x0005C40C File Offset: 0x0005A60C
 		private void OnDestroy()
 		{
 			if (this._lightsSide1Mat != null)
 			{
-				Object.Destroy(this._lightsSide1Mat);
+				UnityEngine.Object.Destroy(this._lightsSide1Mat);
 			}
 			if (this._lightsSide2Mat != null)
 			{
-				Object.Destroy(this._lightsSide2Mat);
+				UnityEngine.Object.Destroy(this._lightsSide2Mat);
 			}
 		}
 
-		// Token: 0x0600429E RID: 17054 RVA: 0x0013A2A6 File Offset: 0x001384A6
+		// Token: 0x060043E3 RID: 17379 RVA: 0x0005C440 File Offset: 0x0005A640
 		public void CrossingButtonStateChanged(InteractableStateArgs obj)
 		{
 			if (obj.NewInteractableState == InteractableState.ActionState)
@@ -37,7 +37,7 @@ namespace OculusSampleFramework
 			this._toolInteractingWithMe = ((obj.NewInteractableState > InteractableState.Default) ? obj.Tool : null);
 		}
 
-		// Token: 0x0600429F RID: 17055 RVA: 0x0013A2D4 File Offset: 0x001384D4
+		// Token: 0x060043E4 RID: 17380 RVA: 0x001796B0 File Offset: 0x001778B0
 		private void Update()
 		{
 			if (this._toolInteractingWithMe == null)
@@ -48,11 +48,11 @@ namespace OculusSampleFramework
 			this._selectionCylinder.CurrSelectionState = ((this._toolInteractingWithMe.ToolInputState == ToolInputState.PrimaryInputDown || this._toolInteractingWithMe.ToolInputState == ToolInputState.PrimaryInputDownStay) ? SelectionCylinder.SelectionState.Highlighted : SelectionCylinder.SelectionState.Selected);
 		}
 
-		// Token: 0x060042A0 RID: 17056 RVA: 0x0013A328 File Offset: 0x00138528
+		// Token: 0x060043E5 RID: 17381 RVA: 0x00179704 File Offset: 0x00177904
 		private void ActivateTrainCrossing()
 		{
 			int num = this._crossingSounds.Length - 1;
-			AudioClip audioClip = this._crossingSounds[(int)(Random.value * (float)num)];
+			AudioClip audioClip = this._crossingSounds[(int)(UnityEngine.Random.value * (float)num)];
 			this._audioSource.clip = audioClip;
 			this._audioSource.timeSamples = 0;
 			this._audioSource.Play();
@@ -63,7 +63,7 @@ namespace OculusSampleFramework
 			this._xingAnimationCr = base.StartCoroutine(this.AnimateCrossing(audioClip.length * 0.75f));
 		}
 
-		// Token: 0x060042A1 RID: 17057 RVA: 0x0013A3A6 File Offset: 0x001385A6
+		// Token: 0x060043E6 RID: 17382 RVA: 0x0005C46B File Offset: 0x0005A66B
 		private IEnumerator AnimateCrossing(float animationLength)
 		{
 			this.ToggleLightObjects(true);
@@ -94,7 +94,7 @@ namespace OculusSampleFramework
 			yield break;
 		}
 
-		// Token: 0x060042A2 RID: 17058 RVA: 0x0013A3BC File Offset: 0x001385BC
+		// Token: 0x060043E7 RID: 17383 RVA: 0x00179784 File Offset: 0x00177984
 		private void AffectMaterials(Material[] materials, Color newColor)
 		{
 			for (int i = 0; i < materials.Length; i++)
@@ -103,46 +103,46 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x060042A3 RID: 17059 RVA: 0x0013A3E8 File Offset: 0x001385E8
+		// Token: 0x060043E8 RID: 17384 RVA: 0x0005C481 File Offset: 0x0005A681
 		private void ToggleLightObjects(bool enableState)
 		{
 			this._lightSide1Renderer.gameObject.SetActive(enableState);
 			this._lightSide2Renderer.gameObject.SetActive(enableState);
 		}
 
-		// Token: 0x04004398 RID: 17304
+		// Token: 0x04004492 RID: 17554
 		[SerializeField]
 		private AudioSource _audioSource;
 
-		// Token: 0x04004399 RID: 17305
+		// Token: 0x04004493 RID: 17555
 		[SerializeField]
 		private AudioClip[] _crossingSounds;
 
-		// Token: 0x0400439A RID: 17306
+		// Token: 0x04004494 RID: 17556
 		[SerializeField]
 		private MeshRenderer _lightSide1Renderer;
 
-		// Token: 0x0400439B RID: 17307
+		// Token: 0x04004495 RID: 17557
 		[SerializeField]
 		private MeshRenderer _lightSide2Renderer;
 
-		// Token: 0x0400439C RID: 17308
+		// Token: 0x04004496 RID: 17558
 		[SerializeField]
 		private SelectionCylinder _selectionCylinder;
 
-		// Token: 0x0400439D RID: 17309
+		// Token: 0x04004497 RID: 17559
 		private Material _lightsSide1Mat;
 
-		// Token: 0x0400439E RID: 17310
+		// Token: 0x04004498 RID: 17560
 		private Material _lightsSide2Mat;
 
-		// Token: 0x0400439F RID: 17311
+		// Token: 0x04004499 RID: 17561
 		private int _colorId = Shader.PropertyToID("_Color");
 
-		// Token: 0x040043A0 RID: 17312
+		// Token: 0x0400449A RID: 17562
 		private Coroutine _xingAnimationCr;
 
-		// Token: 0x040043A1 RID: 17313
+		// Token: 0x0400449B RID: 17563
 		private InteractableTool _toolInteractingWithMe;
 	}
 }

@@ -3,37 +3,37 @@ using UnityEngine;
 
 namespace GorillaTag.Rendering
 {
-	// Token: 0x02000C0A RID: 3082
+	// Token: 0x02000C38 RID: 3128
 	public sealed class ZoneLiquidEffectable : MonoBehaviour
 	{
-		// Token: 0x06004D0A RID: 19722 RVA: 0x00176AF7 File Offset: 0x00174CF7
+		// Token: 0x06004E56 RID: 20054 RVA: 0x00063393 File Offset: 0x00061593
 		private void Awake()
 		{
 			this.childRenderers = base.GetComponentsInChildren<Renderer>(false);
 		}
 
-		// Token: 0x06004D0B RID: 19723 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004E57 RID: 20055 RVA: 0x00030607 File Offset: 0x0002E807
 		private void OnEnable()
 		{
 		}
 
-		// Token: 0x06004D0C RID: 19724 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004E58 RID: 20056 RVA: 0x00030607 File Offset: 0x0002E807
 		private void OnDisable()
 		{
 		}
 
-		// Token: 0x04004F54 RID: 20308
+		// Token: 0x0400504A RID: 20554
 		public float radius = 1f;
 
-		// Token: 0x04004F55 RID: 20309
+		// Token: 0x0400504B RID: 20555
 		[NonSerialized]
 		public bool inLiquidVolume;
 
-		// Token: 0x04004F56 RID: 20310
+		// Token: 0x0400504C RID: 20556
 		[NonSerialized]
 		public bool wasInLiquidVolume;
 
-		// Token: 0x04004F57 RID: 20311
+		// Token: 0x0400504D RID: 20557
 		[NonSerialized]
 		public Renderer[] childRenderers;
 	}

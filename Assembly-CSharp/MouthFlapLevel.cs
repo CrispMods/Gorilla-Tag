@@ -1,19 +1,19 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200057B RID: 1403
+// Token: 0x02000589 RID: 1417
 [Serializable]
 public struct MouthFlapLevel
 {
-	// Token: 0x04002617 RID: 9751
+	// Token: 0x0400266F RID: 9839
 	public Vector2[] faces;
 
-	// Token: 0x04002618 RID: 9752
+	// Token: 0x04002670 RID: 9840
 	public float cycleDuration;
 
-	// Token: 0x04002619 RID: 9753
+	// Token: 0x04002671 RID: 9841
 	public float minRequiredVolume;
 
-	// Token: 0x0400261A RID: 9754
+	// Token: 0x04002672 RID: 9842
 	public float maxRequiredVolume;
 }

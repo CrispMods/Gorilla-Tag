@@ -9,10 +9,10 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-// Token: 0x02000586 RID: 1414
+// Token: 0x02000594 RID: 1428
 public class GorillaPaintbrawlManager : GorillaGameManager
 {
-	// Token: 0x060022CD RID: 8909 RVA: 0x000AC784 File Offset: 0x000AA984
+	// Token: 0x0600232D RID: 9005 RVA: 0x00047C6C File Offset: 0x00045E6C
 	private void ActivatePaintbrawlBalloons(bool enable)
 	{
 		if (GorillaTagger.Instance.offlineVRRig != null)
@@ -21,31 +21,31 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060022CE RID: 8910 RVA: 0x000AC7B2 File Offset: 0x000AA9B2
+	// Token: 0x0600232E RID: 9006 RVA: 0x00047C9A File Offset: 0x00045E9A
 	private bool HasFlag(GorillaPaintbrawlManager.PaintbrawlStatus state, GorillaPaintbrawlManager.PaintbrawlStatus statusFlag)
 	{
 		return (state & statusFlag) > GorillaPaintbrawlManager.PaintbrawlStatus.None;
 	}
 
-	// Token: 0x060022CF RID: 8911 RVA: 0x000AC7BA File Offset: 0x000AA9BA
+	// Token: 0x0600232F RID: 9007 RVA: 0x00047CA2 File Offset: 0x00045EA2
 	public override GameModeType GameType()
 	{
 		return GameModeType.Paintbrawl;
 	}
 
-	// Token: 0x060022D0 RID: 8912 RVA: 0x000AC7BD File Offset: 0x000AA9BD
+	// Token: 0x06002330 RID: 9008 RVA: 0x00047CA5 File Offset: 0x00045EA5
 	public override void AddFusionDataBehaviour(NetworkObject behaviour)
 	{
 		behaviour.AddBehaviour<BattleGameModeData>();
 	}
 
-	// Token: 0x060022D1 RID: 8913 RVA: 0x000AC7C6 File Offset: 0x000AA9C6
+	// Token: 0x06002331 RID: 9009 RVA: 0x00047CAE File Offset: 0x00045EAE
 	public override string GameModeName()
 	{
 		return "PAINTBRAWL";
 	}
 
-	// Token: 0x060022D2 RID: 8914 RVA: 0x000AC7D0 File Offset: 0x000AA9D0
+	// Token: 0x06002332 RID: 9010 RVA: 0x000FC1E4 File Offset: 0x000FA3E4
 	private void ActivateDefaultSlingShot()
 	{
 		VRRig offlineVRRig = GorillaTagger.Instance.offlineVRRig;
@@ -57,7 +57,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060022D3 RID: 8915 RVA: 0x000AC819 File Offset: 0x000AAA19
+	// Token: 0x06002333 RID: 9011 RVA: 0x00047CB5 File Offset: 0x00045EB5
 	public override void Awake()
 	{
 		base.Awake();
@@ -65,7 +65,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		this.currentState = GorillaPaintbrawlManager.PaintbrawlState.NotEnoughPlayers;
 	}
 
-	// Token: 0x060022D4 RID: 8916 RVA: 0x000AC830 File Offset: 0x000AAA30
+	// Token: 0x06002334 RID: 9012 RVA: 0x000FC230 File Offset: 0x000FA430
 	public override void StartPlaying()
 	{
 		base.StartPlaying();
@@ -78,7 +78,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		this.UpdateBattleState();
 	}
 
-	// Token: 0x060022D5 RID: 8917 RVA: 0x000AC888 File Offset: 0x000AAA88
+	// Token: 0x06002335 RID: 9013 RVA: 0x000FC288 File Offset: 0x000FA488
 	public override void StopPlaying()
 	{
 		base.StopPlaying();
@@ -97,7 +97,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		this.coroutineRunning = false;
 	}
 
-	// Token: 0x060022D6 RID: 8918 RVA: 0x000AC8F8 File Offset: 0x000AAAF8
+	// Token: 0x06002336 RID: 9014 RVA: 0x000FC2F8 File Offset: 0x000FA4F8
 	public override void Reset()
 	{
 		base.Reset();
@@ -114,7 +114,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		this.currentState = GorillaPaintbrawlManager.PaintbrawlState.NotEnoughPlayers;
 	}
 
-	// Token: 0x060022D7 RID: 8919 RVA: 0x000AC96C File Offset: 0x000AAB6C
+	// Token: 0x06002337 RID: 9015 RVA: 0x000FC36C File Offset: 0x000FA56C
 	private void VerifyPlayersInDict<T>(Dictionary<int, T> dict)
 	{
 		if (dict.Count < 1)
@@ -131,21 +131,21 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060022D8 RID: 8920 RVA: 0x000AC9B1 File Offset: 0x000AABB1
+	// Token: 0x06002338 RID: 9016 RVA: 0x00047CCB File Offset: 0x00045ECB
 	internal override void NetworkLinkSetup(GameModeSerializer netSerializer)
 	{
 		base.NetworkLinkSetup(netSerializer);
 		netSerializer.AddRPCComponent<PaintbrawlRPCs>();
 	}
 
-	// Token: 0x060022D9 RID: 8921 RVA: 0x000AC9C1 File Offset: 0x000AABC1
+	// Token: 0x06002339 RID: 9017 RVA: 0x00047CDB File Offset: 0x00045EDB
 	private void Transition(GorillaPaintbrawlManager.PaintbrawlState newState)
 	{
 		this.currentState = newState;
 		Debug.Log("current state is: " + this.currentState.ToString());
 	}
 
-	// Token: 0x060022DA RID: 8922 RVA: 0x000AC9EC File Offset: 0x000AABEC
+	// Token: 0x0600233A RID: 9018 RVA: 0x000FC3B4 File Offset: 0x000FA5B4
 	public void UpdateBattleState()
 	{
 		if (NetworkSystem.Instance.IsMasterClient)
@@ -205,7 +205,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060022DB RID: 8923 RVA: 0x000ACB04 File Offset: 0x000AAD04
+	// Token: 0x0600233B RID: 9019 RVA: 0x000FC4CC File Offset: 0x000FA6CC
 	private bool CheckForGameEnd()
 	{
 		this.bcount = 0;
@@ -234,7 +234,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		return this.bcount == 0 || this.rcount == 0;
 	}
 
-	// Token: 0x060022DC RID: 8924 RVA: 0x000ACC04 File Offset: 0x000AAE04
+	// Token: 0x0600233C RID: 9020 RVA: 0x00047D04 File Offset: 0x00045F04
 	public IEnumerator StartBattleCountdown()
 	{
 		this.coroutineRunning = true;
@@ -261,7 +261,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		yield break;
 	}
 
-	// Token: 0x060022DD RID: 8925 RVA: 0x000ACC14 File Offset: 0x000AAE14
+	// Token: 0x0600233D RID: 9021 RVA: 0x000FC5CC File Offset: 0x000FA7CC
 	public void StartBattle()
 	{
 		RoomSystem.SendSoundEffectAll(7, 0.5f, false);
@@ -271,7 +271,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060022DE RID: 8926 RVA: 0x000ACC80 File Offset: 0x000AAE80
+	// Token: 0x0600233E RID: 9022 RVA: 0x00047D13 File Offset: 0x00045F13
 	private bool EndBattleGame()
 	{
 		if ((float)RoomSystem.PlayersInRoom.Count >= this.playerMin)
@@ -284,19 +284,19 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		return false;
 	}
 
-	// Token: 0x060022DF RID: 8927 RVA: 0x000ACCB5 File Offset: 0x000AAEB5
+	// Token: 0x0600233F RID: 9023 RVA: 0x00047D48 File Offset: 0x00045F48
 	public bool BattleEnd()
 	{
 		return Time.time > this.timeBattleEnded + this.tagCoolDown;
 	}
 
-	// Token: 0x060022E0 RID: 8928 RVA: 0x000ACCCB File Offset: 0x000AAECB
+	// Token: 0x06002340 RID: 9024 RVA: 0x00047D5E File Offset: 0x00045F5E
 	public bool SlingshotHit(NetPlayer myPlayer, Player otherPlayer)
 	{
 		return this.playerLives.TryGetValue(otherPlayer.ActorNumber, out this.lives) && this.lives > 0;
 	}
 
-	// Token: 0x060022E1 RID: 8929 RVA: 0x000ACCF4 File Offset: 0x000AAEF4
+	// Token: 0x06002341 RID: 9025 RVA: 0x000FC638 File Offset: 0x000FA838
 	public void ReportSlingshotHit(NetPlayer taggedPlayer, Vector3 hitLocation, int projectileCount, PhotonMessageInfoWrapped info)
 	{
 		NetPlayer player = NetworkSystem.Instance.GetPlayer(info.senderID);
@@ -353,7 +353,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060022E2 RID: 8930 RVA: 0x000ACE90 File Offset: 0x000AB090
+	// Token: 0x06002342 RID: 9026 RVA: 0x000FC7D4 File Offset: 0x000FA9D4
 	public override void HitPlayer(NetPlayer player)
 	{
 		if (!NetworkSystem.Instance.IsMasterClient || this.currentState != GorillaPaintbrawlManager.PaintbrawlState.GameRunning)
@@ -367,13 +367,13 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060022E3 RID: 8931 RVA: 0x000ACEDC File Offset: 0x000AB0DC
+	// Token: 0x06002343 RID: 9027 RVA: 0x00047D84 File Offset: 0x00045F84
 	public override bool CanAffectPlayer(NetPlayer player, bool thisFrame)
 	{
 		return this.playerLives.TryGetValue(player.ActorNumber, out this.lives) && this.lives > 0;
 	}
 
-	// Token: 0x060022E4 RID: 8932 RVA: 0x000ACF04 File Offset: 0x000AB104
+	// Token: 0x06002344 RID: 9028 RVA: 0x000FC820 File Offset: 0x000FAA20
 	public override void OnPlayerEnteredRoom(NetPlayer newPlayer)
 	{
 		base.OnPlayerEnteredRoom(newPlayer);
@@ -393,7 +393,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060022E5 RID: 8933 RVA: 0x000ACF74 File Offset: 0x000AB174
+	// Token: 0x06002345 RID: 9029 RVA: 0x000FC890 File Offset: 0x000FAA90
 	public override void OnPlayerLeftRoom(NetPlayer otherPlayer)
 	{
 		base.OnPlayerLeftRoom(otherPlayer);
@@ -407,7 +407,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060022E6 RID: 8934 RVA: 0x000ACFD4 File Offset: 0x000AB1D4
+	// Token: 0x06002346 RID: 9030 RVA: 0x000FC8F0 File Offset: 0x000FAAF0
 	public override void OnSerializeRead(object newData)
 	{
 		PaintbrawlData paintbrawlData = (PaintbrawlData)newData;
@@ -418,7 +418,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		this.CopyArrayToBattleDict();
 	}
 
-	// Token: 0x060022E7 RID: 8935 RVA: 0x000AD03C File Offset: 0x000AB23C
+	// Token: 0x06002347 RID: 9031 RVA: 0x000FC958 File Offset: 0x000FAB58
 	public override object OnSerializeWrite()
 	{
 		this.CopyBattleDictToArray();
@@ -430,7 +430,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		return paintbrawlData;
 	}
 
-	// Token: 0x060022E8 RID: 8936 RVA: 0x000AD0C4 File Offset: 0x000AB2C4
+	// Token: 0x06002348 RID: 9032 RVA: 0x000FC9E0 File Offset: 0x000FABE0
 	public override void OnSerializeWrite(PhotonStream stream, PhotonMessageInfo info)
 	{
 		this.CopyBattleDictToArray();
@@ -443,7 +443,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		stream.SendNext((int)this.currentState);
 	}
 
-	// Token: 0x060022E9 RID: 8937 RVA: 0x000AD134 File Offset: 0x000AB334
+	// Token: 0x06002349 RID: 9033 RVA: 0x000FCA50 File Offset: 0x000FAC50
 	public override void OnSerializeRead(PhotonStream stream, PhotonMessageInfo info)
 	{
 		NetworkSystem.Instance.GetPlayer(info.Sender);
@@ -457,7 +457,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		this.CopyArrayToBattleDict();
 	}
 
-	// Token: 0x060022EA RID: 8938 RVA: 0x000AD1B8 File Offset: 0x000AB3B8
+	// Token: 0x0600234A RID: 9034 RVA: 0x000FCAD4 File Offset: 0x000FACD4
 	public override int MyMatIndex(NetPlayer forPlayer)
 	{
 		this.tempStatus = this.GetPlayerStatus(forPlayer);
@@ -513,7 +513,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		return 0;
 	}
 
-	// Token: 0x060022EB RID: 8939 RVA: 0x000AD2A4 File Offset: 0x000AB4A4
+	// Token: 0x0600234B RID: 9035 RVA: 0x000FCBC0 File Offset: 0x000FADC0
 	public override float[] LocalPlayerSpeed()
 	{
 		if (this.playerStatusDict.TryGetValue(NetworkSystem.Instance.LocalPlayerID, out this.tempStatus))
@@ -542,7 +542,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		return this.playerSpeed;
 	}
 
-	// Token: 0x060022EC RID: 8940 RVA: 0x000AD385 File Offset: 0x000AB585
+	// Token: 0x0600234C RID: 9036 RVA: 0x00047DAA File Offset: 0x00045FAA
 	public override void Tick()
 	{
 		base.Tick();
@@ -553,7 +553,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		this.ActivateDefaultSlingShot();
 	}
 
-	// Token: 0x060022ED RID: 8941 RVA: 0x000AD3A8 File Offset: 0x000AB5A8
+	// Token: 0x0600234D RID: 9037 RVA: 0x000FCCA4 File Offset: 0x000FAEA4
 	public override void InfrequentUpdate()
 	{
 		base.InfrequentUpdate();
@@ -577,7 +577,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060022EE RID: 8942 RVA: 0x000AD464 File Offset: 0x000AB664
+	// Token: 0x0600234E RID: 9038 RVA: 0x00047DCA File Offset: 0x00045FCA
 	public int GetPlayerLives(NetPlayer player)
 	{
 		if (player == null)
@@ -591,21 +591,21 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		return 0;
 	}
 
-	// Token: 0x060022EF RID: 8943 RVA: 0x000AD48C File Offset: 0x000AB68C
+	// Token: 0x0600234F RID: 9039 RVA: 0x000FCD60 File Offset: 0x000FAF60
 	public bool PlayerInHitCooldown(NetPlayer player)
 	{
 		float num;
 		return this.playerHitTimes.TryGetValue(player.ActorNumber, out num) && num + this.hitCooldown > Time.time;
 	}
 
-	// Token: 0x060022F0 RID: 8944 RVA: 0x000AD4C0 File Offset: 0x000AB6C0
+	// Token: 0x06002350 RID: 9040 RVA: 0x000FCD94 File Offset: 0x000FAF94
 	public bool PlayerInStunCooldown(NetPlayer player)
 	{
 		float num;
 		return this.playerStunTimes.TryGetValue(player.ActorNumber, out num) && num + this.hitCooldown + this.stunGracePeriod > Time.time;
 	}
 
-	// Token: 0x060022F1 RID: 8945 RVA: 0x000AD4FA File Offset: 0x000AB6FA
+	// Token: 0x06002351 RID: 9041 RVA: 0x00047DF2 File Offset: 0x00045FF2
 	public GorillaPaintbrawlManager.PaintbrawlStatus GetPlayerStatus(NetPlayer player)
 	{
 		if (this.playerStatusDict.TryGetValue(player.ActorNumber, out this.tempStatus))
@@ -615,52 +615,52 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		return GorillaPaintbrawlManager.PaintbrawlStatus.None;
 	}
 
-	// Token: 0x060022F2 RID: 8946 RVA: 0x000AD51D File Offset: 0x000AB71D
+	// Token: 0x06002352 RID: 9042 RVA: 0x00047E15 File Offset: 0x00046015
 	public bool OnRedTeam(GorillaPaintbrawlManager.PaintbrawlStatus status)
 	{
 		return this.HasFlag(status, GorillaPaintbrawlManager.PaintbrawlStatus.RedTeam);
 	}
 
-	// Token: 0x060022F3 RID: 8947 RVA: 0x000AD528 File Offset: 0x000AB728
+	// Token: 0x06002353 RID: 9043 RVA: 0x000FCDD0 File Offset: 0x000FAFD0
 	public bool OnRedTeam(NetPlayer player)
 	{
 		GorillaPaintbrawlManager.PaintbrawlStatus playerStatus = this.GetPlayerStatus(player);
 		return this.OnRedTeam(playerStatus);
 	}
 
-	// Token: 0x060022F4 RID: 8948 RVA: 0x000AD544 File Offset: 0x000AB744
+	// Token: 0x06002354 RID: 9044 RVA: 0x00047E1F File Offset: 0x0004601F
 	public bool OnBlueTeam(GorillaPaintbrawlManager.PaintbrawlStatus status)
 	{
 		return this.HasFlag(status, GorillaPaintbrawlManager.PaintbrawlStatus.BlueTeam);
 	}
 
-	// Token: 0x060022F5 RID: 8949 RVA: 0x000AD550 File Offset: 0x000AB750
+	// Token: 0x06002355 RID: 9045 RVA: 0x000FCDEC File Offset: 0x000FAFEC
 	public bool OnBlueTeam(NetPlayer player)
 	{
 		GorillaPaintbrawlManager.PaintbrawlStatus playerStatus = this.GetPlayerStatus(player);
 		return this.OnBlueTeam(playerStatus);
 	}
 
-	// Token: 0x060022F6 RID: 8950 RVA: 0x000AD56C File Offset: 0x000AB76C
+	// Token: 0x06002356 RID: 9046 RVA: 0x00047E29 File Offset: 0x00046029
 	public bool OnNoTeam(GorillaPaintbrawlManager.PaintbrawlStatus status)
 	{
 		return !this.OnRedTeam(status) && !this.OnBlueTeam(status);
 	}
 
-	// Token: 0x060022F7 RID: 8951 RVA: 0x000AD584 File Offset: 0x000AB784
+	// Token: 0x06002357 RID: 9047 RVA: 0x000FCE08 File Offset: 0x000FB008
 	public bool OnNoTeam(NetPlayer player)
 	{
 		GorillaPaintbrawlManager.PaintbrawlStatus playerStatus = this.GetPlayerStatus(player);
 		return this.OnNoTeam(playerStatus);
 	}
 
-	// Token: 0x060022F8 RID: 8952 RVA: 0x00002076 File Offset: 0x00000276
+	// Token: 0x06002358 RID: 9048 RVA: 0x00030498 File Offset: 0x0002E698
 	public override bool LocalCanTag(NetPlayer myPlayer, NetPlayer otherPlayer)
 	{
 		return false;
 	}
 
-	// Token: 0x060022F9 RID: 8953 RVA: 0x000AD5A0 File Offset: 0x000AB7A0
+	// Token: 0x06002359 RID: 9049 RVA: 0x000FCE24 File Offset: 0x000FB024
 	public bool OnSameTeam(GorillaPaintbrawlManager.PaintbrawlStatus playerA, GorillaPaintbrawlManager.PaintbrawlStatus playerB)
 	{
 		bool flag = this.OnRedTeam(playerA) && this.OnRedTeam(playerB);
@@ -668,7 +668,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		return flag || flag2;
 	}
 
-	// Token: 0x060022FA RID: 8954 RVA: 0x000AD5D8 File Offset: 0x000AB7D8
+	// Token: 0x0600235A RID: 9050 RVA: 0x000FCE5C File Offset: 0x000FB05C
 	public bool OnSameTeam(NetPlayer myPlayer, NetPlayer otherPlayer)
 	{
 		GorillaPaintbrawlManager.PaintbrawlStatus playerStatus = this.GetPlayerStatus(myPlayer);
@@ -676,7 +676,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		return this.OnSameTeam(playerStatus, playerStatus2);
 	}
 
-	// Token: 0x060022FB RID: 8955 RVA: 0x000AD600 File Offset: 0x000AB800
+	// Token: 0x0600235B RID: 9051 RVA: 0x000FCE84 File Offset: 0x000FB084
 	public bool LocalCanHit(NetPlayer myPlayer, NetPlayer otherPlayer)
 	{
 		bool flag = !this.OnSameTeam(myPlayer, otherPlayer);
@@ -684,7 +684,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		return flag && flag2;
 	}
 
-	// Token: 0x060022FC RID: 8956 RVA: 0x000AD628 File Offset: 0x000AB828
+	// Token: 0x0600235C RID: 9052 RVA: 0x000FCEAC File Offset: 0x000FB0AC
 	private void CopyBattleDictToArray()
 	{
 		for (int i = 0; i < this.playerLivesArray.Length; i++)
@@ -703,7 +703,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060022FD RID: 8957 RVA: 0x000AD6E4 File Offset: 0x000AB8E4
+	// Token: 0x0600235D RID: 9053 RVA: 0x000FCF68 File Offset: 0x000FB168
 	private void CopyArrayToBattleDict()
 	{
 		for (int i = 0; i < this.playerLivesArray.Length; i++)
@@ -730,31 +730,31 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x060022FE RID: 8958 RVA: 0x000AD7CA File Offset: 0x000AB9CA
+	// Token: 0x0600235E RID: 9054 RVA: 0x00047E40 File Offset: 0x00046040
 	private GorillaPaintbrawlManager.PaintbrawlStatus SetFlag(GorillaPaintbrawlManager.PaintbrawlStatus currState, GorillaPaintbrawlManager.PaintbrawlStatus flag)
 	{
 		return currState | flag;
 	}
 
-	// Token: 0x060022FF RID: 8959 RVA: 0x000AD7CF File Offset: 0x000AB9CF
+	// Token: 0x0600235F RID: 9055 RVA: 0x00047E45 File Offset: 0x00046045
 	private GorillaPaintbrawlManager.PaintbrawlStatus SetFlagExclusive(GorillaPaintbrawlManager.PaintbrawlStatus currState, GorillaPaintbrawlManager.PaintbrawlStatus flag)
 	{
 		return flag;
 	}
 
-	// Token: 0x06002300 RID: 8960 RVA: 0x000AD7D2 File Offset: 0x000AB9D2
+	// Token: 0x06002360 RID: 9056 RVA: 0x00047E48 File Offset: 0x00046048
 	private GorillaPaintbrawlManager.PaintbrawlStatus ClearFlag(GorillaPaintbrawlManager.PaintbrawlStatus currState, GorillaPaintbrawlManager.PaintbrawlStatus flag)
 	{
 		return currState & ~flag;
 	}
 
-	// Token: 0x06002301 RID: 8961 RVA: 0x000AC7B2 File Offset: 0x000AA9B2
+	// Token: 0x06002361 RID: 9057 RVA: 0x00047C9A File Offset: 0x00045E9A
 	private bool FlagIsSet(GorillaPaintbrawlManager.PaintbrawlStatus currState, GorillaPaintbrawlManager.PaintbrawlStatus flag)
 	{
 		return (currState & flag) > GorillaPaintbrawlManager.PaintbrawlStatus.None;
 	}
 
-	// Token: 0x06002302 RID: 8962 RVA: 0x000AD7D8 File Offset: 0x000AB9D8
+	// Token: 0x06002362 RID: 9058 RVA: 0x000FD050 File Offset: 0x000FB250
 	public void RandomizeTeams()
 	{
 		int[] array = new int[RoomSystem.PlayersInRoom.Count];
@@ -762,7 +762,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		{
 			array[i] = i;
 		}
-		Random rand = new Random();
+		System.Random rand = new System.Random();
 		int[] array2 = (from x in array
 		orderby rand.Next()
 		select x).ToArray<int>();
@@ -775,7 +775,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x06002303 RID: 8963 RVA: 0x000AD8A4 File Offset: 0x000ABAA4
+	// Token: 0x06002363 RID: 9059 RVA: 0x000FD11C File Offset: 0x000FB31C
 	public void AddPlayerToCorrectTeam(NetPlayer newPlayer)
 	{
 		this.rcount = 0;
@@ -789,7 +789,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 		if ((RoomSystem.PlayersInRoom.Count - 1) / 2 == this.rcount)
 		{
-			this.playerStatusDict[newPlayer.ActorNumber] = ((Random.Range(0, 2) == 0) ? this.SetFlag(this.playerStatusDict[newPlayer.ActorNumber], GorillaPaintbrawlManager.PaintbrawlStatus.RedTeam) : this.SetFlag(this.playerStatusDict[newPlayer.ActorNumber], GorillaPaintbrawlManager.PaintbrawlStatus.BlueTeam));
+			this.playerStatusDict[newPlayer.ActorNumber] = ((UnityEngine.Random.Range(0, 2) == 0) ? this.SetFlag(this.playerStatusDict[newPlayer.ActorNumber], GorillaPaintbrawlManager.PaintbrawlStatus.RedTeam) : this.SetFlag(this.playerStatusDict[newPlayer.ActorNumber], GorillaPaintbrawlManager.PaintbrawlStatus.BlueTeam));
 			return;
 		}
 		if (this.rcount <= (RoomSystem.PlayersInRoom.Count - 1) / 2)
@@ -798,7 +798,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x06002304 RID: 8964 RVA: 0x000AD9C8 File Offset: 0x000ABBC8
+	// Token: 0x06002364 RID: 9060 RVA: 0x000FD240 File Offset: 0x000FB440
 	private void InitializePlayerStatus()
 	{
 		this.keyValuePairsStatus = this.playerStatusDict.ToArray<KeyValuePair<int, GorillaPaintbrawlManager.PaintbrawlStatus>>();
@@ -808,7 +808,7 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x06002305 RID: 8965 RVA: 0x000ADA18 File Offset: 0x000ABC18
+	// Token: 0x06002365 RID: 9061 RVA: 0x000FD290 File Offset: 0x000FB490
 	private void UpdatePlayerStatus()
 	{
 		this.keyValuePairsStatus = this.playerStatusDict.ToArray<KeyValuePair<int, GorillaPaintbrawlManager.PaintbrawlStatus>>();
@@ -845,25 +845,25 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		}
 	}
 
-	// Token: 0x0400266E RID: 9838
+	// Token: 0x040026C9 RID: 9929
 	private float playerMin = 2f;
 
-	// Token: 0x0400266F RID: 9839
+	// Token: 0x040026CA RID: 9930
 	public float tagCoolDown = 5f;
 
-	// Token: 0x04002670 RID: 9840
+	// Token: 0x040026CB RID: 9931
 	public Dictionary<int, int> playerLives = new Dictionary<int, int>();
 
-	// Token: 0x04002671 RID: 9841
+	// Token: 0x040026CC RID: 9932
 	public Dictionary<int, GorillaPaintbrawlManager.PaintbrawlStatus> playerStatusDict = new Dictionary<int, GorillaPaintbrawlManager.PaintbrawlStatus>();
 
-	// Token: 0x04002672 RID: 9842
+	// Token: 0x040026CD RID: 9933
 	public Dictionary<int, float> playerHitTimes = new Dictionary<int, float>();
 
-	// Token: 0x04002673 RID: 9843
+	// Token: 0x040026CE RID: 9934
 	public Dictionary<int, float> playerStunTimes = new Dictionary<int, float>();
 
-	// Token: 0x04002674 RID: 9844
+	// Token: 0x040026CF RID: 9935
 	public int[] playerActorNumberArray = new int[]
 	{
 		-1,
@@ -878,106 +878,106 @@ public class GorillaPaintbrawlManager : GorillaGameManager
 		-1
 	};
 
-	// Token: 0x04002675 RID: 9845
+	// Token: 0x040026D0 RID: 9936
 	public int[] playerLivesArray = new int[10];
 
-	// Token: 0x04002676 RID: 9846
+	// Token: 0x040026D1 RID: 9937
 	public GorillaPaintbrawlManager.PaintbrawlStatus[] playerStatusArray = new GorillaPaintbrawlManager.PaintbrawlStatus[10];
 
-	// Token: 0x04002677 RID: 9847
+	// Token: 0x040026D2 RID: 9938
 	public bool teamBattle = true;
 
-	// Token: 0x04002678 RID: 9848
+	// Token: 0x040026D3 RID: 9939
 	public int countDownTime;
 
-	// Token: 0x04002679 RID: 9849
+	// Token: 0x040026D4 RID: 9940
 	private float timeBattleEnded;
 
-	// Token: 0x0400267A RID: 9850
+	// Token: 0x040026D5 RID: 9941
 	public float hitCooldown = 3f;
 
-	// Token: 0x0400267B RID: 9851
+	// Token: 0x040026D6 RID: 9942
 	public float stunGracePeriod = 2f;
 
-	// Token: 0x0400267C RID: 9852
+	// Token: 0x040026D7 RID: 9943
 	public object objRef;
 
-	// Token: 0x0400267D RID: 9853
+	// Token: 0x040026D8 RID: 9944
 	private bool playerInList;
 
-	// Token: 0x0400267E RID: 9854
+	// Token: 0x040026D9 RID: 9945
 	private bool coroutineRunning;
 
-	// Token: 0x0400267F RID: 9855
+	// Token: 0x040026DA RID: 9946
 	private int lives;
 
-	// Token: 0x04002680 RID: 9856
+	// Token: 0x040026DB RID: 9947
 	private int outLives;
 
-	// Token: 0x04002681 RID: 9857
+	// Token: 0x040026DC RID: 9948
 	private int bcount;
 
-	// Token: 0x04002682 RID: 9858
+	// Token: 0x040026DD RID: 9949
 	private int rcount;
 
-	// Token: 0x04002683 RID: 9859
+	// Token: 0x040026DE RID: 9950
 	private int randInt;
 
-	// Token: 0x04002684 RID: 9860
+	// Token: 0x040026DF RID: 9951
 	private float outHitTime;
 
-	// Token: 0x04002685 RID: 9861
+	// Token: 0x040026E0 RID: 9952
 	private NetworkView tempView;
 
-	// Token: 0x04002686 RID: 9862
+	// Token: 0x040026E1 RID: 9953
 	private KeyValuePair<int, int>[] keyValuePairs;
 
-	// Token: 0x04002687 RID: 9863
+	// Token: 0x040026E2 RID: 9954
 	private KeyValuePair<int, GorillaPaintbrawlManager.PaintbrawlStatus>[] keyValuePairsStatus;
 
-	// Token: 0x04002688 RID: 9864
+	// Token: 0x040026E3 RID: 9955
 	private GorillaPaintbrawlManager.PaintbrawlStatus tempStatus;
 
-	// Token: 0x04002689 RID: 9865
+	// Token: 0x040026E4 RID: 9956
 	private GorillaPaintbrawlManager.PaintbrawlState currentState;
 
-	// Token: 0x02000587 RID: 1415
+	// Token: 0x02000595 RID: 1429
 	public enum PaintbrawlStatus
 	{
-		// Token: 0x0400268B RID: 9867
+		// Token: 0x040026E6 RID: 9958
 		RedTeam = 1,
-		// Token: 0x0400268C RID: 9868
+		// Token: 0x040026E7 RID: 9959
 		BlueTeam,
-		// Token: 0x0400268D RID: 9869
+		// Token: 0x040026E8 RID: 9960
 		Normal = 4,
-		// Token: 0x0400268E RID: 9870
+		// Token: 0x040026E9 RID: 9961
 		Hit = 8,
-		// Token: 0x0400268F RID: 9871
+		// Token: 0x040026EA RID: 9962
 		Stunned = 16,
-		// Token: 0x04002690 RID: 9872
+		// Token: 0x040026EB RID: 9963
 		Grace = 32,
-		// Token: 0x04002691 RID: 9873
+		// Token: 0x040026EC RID: 9964
 		Eliminated = 64,
-		// Token: 0x04002692 RID: 9874
+		// Token: 0x040026ED RID: 9965
 		None = 0
 	}
 
-	// Token: 0x02000588 RID: 1416
+	// Token: 0x02000596 RID: 1430
 	public enum PaintbrawlState
 	{
-		// Token: 0x04002694 RID: 9876
+		// Token: 0x040026EF RID: 9967
 		NotEnoughPlayers,
-		// Token: 0x04002695 RID: 9877
+		// Token: 0x040026F0 RID: 9968
 		GameEnd,
-		// Token: 0x04002696 RID: 9878
+		// Token: 0x040026F1 RID: 9969
 		GameEndWaiting,
-		// Token: 0x04002697 RID: 9879
+		// Token: 0x040026F2 RID: 9970
 		StartCountdown,
-		// Token: 0x04002698 RID: 9880
+		// Token: 0x040026F3 RID: 9971
 		CountingDownToStart,
-		// Token: 0x04002699 RID: 9881
+		// Token: 0x040026F4 RID: 9972
 		GameStart,
-		// Token: 0x0400269A RID: 9882
+		// Token: 0x040026F5 RID: 9973
 		GameRunning
 	}
 }

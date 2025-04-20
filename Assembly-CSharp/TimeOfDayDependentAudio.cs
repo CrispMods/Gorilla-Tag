@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x02000200 RID: 512
+// Token: 0x0200020B RID: 523
 public class TimeOfDayDependentAudio : MonoBehaviour, IGorillaSliceableSimple, IBuildValidation
 {
-	// Token: 0x06000C00 RID: 3072 RVA: 0x0003F488 File Offset: 0x0003D688
+	// Token: 0x06000C4B RID: 3147 RVA: 0x0009DC70 File Offset: 0x0009BE70
 	private void Awake()
 	{
 		this.stepTime = 1f;
@@ -16,27 +16,27 @@ public class TimeOfDayDependentAudio : MonoBehaviour, IGorillaSliceableSimple, I
 		}
 	}
 
-	// Token: 0x06000C01 RID: 3073 RVA: 0x0003F4D8 File Offset: 0x0003D6D8
+	// Token: 0x06000C4C RID: 3148 RVA: 0x000389A4 File Offset: 0x00036BA4
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.FixedUpdate);
 		base.StopAllCoroutines();
 	}
 
-	// Token: 0x06000C02 RID: 3074 RVA: 0x0003F4E7 File Offset: 0x0003D6E7
+	// Token: 0x06000C4D RID: 3149 RVA: 0x000389B3 File Offset: 0x00036BB3
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.FixedUpdate);
 		base.StartCoroutine(this.UpdateTimeOfDay());
 	}
 
-	// Token: 0x06000C03 RID: 3075 RVA: 0x0003F4FD File Offset: 0x0003D6FD
+	// Token: 0x06000C4E RID: 3150 RVA: 0x000389C9 File Offset: 0x00036BC9
 	public void SliceUpdate()
 	{
 		this.isModified = false;
 	}
 
-	// Token: 0x06000C04 RID: 3076 RVA: 0x0003F506 File Offset: 0x0003D706
+	// Token: 0x06000C4F RID: 3151 RVA: 0x000389D2 File Offset: 0x00036BD2
 	private IEnumerator UpdateTimeOfDay()
 	{
 		yield return 0;
@@ -161,7 +161,7 @@ public class TimeOfDayDependentAudio : MonoBehaviour, IGorillaSliceableSimple, I
 		yield break;
 	}
 
-	// Token: 0x06000C05 RID: 3077 RVA: 0x0003F518 File Offset: 0x0003D718
+	// Token: 0x06000C50 RID: 3152 RVA: 0x0009DCC0 File Offset: 0x0009BEC0
 	public bool BuildValidationCheck()
 	{
 		for (int i = 0; i < this.audioSources.Length; i++)
@@ -175,63 +175,63 @@ public class TimeOfDayDependentAudio : MonoBehaviour, IGorillaSliceableSimple, I
 		return true;
 	}
 
-	// Token: 0x06000C07 RID: 3079 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x06000C52 RID: 3154 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x04000E51 RID: 3665
+	// Token: 0x04000E97 RID: 3735
 	public AudioSource[] audioSources;
 
-	// Token: 0x04000E52 RID: 3666
+	// Token: 0x04000E98 RID: 3736
 	public float[] volumes;
 
-	// Token: 0x04000E53 RID: 3667
+	// Token: 0x04000E99 RID: 3737
 	public float currentVolume;
 
-	// Token: 0x04000E54 RID: 3668
+	// Token: 0x04000E9A RID: 3738
 	public float stepTime;
 
-	// Token: 0x04000E55 RID: 3669
+	// Token: 0x04000E9B RID: 3739
 	public BetterDayNightManager.WeatherType myWeather;
 
-	// Token: 0x04000E56 RID: 3670
+	// Token: 0x04000E9C RID: 3740
 	public GameObject dependentStuff;
 
-	// Token: 0x04000E57 RID: 3671
+	// Token: 0x04000E9D RID: 3741
 	public GameObject timeOfDayDependent;
 
-	// Token: 0x04000E58 RID: 3672
+	// Token: 0x04000E9E RID: 3742
 	public bool includesAudio;
 
-	// Token: 0x04000E59 RID: 3673
+	// Token: 0x04000E9F RID: 3743
 	public ParticleSystem myParticleSystem;
 
-	// Token: 0x04000E5A RID: 3674
+	// Token: 0x04000EA0 RID: 3744
 	private float startingEmissionRate;
 
-	// Token: 0x04000E5B RID: 3675
+	// Token: 0x04000EA1 RID: 3745
 	private int lastEmission;
 
-	// Token: 0x04000E5C RID: 3676
+	// Token: 0x04000EA2 RID: 3746
 	private int nextEmission;
 
-	// Token: 0x04000E5D RID: 3677
+	// Token: 0x04000EA3 RID: 3747
 	private ParticleSystem.MinMaxCurve newCurve;
 
-	// Token: 0x04000E5E RID: 3678
+	// Token: 0x04000EA4 RID: 3748
 	private ParticleSystem.EmissionModule myEmissionModule;
 
-	// Token: 0x04000E5F RID: 3679
+	// Token: 0x04000EA5 RID: 3749
 	private float newRate;
 
-	// Token: 0x04000E60 RID: 3680
+	// Token: 0x04000EA6 RID: 3750
 	public float positionMultiplierSet;
 
-	// Token: 0x04000E61 RID: 3681
+	// Token: 0x04000EA7 RID: 3751
 	public float positionMultiplier = 1f;
 
-	// Token: 0x04000E62 RID: 3682
+	// Token: 0x04000EA8 RID: 3752
 	public bool isModified;
 }

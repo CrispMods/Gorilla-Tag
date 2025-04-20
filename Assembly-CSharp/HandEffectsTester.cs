@@ -3,12 +3,12 @@ using GorillaExtensions;
 using TagEffects;
 using UnityEngine;
 
-// Token: 0x0200022E RID: 558
+// Token: 0x02000239 RID: 569
 [RequireComponent(typeof(Collider))]
 public class HandEffectsTester : MonoBehaviour, IHandEffectsTrigger
 {
-	// Token: 0x17000136 RID: 310
-	// (get) Token: 0x06000CB3 RID: 3251 RVA: 0x00042E21 File Offset: 0x00041021
+	// Token: 0x1700013D RID: 317
+	// (get) Token: 0x06000CFE RID: 3326 RVA: 0x0003923B File Offset: 0x0003743B
 	public bool Static
 	{
 		get
@@ -17,8 +17,8 @@ public class HandEffectsTester : MonoBehaviour, IHandEffectsTrigger
 		}
 	}
 
-	// Token: 0x17000137 RID: 311
-	// (get) Token: 0x06000CB4 RID: 3252 RVA: 0x00042E29 File Offset: 0x00041029
+	// Token: 0x1700013E RID: 318
+	// (get) Token: 0x06000CFF RID: 3327 RVA: 0x00039243 File Offset: 0x00037443
 	Transform IHandEffectsTrigger.Transform
 	{
 		get
@@ -27,8 +27,8 @@ public class HandEffectsTester : MonoBehaviour, IHandEffectsTrigger
 		}
 	}
 
-	// Token: 0x17000138 RID: 312
-	// (get) Token: 0x06000CB5 RID: 3253 RVA: 0x00042E31 File Offset: 0x00041031
+	// Token: 0x1700013F RID: 319
+	// (get) Token: 0x06000D00 RID: 3328 RVA: 0x0003924B File Offset: 0x0003744B
 	VRRig IHandEffectsTrigger.Rig
 	{
 		get
@@ -37,8 +37,8 @@ public class HandEffectsTester : MonoBehaviour, IHandEffectsTrigger
 		}
 	}
 
-	// Token: 0x17000139 RID: 313
-	// (get) Token: 0x06000CB6 RID: 3254 RVA: 0x00042E34 File Offset: 0x00041034
+	// Token: 0x17000140 RID: 320
+	// (get) Token: 0x06000D01 RID: 3329 RVA: 0x0003924E File Offset: 0x0003744E
 	IHandEffectsTrigger.Mode IHandEffectsTrigger.EffectMode
 	{
 		get
@@ -47,8 +47,8 @@ public class HandEffectsTester : MonoBehaviour, IHandEffectsTrigger
 		}
 	}
 
-	// Token: 0x1700013A RID: 314
-	// (get) Token: 0x06000CB7 RID: 3255 RVA: 0x00042E3C File Offset: 0x0004103C
+	// Token: 0x17000141 RID: 321
+	// (get) Token: 0x06000D02 RID: 3330 RVA: 0x00039256 File Offset: 0x00037456
 	bool IHandEffectsTrigger.FingersDown
 	{
 		get
@@ -57,8 +57,8 @@ public class HandEffectsTester : MonoBehaviour, IHandEffectsTrigger
 		}
 	}
 
-	// Token: 0x1700013B RID: 315
-	// (get) Token: 0x06000CB8 RID: 3256 RVA: 0x00042E53 File Offset: 0x00041053
+	// Token: 0x17000142 RID: 322
+	// (get) Token: 0x06000D03 RID: 3331 RVA: 0x0003926D File Offset: 0x0003746D
 	bool IHandEffectsTrigger.FingersUp
 	{
 		get
@@ -67,17 +67,17 @@ public class HandEffectsTester : MonoBehaviour, IHandEffectsTrigger
 		}
 	}
 
-	// Token: 0x1700013C RID: 316
-	// (get) Token: 0x06000CB9 RID: 3257 RVA: 0x00042E69 File Offset: 0x00041069
+	// Token: 0x17000143 RID: 323
+	// (get) Token: 0x06000D04 RID: 3332 RVA: 0x00039283 File Offset: 0x00037483
 	public bool RightHand { get; }
 
-	// Token: 0x06000CBA RID: 3258 RVA: 0x00042E71 File Offset: 0x00041071
+	// Token: 0x06000D05 RID: 3333 RVA: 0x0003928B File Offset: 0x0003748B
 	private void Awake()
 	{
 		this.triggerZone = base.GetComponent<Collider>();
 	}
 
-	// Token: 0x06000CBB RID: 3259 RVA: 0x00042E7F File Offset: 0x0004107F
+	// Token: 0x06000D06 RID: 3334 RVA: 0x00039299 File Offset: 0x00037499
 	private void OnEnable()
 	{
 		if (!HandEffectsTriggerRegistry.HasInstance)
@@ -87,14 +87,14 @@ public class HandEffectsTester : MonoBehaviour, IHandEffectsTrigger
 		HandEffectsTriggerRegistry.Instance.Register(this);
 	}
 
-	// Token: 0x06000CBC RID: 3260 RVA: 0x00042E98 File Offset: 0x00041098
+	// Token: 0x06000D07 RID: 3335 RVA: 0x000392B2 File Offset: 0x000374B2
 	private void OnDisable()
 	{
 		HandEffectsTriggerRegistry.Instance.Unregister(this);
 	}
 
-	// Token: 0x1700013D RID: 317
-	// (get) Token: 0x06000CBD RID: 3261 RVA: 0x00042EA5 File Offset: 0x000410A5
+	// Token: 0x17000144 RID: 324
+	// (get) Token: 0x06000D08 RID: 3336 RVA: 0x000392BF File Offset: 0x000374BF
 	Vector3 IHandEffectsTrigger.Velocity
 	{
 		get
@@ -108,8 +108,8 @@ public class HandEffectsTester : MonoBehaviour, IHandEffectsTrigger
 		}
 	}
 
-	// Token: 0x1700013E RID: 318
-	// (get) Token: 0x06000CBE RID: 3262 RVA: 0x00042EC3 File Offset: 0x000410C3
+	// Token: 0x17000145 RID: 325
+	// (get) Token: 0x06000D09 RID: 3337 RVA: 0x000392DD File Offset: 0x000374DD
 	TagEffectPack IHandEffectsTrigger.CosmeticEffectPack
 	{
 		get
@@ -118,12 +118,12 @@ public class HandEffectsTester : MonoBehaviour, IHandEffectsTrigger
 		}
 	}
 
-	// Token: 0x06000CBF RID: 3263 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000D0A RID: 3338 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnTriggerEntered(IHandEffectsTrigger other)
 	{
 	}
 
-	// Token: 0x06000CC0 RID: 3264 RVA: 0x00042ECC File Offset: 0x000410CC
+	// Token: 0x06000D0B RID: 3339 RVA: 0x000A0D58 File Offset: 0x0009EF58
 	public bool InTriggerZone(IHandEffectsTrigger t)
 	{
 		if (!(base.transform.position - t.Transform.position).IsShorterThan(this.triggerZone.bounds.size))
@@ -143,21 +143,21 @@ public class HandEffectsTester : MonoBehaviour, IHandEffectsTrigger
 		return this.triggerZone.Raycast(new Ray(t.Transform.position, this.triggerZone.bounds.center - t.Transform.position), out raycastHit, this.triggerRadius);
 	}
 
-	// Token: 0x04001024 RID: 4132
+	// Token: 0x0400106A RID: 4202
 	[SerializeField]
 	private TagEffectPack cosmeticEffectPack;
 
-	// Token: 0x04001025 RID: 4133
+	// Token: 0x0400106B RID: 4203
 	private Collider triggerZone;
 
-	// Token: 0x04001026 RID: 4134
+	// Token: 0x0400106C RID: 4204
 	public IHandEffectsTrigger.Mode mode;
 
-	// Token: 0x04001027 RID: 4135
+	// Token: 0x0400106D RID: 4205
 	[SerializeField]
 	private float triggerRadius = 0.07f;
 
-	// Token: 0x04001028 RID: 4136
+	// Token: 0x0400106E RID: 4206
 	[SerializeField]
 	private bool isStatic = true;
 }

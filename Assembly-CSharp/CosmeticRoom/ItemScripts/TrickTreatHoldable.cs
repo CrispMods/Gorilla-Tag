@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace CosmeticRoom.ItemScripts
 {
-	// Token: 0x02000A1A RID: 2586
+	// Token: 0x02000A47 RID: 2631
 	public class TrickTreatHoldable : TransferrableObject
 	{
-		// Token: 0x060040C7 RID: 16583 RVA: 0x00133C57 File Offset: 0x00131E57
+		// Token: 0x0600420C RID: 16908 RVA: 0x0005B367 File Offset: 0x00059567
 		protected override void LateUpdateLocal()
 		{
 			base.LateUpdateLocal();
@@ -16,7 +16,7 @@ namespace CosmeticRoom.ItemScripts
 			}
 		}
 
-		// Token: 0x040041F3 RID: 16883
+		// Token: 0x040042ED RID: 17133
 		public MeshCollider candyCollider;
 	}
 }

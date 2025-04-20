@@ -4,10 +4,10 @@ using GorillaLocomotion.Swimming;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x020007BE RID: 1982
+// Token: 0x020007D6 RID: 2006
 public class WaterInteractionEvents : MonoBehaviour
 {
-	// Token: 0x060030DD RID: 12509 RVA: 0x000ED340 File Offset: 0x000EB540
+	// Token: 0x0600318F RID: 12687 RVA: 0x00136028 File Offset: 0x00134228
 	private void Update()
 	{
 		if (this.overlappingWaterVolumes.Count < 1)
@@ -47,7 +47,7 @@ public class WaterInteractionEvents : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060030DE RID: 12510 RVA: 0x000ED47C File Offset: 0x000EB67C
+	// Token: 0x06003190 RID: 12688 RVA: 0x00136164 File Offset: 0x00134364
 	protected void OnTriggerEnter(Collider other)
 	{
 		WaterVolume component = other.GetComponent<WaterVolume>();
@@ -58,7 +58,7 @@ public class WaterInteractionEvents : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060030DF RID: 12511 RVA: 0x000ED4BC File Offset: 0x000EB6BC
+	// Token: 0x06003191 RID: 12689 RVA: 0x001361A4 File Offset: 0x001343A4
 	protected void OnTriggerExit(Collider other)
 	{
 		WaterVolume component = other.GetComponent<WaterVolume>();
@@ -68,19 +68,19 @@ public class WaterInteractionEvents : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04003522 RID: 13602
+	// Token: 0x040035CC RID: 13772
 	public UnityEvent onEnterWater = new UnityEvent();
 
-	// Token: 0x04003523 RID: 13603
+	// Token: 0x040035CD RID: 13773
 	public UnityEvent onExitWater = new UnityEvent();
 
-	// Token: 0x04003524 RID: 13604
+	// Token: 0x040035CE RID: 13774
 	[SerializeField]
 	private SphereCollider waterContactSphere;
 
-	// Token: 0x04003525 RID: 13605
+	// Token: 0x040035CF RID: 13775
 	private List<WaterVolume> overlappingWaterVolumes = new List<WaterVolume>();
 
-	// Token: 0x04003526 RID: 13606
+	// Token: 0x040035D0 RID: 13776
 	private bool inWater;
 }

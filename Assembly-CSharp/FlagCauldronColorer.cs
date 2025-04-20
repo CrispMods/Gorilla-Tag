@@ -1,29 +1,29 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001A7 RID: 423
+// Token: 0x020001B2 RID: 434
 public class FlagCauldronColorer : MonoBehaviour
 {
-	// Token: 0x04000C55 RID: 3157
+	// Token: 0x04000C9B RID: 3227
 	public FlagCauldronColorer.ColorMode mode;
 
-	// Token: 0x04000C56 RID: 3158
+	// Token: 0x04000C9C RID: 3228
 	public Transform colorPoint;
 
-	// Token: 0x020001A8 RID: 424
+	// Token: 0x020001B3 RID: 435
 	public enum ColorMode
 	{
-		// Token: 0x04000C58 RID: 3160
+		// Token: 0x04000C9E RID: 3230
 		None,
-		// Token: 0x04000C59 RID: 3161
+		// Token: 0x04000C9F RID: 3231
 		Red,
-		// Token: 0x04000C5A RID: 3162
+		// Token: 0x04000CA0 RID: 3232
 		Green,
-		// Token: 0x04000C5B RID: 3163
+		// Token: 0x04000CA1 RID: 3233
 		Blue,
-		// Token: 0x04000C5C RID: 3164
+		// Token: 0x04000CA2 RID: 3234
 		Black,
-		// Token: 0x04000C5D RID: 3165
+		// Token: 0x04000CA3 RID: 3235
 		Clear
 	}
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200031D RID: 797
+// Token: 0x02000328 RID: 808
 public class PassthroughProjectionSurface : MonoBehaviour
 {
-	// Token: 0x060012E6 RID: 4838 RVA: 0x0005C6C4 File Offset: 0x0005A8C4
+	// Token: 0x06001332 RID: 4914 RVA: 0x000B6730 File Offset: 0x000B4930
 	private void Start()
 	{
 		GameObject gameObject = GameObject.Find("OVRCameraRig");
@@ -23,7 +23,7 @@ public class PassthroughProjectionSurface : MonoBehaviour
 		this.quadOutline.enabled = false;
 	}
 
-	// Token: 0x060012E7 RID: 4839 RVA: 0x0005C748 File Offset: 0x0005A948
+	// Token: 0x06001333 RID: 4915 RVA: 0x000B67B4 File Offset: 0x000B49B4
 	private void Update()
 	{
 		if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.Active))
@@ -44,12 +44,12 @@ public class PassthroughProjectionSurface : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040014E9 RID: 5353
+	// Token: 0x04001531 RID: 5425
 	private OVRPassthroughLayer passthroughLayer;
 
-	// Token: 0x040014EA RID: 5354
+	// Token: 0x04001532 RID: 5426
 	public MeshFilter projectionObject;
 
-	// Token: 0x040014EB RID: 5355
+	// Token: 0x04001533 RID: 5427
 	private MeshRenderer quadOutline;
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 // Token: 0x02000014 RID: 20
 public class UFOCamera : MonoBehaviour
 {
-	// Token: 0x0600004D RID: 77 RVA: 0x00002F88 File Offset: 0x00001188
+	// Token: 0x0600004D RID: 77 RVA: 0x00068354 File Offset: 0x00066554
 	private void Start()
 	{
 		if (this.Target == null)
@@ -16,7 +16,7 @@ public class UFOCamera : MonoBehaviour
 		this.m_spring.Reset(base.transform.position);
 	}
 
-	// Token: 0x0600004E RID: 78 RVA: 0x00002FDC File Offset: 0x000011DC
+	// Token: 0x0600004E RID: 78 RVA: 0x000683A8 File Offset: 0x000665A8
 	private void FixedUpdate()
 	{
 		if (this.Target == null)

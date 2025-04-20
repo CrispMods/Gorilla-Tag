@@ -1,38 +1,48 @@
 ﻿using System;
 
-// Token: 0x020007EA RID: 2026
+// Token: 0x02000804 RID: 2052
 public enum FXType
 {
-	// Token: 0x0400358E RID: 13710
+	// Token: 0x04003644 RID: 13892
 	BalloonPop,
-	// Token: 0x0400358F RID: 13711
+	// Token: 0x04003645 RID: 13893
 	PlayHandTap,
-	// Token: 0x04003590 RID: 13712
+	// Token: 0x04003646 RID: 13894
 	HWIngredients,
-	// Token: 0x04003591 RID: 13713
+	// Token: 0x04003647 RID: 13895
 	Impact,
-	// Token: 0x04003592 RID: 13714
+	// Token: 0x04003648 RID: 13896
 	Projectile,
-	// Token: 0x04003593 RID: 13715
+	// Token: 0x04003649 RID: 13897
 	OnHandTap,
-	// Token: 0x04003594 RID: 13716
+	// Token: 0x0400364A RID: 13898
 	RequestFortune,
-	// Token: 0x04003595 RID: 13717
+	// Token: 0x0400364B RID: 13899
 	PlayerLaunch,
-	// Token: 0x04003596 RID: 13718
+	// Token: 0x0400364C RID: 13900
 	RequestOwnership,
-	// Token: 0x04003597 RID: 13719
+	// Token: 0x0400364D RID: 13901
 	RequestCosmetics,
-	// Token: 0x04003598 RID: 13720
+	// Token: 0x0400364E RID: 13902
 	PlayRemotePointRedemption,
-	// Token: 0x04003599 RID: 13721
+	// Token: 0x0400364F RID: 13903
 	CMS_RequestTrigger,
-	// Token: 0x0400359A RID: 13722
+	// Token: 0x04003650 RID: 13904
 	Friending,
-	// Token: 0x0400359B RID: 13723
+	// Token: 0x04003651 RID: 13905
 	TeleportToVStumpVFX,
-	// Token: 0x0400359C RID: 13724
+	// Token: 0x04003652 RID: 13906
 	ReturnFromVStumpVFX,
-	// Token: 0x0400359D RID: 13725
+	// Token: 0x04003653 RID: 13907
+	VerifyPartyMember,
+	// Token: 0x04003654 RID: 13908
+	VS_SetTerminalControlStatus,
+	// Token: 0x04003655 RID: 13909
+	VS_UpdateScreen,
+	// Token: 0x04003656 RID: 13910
+	VS_RefreshDriverNickname,
+	// Token: 0x04003657 RID: 13911
+	VS_RequestTerminalControlStatusChange,
+	// Token: 0x04003658 RID: 13912
 	Length
 }

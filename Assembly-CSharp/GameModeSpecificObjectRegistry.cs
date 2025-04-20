@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using GorillaGameModes;
 using UnityEngine;
 
-// Token: 0x02000083 RID: 131
+// Token: 0x0200008A RID: 138
 public class GameModeSpecificObjectRegistry : MonoBehaviour
 {
-	// Token: 0x06000352 RID: 850 RVA: 0x000151B2 File Offset: 0x000133B2
+	// Token: 0x06000384 RID: 900 RVA: 0x00032AEF File Offset: 0x00030CEF
 	private void OnEnable()
 	{
 		GameModeSpecificObject.OnAwake += this.GameModeSpecificObject_OnAwake;
@@ -14,7 +14,7 @@ public class GameModeSpecificObjectRegistry : MonoBehaviour
 		GameMode.OnStartGameMode += this.GameMode_OnStartGameMode;
 	}
 
-	// Token: 0x06000353 RID: 851 RVA: 0x000151E7 File Offset: 0x000133E7
+	// Token: 0x06000385 RID: 901 RVA: 0x00032B24 File Offset: 0x00030D24
 	private void OnDisable()
 	{
 		GameModeSpecificObject.OnAwake -= this.GameModeSpecificObject_OnAwake;
@@ -22,7 +22,7 @@ public class GameModeSpecificObjectRegistry : MonoBehaviour
 		GameMode.OnStartGameMode -= this.GameMode_OnStartGameMode;
 	}
 
-	// Token: 0x06000354 RID: 852 RVA: 0x0001521C File Offset: 0x0001341C
+	// Token: 0x06000386 RID: 902 RVA: 0x0007957C File Offset: 0x0007777C
 	private void GameModeSpecificObject_OnAwake(GameModeSpecificObject obj)
 	{
 		foreach (GameModeType key in obj.GameModes)
@@ -41,7 +41,7 @@ public class GameModeSpecificObjectRegistry : MonoBehaviour
 		obj.gameObject.SetActive(obj.CheckValid(GameMode.ActiveGameMode.GameType()));
 	}
 
-	// Token: 0x06000355 RID: 853 RVA: 0x000152D8 File Offset: 0x000134D8
+	// Token: 0x06000387 RID: 903 RVA: 0x00079638 File Offset: 0x00077838
 	private void GameModeSpecificObject_OnDestroyed(GameModeSpecificObject obj)
 	{
 		foreach (GameModeType key in obj.GameModes)
@@ -53,7 +53,7 @@ public class GameModeSpecificObjectRegistry : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000356 RID: 854 RVA: 0x00015348 File Offset: 0x00013548
+	// Token: 0x06000388 RID: 904 RVA: 0x000796A8 File Offset: 0x000778A8
 	private void GameMode_OnStartGameMode(GameModeType newGameModeType)
 	{
 		if (this.currentGameType == newGameModeType)
@@ -77,9 +77,9 @@ public class GameModeSpecificObjectRegistry : MonoBehaviour
 		this.currentGameType = newGameModeType;
 	}
 
-	// Token: 0x040003DA RID: 986
+	// Token: 0x0400040E RID: 1038
 	private Dictionary<GameModeType, List<GameModeSpecificObject>> gameModeSpecificObjects = new Dictionary<GameModeType, List<GameModeSpecificObject>>();
 
-	// Token: 0x040003DB RID: 987
+	// Token: 0x0400040F RID: 1039
 	private GameModeType currentGameType = GameModeType.Count;
 }

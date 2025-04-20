@@ -5,13 +5,13 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Scripting;
 
-// Token: 0x020000B6 RID: 182
+// Token: 0x020000C0 RID: 192
 [NetworkBehaviourWeaved(11)]
 public class SecondLookSkeletonSynchValues : NetworkComponent
 {
-	// Token: 0x17000058 RID: 88
-	// (get) Token: 0x060004AE RID: 1198 RVA: 0x0001BF7E File Offset: 0x0001A17E
-	// (set) Token: 0x060004AF RID: 1199 RVA: 0x0001BFA8 File Offset: 0x0001A1A8
+	// Token: 0x1700005D RID: 93
+	// (get) Token: 0x060004EA RID: 1258 RVA: 0x00033AFC File Offset: 0x00031CFC
+	// (set) Token: 0x060004EB RID: 1259 RVA: 0x00033B26 File Offset: 0x00031D26
 	[Networked]
 	[NetworkedWeaved(0, 11)]
 	public unsafe SkeletonNetData NetData
@@ -34,7 +34,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		}
 	}
 
-	// Token: 0x060004B0 RID: 1200 RVA: 0x0001BFD3 File Offset: 0x0001A1D3
+	// Token: 0x060004EC RID: 1260 RVA: 0x00033B51 File Offset: 0x00031D51
 	protected override void OnOwnerSwitched(NetPlayer newOwningPlayer)
 	{
 		base.OnOwnerSwitched(newOwningPlayer);
@@ -48,13 +48,13 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		}
 	}
 
-	// Token: 0x060004B1 RID: 1201 RVA: 0x0001C013 File Offset: 0x0001A213
+	// Token: 0x060004ED RID: 1261 RVA: 0x00033B91 File Offset: 0x00031D91
 	public override void WriteDataFusion()
 	{
 		this.NetData = new SkeletonNetData((int)this.currentState, this.position, this.rotation, this.currentNode, this.nextNode, this.angerPoint);
 	}
 
-	// Token: 0x060004B2 RID: 1202 RVA: 0x0001C044 File Offset: 0x0001A244
+	// Token: 0x060004EE RID: 1262 RVA: 0x0007F514 File Offset: 0x0007D714
 	public override void ReadDataFusion()
 	{
 		this.currentState = (SecondLookSkeleton.GhostState)this.NetData.CurrentState;
@@ -71,7 +71,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		}
 	}
 
-	// Token: 0x060004B3 RID: 1203 RVA: 0x0001C10C File Offset: 0x0001A30C
+	// Token: 0x060004EF RID: 1263 RVA: 0x0007F5DC File Offset: 0x0007D7DC
 	protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (!base.IsMine && !info.Sender.IsMasterClient)
@@ -86,7 +86,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		stream.SendNext(this.angerPoint);
 	}
 
-	// Token: 0x060004B4 RID: 1204 RVA: 0x0001C1B8 File Offset: 0x0001A3B8
+	// Token: 0x060004F0 RID: 1264 RVA: 0x0007F688 File Offset: 0x0007D888
 	protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (!base.IsMine && !info.Sender.IsMasterClient)
@@ -107,7 +107,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		}
 	}
 
-	// Token: 0x060004B5 RID: 1205 RVA: 0x0001C284 File Offset: 0x0001A484
+	// Token: 0x060004F1 RID: 1265 RVA: 0x0007F754 File Offset: 0x0007D954
 	[Rpc(RpcSources.All, RpcTargets.StateAuthority)]
 	public unsafe void RPC_RemoteActiveGhost(RpcInfo info = default(RpcInfo))
 	{
@@ -152,7 +152,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		this.mySkeleton.RemoteActivateGhost();
 	}
 
-	// Token: 0x060004B6 RID: 1206 RVA: 0x0001C3C8 File Offset: 0x0001A5C8
+	// Token: 0x060004F2 RID: 1266 RVA: 0x0007F898 File Offset: 0x0007DA98
 	[Rpc(RpcSources.All, RpcTargets.All)]
 	public unsafe void RPC_RemotePlayerSeen(RpcInfo info = default(RpcInfo))
 	{
@@ -196,7 +196,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		}
 	}
 
-	// Token: 0x060004B7 RID: 1207 RVA: 0x0001C51C File Offset: 0x0001A71C
+	// Token: 0x060004F3 RID: 1267 RVA: 0x0007F9EC File Offset: 0x0007DBEC
 	[Rpc(RpcSources.All, RpcTargets.StateAuthority)]
 	public unsafe void RPC_RemotePlayerCaught(RpcInfo info = default(RpcInfo))
 	{
@@ -245,7 +245,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		}
 	}
 
-	// Token: 0x060004B8 RID: 1208 RVA: 0x0001C67D File Offset: 0x0001A87D
+	// Token: 0x060004F4 RID: 1268 RVA: 0x00033BC2 File Offset: 0x00031DC2
 	[PunRPC]
 	public void RemoteActivateGhost(PhotonMessageInfo info)
 	{
@@ -257,7 +257,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		this.mySkeleton.RemoteActivateGhost();
 	}
 
-	// Token: 0x060004B9 RID: 1209 RVA: 0x0001C6A0 File Offset: 0x0001A8A0
+	// Token: 0x060004F5 RID: 1269 RVA: 0x0007FB50 File Offset: 0x0007DD50
 	[PunRPC]
 	public void RemotePlayerSeen(PhotonMessageInfo info)
 	{
@@ -269,7 +269,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		}
 	}
 
-	// Token: 0x060004BA RID: 1210 RVA: 0x0001C6E8 File Offset: 0x0001A8E8
+	// Token: 0x060004F6 RID: 1270 RVA: 0x0007FB98 File Offset: 0x0007DD98
 	[PunRPC]
 	public void RemotePlayerCaught(PhotonMessageInfo info)
 	{
@@ -285,7 +285,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		}
 	}
 
-	// Token: 0x060004BC RID: 1212 RVA: 0x0001C734 File Offset: 0x0001A934
+	// Token: 0x060004F8 RID: 1272 RVA: 0x00033BE3 File Offset: 0x00031DE3
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -293,7 +293,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		this.NetData = this._NetData;
 	}
 
-	// Token: 0x060004BD RID: 1213 RVA: 0x0001C74C File Offset: 0x0001A94C
+	// Token: 0x060004F9 RID: 1273 RVA: 0x00033BFB File Offset: 0x00031DFB
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -301,7 +301,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		this._NetData = this.NetData;
 	}
 
-	// Token: 0x060004BE RID: 1214 RVA: 0x0001C760 File Offset: 0x0001A960
+	// Token: 0x060004FA RID: 1274 RVA: 0x0007FBE4 File Offset: 0x0007DDE4
 	[NetworkRpcWeavedInvoker(1, 7, 1)]
 	[Preserve]
 	[WeaverGenerated]
@@ -314,7 +314,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		((SecondLookSkeletonSynchValues)behaviour).RPC_RemoteActiveGhost(info);
 	}
 
-	// Token: 0x060004BF RID: 1215 RVA: 0x0001C7B4 File Offset: 0x0001A9B4
+	// Token: 0x060004FB RID: 1275 RVA: 0x0007FC38 File Offset: 0x0007DE38
 	[NetworkRpcWeavedInvoker(2, 7, 7)]
 	[Preserve]
 	[WeaverGenerated]
@@ -327,7 +327,7 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		((SecondLookSkeletonSynchValues)behaviour).RPC_RemotePlayerSeen(info);
 	}
 
-	// Token: 0x060004C0 RID: 1216 RVA: 0x0001C808 File Offset: 0x0001AA08
+	// Token: 0x060004FC RID: 1276 RVA: 0x0007FC8C File Offset: 0x0007DE8C
 	[NetworkRpcWeavedInvoker(3, 7, 1)]
 	[Preserve]
 	[WeaverGenerated]
@@ -340,28 +340,28 @@ public class SecondLookSkeletonSynchValues : NetworkComponent
 		((SecondLookSkeletonSynchValues)behaviour).RPC_RemotePlayerCaught(info);
 	}
 
-	// Token: 0x0400056B RID: 1387
+	// Token: 0x040005AB RID: 1451
 	public SecondLookSkeleton.GhostState currentState;
 
-	// Token: 0x0400056C RID: 1388
+	// Token: 0x040005AC RID: 1452
 	public Vector3 position;
 
-	// Token: 0x0400056D RID: 1389
+	// Token: 0x040005AD RID: 1453
 	public Quaternion rotation;
 
-	// Token: 0x0400056E RID: 1390
+	// Token: 0x040005AE RID: 1454
 	public SecondLookSkeleton mySkeleton;
 
-	// Token: 0x0400056F RID: 1391
+	// Token: 0x040005AF RID: 1455
 	public int currentNode;
 
-	// Token: 0x04000570 RID: 1392
+	// Token: 0x040005B0 RID: 1456
 	public int nextNode;
 
-	// Token: 0x04000571 RID: 1393
+	// Token: 0x040005B1 RID: 1457
 	public int angerPoint;
 
-	// Token: 0x04000572 RID: 1394
+	// Token: 0x040005B2 RID: 1458
 	[WeaverGenerated]
 	[SerializeField]
 	[DefaultForProperty("NetData", 0, 11)]

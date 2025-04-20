@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004B1 RID: 1201
+// Token: 0x020004BE RID: 1214
 [Serializable]
 public struct BuilderResourceColor
 {
-	// Token: 0x0400201F RID: 8223
+	// Token: 0x04002072 RID: 8306
 	public BuilderResourceType type;
 
-	// Token: 0x04002020 RID: 8224
+	// Token: 0x04002073 RID: 8307
 	public Color color;
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005A7 RID: 1447
+// Token: 0x020005B5 RID: 1461
 public class GorillaVRConstraint : MonoBehaviour
 {
-	// Token: 0x060023E7 RID: 9191 RVA: 0x000B30E4 File Offset: 0x000B12E4
+	// Token: 0x06002447 RID: 9287 RVA: 0x00048821 File Offset: 0x00046A21
 	private void Update()
 	{
 		if (NetworkSystem.Instance.WrongVersion)
@@ -17,9 +17,9 @@ public class GorillaVRConstraint : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040027E6 RID: 10214
+	// Token: 0x04002842 RID: 10306
 	public bool isConstrained;
 
-	// Token: 0x040027E7 RID: 10215
+	// Token: 0x04002843 RID: 10307
 	public float angle = 3600f;
 }

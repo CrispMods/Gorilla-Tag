@@ -3,10 +3,10 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// Token: 0x0200035D RID: 861
+// Token: 0x02000368 RID: 872
 public class StartMenu : MonoBehaviour
 {
-	// Token: 0x0600140A RID: 5130 RVA: 0x000623F4 File Offset: 0x000605F4
+	// Token: 0x06001456 RID: 5206 RVA: 0x000BBA1C File Offset: 0x000B9C1C
 	private void Start()
 	{
 		DebugUIBuilder.instance.AddLabel("Select Sample Scene", 0);
@@ -23,7 +23,7 @@ public class StartMenu : MonoBehaviour
 		DebugUIBuilder.instance.Show();
 	}
 
-	// Token: 0x0600140B RID: 5131 RVA: 0x00062469 File Offset: 0x00060669
+	// Token: 0x06001457 RID: 5207 RVA: 0x0003DAD2 File Offset: 0x0003BCD2
 	private void LoadScene(int idx)
 	{
 		DebugUIBuilder.instance.Hide();
@@ -31,12 +31,12 @@ public class StartMenu : MonoBehaviour
 		SceneManager.LoadScene(idx);
 	}
 
-	// Token: 0x04001629 RID: 5673
+	// Token: 0x04001671 RID: 5745
 	public OVROverlay overlay;
 
-	// Token: 0x0400162A RID: 5674
+	// Token: 0x04001672 RID: 5746
 	public OVROverlay text;
 
-	// Token: 0x0400162B RID: 5675
+	// Token: 0x04001673 RID: 5747
 	public OVRCameraRig vrRig;
 }

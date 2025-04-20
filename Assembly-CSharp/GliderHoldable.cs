@@ -11,13 +11,13 @@ using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.XR;
 
-// Token: 0x020007B7 RID: 1975
+// Token: 0x020007CF RID: 1999
 [RequireComponent(typeof(Rigidbody))]
 [NetworkBehaviourWeaved(11)]
 public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardCallbacks
 {
-	// Token: 0x17000508 RID: 1288
-	// (get) Token: 0x0600309D RID: 12445 RVA: 0x000E9F04 File Offset: 0x000E8104
+	// Token: 0x17000516 RID: 1302
+	// (get) Token: 0x0600314F RID: 12623 RVA: 0x00132F08 File Offset: 0x00131108
 	private bool OutOfBounds
 	{
 		get
@@ -26,7 +26,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x0600309E RID: 12446 RVA: 0x000E9F54 File Offset: 0x000E8154
+	// Token: 0x06003150 RID: 12624 RVA: 0x00132F58 File Offset: 0x00131158
 	protected override void Awake()
 	{
 		base.Awake();
@@ -50,7 +50,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		this.whistlingAudio.volume = 0f;
 	}
 
-	// Token: 0x0600309F RID: 12447 RVA: 0x000EA0A2 File Offset: 0x000E82A2
+	// Token: 0x06003151 RID: 12625 RVA: 0x00050AB4 File Offset: 0x0004ECB4
 	private void OnDestroy()
 	{
 		NetworkBehaviourUtils.InternalOnDestroy(this);
@@ -60,14 +60,14 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030A0 RID: 12448 RVA: 0x000EA0C4 File Offset: 0x000E82C4
+	// Token: 0x06003152 RID: 12626 RVA: 0x00050AD6 File Offset: 0x0004ECD6
 	internal override void OnEnable()
 	{
 		NetworkBehaviourUtils.InternalOnEnable(this);
 		base.OnEnable();
 	}
 
-	// Token: 0x060030A1 RID: 12449 RVA: 0x000EA0D2 File Offset: 0x000E82D2
+	// Token: 0x06003153 RID: 12627 RVA: 0x00050AE4 File Offset: 0x0004ECE4
 	internal override void OnDisable()
 	{
 		NetworkBehaviourUtils.InternalOnDisable(this);
@@ -75,7 +75,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		base.OnDisable();
 	}
 
-	// Token: 0x060030A2 RID: 12450 RVA: 0x000EA0E8 File Offset: 0x000E82E8
+	// Token: 0x06003154 RID: 12628 RVA: 0x001330A8 File Offset: 0x001312A8
 	public void Respawn()
 	{
 		if ((base.IsValid && base.IsMine) || !NetworkSystem.Instance.InRoom)
@@ -99,7 +99,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030A3 RID: 12451 RVA: 0x000EA1B9 File Offset: 0x000E83B9
+	// Token: 0x06003155 RID: 12629 RVA: 0x00050AF8 File Offset: 0x0004ECF8
 	public void CustomMapLoad(Transform placeholderTransform, float respawnDistance)
 	{
 		this.maxDistanceRespawnOrigin = placeholderTransform;
@@ -109,7 +109,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		this.Respawn();
 	}
 
-	// Token: 0x060030A4 RID: 12452 RVA: 0x000EA1E7 File Offset: 0x000E83E7
+	// Token: 0x06003156 RID: 12630 RVA: 0x00050B26 File Offset: 0x0004ED26
 	public void CustomMapUnload()
 	{
 		this.maxDistanceRespawnOrigin = this.skyJungleRespawnOrigin;
@@ -119,8 +119,8 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		this.Respawn();
 	}
 
-	// Token: 0x17000509 RID: 1289
-	// (get) Token: 0x060030A5 RID: 12453 RVA: 0x000444E2 File Offset: 0x000426E2
+	// Token: 0x17000517 RID: 1303
+	// (get) Token: 0x06003157 RID: 12631 RVA: 0x00039846 File Offset: 0x00037A46
 	public override bool TwoHanded
 	{
 		get
@@ -129,7 +129,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030A6 RID: 12454 RVA: 0x000EA220 File Offset: 0x000E8420
+	// Token: 0x06003158 RID: 12632 RVA: 0x0013317C File Offset: 0x0013137C
 	public override void OnHover(InteractionPoint pointHovered, GameObject hoveringHand)
 	{
 		if (!base.IsMine && NetworkSystem.Instance.InRoom && !this.pendingOwnershipRequest && this.syncedState.riderId == -1)
@@ -147,7 +147,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030A7 RID: 12455 RVA: 0x000EA29C File Offset: 0x000E849C
+	// Token: 0x06003159 RID: 12633 RVA: 0x001331F8 File Offset: 0x001313F8
 	public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 	{
 		if (base.IsMine || !NetworkSystem.Instance.InRoom || this.pendingOwnershipRequest)
@@ -171,7 +171,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030A8 RID: 12456 RVA: 0x000EA344 File Offset: 0x000E8544
+	// Token: 0x0600315A RID: 12634 RVA: 0x001332A0 File Offset: 0x001314A0
 	public void OnGrabAuthority(InteractionPoint pointGrabbed, GameObject grabbingHand)
 	{
 		if (!base.IsMine && NetworkSystem.Instance.InRoom && !this.pendingOwnershipRequest)
@@ -254,7 +254,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030A9 RID: 12457 RVA: 0x000EA6D0 File Offset: 0x000E88D0
+	// Token: 0x0600315B RID: 12635 RVA: 0x0013362C File Offset: 0x0013182C
 	public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		this.holdingTwoGliders = false;
@@ -311,12 +311,12 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		return true;
 	}
 
-	// Token: 0x060030AA RID: 12458 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600315C RID: 12636 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void DropItemCleanup()
 	{
 	}
 
-	// Token: 0x060030AB RID: 12459 RVA: 0x000EA918 File Offset: 0x000E8B18
+	// Token: 0x0600315D RID: 12637 RVA: 0x00133874 File Offset: 0x00131A74
 	public void FixedUpdate()
 	{
 		if (!base.IsMine && NetworkSystem.Instance.InRoom && !this.pendingOwnershipRequest)
@@ -379,7 +379,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030AC RID: 12460 RVA: 0x000EAD0C File Offset: 0x000E8F0C
+	// Token: 0x0600315E RID: 12638 RVA: 0x00133C68 File Offset: 0x00131E68
 	public void LateUpdate()
 	{
 		float deltaTime = Time.deltaTime;
@@ -391,7 +391,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		this.RemoteSyncUpdate(deltaTime);
 	}
 
-	// Token: 0x060030AD RID: 12461 RVA: 0x000EAD4C File Offset: 0x000E8F4C
+	// Token: 0x0600315F RID: 12639 RVA: 0x00133CA8 File Offset: 0x00131EA8
 	private void AuthorityUpdate(float dt)
 	{
 		if (!this.leftHold.active && !this.rightHold.active)
@@ -405,7 +405,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		this.syncedState.audioLevel = (byte)Mathf.FloorToInt(255f * this.audioLevel);
 	}
 
-	// Token: 0x060030AE RID: 12462 RVA: 0x000EADBC File Offset: 0x000E8FBC
+	// Token: 0x06003160 RID: 12640 RVA: 0x00133D18 File Offset: 0x00131F18
 	private void AuthorityUpdateHeld(float dt)
 	{
 		if (this.gliderState != GliderHoldable.GliderState.LocallyHeld)
@@ -680,7 +680,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030AF RID: 12463 RVA: 0x000EBD64 File Offset: 0x000E9F64
+	// Token: 0x06003161 RID: 12641 RVA: 0x00134CC0 File Offset: 0x00132EC0
 	private void AuthorityUpdateUnheld(float dt)
 	{
 		this.syncedState.position = base.transform.position;
@@ -706,7 +706,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030B0 RID: 12464 RVA: 0x000EBE98 File Offset: 0x000EA098
+	// Token: 0x06003162 RID: 12642 RVA: 0x00134DF4 File Offset: 0x00132FF4
 	private void RemoteSyncUpdate(float dt)
 	{
 		this.rb.isKinematic = true;
@@ -771,7 +771,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030B1 RID: 12465 RVA: 0x000EC19C File Offset: 0x000EA39C
+	// Token: 0x06003163 RID: 12643 RVA: 0x001350F8 File Offset: 0x001332F8
 	private VRRig getNewHolderRig(int riderId)
 	{
 		if (riderId >= 0)
@@ -794,7 +794,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		return null;
 	}
 
-	// Token: 0x060030B2 RID: 12466 RVA: 0x000EC1F4 File Offset: 0x000EA3F4
+	// Token: 0x06003164 RID: 12644 RVA: 0x00135150 File Offset: 0x00133350
 	private Vector3 ClosestPointInHandle(Vector3 startingPoint, InteractionPoint interactionPoint)
 	{
 		CapsuleCollider component = interactionPoint.GetComponent<CapsuleCollider>();
@@ -810,7 +810,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		return vector;
 	}
 
-	// Token: 0x060030B3 RID: 12467 RVA: 0x000EC2B4 File Offset: 0x000EA4B4
+	// Token: 0x06003165 RID: 12645 RVA: 0x00135210 File Offset: 0x00133410
 	private void UpdateGliderPosition()
 	{
 		if (this.leftHold.active && this.rightHold.active)
@@ -831,7 +831,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030B4 RID: 12468 RVA: 0x000EC40C File Offset: 0x000EA60C
+	// Token: 0x06003166 RID: 12646 RVA: 0x00135368 File Offset: 0x00133568
 	private Vector3 GetHandsVector(Vector3 leftHandPos, Vector3 rightHandPos, Vector3 headPos, bool flipBasedOnFacingDir)
 	{
 		Vector3 vector = rightHandPos - leftHandPos;
@@ -844,7 +844,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		return vector;
 	}
 
-	// Token: 0x060030B5 RID: 12469 RVA: 0x000EC468 File Offset: 0x000EA668
+	// Token: 0x06003167 RID: 12647 RVA: 0x001353C4 File Offset: 0x001335C4
 	private void GetHandsOrientationVectors(Vector3 leftHandPos, Vector3 rightHandPos, Transform head, bool flipBasedOnFacingDir, out Vector3 handsVector, out Vector3 handsUpVector)
 	{
 		handsVector = rightHandPos - leftHandPos;
@@ -880,7 +880,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		handsUpVector = Vector3.Cross(Vector3.ProjectOnPlane(vector, Vector3.up), handsVector).normalized;
 	}
 
-	// Token: 0x060030B6 RID: 12470 RVA: 0x000EC693 File Offset: 0x000EA893
+	// Token: 0x06003168 RID: 12648 RVA: 0x00050B5E File Offset: 0x0004ED5E
 	private Material GetMaterialFromIndex(byte materialIndex)
 	{
 		if (materialIndex < 1 || (int)materialIndex > this.cosmeticMaterialOverrides.Length)
@@ -890,7 +890,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		return this.cosmeticMaterialOverrides[(int)(materialIndex - 1)].material;
 	}
 
-	// Token: 0x060030B7 RID: 12471 RVA: 0x000EC6C0 File Offset: 0x000EA8C0
+	// Token: 0x06003169 RID: 12649 RVA: 0x001355F0 File Offset: 0x001337F0
 	private float GetRollAngle180Wrapping()
 	{
 		Vector3 normalized = Vector3.ProjectOnPlane(base.transform.forward, Vector3.up).normalized;
@@ -898,7 +898,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		return this.NormalizeAngle180(angle);
 	}
 
-	// Token: 0x060030B8 RID: 12472 RVA: 0x000EC721 File Offset: 0x000EA921
+	// Token: 0x0600316A RID: 12650 RVA: 0x00050B89 File Offset: 0x0004ED89
 	private float SignedAngleInPlane(Vector3 from, Vector3 to, Vector3 normal)
 	{
 		from = Vector3.ProjectOnPlane(from, normal);
@@ -906,7 +906,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		return Vector3.SignedAngle(from, to, normal);
 	}
 
-	// Token: 0x060030B9 RID: 12473 RVA: 0x000EC73D File Offset: 0x000EA93D
+	// Token: 0x0600316B RID: 12651 RVA: 0x00050BA5 File Offset: 0x0004EDA5
 	private float NormalizeAngle180(float angle)
 	{
 		angle = (angle + 180f) % 360f;
@@ -917,7 +917,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		return angle - 180f;
 	}
 
-	// Token: 0x060030BA RID: 12474 RVA: 0x000EC768 File Offset: 0x000EA968
+	// Token: 0x0600316C RID: 12652 RVA: 0x00135654 File Offset: 0x00133854
 	private void UpdateAudioSource(AudioSource source, float level)
 	{
 		source.volume = level;
@@ -932,7 +932,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030BB RID: 12475 RVA: 0x000EC7B7 File Offset: 0x000EA9B7
+	// Token: 0x0600316D RID: 12653 RVA: 0x00050BCE File Offset: 0x0004EDCE
 	private Material GetInfectedMaterial()
 	{
 		if (GorillaGameManager.instance is GorillaFreezeTagManager)
@@ -942,7 +942,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		return this.infectedLeafMaterial;
 	}
 
-	// Token: 0x060030BC RID: 12476 RVA: 0x000EC7D4 File Offset: 0x000EA9D4
+	// Token: 0x0600316E RID: 12654 RVA: 0x001356A4 File Offset: 0x001338A4
 	public void OnTriggerStay(Collider other)
 	{
 		GliderWindVolume component = other.GetComponent<GliderWindVolume>();
@@ -972,7 +972,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		this.windVolumeForceAppliedFrame = Time.frameCount;
 	}
 
-	// Token: 0x060030BD RID: 12477 RVA: 0x000EC8C2 File Offset: 0x000EAAC2
+	// Token: 0x0600316F RID: 12655 RVA: 0x00050BE9 File Offset: 0x0004EDE9
 	private Vector3 WindResistanceForceOffset(Vector3 upDir, Vector3 windDir)
 	{
 		if (Vector3.Dot(upDir, windDir) < 0f)
@@ -982,9 +982,9 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		return Vector3.ProjectOnPlane(upDir - windDir, upDir);
 	}
 
-	// Token: 0x1700050A RID: 1290
-	// (get) Token: 0x060030BE RID: 12478 RVA: 0x000EC8EC File Offset: 0x000EAAEC
-	// (set) Token: 0x060030BF RID: 12479 RVA: 0x000EC916 File Offset: 0x000EAB16
+	// Token: 0x17000518 RID: 1304
+	// (get) Token: 0x06003170 RID: 12656 RVA: 0x00050C13 File Offset: 0x0004EE13
+	// (set) Token: 0x06003171 RID: 12657 RVA: 0x00050C3D File Offset: 0x0004EE3D
 	[Networked]
 	[NetworkedWeaved(0, 11)]
 	internal unsafe GliderHoldable.SyncedState Data
@@ -1007,7 +1007,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030C0 RID: 12480 RVA: 0x000EC944 File Offset: 0x000EAB44
+	// Token: 0x06003172 RID: 12658 RVA: 0x00135794 File Offset: 0x00133994
 	public override void ReadDataFusion()
 	{
 		int num = this.syncedState.riderId;
@@ -1019,13 +1019,13 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030C1 RID: 12481 RVA: 0x000EC997 File Offset: 0x000EAB97
+	// Token: 0x06003173 RID: 12659 RVA: 0x00050C68 File Offset: 0x0004EE68
 	public override void WriteDataFusion()
 	{
 		this.Data = this.syncedState;
 	}
 
-	// Token: 0x060030C2 RID: 12482 RVA: 0x000EC9A8 File Offset: 0x000EABA8
+	// Token: 0x06003174 RID: 12660 RVA: 0x001357E8 File Offset: 0x001339E8
 	protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		Player sender = info.Sender;
@@ -1050,7 +1050,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030C3 RID: 12483 RVA: 0x000ECAB0 File Offset: 0x000EACB0
+	// Token: 0x06003175 RID: 12661 RVA: 0x001358F0 File Offset: 0x00133AF0
 	protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		object sender = info.Sender;
@@ -1067,7 +1067,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		stream.SendNext(this.syncedState.rotation);
 	}
 
-	// Token: 0x060030C4 RID: 12484 RVA: 0x000ECB6B File Offset: 0x000EAD6B
+	// Token: 0x06003176 RID: 12662 RVA: 0x00050C76 File Offset: 0x0004EE76
 	private IEnumerator ReenableOwnershipRequest()
 	{
 		yield return new WaitForSeconds(3f);
@@ -1075,7 +1075,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		yield break;
 	}
 
-	// Token: 0x060030C5 RID: 12485 RVA: 0x000ECB7C File Offset: 0x000EAD7C
+	// Token: 0x06003177 RID: 12663 RVA: 0x001359AC File Offset: 0x00133BAC
 	public void OnOwnershipTransferred(NetPlayer toPlayer, NetPlayer fromPlayer)
 	{
 		if (toPlayer == NetworkSystem.Instance.LocalPlayer)
@@ -1090,29 +1090,29 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		}
 	}
 
-	// Token: 0x060030C6 RID: 12486 RVA: 0x000ECBFE File Offset: 0x000EADFE
+	// Token: 0x06003178 RID: 12664 RVA: 0x00050C85 File Offset: 0x0004EE85
 	public bool OnOwnershipRequest(NetPlayer fromPlayer)
 	{
 		return !base.IsMine || !NetworkSystem.Instance.InRoom || (!this.leftHold.active && !this.rightHold.active);
 	}
 
-	// Token: 0x060030C7 RID: 12487 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003179 RID: 12665 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnMyOwnerLeft()
 	{
 	}
 
-	// Token: 0x060030C8 RID: 12488 RVA: 0x00002076 File Offset: 0x00000276
+	// Token: 0x0600317A RID: 12666 RVA: 0x00030498 File Offset: 0x0002E698
 	public bool OnMasterClientAssistedTakeoverRequest(NetPlayer fromPlayer, NetPlayer toPlayer)
 	{
 		return false;
 	}
 
-	// Token: 0x060030C9 RID: 12489 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600317B RID: 12667 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnMyCreatorLeft()
 	{
 	}
 
-	// Token: 0x060030CD RID: 12493 RVA: 0x000ED0D7 File Offset: 0x000EB2D7
+	// Token: 0x0600317F RID: 12671 RVA: 0x00050CC1 File Offset: 0x0004EEC1
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -1120,7 +1120,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		this.Data = this._Data;
 	}
 
-	// Token: 0x060030CE RID: 12494 RVA: 0x000ED0EF File Offset: 0x000EB2EF
+	// Token: 0x06003180 RID: 12672 RVA: 0x00050CD9 File Offset: 0x0004EED9
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -1128,505 +1128,505 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 		this._Data = this.Data;
 	}
 
-	// Token: 0x04003486 RID: 13446
+	// Token: 0x04003530 RID: 13616
 	[Header("Flight Settings")]
 	[SerializeField]
 	private Vector2 pitchMinMax = new Vector2(-80f, 80f);
 
-	// Token: 0x04003487 RID: 13447
+	// Token: 0x04003531 RID: 13617
 	[SerializeField]
 	private Vector2 rollMinMax = new Vector2(-70f, 70f);
 
-	// Token: 0x04003488 RID: 13448
+	// Token: 0x04003532 RID: 13618
 	[SerializeField]
 	private float pitchHalfLife = 0.2f;
 
-	// Token: 0x04003489 RID: 13449
+	// Token: 0x04003533 RID: 13619
 	public Vector2 pitchVelocityTargetMinMax = new Vector2(-60f, 60f);
 
-	// Token: 0x0400348A RID: 13450
+	// Token: 0x04003534 RID: 13620
 	public Vector2 pitchVelocityRampTimeMinMax = new Vector2(-1f, 1f);
 
-	// Token: 0x0400348B RID: 13451
+	// Token: 0x04003535 RID: 13621
 	[SerializeField]
 	private float pitchVelocityFollowRateAngle = 60f;
 
-	// Token: 0x0400348C RID: 13452
+	// Token: 0x04003536 RID: 13622
 	[SerializeField]
 	private float pitchVelocityFollowRateMagnitude = 5f;
 
-	// Token: 0x0400348D RID: 13453
+	// Token: 0x04003537 RID: 13623
 	[SerializeField]
 	private AnimationCurve liftVsAttack = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-	// Token: 0x0400348E RID: 13454
+	// Token: 0x04003538 RID: 13624
 	[SerializeField]
 	private AnimationCurve dragVsAttack = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-	// Token: 0x0400348F RID: 13455
+	// Token: 0x04003539 RID: 13625
 	[SerializeField]
 	[Range(0f, 1f)]
 	public float attackDragFactor = 0.1f;
 
-	// Token: 0x04003490 RID: 13456
+	// Token: 0x0400353A RID: 13626
 	[SerializeField]
 	private AnimationCurve dragVsSpeed = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-	// Token: 0x04003491 RID: 13457
+	// Token: 0x0400353B RID: 13627
 	[SerializeField]
 	public float dragVsSpeedMaxSpeed = 30f;
 
-	// Token: 0x04003492 RID: 13458
+	// Token: 0x0400353C RID: 13628
 	[SerializeField]
 	[Range(0f, 1f)]
 	public float dragVsSpeedDragFactor = 0.2f;
 
-	// Token: 0x04003493 RID: 13459
+	// Token: 0x0400353D RID: 13629
 	[SerializeField]
 	private AnimationCurve liftIncreaseVsRoll = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-	// Token: 0x04003494 RID: 13460
+	// Token: 0x0400353E RID: 13630
 	[SerializeField]
 	private float liftIncreaseVsRollMaxAngle = 20f;
 
-	// Token: 0x04003495 RID: 13461
+	// Token: 0x0400353F RID: 13631
 	[SerializeField]
 	[Range(0f, 1f)]
 	private float gravityCompensation = 0.8f;
 
-	// Token: 0x04003496 RID: 13462
+	// Token: 0x04003540 RID: 13632
 	[Range(0f, 1f)]
 	public float pullUpLiftBonus = 0.1f;
 
-	// Token: 0x04003497 RID: 13463
+	// Token: 0x04003541 RID: 13633
 	public float pullUpLiftActivationVelocity = 1f;
 
-	// Token: 0x04003498 RID: 13464
+	// Token: 0x04003542 RID: 13634
 	public float pullUpLiftActivationAcceleration = 3f;
 
-	// Token: 0x04003499 RID: 13465
+	// Token: 0x04003543 RID: 13635
 	[Header("Body Positioning Control")]
 	[SerializeField]
 	private float riderPosDirectPitchMax = 70f;
 
-	// Token: 0x0400349A RID: 13466
+	// Token: 0x04003544 RID: 13636
 	[SerializeField]
 	private Vector2 riderPosRange = new Vector2(2.2f, 0.75f);
 
-	// Token: 0x0400349B RID: 13467
+	// Token: 0x04003545 RID: 13637
 	[SerializeField]
 	private float riderPosRangeOffset = 0.15f;
 
-	// Token: 0x0400349C RID: 13468
+	// Token: 0x04003546 RID: 13638
 	[SerializeField]
 	private Vector2 riderPosRangeNormalizedDeadzone = new Vector2(0.15f, 0.05f);
 
-	// Token: 0x0400349D RID: 13469
+	// Token: 0x04003547 RID: 13639
 	[Header("Direct Handle Control")]
 	[SerializeField]
 	private float oneHandHoldRotationRate = 2f;
 
-	// Token: 0x0400349E RID: 13470
+	// Token: 0x04003548 RID: 13640
 	private Vector3 oneHandSimulatedHoldOffset = new Vector3(0.5f, -0.35f, 0.25f);
 
-	// Token: 0x0400349F RID: 13471
+	// Token: 0x04003549 RID: 13641
 	private float oneHandPitchMultiplier = 0.8f;
 
-	// Token: 0x040034A0 RID: 13472
+	// Token: 0x0400354A RID: 13642
 	[SerializeField]
 	private float twoHandHoldRotationRate = 4f;
 
-	// Token: 0x040034A1 RID: 13473
+	// Token: 0x0400354B RID: 13643
 	[SerializeField]
 	private bool twoHandGliderInversionOnYawInsteadOfRoll;
 
-	// Token: 0x040034A2 RID: 13474
+	// Token: 0x0400354C RID: 13644
 	[Header("Player Settings")]
 	[SerializeField]
 	private bool setMaxHandSlipDuringFlight = true;
 
-	// Token: 0x040034A3 RID: 13475
+	// Token: 0x0400354D RID: 13645
 	[SerializeField]
 	private float maxSlipOverrideSpeedThreshold = 5f;
 
-	// Token: 0x040034A4 RID: 13476
+	// Token: 0x0400354E RID: 13646
 	[Header("Player Camera Rotation")]
 	[SerializeField]
 	private float subtlePlayerPitchFactor = 0.2f;
 
-	// Token: 0x040034A5 RID: 13477
+	// Token: 0x0400354F RID: 13647
 	[SerializeField]
 	private float subtlePlayerPitchRate = 2f;
 
-	// Token: 0x040034A6 RID: 13478
+	// Token: 0x04003550 RID: 13648
 	[SerializeField]
 	private float subtlePlayerRollFactor = 0.2f;
 
-	// Token: 0x040034A7 RID: 13479
+	// Token: 0x04003551 RID: 13649
 	[SerializeField]
 	private float subtlePlayerRollRate = 2f;
 
-	// Token: 0x040034A8 RID: 13480
+	// Token: 0x04003552 RID: 13650
 	[SerializeField]
 	private Vector2 subtlePlayerRotationSpeedRampMinMax = new Vector2(2f, 8f);
 
-	// Token: 0x040034A9 RID: 13481
+	// Token: 0x04003553 RID: 13651
 	[SerializeField]
 	private Vector2 subtlePlayerRollAccelMinMax = new Vector2(0f, 30f);
 
-	// Token: 0x040034AA RID: 13482
+	// Token: 0x04003554 RID: 13652
 	[SerializeField]
 	private Vector2 subtlePlayerPitchAccelMinMax = new Vector2(0f, 10f);
 
-	// Token: 0x040034AB RID: 13483
+	// Token: 0x04003555 RID: 13653
 	[SerializeField]
 	private float accelSmoothingFollowRate = 2f;
 
-	// Token: 0x040034AC RID: 13484
+	// Token: 0x04003556 RID: 13654
 	[Header("Haptics")]
 	[SerializeField]
 	private Vector2 hapticAccelInputRange = new Vector2(5f, 20f);
 
-	// Token: 0x040034AD RID: 13485
+	// Token: 0x04003557 RID: 13655
 	[SerializeField]
 	private float hapticAccelOutputMax = 0.35f;
 
-	// Token: 0x040034AE RID: 13486
+	// Token: 0x04003558 RID: 13656
 	[SerializeField]
 	private Vector2 hapticMaxSpeedInputRange = new Vector2(5f, 10f);
 
-	// Token: 0x040034AF RID: 13487
+	// Token: 0x04003559 RID: 13657
 	[SerializeField]
 	private Vector2 hapticSpeedInputRange = new Vector2(3f, 30f);
 
-	// Token: 0x040034B0 RID: 13488
+	// Token: 0x0400355A RID: 13658
 	[SerializeField]
 	private float hapticSpeedOutputMax = 0.15f;
 
-	// Token: 0x040034B1 RID: 13489
+	// Token: 0x0400355B RID: 13659
 	[SerializeField]
 	private Vector2 whistlingAudioSpeedInputRange = new Vector2(15f, 30f);
 
-	// Token: 0x040034B2 RID: 13490
+	// Token: 0x0400355C RID: 13660
 	[Header("Audio")]
 	[SerializeField]
 	private float audioVolumeMultiplier = 0.25f;
 
-	// Token: 0x040034B3 RID: 13491
+	// Token: 0x0400355D RID: 13661
 	[SerializeField]
 	private float infectedAudioVolumeMultiplier = 0.5f;
 
-	// Token: 0x040034B4 RID: 13492
+	// Token: 0x0400355E RID: 13662
 	[SerializeField]
 	private Vector2 whooshSpeedThresholdInput = new Vector2(10f, 25f);
 
-	// Token: 0x040034B5 RID: 13493
+	// Token: 0x0400355F RID: 13663
 	[SerializeField]
 	private Vector2 whooshVolumeOutput = new Vector2(0.2f, 0.75f);
 
-	// Token: 0x040034B6 RID: 13494
+	// Token: 0x04003560 RID: 13664
 	[SerializeField]
 	private float whooshCheckDistance = 2f;
 
-	// Token: 0x040034B7 RID: 13495
+	// Token: 0x04003561 RID: 13665
 	[Header("Tag Adjustment")]
 	[SerializeField]
 	private bool extendTagRangeInFlight = true;
 
-	// Token: 0x040034B8 RID: 13496
+	// Token: 0x04003562 RID: 13666
 	[SerializeField]
 	private Vector2 tagRangeSpeedInput = new Vector2(5f, 20f);
 
-	// Token: 0x040034B9 RID: 13497
+	// Token: 0x04003563 RID: 13667
 	[SerializeField]
 	private Vector2 tagRangeOutput = new Vector2(0.03f, 3f);
 
-	// Token: 0x040034BA RID: 13498
+	// Token: 0x04003564 RID: 13668
 	[SerializeField]
 	private bool debugDrawTagRange = true;
 
-	// Token: 0x040034BB RID: 13499
+	// Token: 0x04003565 RID: 13669
 	[Header("Infected State")]
 	[SerializeField]
 	private float infectedSpeedIncrease = 5f;
 
-	// Token: 0x040034BC RID: 13500
+	// Token: 0x04003566 RID: 13670
 	[Header("Glider Materials")]
 	[SerializeField]
 	private MeshRenderer leafMesh;
 
-	// Token: 0x040034BD RID: 13501
+	// Token: 0x04003567 RID: 13671
 	[SerializeField]
 	private Material baseLeafMaterial;
 
-	// Token: 0x040034BE RID: 13502
+	// Token: 0x04003568 RID: 13672
 	[SerializeField]
 	private Material infectedLeafMaterial;
 
-	// Token: 0x040034BF RID: 13503
+	// Token: 0x04003569 RID: 13673
 	[SerializeField]
 	private Material frozenLeafMaterial;
 
-	// Token: 0x040034C0 RID: 13504
+	// Token: 0x0400356A RID: 13674
 	[SerializeField]
 	private GliderHoldable.CosmeticMaterialOverride[] cosmeticMaterialOverrides;
 
-	// Token: 0x040034C1 RID: 13505
+	// Token: 0x0400356B RID: 13675
 	[Header("Network Syncing")]
 	[SerializeField]
 	private float networkSyncFollowRate = 2f;
 
-	// Token: 0x040034C2 RID: 13506
+	// Token: 0x0400356C RID: 13676
 	[Header("Life Cycle")]
 	[SerializeField]
 	private Transform maxDistanceRespawnOrigin;
 
-	// Token: 0x040034C3 RID: 13507
+	// Token: 0x0400356D RID: 13677
 	[SerializeField]
 	private float maxDistanceBeforeRespawn = 180f;
 
-	// Token: 0x040034C4 RID: 13508
+	// Token: 0x0400356E RID: 13678
 	[SerializeField]
 	private float maxDroppedTimeToRespawn = 120f;
 
-	// Token: 0x040034C5 RID: 13509
+	// Token: 0x0400356F RID: 13679
 	[Header("Rigidbody")]
 	[SerializeField]
 	private float windUprightTorqueMultiplier = 1f;
 
-	// Token: 0x040034C6 RID: 13510
+	// Token: 0x04003570 RID: 13680
 	[SerializeField]
 	private float gravityUprightTorqueMultiplier = 0.5f;
 
-	// Token: 0x040034C7 RID: 13511
+	// Token: 0x04003571 RID: 13681
 	[SerializeField]
 	private float fallingGravityReduction = 0.1f;
 
-	// Token: 0x040034C8 RID: 13512
+	// Token: 0x04003572 RID: 13682
 	[Header("References")]
 	[SerializeField]
 	private AudioSource calmAudio;
 
-	// Token: 0x040034C9 RID: 13513
+	// Token: 0x04003573 RID: 13683
 	[SerializeField]
 	private AudioSource activeAudio;
 
-	// Token: 0x040034CA RID: 13514
+	// Token: 0x04003574 RID: 13684
 	[SerializeField]
 	private AudioSource whistlingAudio;
 
-	// Token: 0x040034CB RID: 13515
+	// Token: 0x04003575 RID: 13685
 	[SerializeField]
 	private AudioSource leftWhooshAudio;
 
-	// Token: 0x040034CC RID: 13516
+	// Token: 0x04003576 RID: 13686
 	[SerializeField]
 	private AudioSource rightWhooshAudio;
 
-	// Token: 0x040034CD RID: 13517
+	// Token: 0x04003577 RID: 13687
 	[SerializeField]
 	private InteractionPoint handle;
 
-	// Token: 0x040034CE RID: 13518
+	// Token: 0x04003578 RID: 13688
 	[SerializeField]
 	private RequestableOwnershipGuard ownershipGuard;
 
-	// Token: 0x040034CF RID: 13519
+	// Token: 0x04003579 RID: 13689
 	private bool subtlePlayerPitchActive = true;
 
-	// Token: 0x040034D0 RID: 13520
+	// Token: 0x0400357A RID: 13690
 	private bool subtlePlayerRollActive = true;
 
-	// Token: 0x040034D1 RID: 13521
+	// Token: 0x0400357B RID: 13691
 	private float subtlePlayerPitch;
 
-	// Token: 0x040034D2 RID: 13522
+	// Token: 0x0400357C RID: 13692
 	private float subtlePlayerRoll;
 
-	// Token: 0x040034D3 RID: 13523
+	// Token: 0x0400357D RID: 13693
 	private float subtlePlayerPitchRateExp = 0.75f;
 
-	// Token: 0x040034D4 RID: 13524
+	// Token: 0x0400357E RID: 13694
 	private float subtlePlayerRollRateExp = 0.025f;
 
-	// Token: 0x040034D5 RID: 13525
+	// Token: 0x0400357F RID: 13695
 	private float defaultMaxDistanceBeforeRespawn = 180f;
 
-	// Token: 0x040034D6 RID: 13526
+	// Token: 0x04003580 RID: 13696
 	private GliderHoldable.HoldingHand leftHold;
 
-	// Token: 0x040034D7 RID: 13527
+	// Token: 0x04003581 RID: 13697
 	private GliderHoldable.HoldingHand rightHold;
 
-	// Token: 0x040034D8 RID: 13528
+	// Token: 0x04003582 RID: 13698
 	private GliderHoldable.SyncedState syncedState;
 
-	// Token: 0x040034D9 RID: 13529
+	// Token: 0x04003583 RID: 13699
 	private Vector3 twoHandRotationOffsetAxis = Vector3.forward;
 
-	// Token: 0x040034DA RID: 13530
+	// Token: 0x04003584 RID: 13700
 	private float twoHandRotationOffsetAngle;
 
-	// Token: 0x040034DB RID: 13531
+	// Token: 0x04003585 RID: 13701
 	private Rigidbody rb;
 
-	// Token: 0x040034DC RID: 13532
+	// Token: 0x04003586 RID: 13702
 	private Vector2 riderPosition = Vector2.zero;
 
-	// Token: 0x040034DD RID: 13533
+	// Token: 0x04003587 RID: 13703
 	private Vector3 previousVelocity;
 
-	// Token: 0x040034DE RID: 13534
+	// Token: 0x04003588 RID: 13704
 	private Vector3 currentVelocity;
 
-	// Token: 0x040034DF RID: 13535
+	// Token: 0x04003589 RID: 13705
 	private float pitch;
 
-	// Token: 0x040034E0 RID: 13536
+	// Token: 0x0400358A RID: 13706
 	private float yaw;
 
-	// Token: 0x040034E1 RID: 13537
+	// Token: 0x0400358B RID: 13707
 	private float roll;
 
-	// Token: 0x040034E2 RID: 13538
+	// Token: 0x0400358C RID: 13708
 	private float pitchVel;
 
-	// Token: 0x040034E3 RID: 13539
+	// Token: 0x0400358D RID: 13709
 	private float yawVel;
 
-	// Token: 0x040034E4 RID: 13540
+	// Token: 0x0400358E RID: 13710
 	private float rollVel;
 
-	// Token: 0x040034E5 RID: 13541
+	// Token: 0x0400358F RID: 13711
 	private float oneHandRotationRateExp;
 
-	// Token: 0x040034E6 RID: 13542
+	// Token: 0x04003590 RID: 13712
 	private float twoHandRotationRateExp;
 
-	// Token: 0x040034E7 RID: 13543
+	// Token: 0x04003591 RID: 13713
 	private Quaternion playerFacingRotationOffset = Quaternion.identity;
 
-	// Token: 0x040034E8 RID: 13544
+	// Token: 0x04003592 RID: 13714
 	private const float accelAveragingWindow = 0.1f;
 
-	// Token: 0x040034E9 RID: 13545
+	// Token: 0x04003593 RID: 13715
 	private AverageVector3 accelerationAverage = new AverageVector3(0.1f);
 
-	// Token: 0x040034EA RID: 13546
+	// Token: 0x04003594 RID: 13716
 	private float accelerationSmoothed;
 
-	// Token: 0x040034EB RID: 13547
+	// Token: 0x04003595 RID: 13717
 	private float turnAccelerationSmoothed;
 
-	// Token: 0x040034EC RID: 13548
+	// Token: 0x04003596 RID: 13718
 	private float accelSmoothingFollowRateExp = 1f;
 
-	// Token: 0x040034ED RID: 13549
+	// Token: 0x04003597 RID: 13719
 	private float networkSyncFollowRateExp = 2f;
 
-	// Token: 0x040034EE RID: 13550
+	// Token: 0x04003598 RID: 13720
 	private bool pendingOwnershipRequest;
 
-	// Token: 0x040034EF RID: 13551
+	// Token: 0x04003599 RID: 13721
 	private Vector3 positionLocalToVRRig = Vector3.zero;
 
-	// Token: 0x040034F0 RID: 13552
+	// Token: 0x0400359A RID: 13722
 	private Quaternion rotationLocalToVRRig = Quaternion.identity;
 
-	// Token: 0x040034F1 RID: 13553
+	// Token: 0x0400359B RID: 13723
 	private Coroutine reenableOwnershipRequestCoroutine;
 
-	// Token: 0x040034F2 RID: 13554
+	// Token: 0x0400359C RID: 13724
 	private Vector3 spawnPosition;
 
-	// Token: 0x040034F3 RID: 13555
+	// Token: 0x0400359D RID: 13725
 	private Quaternion spawnRotation;
 
-	// Token: 0x040034F4 RID: 13556
+	// Token: 0x0400359E RID: 13726
 	private Vector3 skyJungleSpawnPostion;
 
-	// Token: 0x040034F5 RID: 13557
+	// Token: 0x0400359F RID: 13727
 	private Quaternion skyJungleSpawnRotation;
 
-	// Token: 0x040034F6 RID: 13558
+	// Token: 0x040035A0 RID: 13728
 	private Transform skyJungleRespawnOrigin;
 
-	// Token: 0x040034F7 RID: 13559
+	// Token: 0x040035A1 RID: 13729
 	private float lastHeldTime = -1f;
 
-	// Token: 0x040034F8 RID: 13560
+	// Token: 0x040035A2 RID: 13730
 	private Vector3? leftHoldPositionLocal;
 
-	// Token: 0x040034F9 RID: 13561
+	// Token: 0x040035A3 RID: 13731
 	private Vector3? rightHoldPositionLocal;
 
-	// Token: 0x040034FA RID: 13562
+	// Token: 0x040035A4 RID: 13732
 	private float whooshSoundDuration = 1f;
 
-	// Token: 0x040034FB RID: 13563
+	// Token: 0x040035A5 RID: 13733
 	private float whooshSoundRetriggerThreshold = 0.5f;
 
-	// Token: 0x040034FC RID: 13564
+	// Token: 0x040035A6 RID: 13734
 	private float leftWhooshStartTime = -1f;
 
-	// Token: 0x040034FD RID: 13565
+	// Token: 0x040035A7 RID: 13735
 	private Vector3 leftWhooshHitPoint = Vector3.zero;
 
-	// Token: 0x040034FE RID: 13566
+	// Token: 0x040035A8 RID: 13736
 	private Vector3 whooshAudioPositionOffset = new Vector3(0.5f, -0.25f, 0.5f);
 
-	// Token: 0x040034FF RID: 13567
+	// Token: 0x040035A9 RID: 13737
 	private float rightWhooshStartTime = -1f;
 
-	// Token: 0x04003500 RID: 13568
+	// Token: 0x040035AA RID: 13738
 	private Vector3 rightWhooshHitPoint = Vector3.zero;
 
-	// Token: 0x04003501 RID: 13569
+	// Token: 0x040035AB RID: 13739
 	private int ridersMaterialOverideIndex;
 
-	// Token: 0x04003502 RID: 13570
+	// Token: 0x040035AC RID: 13740
 	private int windVolumeForceAppliedFrame = -1;
 
-	// Token: 0x04003503 RID: 13571
+	// Token: 0x040035AD RID: 13741
 	private bool holdingTwoGliders;
 
-	// Token: 0x04003504 RID: 13572
+	// Token: 0x040035AE RID: 13742
 	private GliderHoldable.GliderState gliderState;
 
-	// Token: 0x04003505 RID: 13573
+	// Token: 0x040035AF RID: 13743
 	private float audioLevel;
 
-	// Token: 0x04003506 RID: 13574
+	// Token: 0x040035B0 RID: 13744
 	private int riderId = -1;
 
-	// Token: 0x04003507 RID: 13575
+	// Token: 0x040035B1 RID: 13745
 	[SerializeField]
 	private VRRig cachedRig;
 
-	// Token: 0x04003508 RID: 13576
+	// Token: 0x040035B2 RID: 13746
 	private bool infectedState;
 
-	// Token: 0x04003509 RID: 13577
+	// Token: 0x040035B3 RID: 13747
 	[WeaverGenerated]
 	[DefaultForProperty("Data", 0, 11)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
 	private GliderHoldable.SyncedState _Data;
 
-	// Token: 0x020007B8 RID: 1976
+	// Token: 0x020007D0 RID: 2000
 	private enum GliderState
 	{
-		// Token: 0x0400350B RID: 13579
+		// Token: 0x040035B5 RID: 13749
 		LocallyHeld,
-		// Token: 0x0400350C RID: 13580
+		// Token: 0x040035B6 RID: 13750
 		LocallyDropped,
-		// Token: 0x0400350D RID: 13581
+		// Token: 0x040035B7 RID: 13751
 		RemoteSyncing
 	}
 
-	// Token: 0x020007B9 RID: 1977
+	// Token: 0x020007D1 RID: 2001
 	private struct HoldingHand
 	{
-		// Token: 0x060030CF RID: 12495 RVA: 0x000ED104 File Offset: 0x000EB304
+		// Token: 0x06003181 RID: 12673 RVA: 0x00135ECC File Offset: 0x001340CC
 		public void Activate(Transform handTransform, Transform gliderTransform, Vector3 worldGrabPoint)
 		{
 			this.active = true;
@@ -1636,7 +1636,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 			this.localHoldRotation = Quaternion.Inverse(handTransform.rotation) * gliderTransform.rotation;
 		}
 
-		// Token: 0x060030D0 RID: 12496 RVA: 0x000ED165 File Offset: 0x000EB365
+		// Token: 0x06003182 RID: 12674 RVA: 0x00050CED File Offset: 0x0004EEED
 		public void Deactivate()
 		{
 			this.active = false;
@@ -1646,28 +1646,28 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 			this.localHoldRotation = Quaternion.identity;
 		}
 
-		// Token: 0x0400350E RID: 13582
+		// Token: 0x040035B8 RID: 13752
 		public bool active;
 
-		// Token: 0x0400350F RID: 13583
+		// Token: 0x040035B9 RID: 13753
 		public Transform transform;
 
-		// Token: 0x04003510 RID: 13584
+		// Token: 0x040035BA RID: 13754
 		public Vector3 holdLocalPos;
 
-		// Token: 0x04003511 RID: 13585
+		// Token: 0x040035BB RID: 13755
 		public Vector3 handleLocalPos;
 
-		// Token: 0x04003512 RID: 13586
+		// Token: 0x040035BC RID: 13756
 		public Quaternion localHoldRotation;
 	}
 
-	// Token: 0x020007BA RID: 1978
+	// Token: 0x020007D2 RID: 2002
 	[NetworkStructWeaved(11)]
 	[StructLayout(LayoutKind.Explicit, Size = 44)]
 	internal struct SyncedState : INetworkStruct
 	{
-		// Token: 0x060030D1 RID: 12497 RVA: 0x000ED196 File Offset: 0x000EB396
+		// Token: 0x06003183 RID: 12675 RVA: 0x00050D1E File Offset: 0x0004EF1E
 		public void Init(Vector3 defaultPosition, Quaternion defaultRotation)
 		{
 			this.riderId = -1;
@@ -1677,7 +1677,7 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 			this.rotation = defaultRotation;
 		}
 
-		// Token: 0x060030D2 RID: 12498 RVA: 0x000ED1BB File Offset: 0x000EB3BB
+		// Token: 0x06003184 RID: 12676 RVA: 0x00050D43 File Offset: 0x0004EF43
 		public SyncedState(int id = -1)
 		{
 			this.riderId = id;
@@ -1688,39 +1688,39 @@ public class GliderHoldable : NetworkHoldableObject, IRequestableOwnershipGuardC
 			this.rotation = default(Quaternion);
 		}
 
-		// Token: 0x04003513 RID: 13587
+		// Token: 0x040035BD RID: 13757
 		[FieldOffset(0)]
 		public int riderId;
 
-		// Token: 0x04003514 RID: 13588
+		// Token: 0x040035BE RID: 13758
 		[FieldOffset(4)]
 		public byte materialIndex;
 
-		// Token: 0x04003515 RID: 13589
+		// Token: 0x040035BF RID: 13759
 		[FieldOffset(8)]
 		public byte audioLevel;
 
-		// Token: 0x04003516 RID: 13590
+		// Token: 0x040035C0 RID: 13760
 		[FieldOffset(12)]
 		public NetworkBool tagged;
 
-		// Token: 0x04003517 RID: 13591
+		// Token: 0x040035C1 RID: 13761
 		[FieldOffset(16)]
 		public Vector3 position;
 
-		// Token: 0x04003518 RID: 13592
+		// Token: 0x040035C2 RID: 13762
 		[FieldOffset(28)]
 		public Quaternion rotation;
 	}
 
-	// Token: 0x020007BB RID: 1979
+	// Token: 0x020007D3 RID: 2003
 	[Serializable]
 	private struct CosmeticMaterialOverride
 	{
-		// Token: 0x04003519 RID: 13593
+		// Token: 0x040035C3 RID: 13763
 		public string cosmeticName;
 
-		// Token: 0x0400351A RID: 13594
+		// Token: 0x040035C4 RID: 13764
 		public Material material;
 	}
 }

@@ -3,24 +3,24 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C55 RID: 3157
+	// Token: 0x02000C86 RID: 3206
 	[RequireComponent(typeof(TransferrableObject))]
 	public class SmoothScaleModifierCosmetic : MonoBehaviour
 	{
-		// Token: 0x06004EB1 RID: 20145 RVA: 0x0018263D File Offset: 0x0018083D
+		// Token: 0x06005011 RID: 20497 RVA: 0x000644DD File Offset: 0x000626DD
 		private void Awake()
 		{
 			this.transferrableObject = base.GetComponentInParent<TransferrableObject>();
 			this.initialScale = this.objectPrefab.transform.localScale;
 		}
 
-		// Token: 0x06004EB2 RID: 20146 RVA: 0x00182661 File Offset: 0x00180861
+		// Token: 0x06005012 RID: 20498 RVA: 0x00064501 File Offset: 0x00062701
 		private void OnEnable()
 		{
 			this.UpdateState(SmoothScaleModifierCosmetic.State.Reset);
 		}
 
-		// Token: 0x06004EB3 RID: 20147 RVA: 0x0018266C File Offset: 0x0018086C
+		// Token: 0x06005013 RID: 20499 RVA: 0x001BA894 File Offset: 0x001B8A94
 		private void Update()
 		{
 			if (this.transferrableObject && !this.transferrableObject.InHand())
@@ -73,13 +73,13 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004EB4 RID: 20148 RVA: 0x00182847 File Offset: 0x00180A47
+		// Token: 0x06005014 RID: 20500 RVA: 0x0006450A File Offset: 0x0006270A
 		private void SmoothScale(Vector3 initial, Vector3 target)
 		{
 			this.objectPrefab.transform.localScale = Vector3.MoveTowards(initial, target, this.speed * Time.deltaTime);
 		}
 
-		// Token: 0x06004EB5 RID: 20149 RVA: 0x0018286C File Offset: 0x00180A6C
+		// Token: 0x06005015 RID: 20501 RVA: 0x001BAA70 File Offset: 0x001B8C70
 		private void ApplyScaling(IFingerFlexListener.ComponentActivator activator)
 		{
 			if (this.audioSource)
@@ -100,89 +100,89 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004EB6 RID: 20150 RVA: 0x001828C4 File Offset: 0x00180AC4
+		// Token: 0x06005016 RID: 20502 RVA: 0x0006452F File Offset: 0x0006272F
 		private void UpdateState(SmoothScaleModifierCosmetic.State newState)
 		{
 			this.currentState = newState;
 		}
 
-		// Token: 0x06004EB7 RID: 20151 RVA: 0x001828CD File Offset: 0x00180ACD
+		// Token: 0x06005017 RID: 20503 RVA: 0x00064538 File Offset: 0x00062738
 		public void OnButtonPressed()
 		{
 			this.ApplyScaling(IFingerFlexListener.ComponentActivator.FingerFlexed);
 		}
 
-		// Token: 0x06004EB8 RID: 20152 RVA: 0x001828D6 File Offset: 0x00180AD6
+		// Token: 0x06005018 RID: 20504 RVA: 0x00064541 File Offset: 0x00062741
 		public void OnButtonReleased()
 		{
 			this.ApplyScaling(IFingerFlexListener.ComponentActivator.FingerReleased);
 		}
 
-		// Token: 0x06004EB9 RID: 20153 RVA: 0x001828DF File Offset: 0x00180ADF
+		// Token: 0x06005019 RID: 20505 RVA: 0x0006454A File Offset: 0x0006274A
 		public void OnButtonPressStayed()
 		{
 			this.ApplyScaling(IFingerFlexListener.ComponentActivator.FingerStayed);
 		}
 
-		// Token: 0x04005250 RID: 21072
+		// Token: 0x0400535C RID: 21340
 		[SerializeField]
 		private GameObject objectPrefab;
 
-		// Token: 0x04005251 RID: 21073
+		// Token: 0x0400535D RID: 21341
 		[SerializeField]
 		private Vector3 targetScale = new Vector3(2f, 2f, 2f);
 
-		// Token: 0x04005252 RID: 21074
+		// Token: 0x0400535E RID: 21342
 		[SerializeField]
 		private float speed = 2f;
 
-		// Token: 0x04005253 RID: 21075
+		// Token: 0x0400535F RID: 21343
 		[SerializeField]
 		private IFingerFlexListener.ComponentActivator scaleOn;
 
-		// Token: 0x04005254 RID: 21076
+		// Token: 0x04005360 RID: 21344
 		[SerializeField]
 		private IFingerFlexListener.ComponentActivator resetOn;
 
-		// Token: 0x04005255 RID: 21077
+		// Token: 0x04005361 RID: 21345
 		[SerializeField]
 		private AudioSource audioSource;
 
-		// Token: 0x04005256 RID: 21078
+		// Token: 0x04005362 RID: 21346
 		[SerializeField]
 		private AudioClip scaledAudio;
 
-		// Token: 0x04005257 RID: 21079
+		// Token: 0x04005363 RID: 21347
 		[SerializeField]
 		private float scaleAudioVolume = 0.1f;
 
-		// Token: 0x04005258 RID: 21080
+		// Token: 0x04005364 RID: 21348
 		[SerializeField]
 		private AudioClip normalSizeAudio;
 
-		// Token: 0x04005259 RID: 21081
+		// Token: 0x04005365 RID: 21349
 		[SerializeField]
 		private float normalSizeAudioVolume = 0.1f;
 
-		// Token: 0x0400525A RID: 21082
+		// Token: 0x04005366 RID: 21350
 		private SmoothScaleModifierCosmetic.State currentState;
 
-		// Token: 0x0400525B RID: 21083
+		// Token: 0x04005367 RID: 21351
 		private Vector3 initialScale;
 
-		// Token: 0x0400525C RID: 21084
+		// Token: 0x04005368 RID: 21352
 		private TransferrableObject transferrableObject;
 
-		// Token: 0x02000C56 RID: 3158
+		// Token: 0x02000C87 RID: 3207
 		private enum State
 		{
-			// Token: 0x0400525E RID: 21086
+			// Token: 0x0400536A RID: 21354
 			None,
-			// Token: 0x0400525F RID: 21087
+			// Token: 0x0400536B RID: 21355
 			Reset,
-			// Token: 0x04005260 RID: 21088
+			// Token: 0x0400536C RID: 21356
 			Scaling,
-			// Token: 0x04005261 RID: 21089
+			// Token: 0x0400536D RID: 21357
 			Scaled
 		}
 	}

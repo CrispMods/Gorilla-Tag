@@ -2,14 +2,14 @@
 
 namespace GorillaTag.CosmeticSystem
 {
-	// Token: 0x02000BF6 RID: 3062
+	// Token: 0x02000C24 RID: 3108
 	public enum ECosmeticSelectSide
 	{
-		// Token: 0x04004EB8 RID: 20152
+		// Token: 0x04004FAE RID: 20398
 		Both,
-		// Token: 0x04004EB9 RID: 20153
+		// Token: 0x04004FAF RID: 20399
 		Left,
-		// Token: 0x04004EBA RID: 20154
+		// Token: 0x04004FB0 RID: 20400
 		Right
 	}
 }

@@ -2,24 +2,24 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// Token: 0x02000859 RID: 2137
+// Token: 0x02000875 RID: 2165
 public static class MathUtils
 {
-	// Token: 0x060033D7 RID: 13271 RVA: 0x000F6FF3 File Offset: 0x000F51F3
+	// Token: 0x060034A1 RID: 13473 RVA: 0x00052B11 File Offset: 0x00050D11
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static float Xlerp(float a, float b, float dt, float decay = 16f)
 	{
 		return b + (a - b) * Mathf.Exp(-decay * dt);
 	}
 
-	// Token: 0x060033D8 RID: 13272 RVA: 0x000F7004 File Offset: 0x000F5204
+	// Token: 0x060034A2 RID: 13474 RVA: 0x00052B22 File Offset: 0x00050D22
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 Xlerp(Vector3 a, Vector3 b, float dt, float decay = 16f)
 	{
 		return b + (a - b) * Mathf.Exp(-decay * dt);
 	}
 
-	// Token: 0x060033D9 RID: 13273 RVA: 0x000F7021 File Offset: 0x000F5221
+	// Token: 0x060034A3 RID: 13475 RVA: 0x00052B3F File Offset: 0x00050D3F
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static float SafeDivide(this float f, float d, float eps = 1E-06f)
 	{
@@ -34,7 +34,7 @@ public static class MathUtils
 		return f / d;
 	}
 
-	// Token: 0x060033DA RID: 13274 RVA: 0x000F7044 File Offset: 0x000F5244
+	// Token: 0x060034A4 RID: 13476 RVA: 0x0013E55C File Offset: 0x0013C75C
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 SafeDivide(this Vector3 v, float d)
 	{
@@ -44,7 +44,7 @@ public static class MathUtils
 		return v;
 	}
 
-	// Token: 0x060033DB RID: 13275 RVA: 0x000F709C File Offset: 0x000F529C
+	// Token: 0x060034A5 RID: 13477 RVA: 0x0013E5B4 File Offset: 0x0013C7B4
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 SafeDivide(this Vector3 v, Vector3 d)
 	{
@@ -54,28 +54,28 @@ public static class MathUtils
 		return v;
 	}
 
-	// Token: 0x060033DC RID: 13276 RVA: 0x000F7101 File Offset: 0x000F5301
+	// Token: 0x060034A6 RID: 13478 RVA: 0x00052B61 File Offset: 0x00050D61
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static float Saturate(this float f, float eps = 1E-06f)
 	{
 		return Math.Min(Math.Max(f, 0f), 1f - eps);
 	}
 
-	// Token: 0x060033DD RID: 13277 RVA: 0x000F711A File Offset: 0x000F531A
+	// Token: 0x060034A7 RID: 13479 RVA: 0x00052B7A File Offset: 0x00050D7A
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static float Quantize(this float f, float step)
 	{
 		return MathF.Round(f / step) * step;
 	}
 
-	// Token: 0x060033DE RID: 13278 RVA: 0x000F7126 File Offset: 0x000F5326
+	// Token: 0x060034A8 RID: 13480 RVA: 0x00052B86 File Offset: 0x00050D86
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool Approx(this Quaternion a, Quaternion b, float epsilon = 1E-06f)
 	{
 		return Math.Abs(Quaternion.Dot(a, b)) > 1f - epsilon;
 	}
 
-	// Token: 0x060033DF RID: 13279 RVA: 0x000F7140 File Offset: 0x000F5340
+	// Token: 0x060034A9 RID: 13481 RVA: 0x0013E61C File Offset: 0x0013C81C
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3[] BoxCorners(Vector3 center, Vector3 size)
 	{
@@ -95,7 +95,7 @@ public static class MathUtils
 		};
 	}
 
-	// Token: 0x060033E0 RID: 13280 RVA: 0x000F727C File Offset: 0x000F547C
+	// Token: 0x060034AA RID: 13482 RVA: 0x0013E758 File Offset: 0x0013C958
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void BoxCornersNonAlloc(Vector3 center, Vector3 size, Vector3[] array, int index = 0)
 	{
@@ -112,7 +112,7 @@ public static class MathUtils
 		array[index + 7] = center - b - b2 + b3;
 	}
 
-	// Token: 0x060033E1 RID: 13281 RVA: 0x000F73C0 File Offset: 0x000F55C0
+	// Token: 0x060034AB RID: 13483 RVA: 0x0013E89C File Offset: 0x0013CA9C
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3[] OrientedBoxCorners(Vector3 center, Vector3 size, Quaternion angles)
 	{
@@ -132,7 +132,7 @@ public static class MathUtils
 		};
 	}
 
-	// Token: 0x060033E2 RID: 13282 RVA: 0x000F750C File Offset: 0x000F570C
+	// Token: 0x060034AC RID: 13484 RVA: 0x0013E9E8 File Offset: 0x0013CBE8
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void OrientedBoxCornersNonAlloc(Vector3 center, Vector3 size, Quaternion angles, Vector3[] array, int index = 0)
 	{
@@ -149,7 +149,7 @@ public static class MathUtils
 		array[index + 7] = center - b - b2 + b3;
 	}
 
-	// Token: 0x060033E3 RID: 13283 RVA: 0x000F7660 File Offset: 0x000F5860
+	// Token: 0x060034AD RID: 13485 RVA: 0x0013EB3C File Offset: 0x0013CD3C
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool OrientedBoxContains(Vector3 point, Vector3 boxCenter, Vector3 boxSize, Quaternion boxAngles)
 	{
@@ -161,7 +161,7 @@ public static class MathUtils
 		return (Mathf.Approximately(vector.x, vector2.x) && Mathf.Approximately(vector.y, vector2.y) && Mathf.Approximately(vector.z, vector2.z)) || (vector.x < vector2.x && vector.y < vector2.y && vector.z < vector2.z);
 	}
 
-	// Token: 0x060033E4 RID: 13284 RVA: 0x000F7738 File Offset: 0x000F5938
+	// Token: 0x060034AE RID: 13486 RVA: 0x0013EC14 File Offset: 0x0013CE14
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int OrientedBoxSphereOverlap(Vector3 center, float radius, Vector3 boxCenter, Vector3 boxSize, Quaternion boxAngles)
 	{
@@ -183,7 +183,7 @@ public static class MathUtils
 		return 0;
 	}
 
-	// Token: 0x060033E5 RID: 13285 RVA: 0x000F7860 File Offset: 0x000F5A60
+	// Token: 0x060034AF RID: 13487 RVA: 0x0013ED3C File Offset: 0x0013CF3C
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Vector3 Clamp(ref Vector3 v, ref Vector3 min, ref Vector3 max)
 	{
@@ -199,7 +199,7 @@ public static class MathUtils
 		return new Vector3(num, num2, num3);
 	}
 
-	// Token: 0x060033E6 RID: 13286 RVA: 0x000F78FC File Offset: 0x000F5AFC
+	// Token: 0x060034B0 RID: 13488 RVA: 0x0013EDD8 File Offset: 0x0013CFD8
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static Bounds[] Subdivide(Bounds b, int x = 1, int y = 1, int z = 1)
 	{
@@ -253,7 +253,7 @@ public static class MathUtils
 		return array;
 	}
 
-	// Token: 0x060033E7 RID: 13287 RVA: 0x000F7A41 File Offset: 0x000F5C41
+	// Token: 0x060034B1 RID: 13489 RVA: 0x00052B9D File Offset: 0x00050D9D
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static float ClampToReal(this float f, float min, float max, float epsilon = 1E-06f)
 	{
@@ -272,7 +272,7 @@ public static class MathUtils
 		return f.ClampApprox(min, max, epsilon);
 	}
 
-	// Token: 0x060033E8 RID: 13288 RVA: 0x000F7A79 File Offset: 0x000F5C79
+	// Token: 0x060034B2 RID: 13490 RVA: 0x00052BD5 File Offset: 0x00050DD5
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static float ClampApprox(this float f, float min, float max, float epsilon = 1E-06f)
 	{
@@ -287,28 +287,28 @@ public static class MathUtils
 		return f;
 	}
 
-	// Token: 0x060033E9 RID: 13289 RVA: 0x000F7A9C File Offset: 0x000F5C9C
+	// Token: 0x060034B3 RID: 13491 RVA: 0x00052BF8 File Offset: 0x00050DF8
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool Approx(this float a, float b, float epsilon = 1E-06f)
 	{
 		return Math.Abs(a - b) < epsilon;
 	}
 
-	// Token: 0x060033EA RID: 13290 RVA: 0x000F7AA9 File Offset: 0x000F5CA9
+	// Token: 0x060034B4 RID: 13492 RVA: 0x00052C05 File Offset: 0x00050E05
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool Approx1(this float a, float epsilon = 1E-06f)
 	{
 		return Math.Abs(a - 1f) < epsilon;
 	}
 
-	// Token: 0x060033EB RID: 13291 RVA: 0x000F7ABA File Offset: 0x000F5CBA
+	// Token: 0x060034B5 RID: 13493 RVA: 0x00052C16 File Offset: 0x00050E16
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool Approx0(this float a, float epsilon = 1E-06f)
 	{
 		return Math.Abs(a) < epsilon;
 	}
 
-	// Token: 0x060033EC RID: 13292 RVA: 0x000F7AC8 File Offset: 0x000F5CC8
+	// Token: 0x060034B6 RID: 13494 RVA: 0x0013EF20 File Offset: 0x0013D120
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static float GetScaledRadius(float radius, Vector3 scale)
 	{
@@ -318,7 +318,7 @@ public static class MathUtils
 		return Math.Max(Math.Abs(Math.Max(val, Math.Max(val2, val3)) * radius), 0f);
 	}
 
-	// Token: 0x060033ED RID: 13293 RVA: 0x000F7B18 File Offset: 0x000F5D18
+	// Token: 0x060034B7 RID: 13495 RVA: 0x0013EF70 File Offset: 0x0013D170
 	public static float Linear(float value, float min, float max, float newMin, float newMax)
 	{
 		float num = (value - min) / (max - min) * (newMax - newMin) + newMin;
@@ -333,13 +333,13 @@ public static class MathUtils
 		return num;
 	}
 
-	// Token: 0x060033EE RID: 13294 RVA: 0x000F7B43 File Offset: 0x000F5D43
+	// Token: 0x060034B8 RID: 13496 RVA: 0x00052C21 File Offset: 0x00050E21
 	public static float LinearUnclamped(float value, float min, float max, float newMin, float newMax)
 	{
 		return (value - min) / (max - min) * (newMax - newMin) + newMin;
 	}
 
-	// Token: 0x060033EF RID: 13295 RVA: 0x000F7B54 File Offset: 0x000F5D54
+	// Token: 0x060034B9 RID: 13497 RVA: 0x0013EF9C File Offset: 0x0013D19C
 	public static float GetCircleValue(float degrees)
 	{
 		if (degrees > 90f)
@@ -361,7 +361,7 @@ public static class MathUtils
 		return degrees / 90f;
 	}
 
-	// Token: 0x060033F0 RID: 13296 RVA: 0x000F7BB0 File Offset: 0x000F5DB0
+	// Token: 0x060034BA RID: 13498 RVA: 0x0013EFF8 File Offset: 0x0013D1F8
 	public static Vector3 WeightedMaxVector(Vector3 a, Vector3 b, float eps = 0.0001f)
 	{
 		float magnitude = a.magnitude;
@@ -377,7 +377,7 @@ public static class MathUtils
 		return a2 * d;
 	}
 
-	// Token: 0x060033F1 RID: 13297 RVA: 0x000F7C14 File Offset: 0x000F5E14
+	// Token: 0x060034BB RID: 13499 RVA: 0x0013F05C File Offset: 0x0013D25C
 	public static Vector3 MatchMagnitudeInDirection(Vector3 input, Vector3 target, float eps = 0.0001f)
 	{
 		Vector3 result = input;
@@ -395,15 +395,37 @@ public static class MathUtils
 		return result;
 	}
 
-	// Token: 0x060033F2 RID: 13298 RVA: 0x000F7C60 File Offset: 0x000F5E60
+	// Token: 0x060034BC RID: 13500 RVA: 0x0013F0A8 File Offset: 0x0013D2A8
 	public static int CalculateAgeFromDateTime(DateTime Dob)
 	{
 		return new DateTime(DateTime.Now.Subtract(Dob).Ticks).Year - 1;
 	}
 
-	// Token: 0x0400370A RID: 14090
+	// Token: 0x060034BD RID: 13501 RVA: 0x0013F0DC File Offset: 0x0013D2DC
+	public static int PositiveModulo(this int x, int m)
+	{
+		int num = x % m;
+		if (num >= 0)
+		{
+			return num;
+		}
+		return num + m;
+	}
+
+	// Token: 0x060034BE RID: 13502 RVA: 0x0013F0F8 File Offset: 0x0013D2F8
+	public static float PositiveModulo(this float x, float m)
+	{
+		float num = x % m;
+		if ((num < 0f && m > 0f) || (num > 0f && m < 0f))
+		{
+			num += m;
+		}
+		return num;
+	}
+
+	// Token: 0x040037CA RID: 14282
 	private const float kDecay = 16f;
 
-	// Token: 0x0400370B RID: 14091
+	// Token: 0x040037CB RID: 14283
 	public const float kFloatEpsilon = 1E-06f;
 }

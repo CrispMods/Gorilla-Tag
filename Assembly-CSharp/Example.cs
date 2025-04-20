@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000079 RID: 121
+// Token: 0x02000080 RID: 128
 public class Example : MonoBehaviour
 {
-	// Token: 0x06000333 RID: 819 RVA: 0x000148E8 File Offset: 0x00012AE8
+	// Token: 0x06000365 RID: 869 RVA: 0x00078D90 File Offset: 0x00076F90
 	private void OnDrawGizmos()
 	{
 		if (this.debugPoint)
@@ -42,7 +42,7 @@ public class Example : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000334 RID: 820 RVA: 0x00014A74 File Offset: 0x00012C74
+	// Token: 0x06000366 RID: 870 RVA: 0x00078F1C File Offset: 0x0007711C
 	private void Update()
 	{
 		DebugExtension.DebugPoint(this.debugPoint_Position, this.debugPoint_Color, this.debugPoint_Scale, 0f, true);
@@ -55,93 +55,93 @@ public class Example : MonoBehaviour
 		DebugExtension.DebugCapsule(new Vector3(70f, 0f, 0f), this.debugCapsule_End, this.debugCapsule_Color, this.debugCapsule_Radius, 0f, true);
 	}
 
-	// Token: 0x040003A0 RID: 928
+	// Token: 0x040003D4 RID: 980
 	public bool debugPoint;
 
-	// Token: 0x040003A1 RID: 929
+	// Token: 0x040003D5 RID: 981
 	public Vector3 debugPoint_Position;
 
-	// Token: 0x040003A2 RID: 930
+	// Token: 0x040003D6 RID: 982
 	public float debugPoint_Scale;
 
-	// Token: 0x040003A3 RID: 931
+	// Token: 0x040003D7 RID: 983
 	public Color debugPoint_Color;
 
-	// Token: 0x040003A4 RID: 932
+	// Token: 0x040003D8 RID: 984
 	public bool debugBounds;
 
-	// Token: 0x040003A5 RID: 933
+	// Token: 0x040003D9 RID: 985
 	public Vector3 debugBounds_Position;
 
-	// Token: 0x040003A6 RID: 934
+	// Token: 0x040003DA RID: 986
 	public Vector3 debugBounds_Size;
 
-	// Token: 0x040003A7 RID: 935
+	// Token: 0x040003DB RID: 987
 	public Color debugBounds_Color;
 
-	// Token: 0x040003A8 RID: 936
+	// Token: 0x040003DC RID: 988
 	public bool debugCircle;
 
-	// Token: 0x040003A9 RID: 937
+	// Token: 0x040003DD RID: 989
 	public Vector3 debugCircle_Up;
 
-	// Token: 0x040003AA RID: 938
+	// Token: 0x040003DE RID: 990
 	public float debugCircle_Radius;
 
-	// Token: 0x040003AB RID: 939
+	// Token: 0x040003DF RID: 991
 	public Color debugCircle_Color;
 
-	// Token: 0x040003AC RID: 940
+	// Token: 0x040003E0 RID: 992
 	public bool debugWireSphere;
 
-	// Token: 0x040003AD RID: 941
+	// Token: 0x040003E1 RID: 993
 	public float debugWireSphere_Radius;
 
-	// Token: 0x040003AE RID: 942
+	// Token: 0x040003E2 RID: 994
 	public Color debugWireSphere_Color;
 
-	// Token: 0x040003AF RID: 943
+	// Token: 0x040003E3 RID: 995
 	public bool debugCylinder;
 
-	// Token: 0x040003B0 RID: 944
+	// Token: 0x040003E4 RID: 996
 	public Vector3 debugCylinder_End;
 
-	// Token: 0x040003B1 RID: 945
+	// Token: 0x040003E5 RID: 997
 	public float debugCylinder_Radius;
 
-	// Token: 0x040003B2 RID: 946
+	// Token: 0x040003E6 RID: 998
 	public Color debugCylinder_Color;
 
-	// Token: 0x040003B3 RID: 947
+	// Token: 0x040003E7 RID: 999
 	public bool debugCone;
 
-	// Token: 0x040003B4 RID: 948
+	// Token: 0x040003E8 RID: 1000
 	public Vector3 debugCone_Direction;
 
-	// Token: 0x040003B5 RID: 949
+	// Token: 0x040003E9 RID: 1001
 	public float debugCone_Angle;
 
-	// Token: 0x040003B6 RID: 950
+	// Token: 0x040003EA RID: 1002
 	public Color debugCone_Color;
 
-	// Token: 0x040003B7 RID: 951
+	// Token: 0x040003EB RID: 1003
 	public bool debugArrow;
 
-	// Token: 0x040003B8 RID: 952
+	// Token: 0x040003EC RID: 1004
 	public Vector3 debugArrow_Direction;
 
-	// Token: 0x040003B9 RID: 953
+	// Token: 0x040003ED RID: 1005
 	public Color debugArrow_Color;
 
-	// Token: 0x040003BA RID: 954
+	// Token: 0x040003EE RID: 1006
 	public bool debugCapsule;
 
-	// Token: 0x040003BB RID: 955
+	// Token: 0x040003EF RID: 1007
 	public Vector3 debugCapsule_End;
 
-	// Token: 0x040003BC RID: 956
+	// Token: 0x040003F0 RID: 1008
 	public float debugCapsule_Radius;
 
-	// Token: 0x040003BD RID: 957
+	// Token: 0x040003F1 RID: 1009
 	public Color debugCapsule_Color;
 }

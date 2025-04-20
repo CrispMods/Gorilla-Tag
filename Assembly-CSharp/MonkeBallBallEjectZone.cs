@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200049A RID: 1178
+// Token: 0x020004A6 RID: 1190
 public class MonkeBallBallEjectZone : MonoBehaviour
 {
-	// Token: 0x06001C8D RID: 7309 RVA: 0x0008AFC8 File Offset: 0x000891C8
+	// Token: 0x06001CE1 RID: 7393 RVA: 0x000DE69C File Offset: 0x000DC89C
 	private void OnCollisionEnter(Collision collision)
 	{
 		GameBall component = collision.gameObject.GetComponent<GameBall>();
@@ -14,9 +14,9 @@ public class MonkeBallBallEjectZone : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001F84 RID: 8068
+	// Token: 0x04001FD3 RID: 8147
 	public Transform target;
 
-	// Token: 0x04001F85 RID: 8069
+	// Token: 0x04001FD4 RID: 8148
 	public float ejectVelocity = 15f;
 }

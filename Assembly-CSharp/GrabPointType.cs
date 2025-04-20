@@ -1,10 +1,10 @@
 ﻿using System;
 
-// Token: 0x020003FC RID: 1020
+// Token: 0x02000407 RID: 1031
 public enum GrabPointType
 {
-	// Token: 0x04001BD8 RID: 7128
+	// Token: 0x04001C21 RID: 7201
 	SinglePoint,
-	// Token: 0x04001BD9 RID: 7129
+	// Token: 0x04001C22 RID: 7202
 	Line
 }

@@ -2,16 +2,16 @@
 using GorillaLocomotion.Swimming;
 using UnityEngine;
 
-// Token: 0x0200020E RID: 526
+// Token: 0x02000219 RID: 537
 public class WaterSplashEffect : MonoBehaviour
 {
-	// Token: 0x06000C3D RID: 3133 RVA: 0x0004149F File Offset: 0x0003F69F
+	// Token: 0x06000C88 RID: 3208 RVA: 0x00038CB8 File Offset: 0x00036EB8
 	private void OnEnable()
 	{
 		this.startTime = Time.time;
 	}
 
-	// Token: 0x06000C3E RID: 3134 RVA: 0x000414AC File Offset: 0x0003F6AC
+	// Token: 0x06000C89 RID: 3209 RVA: 0x00038CC5 File Offset: 0x00036EC5
 	public void Destroy()
 	{
 		this.DeactivateParticleSystems(this.bigSplashParticleSystems);
@@ -20,7 +20,7 @@ public class WaterSplashEffect : MonoBehaviour
 		ObjectPools.instance.Destroy(base.gameObject);
 	}
 
-	// Token: 0x06000C3F RID: 3135 RVA: 0x000414E0 File Offset: 0x0003F6E0
+	// Token: 0x06000C8A RID: 3210 RVA: 0x0009F964 File Offset: 0x0009DB64
 	public void PlayEffect(bool isBigSplash, bool isEntry, float scale, WaterVolume volume = null)
 	{
 		this.waterVolume = volume;
@@ -46,7 +46,7 @@ public class WaterSplashEffect : MonoBehaviour
 		this.PlayRandomAudioClipWithoutRepeats(this.smallSplashExitAudioClips, ref WaterSplashEffect.lastPlayedSmallSplashExitAudioClipIndex);
 	}
 
-	// Token: 0x06000C40 RID: 3136 RVA: 0x000415E8 File Offset: 0x0003F7E8
+	// Token: 0x06000C8B RID: 3211 RVA: 0x0009FA6C File Offset: 0x0009DC6C
 	private void Update()
 	{
 		if (this.waterVolume != null && !this.waterVolume.isStationary && this.waterVolume.surfacePlane != null)
@@ -61,7 +61,7 @@ public class WaterSplashEffect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000C41 RID: 3137 RVA: 0x000416B0 File Offset: 0x0003F8B0
+	// Token: 0x06000C8C RID: 3212 RVA: 0x0009FB34 File Offset: 0x0009DD34
 	private void DeactivateParticleSystems(ParticleSystem[] particleSystems)
 	{
 		if (particleSystems != null)
@@ -73,7 +73,7 @@ public class WaterSplashEffect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000C42 RID: 3138 RVA: 0x000416DC File Offset: 0x0003F8DC
+	// Token: 0x06000C8D RID: 3213 RVA: 0x0009FB60 File Offset: 0x0009DD60
 	private void PlayParticleEffects(ParticleSystem[] particleSystems)
 	{
 		if (particleSystems != null)
@@ -86,7 +86,7 @@ public class WaterSplashEffect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000C43 RID: 3139 RVA: 0x00041710 File Offset: 0x0003F910
+	// Token: 0x06000C8E RID: 3214 RVA: 0x0009FB94 File Offset: 0x0009DD94
 	private void SetParticleEffectParameters(ParticleSystem[] particleSystems, float scale, float baseGravMultiplier, float baseStartSpeed, float baseSimulationSpeed, WaterVolume waterVolume = null)
 	{
 		if (particleSystems != null)
@@ -109,7 +109,7 @@ public class WaterSplashEffect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000C44 RID: 3140 RVA: 0x000417C8 File Offset: 0x0003F9C8
+	// Token: 0x06000C8F RID: 3215 RVA: 0x0009FC4C File Offset: 0x0009DE4C
 	private void PlayRandomAudioClipWithoutRepeats(AudioClip[] audioClips, ref int lastPlayedAudioClipIndex)
 	{
 		if (this.audioSource != null && audioClips != null && audioClips.Length != 0)
@@ -117,10 +117,10 @@ public class WaterSplashEffect : MonoBehaviour
 			int num = 0;
 			if (audioClips.Length > 1)
 			{
-				int num2 = Random.Range(0, audioClips.Length);
+				int num2 = UnityEngine.Random.Range(0, audioClips.Length);
 				if (num2 == lastPlayedAudioClipIndex)
 				{
-					num2 = ((Random.Range(0f, 1f) > 0.5f) ? ((num2 + 1) % audioClips.Length) : (num2 - 1));
+					num2 = ((UnityEngine.Random.Range(0f, 1f) > 0.5f) ? ((num2 + 1) % audioClips.Length) : (num2 - 1));
 					if (num2 < 0)
 					{
 						num2 = audioClips.Length - 1;
@@ -134,57 +134,57 @@ public class WaterSplashEffect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000F7A RID: 3962
+	// Token: 0x04000FC0 RID: 4032
 	private static int lastPlayedBigSplashAudioClipIndex = -1;
 
-	// Token: 0x04000F7B RID: 3963
+	// Token: 0x04000FC1 RID: 4033
 	private static int lastPlayedSmallSplashEntryAudioClipIndex = -1;
 
-	// Token: 0x04000F7C RID: 3964
+	// Token: 0x04000FC2 RID: 4034
 	private static int lastPlayedSmallSplashExitAudioClipIndex = -1;
 
-	// Token: 0x04000F7D RID: 3965
+	// Token: 0x04000FC3 RID: 4035
 	public ParticleSystem[] bigSplashParticleSystems;
 
-	// Token: 0x04000F7E RID: 3966
+	// Token: 0x04000FC4 RID: 4036
 	public ParticleSystem[] smallSplashParticleSystems;
 
-	// Token: 0x04000F7F RID: 3967
+	// Token: 0x04000FC5 RID: 4037
 	public float bigSplashBaseGravityMultiplier = 0.9f;
 
-	// Token: 0x04000F80 RID: 3968
+	// Token: 0x04000FC6 RID: 4038
 	public float bigSplashBaseStartSpeed = 1.9f;
 
-	// Token: 0x04000F81 RID: 3969
+	// Token: 0x04000FC7 RID: 4039
 	public float bigSplashBaseSimulationSpeed = 0.9f;
 
-	// Token: 0x04000F82 RID: 3970
+	// Token: 0x04000FC8 RID: 4040
 	public float smallSplashBaseGravityMultiplier = 0.6f;
 
-	// Token: 0x04000F83 RID: 3971
+	// Token: 0x04000FC9 RID: 4041
 	public float smallSplashBaseStartSpeed = 0.6f;
 
-	// Token: 0x04000F84 RID: 3972
+	// Token: 0x04000FCA RID: 4042
 	public float smallSplashBaseSimulationSpeed = 0.6f;
 
-	// Token: 0x04000F85 RID: 3973
+	// Token: 0x04000FCB RID: 4043
 	public float lifeTime = 1f;
 
-	// Token: 0x04000F86 RID: 3974
+	// Token: 0x04000FCC RID: 4044
 	private float startTime = -1f;
 
-	// Token: 0x04000F87 RID: 3975
+	// Token: 0x04000FCD RID: 4045
 	public AudioSource audioSource;
 
-	// Token: 0x04000F88 RID: 3976
+	// Token: 0x04000FCE RID: 4046
 	public AudioClip[] bigSplashAudioClips;
 
-	// Token: 0x04000F89 RID: 3977
+	// Token: 0x04000FCF RID: 4047
 	public AudioClip[] smallSplashEntryAudioClips;
 
-	// Token: 0x04000F8A RID: 3978
+	// Token: 0x04000FD0 RID: 4048
 	public AudioClip[] smallSplashExitAudioClips;
 
-	// Token: 0x04000F8B RID: 3979
+	// Token: 0x04000FD1 RID: 4049
 	private WaterVolume waterVolume;
 }

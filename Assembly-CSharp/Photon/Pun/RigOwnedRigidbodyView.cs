@@ -4,22 +4,22 @@ using UnityEngine;
 
 namespace Photon.Pun
 {
-	// Token: 0x0200096E RID: 2414
+	// Token: 0x02000994 RID: 2452
 	[RequireComponent(typeof(Rigidbody))]
 	public class RigOwnedRigidbodyView : MonoBehaviourPun, IPunObservable
 	{
-		// Token: 0x1700061D RID: 1565
-		// (get) Token: 0x06003AE0 RID: 15072 RVA: 0x0010EBD8 File Offset: 0x0010CDD8
-		// (set) Token: 0x06003AE1 RID: 15073 RVA: 0x0010EBE0 File Offset: 0x0010CDE0
+		// Token: 0x17000635 RID: 1589
+		// (get) Token: 0x06003BF8 RID: 15352 RVA: 0x0005724F File Offset: 0x0005544F
+		// (set) Token: 0x06003BF9 RID: 15353 RVA: 0x00057257 File Offset: 0x00055457
 		public bool IsMine { get; private set; }
 
-		// Token: 0x06003AE2 RID: 15074 RVA: 0x0010EBE9 File Offset: 0x0010CDE9
+		// Token: 0x06003BFA RID: 15354 RVA: 0x00057260 File Offset: 0x00055460
 		public void SetIsMine(bool isMine)
 		{
 			this.IsMine = isMine;
 		}
 
-		// Token: 0x06003AE3 RID: 15075 RVA: 0x0010EBF2 File Offset: 0x0010CDF2
+		// Token: 0x06003BFB RID: 15355 RVA: 0x00057269 File Offset: 0x00055469
 		public void Awake()
 		{
 			this.m_Body = base.GetComponent<Rigidbody>();
@@ -27,7 +27,7 @@ namespace Photon.Pun
 			this.m_NetworkRotation = default(Quaternion);
 		}
 
-		// Token: 0x06003AE4 RID: 15076 RVA: 0x0010EC18 File Offset: 0x0010CE18
+		// Token: 0x06003BFC RID: 15356 RVA: 0x00152430 File Offset: 0x00150630
 		public void FixedUpdate()
 		{
 			if (!this.IsMine)
@@ -37,7 +37,7 @@ namespace Photon.Pun
 			}
 		}
 
-		// Token: 0x06003AE5 RID: 15077 RVA: 0x0010EC98 File Offset: 0x0010CE98
+		// Token: 0x06003BFD RID: 15357 RVA: 0x001524B0 File Offset: 0x001506B0
 		public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 		{
 			if (info.Sender != info.photonView.Owner)
@@ -104,31 +104,31 @@ namespace Photon.Pun
 			}
 		}
 
-		// Token: 0x04003BE1 RID: 15329
+		// Token: 0x04003CBB RID: 15547
 		private float m_Distance;
 
-		// Token: 0x04003BE2 RID: 15330
+		// Token: 0x04003CBC RID: 15548
 		private float m_Angle;
 
-		// Token: 0x04003BE3 RID: 15331
+		// Token: 0x04003CBD RID: 15549
 		private Rigidbody m_Body;
 
-		// Token: 0x04003BE4 RID: 15332
+		// Token: 0x04003CBE RID: 15550
 		private Vector3 m_NetworkPosition;
 
-		// Token: 0x04003BE5 RID: 15333
+		// Token: 0x04003CBF RID: 15551
 		private Quaternion m_NetworkRotation;
 
-		// Token: 0x04003BE6 RID: 15334
+		// Token: 0x04003CC0 RID: 15552
 		public bool m_SynchronizeVelocity = true;
 
-		// Token: 0x04003BE7 RID: 15335
+		// Token: 0x04003CC1 RID: 15553
 		public bool m_SynchronizeAngularVelocity;
 
-		// Token: 0x04003BE8 RID: 15336
+		// Token: 0x04003CC2 RID: 15554
 		public bool m_TeleportEnabled;
 
-		// Token: 0x04003BE9 RID: 15337
+		// Token: 0x04003CC3 RID: 15555
 		public float m_TeleportIfDistanceGreaterThan = 3f;
 	}
 }

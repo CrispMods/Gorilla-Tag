@@ -2,11 +2,11 @@
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000ACD RID: 2765
+	// Token: 0x02000AFA RID: 2810
 	[Serializable]
 	internal class FeatureFlagListData
 	{
-		// Token: 0x040046A6 RID: 18086
+		// Token: 0x0400479D RID: 18333
 		public FeatureFlagData[] flags;
 	}
 }

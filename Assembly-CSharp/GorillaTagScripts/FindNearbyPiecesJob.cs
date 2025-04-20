@@ -6,11 +6,11 @@ using UnityEngine.Jobs;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009A3 RID: 2467
+	// Token: 0x020009C9 RID: 2505
 	[BurstCompile]
 	internal struct FindNearbyPiecesJob : IJobParallelForTransform
 	{
-		// Token: 0x06003CEE RID: 15598 RVA: 0x0011EED8 File Offset: 0x0011D0D8
+		// Token: 0x06003E06 RID: 15878 RVA: 0x00161310 File Offset: 0x0015F510
 		public void Execute(int index, TransformAccess transform)
 		{
 			if (!transform.isValid)
@@ -21,7 +21,7 @@ namespace GorillaTagScripts
 			this.CheckGridPlane(index, this.rightPieceInHandIndex, transform, this.rightHandPos, false, this.rightHandGridPlanes);
 		}
 
-		// Token: 0x06003CEF RID: 15599 RVA: 0x0011EF28 File Offset: 0x0011D128
+		// Token: 0x06003E07 RID: 15879 RVA: 0x00161360 File Offset: 0x0015F560
 		private void CheckGridPlane(int gridPlaneIndex, int handPieceIndex, TransformAccess transform, Vector3 handPos, bool isLeft, NativeList<BuilderGridPlaneData>.ParallelWriter checkGridPlanes)
 		{
 			if (handPieceIndex < 0)
@@ -47,13 +47,13 @@ namespace GorillaTagScripts
 			checkGridPlanes.AddNoResize(builderGridPlaneData);
 		}
 
-		// Token: 0x06003CF0 RID: 15600 RVA: 0x0011EFBC File Offset: 0x0011D1BC
+		// Token: 0x06003E08 RID: 15880 RVA: 0x00058653 File Offset: 0x00056853
 		public bool CanPiecesPotentiallySnap(int localActorNumber, int pieceInHandIndex, int attachToPieceIndex, int attachToPieceRootIndex, int requestedParentPieceIndex, bool isLeft)
 		{
 			return this.CanPlayerAttachToRootPiece(localActorNumber, attachToPieceRootIndex, isLeft) && (requestedParentPieceIndex == -1 || pieceInHandIndex != this.GetRootPieceIndex(requestedParentPieceIndex));
 		}
 
-		// Token: 0x06003CF1 RID: 15601 RVA: 0x0011EFE8 File Offset: 0x0011D1E8
+		// Token: 0x06003E09 RID: 15881 RVA: 0x001613F4 File Offset: 0x0015F5F4
 		public bool CanPlayerAttachToRootPiece(int playerActorNumber, int attachToPieceRootIndex, bool isLeft)
 		{
 			BuilderPieceData builderPieceData = this.pieceData[attachToPieceRootIndex];
@@ -98,14 +98,14 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003CF2 RID: 15602 RVA: 0x0011F0D8 File Offset: 0x0011D2D8
+		// Token: 0x06003E0A RID: 15882 RVA: 0x001614E4 File Offset: 0x0015F6E4
 		public bool CanPlayerAttachToPlot(int privatePlotIndex, int actorNumber)
 		{
 			BuilderPrivatePlotData builderPrivatePlotData = this.privatePlotData[privatePlotIndex];
 			return (builderPrivatePlotData.plotState == BuilderPiecePrivatePlot.PlotState.Occupied && builderPrivatePlotData.ownerActorNumber == actorNumber) || (builderPrivatePlotData.plotState == BuilderPiecePrivatePlot.PlotState.Vacant && this.localPlayerPlotIndex < 0);
 		}
 
-		// Token: 0x06003CF3 RID: 15603 RVA: 0x0011F11C File Offset: 0x0011D31C
+		// Token: 0x06003E0B RID: 15883 RVA: 0x00161528 File Offset: 0x0015F728
 		private int GetPlayerIndex(int playerActorNumber)
 		{
 			for (int i = 0; i < this.playerData.Length; i++)
@@ -118,7 +118,7 @@ namespace GorillaTagScripts
 			return -1;
 		}
 
-		// Token: 0x06003CF4 RID: 15604 RVA: 0x0011F158 File Offset: 0x0011D358
+		// Token: 0x06003E0C RID: 15884 RVA: 0x00161564 File Offset: 0x0015F764
 		public int GetAttachedBuiltInPiece(int pieceIndex)
 		{
 			BuilderPieceData builderPieceData = this.pieceData[pieceIndex];
@@ -143,7 +143,7 @@ namespace GorillaTagScripts
 			return -1;
 		}
 
-		// Token: 0x06003CF5 RID: 15605 RVA: 0x0011F1BC File Offset: 0x0011D3BC
+		// Token: 0x06003E0D RID: 15885 RVA: 0x001615C8 File Offset: 0x0015F7C8
 		private int GetRootPieceIndex(int pieceIndex)
 		{
 			int num = pieceIndex;
@@ -154,54 +154,54 @@ namespace GorillaTagScripts
 			return num;
 		}
 
-		// Token: 0x04003E4E RID: 15950
+		// Token: 0x04003F28 RID: 16168
 		[ReadOnly]
 		public float distanceThreshSq;
 
-		// Token: 0x04003E4F RID: 15951
+		// Token: 0x04003F29 RID: 16169
 		[ReadOnly]
 		public Vector3 leftHandPos;
 
-		// Token: 0x04003E50 RID: 15952
+		// Token: 0x04003F2A RID: 16170
 		[ReadOnly]
 		public int leftPieceInHandIndex;
 
-		// Token: 0x04003E51 RID: 15953
+		// Token: 0x04003F2B RID: 16171
 		[ReadOnly]
 		public Vector3 rightHandPos;
 
-		// Token: 0x04003E52 RID: 15954
+		// Token: 0x04003F2C RID: 16172
 		[ReadOnly]
 		public int rightPieceInHandIndex;
 
-		// Token: 0x04003E53 RID: 15955
+		// Token: 0x04003F2D RID: 16173
 		[ReadOnly]
 		public int localPlayerPlotIndex;
 
-		// Token: 0x04003E54 RID: 15956
+		// Token: 0x04003F2E RID: 16174
 		[ReadOnly]
 		public int localPlayerActorNumber;
 
-		// Token: 0x04003E55 RID: 15957
+		// Token: 0x04003F2F RID: 16175
 		[ReadOnly]
 		public NativeArray<BuilderPieceData> pieceData;
 
-		// Token: 0x04003E56 RID: 15958
+		// Token: 0x04003F30 RID: 16176
 		[ReadOnly]
 		public NativeArray<BuilderGridPlaneData> gridPlaneData;
 
-		// Token: 0x04003E57 RID: 15959
+		// Token: 0x04003F31 RID: 16177
 		[ReadOnly]
 		public NativeArray<BuilderPrivatePlotData> privatePlotData;
 
-		// Token: 0x04003E58 RID: 15960
+		// Token: 0x04003F32 RID: 16178
 		[ReadOnly]
 		public NativeArray<BuilderPlayerData> playerData;
 
-		// Token: 0x04003E59 RID: 15961
+		// Token: 0x04003F33 RID: 16179
 		public NativeList<BuilderGridPlaneData>.ParallelWriter leftHandGridPlanes;
 
-		// Token: 0x04003E5A RID: 15962
+		// Token: 0x04003F34 RID: 16180
 		public NativeList<BuilderGridPlaneData>.ParallelWriter rightHandGridPlanes;
 	}
 }

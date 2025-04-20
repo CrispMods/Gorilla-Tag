@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020007EC RID: 2028
+// Token: 0x02000806 RID: 2054
 [Serializable]
 public class CooldownType : CallLimitType<CallLimiterWithCooldown>
 {

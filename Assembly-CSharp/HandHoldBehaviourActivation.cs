@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x02000230 RID: 560
+// Token: 0x0200023B RID: 571
 public class HandHoldBehaviourActivation : Tappable
 {
-	// Token: 0x06000CCC RID: 3276 RVA: 0x00043200 File Offset: 0x00041400
+	// Token: 0x06000D17 RID: 3351 RVA: 0x000A0FE8 File Offset: 0x0009F1E8
 	protected override void OnEnable()
 	{
 		base.OnEnable();
@@ -14,7 +14,7 @@ public class HandHoldBehaviourActivation : Tappable
 		RoomSystem.LeftRoomEvent = (Action)Delegate.Combine(RoomSystem.LeftRoomEvent, new Action(this.OnLeftRoom));
 	}
 
-	// Token: 0x06000CCD RID: 3277 RVA: 0x00043254 File Offset: 0x00041454
+	// Token: 0x06000D18 RID: 3352 RVA: 0x000A103C File Offset: 0x0009F23C
 	public override void OnGrabLocal(float tapTime, PhotonMessageInfoWrapped sender)
 	{
 		byte b = this.m_playerGrabCounts.GetValueOrDefault(sender.Sender.ActorNumber, 0);
@@ -31,7 +31,7 @@ public class HandHoldBehaviourActivation : Tappable
 		}
 	}
 
-	// Token: 0x06000CCE RID: 3278 RVA: 0x000432C0 File Offset: 0x000414C0
+	// Token: 0x06000D19 RID: 3353 RVA: 0x000A10A8 File Offset: 0x0009F2A8
 	public override void OnReleaseLocal(float tapTime, PhotonMessageInfoWrapped sender)
 	{
 		byte b;
@@ -49,7 +49,7 @@ public class HandHoldBehaviourActivation : Tappable
 		}
 	}
 
-	// Token: 0x06000CCF RID: 3279 RVA: 0x00043340 File Offset: 0x00041540
+	// Token: 0x06000D1A RID: 3354 RVA: 0x000A1128 File Offset: 0x0009F328
 	private void OnPlayerLeftRoom(NetPlayer player)
 	{
 		byte b;
@@ -66,7 +66,7 @@ public class HandHoldBehaviourActivation : Tappable
 		}
 	}
 
-	// Token: 0x06000CD0 RID: 3280 RVA: 0x000433A8 File Offset: 0x000415A8
+	// Token: 0x06000D1B RID: 3355 RVA: 0x000A1190 File Offset: 0x0009F390
 	private void OnLeftRoom()
 	{
 		byte valueOrDefault = this.m_playerGrabCounts.GetValueOrDefault(NetworkSystem.Instance.LocalPlayer.ActorNumber, 0);
@@ -79,17 +79,17 @@ public class HandHoldBehaviourActivation : Tappable
 		this.m_playerGrabCounts[NetworkSystem.Instance.LocalPlayer.ActorNumber] = valueOrDefault;
 	}
 
-	// Token: 0x04001031 RID: 4145
+	// Token: 0x04001077 RID: 4215
 	[SerializeField]
 	private UnityEvent ActivationStart;
 
-	// Token: 0x04001032 RID: 4146
+	// Token: 0x04001078 RID: 4216
 	[SerializeField]
 	private UnityEvent ActivationStop;
 
-	// Token: 0x04001033 RID: 4147
+	// Token: 0x04001079 RID: 4217
 	private int grabs;
 
-	// Token: 0x04001034 RID: 4148
+	// Token: 0x0400107A RID: 4218
 	private readonly Dictionary<int, byte> m_playerGrabCounts = new Dictionary<int, byte>(10);
 }

@@ -2,10 +2,10 @@
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x02000078 RID: 120
+// Token: 0x0200007F RID: 127
 public static class DebugExtension
 {
-	// Token: 0x06000303 RID: 771 RVA: 0x00012908 File Offset: 0x00010B08
+	// Token: 0x06000335 RID: 821 RVA: 0x00076FDC File Offset: 0x000751DC
 	public static void DebugPoint(Vector3 position, Color color, float scale = 1f, float duration = 0f, bool depthTest = true)
 	{
 		color = ((color == default(Color)) ? Color.white : color);
@@ -14,13 +14,13 @@ public static class DebugExtension
 		Debug.DrawRay(position + Vector3.forward * (scale * 0.5f), -Vector3.forward * scale, color, duration, depthTest);
 	}
 
-	// Token: 0x06000304 RID: 772 RVA: 0x000129C0 File Offset: 0x00010BC0
+	// Token: 0x06000336 RID: 822 RVA: 0x000327EA File Offset: 0x000309EA
 	public static void DebugPoint(Vector3 position, float scale = 1f, float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugPoint(position, Color.white, scale, duration, depthTest);
 	}
 
-	// Token: 0x06000305 RID: 773 RVA: 0x000129D0 File Offset: 0x00010BD0
+	// Token: 0x06000337 RID: 823 RVA: 0x00077094 File Offset: 0x00075294
 	public static void DebugBounds(Bounds bounds, Color color, float duration = 0f, bool depthTest = true)
 	{
 		Vector3 center = bounds.center;
@@ -49,13 +49,13 @@ public static class DebugExtension
 		Debug.DrawLine(vector6, end, color, duration, depthTest);
 	}
 
-	// Token: 0x06000306 RID: 774 RVA: 0x00012B22 File Offset: 0x00010D22
+	// Token: 0x06000338 RID: 824 RVA: 0x000327FA File Offset: 0x000309FA
 	public static void DebugBounds(Bounds bounds, float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugBounds(bounds, Color.white, duration, depthTest);
 	}
 
-	// Token: 0x06000307 RID: 775 RVA: 0x00012B34 File Offset: 0x00010D34
+	// Token: 0x06000339 RID: 825 RVA: 0x000771E8 File Offset: 0x000753E8
 	public static void DebugLocalCube(Transform transform, Vector3 size, Color color, Vector3 center = default(Vector3), float duration = 0f, bool depthTest = true)
 	{
 		Vector3 vector = transform.TransformPoint(center + -size * 0.5f);
@@ -80,13 +80,13 @@ public static class DebugExtension
 		Debug.DrawLine(vector4, vector8, color, duration, depthTest);
 	}
 
-	// Token: 0x06000308 RID: 776 RVA: 0x00012D33 File Offset: 0x00010F33
+	// Token: 0x0600033A RID: 826 RVA: 0x00032809 File Offset: 0x00030A09
 	public static void DebugLocalCube(Transform transform, Vector3 size, Vector3 center = default(Vector3), float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugLocalCube(transform, size, Color.white, center, duration, depthTest);
 	}
 
-	// Token: 0x06000309 RID: 777 RVA: 0x00012D48 File Offset: 0x00010F48
+	// Token: 0x0600033B RID: 827 RVA: 0x000773E8 File Offset: 0x000755E8
 	public static void DebugLocalCube(Matrix4x4 space, Vector3 size, Color color, Vector3 center = default(Vector3), float duration = 0f, bool depthTest = true)
 	{
 		color = ((color == default(Color)) ? Color.white : color);
@@ -112,13 +112,13 @@ public static class DebugExtension
 		Debug.DrawLine(vector4, vector8, color, duration, depthTest);
 	}
 
-	// Token: 0x0600030A RID: 778 RVA: 0x00012F6B File Offset: 0x0001116B
+	// Token: 0x0600033C RID: 828 RVA: 0x0003281B File Offset: 0x00030A1B
 	public static void DebugLocalCube(Matrix4x4 space, Vector3 size, Vector3 center = default(Vector3), float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugLocalCube(space, size, Color.white, center, duration, depthTest);
 	}
 
-	// Token: 0x0600030B RID: 779 RVA: 0x00012F80 File Offset: 0x00011180
+	// Token: 0x0600033D RID: 829 RVA: 0x0007760C File Offset: 0x0007580C
 	public static void DebugCircle(Vector3 position, Vector3 up, Color color, float radius = 1f, float duration = 0f, bool depthTest = true)
 	{
 		Vector3 vector = up.normalized * radius;
@@ -148,25 +148,25 @@ public static class DebugExtension
 		}
 	}
 
-	// Token: 0x0600030C RID: 780 RVA: 0x0001310A File Offset: 0x0001130A
+	// Token: 0x0600033E RID: 830 RVA: 0x0003282D File Offset: 0x00030A2D
 	public static void DebugCircle(Vector3 position, Color color, float radius = 1f, float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugCircle(position, Vector3.up, color, radius, duration, depthTest);
 	}
 
-	// Token: 0x0600030D RID: 781 RVA: 0x0001311C File Offset: 0x0001131C
+	// Token: 0x0600033F RID: 831 RVA: 0x0003283F File Offset: 0x00030A3F
 	public static void DebugCircle(Vector3 position, Vector3 up, float radius = 1f, float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugCircle(position, up, Color.white, radius, duration, depthTest);
 	}
 
-	// Token: 0x0600030E RID: 782 RVA: 0x0001312E File Offset: 0x0001132E
+	// Token: 0x06000340 RID: 832 RVA: 0x00032851 File Offset: 0x00030A51
 	public static void DebugCircle(Vector3 position, float radius = 1f, float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugCircle(position, Vector3.up, Color.white, radius, duration, depthTest);
 	}
 
-	// Token: 0x0600030F RID: 783 RVA: 0x00013144 File Offset: 0x00011344
+	// Token: 0x06000341 RID: 833 RVA: 0x00077798 File Offset: 0x00075998
 	public static void DebugWireSphere(Vector3 position, Color color, float radius = 1f, float duration = 0f, bool depthTest = true)
 	{
 		float num = 10f;
@@ -187,13 +187,13 @@ public static class DebugExtension
 		}
 	}
 
-	// Token: 0x06000310 RID: 784 RVA: 0x000132F1 File Offset: 0x000114F1
+	// Token: 0x06000342 RID: 834 RVA: 0x00032866 File Offset: 0x00030A66
 	public static void DebugWireSphere(Vector3 position, float radius = 1f, float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugWireSphere(position, Color.white, radius, duration, depthTest);
 	}
 
-	// Token: 0x06000311 RID: 785 RVA: 0x00013304 File Offset: 0x00011504
+	// Token: 0x06000343 RID: 835 RVA: 0x00077948 File Offset: 0x00075B48
 	public static void DebugCylinder(Vector3 start, Vector3 end, Color color, float radius = 1f, float duration = 0f, bool depthTest = true)
 	{
 		Vector3 vector = (end - start).normalized * radius;
@@ -212,13 +212,13 @@ public static class DebugExtension
 		Debug.DrawLine(end - vector2, end + vector2, color, duration, depthTest);
 	}
 
-	// Token: 0x06000312 RID: 786 RVA: 0x0001344B File Offset: 0x0001164B
+	// Token: 0x06000344 RID: 836 RVA: 0x00032876 File Offset: 0x00030A76
 	public static void DebugCylinder(Vector3 start, Vector3 end, float radius = 1f, float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugCylinder(start, end, Color.white, radius, duration, depthTest);
 	}
 
-	// Token: 0x06000313 RID: 787 RVA: 0x00013460 File Offset: 0x00011660
+	// Token: 0x06000345 RID: 837 RVA: 0x00077A90 File Offset: 0x00075C90
 	public static void DebugCone(Vector3 position, Vector3 direction, Color color, float angle = 45f, float duration = 0f, bool depthTest = true)
 	{
 		float magnitude = direction.magnitude;
@@ -239,38 +239,38 @@ public static class DebugExtension
 		DebugExtension.DebugCircle(position + vector * 0.5f, direction, color, (vector * 0.5f - direction2.normalized * (num * 0.5f)).magnitude, duration, depthTest);
 	}
 
-	// Token: 0x06000314 RID: 788 RVA: 0x000135F5 File Offset: 0x000117F5
+	// Token: 0x06000346 RID: 838 RVA: 0x00032888 File Offset: 0x00030A88
 	public static void DebugCone(Vector3 position, Vector3 direction, float angle = 45f, float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugCone(position, direction, Color.white, angle, duration, depthTest);
 	}
 
-	// Token: 0x06000315 RID: 789 RVA: 0x00013607 File Offset: 0x00011807
+	// Token: 0x06000347 RID: 839 RVA: 0x0003289A File Offset: 0x00030A9A
 	public static void DebugCone(Vector3 position, Color color, float angle = 45f, float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugCone(position, Vector3.up, color, angle, duration, depthTest);
 	}
 
-	// Token: 0x06000316 RID: 790 RVA: 0x00013619 File Offset: 0x00011819
+	// Token: 0x06000348 RID: 840 RVA: 0x000328AC File Offset: 0x00030AAC
 	public static void DebugCone(Vector3 position, float angle = 45f, float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugCone(position, Vector3.up, Color.white, angle, duration, depthTest);
 	}
 
-	// Token: 0x06000317 RID: 791 RVA: 0x0001362E File Offset: 0x0001182E
+	// Token: 0x06000349 RID: 841 RVA: 0x000328C1 File Offset: 0x00030AC1
 	public static void DebugArrow(Vector3 position, Vector3 direction, Color color, float duration = 0f, bool depthTest = true)
 	{
 		Debug.DrawRay(position, direction, color, duration, depthTest);
 		DebugExtension.DebugCone(position + direction, -direction * 0.333f, color, 15f, duration, depthTest);
 	}
 
-	// Token: 0x06000318 RID: 792 RVA: 0x00013660 File Offset: 0x00011860
+	// Token: 0x0600034A RID: 842 RVA: 0x000328F3 File Offset: 0x00030AF3
 	public static void DebugArrow(Vector3 position, Vector3 direction, float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugArrow(position, direction, Color.white, duration, depthTest);
 	}
 
-	// Token: 0x06000319 RID: 793 RVA: 0x00013670 File Offset: 0x00011870
+	// Token: 0x0600034B RID: 843 RVA: 0x00077C28 File Offset: 0x00075E28
 	public static void DebugCapsule(Vector3 start, Vector3 end, Color color, float radius = 1f, float duration = 0f, bool depthTest = true)
 	{
 		Vector3 vector = (end - start).normalized * radius;
@@ -300,13 +300,13 @@ public static class DebugExtension
 		}
 	}
 
-	// Token: 0x0600031A RID: 794 RVA: 0x000139DE File Offset: 0x00011BDE
+	// Token: 0x0600034C RID: 844 RVA: 0x00032903 File Offset: 0x00030B03
 	public static void DebugCapsule(Vector3 start, Vector3 end, float radius = 1f, float duration = 0f, bool depthTest = true)
 	{
 		DebugExtension.DebugCapsule(start, end, Color.white, radius, duration, depthTest);
 	}
 
-	// Token: 0x0600031B RID: 795 RVA: 0x000139F0 File Offset: 0x00011BF0
+	// Token: 0x0600034D RID: 845 RVA: 0x00077F98 File Offset: 0x00076198
 	public static void DrawPoint(Vector3 position, Color color, float scale = 1f)
 	{
 		Color color2 = Gizmos.color;
@@ -317,13 +317,13 @@ public static class DebugExtension
 		Gizmos.color = color2;
 	}
 
-	// Token: 0x0600031C RID: 796 RVA: 0x00013A91 File Offset: 0x00011C91
+	// Token: 0x0600034E RID: 846 RVA: 0x00032915 File Offset: 0x00030B15
 	public static void DrawPoint(Vector3 position, float scale = 1f)
 	{
 		DebugExtension.DrawPoint(position, Color.white, scale);
 	}
 
-	// Token: 0x0600031D RID: 797 RVA: 0x00013AA0 File Offset: 0x00011CA0
+	// Token: 0x0600034F RID: 847 RVA: 0x0007803C File Offset: 0x0007623C
 	public static void DrawBounds(Bounds bounds, Color color)
 	{
 		Vector3 center = bounds.center;
@@ -355,13 +355,13 @@ public static class DebugExtension
 		Gizmos.color = color2;
 	}
 
-	// Token: 0x0600031E RID: 798 RVA: 0x00013BDE File Offset: 0x00011DDE
+	// Token: 0x06000350 RID: 848 RVA: 0x00032923 File Offset: 0x00030B23
 	public static void DrawBounds(Bounds bounds)
 	{
 		DebugExtension.DrawBounds(bounds, Color.white);
 	}
 
-	// Token: 0x0600031F RID: 799 RVA: 0x00013BEC File Offset: 0x00011DEC
+	// Token: 0x06000351 RID: 849 RVA: 0x0007817C File Offset: 0x0007637C
 	public static void DrawLocalCube(Transform transform, Vector3 size, Color color, Vector3 center = default(Vector3))
 	{
 		Color color2 = Gizmos.color;
@@ -389,13 +389,13 @@ public static class DebugExtension
 		Gizmos.color = color2;
 	}
 
-	// Token: 0x06000320 RID: 800 RVA: 0x00013DBF File Offset: 0x00011FBF
+	// Token: 0x06000352 RID: 850 RVA: 0x00032930 File Offset: 0x00030B30
 	public static void DrawLocalCube(Transform transform, Vector3 size, Vector3 center = default(Vector3))
 	{
 		DebugExtension.DrawLocalCube(transform, size, Color.white, center);
 	}
 
-	// Token: 0x06000321 RID: 801 RVA: 0x00013DD0 File Offset: 0x00011FD0
+	// Token: 0x06000353 RID: 851 RVA: 0x00078350 File Offset: 0x00076550
 	public static void DrawLocalCube(Matrix4x4 space, Vector3 size, Color color, Vector3 center = default(Vector3))
 	{
 		Color color2 = Gizmos.color;
@@ -423,13 +423,13 @@ public static class DebugExtension
 		Gizmos.color = color2;
 	}
 
-	// Token: 0x06000322 RID: 802 RVA: 0x00013FAB File Offset: 0x000121AB
+	// Token: 0x06000354 RID: 852 RVA: 0x0003293F File Offset: 0x00030B3F
 	public static void DrawLocalCube(Matrix4x4 space, Vector3 size, Vector3 center = default(Vector3))
 	{
 		DebugExtension.DrawLocalCube(space, size, Color.white, center);
 	}
 
-	// Token: 0x06000323 RID: 803 RVA: 0x00013FBC File Offset: 0x000121BC
+	// Token: 0x06000355 RID: 853 RVA: 0x0007852C File Offset: 0x0007672C
 	public static void DrawCircle(Vector3 position, Vector3 up, Color color, float radius = 1f)
 	{
 		up = ((up == Vector3.zero) ? Vector3.up : up).normalized * radius;
@@ -461,25 +461,25 @@ public static class DebugExtension
 		Gizmos.color = color2;
 	}
 
-	// Token: 0x06000324 RID: 804 RVA: 0x00014167 File Offset: 0x00012367
+	// Token: 0x06000356 RID: 854 RVA: 0x0003294E File Offset: 0x00030B4E
 	public static void DrawCircle(Vector3 position, Color color, float radius = 1f)
 	{
 		DebugExtension.DrawCircle(position, Vector3.up, color, radius);
 	}
 
-	// Token: 0x06000325 RID: 805 RVA: 0x00014176 File Offset: 0x00012376
+	// Token: 0x06000357 RID: 855 RVA: 0x0003295D File Offset: 0x00030B5D
 	public static void DrawCircle(Vector3 position, Vector3 up, float radius = 1f)
 	{
 		DebugExtension.DrawCircle(position, position, Color.white, radius);
 	}
 
-	// Token: 0x06000326 RID: 806 RVA: 0x00014185 File Offset: 0x00012385
+	// Token: 0x06000358 RID: 856 RVA: 0x0003296C File Offset: 0x00030B6C
 	public static void DrawCircle(Vector3 position, float radius = 1f)
 	{
 		DebugExtension.DrawCircle(position, Vector3.up, Color.white, radius);
 	}
 
-	// Token: 0x06000327 RID: 807 RVA: 0x00014198 File Offset: 0x00012398
+	// Token: 0x06000359 RID: 857 RVA: 0x000786D8 File Offset: 0x000768D8
 	public static void DrawCylinder(Vector3 start, Vector3 end, Color color, float radius = 1f)
 	{
 		Vector3 vector = (end - start).normalized * radius;
@@ -501,13 +501,13 @@ public static class DebugExtension
 		Gizmos.color = color2;
 	}
 
-	// Token: 0x06000328 RID: 808 RVA: 0x000142BB File Offset: 0x000124BB
+	// Token: 0x0600035A RID: 858 RVA: 0x0003297F File Offset: 0x00030B7F
 	public static void DrawCylinder(Vector3 start, Vector3 end, float radius = 1f)
 	{
 		DebugExtension.DrawCylinder(start, end, Color.white, radius);
 	}
 
-	// Token: 0x06000329 RID: 809 RVA: 0x000142CC File Offset: 0x000124CC
+	// Token: 0x0600035B RID: 859 RVA: 0x000787FC File Offset: 0x000769FC
 	public static void DrawCone(Vector3 position, Vector3 direction, Color color, float angle = 45f)
 	{
 		float magnitude = direction.magnitude;
@@ -531,25 +531,25 @@ public static class DebugExtension
 		Gizmos.color = color2;
 	}
 
-	// Token: 0x0600032A RID: 810 RVA: 0x00014459 File Offset: 0x00012659
+	// Token: 0x0600035C RID: 860 RVA: 0x0003298E File Offset: 0x00030B8E
 	public static void DrawCone(Vector3 position, Vector3 direction, float angle = 45f)
 	{
 		DebugExtension.DrawCone(position, direction, Color.white, angle);
 	}
 
-	// Token: 0x0600032B RID: 811 RVA: 0x00014468 File Offset: 0x00012668
+	// Token: 0x0600035D RID: 861 RVA: 0x0003299D File Offset: 0x00030B9D
 	public static void DrawCone(Vector3 position, Color color, float angle = 45f)
 	{
 		DebugExtension.DrawCone(position, Vector3.up, color, angle);
 	}
 
-	// Token: 0x0600032C RID: 812 RVA: 0x00014477 File Offset: 0x00012677
+	// Token: 0x0600035E RID: 862 RVA: 0x000329AC File Offset: 0x00030BAC
 	public static void DrawCone(Vector3 position, float angle = 45f)
 	{
 		DebugExtension.DrawCone(position, Vector3.up, Color.white, angle);
 	}
 
-	// Token: 0x0600032D RID: 813 RVA: 0x0001448A File Offset: 0x0001268A
+	// Token: 0x0600035F RID: 863 RVA: 0x000329BF File Offset: 0x00030BBF
 	public static void DrawArrow(Vector3 position, Vector3 direction, Color color)
 	{
 		Color color2 = Gizmos.color;
@@ -559,13 +559,13 @@ public static class DebugExtension
 		Gizmos.color = color2;
 	}
 
-	// Token: 0x0600032E RID: 814 RVA: 0x000144C5 File Offset: 0x000126C5
+	// Token: 0x06000360 RID: 864 RVA: 0x000329FA File Offset: 0x00030BFA
 	public static void DrawArrow(Vector3 position, Vector3 direction)
 	{
 		DebugExtension.DrawArrow(position, direction, Color.white);
 	}
 
-	// Token: 0x0600032F RID: 815 RVA: 0x000144D4 File Offset: 0x000126D4
+	// Token: 0x06000361 RID: 865 RVA: 0x0007898C File Offset: 0x00076B8C
 	public static void DrawCapsule(Vector3 start, Vector3 end, Color color, float radius = 1f)
 	{
 		Vector3 vector = (end - start).normalized * radius;
@@ -598,13 +598,13 @@ public static class DebugExtension
 		Gizmos.color = color2;
 	}
 
-	// Token: 0x06000330 RID: 816 RVA: 0x00014812 File Offset: 0x00012A12
+	// Token: 0x06000362 RID: 866 RVA: 0x00032A08 File Offset: 0x00030C08
 	public static void DrawCapsule(Vector3 start, Vector3 end, float radius = 1f)
 	{
 		DebugExtension.DrawCapsule(start, end, Color.white, radius);
 	}
 
-	// Token: 0x06000331 RID: 817 RVA: 0x00014824 File Offset: 0x00012A24
+	// Token: 0x06000363 RID: 867 RVA: 0x00078CCC File Offset: 0x00076ECC
 	public static string MethodsOfObject(object obj, bool includeInfo = false)
 	{
 		string text = "";
@@ -625,7 +625,7 @@ public static class DebugExtension
 		return text;
 	}
 
-	// Token: 0x06000332 RID: 818 RVA: 0x00014888 File Offset: 0x00012A88
+	// Token: 0x06000364 RID: 868 RVA: 0x00078D30 File Offset: 0x00076F30
 	public static string MethodsOfType(Type type, bool includeInfo = false)
 	{
 		string text = "";

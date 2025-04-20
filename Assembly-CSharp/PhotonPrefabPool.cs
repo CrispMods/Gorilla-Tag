@@ -5,20 +5,21 @@ using Photon.Pun;
 using Photon.Voice.Unity;
 using UnityEngine;
 
-// Token: 0x0200053E RID: 1342
+// Token: 0x0200054B RID: 1355
 public class PhotonPrefabPool : MonoBehaviour, IPunPrefabPool, ITickSystemPre
 {
-	// Token: 0x1700034B RID: 843
-	// (get) Token: 0x06002088 RID: 8328 RVA: 0x000A3206 File Offset: 0x000A1406
-	// (set) Token: 0x06002089 RID: 8329 RVA: 0x000A320E File Offset: 0x000A140E
+	// Token: 0x17000352 RID: 850
+	// (get) Token: 0x060020E1 RID: 8417 RVA: 0x0004665F File Offset: 0x0004485F
+	// (set) Token: 0x060020E2 RID: 8418 RVA: 0x00046667 File Offset: 0x00044867
 	bool ITickSystemPre.PreTickRunning { get; set; }
 
-	// Token: 0x0600208A RID: 8330 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060020E3 RID: 8419 RVA: 0x00046670 File Offset: 0x00044870
 	private void Awake()
 	{
+		RoomSystem.LeftRoomEvent = (Action)Delegate.Combine(RoomSystem.LeftRoomEvent, new Action(this.OnLeftRoom));
 	}
 
-	// Token: 0x0600208B RID: 8331 RVA: 0x000A3218 File Offset: 0x000A1418
+	// Token: 0x060020E4 RID: 8420 RVA: 0x000F4128 File Offset: 0x000F2328
 	private void Start()
 	{
 		PhotonNetwork.PrefabPool = this;
@@ -37,7 +38,7 @@ public class PhotonPrefabPool : MonoBehaviour, IPunPrefabPool, ITickSystemPre
 		}
 	}
 
-	// Token: 0x0600208C RID: 8332 RVA: 0x000A32A4 File Offset: 0x000A14A4
+	// Token: 0x060020E5 RID: 8421 RVA: 0x00046692 File Offset: 0x00044892
 	public void AddPrefab(GameObject go, string name)
 	{
 		if (go == null)
@@ -51,7 +52,7 @@ public class PhotonPrefabPool : MonoBehaviour, IPunPrefabPool, ITickSystemPre
 		this.networkPrefabs.Add(name, go);
 	}
 
-	// Token: 0x0600208D RID: 8333 RVA: 0x000A32D0 File Offset: 0x000A14D0
+	// Token: 0x060020E6 RID: 8422 RVA: 0x000F41B4 File Offset: 0x000F23B4
 	GameObject IPunPrefabPool.Instantiate(string prefabId, Vector3 position, Quaternion rotation)
 	{
 		GameObject gameObject;
@@ -64,7 +65,7 @@ public class PhotonPrefabPool : MonoBehaviour, IPunPrefabPool, ITickSystemPre
 		{
 			gameObject.SetActive(false);
 		}
-		GameObject gameObject2 = Object.Instantiate<GameObject>(gameObject, position, rotation);
+		GameObject gameObject2 = UnityEngine.Object.Instantiate<GameObject>(gameObject, position, rotation);
 		this.netInstantiedObjects.Add(gameObject2);
 		if (activeSelf)
 		{
@@ -73,7 +74,7 @@ public class PhotonPrefabPool : MonoBehaviour, IPunPrefabPool, ITickSystemPre
 		return gameObject2;
 	}
 
-	// Token: 0x0600208E RID: 8334 RVA: 0x000A3320 File Offset: 0x000A1520
+	// Token: 0x060020E7 RID: 8423 RVA: 0x000F4204 File Offset: 0x000F2404
 	void IPunPrefabPool.Destroy(GameObject gameObject)
 	{
 		if (gameObject.IsNull())
@@ -82,29 +83,42 @@ public class PhotonPrefabPool : MonoBehaviour, IPunPrefabPool, ITickSystemPre
 		}
 		if (this.netInstantiedObjects.Contains(gameObject))
 		{
+			PhotonViewCache photonViewCache;
+			if (this.m_invalidCreatePool.Count < 200 && gameObject.TryGetComponent<PhotonViewCache>(out photonViewCache) && !photonViewCache.Initialized)
+			{
+				if (this.m_m_invalidCreatePoolLookup.Add(gameObject))
+				{
+					this.m_invalidCreatePool.Add(gameObject);
+				}
+				return;
+			}
 			this.netInstantiedObjects.Remove(gameObject);
-			Object.Destroy(gameObject);
+			UnityEngine.Object.Destroy(gameObject);
 			return;
 		}
-		PhotonView photonView;
-		if (!gameObject.TryGetComponent<PhotonView>(out photonView) || photonView.isRuntimeInstantiated)
+		else
 		{
-			Object.Destroy(gameObject);
+			PhotonView photonView;
+			if (!gameObject.TryGetComponent<PhotonView>(out photonView) || photonView.isRuntimeInstantiated)
+			{
+				UnityEngine.Object.Destroy(gameObject);
+				return;
+			}
+			if (!this.objectsQueued.Contains(gameObject))
+			{
+				this.objectsWaiting.Enqueue(gameObject);
+				this.objectsQueued.Add(gameObject);
+			}
+			if (!this.waiting)
+			{
+				this.waiting = true;
+				TickSystem<object>.AddPreTickCallback(this);
+			}
 			return;
-		}
-		if (!this.objectsQueued.Contains(gameObject))
-		{
-			this.objectsWaiting.Enqueue(gameObject);
-			this.objectsQueued.Add(gameObject);
-		}
-		if (!this.waiting)
-		{
-			this.waiting = true;
-			TickSystem<object>.AddPreTickCallback(this);
 		}
 	}
 
-	// Token: 0x0600208F RID: 8335 RVA: 0x000A33B0 File Offset: 0x000A15B0
+	// Token: 0x060020E8 RID: 8424 RVA: 0x000F42D0 File Offset: 0x000F24D0
 	void ITickSystemPre.PreTick()
 	{
 		if (this.waiting)
@@ -138,7 +152,21 @@ public class PhotonPrefabPool : MonoBehaviour, IPunPrefabPool, ITickSystemPre
 		this.waiting = true;
 	}
 
-	// Token: 0x06002090 RID: 8336 RVA: 0x000A3474 File Offset: 0x000A1674
+	// Token: 0x060020E9 RID: 8425 RVA: 0x000F4394 File Offset: 0x000F2594
+	private void OnLeftRoom()
+	{
+		foreach (GameObject gameObject in this.m_invalidCreatePool)
+		{
+			if (!gameObject.IsNull())
+			{
+				UnityEngine.Object.Destroy(gameObject);
+			}
+		}
+		this.m_invalidCreatePool.Clear();
+		this.m_m_invalidCreatePoolLookup.Clear();
+	}
+
+	// Token: 0x060020EA RID: 8426 RVA: 0x000F4404 File Offset: 0x000F2604
 	private void CheckVOIPSettings(RemoteVoiceLink voiceLink)
 	{
 		try
@@ -171,28 +199,34 @@ public class PhotonPrefabPool : MonoBehaviour, IPunPrefabPool, ITickSystemPre
 		}
 	}
 
-	// Token: 0x04002480 RID: 9344
+	// Token: 0x040024D3 RID: 9427
 	[SerializeField]
 	private PrefabType[] networkPrefabsData;
 
-	// Token: 0x04002481 RID: 9345
+	// Token: 0x040024D4 RID: 9428
 	public Dictionary<string, GameObject> networkPrefabs = new Dictionary<string, GameObject>();
 
-	// Token: 0x04002482 RID: 9346
+	// Token: 0x040024D5 RID: 9429
 	private Queue<GameObject> objectsWaiting = new Queue<GameObject>(20);
 
-	// Token: 0x04002483 RID: 9347
+	// Token: 0x040024D6 RID: 9430
 	private Queue<GameObject> queueBeingProcssed = new Queue<GameObject>(20);
 
-	// Token: 0x04002484 RID: 9348
+	// Token: 0x040024D7 RID: 9431
 	private HashSet<GameObject> objectsQueued = new HashSet<GameObject>();
 
-	// Token: 0x04002485 RID: 9349
+	// Token: 0x040024D8 RID: 9432
 	private HashSet<GameObject> netInstantiedObjects = new HashSet<GameObject>();
 
-	// Token: 0x04002486 RID: 9350
+	// Token: 0x040024D9 RID: 9433
 	private List<PhotonView> tempViews = new List<PhotonView>(5);
 
-	// Token: 0x04002487 RID: 9351
+	// Token: 0x040024DA RID: 9434
+	private List<GameObject> m_invalidCreatePool = new List<GameObject>(100);
+
+	// Token: 0x040024DB RID: 9435
+	private HashSet<GameObject> m_m_invalidCreatePoolLookup = new HashSet<GameObject>(100);
+
+	// Token: 0x040024DC RID: 9436
 	private bool waiting;
 }

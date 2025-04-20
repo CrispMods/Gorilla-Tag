@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace GorillaTag.GuidedRefs
 {
-	// Token: 0x02000BD6 RID: 3030
+	// Token: 0x02000C04 RID: 3076
 	public abstract class GuidedRefIdBaseSO : ScriptableObject, IGuidedRefObject
 	{
-		// Token: 0x06004C6A RID: 19562 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004DB6 RID: 19894 RVA: 0x00030607 File Offset: 0x0002E807
 		public virtual void GuidedRefInitialize()
 		{
 		}
 
-		// Token: 0x06004C6C RID: 19564 RVA: 0x00015AA9 File Offset: 0x00013CA9
+		// Token: 0x06004DB8 RID: 19896 RVA: 0x00032CAE File Offset: 0x00030EAE
 		int IGuidedRefObject.GetInstanceID()
 		{
 			return base.GetInstanceID();

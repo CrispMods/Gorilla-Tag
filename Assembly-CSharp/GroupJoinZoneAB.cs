@@ -1,10 +1,10 @@
 ﻿using System;
 
-// Token: 0x02000530 RID: 1328
+// Token: 0x0200053D RID: 1341
 [Serializable]
 public struct GroupJoinZoneAB
 {
-	// Token: 0x06002019 RID: 8217 RVA: 0x000A1B3C File Offset: 0x0009FD3C
+	// Token: 0x06002072 RID: 8306 RVA: 0x000F2F54 File Offset: 0x000F1154
 	public static GroupJoinZoneAB operator &(GroupJoinZoneAB one, GroupJoinZoneAB two)
 	{
 		return new GroupJoinZoneAB
@@ -14,7 +14,7 @@ public struct GroupJoinZoneAB
 		};
 	}
 
-	// Token: 0x0600201A RID: 8218 RVA: 0x000A1B7C File Offset: 0x0009FD7C
+	// Token: 0x06002073 RID: 8307 RVA: 0x000F2F94 File Offset: 0x000F1194
 	public static GroupJoinZoneAB operator |(GroupJoinZoneAB one, GroupJoinZoneAB two)
 	{
 		return new GroupJoinZoneAB
@@ -24,7 +24,7 @@ public struct GroupJoinZoneAB
 		};
 	}
 
-	// Token: 0x0600201B RID: 8219 RVA: 0x000A1BBC File Offset: 0x0009FDBC
+	// Token: 0x06002074 RID: 8308 RVA: 0x000F2FD4 File Offset: 0x000F11D4
 	public static GroupJoinZoneAB operator ~(GroupJoinZoneAB z)
 	{
 		return new GroupJoinZoneAB
@@ -34,31 +34,31 @@ public struct GroupJoinZoneAB
 		};
 	}
 
-	// Token: 0x0600201C RID: 8220 RVA: 0x000A1BEE File Offset: 0x0009FDEE
+	// Token: 0x06002075 RID: 8309 RVA: 0x00046170 File Offset: 0x00044370
 	public static bool operator ==(GroupJoinZoneAB one, GroupJoinZoneAB two)
 	{
 		return one.a == two.a && one.b == two.b;
 	}
 
-	// Token: 0x0600201D RID: 8221 RVA: 0x000A1C0E File Offset: 0x0009FE0E
+	// Token: 0x06002076 RID: 8310 RVA: 0x00046190 File Offset: 0x00044390
 	public static bool operator !=(GroupJoinZoneAB one, GroupJoinZoneAB two)
 	{
 		return one.a != two.a || one.b != two.b;
 	}
 
-	// Token: 0x0600201E RID: 8222 RVA: 0x000A1C31 File Offset: 0x0009FE31
+	// Token: 0x06002077 RID: 8311 RVA: 0x000461B3 File Offset: 0x000443B3
 	public override bool Equals(object other)
 	{
 		return this == (GroupJoinZoneAB)other;
 	}
 
-	// Token: 0x0600201F RID: 8223 RVA: 0x000A1C44 File Offset: 0x0009FE44
+	// Token: 0x06002078 RID: 8312 RVA: 0x000461C6 File Offset: 0x000443C6
 	public override int GetHashCode()
 	{
 		return this.a.GetHashCode() ^ this.b.GetHashCode();
 	}
 
-	// Token: 0x06002020 RID: 8224 RVA: 0x000A1C6C File Offset: 0x0009FE6C
+	// Token: 0x06002079 RID: 8313 RVA: 0x000F3008 File Offset: 0x000F1208
 	public static implicit operator GroupJoinZoneAB(int d)
 	{
 		return new GroupJoinZoneAB
@@ -67,7 +67,7 @@ public struct GroupJoinZoneAB
 		};
 	}
 
-	// Token: 0x06002021 RID: 8225 RVA: 0x000A1C8C File Offset: 0x0009FE8C
+	// Token: 0x0600207A RID: 8314 RVA: 0x000F3028 File Offset: 0x000F1228
 	public override string ToString()
 	{
 		if (this.b == (GroupJoinZoneB)0)
@@ -81,9 +81,9 @@ public struct GroupJoinZoneAB
 		return this.b.ToString();
 	}
 
-	// Token: 0x0400244B RID: 9291
+	// Token: 0x0400249E RID: 9374
 	public GroupJoinZoneA a;
 
-	// Token: 0x0400244C RID: 9292
+	// Token: 0x0400249F RID: 9375
 	public GroupJoinZoneB b;
 }

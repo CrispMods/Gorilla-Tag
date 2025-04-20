@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Critters.Scripts
 {
-	// Token: 0x02000C7C RID: 3196
+	// Token: 0x02000CAD RID: 3245
 	public class CrittersSpawningData : MonoBehaviour
 	{
-		// Token: 0x060050B1 RID: 20657 RVA: 0x00188324 File Offset: 0x00186524
+		// Token: 0x06005213 RID: 21011 RVA: 0x001BF494 File Offset: 0x001BD694
 		public void InitializeSpawnCollection()
 		{
 			for (int i = 0; i < this.SpawnParametersList.Count; i++)
@@ -19,30 +19,30 @@ namespace Critters.Scripts
 			}
 		}
 
-		// Token: 0x060050B2 RID: 20658 RVA: 0x00188370 File Offset: 0x00186570
+		// Token: 0x06005214 RID: 21012 RVA: 0x001BF4E0 File Offset: 0x001BD6E0
 		public int GetRandomTemplate()
 		{
-			int index = Random.Range(0, this.templateCollection.Count - 1);
+			int index = UnityEngine.Random.Range(0, this.templateCollection.Count - 1);
 			return this.templateCollection[index];
 		}
 
-		// Token: 0x04005323 RID: 21283
+		// Token: 0x0400542F RID: 21551
 		public List<CrittersSpawningData.CreatureSpawnParameters> SpawnParametersList;
 
-		// Token: 0x04005324 RID: 21284
+		// Token: 0x04005430 RID: 21552
 		private List<int> templateCollection = new List<int>();
 
-		// Token: 0x02000C7D RID: 3197
+		// Token: 0x02000CAE RID: 3246
 		[Serializable]
 		public class CreatureSpawnParameters
 		{
-			// Token: 0x04005325 RID: 21285
+			// Token: 0x04005431 RID: 21553
 			public CritterTemplate Template;
 
-			// Token: 0x04005326 RID: 21286
+			// Token: 0x04005432 RID: 21554
 			public int ChancesToSpawn;
 
-			// Token: 0x04005327 RID: 21287
+			// Token: 0x04005433 RID: 21555
 			[HideInInspector]
 			[NonSerialized]
 			public int StartingIndex;

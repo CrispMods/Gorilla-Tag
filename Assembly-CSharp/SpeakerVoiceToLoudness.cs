@@ -3,18 +3,18 @@ using Photon.Voice;
 using Photon.Voice.Unity;
 using UnityEngine;
 
-// Token: 0x020001F6 RID: 502
+// Token: 0x02000201 RID: 513
 [RequireComponent(typeof(Speaker))]
 public class SpeakerVoiceToLoudness : MonoBehaviour
 {
-	// Token: 0x06000BCB RID: 3019 RVA: 0x0003E81C File Offset: 0x0003CA1C
+	// Token: 0x06000C16 RID: 3094 RVA: 0x0009D258 File Offset: 0x0009B458
 	private void Awake()
 	{
 		Speaker component = base.GetComponent<Speaker>();
 		component.CustomAudioOutFactory = this.GetVolumeTracking(component);
 	}
 
-	// Token: 0x06000BCC RID: 3020 RVA: 0x0003E840 File Offset: 0x0003CA40
+	// Token: 0x06000C17 RID: 3095 RVA: 0x0009D27C File Offset: 0x0009B47C
 	private Func<IAudioOut<float>> GetVolumeTracking(Speaker speaker)
 	{
 		AudioOutDelayControl.PlayDelayConfig pdc = new AudioOutDelayControl.PlayDelayConfig
@@ -26,7 +26,7 @@ public class SpeakerVoiceToLoudness : MonoBehaviour
 		return () => new SpeakerVoiceLoudnessAudioOut(this, speaker.GetComponent<AudioSource>(), pdc, speaker.Logger, string.Empty, speaker.Logger.IsDebugEnabled);
 	}
 
-	// Token: 0x04000E2E RID: 3630
+	// Token: 0x04000E74 RID: 3700
 	[SerializeField]
 	private PlaybackDelaySettings playbackDelaySettings = new PlaybackDelaySettings
 	{
@@ -35,6 +35,6 @@ public class SpeakerVoiceToLoudness : MonoBehaviour
 		MaxDelayHard = 1000
 	};
 
-	// Token: 0x04000E2F RID: 3631
+	// Token: 0x04000E75 RID: 3701
 	public float loudness;
 }

@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace emotitron.CompressionTests
 {
-	// Token: 0x02000C77 RID: 3191
+	// Token: 0x02000CA8 RID: 3240
 	public class BenchmarkTests : MonoBehaviour
 	{
-		// Token: 0x06005093 RID: 20627 RVA: 0x001878DD File Offset: 0x00185ADD
+		// Token: 0x060051F3 RID: 20979 RVA: 0x00065244 File Offset: 0x00063444
 		private void Start()
 		{
 			BenchmarkTests.TestWriterIntegrity();
@@ -16,7 +16,7 @@ namespace emotitron.CompressionTests
 			BenchmarkTests.ArrayCopySafe();
 		}
 
-		// Token: 0x06005094 RID: 20628 RVA: 0x001878F0 File Offset: 0x00185AF0
+		// Token: 0x060051F4 RID: 20980 RVA: 0x001BEB7C File Offset: 0x001BCD7C
 		public static void TestWriterIntegrity()
 		{
 			int num = 1;
@@ -28,11 +28,11 @@ namespace emotitron.CompressionTests
 			}
 			for (int i = 0; i < 3000; i++)
 			{
-				num = Random.Range(0, 200);
+				num = UnityEngine.Random.Range(0, 200);
 				num2 = num;
 				int num3 = num;
-				int num4 = Random.Range(1, 64);
-				int num5 = Random.Range(-(1 << num4 - 1), (1 << num4 - 1) - 1);
+				int num4 = UnityEngine.Random.Range(1, 64);
+				int num5 = UnityEngine.Random.Range(-(1 << num4 - 1), (1 << num4 - 1) - 1);
 				BenchmarkTests.ubuffer.WriteSigned(num5, ref num, num4);
 				BenchmarkTests.ubuffer.WriteSigned(num5, ref num, num4);
 				BenchmarkTests.ubuffer.WriteSigned(num5, ref num, num4);
@@ -72,7 +72,7 @@ namespace emotitron.CompressionTests
 						num4.ToString()
 					}));
 				}
-				ulong num6 = (ulong)Random.Range(0f, (1L << num4) - 1L);
+				ulong num6 = (ulong)UnityEngine.Random.Range(0f, (1L << num4) - 1L);
 				BenchmarkTests.ubuffer.Write(num6, ref num, num4);
 				BenchmarkTests.ubuffer.Write(num6, ref num, num4);
 				BenchmarkTests.ubuffer.Write(num6, ref num, num4);
@@ -116,7 +116,7 @@ namespace emotitron.CompressionTests
 			Debug.Log("Integrity check complete.");
 		}
 
-		// Token: 0x06005095 RID: 20629 RVA: 0x00187C10 File Offset: 0x00185E10
+		// Token: 0x060051F5 RID: 20981 RVA: 0x001BEE9C File Offset: 0x001BD09C
 		private static void TestLog2()
 		{
 			Stopwatch stopwatch = Stopwatch.StartNew();
@@ -136,7 +136,7 @@ namespace emotitron.CompressionTests
 			Debug.Log("Log2 nifty: time=" + stopwatch.ElapsedMilliseconds.ToString() + " ms");
 		}
 
-		// Token: 0x06005096 RID: 20630 RVA: 0x00187C88 File Offset: 0x00185E88
+		// Token: 0x060051F6 RID: 20982 RVA: 0x001BEF14 File Offset: 0x001BD114
 		private static void ArrayCopy()
 		{
 			Stopwatch stopwatch = Stopwatch.StartNew();
@@ -149,7 +149,7 @@ namespace emotitron.CompressionTests
 			Debug.Log("Array Copy Unsafe: time=" + stopwatch.ElapsedMilliseconds.ToString() + " ms");
 		}
 
-		// Token: 0x06005097 RID: 20631 RVA: 0x00187CEC File Offset: 0x00185EEC
+		// Token: 0x060051F7 RID: 20983 RVA: 0x001BEF78 File Offset: 0x001BD178
 		private static void ArrayCopySafe()
 		{
 			Stopwatch stopwatch = Stopwatch.StartNew();
@@ -162,7 +162,7 @@ namespace emotitron.CompressionTests
 			Debug.Log("Array Copy Safe: time=" + stopwatch.ElapsedMilliseconds.ToString() + " ms");
 		}
 
-		// Token: 0x06005098 RID: 20632 RVA: 0x00187D50 File Offset: 0x00185F50
+		// Token: 0x060051F8 RID: 20984 RVA: 0x001BEFDC File Offset: 0x001BD1DC
 		public static void ByteForByteWrite()
 		{
 			Stopwatch stopwatch = Stopwatch.StartNew();
@@ -183,7 +183,7 @@ namespace emotitron.CompressionTests
 			Debug.Log("Byte For Byte: time=" + stopwatch.ElapsedMilliseconds.ToString() + " ms");
 		}
 
-		// Token: 0x06005099 RID: 20633 RVA: 0x00187DE4 File Offset: 0x00185FE4
+		// Token: 0x060051F9 RID: 20985 RVA: 0x001BF070 File Offset: 0x001BD270
 		public static void BitpackBytesEven()
 		{
 			Stopwatch stopwatch = Stopwatch.StartNew();
@@ -204,7 +204,7 @@ namespace emotitron.CompressionTests
 			Debug.Log("Even Bitpack byte: time=" + stopwatch.ElapsedMilliseconds.ToString() + " ms");
 		}
 
-		// Token: 0x0600509A RID: 20634 RVA: 0x00187E78 File Offset: 0x00186078
+		// Token: 0x060051FA RID: 20986 RVA: 0x001BF104 File Offset: 0x001BD304
 		public static void BitpackBytesToULongUneven()
 		{
 			Stopwatch stopwatch = Stopwatch.StartNew();
@@ -227,7 +227,7 @@ namespace emotitron.CompressionTests
 			Debug.Log("Uneven Bitpack ulong[]: time=" + stopwatch.ElapsedMilliseconds.ToString() + " ms");
 		}
 
-		// Token: 0x0600509B RID: 20635 RVA: 0x00187F28 File Offset: 0x00186128
+		// Token: 0x060051FB RID: 20987 RVA: 0x001BF1B4 File Offset: 0x001BD3B4
 		public static void BitpackBytesUnEven()
 		{
 			Stopwatch stopwatch = Stopwatch.StartNew();
@@ -250,22 +250,22 @@ namespace emotitron.CompressionTests
 			Debug.Log("Uneven Bitpack byte: time=" + stopwatch.ElapsedMilliseconds.ToString() + " ms");
 		}
 
-		// Token: 0x04005312 RID: 21266
+		// Token: 0x0400541E RID: 21534
 		public const int BYTE_CNT = 128;
 
-		// Token: 0x04005313 RID: 21267
+		// Token: 0x0400541F RID: 21535
 		public const int LOOP = 1000000;
 
-		// Token: 0x04005314 RID: 21268
+		// Token: 0x04005420 RID: 21536
 		public static byte[] buffer = new byte[4800];
 
-		// Token: 0x04005315 RID: 21269
+		// Token: 0x04005421 RID: 21537
 		public static uint[] ibuffer = new uint[128];
 
-		// Token: 0x04005316 RID: 21270
+		// Token: 0x04005422 RID: 21538
 		public static ulong[] ubuffer = new ulong[128];
 
-		// Token: 0x04005317 RID: 21271
+		// Token: 0x04005423 RID: 21539
 		public static ulong[] ubuffer2 = new ulong[128];
 	}
 }

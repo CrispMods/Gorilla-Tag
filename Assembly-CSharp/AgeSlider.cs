@@ -2,28 +2,28 @@
 using TMPro;
 using UnityEngine;
 
-// Token: 0x020006DD RID: 1757
+// Token: 0x020006F2 RID: 1778
 public class AgeSlider : MonoBehaviour, IBuildValidation
 {
-	// Token: 0x06002BC6 RID: 11206 RVA: 0x000D7179 File Offset: 0x000D5379
+	// Token: 0x06002C5C RID: 11356 RVA: 0x0004E247 File Offset: 0x0004C447
 	private void Awake()
 	{
 		this.controllerBehaviour = base.GetComponentInChildren<ControllerBehaviour>(true);
 	}
 
-	// Token: 0x06002BC7 RID: 11207 RVA: 0x000D7188 File Offset: 0x000D5388
+	// Token: 0x06002C5D RID: 11357 RVA: 0x0004E256 File Offset: 0x0004C456
 	private void OnEnable()
 	{
 		this.controllerBehaviour.OnAction += this.PostUpdate;
 	}
 
-	// Token: 0x06002BC8 RID: 11208 RVA: 0x000D71A1 File Offset: 0x000D53A1
+	// Token: 0x06002C5E RID: 11358 RVA: 0x0004E26F File Offset: 0x0004C46F
 	private void OnDisable()
 	{
 		this.controllerBehaviour.OnAction -= this.PostUpdate;
 	}
 
-	// Token: 0x06002BC9 RID: 11209 RVA: 0x000D71BC File Offset: 0x000D53BC
+	// Token: 0x06002C5F RID: 11359 RVA: 0x00122310 File Offset: 0x00120510
 	protected void Update()
 	{
 		if (!AgeSlider._ageGateActive)
@@ -49,7 +49,7 @@ public class AgeSlider : MonoBehaviour, IBuildValidation
 		}
 	}
 
-	// Token: 0x06002BCA RID: 11210 RVA: 0x000D72C0 File Offset: 0x000D54C0
+	// Token: 0x06002C60 RID: 11360 RVA: 0x00122414 File Offset: 0x00120614
 	private void PostUpdate()
 	{
 		if (!AgeSlider._ageGateActive)
@@ -70,13 +70,13 @@ public class AgeSlider : MonoBehaviour, IBuildValidation
 		}
 	}
 
-	// Token: 0x06002BCB RID: 11211 RVA: 0x000D73B1 File Offset: 0x000D55B1
+	// Token: 0x06002C61 RID: 11361 RVA: 0x0004E288 File Offset: 0x0004C488
 	public static void ToggleAgeGate(bool state)
 	{
 		AgeSlider._ageGateActive = state;
 	}
 
-	// Token: 0x06002BCC RID: 11212 RVA: 0x000D73B9 File Offset: 0x000D55B9
+	// Token: 0x06002C62 RID: 11362 RVA: 0x0004E290 File Offset: 0x0004C490
 	public bool BuildValidationCheck()
 	{
 		if (this._confirmButton == null)
@@ -87,38 +87,38 @@ public class AgeSlider : MonoBehaviour, IBuildValidation
 		return true;
 	}
 
-	// Token: 0x040030F1 RID: 12529
+	// Token: 0x0400318E RID: 12686
 	private const int MIN_AGE = 13;
 
-	// Token: 0x040030F2 RID: 12530
+	// Token: 0x0400318F RID: 12687
 	[SerializeField]
 	private int _maxAge = 99;
 
-	// Token: 0x040030F3 RID: 12531
+	// Token: 0x04003190 RID: 12688
 	[SerializeField]
 	private TMP_Text _ageValueTxt;
 
-	// Token: 0x040030F4 RID: 12532
+	// Token: 0x04003191 RID: 12689
 	[SerializeField]
 	private GameObject _confirmButton;
 
-	// Token: 0x040030F5 RID: 12533
+	// Token: 0x04003192 RID: 12690
 	[SerializeField]
 	private float holdTime = 5f;
 
-	// Token: 0x040030F6 RID: 12534
+	// Token: 0x04003193 RID: 12691
 	[SerializeField]
 	private LineRenderer progressBar;
 
-	// Token: 0x040030F7 RID: 12535
+	// Token: 0x04003194 RID: 12692
 	private int _currentAge;
 
-	// Token: 0x040030F8 RID: 12536
+	// Token: 0x04003195 RID: 12693
 	private static bool _ageGateActive;
 
-	// Token: 0x040030F9 RID: 12537
+	// Token: 0x04003196 RID: 12694
 	private float progress;
 
-	// Token: 0x040030FA RID: 12538
+	// Token: 0x04003197 RID: 12695
 	private ControllerBehaviour controllerBehaviour;
 }

@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace CjLib
 {
-	// Token: 0x02000CA1 RID: 3233
+	// Token: 0x02000CD2 RID: 3282
 	public struct QuaternionSpring
 	{
-		// Token: 0x17000838 RID: 2104
-		// (get) Token: 0x06005191 RID: 20881 RVA: 0x0019004F File Offset: 0x0018E24F
-		// (set) Token: 0x06005192 RID: 20882 RVA: 0x0019005D File Offset: 0x0018E25D
+		// Token: 0x17000856 RID: 2134
+		// (get) Token: 0x060052F3 RID: 21235 RVA: 0x00065BC5 File Offset: 0x00063DC5
+		// (set) Token: 0x060052F4 RID: 21236 RVA: 0x00065BD3 File Offset: 0x00063DD3
 		public Quaternion ValueQuat
 		{
 			get
@@ -21,9 +21,9 @@ namespace CjLib
 			}
 		}
 
-		// Token: 0x17000839 RID: 2105
-		// (get) Token: 0x06005193 RID: 20883 RVA: 0x0019006B File Offset: 0x0018E26B
-		// (set) Token: 0x06005194 RID: 20884 RVA: 0x00190079 File Offset: 0x0018E279
+		// Token: 0x17000857 RID: 2135
+		// (get) Token: 0x060052F5 RID: 21237 RVA: 0x00065BE1 File Offset: 0x00063DE1
+		// (set) Token: 0x060052F6 RID: 21238 RVA: 0x00065BEF File Offset: 0x00063DEF
 		public Quaternion VelocityQuat
 		{
 			get
@@ -36,42 +36,42 @@ namespace CjLib
 			}
 		}
 
-		// Token: 0x06005195 RID: 20885 RVA: 0x00190087 File Offset: 0x0018E287
+		// Token: 0x060052F7 RID: 21239 RVA: 0x00065BFD File Offset: 0x00063DFD
 		public void Reset()
 		{
 			this.ValueVec = QuaternionUtil.ToVector4(Quaternion.identity);
 			this.VelocityVec = Vector4.zero;
 		}
 
-		// Token: 0x06005196 RID: 20886 RVA: 0x001900A4 File Offset: 0x0018E2A4
+		// Token: 0x060052F8 RID: 21240 RVA: 0x00065C1A File Offset: 0x00063E1A
 		public void Reset(Vector4 initValue)
 		{
 			this.ValueVec = initValue;
 			this.VelocityVec = Vector4.zero;
 		}
 
-		// Token: 0x06005197 RID: 20887 RVA: 0x001900B8 File Offset: 0x0018E2B8
+		// Token: 0x060052F9 RID: 21241 RVA: 0x00065C2E File Offset: 0x00063E2E
 		public void Reset(Vector4 initValue, Vector4 initVelocity)
 		{
 			this.ValueVec = initValue;
 			this.VelocityVec = initVelocity;
 		}
 
-		// Token: 0x06005198 RID: 20888 RVA: 0x001900C8 File Offset: 0x0018E2C8
+		// Token: 0x060052FA RID: 21242 RVA: 0x00065C3E File Offset: 0x00063E3E
 		public void Reset(Quaternion initValue)
 		{
 			this.ValueVec = QuaternionUtil.ToVector4(initValue);
 			this.VelocityVec = Vector4.zero;
 		}
 
-		// Token: 0x06005199 RID: 20889 RVA: 0x001900E1 File Offset: 0x0018E2E1
+		// Token: 0x060052FB RID: 21243 RVA: 0x00065C57 File Offset: 0x00063E57
 		public void Reset(Quaternion initValue, Quaternion initVelocity)
 		{
 			this.ValueVec = QuaternionUtil.ToVector4(initValue);
 			this.VelocityVec = QuaternionUtil.ToVector4(initVelocity);
 		}
 
-		// Token: 0x0600519A RID: 20890 RVA: 0x001900FC File Offset: 0x0018E2FC
+		// Token: 0x060052FC RID: 21244 RVA: 0x001C69C4 File Offset: 0x001C4BC4
 		public Quaternion TrackDampingRatio(Quaternion targetValue, float angularFrequency, float dampingRatio, float deltaTime)
 		{
 			if (angularFrequency < MathUtil.Epsilon)
@@ -102,7 +102,7 @@ namespace CjLib
 			return QuaternionUtil.FromVector4(this.ValueVec, true);
 		}
 
-		// Token: 0x0600519B RID: 20891 RVA: 0x00190230 File Offset: 0x0018E430
+		// Token: 0x060052FD RID: 21245 RVA: 0x001C6AF8 File Offset: 0x001C4CF8
 		public Quaternion TrackHalfLife(Quaternion targetValue, float frequencyHz, float halfLife, float deltaTime)
 		{
 			if (halfLife < MathUtil.Epsilon)
@@ -116,7 +116,7 @@ namespace CjLib
 			return this.TrackDampingRatio(targetValue, num, dampingRatio, deltaTime);
 		}
 
-		// Token: 0x0600519C RID: 20892 RVA: 0x00190280 File Offset: 0x0018E480
+		// Token: 0x060052FE RID: 21246 RVA: 0x001C6B48 File Offset: 0x001C4D48
 		public Quaternion TrackExponential(Quaternion targetValue, float halfLife, float deltaTime)
 		{
 			if (halfLife < MathUtil.Epsilon)
@@ -130,13 +130,13 @@ namespace CjLib
 			return this.TrackDampingRatio(targetValue, angularFrequency, dampingRatio, deltaTime);
 		}
 
-		// Token: 0x040053CC RID: 21452
+		// Token: 0x040054D8 RID: 21720
 		public static readonly int Stride = 32;
 
-		// Token: 0x040053CD RID: 21453
+		// Token: 0x040054D9 RID: 21721
 		public Vector4 ValueVec;
 
-		// Token: 0x040053CE RID: 21454
+		// Token: 0x040054DA RID: 21722
 		public Vector4 VelocityVec;
 	}
 }

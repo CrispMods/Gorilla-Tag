@@ -2,12 +2,12 @@
 
 namespace GorillaTagScripts
 {
-	// Token: 0x0200098F RID: 2447
+	// Token: 0x020009B5 RID: 2485
 	public enum BuilderPlacementStyle
 	{
-		// Token: 0x04003D28 RID: 15656
+		// Token: 0x04003E02 RID: 15874
 		Float,
-		// Token: 0x04003D29 RID: 15657
+		// Token: 0x04003E03 RID: 15875
 		SnapDown
 	}
 }

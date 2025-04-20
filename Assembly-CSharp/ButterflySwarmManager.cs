@@ -2,90 +2,90 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020000E8 RID: 232
+// Token: 0x020000F2 RID: 242
 public class ButterflySwarmManager : MonoBehaviour
 {
-	// Token: 0x1700007B RID: 123
-	// (get) Token: 0x060005FF RID: 1535 RVA: 0x0002352F File Offset: 0x0002172F
-	// (set) Token: 0x06000600 RID: 1536 RVA: 0x00023537 File Offset: 0x00021737
+	// Token: 0x17000080 RID: 128
+	// (get) Token: 0x06000640 RID: 1600 RVA: 0x00034A6A File Offset: 0x00032C6A
+	// (set) Token: 0x06000641 RID: 1601 RVA: 0x00034A72 File Offset: 0x00032C72
 	public float PerchedFlapSpeed { get; private set; }
 
-	// Token: 0x1700007C RID: 124
-	// (get) Token: 0x06000601 RID: 1537 RVA: 0x00023540 File Offset: 0x00021740
-	// (set) Token: 0x06000602 RID: 1538 RVA: 0x00023548 File Offset: 0x00021748
+	// Token: 0x17000081 RID: 129
+	// (get) Token: 0x06000642 RID: 1602 RVA: 0x00034A7B File Offset: 0x00032C7B
+	// (set) Token: 0x06000643 RID: 1603 RVA: 0x00034A83 File Offset: 0x00032C83
 	public float PerchedFlapPhase { get; private set; }
 
-	// Token: 0x1700007D RID: 125
-	// (get) Token: 0x06000603 RID: 1539 RVA: 0x00023551 File Offset: 0x00021751
-	// (set) Token: 0x06000604 RID: 1540 RVA: 0x00023559 File Offset: 0x00021759
+	// Token: 0x17000082 RID: 130
+	// (get) Token: 0x06000644 RID: 1604 RVA: 0x00034A8C File Offset: 0x00032C8C
+	// (set) Token: 0x06000645 RID: 1605 RVA: 0x00034A94 File Offset: 0x00032C94
 	public float BeeSpeed { get; private set; }
 
-	// Token: 0x1700007E RID: 126
-	// (get) Token: 0x06000605 RID: 1541 RVA: 0x00023562 File Offset: 0x00021762
-	// (set) Token: 0x06000606 RID: 1542 RVA: 0x0002356A File Offset: 0x0002176A
+	// Token: 0x17000083 RID: 131
+	// (get) Token: 0x06000646 RID: 1606 RVA: 0x00034A9D File Offset: 0x00032C9D
+	// (set) Token: 0x06000647 RID: 1607 RVA: 0x00034AA5 File Offset: 0x00032CA5
 	public float BeeMaxTravelTime { get; private set; }
 
-	// Token: 0x1700007F RID: 127
-	// (get) Token: 0x06000607 RID: 1543 RVA: 0x00023573 File Offset: 0x00021773
-	// (set) Token: 0x06000608 RID: 1544 RVA: 0x0002357B File Offset: 0x0002177B
+	// Token: 0x17000084 RID: 132
+	// (get) Token: 0x06000648 RID: 1608 RVA: 0x00034AAE File Offset: 0x00032CAE
+	// (set) Token: 0x06000649 RID: 1609 RVA: 0x00034AB6 File Offset: 0x00032CB6
 	public float BeeAcceleration { get; private set; }
 
-	// Token: 0x17000080 RID: 128
-	// (get) Token: 0x06000609 RID: 1545 RVA: 0x00023584 File Offset: 0x00021784
-	// (set) Token: 0x0600060A RID: 1546 RVA: 0x0002358C File Offset: 0x0002178C
+	// Token: 0x17000085 RID: 133
+	// (get) Token: 0x0600064A RID: 1610 RVA: 0x00034ABF File Offset: 0x00032CBF
+	// (set) Token: 0x0600064B RID: 1611 RVA: 0x00034AC7 File Offset: 0x00032CC7
 	public float BeeJitterStrength { get; private set; }
 
-	// Token: 0x17000081 RID: 129
-	// (get) Token: 0x0600060B RID: 1547 RVA: 0x00023595 File Offset: 0x00021795
-	// (set) Token: 0x0600060C RID: 1548 RVA: 0x0002359D File Offset: 0x0002179D
+	// Token: 0x17000086 RID: 134
+	// (get) Token: 0x0600064C RID: 1612 RVA: 0x00034AD0 File Offset: 0x00032CD0
+	// (set) Token: 0x0600064D RID: 1613 RVA: 0x00034AD8 File Offset: 0x00032CD8
 	public float BeeJitterDamping { get; private set; }
 
-	// Token: 0x17000082 RID: 130
-	// (get) Token: 0x0600060D RID: 1549 RVA: 0x000235A6 File Offset: 0x000217A6
-	// (set) Token: 0x0600060E RID: 1550 RVA: 0x000235AE File Offset: 0x000217AE
+	// Token: 0x17000087 RID: 135
+	// (get) Token: 0x0600064E RID: 1614 RVA: 0x00034AE1 File Offset: 0x00032CE1
+	// (set) Token: 0x0600064F RID: 1615 RVA: 0x00034AE9 File Offset: 0x00032CE9
 	public float BeeMaxJitterRadius { get; private set; }
 
-	// Token: 0x17000083 RID: 131
-	// (get) Token: 0x0600060F RID: 1551 RVA: 0x000235B7 File Offset: 0x000217B7
-	// (set) Token: 0x06000610 RID: 1552 RVA: 0x000235BF File Offset: 0x000217BF
+	// Token: 0x17000088 RID: 136
+	// (get) Token: 0x06000650 RID: 1616 RVA: 0x00034AF2 File Offset: 0x00032CF2
+	// (set) Token: 0x06000651 RID: 1617 RVA: 0x00034AFA File Offset: 0x00032CFA
 	public float BeeNearDestinationRadius { get; private set; }
 
-	// Token: 0x17000084 RID: 132
-	// (get) Token: 0x06000611 RID: 1553 RVA: 0x000235C8 File Offset: 0x000217C8
-	// (set) Token: 0x06000612 RID: 1554 RVA: 0x000235D0 File Offset: 0x000217D0
+	// Token: 0x17000089 RID: 137
+	// (get) Token: 0x06000652 RID: 1618 RVA: 0x00034B03 File Offset: 0x00032D03
+	// (set) Token: 0x06000653 RID: 1619 RVA: 0x00034B0B File Offset: 0x00032D0B
 	public float DestRotationAlignmentSpeed { get; private set; }
 
-	// Token: 0x17000085 RID: 133
-	// (get) Token: 0x06000613 RID: 1555 RVA: 0x000235D9 File Offset: 0x000217D9
-	// (set) Token: 0x06000614 RID: 1556 RVA: 0x000235E1 File Offset: 0x000217E1
+	// Token: 0x1700008A RID: 138
+	// (get) Token: 0x06000654 RID: 1620 RVA: 0x00034B14 File Offset: 0x00032D14
+	// (set) Token: 0x06000655 RID: 1621 RVA: 0x00034B1C File Offset: 0x00032D1C
 	public Vector3 TravellingLocalRotationEuler { get; private set; }
 
-	// Token: 0x17000086 RID: 134
-	// (get) Token: 0x06000615 RID: 1557 RVA: 0x000235EA File Offset: 0x000217EA
-	// (set) Token: 0x06000616 RID: 1558 RVA: 0x000235F2 File Offset: 0x000217F2
+	// Token: 0x1700008B RID: 139
+	// (get) Token: 0x06000656 RID: 1622 RVA: 0x00034B25 File Offset: 0x00032D25
+	// (set) Token: 0x06000657 RID: 1623 RVA: 0x00034B2D File Offset: 0x00032D2D
 	public Quaternion TravellingLocalRotation { get; private set; }
 
-	// Token: 0x17000087 RID: 135
-	// (get) Token: 0x06000617 RID: 1559 RVA: 0x000235FB File Offset: 0x000217FB
-	// (set) Token: 0x06000618 RID: 1560 RVA: 0x00023603 File Offset: 0x00021803
+	// Token: 0x1700008C RID: 140
+	// (get) Token: 0x06000658 RID: 1624 RVA: 0x00034B36 File Offset: 0x00032D36
+	// (set) Token: 0x06000659 RID: 1625 RVA: 0x00034B3E File Offset: 0x00032D3E
 	public float AvoidPointRadius { get; private set; }
 
-	// Token: 0x17000088 RID: 136
-	// (get) Token: 0x06000619 RID: 1561 RVA: 0x0002360C File Offset: 0x0002180C
-	// (set) Token: 0x0600061A RID: 1562 RVA: 0x00023614 File Offset: 0x00021814
+	// Token: 0x1700008D RID: 141
+	// (get) Token: 0x0600065A RID: 1626 RVA: 0x00034B47 File Offset: 0x00032D47
+	// (set) Token: 0x0600065B RID: 1627 RVA: 0x00034B4F File Offset: 0x00032D4F
 	public float BeeMinFlowerDuration { get; private set; }
 
-	// Token: 0x17000089 RID: 137
-	// (get) Token: 0x0600061B RID: 1563 RVA: 0x0002361D File Offset: 0x0002181D
-	// (set) Token: 0x0600061C RID: 1564 RVA: 0x00023625 File Offset: 0x00021825
+	// Token: 0x1700008E RID: 142
+	// (get) Token: 0x0600065C RID: 1628 RVA: 0x00034B58 File Offset: 0x00032D58
+	// (set) Token: 0x0600065D RID: 1629 RVA: 0x00034B60 File Offset: 0x00032D60
 	public float BeeMaxFlowerDuration { get; private set; }
 
-	// Token: 0x1700008A RID: 138
-	// (get) Token: 0x0600061D RID: 1565 RVA: 0x0002362E File Offset: 0x0002182E
-	// (set) Token: 0x0600061E RID: 1566 RVA: 0x00023636 File Offset: 0x00021836
+	// Token: 0x1700008F RID: 143
+	// (get) Token: 0x0600065E RID: 1630 RVA: 0x00034B69 File Offset: 0x00032D69
+	// (set) Token: 0x0600065F RID: 1631 RVA: 0x00034B71 File Offset: 0x00032D71
 	public Color[] BeeColors { get; private set; }
 
-	// Token: 0x0600061F RID: 1567 RVA: 0x00023640 File Offset: 0x00021840
+	// Token: 0x06000660 RID: 1632 RVA: 0x00085C58 File Offset: 0x00083E58
 	private void Awake()
 	{
 		this.TravellingLocalRotation = Quaternion.Euler(this.TravellingLocalRotationEuler);
@@ -102,7 +102,7 @@ public class ButterflySwarmManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000620 RID: 1568 RVA: 0x000236C8 File Offset: 0x000218C8
+	// Token: 0x06000661 RID: 1633 RVA: 0x00085CE0 File Offset: 0x00083EE0
 	private void Start()
 	{
 		foreach (XSceneRef xsceneRef in this.perchSections)
@@ -123,13 +123,13 @@ public class ButterflySwarmManager : MonoBehaviour
 		RandomTimedSeedManager.instance.AddCallbackOnSeedChanged(new Action(this.OnSeedChange));
 	}
 
-	// Token: 0x06000621 RID: 1569 RVA: 0x00023788 File Offset: 0x00021988
+	// Token: 0x06000662 RID: 1634 RVA: 0x00034B7A File Offset: 0x00032D7A
 	private void OnDestroy()
 	{
 		RandomTimedSeedManager.instance.RemoveCallbackOnSeedChanged(new Action(this.OnSeedChange));
 	}
 
-	// Token: 0x06000622 RID: 1570 RVA: 0x000237A0 File Offset: 0x000219A0
+	// Token: 0x06000663 RID: 1635 RVA: 0x00085DA0 File Offset: 0x00083FA0
 	private void Update()
 	{
 		for (int i = 0; i < this.butterflies.Count; i++)
@@ -140,7 +140,7 @@ public class ButterflySwarmManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000623 RID: 1571 RVA: 0x000237F0 File Offset: 0x000219F0
+	// Token: 0x06000664 RID: 1636 RVA: 0x00085DF0 File Offset: 0x00083FF0
 	private void OnSeedChange()
 	{
 		SRand srand = new SRand(RandomTimedSeedManager.instance.seed);
@@ -174,7 +174,7 @@ public class ButterflySwarmManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000624 RID: 1572 RVA: 0x00023934 File Offset: 0x00021B34
+	// Token: 0x06000665 RID: 1637 RVA: 0x00085F34 File Offset: 0x00084134
 	private void PickPoints(int n, List<List<GameObject>> pickBuffer, ref SRand rand, List<GameObject> resultBuffer)
 	{
 		int exclude = rand.NextInt(0, pickBuffer.Count);
@@ -213,33 +213,33 @@ public class ButterflySwarmManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400072C RID: 1836
+	// Token: 0x0400076D RID: 1901
 	[SerializeField]
 	private XSceneRef[] perchSections;
 
-	// Token: 0x0400072D RID: 1837
+	// Token: 0x0400076E RID: 1902
 	[SerializeField]
 	private int loopSizePerBee;
 
-	// Token: 0x0400072E RID: 1838
+	// Token: 0x0400076F RID: 1903
 	[SerializeField]
 	private int numBees;
 
-	// Token: 0x0400072F RID: 1839
+	// Token: 0x04000770 RID: 1904
 	[SerializeField]
 	private MeshRenderer beePrefab;
 
-	// Token: 0x04000730 RID: 1840
+	// Token: 0x04000771 RID: 1905
 	[SerializeField]
 	private float maxFlapSpeed;
 
-	// Token: 0x04000731 RID: 1841
+	// Token: 0x04000772 RID: 1906
 	[SerializeField]
 	private float minFlapSpeed;
 
-	// Token: 0x04000742 RID: 1858
+	// Token: 0x04000783 RID: 1923
 	private List<AnimatedButterfly> butterflies;
 
-	// Token: 0x04000743 RID: 1859
+	// Token: 0x04000784 RID: 1924
 	private List<List<GameObject>> allPerchZones = new List<List<GameObject>>();
 }

@@ -1,11 +1,11 @@
 ﻿using System;
 
-// Token: 0x02000298 RID: 664
+// Token: 0x020002A3 RID: 675
 public class NetworkRegionInfo
 {
-	// Token: 0x04001227 RID: 4647
+	// Token: 0x0400126F RID: 4719
 	public int playersInRegion;
 
-	// Token: 0x04001228 RID: 4648
+	// Token: 0x04001270 RID: 4720
 	public int pingToRegion;
 }

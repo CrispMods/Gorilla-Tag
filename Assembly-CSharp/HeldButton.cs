@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-// Token: 0x020005BB RID: 1467
+// Token: 0x020005C9 RID: 1481
 public class HeldButton : MonoBehaviour
 {
-	// Token: 0x0600246C RID: 9324 RVA: 0x000B567C File Offset: 0x000B387C
+	// Token: 0x060024CE RID: 9422 RVA: 0x00103F14 File Offset: 0x00102114
 	private void OnTriggerEnter(Collider other)
 	{
 		if (!base.enabled)
@@ -24,6 +24,11 @@ public class HeldButton : MonoBehaviour
 		}
 		if (!this.pendingPress || other != this.pendingPressCollider)
 		{
+			UnityEvent unityEvent = this.onStartPressingButton;
+			if (unityEvent != null)
+			{
+				unityEvent.Invoke();
+			}
 			this.touchTime = Time.time;
 			this.pendingPressCollider = other;
 			this.pressingHand = componentInParent;
@@ -33,7 +38,7 @@ public class HeldButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600246D RID: 9325 RVA: 0x000B572C File Offset: 0x000B392C
+	// Token: 0x060024CF RID: 9423 RVA: 0x00103FD4 File Offset: 0x001021D4
 	private void LateUpdate()
 	{
 		if (!this.pendingPress)
@@ -42,6 +47,11 @@ public class HeldButton : MonoBehaviour
 		}
 		if (this.touchTime < this.releaseTime && this.releaseTime + this.debounceTime < Time.time)
 		{
+			UnityEvent unityEvent = this.onStopPressingButton;
+			if (unityEvent != null)
+			{
+				unityEvent.Invoke();
+			}
 			this.pendingPress = false;
 			this.pendingPressCollider = null;
 			this.pressingHand = null;
@@ -56,6 +66,11 @@ public class HeldButton : MonoBehaviour
 				GorillaTagger.Instance.offlineVRRig.PlayHandTapLocal(67, this.pressingHand.isLeftHand, 0.1f);
 				GorillaTagger.Instance.StartVibration(this.pressingHand.isLeftHand, GorillaTagger.Instance.tapHapticStrength, GorillaTagger.Instance.tapHapticDuration);
 			}
+			UnityEvent unityEvent2 = this.onStopPressingButton;
+			if (unityEvent2 != null)
+			{
+				unityEvent2.Invoke();
+			}
 			this.pendingPress = false;
 			this.pendingPressCollider = null;
 			this.pressingHand = null;
@@ -69,16 +84,22 @@ public class HeldButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600246E RID: 9326 RVA: 0x000B5869 File Offset: 0x000B3A69
+	// Token: 0x060024D0 RID: 9424 RVA: 0x00048F66 File Offset: 0x00047166
 	private void OnTriggerExit(Collider other)
 	{
 		if (this.pendingPress && this.pendingPressCollider == other)
 		{
 			this.releaseTime = Time.time;
+			UnityEvent unityEvent = this.onStopPressingButton;
+			if (unityEvent == null)
+			{
+				return;
+			}
+			unityEvent.Invoke();
 		}
 	}
 
-	// Token: 0x0600246F RID: 9327 RVA: 0x000B588C File Offset: 0x000B3A8C
+	// Token: 0x060024D1 RID: 9425 RVA: 0x00104134 File Offset: 0x00102334
 	public void SetOn(bool inOn)
 	{
 		if (inOn == this.isOn)
@@ -105,56 +126,62 @@ public class HeldButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400288C RID: 10380
+	// Token: 0x040028E9 RID: 10473
 	public Material pressedMaterial;
 
-	// Token: 0x0400288D RID: 10381
+	// Token: 0x040028EA RID: 10474
 	public Material unpressedMaterial;
 
-	// Token: 0x0400288E RID: 10382
+	// Token: 0x040028EB RID: 10475
 	public MeshRenderer buttonRenderer;
 
-	// Token: 0x0400288F RID: 10383
+	// Token: 0x040028EC RID: 10476
 	private bool isOn;
 
-	// Token: 0x04002890 RID: 10384
+	// Token: 0x040028ED RID: 10477
 	public float debounceTime = 0.25f;
 
-	// Token: 0x04002891 RID: 10385
+	// Token: 0x040028EE RID: 10478
 	public bool leftHandPressable;
 
-	// Token: 0x04002892 RID: 10386
+	// Token: 0x040028EF RID: 10479
 	public bool rightHandPressable = true;
 
-	// Token: 0x04002893 RID: 10387
+	// Token: 0x040028F0 RID: 10480
 	public float pressDuration = 0.5f;
 
-	// Token: 0x04002894 RID: 10388
+	// Token: 0x040028F1 RID: 10481
+	public UnityEvent onStartPressingButton;
+
+	// Token: 0x040028F2 RID: 10482
+	public UnityEvent onStopPressingButton;
+
+	// Token: 0x040028F3 RID: 10483
 	public UnityEvent onPressButton;
 
-	// Token: 0x04002895 RID: 10389
+	// Token: 0x040028F4 RID: 10484
 	[TextArea]
 	public string offText;
 
-	// Token: 0x04002896 RID: 10390
+	// Token: 0x040028F5 RID: 10485
 	[TextArea]
 	public string onText;
 
-	// Token: 0x04002897 RID: 10391
+	// Token: 0x040028F6 RID: 10486
 	public Text myText;
 
-	// Token: 0x04002898 RID: 10392
+	// Token: 0x040028F7 RID: 10487
 	private float touchTime;
 
-	// Token: 0x04002899 RID: 10393
+	// Token: 0x040028F8 RID: 10488
 	private float releaseTime;
 
-	// Token: 0x0400289A RID: 10394
+	// Token: 0x040028F9 RID: 10489
 	private bool pendingPress;
 
-	// Token: 0x0400289B RID: 10395
+	// Token: 0x040028FA RID: 10490
 	private Collider pendingPressCollider;
 
-	// Token: 0x0400289C RID: 10396
+	// Token: 0x040028FB RID: 10491
 	private GorillaTriggerColliderHandIndicator pressingHand;
 }

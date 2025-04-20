@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace GorillaNetworking.Store
 {
-	// Token: 0x02000B05 RID: 2821
+	// Token: 0x02000B32 RID: 2866
 	public class StoreDepartment : MonoBehaviour
 	{
-		// Token: 0x06004683 RID: 18051 RVA: 0x0014F164 File Offset: 0x0014D364
+		// Token: 0x060047CC RID: 18380 RVA: 0x0018BD2C File Offset: 0x00189F2C
 		private void FindAllDisplays()
 		{
 			this.Displays = base.GetComponentsInChildren<StoreDisplay>();
@@ -20,10 +20,10 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x04004815 RID: 18453
+		// Token: 0x0400490A RID: 18698
 		public StoreDisplay[] Displays;
 
-		// Token: 0x04004816 RID: 18454
+		// Token: 0x0400490B RID: 18699
 		public string departmentName = "";
 	}
 }

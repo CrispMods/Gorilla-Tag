@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace GorillaLocomotion.Swimming
 {
-	// Token: 0x02000B48 RID: 2888
+	// Token: 0x02000B75 RID: 2933
 	public struct WaterOverlappingCollider
 	{
-		// Token: 0x06004835 RID: 18485 RVA: 0x0015D200 File Offset: 0x0015B400
+		// Token: 0x0600497E RID: 18814 RVA: 0x00198D40 File Offset: 0x00196F40
 		public void PlayRippleEffect(GameObject rippleEffectPrefab, Vector3 surfacePoint, Vector3 surfaceNormal, float defaultRippleScale, float currentTime, WaterVolume volume)
 		{
 			this.lastRipplePosition = this.GetClosestPositionOnSurface(surfacePoint, surfaceNormal);
@@ -18,7 +18,7 @@ namespace GorillaLocomotion.Swimming
 			ObjectPools.instance.Instantiate(rippleEffectPrefab, this.lastRipplePosition, Quaternion.FromToRotation(Vector3.up, this.lastSurfaceQuery.surfaceNormal) * Quaternion.AngleAxis(-90f, Vector3.right), this.lastRippleScale).GetComponent<WaterRippleEffect>().PlayEffect(volume);
 		}
 
-		// Token: 0x06004836 RID: 18486 RVA: 0x0015D298 File Offset: 0x0015B498
+		// Token: 0x0600497F RID: 18815 RVA: 0x00198DD8 File Offset: 0x00196FD8
 		public void PlaySplashEffect(GameObject splashEffectPrefab, Vector3 splashPosition, float splashScale, bool bigSplash, bool enteringWater, WaterVolume volume)
 		{
 			Quaternion quaternion = Quaternion.FromToRotation(Vector3.up, this.lastSurfaceQuery.surfaceNormal) * Quaternion.AngleAxis(-90f, Vector3.right);
@@ -52,22 +52,22 @@ namespace GorillaLocomotion.Swimming
 			}
 		}
 
-		// Token: 0x06004837 RID: 18487 RVA: 0x0015D3B8 File Offset: 0x0015B5B8
+		// Token: 0x06004980 RID: 18816 RVA: 0x00198EF8 File Offset: 0x001970F8
 		public void PlayDripEffect(GameObject rippleEffectPrefab, Vector3 surfacePoint, Vector3 surfaceNormal, float dripScale)
 		{
 			Vector3 closestPositionOnSurface = this.GetClosestPositionOnSurface(surfacePoint, surfaceNormal);
 			float d = this.overrideBoundingRadius ? this.boundingRadiusOverride : this.lastBoundingRadius;
-			Vector3 b = Vector3.ProjectOnPlane(Random.onUnitSphere * d * 0.5f, surfaceNormal);
+			Vector3 b = Vector3.ProjectOnPlane(UnityEngine.Random.onUnitSphere * d * 0.5f, surfaceNormal);
 			ObjectPools.instance.Instantiate(rippleEffectPrefab, closestPositionOnSurface + b, Quaternion.FromToRotation(Vector3.up, this.lastSurfaceQuery.surfaceNormal) * Quaternion.AngleAxis(-90f, Vector3.right), dripScale * this.scaleMultiplier);
 		}
 
-		// Token: 0x06004838 RID: 18488 RVA: 0x0015D446 File Offset: 0x0015B646
+		// Token: 0x06004981 RID: 18817 RVA: 0x0005FD42 File Offset: 0x0005DF42
 		public Vector3 GetClosestPositionOnSurface(Vector3 surfacePoint, Vector3 surfaceNormal)
 		{
 			return Vector3.ProjectOnPlane(this.collider.transform.position - surfacePoint, surfaceNormal) + surfacePoint;
 		}
 
-		// Token: 0x06004839 RID: 18489 RVA: 0x0015D46C File Offset: 0x0015B66C
+		// Token: 0x06004982 RID: 18818 RVA: 0x00198F88 File Offset: 0x00197188
 		private float GetBoundingRadiusOnSurface(Vector3 surfaceNormal)
 		{
 			if (this.overrideBoundingRadius)
@@ -93,58 +93,58 @@ namespace GorillaLocomotion.Swimming
 			return vector3.magnitude;
 		}
 
-		// Token: 0x04004AB4 RID: 19124
+		// Token: 0x04004BAA RID: 19370
 		public bool playBigSplash;
 
-		// Token: 0x04004AB5 RID: 19125
+		// Token: 0x04004BAB RID: 19371
 		public bool playDripEffect;
 
-		// Token: 0x04004AB6 RID: 19126
+		// Token: 0x04004BAC RID: 19372
 		public bool overrideBoundingRadius;
 
-		// Token: 0x04004AB7 RID: 19127
+		// Token: 0x04004BAD RID: 19373
 		public float boundingRadiusOverride;
 
-		// Token: 0x04004AB8 RID: 19128
+		// Token: 0x04004BAE RID: 19374
 		public float scaleMultiplier;
 
-		// Token: 0x04004AB9 RID: 19129
+		// Token: 0x04004BAF RID: 19375
 		public Collider collider;
 
-		// Token: 0x04004ABA RID: 19130
+		// Token: 0x04004BB0 RID: 19376
 		public GorillaVelocityTracker velocityTracker;
 
-		// Token: 0x04004ABB RID: 19131
+		// Token: 0x04004BB1 RID: 19377
 		public WaterVolume.SurfaceQuery lastSurfaceQuery;
 
-		// Token: 0x04004ABC RID: 19132
+		// Token: 0x04004BB2 RID: 19378
 		public NetworkView photonViewForRPC;
 
-		// Token: 0x04004ABD RID: 19133
+		// Token: 0x04004BB3 RID: 19379
 		public bool surfaceDetected;
 
-		// Token: 0x04004ABE RID: 19134
+		// Token: 0x04004BB4 RID: 19380
 		public bool inWater;
 
-		// Token: 0x04004ABF RID: 19135
+		// Token: 0x04004BB5 RID: 19381
 		public bool inVolume;
 
-		// Token: 0x04004AC0 RID: 19136
+		// Token: 0x04004BB6 RID: 19382
 		public float lastBoundingRadius;
 
-		// Token: 0x04004AC1 RID: 19137
+		// Token: 0x04004BB7 RID: 19383
 		public Vector3 lastRipplePosition;
 
-		// Token: 0x04004AC2 RID: 19138
+		// Token: 0x04004BB8 RID: 19384
 		public float lastRippleScale;
 
-		// Token: 0x04004AC3 RID: 19139
+		// Token: 0x04004BB9 RID: 19385
 		public float lastRippleTime;
 
-		// Token: 0x04004AC4 RID: 19140
+		// Token: 0x04004BBA RID: 19386
 		public float lastInWaterTime;
 
-		// Token: 0x04004AC5 RID: 19141
+		// Token: 0x04004BBB RID: 19387
 		public float nextDripTime;
 	}
 }

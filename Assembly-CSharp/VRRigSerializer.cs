@@ -9,13 +9,13 @@ using Photon.Voice.Fusion;
 using Photon.Voice.PUN;
 using UnityEngine;
 
-// Token: 0x02000549 RID: 1353
+// Token: 0x02000557 RID: 1367
 [NetworkBehaviourWeaved(35)]
 internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<HandTapArgs>, IFXContextParems<GeoSoundArg>
 {
-	// Token: 0x17000363 RID: 867
-	// (get) Token: 0x060020F8 RID: 8440 RVA: 0x000A4B35 File Offset: 0x000A2D35
-	// (set) Token: 0x060020F9 RID: 8441 RVA: 0x000A4B5F File Offset: 0x000A2D5F
+	// Token: 0x1700036B RID: 875
+	// (get) Token: 0x06002156 RID: 8534 RVA: 0x000469C1 File Offset: 0x00044BC1
+	// (set) Token: 0x06002157 RID: 8535 RVA: 0x000469EB File Offset: 0x00044BEB
 	[Networked]
 	[NetworkedWeaved(0, 17)]
 	public unsafe NetworkString<_16> nickName
@@ -38,9 +38,9 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		}
 	}
 
-	// Token: 0x17000364 RID: 868
-	// (get) Token: 0x060020FA RID: 8442 RVA: 0x000A4B8A File Offset: 0x000A2D8A
-	// (set) Token: 0x060020FB RID: 8443 RVA: 0x000A4BB8 File Offset: 0x000A2DB8
+	// Token: 0x1700036C RID: 876
+	// (get) Token: 0x06002158 RID: 8536 RVA: 0x00046A16 File Offset: 0x00044C16
+	// (set) Token: 0x06002159 RID: 8537 RVA: 0x00046A44 File Offset: 0x00044C44
 	[Networked]
 	[NetworkedWeaved(17, 17)]
 	public unsafe NetworkString<_16> defaultName
@@ -63,9 +63,9 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		}
 	}
 
-	// Token: 0x17000365 RID: 869
-	// (get) Token: 0x060020FC RID: 8444 RVA: 0x000A4BE7 File Offset: 0x000A2DE7
-	// (set) Token: 0x060020FD RID: 8445 RVA: 0x000A4C15 File Offset: 0x000A2E15
+	// Token: 0x1700036D RID: 877
+	// (get) Token: 0x0600215A RID: 8538 RVA: 0x00046A73 File Offset: 0x00044C73
+	// (set) Token: 0x0600215B RID: 8539 RVA: 0x00046AA1 File Offset: 0x00044CA1
 	[Networked]
 	[NetworkedWeaved(34, 1)]
 	public bool tutorialComplete
@@ -88,8 +88,8 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		}
 	}
 
-	// Token: 0x17000366 RID: 870
-	// (get) Token: 0x060020FE RID: 8446 RVA: 0x000A4C44 File Offset: 0x000A2E44
+	// Token: 0x1700036E RID: 878
+	// (get) Token: 0x0600215C RID: 8540 RVA: 0x00046AD0 File Offset: 0x00044CD0
 	private PhotonVoiceView Voice
 	{
 		get
@@ -98,8 +98,8 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		}
 	}
 
-	// Token: 0x17000367 RID: 871
-	// (get) Token: 0x060020FF RID: 8447 RVA: 0x000A4C4C File Offset: 0x000A2E4C
+	// Token: 0x1700036F RID: 879
+	// (get) Token: 0x0600215D RID: 8541 RVA: 0x00046AD8 File Offset: 0x00044CD8
 	public VRRig VRRig
 	{
 		get
@@ -108,8 +108,8 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		}
 	}
 
-	// Token: 0x17000368 RID: 872
-	// (get) Token: 0x06002100 RID: 8448 RVA: 0x000A4C54 File Offset: 0x000A2E54
+	// Token: 0x17000370 RID: 880
+	// (get) Token: 0x0600215E RID: 8542 RVA: 0x00046AE0 File Offset: 0x00044CE0
 	public FXSystemSettings settings
 	{
 		get
@@ -118,7 +118,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		}
 	}
 
-	// Token: 0x06002101 RID: 8449 RVA: 0x000A4C64 File Offset: 0x000A2E64
+	// Token: 0x0600215F RID: 8543 RVA: 0x000F57E8 File Offset: 0x000F39E8
 	protected override bool OnSpawnSetupCheck(PhotonMessageInfoWrapped wrappedInfo, out GameObject outTargetObject, out Type outTargetType)
 	{
 		outTargetObject = null;
@@ -157,7 +157,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		return false;
 	}
 
-	// Token: 0x06002102 RID: 8450 RVA: 0x000A4D8C File Offset: 0x000A2F8C
+	// Token: 0x06002160 RID: 8544 RVA: 0x000F5910 File Offset: 0x000F3B10
 	protected override void OnSuccesfullySpawned(PhotonMessageInfoWrapped info)
 	{
 		bool initialized = this.rigContainer.Initialized;
@@ -197,18 +197,18 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		NetworkSystem.Instance.IsObjectLocallyOwned(base.gameObject);
 	}
 
-	// Token: 0x06002103 RID: 8451 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002161 RID: 8545 RVA: 0x00030607 File Offset: 0x0002E807
 	protected override void OnFailedSpawn()
 	{
 	}
 
-	// Token: 0x06002104 RID: 8452 RVA: 0x000A4EC8 File Offset: 0x000A30C8
+	// Token: 0x06002162 RID: 8546 RVA: 0x00046AED File Offset: 0x00044CED
 	protected override void OnBeforeDespawn()
 	{
 		this.CleanUp(true);
 	}
 
-	// Token: 0x06002105 RID: 8453 RVA: 0x000A4ED4 File Offset: 0x000A30D4
+	// Token: 0x06002163 RID: 8547 RVA: 0x000F5A4C File Offset: 0x000F3C4C
 	private void CleanUp(bool netDestroy)
 	{
 		if (!this.successfullInstantiate)
@@ -253,14 +253,14 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		this.vrrig = null;
 	}
 
-	// Token: 0x06002106 RID: 8454 RVA: 0x000A4FC5 File Offset: 0x000A31C5
+	// Token: 0x06002164 RID: 8548 RVA: 0x00046AF6 File Offset: 0x00044CF6
 	private void OnDisable()
 	{
 		NetworkBehaviourUtils.InternalOnDisable(this);
 		this.CleanUp(false);
 	}
 
-	// Token: 0x06002107 RID: 8455 RVA: 0x000A4FD4 File Offset: 0x000A31D4
+	// Token: 0x06002165 RID: 8549 RVA: 0x00046B05 File Offset: 0x00044D05
 	private void OnDestroy()
 	{
 		NetworkBehaviourUtils.InternalOnDestroy(this);
@@ -270,65 +270,65 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		}
 	}
 
-	// Token: 0x06002108 RID: 8456 RVA: 0x000A5012 File Offset: 0x000A3212
+	// Token: 0x06002166 RID: 8550 RVA: 0x00046B43 File Offset: 0x00044D43
 	[PunRPC]
 	public void RPC_InitializeNoobMaterial(float red, float green, float blue, PhotonMessageInfo info)
 	{
 		this.InitializeNoobMaterialShared(red, green, blue, info);
 	}
 
-	// Token: 0x06002109 RID: 8457 RVA: 0x000A5024 File Offset: 0x000A3224
+	// Token: 0x06002167 RID: 8551 RVA: 0x00046B55 File Offset: 0x00044D55
 	[PunRPC]
 	public void RPC_RequestCosmetics(PhotonMessageInfo info)
 	{
 		this.RequestCosmeticsShared(info);
 	}
 
-	// Token: 0x0600210A RID: 8458 RVA: 0x000A5032 File Offset: 0x000A3232
+	// Token: 0x06002168 RID: 8552 RVA: 0x00046B63 File Offset: 0x00044D63
 	[PunRPC]
 	public void RPC_PlayDrum(int drumIndex, float drumVolume, PhotonMessageInfo info)
 	{
 		this.PlayDrumShared(drumIndex, drumVolume, info);
 	}
 
-	// Token: 0x0600210B RID: 8459 RVA: 0x000A5042 File Offset: 0x000A3242
+	// Token: 0x06002169 RID: 8553 RVA: 0x00046B73 File Offset: 0x00044D73
 	[PunRPC]
 	public void RPC_PlaySelfOnlyInstrument(int selfOnlyIndex, int noteIndex, float instrumentVol, PhotonMessageInfo info)
 	{
 		this.PlaySelfOnlyInstrumentShared(selfOnlyIndex, noteIndex, instrumentVol, info);
 	}
 
-	// Token: 0x0600210C RID: 8460 RVA: 0x000A5054 File Offset: 0x000A3254
+	// Token: 0x0600216A RID: 8554 RVA: 0x00046B85 File Offset: 0x00044D85
 	[PunRPC]
 	public void RPC_PlayHandTap(int soundIndex, bool isLeftHand, float tapVolume, PhotonMessageInfo info = default(PhotonMessageInfo))
 	{
 		this.PlayHandTapShared(soundIndex, isLeftHand, tapVolume, info);
 	}
 
-	// Token: 0x0600210D RID: 8461 RVA: 0x000A5066 File Offset: 0x000A3266
+	// Token: 0x0600216B RID: 8555 RVA: 0x00046B97 File Offset: 0x00044D97
 	public void RPC_UpdateNativeSize(float value, PhotonMessageInfo info = default(PhotonMessageInfo))
 	{
 		this.UpdateNativeSizeShared(value, info);
 	}
 
-	// Token: 0x0600210E RID: 8462 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600216C RID: 8556 RVA: 0x00030607 File Offset: 0x0002E807
 	public void RPC_UpdateCosmetics(string[] currentItems, PhotonMessageInfo info)
 	{
 	}
 
-	// Token: 0x0600210F RID: 8463 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600216D RID: 8557 RVA: 0x00030607 File Offset: 0x0002E807
 	public void RPC_UpdateCosmeticsWithTryon(string[] currentItems, string[] tryOnItems, PhotonMessageInfo info)
 	{
 	}
 
-	// Token: 0x06002110 RID: 8464 RVA: 0x000A5075 File Offset: 0x000A3275
+	// Token: 0x0600216E RID: 8558 RVA: 0x00046BA6 File Offset: 0x00044DA6
 	[PunRPC]
 	public void RPC_UpdateCosmeticsWithTryonPacked(int[] currentItemsPacked, int[] tryOnItemsPacked, PhotonMessageInfo info)
 	{
 		this.UpdateCosmeticsWithTryonShared(currentItemsPacked, tryOnItemsPacked, info);
 	}
 
-	// Token: 0x06002111 RID: 8465 RVA: 0x000A5085 File Offset: 0x000A3285
+	// Token: 0x0600216F RID: 8559 RVA: 0x00046BB6 File Offset: 0x00044DB6
 	[PunRPC]
 	public void RPC_HideAllCosmetics(PhotonMessageInfo info)
 	{
@@ -340,49 +340,49 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		vrrig.HideAllCosmetics(info);
 	}
 
-	// Token: 0x06002112 RID: 8466 RVA: 0x000A5098 File Offset: 0x000A3298
+	// Token: 0x06002170 RID: 8560 RVA: 0x00046BC9 File Offset: 0x00044DC9
 	[PunRPC]
 	public void RPC_PlaySplashEffect(Vector3 splashPosition, Quaternion splashRotation, float splashScale, float boundingRadius, bool bigSplash, bool enteringWater, PhotonMessageInfo info)
 	{
 		this.PlaySplashEffectShared(splashPosition, splashRotation, splashScale, boundingRadius, bigSplash, enteringWater, info);
 	}
 
-	// Token: 0x06002113 RID: 8467 RVA: 0x000A50B0 File Offset: 0x000A32B0
+	// Token: 0x06002171 RID: 8561 RVA: 0x00046BE1 File Offset: 0x00044DE1
 	[PunRPC]
 	public void RPC_PlayGeodeEffect(Vector3 hitPosition, PhotonMessageInfo info)
 	{
 		this.PlayGeodeEffectShared(hitPosition, info);
 	}
 
-	// Token: 0x06002114 RID: 8468 RVA: 0x000A50BF File Offset: 0x000A32BF
+	// Token: 0x06002172 RID: 8562 RVA: 0x00046BF0 File Offset: 0x00044DF0
 	[PunRPC]
 	public void EnableNonCosmeticHandItemRPC(bool enable, bool isLeftHand, PhotonMessageInfo info)
 	{
 		this.EnableNonCosmeticHandItemShared(enable, isLeftHand, info);
 	}
 
-	// Token: 0x06002115 RID: 8469 RVA: 0x000A50CF File Offset: 0x000A32CF
+	// Token: 0x06002173 RID: 8563 RVA: 0x00046C00 File Offset: 0x00044E00
 	[PunRPC]
 	public void OnHandTapRPC(int surfaceIndex, bool leftHanded, float handSpeed, long packedDir, PhotonMessageInfo info)
 	{
 		this.OnHandTapRPCShared(surfaceIndex, leftHanded, handSpeed, packedDir, info);
 	}
 
-	// Token: 0x06002116 RID: 8470 RVA: 0x000A50E3 File Offset: 0x000A32E3
+	// Token: 0x06002174 RID: 8564 RVA: 0x00046C14 File Offset: 0x00044E14
 	[PunRPC]
 	public void RPC_UpdateQuestScore(int score, PhotonMessageInfo info)
 	{
 		this.UpdateQuestScore(score, info);
 	}
 
-	// Token: 0x06002117 RID: 8471 RVA: 0x000A50F2 File Offset: 0x000A32F2
+	// Token: 0x06002175 RID: 8565 RVA: 0x00046C23 File Offset: 0x00044E23
 	[PunRPC]
 	public void RPC_RequestQuestScore(PhotonMessageInfo info)
 	{
 		this.RequestQuestScore(info);
 	}
 
-	// Token: 0x06002118 RID: 8472 RVA: 0x000A5100 File Offset: 0x000A3300
+	// Token: 0x06002176 RID: 8566 RVA: 0x000F5B40 File Offset: 0x000F3D40
 	[PunRPC]
 	public void GrabbedByPlayer(bool grabbedBody, bool grabbedLeftHand, bool grabbedWithLeftHand, PhotonMessageInfo info)
 	{
@@ -399,7 +399,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		this.vrrig.GrabbedByPlayer(rigContainer.Rig, grabbedBody, grabbedLeftHand, grabbedWithLeftHand);
 	}
 
-	// Token: 0x06002119 RID: 8473 RVA: 0x000A515C File Offset: 0x000A335C
+	// Token: 0x06002177 RID: 8567 RVA: 0x000F5B9C File Offset: 0x000F3D9C
 	[PunRPC]
 	public void DroppedByPlayer(Vector3 throwVelocity, PhotonMessageInfo info)
 	{
@@ -415,13 +415,13 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		}
 	}
 
-	// Token: 0x0600211A RID: 8474 RVA: 0x000A51A1 File Offset: 0x000A33A1
+	// Token: 0x06002178 RID: 8568 RVA: 0x00046C31 File Offset: 0x00044E31
 	void IFXContextParems<HandTapArgs>.OnPlayFX(HandTapArgs parems)
 	{
 		this.vrrig.PlayHandTapLocal(parems.soundIndex, parems.isLeftHand, parems.tapVolume);
 	}
 
-	// Token: 0x0600211B RID: 8475 RVA: 0x000A51C0 File Offset: 0x000A33C0
+	// Token: 0x06002179 RID: 8569 RVA: 0x00046C50 File Offset: 0x00044E50
 	void IFXContextParems<GeoSoundArg>.OnPlayFX(GeoSoundArg parems)
 	{
 		VRRig vrrig = this.vrrig;
@@ -432,7 +432,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		vrrig.PlayGeodeEffect(parems.position);
 	}
 
-	// Token: 0x0600211C RID: 8476 RVA: 0x000A51D8 File Offset: 0x000A33D8
+	// Token: 0x0600217A RID: 8570 RVA: 0x000F5BE4 File Offset: 0x000F3DE4
 	private void OnHandTapRPCShared(int surfaceIndex, bool leftHanded, float handSpeed, long packedDir, PhotonMessageInfoWrapped info)
 	{
 		GorillaNot.IncrementRPCCall(info, "OnHandTapRPCShared");
@@ -486,7 +486,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		FXSystem.PlayFXForRig<HandEffectContext>(FXType.OnHandTap, onHandTapFX, info);
 	}
 
-	// Token: 0x0600211D RID: 8477 RVA: 0x000A53F8 File Offset: 0x000A35F8
+	// Token: 0x0600217B RID: 8571 RVA: 0x000F5E04 File Offset: 0x000F4004
 	private void PlayHandTapShared(int soundIndex, bool isLeftHand, float tapVolume, PhotonMessageInfoWrapped info = default(PhotonMessageInfoWrapped))
 	{
 		GorillaNot.IncrementRPCCall(info, "PlayHandTapShared");
@@ -502,7 +502,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		GorillaNot.instance.SendReport("inappropriate tag data being sent hand tap", sender.UserId, sender.NickName);
 	}
 
-	// Token: 0x0600211E RID: 8478 RVA: 0x000A5498 File Offset: 0x000A3698
+	// Token: 0x0600217C RID: 8572 RVA: 0x000F5EA4 File Offset: 0x000F40A4
 	private void UpdateNativeSizeShared(float value, PhotonMessageInfoWrapped info = default(PhotonMessageInfoWrapped))
 	{
 		GorillaNot.IncrementRPCCall(info, "UpdateNativeSizeShared");
@@ -521,7 +521,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		}
 	}
 
-	// Token: 0x0600211F RID: 8479 RVA: 0x000A5528 File Offset: 0x000A3728
+	// Token: 0x0600217D RID: 8573 RVA: 0x000F5F34 File Offset: 0x000F4134
 	private void PlayGeodeEffectShared(Vector3 hitPosition, PhotonMessageInfoWrapped info)
 	{
 		GorillaNot.IncrementRPCCall(info, "PlayGeodeEffectShared");
@@ -538,7 +538,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		GorillaNot.instance.SendReport("inappropriate tag data being sent geode effect", info.Sender.UserId, info.Sender.NickName);
 	}
 
-	// Token: 0x06002120 RID: 8480 RVA: 0x000A55A9 File Offset: 0x000A37A9
+	// Token: 0x0600217E RID: 8574 RVA: 0x00046C68 File Offset: 0x00044E68
 	private void InitializeNoobMaterialShared(float red, float green, float blue, PhotonMessageInfoWrapped info)
 	{
 		VRRig vrrig = this.vrrig;
@@ -549,7 +549,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		vrrig.InitializeNoobMaterial(red, green, blue, info);
 	}
 
-	// Token: 0x06002121 RID: 8481 RVA: 0x000A55C0 File Offset: 0x000A37C0
+	// Token: 0x0600217F RID: 8575 RVA: 0x00046C7F File Offset: 0x00044E7F
 	private void RequestMaterialColorShared(int askingPlayerID, PhotonMessageInfoWrapped info)
 	{
 		VRRig vrrig = this.vrrig;
@@ -560,7 +560,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		vrrig.RequestMaterialColor(askingPlayerID, info);
 	}
 
-	// Token: 0x06002122 RID: 8482 RVA: 0x000A55D4 File Offset: 0x000A37D4
+	// Token: 0x06002180 RID: 8576 RVA: 0x000F5FB8 File Offset: 0x000F41B8
 	private void RequestCosmeticsShared(PhotonMessageInfoWrapped info)
 	{
 		GorillaNot.IncrementRPCCall(info, "RequestCosmetics");
@@ -577,7 +577,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		vrrig.RequestCosmetics(info);
 	}
 
-	// Token: 0x06002123 RID: 8483 RVA: 0x000A5637 File Offset: 0x000A3837
+	// Token: 0x06002181 RID: 8577 RVA: 0x00046C93 File Offset: 0x00044E93
 	private void PlayDrumShared(int drumIndex, float drumVolume, PhotonMessageInfoWrapped info)
 	{
 		VRRig vrrig = this.vrrig;
@@ -588,7 +588,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		vrrig.PlayDrum(drumIndex, drumVolume, info);
 	}
 
-	// Token: 0x06002124 RID: 8484 RVA: 0x000A564C File Offset: 0x000A384C
+	// Token: 0x06002182 RID: 8578 RVA: 0x00046CA8 File Offset: 0x00044EA8
 	private void PlaySelfOnlyInstrumentShared(int selfOnlyIndex, int noteIndex, float instrumentVol, PhotonMessageInfoWrapped info)
 	{
 		VRRig vrrig = this.vrrig;
@@ -599,7 +599,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		vrrig.PlaySelfOnlyInstrument(selfOnlyIndex, noteIndex, instrumentVol, info);
 	}
 
-	// Token: 0x06002125 RID: 8485 RVA: 0x000A5663 File Offset: 0x000A3863
+	// Token: 0x06002183 RID: 8579 RVA: 0x00046CBF File Offset: 0x00044EBF
 	private void UpdateCosmeticsWithTryonShared(int[] currentItems, int[] tryOnItems, PhotonMessageInfoWrapped info)
 	{
 		VRRig vrrig = this.vrrig;
@@ -610,7 +610,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		vrrig.UpdateCosmeticsWithTryon(currentItems, tryOnItems, info);
 	}
 
-	// Token: 0x06002126 RID: 8486 RVA: 0x000A5678 File Offset: 0x000A3878
+	// Token: 0x06002184 RID: 8580 RVA: 0x00046CD4 File Offset: 0x00044ED4
 	private void PlaySplashEffectShared(Vector3 splashPosition, Quaternion splashRotation, float splashScale, float boundingRadius, bool bigSplash, bool enteringWater, PhotonMessageInfoWrapped info)
 	{
 		VRRig vrrig = this.vrrig;
@@ -621,7 +621,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		vrrig.PlaySplashEffect(splashPosition, splashRotation, splashScale, boundingRadius, bigSplash, enteringWater, info);
 	}
 
-	// Token: 0x06002127 RID: 8487 RVA: 0x000A5695 File Offset: 0x000A3895
+	// Token: 0x06002185 RID: 8581 RVA: 0x00046CF1 File Offset: 0x00044EF1
 	private void EnableNonCosmeticHandItemShared(bool enable, bool isLeftHand, PhotonMessageInfoWrapped info)
 	{
 		VRRig vrrig = this.vrrig;
@@ -632,7 +632,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		vrrig.EnableNonCosmeticHandItemRPC(enable, isLeftHand, info);
 	}
 
-	// Token: 0x06002128 RID: 8488 RVA: 0x000A56AA File Offset: 0x000A38AA
+	// Token: 0x06002186 RID: 8582 RVA: 0x00046D06 File Offset: 0x00044F06
 	public void UpdateQuestScore(int score, PhotonMessageInfoWrapped info)
 	{
 		VRRig vrrig = this.vrrig;
@@ -643,7 +643,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		vrrig.UpdateQuestScore(score, info);
 	}
 
-	// Token: 0x06002129 RID: 8489 RVA: 0x000A56BE File Offset: 0x000A38BE
+	// Token: 0x06002187 RID: 8583 RVA: 0x00046D1A File Offset: 0x00044F1A
 	public void RequestQuestScore(PhotonMessageInfoWrapped info)
 	{
 		VRRig vrrig = this.vrrig;
@@ -654,7 +654,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		vrrig.RequestQuestScore(info);
 	}
 
-	// Token: 0x0600212B RID: 8491 RVA: 0x000A56FA File Offset: 0x000A38FA
+	// Token: 0x06002189 RID: 8585 RVA: 0x00046D56 File Offset: 0x00044F56
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -664,7 +664,7 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		this.tutorialComplete = this._tutorialComplete;
 	}
 
-	// Token: 0x0600212C RID: 8492 RVA: 0x000A572A File Offset: 0x000A392A
+	// Token: 0x0600218A RID: 8586 RVA: 0x00046D86 File Offset: 0x00044F86
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -674,51 +674,51 @@ internal class VRRigSerializer : GorillaWrappedSerializer, IFXContextParems<Hand
 		this._tutorialComplete = this.tutorialComplete;
 	}
 
-	// Token: 0x040024BE RID: 9406
+	// Token: 0x04002516 RID: 9494
 	[WeaverGenerated]
 	[SerializeField]
 	[DefaultForProperty("nickName", 0, 17)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
 	private NetworkString<_16> _nickName;
 
-	// Token: 0x040024BF RID: 9407
+	// Token: 0x04002517 RID: 9495
 	[WeaverGenerated]
 	[SerializeField]
 	[DefaultForProperty("defaultName", 17, 17)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
 	private NetworkString<_16> _defaultName;
 
-	// Token: 0x040024C0 RID: 9408
+	// Token: 0x04002518 RID: 9496
 	[WeaverGenerated]
 	[SerializeField]
 	[DefaultForProperty("tutorialComplete", 34, 1)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
 	private bool _tutorialComplete;
 
-	// Token: 0x040024C1 RID: 9409
+	// Token: 0x04002519 RID: 9497
 	[SerializeField]
 	private PhotonVoiceView voiceView;
 
-	// Token: 0x040024C2 RID: 9410
+	// Token: 0x0400251A RID: 9498
 	[SerializeField]
 	private VoiceNetworkObject fusionVoiceView;
 
-	// Token: 0x040024C3 RID: 9411
+	// Token: 0x0400251B RID: 9499
 	public Transform networkSpeaker;
 
-	// Token: 0x040024C4 RID: 9412
+	// Token: 0x0400251C RID: 9500
 	[SerializeField]
 	private VRRig vrrig;
 
-	// Token: 0x040024C5 RID: 9413
+	// Token: 0x0400251D RID: 9501
 	private RigContainer rigContainer;
 
-	// Token: 0x040024C6 RID: 9414
+	// Token: 0x0400251E RID: 9502
 	private HandTapArgs handTapArgs = new HandTapArgs();
 
-	// Token: 0x040024C7 RID: 9415
+	// Token: 0x0400251F RID: 9503
 	private GeoSoundArg geoSoundArg = new GeoSoundArg();
 
-	// Token: 0x040024C8 RID: 9416
+	// Token: 0x04002520 RID: 9504
 	private Vector3 tempVector = Vector3.zero;
 }

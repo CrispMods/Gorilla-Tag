@@ -1,24 +1,24 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004E8 RID: 1256
+// Token: 0x020004F5 RID: 1269
 public class BuilderRoomBoundary : GorillaTriggerBox
 {
-	// Token: 0x06001E76 RID: 7798 RVA: 0x00099504 File Offset: 0x00097704
+	// Token: 0x06001ECF RID: 7887 RVA: 0x00044E24 File Offset: 0x00043024
 	private void Awake()
 	{
 		this.enableOnEnterTrigger.OnEnter += this.OnEnteredBoundary;
 		this.disableOnExitTrigger.OnExit += this.OnExitedBoundary;
 	}
 
-	// Token: 0x06001E77 RID: 7799 RVA: 0x00099534 File Offset: 0x00097734
+	// Token: 0x06001ED0 RID: 7888 RVA: 0x00044E54 File Offset: 0x00043054
 	private void OnDestroy()
 	{
 		this.enableOnEnterTrigger.OnEnter -= this.OnEnteredBoundary;
 		this.disableOnExitTrigger.OnExit -= this.OnExitedBoundary;
 	}
 
-	// Token: 0x06001E78 RID: 7800 RVA: 0x00099564 File Offset: 0x00097764
+	// Token: 0x06001ED1 RID: 7889 RVA: 0x000EBC48 File Offset: 0x000E9E48
 	public void OnEnteredBoundary(Collider other)
 	{
 		if (other.attachedRigidbody == null)
@@ -37,7 +37,7 @@ public class BuilderRoomBoundary : GorillaTriggerBox
 		this.rigRef.EnableBuilderResizeWatch(true);
 	}
 
-	// Token: 0x06001E79 RID: 7801 RVA: 0x000995D0 File Offset: 0x000977D0
+	// Token: 0x06001ED2 RID: 7890 RVA: 0x000EBCB4 File Offset: 0x000E9EB4
 	public void OnExitedBoundary(Collider other)
 	{
 		if (other.attachedRigidbody == null)
@@ -52,14 +52,14 @@ public class BuilderRoomBoundary : GorillaTriggerBox
 		this.rigRef.EnableBuilderResizeWatch(false);
 	}
 
-	// Token: 0x0400221B RID: 8731
+	// Token: 0x0400226E RID: 8814
 	[SerializeField]
 	private SizeChangerTrigger enableOnEnterTrigger;
 
-	// Token: 0x0400221C RID: 8732
+	// Token: 0x0400226F RID: 8815
 	[SerializeField]
 	private SizeChangerTrigger disableOnExitTrigger;
 
-	// Token: 0x0400221D RID: 8733
+	// Token: 0x04002270 RID: 8816
 	private VRRig rigRef;
 }

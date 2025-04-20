@@ -3,29 +3,29 @@ using UnityEngine;
 
 namespace CjLib
 {
-	// Token: 0x02000CA2 RID: 3234
+	// Token: 0x02000CD3 RID: 3283
 	public class QuaternionUtil
 	{
-		// Token: 0x0600519E RID: 20894 RVA: 0x001902D4 File Offset: 0x0018E4D4
+		// Token: 0x06005300 RID: 21248 RVA: 0x00065C7A File Offset: 0x00063E7A
 		public static float Magnitude(Quaternion q)
 		{
 			return Mathf.Sqrt(q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w);
 		}
 
-		// Token: 0x0600519F RID: 20895 RVA: 0x00190312 File Offset: 0x0018E512
+		// Token: 0x06005301 RID: 21249 RVA: 0x00065CB8 File Offset: 0x00063EB8
 		public static float MagnitudeSqr(Quaternion q)
 		{
 			return q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w;
 		}
 
-		// Token: 0x060051A0 RID: 20896 RVA: 0x0019034C File Offset: 0x0018E54C
+		// Token: 0x06005302 RID: 21250 RVA: 0x001C6B94 File Offset: 0x001C4D94
 		public static Quaternion Normalize(Quaternion q)
 		{
 			float num = 1f / QuaternionUtil.Magnitude(q);
 			return new Quaternion(num * q.x, num * q.y, num * q.z, num * q.w);
 		}
 
-		// Token: 0x060051A1 RID: 20897 RVA: 0x0019038C File Offset: 0x0018E58C
+		// Token: 0x06005303 RID: 21251 RVA: 0x001C6BD4 File Offset: 0x001C4DD4
 		public static Quaternion AngularVector(Vector3 v)
 		{
 			float magnitude = v.magnitude;
@@ -40,7 +40,7 @@ namespace CjLib
 			return new Quaternion(num * v.x, num * v.y, num * v.z, w);
 		}
 
-		// Token: 0x060051A2 RID: 20898 RVA: 0x001903EC File Offset: 0x0018E5EC
+		// Token: 0x06005304 RID: 21252 RVA: 0x001C6C34 File Offset: 0x001C4E34
 		public static Quaternion AxisAngle(Vector3 axis, float angle)
 		{
 			float f = 0.5f * angle;
@@ -49,7 +49,7 @@ namespace CjLib
 			return new Quaternion(num * axis.x, num * axis.y, num * axis.z, w);
 		}
 
-		// Token: 0x060051A3 RID: 20899 RVA: 0x0019042C File Offset: 0x0018E62C
+		// Token: 0x06005305 RID: 21253 RVA: 0x001C6C74 File Offset: 0x001C4E74
 		public static Vector3 GetAxis(Quaternion q)
 		{
 			Vector3 a = new Vector3(q.x, q.y, q.z);
@@ -61,13 +61,13 @@ namespace CjLib
 			return a / magnitude;
 		}
 
-		// Token: 0x060051A4 RID: 20900 RVA: 0x0019046F File Offset: 0x0018E66F
+		// Token: 0x06005306 RID: 21254 RVA: 0x00065CF1 File Offset: 0x00063EF1
 		public static float GetAngle(Quaternion q)
 		{
 			return 2f * Mathf.Acos(Mathf.Clamp(q.w, -1f, 1f));
 		}
 
-		// Token: 0x060051A5 RID: 20901 RVA: 0x00190494 File Offset: 0x0018E694
+		// Token: 0x06005307 RID: 21255 RVA: 0x001C6CB8 File Offset: 0x001C4EB8
 		public static Quaternion Pow(Quaternion q, float exp)
 		{
 			Vector3 axis = QuaternionUtil.GetAxis(q);
@@ -75,26 +75,26 @@ namespace CjLib
 			return QuaternionUtil.AxisAngle(axis, angle * exp);
 		}
 
-		// Token: 0x060051A6 RID: 20902 RVA: 0x001904B6 File Offset: 0x0018E6B6
+		// Token: 0x06005308 RID: 21256 RVA: 0x00065D13 File Offset: 0x00063F13
 		public static Quaternion Integrate(Quaternion q, Quaternion v, float dt)
 		{
 			return QuaternionUtil.Pow(v, dt) * q;
 		}
 
-		// Token: 0x060051A7 RID: 20903 RVA: 0x001904C5 File Offset: 0x0018E6C5
+		// Token: 0x06005309 RID: 21257 RVA: 0x00065D22 File Offset: 0x00063F22
 		public static Quaternion Integrate(Quaternion q, Vector3 omega, float dt)
 		{
 			dt *= 0.5f;
 			return QuaternionUtil.Normalize(new Quaternion(omega.x * dt, omega.y * dt, omega.z * dt, 1f) * q);
 		}
 
-		// Token: 0x060051A8 RID: 20904 RVA: 0x001904FD File Offset: 0x0018E6FD
+		// Token: 0x0600530A RID: 21258 RVA: 0x00065D5A File Offset: 0x00063F5A
 		public static Vector4 ToVector4(Quaternion q)
 		{
 			return new Vector4(q.x, q.y, q.z, q.w);
 		}
 
-		// Token: 0x060051A9 RID: 20905 RVA: 0x0019051C File Offset: 0x0018E71C
+		// Token: 0x0600530B RID: 21259 RVA: 0x001C6CDC File Offset: 0x001C4EDC
 		public static Quaternion FromVector4(Vector4 v, bool normalize = true)
 		{
 			if (normalize)
@@ -109,7 +109,7 @@ namespace CjLib
 			return new Quaternion(v.x, v.y, v.z, v.w);
 		}
 
-		// Token: 0x060051AA RID: 20906 RVA: 0x00190570 File Offset: 0x0018E770
+		// Token: 0x0600530C RID: 21260 RVA: 0x001C6D30 File Offset: 0x001C4F30
 		public static void DecomposeSwingTwist(Quaternion q, Vector3 twistAxis, out Quaternion swing, out Quaternion twist)
 		{
 			Vector3 vector = new Vector3(q.x, q.y, q.z);
@@ -135,7 +135,7 @@ namespace CjLib
 			swing = q * Quaternion.Inverse(twist);
 		}
 
-		// Token: 0x060051AB RID: 20907 RVA: 0x0019064C File Offset: 0x0018E84C
+		// Token: 0x0600530D RID: 21261 RVA: 0x001C6E0C File Offset: 0x001C500C
 		public static Quaternion Sterp(Quaternion a, Quaternion b, Vector3 twistAxis, float t, QuaternionUtil.SterpMode mode = QuaternionUtil.SterpMode.Slerp)
 		{
 			Quaternion quaternion;
@@ -143,13 +143,13 @@ namespace CjLib
 			return QuaternionUtil.Sterp(a, b, twistAxis, t, out quaternion, out quaternion2, mode);
 		}
 
-		// Token: 0x060051AC RID: 20908 RVA: 0x00190668 File Offset: 0x0018E868
+		// Token: 0x0600530E RID: 21262 RVA: 0x00065D79 File Offset: 0x00063F79
 		public static Quaternion Sterp(Quaternion a, Quaternion b, Vector3 twistAxis, float t, out Quaternion swing, out Quaternion twist, QuaternionUtil.SterpMode mode = QuaternionUtil.SterpMode.Slerp)
 		{
 			return QuaternionUtil.Sterp(a, b, twistAxis, t, t, out swing, out twist, mode);
 		}
 
-		// Token: 0x060051AD RID: 20909 RVA: 0x0019067C File Offset: 0x0018E87C
+		// Token: 0x0600530F RID: 21263 RVA: 0x001C6E28 File Offset: 0x001C5028
 		public static Quaternion Sterp(Quaternion a, Quaternion b, Vector3 twistAxis, float tSwing, float tTwist, QuaternionUtil.SterpMode mode = QuaternionUtil.SterpMode.Slerp)
 		{
 			Quaternion quaternion;
@@ -157,7 +157,7 @@ namespace CjLib
 			return QuaternionUtil.Sterp(a, b, twistAxis, tSwing, tTwist, out quaternion, out quaternion2, mode);
 		}
 
-		// Token: 0x060051AE RID: 20910 RVA: 0x0019069C File Offset: 0x0018E89C
+		// Token: 0x06005310 RID: 21264 RVA: 0x001C6E48 File Offset: 0x001C5048
 		public static Quaternion Sterp(Quaternion a, Quaternion b, Vector3 twistAxis, float tSwing, float tTwist, out Quaternion swing, out Quaternion twist, QuaternionUtil.SterpMode mode)
 		{
 			Quaternion b2;
@@ -176,12 +176,12 @@ namespace CjLib
 			return twist * swing;
 		}
 
-		// Token: 0x02000CA3 RID: 3235
+		// Token: 0x02000CD4 RID: 3284
 		public enum SterpMode
 		{
-			// Token: 0x040053D0 RID: 21456
+			// Token: 0x040054DC RID: 21724
 			Nlerp,
-			// Token: 0x040053D1 RID: 21457
+			// Token: 0x040054DD RID: 21725
 			Slerp
 		}
 	}

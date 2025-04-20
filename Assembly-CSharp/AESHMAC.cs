@@ -3,10 +3,10 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-// Token: 0x0200069F RID: 1695
+// Token: 0x020006B4 RID: 1716
 public static class AESHMAC
 {
-	// Token: 0x06002A13 RID: 10771 RVA: 0x000D10A0 File Offset: 0x000CF2A0
+	// Token: 0x06002AA9 RID: 10921 RVA: 0x0011D6F4 File Offset: 0x0011B8F4
 	public static byte[] NewKey()
 	{
 		byte[] array = new byte[32];
@@ -14,7 +14,7 @@ public static class AESHMAC
 		return array;
 	}
 
-	// Token: 0x06002A14 RID: 10772 RVA: 0x000D10C1 File Offset: 0x000CF2C1
+	// Token: 0x06002AAA RID: 10922 RVA: 0x0004CDCE File Offset: 0x0004AFCE
 	public static string SimpleEncrypt(string plaintext, byte[] key, byte[] auth, byte[] salt = null)
 	{
 		if (string.IsNullOrEmpty(plaintext))
@@ -24,7 +24,7 @@ public static class AESHMAC
 		return Convert.ToBase64String(AESHMAC.SimpleEncrypt(Encoding.UTF8.GetBytes(plaintext), key, auth, salt));
 	}
 
-	// Token: 0x06002A15 RID: 10773 RVA: 0x000D10F0 File Offset: 0x000CF2F0
+	// Token: 0x06002AAB RID: 10923 RVA: 0x0011D718 File Offset: 0x0011B918
 	public static string SimpleDecrypt(string ciphertext, byte[] key, byte[] auth, int saltLength = 0)
 	{
 		if (string.IsNullOrWhiteSpace(ciphertext))
@@ -39,7 +39,7 @@ public static class AESHMAC
 		return null;
 	}
 
-	// Token: 0x06002A16 RID: 10774 RVA: 0x000D112F File Offset: 0x000CF32F
+	// Token: 0x06002AAC RID: 10924 RVA: 0x0004CDFB File Offset: 0x0004AFFB
 	public static string SimpleEncryptWithKey(string plaintext, string key, byte[] salt = null)
 	{
 		if (string.IsNullOrEmpty(plaintext))
@@ -49,7 +49,7 @@ public static class AESHMAC
 		return Convert.ToBase64String(AESHMAC.SimpleEncryptWithKey(Encoding.UTF8.GetBytes(plaintext), key, salt));
 	}
 
-	// Token: 0x06002A17 RID: 10775 RVA: 0x000D115C File Offset: 0x000CF35C
+	// Token: 0x06002AAD RID: 10925 RVA: 0x0011D758 File Offset: 0x0011B958
 	public static string SimpleDecryptWithKey(string ciphertext, string key, int saltLength = 0)
 	{
 		if (string.IsNullOrWhiteSpace(ciphertext))
@@ -64,7 +64,7 @@ public static class AESHMAC
 		return null;
 	}
 
-	// Token: 0x06002A18 RID: 10776 RVA: 0x000D119C File Offset: 0x000CF39C
+	// Token: 0x06002AAE RID: 10926 RVA: 0x0011D798 File Offset: 0x0011B998
 	public static byte[] SimpleEncrypt(byte[] plaintext, byte[] key, byte[] auth, byte[] salt = null)
 	{
 		if (key == null || key.Length != 32)
@@ -130,7 +130,7 @@ public static class AESHMAC
 		return result;
 	}
 
-	// Token: 0x06002A19 RID: 10777 RVA: 0x000D13A8 File Offset: 0x000CF5A8
+	// Token: 0x06002AAF RID: 10927 RVA: 0x0011D9A4 File Offset: 0x0011BBA4
 	public static byte[] SimpleDecrypt(byte[] ciphertext, byte[] key, byte[] auth, int saltLength = 0)
 	{
 		if (key == null || key.Length != 32)
@@ -200,7 +200,7 @@ public static class AESHMAC
 		return result;
 	}
 
-	// Token: 0x06002A1A RID: 10778 RVA: 0x000D1604 File Offset: 0x000CF804
+	// Token: 0x06002AB0 RID: 10928 RVA: 0x0011DC00 File Offset: 0x0011BE00
 	public static byte[] SimpleEncryptWithKey(byte[] plaintext, string key, byte[] salt = null)
 	{
 		if (salt == null)
@@ -236,7 +236,7 @@ public static class AESHMAC
 		return AESHMAC.SimpleEncrypt(plaintext, bytes, bytes2, array);
 	}
 
-	// Token: 0x06002A1B RID: 10779 RVA: 0x000D171C File Offset: 0x000CF91C
+	// Token: 0x06002AB1 RID: 10929 RVA: 0x0011DD18 File Offset: 0x0011BF18
 	public static byte[] SimpleDecryptWithKey(byte[] ciphertext, string key, int saltLength = 0)
 	{
 		if (string.IsNullOrWhiteSpace(key) || key.Length < 12)
@@ -256,7 +256,7 @@ public static class AESHMAC
 		return AESHMAC.SimpleDecrypt(ciphertext, key2, auth, array.Length + array2.Length + saltLength);
 	}
 
-	// Token: 0x06002A1C RID: 10780 RVA: 0x000D17C4 File Offset: 0x000CF9C4
+	// Token: 0x06002AB2 RID: 10930 RVA: 0x0011DDC0 File Offset: 0x0011BFC0
 	private static byte[] Rfc2898DeriveBytes(string password, byte[] salt, int iterations, int numBytes)
 	{
 		byte[] bytes;
@@ -267,21 +267,21 @@ public static class AESHMAC
 		return bytes;
 	}
 
-	// Token: 0x04002F9C RID: 12188
+	// Token: 0x04003039 RID: 12345
 	private static readonly RandomNumberGenerator gRNG = RandomNumberGenerator.Create();
 
-	// Token: 0x04002F9D RID: 12189
+	// Token: 0x0400303A RID: 12346
 	public const int BlockBitSize = 128;
 
-	// Token: 0x04002F9E RID: 12190
+	// Token: 0x0400303B RID: 12347
 	public const int KeyBitSize = 256;
 
-	// Token: 0x04002F9F RID: 12191
+	// Token: 0x0400303C RID: 12348
 	public const int SaltBitSize = 64;
 
-	// Token: 0x04002FA0 RID: 12192
+	// Token: 0x0400303D RID: 12349
 	public const int Iterations = 10000;
 
-	// Token: 0x04002FA1 RID: 12193
+	// Token: 0x0400303E RID: 12350
 	public const int MinPasswordLength = 12;
 }

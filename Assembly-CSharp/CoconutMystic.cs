@@ -5,28 +5,28 @@ using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 
-// Token: 0x020003D8 RID: 984
+// Token: 0x020003E3 RID: 995
 public class CoconutMystic : MonoBehaviour
 {
-	// Token: 0x060017C8 RID: 6088 RVA: 0x00073D44 File Offset: 0x00071F44
+	// Token: 0x06001815 RID: 6165 RVA: 0x00040544 File Offset: 0x0003E744
 	private void Awake()
 	{
 		this.rig = base.GetComponentInParent<VRRig>();
 	}
 
-	// Token: 0x060017C9 RID: 6089 RVA: 0x00073D52 File Offset: 0x00071F52
+	// Token: 0x06001816 RID: 6166 RVA: 0x00040552 File Offset: 0x0003E752
 	private void OnEnable()
 	{
 		PhotonNetwork.NetworkingClient.EventReceived += this.OnPhotonEvent;
 	}
 
-	// Token: 0x060017CA RID: 6090 RVA: 0x00073D6A File Offset: 0x00071F6A
+	// Token: 0x06001817 RID: 6167 RVA: 0x0004056A File Offset: 0x0003E76A
 	private void OnDisable()
 	{
 		PhotonNetwork.NetworkingClient.EventReceived -= this.OnPhotonEvent;
 	}
 
-	// Token: 0x060017CB RID: 6091 RVA: 0x00073D84 File Offset: 0x00071F84
+	// Token: 0x06001818 RID: 6168 RVA: 0x000CA89C File Offset: 0x000C8A9C
 	private void OnPhotonEvent(EventData evData)
 	{
 		if (evData.Code != 176)
@@ -56,14 +56,14 @@ public class CoconutMystic : MonoBehaviour
 		this.breakEffect.Play();
 	}
 
-	// Token: 0x060017CC RID: 6092 RVA: 0x00073E24 File Offset: 0x00072024
+	// Token: 0x06001819 RID: 6169 RVA: 0x000CA93C File Offset: 0x000C8B3C
 	public void UpdateLabel()
 	{
 		bool flag = this.geodeItem.currentState == TransferrableObject.PositionState.InLeftHand;
 		this.label.rectTransform.localRotation = Quaternion.Euler(0f, flag ? 270f : 90f, 0f);
 	}
 
-	// Token: 0x060017CD RID: 6093 RVA: 0x00073E70 File Offset: 0x00072070
+	// Token: 0x0600181A RID: 6170 RVA: 0x000CA988 File Offset: 0x000C8B88
 	public void ShowAnswer()
 	{
 		this.answers.distinct = this.distinct;
@@ -78,27 +78,27 @@ public class CoconutMystic : MonoBehaviour
 		PhotonNetwork.RaiseEvent(176, eventContent, RaiseEventOptions.Default, SendOptions.SendReliable);
 	}
 
-	// Token: 0x04001A61 RID: 6753
+	// Token: 0x04001AAA RID: 6826
 	public VRRig rig;
 
-	// Token: 0x04001A62 RID: 6754
+	// Token: 0x04001AAB RID: 6827
 	public GeodeItem geodeItem;
 
-	// Token: 0x04001A63 RID: 6755
+	// Token: 0x04001AAC RID: 6828
 	public SoundBankPlayer soundPlayer;
 
-	// Token: 0x04001A64 RID: 6756
+	// Token: 0x04001AAD RID: 6829
 	public ParticleSystem breakEffect;
 
-	// Token: 0x04001A65 RID: 6757
+	// Token: 0x04001AAE RID: 6830
 	public RandomStrings answers;
 
-	// Token: 0x04001A66 RID: 6758
+	// Token: 0x04001AAF RID: 6831
 	public TMP_Text label;
 
-	// Token: 0x04001A67 RID: 6759
+	// Token: 0x04001AB0 RID: 6832
 	public bool distinct;
 
-	// Token: 0x04001A68 RID: 6760
+	// Token: 0x04001AB1 RID: 6833
 	private static readonly int kUpdateLabelEvent = "CoconutMystic.UpdateLabel".GetStaticHash();
 }

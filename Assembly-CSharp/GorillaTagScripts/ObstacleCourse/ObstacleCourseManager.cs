@@ -6,28 +6,28 @@ using UnityEngine;
 
 namespace GorillaTagScripts.ObstacleCourse
 {
-	// Token: 0x020009DA RID: 2522
+	// Token: 0x02000A16 RID: 2582
 	[NetworkBehaviourWeaved(9)]
 	public class ObstacleCourseManager : NetworkComponent, ITickSystemTick
 	{
-		// Token: 0x17000656 RID: 1622
-		// (get) Token: 0x06003EE1 RID: 16097 RVA: 0x0012A41A File Offset: 0x0012861A
-		// (set) Token: 0x06003EE2 RID: 16098 RVA: 0x0012A421 File Offset: 0x00128621
+		// Token: 0x1700067C RID: 1660
+		// (get) Token: 0x060040A6 RID: 16550 RVA: 0x0005A46B File Offset: 0x0005866B
+		// (set) Token: 0x060040A7 RID: 16551 RVA: 0x0005A472 File Offset: 0x00058672
 		public static ObstacleCourseManager Instance { get; private set; }
 
-		// Token: 0x17000657 RID: 1623
-		// (get) Token: 0x06003EE3 RID: 16099 RVA: 0x0012A429 File Offset: 0x00128629
-		// (set) Token: 0x06003EE4 RID: 16100 RVA: 0x0012A431 File Offset: 0x00128631
+		// Token: 0x1700067D RID: 1661
+		// (get) Token: 0x060040A8 RID: 16552 RVA: 0x0005A47A File Offset: 0x0005867A
+		// (set) Token: 0x060040A9 RID: 16553 RVA: 0x0005A482 File Offset: 0x00058682
 		public bool TickRunning { get; set; }
 
-		// Token: 0x06003EE5 RID: 16101 RVA: 0x0012A43A File Offset: 0x0012863A
+		// Token: 0x060040AA RID: 16554 RVA: 0x0005A48B File Offset: 0x0005868B
 		protected override void Awake()
 		{
 			base.Awake();
 			ObstacleCourseManager.Instance = this;
 		}
 
-		// Token: 0x06003EE6 RID: 16102 RVA: 0x0012A448 File Offset: 0x00128648
+		// Token: 0x060040AB RID: 16555 RVA: 0x0005A499 File Offset: 0x00058699
 		internal override void OnEnable()
 		{
 			NetworkBehaviourUtils.InternalOnEnable(this);
@@ -35,7 +35,7 @@ namespace GorillaTagScripts.ObstacleCourse
 			TickSystem<object>.AddCallbackTarget(this);
 		}
 
-		// Token: 0x06003EE7 RID: 16103 RVA: 0x0012A45C File Offset: 0x0012865C
+		// Token: 0x060040AC RID: 16556 RVA: 0x0005A4AD File Offset: 0x000586AD
 		internal override void OnDisable()
 		{
 			NetworkBehaviourUtils.InternalOnDisable(this);
@@ -43,7 +43,7 @@ namespace GorillaTagScripts.ObstacleCourse
 			TickSystem<object>.RemoveCallbackTarget(this);
 		}
 
-		// Token: 0x06003EE8 RID: 16104 RVA: 0x0012A470 File Offset: 0x00128670
+		// Token: 0x060040AD RID: 16557 RVA: 0x0016E4E0 File Offset: 0x0016C6E0
 		public void Tick()
 		{
 			foreach (ObstacleCourse obstacleCourse in this.allObstaclesCourses)
@@ -52,16 +52,16 @@ namespace GorillaTagScripts.ObstacleCourse
 			}
 		}
 
-		// Token: 0x06003EE9 RID: 16105 RVA: 0x0012A4C0 File Offset: 0x001286C0
+		// Token: 0x060040AE RID: 16558 RVA: 0x0005A4C1 File Offset: 0x000586C1
 		private void OnDestroy()
 		{
 			NetworkBehaviourUtils.InternalOnDestroy(this);
 			this.allObstaclesCourses.Clear();
 		}
 
-		// Token: 0x17000658 RID: 1624
-		// (get) Token: 0x06003EEA RID: 16106 RVA: 0x0012A4D3 File Offset: 0x001286D3
-		// (set) Token: 0x06003EEB RID: 16107 RVA: 0x0012A4FD File Offset: 0x001286FD
+		// Token: 0x1700067E RID: 1662
+		// (get) Token: 0x060040AF RID: 16559 RVA: 0x0005A4D4 File Offset: 0x000586D4
+		// (set) Token: 0x060040B0 RID: 16560 RVA: 0x0005A4FE File Offset: 0x000586FE
 		[Networked]
 		[NetworkedWeaved(0, 9)]
 		public unsafe ObstacleCourseData Data
@@ -84,13 +84,13 @@ namespace GorillaTagScripts.ObstacleCourse
 			}
 		}
 
-		// Token: 0x06003EEC RID: 16108 RVA: 0x0012A528 File Offset: 0x00128728
+		// Token: 0x060040B1 RID: 16561 RVA: 0x0005A529 File Offset: 0x00058729
 		public override void WriteDataFusion()
 		{
 			this.Data = new ObstacleCourseData(this.allObstaclesCourses);
 		}
 
-		// Token: 0x06003EED RID: 16109 RVA: 0x0012A53C File Offset: 0x0012873C
+		// Token: 0x060040B2 RID: 16562 RVA: 0x0016E530 File Offset: 0x0016C730
 		public override void ReadDataFusion()
 		{
 			for (int i = 0; i < this.Data.ObstacleCourseCount; i++)
@@ -104,7 +104,7 @@ namespace GorillaTagScripts.ObstacleCourse
 			}
 		}
 
-		// Token: 0x06003EEE RID: 16110 RVA: 0x0012A5BC File Offset: 0x001287BC
+		// Token: 0x060040B3 RID: 16563 RVA: 0x0016E5B0 File Offset: 0x0016C7B0
 		protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 		{
 			if (info.Sender != PhotonNetwork.MasterClient)
@@ -119,7 +119,7 @@ namespace GorillaTagScripts.ObstacleCourse
 			}
 		}
 
-		// Token: 0x06003EEF RID: 16111 RVA: 0x0012A63C File Offset: 0x0012883C
+		// Token: 0x060040B4 RID: 16564 RVA: 0x0016E630 File Offset: 0x0016C830
 		protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 		{
 			if (info.Sender != PhotonNetwork.MasterClient)
@@ -138,7 +138,7 @@ namespace GorillaTagScripts.ObstacleCourse
 			}
 		}
 
-		// Token: 0x06003EF1 RID: 16113 RVA: 0x0012A6C1 File Offset: 0x001288C1
+		// Token: 0x060040B6 RID: 16566 RVA: 0x0005A54F File Offset: 0x0005874F
 		[WeaverGenerated]
 		public override void CopyBackingFieldsToState(bool A_1)
 		{
@@ -146,7 +146,7 @@ namespace GorillaTagScripts.ObstacleCourse
 			this.Data = this._Data;
 		}
 
-		// Token: 0x06003EF2 RID: 16114 RVA: 0x0012A6D9 File Offset: 0x001288D9
+		// Token: 0x060040B7 RID: 16567 RVA: 0x0005A567 File Offset: 0x00058767
 		[WeaverGenerated]
 		public override void CopyStateToBackingFields()
 		{
@@ -154,10 +154,10 @@ namespace GorillaTagScripts.ObstacleCourse
 			this._Data = this.Data;
 		}
 
-		// Token: 0x0400402D RID: 16429
+		// Token: 0x04004185 RID: 16773
 		public List<ObstacleCourse> allObstaclesCourses = new List<ObstacleCourse>();
 
-		// Token: 0x0400402F RID: 16431
+		// Token: 0x04004187 RID: 16775
 		[WeaverGenerated]
 		[SerializeField]
 		[DefaultForProperty("Data", 0, 9)]

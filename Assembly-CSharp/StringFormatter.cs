@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-// Token: 0x020001FA RID: 506
+// Token: 0x02000205 RID: 517
 public class StringFormatter
 {
-	// Token: 0x06000BD5 RID: 3029 RVA: 0x0003EAA7 File Offset: 0x0003CCA7
+	// Token: 0x06000C20 RID: 3104 RVA: 0x000387D9 File Offset: 0x000369D9
 	public StringFormatter(string[] spans, int[] indices)
 	{
 		this.spans = spans;
 		this.indices = indices;
 	}
 
-	// Token: 0x06000BD6 RID: 3030 RVA: 0x0003EAC0 File Offset: 0x0003CCC0
+	// Token: 0x06000C21 RID: 3105 RVA: 0x0009D45C File Offset: 0x0009B65C
 	public string Format(string term1)
 	{
 		StringFormatter.builder.Clear();
@@ -25,7 +25,7 @@ public class StringFormatter
 		return StringFormatter.builder.ToString();
 	}
 
-	// Token: 0x06000BD7 RID: 3031 RVA: 0x0003EB28 File Offset: 0x0003CD28
+	// Token: 0x06000C22 RID: 3106 RVA: 0x0009D4C4 File Offset: 0x0009B6C4
 	public string Format(Func<string> term1)
 	{
 		StringFormatter.builder.Clear();
@@ -38,7 +38,7 @@ public class StringFormatter
 		return StringFormatter.builder.ToString();
 	}
 
-	// Token: 0x06000BD8 RID: 3032 RVA: 0x0003EB94 File Offset: 0x0003CD94
+	// Token: 0x06000C23 RID: 3107 RVA: 0x0009D530 File Offset: 0x0009B730
 	public string Format(string term1, string term2)
 	{
 		StringFormatter.builder.Clear();
@@ -51,7 +51,7 @@ public class StringFormatter
 		return StringFormatter.builder.ToString();
 	}
 
-	// Token: 0x06000BD9 RID: 3033 RVA: 0x0003EC0C File Offset: 0x0003CE0C
+	// Token: 0x06000C24 RID: 3108 RVA: 0x0009D5A8 File Offset: 0x0009B7A8
 	public string Format(string term1, string term2, string term3)
 	{
 		StringFormatter.builder.Clear();
@@ -79,7 +79,7 @@ public class StringFormatter
 		return StringFormatter.builder.ToString();
 	}
 
-	// Token: 0x06000BDA RID: 3034 RVA: 0x0003ECA4 File Offset: 0x0003CEA4
+	// Token: 0x06000C25 RID: 3109 RVA: 0x0009D640 File Offset: 0x0009B840
 	public string Format(Func<string> term1, Func<string> term2)
 	{
 		StringFormatter.builder.Clear();
@@ -99,7 +99,7 @@ public class StringFormatter
 		return StringFormatter.builder.ToString();
 	}
 
-	// Token: 0x06000BDB RID: 3035 RVA: 0x0003ED30 File Offset: 0x0003CF30
+	// Token: 0x06000C26 RID: 3110 RVA: 0x0009D6CC File Offset: 0x0009B8CC
 	public string Format(Func<string> term1, Func<string> term2, Func<string> term3)
 	{
 		StringFormatter.builder.Clear();
@@ -127,7 +127,7 @@ public class StringFormatter
 		return StringFormatter.builder.ToString();
 	}
 
-	// Token: 0x06000BDC RID: 3036 RVA: 0x0003EDD8 File Offset: 0x0003CFD8
+	// Token: 0x06000C27 RID: 3111 RVA: 0x0009D774 File Offset: 0x0009B974
 	public string Format(Func<string> term1, Func<string> term2, Func<string> term3, Func<string> term4)
 	{
 		StringFormatter.builder.Clear();
@@ -154,7 +154,7 @@ public class StringFormatter
 		return StringFormatter.builder.ToString();
 	}
 
-	// Token: 0x06000BDD RID: 3037 RVA: 0x0003EEA4 File Offset: 0x0003D0A4
+	// Token: 0x06000C28 RID: 3112 RVA: 0x0009D840 File Offset: 0x0009BA40
 	public string Format(params string[] terms)
 	{
 		StringFormatter.builder.Clear();
@@ -167,7 +167,7 @@ public class StringFormatter
 		return StringFormatter.builder.ToString();
 	}
 
-	// Token: 0x06000BDE RID: 3038 RVA: 0x0003EF18 File Offset: 0x0003D118
+	// Token: 0x06000C29 RID: 3113 RVA: 0x0009D8B4 File Offset: 0x0009BAB4
 	public string Format(params Func<string>[] terms)
 	{
 		StringFormatter.builder.Clear();
@@ -180,7 +180,7 @@ public class StringFormatter
 		return StringFormatter.builder.ToString();
 	}
 
-	// Token: 0x06000BDF RID: 3039 RVA: 0x0003EF90 File Offset: 0x0003D190
+	// Token: 0x06000C2A RID: 3114 RVA: 0x0009D92C File Offset: 0x0009BB2C
 	public static StringFormatter Parse(string input)
 	{
 		int num = 0;
@@ -201,12 +201,12 @@ public class StringFormatter
 		return new StringFormatter(list.ToArray(), list2.ToArray());
 	}
 
-	// Token: 0x04000E3A RID: 3642
+	// Token: 0x04000E80 RID: 3712
 	private static StringBuilder builder = new StringBuilder();
 
-	// Token: 0x04000E3B RID: 3643
+	// Token: 0x04000E81 RID: 3713
 	private string[] spans;
 
-	// Token: 0x04000E3C RID: 3644
+	// Token: 0x04000E82 RID: 3714
 	private int[] indices;
 }

@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x020008EE RID: 2286
+// Token: 0x0200090A RID: 2314
 public class ZoneDef : MonoBehaviour
 {
-	// Token: 0x17000598 RID: 1432
-	// (get) Token: 0x060036DE RID: 14046 RVA: 0x00104138 File Offset: 0x00102338
+	// Token: 0x170005A9 RID: 1449
+	// (get) Token: 0x060037A6 RID: 14246 RVA: 0x00149218 File Offset: 0x00147418
 	public GroupJoinZoneAB groupZoneAB
 	{
 		get
@@ -19,8 +19,8 @@ public class ZoneDef : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000599 RID: 1433
-	// (get) Token: 0x060036DF RID: 14047 RVA: 0x00104168 File Offset: 0x00102368
+	// Token: 0x170005AA RID: 1450
+	// (get) Token: 0x060037A7 RID: 14247 RVA: 0x00149248 File Offset: 0x00147448
 	public GroupJoinZoneAB excludeGroupZoneAB
 	{
 		get
@@ -33,52 +33,52 @@ public class ZoneDef : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040039E4 RID: 14820
+	// Token: 0x04003AA5 RID: 15013
 	public GTZone zoneId;
 
-	// Token: 0x040039E5 RID: 14821
+	// Token: 0x04003AA6 RID: 15014
 	[FormerlySerializedAs("subZoneType")]
 	[FormerlySerializedAs("subZone")]
 	public GTSubZone subZoneId;
 
-	// Token: 0x040039E6 RID: 14822
+	// Token: 0x04003AA7 RID: 15015
 	public GroupJoinZoneA groupZone;
 
-	// Token: 0x040039E7 RID: 14823
+	// Token: 0x04003AA8 RID: 15016
 	public GroupJoinZoneB groupZoneB;
 
-	// Token: 0x040039E8 RID: 14824
+	// Token: 0x04003AA9 RID: 15017
 	public GroupJoinZoneA excludeGroupZone;
 
-	// Token: 0x040039E9 RID: 14825
+	// Token: 0x04003AAA RID: 15018
 	public GroupJoinZoneB excludeGroupZoneB;
 
-	// Token: 0x040039EA RID: 14826
+	// Token: 0x04003AAB RID: 15019
 	[Space]
 	public bool trackEnter = true;
 
-	// Token: 0x040039EB RID: 14827
+	// Token: 0x04003AAC RID: 15020
 	public bool trackExit;
 
-	// Token: 0x040039EC RID: 14828
+	// Token: 0x04003AAD RID: 15021
 	public bool trackStay = true;
 
-	// Token: 0x040039ED RID: 14829
+	// Token: 0x04003AAE RID: 15022
 	public int priority = 1;
 
-	// Token: 0x040039EE RID: 14830
+	// Token: 0x04003AAF RID: 15023
 	[Space]
 	public BoxCollider[] colliders = new BoxCollider[0];
 
-	// Token: 0x040039EF RID: 14831
+	// Token: 0x04003AB0 RID: 15024
 	[Space]
 	public ZoneNode[] nodes = new ZoneNode[0];
 
-	// Token: 0x040039F0 RID: 14832
+	// Token: 0x04003AB1 RID: 15025
 	[Space]
 	public Bounds bounds;
 
-	// Token: 0x040039F1 RID: 14833
+	// Token: 0x04003AB2 RID: 15026
 	[Space]
 	public ZoneDef[] zoneOverlaps = new ZoneDef[0];
 }

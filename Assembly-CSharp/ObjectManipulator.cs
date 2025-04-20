@@ -3,10 +3,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000317 RID: 791
+// Token: 0x02000322 RID: 802
 public class ObjectManipulator : MonoBehaviour
 {
-	// Token: 0x060012C7 RID: 4807 RVA: 0x0005B3D8 File Offset: 0x000595D8
+	// Token: 0x06001313 RID: 4883 RVA: 0x000B54A8 File Offset: 0x000B36A8
 	private void Start()
 	{
 		if (this.passthrough)
@@ -29,7 +29,7 @@ public class ObjectManipulator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012C8 RID: 4808 RVA: 0x0005B490 File Offset: 0x00059690
+	// Token: 0x06001314 RID: 4884 RVA: 0x000B5560 File Offset: 0x000B3760
 	private void Update()
 	{
 		Vector3 localControllerPosition = OVRInput.GetLocalControllerPosition(this.controller);
@@ -58,7 +58,7 @@ public class ObjectManipulator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012C9 RID: 4809 RVA: 0x0005B57C File Offset: 0x0005977C
+	// Token: 0x06001315 RID: 4885 RVA: 0x000B564C File Offset: 0x000B384C
 	private void GrabHoverObject(GameObject grbObj, Vector3 controllerPos, Quaternion controllerRot)
 	{
 		this.localGrabOffset = Quaternion.Inverse(controllerRot) * (this.grabObject.transform.position - controllerPos);
@@ -76,7 +76,7 @@ public class ObjectManipulator : MonoBehaviour
 		this.camGrabRotation = Camera.main.transform.rotation;
 	}
 
-	// Token: 0x060012CA RID: 4810 RVA: 0x0005B670 File Offset: 0x00059870
+	// Token: 0x06001316 RID: 4886 RVA: 0x000B5740 File Offset: 0x000B3940
 	private void ReleaseObject()
 	{
 		if (this.grabObject.GetComponent<GrabObject>())
@@ -91,7 +91,7 @@ public class ObjectManipulator : MonoBehaviour
 		this.grabObject = null;
 	}
 
-	// Token: 0x060012CB RID: 4811 RVA: 0x0005B706 File Offset: 0x00059906
+	// Token: 0x06001317 RID: 4887 RVA: 0x0003D05C File Offset: 0x0003B25C
 	private IEnumerator StartDemo()
 	{
 		this.demoObjects.SetActive(false);
@@ -115,7 +115,7 @@ public class ObjectManipulator : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060012CC RID: 4812 RVA: 0x0005B718 File Offset: 0x00059918
+	// Token: 0x06001318 RID: 4888 RVA: 0x000B57D8 File Offset: 0x000B39D8
 	private void FindHoverObject(Vector3 controllerPos, Quaternion controllerRot)
 	{
 		RaycastHit[] array = Physics.RaycastAll(controllerPos, controllerRot * Vector3.forward);
@@ -188,7 +188,7 @@ public class ObjectManipulator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012CD RID: 4813 RVA: 0x0005BADC File Offset: 0x00059CDC
+	// Token: 0x06001319 RID: 4889 RVA: 0x000B5B9C File Offset: 0x000B3D9C
 	private void ManipulateObject(GameObject obj, Vector3 controllerPos, Quaternion controllerRot)
 	{
 		bool flag = true;
@@ -274,7 +274,7 @@ public class ObjectManipulator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012CE RID: 4814 RVA: 0x0005BEF0 File Offset: 0x0005A0F0
+	// Token: 0x0600131A RID: 4890 RVA: 0x000B5FB0 File Offset: 0x000B41B0
 	private void ClampGrabOffset(ref Vector3 localOffset, float thumbY)
 	{
 		Vector3 vector = localOffset + Vector3.forward * thumbY * 0.01f;
@@ -284,7 +284,7 @@ public class ObjectManipulator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012CF RID: 4815 RVA: 0x0005BF34 File Offset: 0x0005A134
+	// Token: 0x0600131B RID: 4891 RVA: 0x000B5FF4 File Offset: 0x000B41F4
 	private Vector3 ClampScale(Vector3 localScale, Vector2 thumb)
 	{
 		float num = localScale.x + thumb.x * 0.01f;
@@ -300,7 +300,7 @@ public class ObjectManipulator : MonoBehaviour
 		return new Vector3(num, 0f, num2);
 	}
 
-	// Token: 0x060012D0 RID: 4816 RVA: 0x0005BF94 File Offset: 0x0005A194
+	// Token: 0x0600131C RID: 4892 RVA: 0x000B6054 File Offset: 0x000B4254
 	private void CheckForDominantHand()
 	{
 		if (this.hoverObject || this.grabObject)
@@ -321,7 +321,7 @@ public class ObjectManipulator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012D1 RID: 4817 RVA: 0x0005BFF8 File Offset: 0x0005A1F8
+	// Token: 0x0600131D RID: 4893 RVA: 0x000B60B8 File Offset: 0x000B42B8
 	private void AssignInstructions(GrabObject targetObject)
 	{
 		if (this.objectNameLabel)
@@ -339,60 +339,60 @@ public class ObjectManipulator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040014C2 RID: 5314
+	// Token: 0x0400150A RID: 5386
 	private OVRInput.Controller controller = OVRInput.Controller.RTouch;
 
-	// Token: 0x040014C3 RID: 5315
+	// Token: 0x0400150B RID: 5387
 	private GameObject hoverObject;
 
-	// Token: 0x040014C4 RID: 5316
+	// Token: 0x0400150C RID: 5388
 	private GameObject grabObject;
 
-	// Token: 0x040014C5 RID: 5317
+	// Token: 0x0400150D RID: 5389
 	private float grabTime;
 
-	// Token: 0x040014C6 RID: 5318
+	// Token: 0x0400150E RID: 5390
 	private Vector3 localGrabOffset = Vector3.zero;
 
-	// Token: 0x040014C7 RID: 5319
+	// Token: 0x0400150F RID: 5391
 	private Quaternion localGrabRotation = Quaternion.identity;
 
-	// Token: 0x040014C8 RID: 5320
+	// Token: 0x04001510 RID: 5392
 	private Vector3 camGrabPosition = Vector3.zero;
 
-	// Token: 0x040014C9 RID: 5321
+	// Token: 0x04001511 RID: 5393
 	private Quaternion camGrabRotation = Quaternion.identity;
 
-	// Token: 0x040014CA RID: 5322
+	// Token: 0x04001512 RID: 5394
 	private Vector3 handGrabPosition = Vector3.zero;
 
-	// Token: 0x040014CB RID: 5323
+	// Token: 0x04001513 RID: 5395
 	private Quaternion handGrabRotation = Quaternion.identity;
 
-	// Token: 0x040014CC RID: 5324
+	// Token: 0x04001514 RID: 5396
 	private Vector3 cursorPosition = Vector3.zero;
 
-	// Token: 0x040014CD RID: 5325
+	// Token: 0x04001515 RID: 5397
 	private float rotationOffset;
 
-	// Token: 0x040014CE RID: 5326
+	// Token: 0x04001516 RID: 5398
 	public LineRenderer laser;
 
-	// Token: 0x040014CF RID: 5327
+	// Token: 0x04001517 RID: 5399
 	public Transform objectInfo;
 
-	// Token: 0x040014D0 RID: 5328
+	// Token: 0x04001518 RID: 5400
 	public TextMesh objectNameLabel;
 
-	// Token: 0x040014D1 RID: 5329
+	// Token: 0x04001519 RID: 5401
 	public TextMesh objectInstructionsLabel;
 
-	// Token: 0x040014D2 RID: 5330
+	// Token: 0x0400151A RID: 5402
 	public Image objectInfoBG;
 
-	// Token: 0x040014D3 RID: 5331
+	// Token: 0x0400151B RID: 5403
 	public GameObject demoObjects;
 
-	// Token: 0x040014D4 RID: 5332
+	// Token: 0x0400151C RID: 5404
 	public OVRPassthroughLayer passthrough;
 }

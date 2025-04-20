@@ -5,23 +5,23 @@ using UnityEngine.Events;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C4A RID: 3146
+	// Token: 0x02000C7B RID: 3195
 	public class OnCollisionEventsCosmetic : MonoBehaviour
 	{
-		// Token: 0x06004E81 RID: 20097 RVA: 0x00181B6F File Offset: 0x0017FD6F
+		// Token: 0x06004FE1 RID: 20449 RVA: 0x0006428D File Offset: 0x0006248D
 		private bool IsMyItem()
 		{
 			return this._rig != null && this._rig.isOfflineVRRig;
 		}
 
-		// Token: 0x06004E82 RID: 20098 RVA: 0x00181B8C File Offset: 0x0017FD8C
+		// Token: 0x06004FE2 RID: 20450 RVA: 0x000642AA File Offset: 0x000624AA
 		private void Awake()
 		{
 			this._rig = base.GetComponentInParent<VRRig>();
 			this.parentTransferable = base.GetComponentInParent<TransferrableObject>();
 		}
 
-		// Token: 0x06004E83 RID: 20099 RVA: 0x00181BA8 File Offset: 0x0017FDA8
+		// Token: 0x06004FE3 RID: 20451 RVA: 0x001BA014 File Offset: 0x001B8214
 		private void FireEvents(Collision other, OnCollisionEventsCosmetic.Listener listener)
 		{
 			if (!listener.syncForEveryoneInRoom && !this.IsMyItem())
@@ -49,19 +49,19 @@ namespace GorillaTag.Cosmetics
 			listenerComponent.Invoke(arg, other);
 		}
 
-		// Token: 0x06004E84 RID: 20100 RVA: 0x00181C45 File Offset: 0x0017FE45
+		// Token: 0x06004FE4 RID: 20452 RVA: 0x000642C4 File Offset: 0x000624C4
 		private bool IsTagValid(GameObject obj, OnCollisionEventsCosmetic.Listener listener)
 		{
 			return listener.collisionTagsList.Contains(obj.tag);
 		}
 
-		// Token: 0x06004E85 RID: 20101 RVA: 0x00181C58 File Offset: 0x0017FE58
+		// Token: 0x06004FE5 RID: 20453 RVA: 0x000642D7 File Offset: 0x000624D7
 		private bool IsInCollisionLayer(GameObject obj, OnCollisionEventsCosmetic.Listener listener)
 		{
 			return (listener.collisionLayerMask.value & 1 << obj.layer) != 0;
 		}
 
-		// Token: 0x06004E86 RID: 20102 RVA: 0x00181C74 File Offset: 0x0017FE74
+		// Token: 0x06004FE6 RID: 20454 RVA: 0x001BA0B4 File Offset: 0x001B82B4
 		private void OnCollisionEnter(Collision other)
 		{
 			for (int i = 0; i < this.eventListeners.Length; i++)
@@ -74,7 +74,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E87 RID: 20103 RVA: 0x00181CB0 File Offset: 0x0017FEB0
+		// Token: 0x06004FE7 RID: 20455 RVA: 0x001BA0F0 File Offset: 0x001B82F0
 		private void OnCollisionExit(Collision other)
 		{
 			for (int i = 0; i < this.eventListeners.Length; i++)
@@ -87,7 +87,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E88 RID: 20104 RVA: 0x00181CEC File Offset: 0x0017FEEC
+		// Token: 0x06004FE8 RID: 20456 RVA: 0x001BA12C File Offset: 0x001B832C
 		private void OnCollisionStay(Collision other)
 		{
 			for (int i = 0; i < this.eventListeners.Length; i++)
@@ -100,47 +100,47 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x04005208 RID: 21000
+		// Token: 0x04005314 RID: 21268
 		public OnCollisionEventsCosmetic.Listener[] eventListeners = new OnCollisionEventsCosmetic.Listener[0];
 
-		// Token: 0x04005209 RID: 21001
+		// Token: 0x04005315 RID: 21269
 		private VRRig _rig;
 
-		// Token: 0x0400520A RID: 21002
+		// Token: 0x04005316 RID: 21270
 		private TransferrableObject parentTransferable;
 
-		// Token: 0x02000C4B RID: 3147
+		// Token: 0x02000C7C RID: 3196
 		[Serializable]
 		public class Listener
 		{
-			// Token: 0x0400520B RID: 21003
+			// Token: 0x04005317 RID: 21271
 			public LayerMask collisionLayerMask;
 
-			// Token: 0x0400520C RID: 21004
+			// Token: 0x04005318 RID: 21272
 			public List<string> collisionTagsList = new List<string>();
 
-			// Token: 0x0400520D RID: 21005
+			// Token: 0x04005319 RID: 21273
 			public OnCollisionEventsCosmetic.EventType eventType;
 
-			// Token: 0x0400520E RID: 21006
+			// Token: 0x0400531A RID: 21274
 			public UnityEvent<bool, Collision> listenerComponent;
 
-			// Token: 0x0400520F RID: 21007
+			// Token: 0x0400531B RID: 21275
 			public bool syncForEveryoneInRoom = true;
 
-			// Token: 0x04005210 RID: 21008
+			// Token: 0x0400531C RID: 21276
 			[Tooltip("Fire these events only when the item is held in hand, only works if there is a transferable component somewhere on the object or its parent.")]
 			public bool fireOnlyWhileHeld = true;
 		}
 
-		// Token: 0x02000C4C RID: 3148
+		// Token: 0x02000C7D RID: 3197
 		public enum EventType
 		{
-			// Token: 0x04005212 RID: 21010
+			// Token: 0x0400531E RID: 21278
 			CollisionEnter,
-			// Token: 0x04005213 RID: 21011
+			// Token: 0x0400531F RID: 21279
 			CollisionStay,
-			// Token: 0x04005214 RID: 21012
+			// Token: 0x04005320 RID: 21280
 			CollisionExit
 		}
 	}

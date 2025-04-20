@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B7A RID: 2938
+	// Token: 0x02000BA7 RID: 2983
 	[AddComponentMenu("GorillaTag/ContainerLiquid (GTag)")]
 	[ExecuteInEditMode]
 	public class ContainerLiquid : MonoBehaviour
 	{
-		// Token: 0x170007AE RID: 1966
-		// (get) Token: 0x06004A65 RID: 19045 RVA: 0x001689B4 File Offset: 0x00166BB4
+		// Token: 0x170007CA RID: 1994
+		// (get) Token: 0x06004BB0 RID: 19376 RVA: 0x00061C67 File Offset: 0x0005FE67
 		[DebugReadout]
 		public bool isEmpty
 		{
@@ -21,33 +21,33 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x170007AF RID: 1967
-		// (get) Token: 0x06004A66 RID: 19046 RVA: 0x001689C7 File Offset: 0x00166BC7
-		// (set) Token: 0x06004A67 RID: 19047 RVA: 0x001689CF File Offset: 0x00166BCF
+		// Token: 0x170007CB RID: 1995
+		// (get) Token: 0x06004BB1 RID: 19377 RVA: 0x00061C7A File Offset: 0x0005FE7A
+		// (set) Token: 0x06004BB2 RID: 19378 RVA: 0x00061C82 File Offset: 0x0005FE82
 		public Vector3 cupTopWorldPos { get; private set; }
 
-		// Token: 0x170007B0 RID: 1968
-		// (get) Token: 0x06004A68 RID: 19048 RVA: 0x001689D8 File Offset: 0x00166BD8
-		// (set) Token: 0x06004A69 RID: 19049 RVA: 0x001689E0 File Offset: 0x00166BE0
+		// Token: 0x170007CC RID: 1996
+		// (get) Token: 0x06004BB3 RID: 19379 RVA: 0x00061C8B File Offset: 0x0005FE8B
+		// (set) Token: 0x06004BB4 RID: 19380 RVA: 0x00061C93 File Offset: 0x0005FE93
 		public Vector3 bottomLipWorldPos { get; private set; }
 
-		// Token: 0x170007B1 RID: 1969
-		// (get) Token: 0x06004A6A RID: 19050 RVA: 0x001689E9 File Offset: 0x00166BE9
-		// (set) Token: 0x06004A6B RID: 19051 RVA: 0x001689F1 File Offset: 0x00166BF1
+		// Token: 0x170007CD RID: 1997
+		// (get) Token: 0x06004BB5 RID: 19381 RVA: 0x00061C9C File Offset: 0x0005FE9C
+		// (set) Token: 0x06004BB6 RID: 19382 RVA: 0x00061CA4 File Offset: 0x0005FEA4
 		public Vector3 liquidPlaneWorldPos { get; private set; }
 
-		// Token: 0x170007B2 RID: 1970
-		// (get) Token: 0x06004A6C RID: 19052 RVA: 0x001689FA File Offset: 0x00166BFA
-		// (set) Token: 0x06004A6D RID: 19053 RVA: 0x00168A02 File Offset: 0x00166C02
+		// Token: 0x170007CE RID: 1998
+		// (get) Token: 0x06004BB7 RID: 19383 RVA: 0x00061CAD File Offset: 0x0005FEAD
+		// (set) Token: 0x06004BB8 RID: 19384 RVA: 0x00061CB5 File Offset: 0x0005FEB5
 		public Vector3 liquidPlaneWorldNormal { get; private set; }
 
-		// Token: 0x06004A6E RID: 19054 RVA: 0x00168A0C File Offset: 0x00166C0C
+		// Token: 0x06004BB9 RID: 19385 RVA: 0x001A25C4 File Offset: 0x001A07C4
 		protected bool IsValidLiquidSurfaceValues()
 		{
 			return this.meshRenderer != null && this.meshFilter != null && this.spillParticleSystem != null && !string.IsNullOrEmpty(this.liquidColorShaderPropertyName) && !string.IsNullOrEmpty(this.liquidPlaneNormalShaderPropertyName) && !string.IsNullOrEmpty(this.liquidPlanePositionShaderPropertyName);
 		}
 
-		// Token: 0x06004A6F RID: 19055 RVA: 0x00168A70 File Offset: 0x00166C70
+		// Token: 0x06004BBA RID: 19386 RVA: 0x001A2628 File Offset: 0x001A0828
 		protected void InitializeLiquidSurface()
 		{
 			this.liquidColorShaderProp = Shader.PropertyToID(this.liquidColorShaderPropertyName);
@@ -56,20 +56,20 @@ namespace GorillaTag
 			this.localMeshBounds = this.meshFilter.sharedMesh.bounds;
 		}
 
-		// Token: 0x06004A70 RID: 19056 RVA: 0x00168AC8 File Offset: 0x00166CC8
+		// Token: 0x06004BBB RID: 19387 RVA: 0x001A2680 File Offset: 0x001A0880
 		protected void InitializeParticleSystem()
 		{
 			this.spillParticleSystem.main.startColor = this.liquidColor;
 		}
 
-		// Token: 0x06004A71 RID: 19057 RVA: 0x00168AF3 File Offset: 0x00166CF3
+		// Token: 0x06004BBC RID: 19388 RVA: 0x00061CBE File Offset: 0x0005FEBE
 		protected void Awake()
 		{
 			this.matPropBlock = new MaterialPropertyBlock();
 			this.topVerts = this.GetTopVerts();
 		}
 
-		// Token: 0x06004A72 RID: 19058 RVA: 0x00168B0C File Offset: 0x00166D0C
+		// Token: 0x06004BBD RID: 19389 RVA: 0x001A26AC File Offset: 0x001A08AC
 		protected void OnEnable()
 		{
 			if (Application.isPlaying)
@@ -84,7 +84,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004A73 RID: 19059 RVA: 0x00168B60 File Offset: 0x00166D60
+		// Token: 0x06004BBE RID: 19390 RVA: 0x001A2700 File Offset: 0x001A0900
 		protected void LateUpdate()
 		{
 			this.UpdateRefillTimer();
@@ -178,7 +178,7 @@ namespace GorillaTag
 			this.wasEmptyLastFrame = this.isEmpty;
 		}
 
-		// Token: 0x06004A74 RID: 19060 RVA: 0x001690F0 File Offset: 0x001672F0
+		// Token: 0x06004BBF RID: 19391 RVA: 0x001A2C90 File Offset: 0x001A0E90
 		public void UpdateRefillTimer()
 		{
 			if (this.refillDelay < 0f || !this.isEmpty)
@@ -194,7 +194,7 @@ namespace GorillaTag
 			this.refillTimer -= Time.deltaTime;
 		}
 
-		// Token: 0x06004A75 RID: 19061 RVA: 0x0016914C File Offset: 0x0016734C
+		// Token: 0x06004BC0 RID: 19392 RVA: 0x001A2CEC File Offset: 0x001A0EEC
 		private Vector3[] GetTopVerts()
 		{
 			Vector3[] vertices = this.meshFilter.sharedMesh.vertices;
@@ -217,138 +217,138 @@ namespace GorillaTag
 			return list.ToArray();
 		}
 
-		// Token: 0x04004BEA RID: 19434
+		// Token: 0x04004CE0 RID: 19680
 		[Tooltip("Used to determine the world space bounds of the container.")]
 		public MeshRenderer meshRenderer;
 
-		// Token: 0x04004BEB RID: 19435
+		// Token: 0x04004CE1 RID: 19681
 		[Tooltip("Used to determine the local space bounds of the container.")]
 		public MeshFilter meshFilter;
 
-		// Token: 0x04004BEC RID: 19436
+		// Token: 0x04004CE2 RID: 19682
 		[Tooltip("If you are only using the liquid mesh to calculate the volume of the container and do not need visuals then set this to true.")]
 		public bool keepMeshHidden;
 
-		// Token: 0x04004BED RID: 19437
+		// Token: 0x04004CE3 RID: 19683
 		[Tooltip("The object that will float on top of the liquid.")]
 		public Transform floater;
 
-		// Token: 0x04004BEE RID: 19438
+		// Token: 0x04004CE4 RID: 19684
 		public bool useLiquidShader = true;
 
-		// Token: 0x04004BEF RID: 19439
+		// Token: 0x04004CE5 RID: 19685
 		public bool useLiquidVolume;
 
-		// Token: 0x04004BF0 RID: 19440
+		// Token: 0x04004CE6 RID: 19686
 		public Vector2 liquidVolumeMinMax = Vector2.up;
 
-		// Token: 0x04004BF1 RID: 19441
+		// Token: 0x04004CE7 RID: 19687
 		public string liquidColorShaderPropertyName = "_BaseColor";
 
-		// Token: 0x04004BF2 RID: 19442
+		// Token: 0x04004CE8 RID: 19688
 		public string liquidPlaneNormalShaderPropertyName = "_LiquidPlaneNormal";
 
-		// Token: 0x04004BF3 RID: 19443
+		// Token: 0x04004CE9 RID: 19689
 		public string liquidPlanePositionShaderPropertyName = "_LiquidPlanePosition";
 
-		// Token: 0x04004BF4 RID: 19444
+		// Token: 0x04004CEA RID: 19690
 		[Tooltip("Emits drips when pouring.")]
 		public ParticleSystem spillParticleSystem;
 
-		// Token: 0x04004BF5 RID: 19445
+		// Token: 0x04004CEB RID: 19691
 		[SoundBankInfo]
 		public SoundBankPlayer emptySoundBankPlayer;
 
-		// Token: 0x04004BF6 RID: 19446
+		// Token: 0x04004CEC RID: 19692
 		[SoundBankInfo]
 		public SoundBankPlayer refillSoundBankPlayer;
 
-		// Token: 0x04004BF7 RID: 19447
+		// Token: 0x04004CED RID: 19693
 		[SoundBankInfo]
 		public SoundBankPlayer spillSoundBankPlayer;
 
-		// Token: 0x04004BF8 RID: 19448
+		// Token: 0x04004CEE RID: 19694
 		public Color liquidColor = new Color(0.33f, 0.25f, 0.21f, 1f);
 
-		// Token: 0x04004BF9 RID: 19449
+		// Token: 0x04004CEF RID: 19695
 		[Tooltip("The amount of liquid currently in the container. This value is passed to the shader.")]
 		[Range(0f, 1f)]
 		public float fillAmount = 0.85f;
 
-		// Token: 0x04004BFA RID: 19450
+		// Token: 0x04004CF0 RID: 19696
 		[Tooltip("This is what fillAmount will be after automatic refilling.")]
 		public float refillAmount = 0.85f;
 
-		// Token: 0x04004BFB RID: 19451
+		// Token: 0x04004CF1 RID: 19697
 		[Tooltip("Set to a negative value to disable.")]
 		public float refillDelay = 10f;
 
-		// Token: 0x04004BFC RID: 19452
+		// Token: 0x04004CF2 RID: 19698
 		[Tooltip("The point that the liquid should be considered empty and should be auto refilled.")]
 		public float refillThreshold = 0.1f;
 
-		// Token: 0x04004BFD RID: 19453
+		// Token: 0x04004CF3 RID: 19699
 		public float wobbleMax = 0.2f;
 
-		// Token: 0x04004BFE RID: 19454
+		// Token: 0x04004CF4 RID: 19700
 		public float wobbleFrequency = 1f;
 
-		// Token: 0x04004BFF RID: 19455
+		// Token: 0x04004CF5 RID: 19701
 		public float recovery = 1f;
 
-		// Token: 0x04004C00 RID: 19456
+		// Token: 0x04004CF6 RID: 19702
 		public float thickness = 1f;
 
-		// Token: 0x04004C01 RID: 19457
+		// Token: 0x04004CF7 RID: 19703
 		public float maxSpillRate = 100f;
 
-		// Token: 0x04004C06 RID: 19462
+		// Token: 0x04004CFC RID: 19708
 		[DebugReadout]
 		private bool wasEmptyLastFrame;
 
-		// Token: 0x04004C07 RID: 19463
+		// Token: 0x04004CFD RID: 19709
 		private int liquidColorShaderProp;
 
-		// Token: 0x04004C08 RID: 19464
+		// Token: 0x04004CFE RID: 19710
 		private int liquidPlaneNormalShaderProp;
 
-		// Token: 0x04004C09 RID: 19465
+		// Token: 0x04004CFF RID: 19711
 		private int liquidPlanePositionShaderProp;
 
-		// Token: 0x04004C0A RID: 19466
+		// Token: 0x04004D00 RID: 19712
 		private float refillTimer;
 
-		// Token: 0x04004C0B RID: 19467
+		// Token: 0x04004D01 RID: 19713
 		private float lastSineWave;
 
-		// Token: 0x04004C0C RID: 19468
+		// Token: 0x04004D02 RID: 19714
 		private float lastWobble;
 
-		// Token: 0x04004C0D RID: 19469
+		// Token: 0x04004D03 RID: 19715
 		private Vector2 temporalWobbleAmp;
 
-		// Token: 0x04004C0E RID: 19470
+		// Token: 0x04004D04 RID: 19716
 		private Vector3 lastPos;
 
-		// Token: 0x04004C0F RID: 19471
+		// Token: 0x04004D05 RID: 19717
 		private Vector3 lastVelocity;
 
-		// Token: 0x04004C10 RID: 19472
+		// Token: 0x04004D06 RID: 19718
 		private Vector3 lastAngularVelocity;
 
-		// Token: 0x04004C11 RID: 19473
+		// Token: 0x04004D07 RID: 19719
 		private Quaternion lastRot;
 
-		// Token: 0x04004C12 RID: 19474
+		// Token: 0x04004D08 RID: 19720
 		private MaterialPropertyBlock matPropBlock;
 
-		// Token: 0x04004C13 RID: 19475
+		// Token: 0x04004D09 RID: 19721
 		private Bounds localMeshBounds;
 
-		// Token: 0x04004C14 RID: 19476
+		// Token: 0x04004D0A RID: 19722
 		private bool useFloater;
 
-		// Token: 0x04004C15 RID: 19477
+		// Token: 0x04004D0B RID: 19723
 		private Vector3[] topVerts;
 	}
 }

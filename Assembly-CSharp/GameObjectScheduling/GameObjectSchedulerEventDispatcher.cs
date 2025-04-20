@@ -4,11 +4,11 @@ using UnityEngine.Events;
 
 namespace GameObjectScheduling
 {
-	// Token: 0x02000C8A RID: 3210
+	// Token: 0x02000CBB RID: 3259
 	public class GameObjectSchedulerEventDispatcher : MonoBehaviour
 	{
-		// Token: 0x17000833 RID: 2099
-		// (get) Token: 0x060050F9 RID: 20729 RVA: 0x00189095 File Offset: 0x00187295
+		// Token: 0x17000851 RID: 2129
+		// (get) Token: 0x0600525B RID: 21083 RVA: 0x00065669 File Offset: 0x00063869
 		public UnityEvent OnScheduledActivation
 		{
 			get
@@ -17,8 +17,8 @@ namespace GameObjectScheduling
 			}
 		}
 
-		// Token: 0x17000834 RID: 2100
-		// (get) Token: 0x060050FA RID: 20730 RVA: 0x0018909D File Offset: 0x0018729D
+		// Token: 0x17000852 RID: 2130
+		// (get) Token: 0x0600525C RID: 21084 RVA: 0x00065671 File Offset: 0x00063871
 		public UnityEvent OnScheduledDeactivation
 		{
 			get
@@ -27,11 +27,11 @@ namespace GameObjectScheduling
 			}
 		}
 
-		// Token: 0x04005356 RID: 21334
+		// Token: 0x04005462 RID: 21602
 		[SerializeField]
 		private UnityEvent onScheduledActivation;
 
-		// Token: 0x04005357 RID: 21335
+		// Token: 0x04005463 RID: 21603
 		[SerializeField]
 		private UnityEvent onScheduledDeactivation;
 	}

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000839 RID: 2105
+// Token: 0x02000853 RID: 2131
 public static class BitPackUtils
 {
-	// Token: 0x06003344 RID: 13124 RVA: 0x000F4914 File Offset: 0x000F2B14
+	// Token: 0x060033FF RID: 13311 RVA: 0x0013C564 File Offset: 0x0013A764
 	public static ushort PackRelativePos16(Vector3 pos, Vector3 center, float radius)
 	{
 		Vector3 vector = pos - center;
@@ -90,7 +90,7 @@ public static class BitPackUtils
 		return (ushort)(num6 << 10 | num7 << 5 | num8);
 	}
 
-	// Token: 0x06003345 RID: 13125 RVA: 0x000F4AC4 File Offset: 0x000F2CC4
+	// Token: 0x06003400 RID: 13312 RVA: 0x0013C714 File Offset: 0x0013A914
 	public static Vector3 UnpackRelativePos16(ushort data, Vector3 center, float radius, bool snapToRadius = false)
 	{
 		if (data == 0)
@@ -118,7 +118,7 @@ public static class BitPackUtils
 		return new Vector3(center.x + num4, center.y + num5, center.z + num6);
 	}
 
-	// Token: 0x06003346 RID: 13126 RVA: 0x000F4B74 File Offset: 0x000F2D74
+	// Token: 0x06003401 RID: 13313 RVA: 0x0013C7C4 File Offset: 0x0013A9C4
 	public static uint PackRelativePos(Vector3 pos, Vector3 min, Vector3 max)
 	{
 		Vector3 d = max - min;
@@ -129,7 +129,7 @@ public static class BitPackUtils
 		return num << 20 | num2 << 10 | num3;
 	}
 
-	// Token: 0x06003347 RID: 13127 RVA: 0x000F4BF8 File Offset: 0x000F2DF8
+	// Token: 0x06003402 RID: 13314 RVA: 0x0013C848 File Offset: 0x0013AA48
 	public static Vector3 UnpackRelativePos(uint data, Vector3 min, Vector3 max)
 	{
 		Vector3 vector = max - min;
@@ -139,7 +139,7 @@ public static class BitPackUtils
 		return new Vector3(num * 0.0009775171f * vector.x + min.x, num2 * 0.0009775171f * vector.y + min.y, num3 * 0.0009775171f * vector.z + min.z);
 	}
 
-	// Token: 0x06003348 RID: 13128 RVA: 0x000F4C74 File Offset: 0x000F2E74
+	// Token: 0x06003403 RID: 13315 RVA: 0x0013C8C4 File Offset: 0x0013AAC4
 	public static uint PackRotation(Quaternion q, bool normalize = true)
 	{
 		if (normalize)
@@ -199,7 +199,7 @@ public static class BitPackUtils
 		return (uint)(num5 << 30 | (int)((int)num7 << 20) | (int)((int)num8 << 10) | (int)num9);
 	}
 
-	// Token: 0x06003349 RID: 13129 RVA: 0x000F4E34 File Offset: 0x000F3034
+	// Token: 0x06003404 RID: 13316 RVA: 0x0013CA84 File Offset: 0x0013AC84
 	public static Quaternion UnpackRotation(uint data)
 	{
 		uint num = data >> 30;
@@ -225,7 +225,7 @@ public static class BitPackUtils
 		return new Quaternion(num5, num6, num7, num8);
 	}
 
-	// Token: 0x0600334A RID: 13130 RVA: 0x000F4F00 File Offset: 0x000F3100
+	// Token: 0x06003405 RID: 13317 RVA: 0x0013CB50 File Offset: 0x0013AD50
 	static BitPackUtils()
 	{
 		for (int i = 0; i < 16; i++)
@@ -235,7 +235,7 @@ public static class BitPackUtils
 		}
 	}
 
-	// Token: 0x0600334B RID: 13131 RVA: 0x000F4F60 File Offset: 0x000F3160
+	// Token: 0x06003406 RID: 13318 RVA: 0x0013CBB0 File Offset: 0x0013ADB0
 	public static int PackQuaternionForNetwork(Quaternion q)
 	{
 		q.Normalize();
@@ -301,7 +301,7 @@ public static class BitPackUtils
 		return (int)(num9 + (num10 << 9) + (num11 << 18) + ((int)qaxis << 27));
 	}
 
-	// Token: 0x0600334C RID: 13132 RVA: 0x000F5108 File Offset: 0x000F3308
+	// Token: 0x06003407 RID: 13319 RVA: 0x0013CD58 File Offset: 0x0013AF58
 	public static Quaternion UnpackQuaternionFromNetwork(int data)
 	{
 		float num = (float)(data & 511) * 0.0027675421f - 0.707107f;
@@ -320,7 +320,7 @@ public static class BitPackUtils
 		return new Quaternion(num, num2, num3, num4);
 	}
 
-	// Token: 0x0600334D RID: 13133 RVA: 0x000F51C0 File Offset: 0x000F33C0
+	// Token: 0x06003408 RID: 13320 RVA: 0x0013CE10 File Offset: 0x0013B010
 	public static long PackHandPosRotForNetwork(Vector3 localPos, Quaternion rot)
 	{
 		long num = (long)Mathf.Clamp(Mathf.RoundToInt(localPos.x * 512f) + 1024, 0, 2047);
@@ -330,7 +330,7 @@ public static class BitPackUtils
 		return num + (num2 << 11) + (num3 << 22) + (num4 << 33);
 	}
 
-	// Token: 0x0600334E RID: 13134 RVA: 0x000F5250 File Offset: 0x000F3450
+	// Token: 0x06003409 RID: 13321 RVA: 0x0013CEA0 File Offset: 0x0013B0A0
 	public static void UnpackHandPosRotFromNetwork(long data, out Vector3 localPos, out Quaternion handRot)
 	{
 		long num = data & 2047L;
@@ -341,7 +341,7 @@ public static class BitPackUtils
 		handRot = BitPackUtils.UnpackQuaternionFromNetwork(data2);
 	}
 
-	// Token: 0x0600334F RID: 13135 RVA: 0x000F52C8 File Offset: 0x000F34C8
+	// Token: 0x0600340A RID: 13322 RVA: 0x0013CF18 File Offset: 0x0013B118
 	public static long PackWorldPosForNetwork(Vector3 worldPos)
 	{
 		long num = (long)Mathf.Clamp(Mathf.RoundToInt(worldPos.x * 1024f) + 1048576, 0, 2097151);
@@ -350,7 +350,7 @@ public static class BitPackUtils
 		return num + (num2 << 21) + (num3 << 42);
 	}
 
-	// Token: 0x06003350 RID: 13136 RVA: 0x000F534C File Offset: 0x000F354C
+	// Token: 0x0600340B RID: 13323 RVA: 0x0013CF9C File Offset: 0x0013B19C
 	public static Vector3 UnpackWorldPosFromNetwork(long data)
 	{
 		float num = (float)(data & 2097151L);
@@ -359,43 +359,43 @@ public static class BitPackUtils
 		return new Vector3((float)((long)num - 1048576L) * 0.0009765625f, (float)(num2 - 1048576L) * 0.0009765625f, (float)(num3 - 1048576L) * 0.0009765625f);
 	}
 
-	// Token: 0x06003351 RID: 13137 RVA: 0x000F53AA File Offset: 0x000F35AA
+	// Token: 0x0600340C RID: 13324 RVA: 0x000522F7 File Offset: 0x000504F7
 	public static short PackColorForNetwork(Color col)
 	{
 		return (short)(Mathf.RoundToInt(col.r * 900f) + Mathf.RoundToInt(col.g * 90f) + Mathf.RoundToInt(col.b * 9f));
 	}
 
-	// Token: 0x06003352 RID: 13138 RVA: 0x000F53E2 File Offset: 0x000F35E2
+	// Token: 0x0600340D RID: 13325 RVA: 0x0005232F File Offset: 0x0005052F
 	public static Color UnpackColorFromNetwork(short data)
 	{
 		return new Color((float)(data / 100) / 9f, (float)(data / 10 % 10) / 9f, (float)(data % 10) / 9f);
 	}
 
-	// Token: 0x040036A8 RID: 13992
+	// Token: 0x04003764 RID: 14180
 	private const float STEP_1023 = 0.0009775171f;
 
-	// Token: 0x040036A9 RID: 13993
+	// Token: 0x04003765 RID: 14181
 	private static readonly float[] kRadialLogLUT = new float[32];
 
-	// Token: 0x040036AA RID: 13994
+	// Token: 0x04003766 RID: 14182
 	private const float QPackMax = 0.707107f;
 
-	// Token: 0x040036AB RID: 13995
+	// Token: 0x04003767 RID: 14183
 	private const float QPackScale = 361.33145f;
 
-	// Token: 0x040036AC RID: 13996
+	// Token: 0x04003768 RID: 14184
 	private const float QPackInvScale = 0.0027675421f;
 
-	// Token: 0x0200083A RID: 2106
+	// Token: 0x02000854 RID: 2132
 	private enum QAxis
 	{
-		// Token: 0x040036AE RID: 13998
+		// Token: 0x0400376A RID: 14186
 		X,
-		// Token: 0x040036AF RID: 13999
+		// Token: 0x0400376B RID: 14187
 		Y,
-		// Token: 0x040036B0 RID: 14000
+		// Token: 0x0400376C RID: 14188
 		Z,
-		// Token: 0x040036B1 RID: 14001
+		// Token: 0x0400376D RID: 14189
 		W
 	}
 }

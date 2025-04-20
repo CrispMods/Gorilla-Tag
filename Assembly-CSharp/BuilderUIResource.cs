@@ -3,10 +3,10 @@ using GorillaTagScripts;
 using TMPro;
 using UnityEngine;
 
-// Token: 0x020004F9 RID: 1273
+// Token: 0x02000506 RID: 1286
 public class BuilderUIResource : MonoBehaviour
 {
-	// Token: 0x06001EDE RID: 7902 RVA: 0x0009C5D8 File Offset: 0x0009A7D8
+	// Token: 0x06001F37 RID: 7991 RVA: 0x000EE9EC File Offset: 0x000ECBEC
 	public void SetResourceCost(BuilderResourceQuantity resourceCost)
 	{
 		BuilderResourceType type = resourceCost.type;
@@ -26,7 +26,7 @@ public class BuilderUIResource : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001EDF RID: 7903 RVA: 0x0009C65F File Offset: 0x0009A85F
+	// Token: 0x06001F38 RID: 7992 RVA: 0x0004514A File Offset: 0x0004334A
 	private string GetResourceName(BuilderResourceType type)
 	{
 		switch (type)
@@ -42,12 +42,12 @@ public class BuilderUIResource : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002291 RID: 8849
+	// Token: 0x040022E4 RID: 8932
 	public TextMeshPro resourceNameLabel;
 
-	// Token: 0x04002292 RID: 8850
+	// Token: 0x040022E5 RID: 8933
 	public TextMeshPro costLabel;
 
-	// Token: 0x04002293 RID: 8851
+	// Token: 0x040022E6 RID: 8934
 	public TextMeshPro availableLabel;
 }

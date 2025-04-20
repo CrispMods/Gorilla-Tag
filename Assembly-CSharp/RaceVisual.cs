@@ -2,20 +2,20 @@
 using TMPro;
 using UnityEngine;
 
-// Token: 0x020001D9 RID: 473
+// Token: 0x020001E4 RID: 484
 public class RaceVisual : MonoBehaviour
 {
-	// Token: 0x17000117 RID: 279
-	// (get) Token: 0x06000AFE RID: 2814 RVA: 0x0003B467 File Offset: 0x00039667
-	// (set) Token: 0x06000AFF RID: 2815 RVA: 0x0003B46F File Offset: 0x0003966F
+	// Token: 0x1700011E RID: 286
+	// (get) Token: 0x06000B4A RID: 2890 RVA: 0x00037E91 File Offset: 0x00036091
+	// (set) Token: 0x06000B4B RID: 2891 RVA: 0x00037E99 File Offset: 0x00036099
 	public int raceId { get; private set; }
 
-	// Token: 0x17000118 RID: 280
-	// (get) Token: 0x06000B00 RID: 2816 RVA: 0x0003B478 File Offset: 0x00039678
-	// (set) Token: 0x06000B01 RID: 2817 RVA: 0x0003B480 File Offset: 0x00039680
+	// Token: 0x1700011F RID: 287
+	// (get) Token: 0x06000B4C RID: 2892 RVA: 0x00037EA2 File Offset: 0x000360A2
+	// (set) Token: 0x06000B4D RID: 2893 RVA: 0x00037EAA File Offset: 0x000360AA
 	public bool TickRunning { get; set; }
 
-	// Token: 0x06000B02 RID: 2818 RVA: 0x0003B489 File Offset: 0x00039689
+	// Token: 0x06000B4E RID: 2894 RVA: 0x00037EB3 File Offset: 0x000360B3
 	private void Awake()
 	{
 		this.checkpoints = base.GetComponent<RaceCheckpointManager>();
@@ -24,25 +24,25 @@ public class RaceVisual : MonoBehaviour
 		this.SetRaceStartScoreboardText("", "");
 	}
 
-	// Token: 0x06000B03 RID: 2819 RVA: 0x0003B4C7 File Offset: 0x000396C7
+	// Token: 0x06000B4F RID: 2895 RVA: 0x00037EF1 File Offset: 0x000360F1
 	private void OnEnable()
 	{
 		RacingManager.instance.RegisterVisual(this);
 	}
 
-	// Token: 0x06000B04 RID: 2820 RVA: 0x0003B4D4 File Offset: 0x000396D4
+	// Token: 0x06000B50 RID: 2896 RVA: 0x00037EFE File Offset: 0x000360FE
 	public void Button_StartRace(int laps)
 	{
 		RacingManager.instance.Button_StartRace(this.raceId, laps);
 	}
 
-	// Token: 0x06000B05 RID: 2821 RVA: 0x0003B4E7 File Offset: 0x000396E7
+	// Token: 0x06000B51 RID: 2897 RVA: 0x00037F11 File Offset: 0x00036111
 	public void ShowFinishLineText(string text)
 	{
 		this.finishLineText.text = text;
 	}
 
-	// Token: 0x06000B06 RID: 2822 RVA: 0x0003B4F5 File Offset: 0x000396F5
+	// Token: 0x06000B52 RID: 2898 RVA: 0x00037F1F File Offset: 0x0003611F
 	public void UpdateCountdown(int timeRemaining)
 	{
 		if (timeRemaining != this.lastDisplayedCountdown)
@@ -53,7 +53,7 @@ public class RaceVisual : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000B07 RID: 2823 RVA: 0x0003B52C File Offset: 0x0003972C
+	// Token: 0x06000B53 RID: 2899 RVA: 0x0009A7A8 File Offset: 0x000989A8
 	public void SetScoreboardText(string mainText, string timesText)
 	{
 		foreach (RacingScoreboard racingScoreboard in this.raceScoreboards)
@@ -63,26 +63,26 @@ public class RaceVisual : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000B08 RID: 2824 RVA: 0x0003B568 File Offset: 0x00039768
+	// Token: 0x06000B54 RID: 2900 RVA: 0x00037F53 File Offset: 0x00036153
 	public void SetRaceStartScoreboardText(string mainText, string timesText)
 	{
 		this.raceStartScoreboard.mainDisplay.text = mainText;
 		this.raceStartScoreboard.timesDisplay.text = timesText;
 	}
 
-	// Token: 0x06000B09 RID: 2825 RVA: 0x0003B58C File Offset: 0x0003978C
+	// Token: 0x06000B55 RID: 2901 RVA: 0x00037F77 File Offset: 0x00036177
 	public void ActivateStartingWall(bool enable)
 	{
 		this.startingWall.SetActive(enable);
 	}
 
-	// Token: 0x06000B0A RID: 2826 RVA: 0x0003B59A File Offset: 0x0003979A
+	// Token: 0x06000B56 RID: 2902 RVA: 0x00037F85 File Offset: 0x00036185
 	public bool IsPlayerNearCheckpoint(VRRig player, int checkpoint)
 	{
 		return this.checkpoints.IsPlayerNearCheckpoint(player, checkpoint);
 	}
 
-	// Token: 0x06000B0B RID: 2827 RVA: 0x0003B5A9 File Offset: 0x000397A9
+	// Token: 0x06000B57 RID: 2903 RVA: 0x00037F94 File Offset: 0x00036194
 	public void OnCountdownStart(int laps, float goAfterInterval)
 	{
 		this.raceConsoleVisual.ShowRaceInProgress(laps);
@@ -90,7 +90,7 @@ public class RaceVisual : MonoBehaviour
 		this.countdownSoundPlayer.time = this.countdownSoundGoTime - goAfterInterval;
 	}
 
-	// Token: 0x06000B0C RID: 2828 RVA: 0x0003B5D5 File Offset: 0x000397D5
+	// Token: 0x06000B58 RID: 2904 RVA: 0x00037FC0 File Offset: 0x000361C0
 	public void OnRaceStart()
 	{
 		this.finishLineText.text = "GO!";
@@ -100,7 +100,7 @@ public class RaceVisual : MonoBehaviour
 		this.isRaceEndSoundEnabled = false;
 	}
 
-	// Token: 0x06000B0D RID: 2829 RVA: 0x0003B60C File Offset: 0x0003980C
+	// Token: 0x06000B59 RID: 2905 RVA: 0x00037FF7 File Offset: 0x000361F7
 	public void OnRaceEnded()
 	{
 		this.finishLineText.text = "";
@@ -108,19 +108,19 @@ public class RaceVisual : MonoBehaviour
 		this.checkpoints.OnRaceEnd();
 	}
 
-	// Token: 0x06000B0E RID: 2830 RVA: 0x0003B630 File Offset: 0x00039830
+	// Token: 0x06000B5A RID: 2906 RVA: 0x0003801B File Offset: 0x0003621B
 	public void OnRaceReset()
 	{
 		this.raceConsoleVisual.ShowCanStartRace();
 	}
 
-	// Token: 0x06000B0F RID: 2831 RVA: 0x0003B63D File Offset: 0x0003983D
+	// Token: 0x06000B5B RID: 2907 RVA: 0x00038028 File Offset: 0x00036228
 	public void EnableRaceEndSound()
 	{
 		this.isRaceEndSoundEnabled = true;
 	}
 
-	// Token: 0x06000B10 RID: 2832 RVA: 0x0003B646 File Offset: 0x00039846
+	// Token: 0x06000B5C RID: 2908 RVA: 0x00038031 File Offset: 0x00036231
 	public void OnCheckpointPassed(int index, SoundBankPlayer checkpointSound)
 	{
 		if (index == 0 && this.isRaceEndSoundEnabled)
@@ -134,51 +134,51 @@ public class RaceVisual : MonoBehaviour
 		RacingManager.instance.OnCheckpointPassed(this.raceId, index);
 	}
 
-	// Token: 0x04000D69 RID: 3433
+	// Token: 0x04000DAF RID: 3503
 	[SerializeField]
 	private TextMeshPro finishLineText;
 
-	// Token: 0x04000D6A RID: 3434
+	// Token: 0x04000DB0 RID: 3504
 	[SerializeField]
 	private TextMeshPro countdownText;
 
-	// Token: 0x04000D6B RID: 3435
+	// Token: 0x04000DB1 RID: 3505
 	[SerializeField]
 	private RacingScoreboard[] raceScoreboards;
 
-	// Token: 0x04000D6C RID: 3436
+	// Token: 0x04000DB2 RID: 3506
 	[SerializeField]
 	private RacingScoreboard raceStartScoreboard;
 
-	// Token: 0x04000D6D RID: 3437
+	// Token: 0x04000DB3 RID: 3507
 	[SerializeField]
 	private RaceConsoleVisual raceConsoleVisual;
 
-	// Token: 0x04000D6E RID: 3438
+	// Token: 0x04000DB4 RID: 3508
 	private float nextVisualRefreshTimestamp;
 
-	// Token: 0x04000D6F RID: 3439
+	// Token: 0x04000DB5 RID: 3509
 	private RaceCheckpointManager checkpoints;
 
-	// Token: 0x04000D70 RID: 3440
+	// Token: 0x04000DB6 RID: 3510
 	[SerializeField]
 	private AudioClip raceEndSound;
 
-	// Token: 0x04000D71 RID: 3441
+	// Token: 0x04000DB7 RID: 3511
 	[SerializeField]
 	private float countdownSoundGoTime;
 
-	// Token: 0x04000D72 RID: 3442
+	// Token: 0x04000DB8 RID: 3512
 	[SerializeField]
 	private AudioSource countdownSoundPlayer;
 
-	// Token: 0x04000D73 RID: 3443
+	// Token: 0x04000DB9 RID: 3513
 	[SerializeField]
 	private GameObject startingWall;
 
-	// Token: 0x04000D74 RID: 3444
+	// Token: 0x04000DBA RID: 3514
 	private int lastDisplayedCountdown;
 
-	// Token: 0x04000D75 RID: 3445
+	// Token: 0x04000DBB RID: 3515
 	private bool isRaceEndSoundEnabled;
 }

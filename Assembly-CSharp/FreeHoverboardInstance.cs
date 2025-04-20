@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005BE RID: 1470
+// Token: 0x020005CC RID: 1484
 public class FreeHoverboardInstance : MonoBehaviour
 {
-	// Token: 0x170003B6 RID: 950
-	// (get) Token: 0x0600247F RID: 9343 RVA: 0x000B5D6C File Offset: 0x000B3F6C
-	// (set) Token: 0x06002480 RID: 9344 RVA: 0x000B5D74 File Offset: 0x000B3F74
+	// Token: 0x170003BE RID: 958
+	// (get) Token: 0x060024E1 RID: 9441 RVA: 0x00049011 File Offset: 0x00047211
+	// (set) Token: 0x060024E2 RID: 9442 RVA: 0x00049019 File Offset: 0x00047219
 	public Rigidbody Rigidbody { get; private set; }
 
-	// Token: 0x170003B7 RID: 951
-	// (get) Token: 0x06002481 RID: 9345 RVA: 0x000B5D7D File Offset: 0x000B3F7D
-	// (set) Token: 0x06002482 RID: 9346 RVA: 0x000B5D85 File Offset: 0x000B3F85
+	// Token: 0x170003BF RID: 959
+	// (get) Token: 0x060024E3 RID: 9443 RVA: 0x00049022 File Offset: 0x00047222
+	// (set) Token: 0x060024E4 RID: 9444 RVA: 0x0004902A File Offset: 0x0004722A
 	public Color boardColor { get; private set; }
 
-	// Token: 0x06002483 RID: 9347 RVA: 0x000B5D90 File Offset: 0x000B3F90
+	// Token: 0x060024E5 RID: 9445 RVA: 0x001045A0 File Offset: 0x001027A0
 	private void Awake()
 	{
 		this.Rigidbody = base.GetComponent<Rigidbody>();
@@ -24,14 +24,14 @@ public class FreeHoverboardInstance : MonoBehaviour
 		this.boardMesh.sharedMaterials = sharedMaterials;
 	}
 
-	// Token: 0x06002484 RID: 9348 RVA: 0x000B5DD8 File Offset: 0x000B3FD8
+	// Token: 0x060024E6 RID: 9446 RVA: 0x00049033 File Offset: 0x00047233
 	public void SetColor(Color col)
 	{
 		this.colorMaterial.color = col;
 		this.boardColor = col;
 	}
 
-	// Token: 0x06002485 RID: 9349 RVA: 0x000B5DF0 File Offset: 0x000B3FF0
+	// Token: 0x060024E7 RID: 9447 RVA: 0x001045E8 File Offset: 0x001027E8
 	private void Update()
 	{
 		RaycastHit raycastHit;
@@ -45,7 +45,7 @@ public class FreeHoverboardInstance : MonoBehaviour
 		this.hasHoverPoint = false;
 	}
 
-	// Token: 0x06002486 RID: 9350 RVA: 0x000B5E6C File Offset: 0x000B406C
+	// Token: 0x060024E8 RID: 9448 RVA: 0x00104664 File Offset: 0x00102864
 	private void FixedUpdate()
 	{
 		if (this.hasHoverPoint)
@@ -64,49 +64,49 @@ public class FreeHoverboardInstance : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040028A8 RID: 10408
+	// Token: 0x04002907 RID: 10503
 	public int ownerActorNumber;
 
-	// Token: 0x040028A9 RID: 10409
+	// Token: 0x04002908 RID: 10504
 	public int boardIndex;
 
-	// Token: 0x040028AA RID: 10410
+	// Token: 0x04002909 RID: 10505
 	[SerializeField]
 	private Vector3 sphereCastCenter;
 
-	// Token: 0x040028AB RID: 10411
+	// Token: 0x0400290A RID: 10506
 	[SerializeField]
 	private float sphereCastRadius;
 
-	// Token: 0x040028AC RID: 10412
+	// Token: 0x0400290B RID: 10507
 	[SerializeField]
 	private LayerMask hoverRaycastMask;
 
-	// Token: 0x040028AD RID: 10413
+	// Token: 0x0400290C RID: 10508
 	[SerializeField]
 	private float hoverHeight;
 
-	// Token: 0x040028AE RID: 10414
+	// Token: 0x0400290D RID: 10509
 	[SerializeField]
 	private float hoverRotationLerp;
 
-	// Token: 0x040028AF RID: 10415
+	// Token: 0x0400290E RID: 10510
 	[SerializeField]
 	private float avelocityDragWhileHovering;
 
-	// Token: 0x040028B0 RID: 10416
+	// Token: 0x0400290F RID: 10511
 	[SerializeField]
 	private MeshRenderer boardMesh;
 
-	// Token: 0x040028B2 RID: 10418
+	// Token: 0x04002911 RID: 10513
 	private Material colorMaterial;
 
-	// Token: 0x040028B3 RID: 10419
+	// Token: 0x04002912 RID: 10514
 	private bool hasHoverPoint;
 
-	// Token: 0x040028B4 RID: 10420
+	// Token: 0x04002913 RID: 10515
 	private Vector3 hoverPoint;
 
-	// Token: 0x040028B5 RID: 10421
+	// Token: 0x04002914 RID: 10516
 	private Vector3 hoverNormal;
 }

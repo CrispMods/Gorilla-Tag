@@ -2,13 +2,13 @@
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000AC0 RID: 2752
+	// Token: 0x02000AED RID: 2797
 	public class CheckForBadNameRequest
 	{
-		// Token: 0x04004683 RID: 18051
+		// Token: 0x0400477A RID: 18298
 		public string name;
 
-		// Token: 0x04004684 RID: 18052
+		// Token: 0x0400477B RID: 18299
 		public bool forRoom;
 	}
 }

@@ -4,13 +4,13 @@ using UnityEngine;
 // Token: 0x02000025 RID: 37
 public class Spinner : MonoBehaviour
 {
-	// Token: 0x06000082 RID: 130 RVA: 0x000049FF File Offset: 0x00002BFF
+	// Token: 0x06000082 RID: 130 RVA: 0x000309BF File Offset: 0x0002EBBF
 	public void OnEnable()
 	{
-		this.m_angle = Random.Range(0f, 360f);
+		this.m_angle = UnityEngine.Random.Range(0f, 360f);
 	}
 
-	// Token: 0x06000083 RID: 131 RVA: 0x00004A18 File Offset: 0x00002C18
+	// Token: 0x06000083 RID: 131 RVA: 0x00069C88 File Offset: 0x00067E88
 	public void Update()
 	{
 		this.m_angle += this.Speed * 360f * Time.deltaTime;

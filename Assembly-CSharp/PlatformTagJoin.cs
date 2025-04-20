@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001D4 RID: 468
+// Token: 0x020001DF RID: 479
 [CreateAssetMenu(fileName = "PlatformTagJoin", menuName = "ScriptableObjects/PlatformTagJoin", order = 0)]
 public class PlatformTagJoin : ScriptableObject
 {
-	// Token: 0x06000AED RID: 2797 RVA: 0x0003B11E File Offset: 0x0003931E
+	// Token: 0x06000B39 RID: 2873 RVA: 0x00037D83 File Offset: 0x00035F83
 	public override string ToString()
 	{
 		return this.PlatformTag;
 	}
 
-	// Token: 0x04000D54 RID: 3412
+	// Token: 0x04000D9A RID: 3482
 	public string PlatformTag = " ";
 }

@@ -4,11 +4,11 @@ using CjLib;
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x020000F0 RID: 240
+// Token: 0x020000FA RID: 250
 public class MoonController : MonoBehaviour
 {
-	// Token: 0x17000090 RID: 144
-	// (get) Token: 0x0600064A RID: 1610 RVA: 0x000247D2 File Offset: 0x000229D2
+	// Token: 0x17000095 RID: 149
+	// (get) Token: 0x0600068B RID: 1675 RVA: 0x00034CDE File Offset: 0x00032EDE
 	public float Distance
 	{
 		get
@@ -17,8 +17,8 @@ public class MoonController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000091 RID: 145
-	// (get) Token: 0x0600064B RID: 1611 RVA: 0x000247DA File Offset: 0x000229DA
+	// Token: 0x17000096 RID: 150
+	// (get) Token: 0x0600068C RID: 1676 RVA: 0x00034CE6 File Offset: 0x00032EE6
 	private float TimeOfDay
 	{
 		get
@@ -35,19 +35,19 @@ public class MoonController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600064C RID: 1612 RVA: 0x00024816 File Offset: 0x00022A16
+	// Token: 0x0600068D RID: 1677 RVA: 0x00034D22 File Offset: 0x00032F22
 	public void SetEyeOpenAnimation()
 	{
 		this.openMoonAnimator.SetBool(this.eyeOpenHash, true);
 	}
 
-	// Token: 0x0600064D RID: 1613 RVA: 0x0002482A File Offset: 0x00022A2A
+	// Token: 0x0600068E RID: 1678 RVA: 0x00034D36 File Offset: 0x00032F36
 	public void StartEyeCloseAnimation()
 	{
 		this.openMoonAnimator.SetBool(this.eyeOpenHash, false);
 	}
 
-	// Token: 0x0600064E RID: 1614 RVA: 0x00024840 File Offset: 0x00022A40
+	// Token: 0x0600068F RID: 1679 RVA: 0x00086C8C File Offset: 0x00084E8C
 	private void Start()
 	{
 		this.eyeOpenHash = Animator.StringToHash("EyeOpen");
@@ -92,7 +92,7 @@ public class MoonController : MonoBehaviour
 		this.UpdatePlacement();
 	}
 
-	// Token: 0x0600064F RID: 1615 RVA: 0x00024A3C File Offset: 0x00022C3C
+	// Token: 0x06000690 RID: 1680 RVA: 0x00034D4A File Offset: 0x00032F4A
 	private void OnDestroy()
 	{
 		if (GreyZoneManager.Instance != null)
@@ -101,7 +101,7 @@ public class MoonController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000650 RID: 1616 RVA: 0x00024A5C File Offset: 0x00022C5C
+	// Token: 0x06000691 RID: 1681 RVA: 0x00086E88 File Offset: 0x00085088
 	private void OnZoneChanged()
 	{
 		ZoneManagement instance = ZoneManagement.instance;
@@ -117,7 +117,7 @@ public class MoonController : MonoBehaviour
 		this.UpdateActiveScene(scenes);
 	}
 
-	// Token: 0x06000651 RID: 1617 RVA: 0x00024AAF File Offset: 0x00022CAF
+	// Token: 0x06000692 RID: 1682 RVA: 0x00034D68 File Offset: 0x00032F68
 	private void UpdateActiveScene(MoonController.Scenes nextScene)
 	{
 		this.activeScene = nextScene;
@@ -125,7 +125,7 @@ public class MoonController : MonoBehaviour
 		this.UpdatePlacement();
 	}
 
-	// Token: 0x06000652 RID: 1618 RVA: 0x00024AC4 File Offset: 0x00022CC4
+	// Token: 0x06000693 RID: 1683 RVA: 0x00086EDC File Offset: 0x000850DC
 	private void Update()
 	{
 		this.UpdateCrack();
@@ -165,7 +165,7 @@ public class MoonController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000653 RID: 1619 RVA: 0x00024BB5 File Offset: 0x00022DB5
+	// Token: 0x06000694 RID: 1684 RVA: 0x00034D7D File Offset: 0x00032F7D
 	public void UpdateDistance(float nextDistance)
 	{
 		this.distance = nextDistance;
@@ -173,7 +173,7 @@ public class MoonController : MonoBehaviour
 		this.UpdatePlacement();
 	}
 
-	// Token: 0x06000654 RID: 1620 RVA: 0x00024BCC File Offset: 0x00022DCC
+	// Token: 0x06000695 RID: 1685 RVA: 0x00086FD0 File Offset: 0x000851D0
 	public void UpdateVisualState()
 	{
 		bool flag = false;
@@ -192,7 +192,7 @@ public class MoonController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000655 RID: 1621 RVA: 0x00024C6C File Offset: 0x00022E6C
+	// Token: 0x06000696 RID: 1686 RVA: 0x00034D92 File Offset: 0x00032F92
 	public void UpdatePlacement()
 	{
 		if (this.alwaysInTheSky)
@@ -203,7 +203,7 @@ public class MoonController : MonoBehaviour
 		this.UpdatePlacementOrbit();
 	}
 
-	// Token: 0x06000656 RID: 1622 RVA: 0x00024C84 File Offset: 0x00022E84
+	// Token: 0x06000697 RID: 1687 RVA: 0x00087070 File Offset: 0x00085270
 	private void UpdatePlacementSimple()
 	{
 		MoonController.SceneData sceneData = this.scenes[(int)this.activeScene];
@@ -222,7 +222,7 @@ public class MoonController : MonoBehaviour
 		base.transform.localScale = Vector3.one * d;
 	}
 
-	// Token: 0x06000657 RID: 1623 RVA: 0x00024DC8 File Offset: 0x00022FC8
+	// Token: 0x06000698 RID: 1688 RVA: 0x000871B4 File Offset: 0x000853B4
 	public void UpdatePlacementOrbit()
 	{
 		MoonController.SceneData sceneData = this.scenes[(int)this.activeScene];
@@ -284,7 +284,7 @@ public class MoonController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000658 RID: 1624 RVA: 0x00025158 File Offset: 0x00023358
+	// Token: 0x06000699 RID: 1689 RVA: 0x00087544 File Offset: 0x00085744
 	private void UpdateCrack()
 	{
 		bool flag = GreyZoneManager.Instance != null && GreyZoneManager.Instance.GreyZoneAvailable;
@@ -322,175 +322,175 @@ public class MoonController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000777 RID: 1911
+	// Token: 0x040007B8 RID: 1976
 	[SerializeField]
 	private List<MoonController.SceneData> scenes = new List<MoonController.SceneData>();
 
-	// Token: 0x04000778 RID: 1912
+	// Token: 0x040007B9 RID: 1977
 	[SerializeField]
 	private MoonController.Scenes activeScene;
 
-	// Token: 0x04000779 RID: 1913
+	// Token: 0x040007BA RID: 1978
 	[SerializeField]
 	private MoonController.Placement defaultPlacement;
 
-	// Token: 0x0400077A RID: 1914
+	// Token: 0x040007BB RID: 1979
 	[SerializeField]
 	[Range(0f, 1f)]
 	private float distance;
 
-	// Token: 0x0400077B RID: 1915
+	// Token: 0x040007BC RID: 1980
 	[SerializeField]
 	private bool alwaysInTheSky;
 
-	// Token: 0x0400077C RID: 1916
+	// Token: 0x040007BD RID: 1981
 	[Header("Model Swap")]
 	[SerializeField]
 	private Transform defaultMoon;
 
-	// Token: 0x0400077D RID: 1917
+	// Token: 0x040007BE RID: 1982
 	[SerializeField]
 	private Transform openMoon;
 
-	// Token: 0x0400077E RID: 1918
+	// Token: 0x040007BF RID: 1983
 	[Header("Animation")]
 	[SerializeField]
 	private Animator openMoonAnimator;
 
-	// Token: 0x0400077F RID: 1919
+	// Token: 0x040007C0 RID: 1984
 	[SerializeField]
 	private float eyeOpenDistThreshold = 0.9f;
 
-	// Token: 0x04000780 RID: 1920
+	// Token: 0x040007C1 RID: 1985
 	[SerializeField]
 	private float eyeCloseDistThreshold = 0.05f;
 
-	// Token: 0x04000781 RID: 1921
+	// Token: 0x040007C2 RID: 1986
 	[Header("Debug")]
 	[SerializeField]
 	private bool debugOverrideTimeOfDay;
 
-	// Token: 0x04000782 RID: 1922
+	// Token: 0x040007C3 RID: 1987
 	[SerializeField]
 	[Range(0f, 4f)]
 	private float timeOfDayOverride;
 
-	// Token: 0x04000783 RID: 1923
+	// Token: 0x040007C4 RID: 1988
 	[SerializeField]
 	private bool debugOverrideCrackProgress;
 
-	// Token: 0x04000784 RID: 1924
+	// Token: 0x040007C5 RID: 1989
 	[SerializeField]
 	[Range(0f, 1f)]
 	private float crackProgress;
 
-	// Token: 0x04000785 RID: 1925
+	// Token: 0x040007C6 RID: 1990
 	[SerializeField]
 	private bool debugOverrideCrackDayInOctober;
 
-	// Token: 0x04000786 RID: 1926
+	// Token: 0x040007C7 RID: 1991
 	[SerializeField]
 	[Range(1f, 31f)]
 	private int crackDayInOctoberOverride = 4;
 
-	// Token: 0x04000787 RID: 1927
+	// Token: 0x040007C8 RID: 1992
 	[SerializeField]
 	private MeshRenderer crackRenderer;
 
-	// Token: 0x04000788 RID: 1928
+	// Token: 0x040007C9 RID: 1993
 	private int crackStartDayOfYear;
 
-	// Token: 0x04000789 RID: 1929
+	// Token: 0x040007CA RID: 1994
 	private int crackEndDayOfYear;
 
-	// Token: 0x0400078A RID: 1930
+	// Token: 0x040007CB RID: 1995
 	private float orbitAngle;
 
-	// Token: 0x0400078B RID: 1931
+	// Token: 0x040007CC RID: 1996
 	private int crackProgressHash = Shader.PropertyToID("_Progress");
 
-	// Token: 0x0400078C RID: 1932
+	// Token: 0x040007CD RID: 1997
 	private int eyeOpenHash;
 
-	// Token: 0x0400078D RID: 1933
+	// Token: 0x040007CE RID: 1998
 	private bool openEyeModelEnabled;
 
-	// Token: 0x0400078E RID: 1934
+	// Token: 0x040007CF RID: 1999
 	private float currentlySetCrackProgress;
 
-	// Token: 0x0400078F RID: 1935
+	// Token: 0x040007D0 RID: 2000
 	private MaterialPropertyBlock crackMaterialPropertyBlock;
 
-	// Token: 0x04000790 RID: 1936
+	// Token: 0x040007D1 RID: 2001
 	private bool debugDrawOrbit;
 
-	// Token: 0x04000791 RID: 1937
+	// Token: 0x040007D2 RID: 2002
 	private Dictionary<GTZone, MoonController.Scenes> zoneToSceneMapping = new Dictionary<GTZone, MoonController.Scenes>();
 
-	// Token: 0x04000792 RID: 1938
+	// Token: 0x040007D3 RID: 2003
 	private const float moonFallStart = 0.086666666f;
 
-	// Token: 0x04000793 RID: 1939
+	// Token: 0x040007D4 RID: 2004
 	private const float moonFallEnd = 0.22f;
 
-	// Token: 0x04000794 RID: 1940
+	// Token: 0x040007D5 RID: 2005
 	private const float moonRiseStart = 0.53999996f;
 
-	// Token: 0x04000795 RID: 1941
+	// Token: 0x040007D6 RID: 2006
 	private const float moonRiseEnd = 0.6733333f;
 
-	// Token: 0x020000F1 RID: 241
+	// Token: 0x020000FB RID: 251
 	public enum Scenes
 	{
-		// Token: 0x04000797 RID: 1943
+		// Token: 0x040007D8 RID: 2008
 		Forest,
-		// Token: 0x04000798 RID: 1944
+		// Token: 0x040007D9 RID: 2009
 		Bayou,
-		// Token: 0x04000799 RID: 1945
+		// Token: 0x040007DA RID: 2010
 		Beach,
-		// Token: 0x0400079A RID: 1946
+		// Token: 0x040007DB RID: 2011
 		Canyon,
-		// Token: 0x0400079B RID: 1947
+		// Token: 0x040007DC RID: 2012
 		Clouds,
-		// Token: 0x0400079C RID: 1948
+		// Token: 0x040007DD RID: 2013
 		City,
-		// Token: 0x0400079D RID: 1949
+		// Token: 0x040007DE RID: 2014
 		Metropolis,
-		// Token: 0x0400079E RID: 1950
+		// Token: 0x040007DF RID: 2015
 		Mountain
 	}
 
-	// Token: 0x020000F2 RID: 242
+	// Token: 0x020000FC RID: 252
 	[Serializable]
 	public struct SceneData
 	{
-		// Token: 0x0400079F RID: 1951
+		// Token: 0x040007E0 RID: 2016
 		public MoonController.Scenes scene;
 
-		// Token: 0x040007A0 RID: 1952
+		// Token: 0x040007E1 RID: 2017
 		public Transform referencePoint;
 
-		// Token: 0x040007A1 RID: 1953
+		// Token: 0x040007E2 RID: 2018
 		public bool overridePlacement;
 
-		// Token: 0x040007A2 RID: 1954
+		// Token: 0x040007E3 RID: 2019
 		public MoonController.Placement PlacementOverride;
 	}
 
-	// Token: 0x020000F3 RID: 243
+	// Token: 0x020000FD RID: 253
 	[Serializable]
 	public struct Placement
 	{
-		// Token: 0x040007A3 RID: 1955
+		// Token: 0x040007E4 RID: 2020
 		public Vector2 radiusRange;
 
-		// Token: 0x040007A4 RID: 1956
+		// Token: 0x040007E5 RID: 2021
 		public Vector2 heightRange;
 
-		// Token: 0x040007A5 RID: 1957
+		// Token: 0x040007E6 RID: 2022
 		public Vector2 scaleRange;
 
-		// Token: 0x040007A6 RID: 1958
+		// Token: 0x040007E7 RID: 2023
 		public float restAngle;
 	}
 }

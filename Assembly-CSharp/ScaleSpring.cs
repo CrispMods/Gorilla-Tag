@@ -5,7 +5,7 @@ using UnityEngine;
 // Token: 0x0200001A RID: 26
 public class ScaleSpring : MonoBehaviour
 {
-	// Token: 0x0600005F RID: 95 RVA: 0x0000363C File Offset: 0x0000183C
+	// Token: 0x0600005F RID: 95 RVA: 0x000689D4 File Offset: 0x00066BD4
 	public void Tick()
 	{
 		this.m_targetScale = ((this.m_targetScale == ScaleSpring.kSmallScale) ? ScaleSpring.kLargeScale : ScaleSpring.kSmallScale);
@@ -13,14 +13,14 @@ public class ScaleSpring : MonoBehaviour
 		base.GetComponent<BoingEffector>().MoveDistance = ScaleSpring.kMoveDistance * ((this.m_targetScale == ScaleSpring.kSmallScale) ? -1f : 1f);
 	}
 
-	// Token: 0x06000060 RID: 96 RVA: 0x0000369D File Offset: 0x0000189D
+	// Token: 0x06000060 RID: 96 RVA: 0x000308A6 File Offset: 0x0002EAA6
 	public void Start()
 	{
 		this.Tick();
 		this.m_spring.Reset(this.m_targetScale * Vector3.one);
 	}
 
-	// Token: 0x06000061 RID: 97 RVA: 0x000036C0 File Offset: 0x000018C0
+	// Token: 0x06000061 RID: 97 RVA: 0x00068A38 File Offset: 0x00066C38
 	public void FixedUpdate()
 	{
 		if (Time.time - this.m_lastTickTime > ScaleSpring.kInterval)

@@ -3,16 +3,16 @@ using Fusion;
 using UnityEngine;
 using UnityEngine.Scripting;
 
-// Token: 0x0200025B RID: 603
+// Token: 0x02000266 RID: 614
 public class FusionInternalRPCs : SimulationBehaviour
 {
-	// Token: 0x06000E01 RID: 3585 RVA: 0x00047196 File Offset: 0x00045396
+	// Token: 0x06000E4C RID: 3660 RVA: 0x0003A31E File Offset: 0x0003851E
 	private void Awake()
 	{
 		FusionInternalRPCs.netSys = (NetworkSystem.Instance as NetworkSystemFusion);
 	}
 
-	// Token: 0x06000E02 RID: 3586 RVA: 0x000471A8 File Offset: 0x000453A8
+	// Token: 0x06000E4D RID: 3661 RVA: 0x000A3FF4 File Offset: 0x000A21F4
 	[Rpc(RpcSources.All, RpcTargets.All)]
 	public unsafe static void RPC_SendPlayerSyncProp(NetworkRunner runner, [RpcTarget] PlayerRef player, PlayerRef playerData, string propKey, string propValue)
 	{
@@ -62,7 +62,7 @@ public class FusionInternalRPCs : SimulationBehaviour
 		Debug.Log("RPC Setting player prop: " + propKey + " - " + propValue);
 	}
 
-	// Token: 0x06000E04 RID: 3588 RVA: 0x00047344 File Offset: 0x00045544
+	// Token: 0x06000E4F RID: 3663 RVA: 0x000A4190 File Offset: 0x000A2390
 	[NetworkRpcStaticWeavedInvoker("System.Void FusionInternalRPCs::RPC_SendPlayerSyncProp(Fusion.NetworkRunner,Fusion.PlayerRef,Fusion.PlayerRef,System.String,System.String)")]
 	[Preserve]
 	[WeaverGenerated]
@@ -82,6 +82,6 @@ public class FusionInternalRPCs : SimulationBehaviour
 		FusionInternalRPCs.RPC_SendPlayerSyncProp(runner, target, playerData, propKey, propValue);
 	}
 
-	// Token: 0x040010E8 RID: 4328
+	// Token: 0x0400112E RID: 4398
 	private static NetworkSystemFusion netSys;
 }

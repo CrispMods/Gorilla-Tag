@@ -1,21 +1,21 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200024E RID: 590
+// Token: 0x02000259 RID: 601
 public class TestScreen : ArcadeGame
 {
-	// Token: 0x06000DB2 RID: 3506 RVA: 0x00042E31 File Offset: 0x00041031
+	// Token: 0x06000DFD RID: 3581 RVA: 0x0003924B File Offset: 0x0003744B
 	public override byte[] GetNetworkState()
 	{
 		return null;
 	}
 
-	// Token: 0x06000DB3 RID: 3507 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000DFE RID: 3582 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void SetNetworkState(byte[] b)
 	{
 	}
 
-	// Token: 0x06000DB4 RID: 3508 RVA: 0x00045F80 File Offset: 0x00044180
+	// Token: 0x06000DFF RID: 3583 RVA: 0x000A3118 File Offset: 0x000A1318
 	private int buttonToLightIndex(int player, ArcadeButtons button)
 	{
 		int num = 0;
@@ -70,28 +70,28 @@ public class TestScreen : ArcadeGame
 		return (player * 8 + num) % this.lights.Length;
 	}
 
-	// Token: 0x06000DB5 RID: 3509 RVA: 0x00045FF7 File Offset: 0x000441F7
+	// Token: 0x06000E00 RID: 3584 RVA: 0x00039FE8 File Offset: 0x000381E8
 	protected override void ButtonUp(int player, ArcadeButtons button)
 	{
 		this.lights[this.buttonToLightIndex(player, button)].color = Color.red;
 	}
 
-	// Token: 0x06000DB6 RID: 3510 RVA: 0x00046012 File Offset: 0x00044212
+	// Token: 0x06000E01 RID: 3585 RVA: 0x0003A003 File Offset: 0x00038203
 	protected override void ButtonDown(int player, ArcadeButtons button)
 	{
 		this.lights[this.buttonToLightIndex(player, button)].color = Color.green;
 	}
 
-	// Token: 0x06000DB7 RID: 3511 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000E02 RID: 3586 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void OnTimeout()
 	{
 	}
 
-	// Token: 0x040010C3 RID: 4291
+	// Token: 0x04001109 RID: 4361
 	[SerializeField]
 	private SpriteRenderer[] lights;
 
-	// Token: 0x040010C4 RID: 4292
+	// Token: 0x0400110A RID: 4362
 	[SerializeField]
 	private Transform dot;
 }

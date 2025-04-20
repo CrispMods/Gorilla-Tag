@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200082B RID: 2091
+// Token: 0x02000845 RID: 2117
 public class AverageVector3
 {
-	// Token: 0x0600331E RID: 13086 RVA: 0x000F4485 File Offset: 0x000F2685
+	// Token: 0x060033D9 RID: 13273 RVA: 0x00052155 File Offset: 0x00050355
 	public AverageVector3(float averagingWindow = 0.1f)
 	{
 		this.timeWindow = averagingWindow;
 	}
 
-	// Token: 0x0600331F RID: 13087 RVA: 0x000F44AC File Offset: 0x000F26AC
+	// Token: 0x060033DA RID: 13274 RVA: 0x0013C274 File Offset: 0x0013A474
 	public void AddSample(Vector3 sample, float time)
 	{
 		this.samples.Add(new AverageVector3.Sample
@@ -22,7 +22,7 @@ public class AverageVector3
 		this.RefreshSamples();
 	}
 
-	// Token: 0x06003320 RID: 13088 RVA: 0x000F44E4 File Offset: 0x000F26E4
+	// Token: 0x060033DB RID: 13275 RVA: 0x0013C2AC File Offset: 0x0013A4AC
 	public Vector3 GetAverage()
 	{
 		this.RefreshSamples();
@@ -34,13 +34,13 @@ public class AverageVector3
 		return a / (float)this.samples.Count;
 	}
 
-	// Token: 0x06003321 RID: 13089 RVA: 0x000F453F File Offset: 0x000F273F
+	// Token: 0x060033DC RID: 13276 RVA: 0x0005217A File Offset: 0x0005037A
 	public void Clear()
 	{
 		this.samples.Clear();
 	}
 
-	// Token: 0x06003322 RID: 13090 RVA: 0x000F454C File Offset: 0x000F274C
+	// Token: 0x060033DD RID: 13277 RVA: 0x0013C308 File Offset: 0x0013A508
 	private void RefreshSamples()
 	{
 		float num = Time.time - this.timeWindow;
@@ -53,19 +53,19 @@ public class AverageVector3
 		}
 	}
 
-	// Token: 0x04003683 RID: 13955
+	// Token: 0x0400373F RID: 14143
 	private List<AverageVector3.Sample> samples = new List<AverageVector3.Sample>();
 
-	// Token: 0x04003684 RID: 13956
+	// Token: 0x04003740 RID: 14144
 	private float timeWindow = 0.1f;
 
-	// Token: 0x0200082C RID: 2092
+	// Token: 0x02000846 RID: 2118
 	public struct Sample
 	{
-		// Token: 0x04003685 RID: 13957
+		// Token: 0x04003741 RID: 14145
 		public float timeStamp;
 
-		// Token: 0x04003686 RID: 13958
+		// Token: 0x04003742 RID: 14146
 		public Vector3 value;
 	}
 }

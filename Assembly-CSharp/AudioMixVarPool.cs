@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200048A RID: 1162
+// Token: 0x02000496 RID: 1174
 [CreateAssetMenu(fileName = "New AudioMixVarPool", menuName = "ScriptableObjects/AudioMixVarPool", order = 0)]
 public class AudioMixVarPool : ScriptableObject
 {
-	// Token: 0x06001C12 RID: 7186 RVA: 0x00088628 File Offset: 0x00086828
+	// Token: 0x06001C66 RID: 7270 RVA: 0x000DC174 File Offset: 0x000DA374
 	public bool Rent(out AudioMixVar mixVar)
 	{
 		for (int i = 0; i < this._vars.Length; i++)
@@ -21,7 +21,7 @@ public class AudioMixVarPool : ScriptableObject
 		return false;
 	}
 
-	// Token: 0x06001C13 RID: 7187 RVA: 0x00088678 File Offset: 0x00086878
+	// Token: 0x06001C67 RID: 7271 RVA: 0x000DC1C4 File Offset: 0x000DA3C4
 	public void Return(AudioMixVar mixVar)
 	{
 		if (mixVar == null)
@@ -36,7 +36,7 @@ public class AudioMixVarPool : ScriptableObject
 		this._vars[num].taken = false;
 	}
 
-	// Token: 0x04001F17 RID: 7959
+	// Token: 0x04001F66 RID: 8038
 	[SerializeField]
 	private AudioMixVar[] _vars = new AudioMixVar[0];
 }

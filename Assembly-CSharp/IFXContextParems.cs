@@ -1,12 +1,12 @@
 ﻿using System;
 
-// Token: 0x020007E6 RID: 2022
+// Token: 0x02000800 RID: 2048
 public interface IFXContextParems<T> where T : FXSArgs
 {
-	// Token: 0x17000522 RID: 1314
-	// (get) Token: 0x06003202 RID: 12802
+	// Token: 0x17000530 RID: 1328
+	// (get) Token: 0x060032B8 RID: 12984
 	FXSystemSettings settings { get; }
 
-	// Token: 0x06003203 RID: 12803
+	// Token: 0x060032B9 RID: 12985
 	void OnPlayFX(T parems);
 }

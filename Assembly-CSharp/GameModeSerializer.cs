@@ -7,13 +7,13 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Scripting;
 
-// Token: 0x02000533 RID: 1331
+// Token: 0x02000540 RID: 1344
 [NetworkBehaviourWeaved(1)]
 internal class GameModeSerializer : GorillaSerializerMasterOnly, IStateAuthorityChanged
 {
-	// Token: 0x17000342 RID: 834
-	// (get) Token: 0x06002024 RID: 8228 RVA: 0x000A1D74 File Offset: 0x0009FF74
-	// (set) Token: 0x06002025 RID: 8229 RVA: 0x000A1D9A File Offset: 0x0009FF9A
+	// Token: 0x17000349 RID: 841
+	// (get) Token: 0x0600207D RID: 8317 RVA: 0x000461EB File Offset: 0x000443EB
+	// (set) Token: 0x0600207E RID: 8318 RVA: 0x00046211 File Offset: 0x00044411
 	[Networked]
 	[NetworkedWeaved(0, 1)]
 	private unsafe int gameModeKeyInt
@@ -36,8 +36,8 @@ internal class GameModeSerializer : GorillaSerializerMasterOnly, IStateAuthority
 		}
 	}
 
-	// Token: 0x17000343 RID: 835
-	// (get) Token: 0x06002026 RID: 8230 RVA: 0x000A1DC1 File Offset: 0x0009FFC1
+	// Token: 0x1700034A RID: 842
+	// (get) Token: 0x0600207F RID: 8319 RVA: 0x00046238 File Offset: 0x00044438
 	public GorillaGameManager GameModeInstance
 	{
 		get
@@ -46,7 +46,7 @@ internal class GameModeSerializer : GorillaSerializerMasterOnly, IStateAuthority
 		}
 	}
 
-	// Token: 0x06002027 RID: 8231 RVA: 0x000A1DCC File Offset: 0x0009FFCC
+	// Token: 0x06002080 RID: 8320 RVA: 0x000F3110 File Offset: 0x000F1310
 	protected override bool OnSpawnSetupCheck(PhotonMessageInfoWrapped wrappedInfo, out GameObject outTargetObject, out Type outTargetType)
 	{
 		outTargetObject = null;
@@ -106,46 +106,46 @@ internal class GameModeSerializer : GorillaSerializerMasterOnly, IStateAuthority
 		return false;
 	}
 
-	// Token: 0x06002028 RID: 8232 RVA: 0x000A1FDA File Offset: 0x000A01DA
+	// Token: 0x06002081 RID: 8321 RVA: 0x00046240 File Offset: 0x00044440
 	internal void Init(int gameModeType)
 	{
 		Debug.Log("<color=red>Init called</color>");
 		this.gameModeKeyInt = gameModeType;
 	}
 
-	// Token: 0x06002029 RID: 8233 RVA: 0x000A1FED File Offset: 0x000A01ED
+	// Token: 0x06002082 RID: 8322 RVA: 0x00046253 File Offset: 0x00044453
 	protected override void OnSuccesfullySpawned(PhotonMessageInfoWrapped info)
 	{
 		this.netView.GetView.AddCallbackTarget(this);
 		GorillaGameModes.GameMode.SetupGameModeRemote(this);
 	}
 
-	// Token: 0x0600202A RID: 8234 RVA: 0x000A2006 File Offset: 0x000A0206
+	// Token: 0x06002083 RID: 8323 RVA: 0x0004626C File Offset: 0x0004446C
 	protected override void OnBeforeDespawn()
 	{
 		GorillaGameModes.GameMode.RemoveNetworkLink(this);
 	}
 
-	// Token: 0x0600202B RID: 8235 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002084 RID: 8324 RVA: 0x00030607 File Offset: 0x0002E807
 	protected override void OnFailedSpawn()
 	{
 	}
 
-	// Token: 0x0600202C RID: 8236 RVA: 0x000A200E File Offset: 0x000A020E
+	// Token: 0x06002085 RID: 8325 RVA: 0x00046274 File Offset: 0x00044474
 	[PunRPC]
 	internal void RPC_ReportTag(int taggedPlayer, PhotonMessageInfo info)
 	{
 		this.ReportTag(NetworkSystem.Instance.GetPlayer(taggedPlayer), new PhotonMessageInfoWrapped(info));
 	}
 
-	// Token: 0x0600202D RID: 8237 RVA: 0x000A2027 File Offset: 0x000A0227
+	// Token: 0x06002086 RID: 8326 RVA: 0x0004628D File Offset: 0x0004448D
 	[PunRPC]
 	internal void RPC_ReportHit(PhotonMessageInfo info)
 	{
 		this.ReportHit(new PhotonMessageInfoWrapped(info));
 	}
 
-	// Token: 0x0600202E RID: 8238 RVA: 0x000A2038 File Offset: 0x000A0238
+	// Token: 0x06002087 RID: 8327 RVA: 0x000F3320 File Offset: 0x000F1520
 	[Rpc(RpcSources.All, RpcTargets.All)]
 	internal unsafe void RPC_ReportTag(int taggedPlayer, RpcInfo info = default(RpcInfo))
 	{
@@ -187,7 +187,7 @@ internal class GameModeSerializer : GorillaSerializerMasterOnly, IStateAuthority
 		this.ReportTag(NetworkSystem.Instance.GetPlayer(taggedPlayer), new PhotonMessageInfoWrapped(info));
 	}
 
-	// Token: 0x0600202F RID: 8239 RVA: 0x000A2184 File Offset: 0x000A0384
+	// Token: 0x06002088 RID: 8328 RVA: 0x000F346C File Offset: 0x000F166C
 	[Rpc(RpcSources.All, RpcTargets.All)]
 	internal unsafe void RPC_ReportHit(RpcInfo info = default(RpcInfo))
 	{
@@ -226,7 +226,7 @@ internal class GameModeSerializer : GorillaSerializerMasterOnly, IStateAuthority
 		this.ReportHit(new PhotonMessageInfoWrapped(info));
 	}
 
-	// Token: 0x06002030 RID: 8240 RVA: 0x000A22A4 File Offset: 0x000A04A4
+	// Token: 0x06002089 RID: 8329 RVA: 0x000F358C File Offset: 0x000F178C
 	private void ReportTag(NetPlayer taggedPlayer, PhotonMessageInfoWrapped info)
 	{
 		GorillaNot.IncrementRPCCall(info, "ReportTag");
@@ -234,7 +234,7 @@ internal class GameModeSerializer : GorillaSerializerMasterOnly, IStateAuthority
 		this.gameModeInstance.ReportTag(taggedPlayer, sender);
 	}
 
-	// Token: 0x06002031 RID: 8241 RVA: 0x000A22D4 File Offset: 0x000A04D4
+	// Token: 0x0600208A RID: 8330 RVA: 0x000F35BC File Offset: 0x000F17BC
 	private void ReportHit(PhotonMessageInfoWrapped info)
 	{
 		GorillaNot.IncrementRPCCall(info, "ReportContactWithLavaRPC");
@@ -253,14 +253,14 @@ internal class GameModeSerializer : GorillaSerializerMasterOnly, IStateAuthority
 		}
 	}
 
-	// Token: 0x06002032 RID: 8242 RVA: 0x000A238E File Offset: 0x000A058E
+	// Token: 0x0600208B RID: 8331 RVA: 0x0004629B File Offset: 0x0004449B
 	[PunRPC]
 	internal void RPC_BroadcastRoundComplete(PhotonMessageInfo info)
 	{
 		this.BroadcastRoundComplete(info);
 	}
 
-	// Token: 0x06002033 RID: 8243 RVA: 0x000A239C File Offset: 0x000A059C
+	// Token: 0x0600208C RID: 8332 RVA: 0x000462A9 File Offset: 0x000444A9
 	private void BroadcastRoundComplete(PhotonMessageInfoWrapped info)
 	{
 		GorillaNot.IncrementRPCCall(info, "BroadcastRoundComplete");
@@ -270,25 +270,25 @@ internal class GameModeSerializer : GorillaSerializerMasterOnly, IStateAuthority
 		}
 	}
 
-	// Token: 0x06002034 RID: 8244 RVA: 0x000A23C2 File Offset: 0x000A05C2
+	// Token: 0x0600208D RID: 8333 RVA: 0x000462CF File Offset: 0x000444CF
 	protected override void FusionDataRPC(string method, NetPlayer targetPlayer, params object[] parameters)
 	{
 		Debug.Log(this.gameModeData.GetType().Name);
 	}
 
-	// Token: 0x06002035 RID: 8245 RVA: 0x000A23D9 File Offset: 0x000A05D9
+	// Token: 0x0600208E RID: 8334 RVA: 0x000462E6 File Offset: 0x000444E6
 	protected override void FusionDataRPC(string method, RpcTarget target, params object[] parameters)
 	{
 		base.FusionDataRPC(method, target, parameters);
 	}
 
-	// Token: 0x06002036 RID: 8246 RVA: 0x000A23E4 File Offset: 0x000A05E4
+	// Token: 0x0600208F RID: 8335 RVA: 0x000462F1 File Offset: 0x000444F1
 	void IStateAuthorityChanged.StateAuthorityChanged()
 	{
 		GameModeSerializer.FusionGameModeOwnerChanged(NetworkSystem.Instance.GetPlayer(base.Object.StateAuthority));
 	}
 
-	// Token: 0x06002038 RID: 8248 RVA: 0x000A240D File Offset: 0x000A060D
+	// Token: 0x06002091 RID: 8337 RVA: 0x0004631A File Offset: 0x0004451A
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -296,7 +296,7 @@ internal class GameModeSerializer : GorillaSerializerMasterOnly, IStateAuthority
 		this.gameModeKeyInt = this._gameModeKeyInt;
 	}
 
-	// Token: 0x06002039 RID: 8249 RVA: 0x000A2425 File Offset: 0x000A0625
+	// Token: 0x06002092 RID: 8338 RVA: 0x00046332 File Offset: 0x00044532
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -304,7 +304,7 @@ internal class GameModeSerializer : GorillaSerializerMasterOnly, IStateAuthority
 		this._gameModeKeyInt = this.gameModeKeyInt;
 	}
 
-	// Token: 0x0600203A RID: 8250 RVA: 0x000A243C File Offset: 0x000A063C
+	// Token: 0x06002093 RID: 8339 RVA: 0x000F3678 File Offset: 0x000F1878
 	[NetworkRpcWeavedInvoker(1, 7, 7)]
 	[Preserve]
 	[WeaverGenerated]
@@ -320,7 +320,7 @@ internal class GameModeSerializer : GorillaSerializerMasterOnly, IStateAuthority
 		((GameModeSerializer)behaviour).RPC_ReportTag(taggedPlayer, info);
 	}
 
-	// Token: 0x0600203B RID: 8251 RVA: 0x000A24AC File Offset: 0x000A06AC
+	// Token: 0x06002094 RID: 8340 RVA: 0x000F36E8 File Offset: 0x000F18E8
 	[NetworkRpcWeavedInvoker(2, 7, 7)]
 	[Preserve]
 	[WeaverGenerated]
@@ -333,24 +333,24 @@ internal class GameModeSerializer : GorillaSerializerMasterOnly, IStateAuthority
 		((GameModeSerializer)behaviour).RPC_ReportHit(info);
 	}
 
-	// Token: 0x04002450 RID: 9296
+	// Token: 0x040024A3 RID: 9379
 	[WeaverGenerated]
 	[DefaultForProperty("gameModeKeyInt", 0, 1)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
 	private int _gameModeKeyInt;
 
-	// Token: 0x04002451 RID: 9297
+	// Token: 0x040024A4 RID: 9380
 	private GameModeType gameModeKey;
 
-	// Token: 0x04002452 RID: 9298
+	// Token: 0x040024A5 RID: 9381
 	private GorillaGameManager gameModeInstance;
 
-	// Token: 0x04002453 RID: 9299
+	// Token: 0x040024A6 RID: 9382
 	private FusionGameModeData gameModeData;
 
-	// Token: 0x04002454 RID: 9300
+	// Token: 0x040024A7 RID: 9383
 	private Type currentGameDataType;
 
-	// Token: 0x04002455 RID: 9301
+	// Token: 0x040024A8 RID: 9384
 	public static Action<NetPlayer> FusionGameModeOwnerChanged;
 }

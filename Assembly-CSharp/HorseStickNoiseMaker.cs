@@ -2,10 +2,10 @@
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x020000DA RID: 218
+// Token: 0x020000E4 RID: 228
 public class HorseStickNoiseMaker : MonoBehaviour
 {
-	// Token: 0x06000590 RID: 1424 RVA: 0x00020CA0 File Offset: 0x0001EEA0
+	// Token: 0x060005D1 RID: 1489 RVA: 0x00083918 File Offset: 0x00081B18
 	protected void OnEnable()
 	{
 		if (!this.gorillaPlayerXform && !base.transform.TryFindByPath(this.gorillaPlayerXform_path, out this.gorillaPlayerXform, false))
@@ -26,7 +26,7 @@ public class HorseStickNoiseMaker : MonoBehaviour
 		this.timeSincePlay = 0f;
 	}
 
-	// Token: 0x06000591 RID: 1425 RVA: 0x00020D48 File Offset: 0x0001EF48
+	// Token: 0x060005D2 RID: 1490 RVA: 0x000839C0 File Offset: 0x00081BC0
 	protected void LateUpdate()
 	{
 		Vector3 position = this.gorillaPlayerXform.position;
@@ -46,35 +46,35 @@ public class HorseStickNoiseMaker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400068C RID: 1676
+	// Token: 0x040006CD RID: 1741
 	[Tooltip("Meters the object should traverse between playing a provided audio clip.")]
 	public float metersPerClip = 4f;
 
-	// Token: 0x0400068D RID: 1677
+	// Token: 0x040006CE RID: 1742
 	[Tooltip("Number of seconds that must elapse before playing another audio clip.")]
 	public float minSecBetweenClips = 1.5f;
 
-	// Token: 0x0400068E RID: 1678
+	// Token: 0x040006CF RID: 1743
 	public SoundBankPlayer soundBankPlayer;
 
-	// Token: 0x0400068F RID: 1679
+	// Token: 0x040006D0 RID: 1744
 	[Tooltip("Transform assigned in Gorilla Player Networked Prefab to the Gorilla Player Networked parent to keep track of distance traveled.")]
 	public Transform gorillaPlayerXform;
 
-	// Token: 0x04000690 RID: 1680
+	// Token: 0x040006D1 RID: 1745
 	[Delayed]
 	public string gorillaPlayerXform_path;
 
-	// Token: 0x04000691 RID: 1681
+	// Token: 0x040006D2 RID: 1746
 	[Tooltip("Optional particle FX to spawn when sound plays")]
 	public ParticleSystem particleFX;
 
-	// Token: 0x04000692 RID: 1682
+	// Token: 0x040006D3 RID: 1747
 	private Vector3 oldPos;
 
-	// Token: 0x04000693 RID: 1683
+	// Token: 0x040006D4 RID: 1748
 	private float timeSincePlay;
 
-	// Token: 0x04000694 RID: 1684
+	// Token: 0x040006D5 RID: 1749
 	private float distElapsed;
 }

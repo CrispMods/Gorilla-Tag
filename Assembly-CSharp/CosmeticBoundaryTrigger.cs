@@ -2,10 +2,10 @@
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x020003C1 RID: 961
+// Token: 0x020003CC RID: 972
 public class CosmeticBoundaryTrigger : GorillaTriggerBox
 {
-	// Token: 0x06001739 RID: 5945 RVA: 0x0007191C File Offset: 0x0006FB1C
+	// Token: 0x06001786 RID: 6022 RVA: 0x000C8AEC File Offset: 0x000C6CEC
 	public void OnTriggerEnter(Collider other)
 	{
 		if (other.attachedRigidbody == null)
@@ -26,7 +26,7 @@ public class CosmeticBoundaryTrigger : GorillaTriggerBox
 		this.rigRef.myBodyDockPositions.RefreshTransferrableItems();
 	}
 
-	// Token: 0x0600173A RID: 5946 RVA: 0x000719C8 File Offset: 0x0006FBC8
+	// Token: 0x06001787 RID: 6023 RVA: 0x000C8B98 File Offset: 0x000C6D98
 	public void OnTriggerExit(Collider other)
 	{
 		if (other.attachedRigidbody == null)
@@ -50,9 +50,9 @@ public class CosmeticBoundaryTrigger : GorillaTriggerBox
 		this.rigRef.myBodyDockPositions.RefreshTransferrableItems();
 	}
 
-	// Token: 0x040019EB RID: 6635
+	// Token: 0x04001A34 RID: 6708
 	public VRRig rigRef;
 
-	// Token: 0x040019EC RID: 6636
+	// Token: 0x04001A35 RID: 6709
 	private static TimeSince sinceLastTryOnEvent = 0f;
 }

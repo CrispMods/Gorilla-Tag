@@ -2,24 +2,24 @@
 
 namespace LitJson
 {
-	// Token: 0x02000940 RID: 2368
+	// Token: 0x0200095D RID: 2397
 	public enum JsonType
 	{
-		// Token: 0x04003AFF RID: 15103
+		// Token: 0x04003BC4 RID: 15300
 		None,
-		// Token: 0x04003B00 RID: 15104
+		// Token: 0x04003BC5 RID: 15301
 		Object,
-		// Token: 0x04003B01 RID: 15105
+		// Token: 0x04003BC6 RID: 15302
 		Array,
-		// Token: 0x04003B02 RID: 15106
+		// Token: 0x04003BC7 RID: 15303
 		String,
-		// Token: 0x04003B03 RID: 15107
+		// Token: 0x04003BC8 RID: 15304
 		Int,
-		// Token: 0x04003B04 RID: 15108
+		// Token: 0x04003BC9 RID: 15305
 		Long,
-		// Token: 0x04003B05 RID: 15109
+		// Token: 0x04003BCA RID: 15306
 		Double,
-		// Token: 0x04003B06 RID: 15110
+		// Token: 0x04003BCB RID: 15307
 		Boolean
 	}
 }

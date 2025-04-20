@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x020000EA RID: 234
+// Token: 0x020000F4 RID: 244
 public class D20_ShaderManager : MonoBehaviour
 {
-	// Token: 0x06000628 RID: 1576 RVA: 0x00023A60 File Offset: 0x00021C60
+	// Token: 0x06000669 RID: 1641 RVA: 0x0008604C File Offset: 0x0008424C
 	private void Start()
 	{
 		this.rb = base.GetComponent<Rigidbody>();
@@ -16,7 +16,7 @@ public class D20_ShaderManager : MonoBehaviour
 		base.StartCoroutine(this.UpdateVelocityCoroutine());
 	}
 
-	// Token: 0x06000629 RID: 1577 RVA: 0x00023AC5 File Offset: 0x00021CC5
+	// Token: 0x0600066A RID: 1642 RVA: 0x00034BA5 File Offset: 0x00032DA5
 	private IEnumerator UpdateVelocityCoroutine()
 	{
 		for (;;)
@@ -30,18 +30,18 @@ public class D20_ShaderManager : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04000746 RID: 1862
+	// Token: 0x04000787 RID: 1927
 	private Rigidbody rb;
 
-	// Token: 0x04000747 RID: 1863
+	// Token: 0x04000788 RID: 1928
 	private Vector3 lastPosition;
 
-	// Token: 0x04000748 RID: 1864
+	// Token: 0x04000789 RID: 1929
 	public float updateInterval = 0.1f;
 
-	// Token: 0x04000749 RID: 1865
+	// Token: 0x0400078A RID: 1930
 	public Vector3 velocity;
 
-	// Token: 0x0400074A RID: 1866
+	// Token: 0x0400078B RID: 1931
 	private Material material;
 }

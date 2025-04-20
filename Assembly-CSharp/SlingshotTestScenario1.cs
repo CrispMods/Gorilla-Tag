@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x02000393 RID: 915
+// Token: 0x0200039E RID: 926
 public class SlingshotTestScenario1 : SlingshotTestScenario
 {
 }

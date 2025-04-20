@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x0200014C RID: 332
+// Token: 0x02000156 RID: 342
 public class DeployedChild : MonoBehaviour
 {
-	// Token: 0x0600087C RID: 2172 RVA: 0x0002E9CC File Offset: 0x0002CBCC
+	// Token: 0x060008C0 RID: 2240 RVA: 0x0008F81C File Offset: 0x0008DA1C
 	public void Deploy(DeployableObject parent, Vector3 launchPos, Quaternion launchRot, Vector3 releaseVel, bool isRemote = false)
 	{
 		this._parent = parent;
@@ -18,7 +18,7 @@ public class DeployedChild : MonoBehaviour
 		this._isRemote = isRemote;
 	}
 
-	// Token: 0x0600087D RID: 2173 RVA: 0x0002EA29 File Offset: 0x0002CC29
+	// Token: 0x060008C1 RID: 2241 RVA: 0x000363C1 File Offset: 0x000345C1
 	public void ReturnToParent(float delay)
 	{
 		if (delay > 0f)
@@ -32,7 +32,7 @@ public class DeployedChild : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600087E RID: 2174 RVA: 0x0002EA5B File Offset: 0x0002CC5B
+	// Token: 0x060008C2 RID: 2242 RVA: 0x000363F3 File Offset: 0x000345F3
 	private IEnumerator ReturnToParentDelayed(float delay)
 	{
 		float start = Time.time;
@@ -47,14 +47,14 @@ public class DeployedChild : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04000A1C RID: 2588
+	// Token: 0x04000A5F RID: 2655
 	[SerializeField]
 	private Rigidbody _rigidbody;
 
-	// Token: 0x04000A1D RID: 2589
+	// Token: 0x04000A60 RID: 2656
 	[SerializeReference]
 	private DeployableObject _parent;
 
-	// Token: 0x04000A1E RID: 2590
+	// Token: 0x04000A61 RID: 2657
 	private bool _isRemote;
 }

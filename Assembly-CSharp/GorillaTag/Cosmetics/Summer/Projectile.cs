@@ -4,22 +4,22 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics.Summer
 {
-	// Token: 0x02000C60 RID: 3168
+	// Token: 0x02000C91 RID: 3217
 	public class Projectile : MonoBehaviour, IProjectile
 	{
-		// Token: 0x06004EEE RID: 20206 RVA: 0x00183A3B File Offset: 0x00181C3B
+		// Token: 0x0600504E RID: 20558 RVA: 0x000647F3 File Offset: 0x000629F3
 		protected void Awake()
 		{
 			this.rigidbody = base.GetComponentInChildren<Rigidbody>();
 			this.impactEffectSpawned = false;
 		}
 
-		// Token: 0x06004EEF RID: 20207 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x0600504F RID: 20559 RVA: 0x00030607 File Offset: 0x0002E807
 		protected void OnEnable()
 		{
 		}
 
-		// Token: 0x06004EF0 RID: 20208 RVA: 0x00183A50 File Offset: 0x00181C50
+		// Token: 0x06005050 RID: 20560 RVA: 0x001BB978 File Offset: 0x001B9B78
 		public void Launch(Vector3 startPosition, Quaternion startRotation, Vector3 velocity, float scale)
 		{
 			Transform transform = base.transform;
@@ -36,13 +36,13 @@ namespace GorillaTag.Cosmetics.Summer
 			}
 		}
 
-		// Token: 0x06004EF1 RID: 20209 RVA: 0x00183ABF File Offset: 0x00181CBF
+		// Token: 0x06005051 RID: 20561 RVA: 0x00064808 File Offset: 0x00062A08
 		private bool IsTagValid(GameObject obj)
 		{
 			return this.collisionTags.Contains(obj.tag);
 		}
 
-		// Token: 0x06004EF2 RID: 20210 RVA: 0x00183AD4 File Offset: 0x00181CD4
+		// Token: 0x06005052 RID: 20562 RVA: 0x001BB9E8 File Offset: 0x001B9BE8
 		private void OnCollisionEnter(Collision other)
 		{
 			if (this.impactEffectSpawned)
@@ -76,7 +76,7 @@ namespace GorillaTag.Cosmetics.Summer
 			}
 		}
 
-		// Token: 0x06004EF3 RID: 20211 RVA: 0x00183BA0 File Offset: 0x00181DA0
+		// Token: 0x06005053 RID: 20563 RVA: 0x001BB9E8 File Offset: 0x001B9BE8
 		private void OnCollisionStay(Collision other)
 		{
 			if (this.impactEffectSpawned)
@@ -110,7 +110,7 @@ namespace GorillaTag.Cosmetics.Summer
 			}
 		}
 
-		// Token: 0x06004EF4 RID: 20212 RVA: 0x00183C6C File Offset: 0x00181E6C
+		// Token: 0x06005054 RID: 20564 RVA: 0x001BBAB4 File Offset: 0x001B9CB4
 		private void SpawnImpactEffect(GameObject prefab, Vector3 position, Vector3 normal)
 		{
 			Vector3 position2 = position + normal * this.impactEffectOffset;
@@ -119,7 +119,7 @@ namespace GorillaTag.Cosmetics.Summer
 			gameObject.transform.position = position2;
 		}
 
-		// Token: 0x06004EF5 RID: 20213 RVA: 0x00183CAF File Offset: 0x00181EAF
+		// Token: 0x06005055 RID: 20565 RVA: 0x0006481B File Offset: 0x00062A1B
 		private void DestroyProjectile()
 		{
 			this.impactEffectSpawned = false;
@@ -128,46 +128,46 @@ namespace GorillaTag.Cosmetics.Summer
 				ObjectPools.instance.Destroy(base.gameObject);
 				return;
 			}
-			Object.Destroy(base.gameObject);
+			UnityEngine.Object.Destroy(base.gameObject);
 		}
 
-		// Token: 0x040052B1 RID: 21169
+		// Token: 0x040053BD RID: 21437
 		[SerializeField]
 		private AudioSource audioSource;
 
-		// Token: 0x040052B2 RID: 21170
+		// Token: 0x040053BE RID: 21438
 		[SerializeField]
 		private GameObject impactEffect;
 
-		// Token: 0x040052B3 RID: 21171
+		// Token: 0x040053BF RID: 21439
 		[SerializeField]
 		private AudioClip launchAudio;
 
-		// Token: 0x040052B4 RID: 21172
+		// Token: 0x040053C0 RID: 21440
 		[SerializeField]
 		private LayerMask collisionLayerMasks;
 
-		// Token: 0x040052B5 RID: 21173
+		// Token: 0x040053C1 RID: 21441
 		[SerializeField]
 		private List<string> collisionTags = new List<string>();
 
-		// Token: 0x040052B6 RID: 21174
+		// Token: 0x040053C2 RID: 21442
 		[SerializeField]
 		private bool destroyOnCollisionEnter;
 
-		// Token: 0x040052B7 RID: 21175
+		// Token: 0x040053C3 RID: 21443
 		[SerializeField]
 		private float destroyDelay = 1f;
 
-		// Token: 0x040052B8 RID: 21176
+		// Token: 0x040053C4 RID: 21444
 		[Tooltip("Distance from the surface that the particle should spawn.")]
 		[SerializeField]
 		private float impactEffectOffset = 0.1f;
 
-		// Token: 0x040052B9 RID: 21177
+		// Token: 0x040053C5 RID: 21445
 		private bool impactEffectSpawned;
 
-		// Token: 0x040052BA RID: 21178
+		// Token: 0x040053C6 RID: 21446
 		private Rigidbody rigidbody;
 	}
 }

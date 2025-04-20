@@ -1,57 +1,57 @@
 ﻿using System;
 
-// Token: 0x02000883 RID: 2179
+// Token: 0x0200089F RID: 2207
 public static class StaticHashExt
 {
-	// Token: 0x060034CA RID: 13514 RVA: 0x000FC649 File Offset: 0x000FA849
+	// Token: 0x06003596 RID: 13718 RVA: 0x0005330D File Offset: 0x0005150D
 	public static int GetStaticHash(this int i)
 	{
 		return StaticHash.Compute(i);
 	}
 
-	// Token: 0x060034CB RID: 13515 RVA: 0x000FC651 File Offset: 0x000FA851
+	// Token: 0x06003597 RID: 13719 RVA: 0x00053315 File Offset: 0x00051515
 	public static int GetStaticHash(this uint u)
 	{
 		return StaticHash.Compute(u);
 	}
 
-	// Token: 0x060034CC RID: 13516 RVA: 0x000FC659 File Offset: 0x000FA859
+	// Token: 0x06003598 RID: 13720 RVA: 0x0005331D File Offset: 0x0005151D
 	public static int GetStaticHash(this float f)
 	{
 		return StaticHash.Compute(f);
 	}
 
-	// Token: 0x060034CD RID: 13517 RVA: 0x000FC661 File Offset: 0x000FA861
+	// Token: 0x06003599 RID: 13721 RVA: 0x00053325 File Offset: 0x00051525
 	public static int GetStaticHash(this long l)
 	{
 		return StaticHash.Compute(l);
 	}
 
-	// Token: 0x060034CE RID: 13518 RVA: 0x000FC669 File Offset: 0x000FA869
+	// Token: 0x0600359A RID: 13722 RVA: 0x0005332D File Offset: 0x0005152D
 	public static int GetStaticHash(this double d)
 	{
 		return StaticHash.Compute(d);
 	}
 
-	// Token: 0x060034CF RID: 13519 RVA: 0x000FC671 File Offset: 0x000FA871
+	// Token: 0x0600359B RID: 13723 RVA: 0x00053335 File Offset: 0x00051535
 	public static int GetStaticHash(this bool b)
 	{
 		return StaticHash.Compute(b);
 	}
 
-	// Token: 0x060034D0 RID: 13520 RVA: 0x000FC679 File Offset: 0x000FA879
+	// Token: 0x0600359C RID: 13724 RVA: 0x0005333D File Offset: 0x0005153D
 	public static int GetStaticHash(this DateTime dt)
 	{
 		return StaticHash.Compute(dt);
 	}
 
-	// Token: 0x060034D1 RID: 13521 RVA: 0x000FC681 File Offset: 0x000FA881
+	// Token: 0x0600359D RID: 13725 RVA: 0x00053345 File Offset: 0x00051545
 	public static int GetStaticHash(this string s)
 	{
 		return StaticHash.Compute(s);
 	}
 
-	// Token: 0x060034D2 RID: 13522 RVA: 0x000FC689 File Offset: 0x000FA889
+	// Token: 0x0600359E RID: 13726 RVA: 0x0005334D File Offset: 0x0005154D
 	public static int GetStaticHash(this byte[] bytes)
 	{
 		return StaticHash.Compute(bytes);

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000301 RID: 769
+// Token: 0x0200030C RID: 780
 public class StartCrashlytics : MonoBehaviour
 {
 }

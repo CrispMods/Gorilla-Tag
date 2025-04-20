@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A54 RID: 2644
+	// Token: 0x02000A81 RID: 2689
 	public class InteractableToolsCreator : MonoBehaviour
 	{
-		// Token: 0x060041D2 RID: 16850 RVA: 0x00137580 File Offset: 0x00135780
+		// Token: 0x06004317 RID: 17175 RVA: 0x0017715C File Offset: 0x0017535C
 		private void Awake()
 		{
 			if (this.LeftHandTools != null && this.LeftHandTools.Length != 0)
@@ -21,7 +21,7 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x060041D3 RID: 16851 RVA: 0x001375D7 File Offset: 0x001357D7
+		// Token: 0x06004318 RID: 17176 RVA: 0x0005BC74 File Offset: 0x00059E74
 		private IEnumerator AttachToolsToHands(Transform[] toolObjects, bool isRightHand)
 		{
 			HandsManager handsManagerObj = null;
@@ -50,21 +50,21 @@ namespace OculusSampleFramework
 			yield break;
 		}
 
-		// Token: 0x060041D4 RID: 16852 RVA: 0x001375F4 File Offset: 0x001357F4
+		// Token: 0x06004319 RID: 17177 RVA: 0x0005BC91 File Offset: 0x00059E91
 		private void AttachToolToHandTransform(Transform tool, bool isRightHanded)
 		{
-			Transform transform = Object.Instantiate<Transform>(tool).transform;
+			Transform transform = UnityEngine.Object.Instantiate<Transform>(tool).transform;
 			transform.localPosition = Vector3.zero;
 			InteractableTool component = transform.GetComponent<InteractableTool>();
 			component.IsRightHandedTool = isRightHanded;
 			component.Initialize();
 		}
 
-		// Token: 0x040042E6 RID: 17126
+		// Token: 0x040043E0 RID: 17376
 		[SerializeField]
 		private Transform[] LeftHandTools;
 
-		// Token: 0x040042E7 RID: 17127
+		// Token: 0x040043E1 RID: 17377
 		[SerializeField]
 		private Transform[] RightHandTools;
 	}

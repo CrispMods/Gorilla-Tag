@@ -3,16 +3,16 @@ using GorillaTag.Reactions;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x0200043F RID: 1087
+// Token: 0x0200044B RID: 1099
 public class PaperPlaneProjectile : MonoBehaviour
 {
-	// Token: 0x14000049 RID: 73
-	// (add) Token: 0x06001ABE RID: 6846 RVA: 0x000839B0 File Offset: 0x00081BB0
-	// (remove) Token: 0x06001ABF RID: 6847 RVA: 0x000839E8 File Offset: 0x00081BE8
+	// Token: 0x1400004A RID: 74
+	// (add) Token: 0x06001B12 RID: 6930 RVA: 0x000D8834 File Offset: 0x000D6A34
+	// (remove) Token: 0x06001B13 RID: 6931 RVA: 0x000D886C File Offset: 0x000D6A6C
 	public event PaperPlaneProjectile.PaperPlaneHit OnHit;
 
-	// Token: 0x170002EB RID: 747
-	// (get) Token: 0x06001AC0 RID: 6848 RVA: 0x00083A1D File Offset: 0x00081C1D
+	// Token: 0x170002F2 RID: 754
+	// (get) Token: 0x06001B14 RID: 6932 RVA: 0x00042653 File Offset: 0x00040853
 	public new Transform transform
 	{
 		get
@@ -21,8 +21,8 @@ public class PaperPlaneProjectile : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170002EC RID: 748
-	// (get) Token: 0x06001AC1 RID: 6849 RVA: 0x00083A25 File Offset: 0x00081C25
+	// Token: 0x170002F3 RID: 755
+	// (get) Token: 0x06001B15 RID: 6933 RVA: 0x0004265B File Offset: 0x0004085B
 	public VRRig MyRig
 	{
 		get
@@ -31,20 +31,20 @@ public class PaperPlaneProjectile : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001AC2 RID: 6850 RVA: 0x00083A2D File Offset: 0x00081C2D
+	// Token: 0x06001B16 RID: 6934 RVA: 0x00042663 File Offset: 0x00040863
 	private void Awake()
 	{
 		this._tCached = base.transform;
 		this.spawnWorldEffects = base.GetComponent<SpawnWorldEffects>();
 	}
 
-	// Token: 0x06001AC3 RID: 6851 RVA: 0x00083A47 File Offset: 0x00081C47
+	// Token: 0x06001B17 RID: 6935 RVA: 0x0004267D File Offset: 0x0004087D
 	private void Start()
 	{
 		this.ResetProjectile();
 	}
 
-	// Token: 0x06001AC4 RID: 6852 RVA: 0x00083A4F File Offset: 0x00081C4F
+	// Token: 0x06001B18 RID: 6936 RVA: 0x00042685 File Offset: 0x00040885
 	public void ResetProjectile()
 	{
 		this._timeElapsed = 0f;
@@ -52,7 +52,7 @@ public class PaperPlaneProjectile : MonoBehaviour
 		this.crashingObject.SetActive(false);
 	}
 
-	// Token: 0x06001AC5 RID: 6853 RVA: 0x00083A74 File Offset: 0x00081C74
+	// Token: 0x06001B19 RID: 6937 RVA: 0x000D88A4 File Offset: 0x000D6AA4
 	public void Launch(Vector3 startPos, Quaternion startRot, Vector3 vel)
 	{
 		base.gameObject.SetActive(true);
@@ -72,7 +72,7 @@ public class PaperPlaneProjectile : MonoBehaviour
 		this.scaleFactor = 0.7f * (this.transform.lossyScale.x - 1f + 1.4285715f);
 	}
 
-	// Token: 0x06001AC6 RID: 6854 RVA: 0x00083B38 File Offset: 0x00081D38
+	// Token: 0x06001B1A RID: 6938 RVA: 0x000D8968 File Offset: 0x000D6B68
 	private void Update()
 	{
 		if (this._stopped)
@@ -120,105 +120,105 @@ public class PaperPlaneProjectile : MonoBehaviour
 		this.crashingObject.SetActive(true);
 	}
 
-	// Token: 0x06001AC7 RID: 6855 RVA: 0x00083D2A File Offset: 0x00081F2A
+	// Token: 0x06001B1B RID: 6939 RVA: 0x000426AA File Offset: 0x000408AA
 	internal void SetVRRig(VRRig rig)
 	{
 		this.myRig = rig;
 	}
 
-	// Token: 0x04001D91 RID: 7569
+	// Token: 0x04001DE0 RID: 7648
 	private const float speedScaleRatio = 0.7f;
 
-	// Token: 0x04001D92 RID: 7570
+	// Token: 0x04001DE1 RID: 7649
 	public Vector3 startPos;
 
-	// Token: 0x04001D93 RID: 7571
+	// Token: 0x04001DE2 RID: 7650
 	public Vector3 endPos;
 
-	// Token: 0x04001D94 RID: 7572
+	// Token: 0x04001DE3 RID: 7651
 	[FormerlySerializedAs("_flyTimeOut")]
 	[Range(1f, 128f)]
 	public float flyTimeOut = 32f;
 
-	// Token: 0x04001D96 RID: 7574
+	// Token: 0x04001DE5 RID: 7653
 	[Space]
 	public float curveTime = 0.4f;
 
-	// Token: 0x04001D97 RID: 7575
+	// Token: 0x04001DE6 RID: 7654
 	[Space]
 	public Vector3 curveDirection;
 
-	// Token: 0x04001D98 RID: 7576
+	// Token: 0x04001DE7 RID: 7655
 	public float curveDistance = 9.8f;
 
-	// Token: 0x04001D99 RID: 7577
+	// Token: 0x04001DE8 RID: 7656
 	[Space]
 	[NonSerialized]
 	private float _timeElapsed;
 
-	// Token: 0x04001D9A RID: 7578
+	// Token: 0x04001DE9 RID: 7657
 	[NonSerialized]
 	private float _speed;
 
-	// Token: 0x04001D9B RID: 7579
+	// Token: 0x04001DEA RID: 7658
 	[NonSerialized]
 	private Vector3 _direction;
 
-	// Token: 0x04001D9C RID: 7580
+	// Token: 0x04001DEB RID: 7659
 	[NonSerialized]
 	private bool _stopped;
 
-	// Token: 0x04001D9D RID: 7581
+	// Token: 0x04001DEC RID: 7660
 	private Transform _tCached;
 
-	// Token: 0x04001D9E RID: 7582
+	// Token: 0x04001DED RID: 7661
 	private SpawnWorldEffects spawnWorldEffects;
 
-	// Token: 0x04001D9F RID: 7583
+	// Token: 0x04001DEE RID: 7662
 	private Vector3 nextPos;
 
-	// Token: 0x04001DA0 RID: 7584
+	// Token: 0x04001DEF RID: 7663
 	private RaycastHit[] results = new RaycastHit[1];
 
-	// Token: 0x04001DA1 RID: 7585
+	// Token: 0x04001DF0 RID: 7664
 	[SerializeField]
 	private float maxFlightTime = 7.5f;
 
-	// Token: 0x04001DA2 RID: 7586
+	// Token: 0x04001DF1 RID: 7665
 	[SerializeField]
 	private float minFlightTime = 0.5f;
 
-	// Token: 0x04001DA3 RID: 7587
+	// Token: 0x04001DF2 RID: 7666
 	[SerializeField]
 	private float maxSpeed = 10f;
 
-	// Token: 0x04001DA4 RID: 7588
+	// Token: 0x04001DF3 RID: 7667
 	[SerializeField]
 	private float minSpeed = 1f;
 
-	// Token: 0x04001DA5 RID: 7589
+	// Token: 0x04001DF4 RID: 7668
 	[SerializeField]
 	private bool enableRotation;
 
-	// Token: 0x04001DA6 RID: 7590
+	// Token: 0x04001DF5 RID: 7669
 	[SerializeField]
 	private GameObject flyingObject;
 
-	// Token: 0x04001DA7 RID: 7591
+	// Token: 0x04001DF6 RID: 7670
 	[SerializeField]
 	private GameObject crashingObject;
 
-	// Token: 0x04001DA8 RID: 7592
+	// Token: 0x04001DF7 RID: 7671
 	[SerializeField]
 	private LayerMask layerMask;
 
-	// Token: 0x04001DA9 RID: 7593
+	// Token: 0x04001DF8 RID: 7672
 	private VRRig myRig;
 
-	// Token: 0x04001DAA RID: 7594
+	// Token: 0x04001DF9 RID: 7673
 	private float scaleFactor;
 
-	// Token: 0x02000440 RID: 1088
-	// (Invoke) Token: 0x06001ACA RID: 6858
+	// Token: 0x0200044C RID: 1100
+	// (Invoke) Token: 0x06001B1E RID: 6942
 	public delegate void PaperPlaneHit(Vector3 endPoint);
 }

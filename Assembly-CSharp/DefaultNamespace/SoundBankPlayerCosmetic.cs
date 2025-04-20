@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-	// Token: 0x0200096D RID: 2413
+	// Token: 0x02000993 RID: 2451
 	[RequireComponent(typeof(SoundBankPlayer))]
 	public class SoundBankPlayerCosmetic : MonoBehaviour
 	{
-		// Token: 0x06003AD8 RID: 15064 RVA: 0x0010E9F0 File Offset: 0x0010CBF0
+		// Token: 0x06003BF0 RID: 15344 RVA: 0x0005723D File Offset: 0x0005543D
 		private void Awake()
 		{
 			this.playAudioLoop = false;
 		}
 
-		// Token: 0x06003AD9 RID: 15065 RVA: 0x0010E9FC File Offset: 0x0010CBFC
+		// Token: 0x06003BF1 RID: 15345 RVA: 0x00152260 File Offset: 0x00150460
 		public void Update()
 		{
 			if (!this.playAudioLoop)
@@ -26,7 +26,7 @@ namespace DefaultNamespace
 			}
 		}
 
-		// Token: 0x06003ADA RID: 15066 RVA: 0x0010EA64 File Offset: 0x0010CC64
+		// Token: 0x06003BF2 RID: 15346 RVA: 0x001522C8 File Offset: 0x001504C8
 		public void PlayAudio()
 		{
 			if (this.soundBankPlayer != null && this.soundBankPlayer.audioSource != null && this.soundBankPlayer.soundBank != null)
@@ -35,13 +35,13 @@ namespace DefaultNamespace
 			}
 		}
 
-		// Token: 0x06003ADB RID: 15067 RVA: 0x0010EAB0 File Offset: 0x0010CCB0
+		// Token: 0x06003BF3 RID: 15347 RVA: 0x00057246 File Offset: 0x00055446
 		public void PlayAudioLoop()
 		{
 			this.playAudioLoop = true;
 		}
 
-		// Token: 0x06003ADC RID: 15068 RVA: 0x0010EABC File Offset: 0x0010CCBC
+		// Token: 0x06003BF4 RID: 15348 RVA: 0x00152314 File Offset: 0x00150514
 		public void PlayAudioNonInterrupting()
 		{
 			if (this.soundBankPlayer != null && this.soundBankPlayer.audioSource != null && this.soundBankPlayer.soundBank != null)
@@ -54,7 +54,7 @@ namespace DefaultNamespace
 			}
 		}
 
-		// Token: 0x06003ADD RID: 15069 RVA: 0x0010EB1C File Offset: 0x0010CD1C
+		// Token: 0x06003BF5 RID: 15349 RVA: 0x00152374 File Offset: 0x00150574
 		public void PlayAudioWithTunableVolume(bool leftHand, float fingerValue)
 		{
 			if (this.soundBankPlayer != null && this.soundBankPlayer.audioSource != null && this.soundBankPlayer.soundBank != null)
@@ -65,7 +65,7 @@ namespace DefaultNamespace
 			}
 		}
 
-		// Token: 0x06003ADE RID: 15070 RVA: 0x0010EB80 File Offset: 0x0010CD80
+		// Token: 0x06003BF6 RID: 15350 RVA: 0x001523D8 File Offset: 0x001505D8
 		public void StopAudio()
 		{
 			if (this.soundBankPlayer != null && this.soundBankPlayer.audioSource != null && this.soundBankPlayer.soundBank != null)
@@ -75,11 +75,11 @@ namespace DefaultNamespace
 			this.playAudioLoop = false;
 		}
 
-		// Token: 0x04003BDF RID: 15327
+		// Token: 0x04003CB9 RID: 15545
 		[SerializeField]
 		private SoundBankPlayer soundBankPlayer;
 
-		// Token: 0x04003BE0 RID: 15328
+		// Token: 0x04003CBA RID: 15546
 		private bool playAudioLoop;
 	}
 }

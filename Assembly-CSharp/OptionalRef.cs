@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006CB RID: 1739
+// Token: 0x020006E0 RID: 1760
 [Serializable]
-public class OptionalRef<T> where T : Object
+public class OptionalRef<T> where T : UnityEngine.Object
 {
-	// Token: 0x1700048C RID: 1164
-	// (get) Token: 0x06002B0B RID: 11019 RVA: 0x000D5585 File Offset: 0x000D3785
-	// (set) Token: 0x06002B0C RID: 11020 RVA: 0x000D558D File Offset: 0x000D378D
+	// Token: 0x17000499 RID: 1177
+	// (get) Token: 0x06002BA1 RID: 11169 RVA: 0x0004D8B7 File Offset: 0x0004BAB7
+	// (set) Token: 0x06002BA2 RID: 11170 RVA: 0x0004D8BF File Offset: 0x0004BABF
 	public bool enabled
 	{
 		get
@@ -20,9 +20,9 @@ public class OptionalRef<T> where T : Object
 		}
 	}
 
-	// Token: 0x1700048D RID: 1165
-	// (get) Token: 0x06002B0D RID: 11021 RVA: 0x000D5598 File Offset: 0x000D3798
-	// (set) Token: 0x06002B0E RID: 11022 RVA: 0x000D55C0 File Offset: 0x000D37C0
+	// Token: 0x1700049A RID: 1178
+	// (get) Token: 0x06002BA3 RID: 11171 RVA: 0x001210F8 File Offset: 0x0011F2F8
+	// (set) Token: 0x06002BA4 RID: 11172 RVA: 0x00121120 File Offset: 0x0011F320
 	public T Value
 	{
 		get
@@ -39,7 +39,7 @@ public class OptionalRef<T> where T : Object
 		}
 	}
 
-	// Token: 0x06002B0F RID: 11023 RVA: 0x000D55EC File Offset: 0x000D37EC
+	// Token: 0x06002BA5 RID: 11173 RVA: 0x0012114C File Offset: 0x0011F34C
 	public static implicit operator bool(OptionalRef<T> r)
 	{
 		if (r == null)
@@ -50,11 +50,11 @@ public class OptionalRef<T> where T : Object
 		{
 			return false;
 		}
-		Object @object = r._target;
+		UnityEngine.Object @object = r._target;
 		return @object != null && @object;
 	}
 
-	// Token: 0x06002B10 RID: 11024 RVA: 0x000D5620 File Offset: 0x000D3820
+	// Token: 0x06002BA6 RID: 11174 RVA: 0x00121180 File Offset: 0x0011F380
 	public static implicit operator T(OptionalRef<T> r)
 	{
 		if (r == null)
@@ -65,7 +65,7 @@ public class OptionalRef<T> where T : Object
 		{
 			return default(T);
 		}
-		Object @object = r._target;
+		UnityEngine.Object @object = r._target;
 		if (@object == null)
 		{
 			return default(T);
@@ -77,8 +77,8 @@ public class OptionalRef<T> where T : Object
 		return @object as T;
 	}
 
-	// Token: 0x06002B11 RID: 11025 RVA: 0x000D5684 File Offset: 0x000D3884
-	public static implicit operator Object(OptionalRef<T> r)
+	// Token: 0x06002BA7 RID: 11175 RVA: 0x001211E4 File Offset: 0x0011F3E4
+	public static implicit operator UnityEngine.Object(OptionalRef<T> r)
 	{
 		if (r == null)
 		{
@@ -88,7 +88,7 @@ public class OptionalRef<T> where T : Object
 		{
 			return null;
 		}
-		Object @object = r._target;
+		UnityEngine.Object @object = r._target;
 		if (@object == null)
 		{
 			return null;
@@ -100,11 +100,11 @@ public class OptionalRef<T> where T : Object
 		return @object;
 	}
 
-	// Token: 0x04003093 RID: 12435
+	// Token: 0x04003130 RID: 12592
 	[SerializeField]
 	private bool _enabled;
 
-	// Token: 0x04003094 RID: 12436
+	// Token: 0x04003131 RID: 12593
 	[SerializeField]
 	private T _target;
 }

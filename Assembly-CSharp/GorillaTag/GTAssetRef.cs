@@ -4,11 +4,11 @@ using UnityEngine.AddressableAssets;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B7D RID: 2941
+	// Token: 0x02000BAA RID: 2986
 	[Serializable]
-	public class GTAssetRef<TObject> : AssetReferenceT<TObject> where TObject : Object
+	public class GTAssetRef<TObject> : AssetReferenceT<TObject> where TObject : UnityEngine.Object
 	{
-		// Token: 0x06004A81 RID: 19073 RVA: 0x001693B0 File Offset: 0x001675B0
+		// Token: 0x06004BCC RID: 19404 RVA: 0x00061D9C File Offset: 0x0005FF9C
 		public GTAssetRef(string guid) : base(guid)
 		{
 		}

@@ -1,23 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200019F RID: 415
+// Token: 0x020001AA RID: 426
 public class DevInspectorManager : MonoBehaviour
 {
-	// Token: 0x17000104 RID: 260
-	// (get) Token: 0x060009F0 RID: 2544 RVA: 0x0003728F File Offset: 0x0003548F
+	// Token: 0x1700010B RID: 267
+	// (get) Token: 0x06000A3C RID: 2620 RVA: 0x000372E2 File Offset: 0x000354E2
 	public static DevInspectorManager instance
 	{
 		get
 		{
 			if (DevInspectorManager._instance == null)
 			{
-				DevInspectorManager._instance = Object.FindObjectOfType<DevInspectorManager>();
+				DevInspectorManager._instance = UnityEngine.Object.FindObjectOfType<DevInspectorManager>();
 			}
 			return DevInspectorManager._instance;
 		}
 	}
 
-	// Token: 0x04000C4C RID: 3148
+	// Token: 0x04000C92 RID: 3218
 	private static DevInspectorManager _instance;
 }

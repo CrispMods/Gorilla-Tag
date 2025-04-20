@@ -2,10 +2,10 @@
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x0200006F RID: 111
+// Token: 0x02000075 RID: 117
 public class MenagerieDepositBox : MonoBehaviour
 {
-	// Token: 0x060002E2 RID: 738 RVA: 0x0001228C File Offset: 0x0001048C
+	// Token: 0x06000311 RID: 785 RVA: 0x00076AEC File Offset: 0x00074CEC
 	public void OnTriggerEnter(Collider other)
 	{
 		MenagerieCritter component = other.transform.parent.parent.GetComponent<MenagerieCritter>();
@@ -16,7 +16,7 @@ public class MenagerieDepositBox : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002E3 RID: 739 RVA: 0x000122D4 File Offset: 0x000104D4
+	// Token: 0x06000312 RID: 786 RVA: 0x00076B34 File Offset: 0x00074D34
 	public void OnTriggerExit(Collider other)
 	{
 		MenagerieCritter component = other.transform.parent.GetComponent<MenagerieCritter>();
@@ -27,6 +27,6 @@ public class MenagerieDepositBox : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400037D RID: 893
+	// Token: 0x040003AF RID: 943
 	public Action<MenagerieCritter> OnCritterInserted;
 }

@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C23 RID: 3107
+	// Token: 0x02000C51 RID: 3153
 	public class RCHelicopter : RCVehicle
 	{
-		// Token: 0x06004D79 RID: 19833 RVA: 0x0017AD24 File Offset: 0x00178F24
+		// Token: 0x06004ECA RID: 20170 RVA: 0x001B3434 File Offset: 0x001B1634
 		protected override void AuthorityBeginDocked()
 		{
 			base.AuthorityBeginDocked();
@@ -19,7 +19,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D7A RID: 19834 RVA: 0x0017AD80 File Offset: 0x00178F80
+		// Token: 0x06004ECB RID: 20171 RVA: 0x001B3490 File Offset: 0x001B1690
 		protected override void Awake()
 		{
 			base.Awake();
@@ -30,7 +30,7 @@ namespace GorillaTag.Cosmetics
 			this.horizontalAccel = this.maxHorizontalSpeed / this.horizontalAccelTime;
 		}
 
-		// Token: 0x06004D7B RID: 19835 RVA: 0x0017ADF0 File Offset: 0x00178FF0
+		// Token: 0x06004ECC RID: 20172 RVA: 0x001B3500 File Offset: 0x001B1700
 		protected override void SharedUpdate(float dt)
 		{
 			if (this.localState == RCVehicle.State.Mobilized)
@@ -41,7 +41,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D7C RID: 19836 RVA: 0x0017AE80 File Offset: 0x00179080
+		// Token: 0x06004ECD RID: 20173 RVA: 0x001B3590 File Offset: 0x001B1790
 		private void FixedUpdate()
 		{
 			if (!base.HasLocalAuthority || this.localState != RCVehicle.State.Mobilized)
@@ -74,7 +74,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D7D RID: 19837 RVA: 0x0017B04E File Offset: 0x0017924E
+		// Token: 0x06004ECE RID: 20174 RVA: 0x000637CD File Offset: 0x000619CD
 		private void OnTriggerEnter(Collider other)
 		{
 			if (!other.isTrigger && base.HasLocalAuthority && this.localState == RCVehicle.State.Mobilized)
@@ -83,70 +83,70 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x04005046 RID: 20550
+		// Token: 0x0400513C RID: 20796
 		[SerializeField]
 		private float maxAscendSpeed = 6f;
 
-		// Token: 0x04005047 RID: 20551
+		// Token: 0x0400513D RID: 20797
 		[SerializeField]
 		private float ascendAccelTime = 3f;
 
-		// Token: 0x04005048 RID: 20552
+		// Token: 0x0400513E RID: 20798
 		[SerializeField]
 		private float gravityCompensation = 0.5f;
 
-		// Token: 0x04005049 RID: 20553
+		// Token: 0x0400513F RID: 20799
 		[SerializeField]
 		private float maxTurnRate = 90f;
 
-		// Token: 0x0400504A RID: 20554
+		// Token: 0x04005140 RID: 20800
 		[SerializeField]
 		private float turnAccelTime = 0.75f;
 
-		// Token: 0x0400504B RID: 20555
+		// Token: 0x04005141 RID: 20801
 		[SerializeField]
 		private float maxHorizontalSpeed = 6f;
 
-		// Token: 0x0400504C RID: 20556
+		// Token: 0x04005142 RID: 20802
 		[SerializeField]
 		private float horizontalAccelTime = 2f;
 
-		// Token: 0x0400504D RID: 20557
+		// Token: 0x04005143 RID: 20803
 		[SerializeField]
 		private float maxHorizontalTiltAngle = 45f;
 
-		// Token: 0x0400504E RID: 20558
+		// Token: 0x04005144 RID: 20804
 		[SerializeField]
 		private Vector2 mainPropellerSpinRateRange = new Vector2(3f, 15f);
 
-		// Token: 0x0400504F RID: 20559
+		// Token: 0x04005145 RID: 20805
 		[SerializeField]
 		private float backPropellerSpinRate = 5f;
 
-		// Token: 0x04005050 RID: 20560
+		// Token: 0x04005146 RID: 20806
 		[SerializeField]
 		private Transform verticalPropeller;
 
-		// Token: 0x04005051 RID: 20561
+		// Token: 0x04005147 RID: 20807
 		[SerializeField]
 		private Transform turnPropeller;
 
-		// Token: 0x04005052 RID: 20562
+		// Token: 0x04005148 RID: 20808
 		private Quaternion verticalPropellerBaseRotation;
 
-		// Token: 0x04005053 RID: 20563
+		// Token: 0x04005149 RID: 20809
 		private Quaternion turnPropellerBaseRotation;
 
-		// Token: 0x04005054 RID: 20564
+		// Token: 0x0400514A RID: 20810
 		private float turnRate;
 
-		// Token: 0x04005055 RID: 20565
+		// Token: 0x0400514B RID: 20811
 		private float ascendAccel;
 
-		// Token: 0x04005056 RID: 20566
+		// Token: 0x0400514C RID: 20812
 		private float turnAccel;
 
-		// Token: 0x04005057 RID: 20567
+		// Token: 0x0400514D RID: 20813
 		private float horizontalAccel;
 	}
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005BA RID: 1466
+// Token: 0x020005C8 RID: 1480
 public class HeightVolume : MonoBehaviour
 {
-	// Token: 0x06002469 RID: 9321 RVA: 0x000B54B5 File Offset: 0x000B36B5
+	// Token: 0x060024CB RID: 9419 RVA: 0x00048F30 File Offset: 0x00047130
 	private void Awake()
 	{
 		if (this.targetTransform == null)
@@ -14,7 +14,7 @@ public class HeightVolume : MonoBehaviour
 		this.musicSource = this.audioSource.gameObject.GetComponent<MusicSource>();
 	}
 
-	// Token: 0x0600246A RID: 9322 RVA: 0x000B54EC File Offset: 0x000B36EC
+	// Token: 0x060024CC RID: 9420 RVA: 0x00103D84 File Offset: 0x00101F84
 	private void Update()
 	{
 		if (this.audioSource.gameObject.activeSelf && (!(this.musicSource != null) || !this.musicSource.VolumeOverridden))
@@ -33,27 +33,27 @@ public class HeightVolume : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002884 RID: 10372
+	// Token: 0x040028E1 RID: 10465
 	public Transform heightTop;
 
-	// Token: 0x04002885 RID: 10373
+	// Token: 0x040028E2 RID: 10466
 	public Transform heightBottom;
 
-	// Token: 0x04002886 RID: 10374
+	// Token: 0x040028E3 RID: 10467
 	public AudioSource audioSource;
 
-	// Token: 0x04002887 RID: 10375
+	// Token: 0x040028E4 RID: 10468
 	public float baseVolume;
 
-	// Token: 0x04002888 RID: 10376
+	// Token: 0x040028E5 RID: 10469
 	public float minVolume;
 
-	// Token: 0x04002889 RID: 10377
+	// Token: 0x040028E6 RID: 10470
 	public Transform targetTransform;
 
-	// Token: 0x0400288A RID: 10378
+	// Token: 0x040028E7 RID: 10471
 	public bool invertHeightVol;
 
-	// Token: 0x0400288B RID: 10379
+	// Token: 0x040028E8 RID: 10472
 	private MusicSource musicSource;
 }

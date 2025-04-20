@@ -1,20 +1,20 @@
 ﻿using System;
 
-// Token: 0x020001ED RID: 493
+// Token: 0x020001F8 RID: 504
 public enum NetworkingState
 {
-	// Token: 0x04000E05 RID: 3589
+	// Token: 0x04000E4B RID: 3659
 	IsOwner,
-	// Token: 0x04000E06 RID: 3590
+	// Token: 0x04000E4C RID: 3660
 	IsBlindClient,
-	// Token: 0x04000E07 RID: 3591
+	// Token: 0x04000E4D RID: 3661
 	IsClient,
-	// Token: 0x04000E08 RID: 3592
+	// Token: 0x04000E4E RID: 3662
 	ForcefullyTakingOver,
-	// Token: 0x04000E09 RID: 3593
+	// Token: 0x04000E4F RID: 3663
 	RequestingOwnership,
-	// Token: 0x04000E0A RID: 3594
+	// Token: 0x04000E50 RID: 3664
 	RequestingOwnershipWaitingForSight,
-	// Token: 0x04000E0B RID: 3595
+	// Token: 0x04000E51 RID: 3665
 	ForcefullyTakingOverWaitingForSight
 }

@@ -6,17 +6,17 @@ using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x0200014B RID: 331
+// Token: 0x02000155 RID: 341
 public class DeployableObject : TransferrableObject
 {
-	// Token: 0x06000870 RID: 2160 RVA: 0x0002E64F File Offset: 0x0002C84F
+	// Token: 0x060008B4 RID: 2228 RVA: 0x000362E1 File Offset: 0x000344E1
 	protected override void Awake()
 	{
 		this._deploySignal.OnSignal += this.DeployRPC;
 		base.Awake();
 	}
 
-	// Token: 0x06000871 RID: 2161 RVA: 0x0002E670 File Offset: 0x0002C870
+	// Token: 0x060008B5 RID: 2229 RVA: 0x0008F584 File Offset: 0x0008D784
 	internal override void OnEnable()
 	{
 		this._deploySignal.Enable();
@@ -38,7 +38,7 @@ public class DeployableObject : TransferrableObject
 		this.itemState &= (TransferrableObject.ItemStates)(-2);
 	}
 
-	// Token: 0x06000872 RID: 2162 RVA: 0x0002E6E4 File Offset: 0x0002C8E4
+	// Token: 0x060008B6 RID: 2230 RVA: 0x00036300 File Offset: 0x00034500
 	internal override void OnDisable()
 	{
 		this.m_VRRig = null;
@@ -50,14 +50,14 @@ public class DeployableObject : TransferrableObject
 		base.OnDisable();
 	}
 
-	// Token: 0x06000873 RID: 2163 RVA: 0x0002E711 File Offset: 0x0002C911
+	// Token: 0x060008B7 RID: 2231 RVA: 0x0003632D File Offset: 0x0003452D
 	protected override void OnDestroy()
 	{
 		this._deploySignal.Dispose();
 		base.OnDestroy();
 	}
 
-	// Token: 0x06000874 RID: 2164 RVA: 0x0002E724 File Offset: 0x0002C924
+	// Token: 0x060008B8 RID: 2232 RVA: 0x0008F5F8 File Offset: 0x0008D7F8
 	protected override void LateUpdateReplicated()
 	{
 		base.LateUpdateReplicated();
@@ -75,7 +75,7 @@ public class DeployableObject : TransferrableObject
 		}
 	}
 
-	// Token: 0x06000875 RID: 2165 RVA: 0x0002E778 File Offset: 0x0002C978
+	// Token: 0x060008B9 RID: 2233 RVA: 0x0008F64C File Offset: 0x0008D84C
 	public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		if (!base.OnRelease(zoneReleased, releasingHand))
@@ -97,14 +97,14 @@ public class DeployableObject : TransferrableObject
 		return true;
 	}
 
-	// Token: 0x06000876 RID: 2166 RVA: 0x0002E81B File Offset: 0x0002CA1B
+	// Token: 0x060008BA RID: 2234 RVA: 0x00036340 File Offset: 0x00034540
 	protected virtual void DeployLocal(Vector3 launchPos, Quaternion launchRot, Vector3 releaseVel, bool isRemote = false)
 	{
 		this.DisableWhileDeployed(true);
 		this._child.Deploy(this, launchPos, launchRot, releaseVel, isRemote);
 	}
 
-	// Token: 0x06000877 RID: 2167 RVA: 0x0002E838 File Offset: 0x0002CA38
+	// Token: 0x060008BB RID: 2235 RVA: 0x0008F6F0 File Offset: 0x0008D8F0
 	private void DeployRPC(long packedPos, int packedRot, long packedVel, PhotonSignalInfo info)
 	{
 		if (info.sender != base.OwningPlayer())
@@ -123,7 +123,7 @@ public class DeployableObject : TransferrableObject
 		this.DeployLocal(vector, launchRot, this.m_VRRig.ClampVelocityRelativeToPlayerSafe(inVel, this._maxThrowVelocity), true);
 	}
 
-	// Token: 0x06000878 RID: 2168 RVA: 0x0002E8D0 File Offset: 0x0002CAD0
+	// Token: 0x060008BC RID: 2236 RVA: 0x0008F788 File Offset: 0x0008D988
 	private void DisableWhileDeployed(bool active)
 	{
 		if (this._disabledWhileDeployed.IsNullOrEmpty<GameObject>())
@@ -136,7 +136,7 @@ public class DeployableObject : TransferrableObject
 		}
 	}
 
-	// Token: 0x06000879 RID: 2169 RVA: 0x0002E90F File Offset: 0x0002CB0F
+	// Token: 0x060008BD RID: 2237 RVA: 0x0003635A File Offset: 0x0003455A
 	public void DeployChild()
 	{
 		this.itemState |= TransferrableObject.ItemStates.State0;
@@ -150,7 +150,7 @@ public class DeployableObject : TransferrableObject
 		onDeploy.Invoke();
 	}
 
-	// Token: 0x0600087A RID: 2170 RVA: 0x0002E942 File Offset: 0x0002CB42
+	// Token: 0x060008BE RID: 2238 RVA: 0x0003638D File Offset: 0x0003458D
 	public void ReturnChild()
 	{
 		this.itemState &= (TransferrableObject.ItemStates)(-2);
@@ -164,46 +164,46 @@ public class DeployableObject : TransferrableObject
 		onReturn.Invoke();
 	}
 
-	// Token: 0x04000A11 RID: 2577
+	// Token: 0x04000A54 RID: 2644
 	[SerializeField]
 	private GameObject _objectToDeploy;
 
-	// Token: 0x04000A12 RID: 2578
+	// Token: 0x04000A55 RID: 2645
 	[SerializeField]
 	private DeployedChild _child;
 
-	// Token: 0x04000A13 RID: 2579
+	// Token: 0x04000A56 RID: 2646
 	[SerializeField]
 	private GameObject[] _disabledWhileDeployed = new GameObject[0];
 
-	// Token: 0x04000A14 RID: 2580
+	// Token: 0x04000A57 RID: 2647
 	[SerializeField]
 	private SoundBankPlayer deploySound;
 
-	// Token: 0x04000A15 RID: 2581
+	// Token: 0x04000A58 RID: 2648
 	[SerializeField]
 	private PhotonSignal<long, int, long> _deploySignal = "_deploySignal";
 
-	// Token: 0x04000A16 RID: 2582
+	// Token: 0x04000A59 RID: 2649
 	[SerializeField]
 	private float _maxDeployDistance = 4f;
 
-	// Token: 0x04000A17 RID: 2583
+	// Token: 0x04000A5A RID: 2650
 	[SerializeField]
 	private float _maxThrowVelocity = 50f;
 
-	// Token: 0x04000A18 RID: 2584
+	// Token: 0x04000A5B RID: 2651
 	[SerializeField]
 	private UnityEvent _onDeploy;
 
-	// Token: 0x04000A19 RID: 2585
+	// Token: 0x04000A5C RID: 2652
 	[SerializeField]
 	private UnityEvent _onReturn;
 
-	// Token: 0x04000A1A RID: 2586
+	// Token: 0x04000A5D RID: 2653
 	[SerializeField]
 	private Component[] _rigAwareObjects = new Component[0];
 
-	// Token: 0x04000A1B RID: 2587
+	// Token: 0x04000A5E RID: 2654
 	private VRRig m_VRRig;
 }

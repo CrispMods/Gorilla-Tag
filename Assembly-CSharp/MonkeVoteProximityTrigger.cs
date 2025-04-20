@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000107 RID: 263
+// Token: 0x02000111 RID: 273
 public class MonkeVoteProximityTrigger : GorillaTriggerBox
 {
 	// Token: 0x14000012 RID: 18
-	// (add) Token: 0x06000715 RID: 1813 RVA: 0x000287B4 File Offset: 0x000269B4
-	// (remove) Token: 0x06000716 RID: 1814 RVA: 0x000287EC File Offset: 0x000269EC
+	// (add) Token: 0x06000756 RID: 1878 RVA: 0x0008A554 File Offset: 0x00088754
+	// (remove) Token: 0x06000757 RID: 1879 RVA: 0x0008A58C File Offset: 0x0008878C
 	public event Action OnEnter;
 
-	// Token: 0x170000AD RID: 173
-	// (get) Token: 0x06000717 RID: 1815 RVA: 0x00028821 File Offset: 0x00026A21
-	// (set) Token: 0x06000718 RID: 1816 RVA: 0x00028829 File Offset: 0x00026A29
+	// Token: 0x170000B2 RID: 178
+	// (get) Token: 0x06000758 RID: 1880 RVA: 0x000353F1 File Offset: 0x000335F1
+	// (set) Token: 0x06000759 RID: 1881 RVA: 0x000353F9 File Offset: 0x000335F9
 	public bool isPlayerNearby { get; private set; }
 
-	// Token: 0x06000719 RID: 1817 RVA: 0x00028832 File Offset: 0x00026A32
+	// Token: 0x0600075A RID: 1882 RVA: 0x00035402 File Offset: 0x00033602
 	public override void OnBoxTriggered()
 	{
 		this.isPlayerNearby = true;
@@ -30,15 +30,15 @@ public class MonkeVoteProximityTrigger : GorillaTriggerBox
 		}
 	}
 
-	// Token: 0x0600071A RID: 1818 RVA: 0x0002886A File Offset: 0x00026A6A
+	// Token: 0x0600075B RID: 1883 RVA: 0x0003543A File Offset: 0x0003363A
 	public override void OnBoxExited()
 	{
 		this.isPlayerNearby = false;
 	}
 
-	// Token: 0x0400086E RID: 2158
+	// Token: 0x040008AF RID: 2223
 	private float triggerTime = float.MinValue;
 
-	// Token: 0x0400086F RID: 2159
+	// Token: 0x040008B0 RID: 2224
 	private float retriggerDelay = 0.25f;
 }

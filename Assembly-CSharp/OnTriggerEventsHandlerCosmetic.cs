@@ -3,11 +3,11 @@ using GorillaTag.Cosmetics;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x0200043E RID: 1086
+// Token: 0x0200044A RID: 1098
 [RequireComponent(typeof(OnTriggerEventsCosmetic))]
 public class OnTriggerEventsHandlerCosmetic : MonoBehaviour
 {
-	// Token: 0x06001ABA RID: 6842 RVA: 0x000838CA File Offset: 0x00081ACA
+	// Token: 0x06001B0E RID: 6926 RVA: 0x000425D7 File Offset: 0x000407D7
 	public void OnTriggerEntered()
 	{
 		if (this.toggleOnceOnly && this.triggerEntered)
@@ -23,7 +23,7 @@ public class OnTriggerEventsHandlerCosmetic : MonoBehaviour
 		this.ToggleEffects();
 	}
 
-	// Token: 0x06001ABB RID: 6843 RVA: 0x000838FC File Offset: 0x00081AFC
+	// Token: 0x06001B0F RID: 6927 RVA: 0x000D87C8 File Offset: 0x000D69C8
 	public void ToggleEffects()
 	{
 		if (this.particleToPlay)
@@ -45,7 +45,7 @@ public class OnTriggerEventsHandlerCosmetic : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001ABC RID: 6844 RVA: 0x00083966 File Offset: 0x00081B66
+	// Token: 0x06001B10 RID: 6928 RVA: 0x00042609 File Offset: 0x00040809
 	private void Destroy()
 	{
 		this.triggerEntered = false;
@@ -54,33 +54,33 @@ public class OnTriggerEventsHandlerCosmetic : MonoBehaviour
 			ObjectPools.instance.Destroy(base.gameObject);
 			return;
 		}
-		Object.Destroy(base.gameObject);
+		UnityEngine.Object.Destroy(base.gameObject);
 	}
 
-	// Token: 0x04001D8A RID: 7562
+	// Token: 0x04001DD9 RID: 7641
 	[SerializeField]
 	private ParticleSystem particleToPlay;
 
-	// Token: 0x04001D8B RID: 7563
+	// Token: 0x04001DDA RID: 7642
 	[SerializeField]
 	private SoundBankPlayer soundBankPlayer;
 
-	// Token: 0x04001D8C RID: 7564
+	// Token: 0x04001DDB RID: 7643
 	[SerializeField]
 	private bool destroyOnTriggerEnter;
 
-	// Token: 0x04001D8D RID: 7565
+	// Token: 0x04001DDC RID: 7644
 	[SerializeField]
 	private float destroyDelay = 1f;
 
-	// Token: 0x04001D8E RID: 7566
+	// Token: 0x04001DDD RID: 7645
 	[SerializeField]
 	private bool toggleOnceOnly;
 
-	// Token: 0x04001D8F RID: 7567
+	// Token: 0x04001DDE RID: 7646
 	[HideInInspector]
 	public UnityEvent<OnTriggerEventsHandlerCosmetic> onTriggerEntered;
 
-	// Token: 0x04001D90 RID: 7568
+	// Token: 0x04001DDF RID: 7647
 	private bool triggerEntered;
 }

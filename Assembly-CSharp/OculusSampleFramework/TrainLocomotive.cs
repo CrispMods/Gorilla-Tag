@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A72 RID: 2674
+	// Token: 0x02000A9F RID: 2719
 	public class TrainLocomotive : TrainCarBase
 	{
-		// Token: 0x060042AB RID: 17067 RVA: 0x0013A5DC File Offset: 0x001387DC
+		// Token: 0x060043F0 RID: 17392 RVA: 0x00179950 File Offset: 0x00177B50
 		private void Start()
 		{
 			this._standardRateOverTimeMultiplier = this._smoke1.emission.rateOverTimeMultiplier;
@@ -20,13 +20,13 @@ namespace OculusSampleFramework
 			this._startStopTrainCr = base.StartCoroutine(this.StartStopTrain(true));
 		}
 
-		// Token: 0x060042AC RID: 17068 RVA: 0x0013A66B File Offset: 0x0013886B
+		// Token: 0x060043F1 RID: 17393 RVA: 0x0005C4D4 File Offset: 0x0005A6D4
 		private void Update()
 		{
 			this.UpdatePosition();
 		}
 
-		// Token: 0x060042AD RID: 17069 RVA: 0x0013A674 File Offset: 0x00138874
+		// Token: 0x060043F2 RID: 17394 RVA: 0x001799E0 File Offset: 0x00177BE0
 		public override void UpdatePosition()
 		{
 			if (!this._isMoving)
@@ -46,7 +46,7 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x060042AE RID: 17070 RVA: 0x0013A6C7 File Offset: 0x001388C7
+		// Token: 0x060043F3 RID: 17395 RVA: 0x0005C4DC File Offset: 0x0005A6DC
 		public void StartStopStateChanged()
 		{
 			if (this._startStopTrainCr == null)
@@ -55,7 +55,7 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x060042AF RID: 17071 RVA: 0x0013A6EC File Offset: 0x001388EC
+		// Token: 0x060043F4 RID: 17396 RVA: 0x0005C501 File Offset: 0x0005A701
 		private IEnumerator StartStopTrain(bool startTrain)
 		{
 			float endSpeed = startTrain ? this._initialSpeed : 0f;
@@ -101,7 +101,7 @@ namespace OculusSampleFramework
 			yield break;
 		}
 
-		// Token: 0x060042B0 RID: 17072 RVA: 0x0013A704 File Offset: 0x00138904
+		// Token: 0x060043F5 RID: 17397 RVA: 0x00179A34 File Offset: 0x00177C34
 		private float PlayEngineSound(TrainLocomotive.EngineSoundState engineSoundState)
 		{
 			AudioClip audioClip;
@@ -126,14 +126,14 @@ namespace OculusSampleFramework
 			return audioClip.length;
 		}
 
-		// Token: 0x060042B1 RID: 17073 RVA: 0x0013A7B0 File Offset: 0x001389B0
+		// Token: 0x060043F6 RID: 17398 RVA: 0x00179AE0 File Offset: 0x00177CE0
 		private void UpdateDistance()
 		{
 			float num = this._reverse ? (-this._currentSpeed) : this._currentSpeed;
 			base.Distance = (base.Distance + num * Time.deltaTime) % this._trainTrack.TrackLength;
 		}
 
-		// Token: 0x060042B2 RID: 17074 RVA: 0x0013A7F8 File Offset: 0x001389F8
+		// Token: 0x060043F7 RID: 17399 RVA: 0x00179B28 File Offset: 0x00177D28
 		public void DecreaseSpeedStateChanged()
 		{
 			if (this._startStopTrainCr == null && this._isMoving)
@@ -144,7 +144,7 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x060042B3 RID: 17075 RVA: 0x0013A848 File Offset: 0x00138A48
+		// Token: 0x060043F8 RID: 17400 RVA: 0x00179B78 File Offset: 0x00177D78
 		public void IncreaseSpeedStateChanged()
 		{
 			if (this._startStopTrainCr == null && this._isMoving)
@@ -155,20 +155,20 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x060042B4 RID: 17076 RVA: 0x0013A898 File Offset: 0x00138A98
+		// Token: 0x060043F9 RID: 17401 RVA: 0x00179BC8 File Offset: 0x00177DC8
 		private void UpdateSmokeEmissionBasedOnSpeed()
 		{
 			this._smoke1.emission.rateOverTimeMultiplier = this.GetCurrentSmokeEmission();
 			this._smoke1.main.maxParticles = (int)Mathf.Lerp((float)this._standardMaxParticles, (float)(this._standardMaxParticles * 3), this._currentSpeed / 2.5f);
 		}
 
-		// Token: 0x060042B5 RID: 17077 RVA: 0x0013A8F3 File Offset: 0x00138AF3
+		// Token: 0x060043FA RID: 17402 RVA: 0x0005C517 File Offset: 0x0005A717
 		private float GetCurrentSmokeEmission()
 		{
 			return Mathf.Lerp(this._standardRateOverTimeMultiplier, this._standardRateOverTimeMultiplier * 8f, this._currentSpeed / 2.5f);
 		}
 
-		// Token: 0x060042B6 RID: 17078 RVA: 0x0013A918 File Offset: 0x00138B18
+		// Token: 0x060043FB RID: 17403 RVA: 0x00179C24 File Offset: 0x00177E24
 		public void SmokeButtonStateChanged()
 		{
 			if (this._isMoving)
@@ -181,7 +181,7 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x060042B7 RID: 17079 RVA: 0x0013A970 File Offset: 0x00138B70
+		// Token: 0x060043FC RID: 17404 RVA: 0x0005C53C File Offset: 0x0005A73C
 		public void WhistleButtonStateChanged()
 		{
 			if (this._whistleSound != null)
@@ -192,126 +192,126 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x060042B8 RID: 17080 RVA: 0x0013A9A8 File Offset: 0x00138BA8
+		// Token: 0x060043FD RID: 17405 RVA: 0x0005C574 File Offset: 0x0005A774
 		public void ReverseButtonStateChanged()
 		{
 			this._reverse = !this._reverse;
 		}
 
-		// Token: 0x040043AE RID: 17326
+		// Token: 0x040044A8 RID: 17576
 		private const float MIN_SPEED = 0.2f;
 
-		// Token: 0x040043AF RID: 17327
+		// Token: 0x040044A9 RID: 17577
 		private const float MAX_SPEED = 2.7f;
 
-		// Token: 0x040043B0 RID: 17328
+		// Token: 0x040044AA RID: 17578
 		private const float SMOKE_SPEED_MULTIPLIER = 8f;
 
-		// Token: 0x040043B1 RID: 17329
+		// Token: 0x040044AB RID: 17579
 		private const int MAX_PARTICLES_MULTIPLIER = 3;
 
-		// Token: 0x040043B2 RID: 17330
+		// Token: 0x040044AC RID: 17580
 		[SerializeField]
 		[Range(0.2f, 2.7f)]
 		protected float _initialSpeed;
 
-		// Token: 0x040043B3 RID: 17331
+		// Token: 0x040044AD RID: 17581
 		[SerializeField]
 		private GameObject _startStopButton;
 
-		// Token: 0x040043B4 RID: 17332
+		// Token: 0x040044AE RID: 17582
 		[SerializeField]
 		private GameObject _decreaseSpeedButton;
 
-		// Token: 0x040043B5 RID: 17333
+		// Token: 0x040044AF RID: 17583
 		[SerializeField]
 		private GameObject _increaseSpeedButton;
 
-		// Token: 0x040043B6 RID: 17334
+		// Token: 0x040044B0 RID: 17584
 		[SerializeField]
 		private GameObject _smokeButton;
 
-		// Token: 0x040043B7 RID: 17335
+		// Token: 0x040044B1 RID: 17585
 		[SerializeField]
 		private GameObject _whistleButton;
 
-		// Token: 0x040043B8 RID: 17336
+		// Token: 0x040044B2 RID: 17586
 		[SerializeField]
 		private GameObject _reverseButton;
 
-		// Token: 0x040043B9 RID: 17337
+		// Token: 0x040044B3 RID: 17587
 		[SerializeField]
 		private AudioSource _whistleAudioSource;
 
-		// Token: 0x040043BA RID: 17338
+		// Token: 0x040044B4 RID: 17588
 		[SerializeField]
 		private AudioClip _whistleSound;
 
-		// Token: 0x040043BB RID: 17339
+		// Token: 0x040044B5 RID: 17589
 		[SerializeField]
 		private AudioSource _engineAudioSource;
 
-		// Token: 0x040043BC RID: 17340
+		// Token: 0x040044B6 RID: 17590
 		[SerializeField]
 		private AudioClip[] _accelerationSounds;
 
-		// Token: 0x040043BD RID: 17341
+		// Token: 0x040044B7 RID: 17591
 		[SerializeField]
 		private AudioClip[] _decelerationSounds;
 
-		// Token: 0x040043BE RID: 17342
+		// Token: 0x040044B8 RID: 17592
 		[SerializeField]
 		private AudioClip _startUpSound;
 
-		// Token: 0x040043BF RID: 17343
+		// Token: 0x040044B9 RID: 17593
 		[SerializeField]
 		private AudioSource _smokeStackAudioSource;
 
-		// Token: 0x040043C0 RID: 17344
+		// Token: 0x040044BA RID: 17594
 		[SerializeField]
 		private AudioClip _smokeSound;
 
-		// Token: 0x040043C1 RID: 17345
+		// Token: 0x040044BB RID: 17595
 		[SerializeField]
 		private ParticleSystem _smoke1;
 
-		// Token: 0x040043C2 RID: 17346
+		// Token: 0x040044BC RID: 17596
 		[SerializeField]
 		private ParticleSystem _smoke2;
 
-		// Token: 0x040043C3 RID: 17347
+		// Token: 0x040044BD RID: 17597
 		[SerializeField]
 		private TrainCarBase[] _childCars;
 
-		// Token: 0x040043C4 RID: 17348
+		// Token: 0x040044BE RID: 17598
 		private bool _isMoving = true;
 
-		// Token: 0x040043C5 RID: 17349
+		// Token: 0x040044BF RID: 17599
 		private bool _reverse;
 
-		// Token: 0x040043C6 RID: 17350
+		// Token: 0x040044C0 RID: 17600
 		private float _currentSpeed;
 
-		// Token: 0x040043C7 RID: 17351
+		// Token: 0x040044C1 RID: 17601
 		private float _speedDiv;
 
-		// Token: 0x040043C8 RID: 17352
+		// Token: 0x040044C2 RID: 17602
 		private float _standardRateOverTimeMultiplier;
 
-		// Token: 0x040043C9 RID: 17353
+		// Token: 0x040044C3 RID: 17603
 		private int _standardMaxParticles;
 
-		// Token: 0x040043CA RID: 17354
+		// Token: 0x040044C4 RID: 17604
 		private Coroutine _startStopTrainCr;
 
-		// Token: 0x02000A73 RID: 2675
+		// Token: 0x02000AA0 RID: 2720
 		private enum EngineSoundState
 		{
-			// Token: 0x040043CC RID: 17356
+			// Token: 0x040044C6 RID: 17606
 			Start,
-			// Token: 0x040043CD RID: 17357
+			// Token: 0x040044C7 RID: 17607
 			AccelerateOrSetProperSpeed,
-			// Token: 0x040043CE RID: 17358
+			// Token: 0x040044C8 RID: 17608
 			Stop
 		}
 	}

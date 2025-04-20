@@ -7,11 +7,11 @@ using Unity.Mathematics;
 
 namespace GorillaLocomotion.Gameplay
 {
-	// Token: 0x02000B62 RID: 2914
+	// Token: 0x02000B8F RID: 2959
 	[BurstCompile(FloatPrecision.Low, FloatMode.Fast)]
 	public struct VectorizedSolveRopeJob : IJob
 	{
-		// Token: 0x060048F0 RID: 18672 RVA: 0x00162168 File Offset: 0x00160368
+		// Token: 0x06004A3B RID: 19003 RVA: 0x0019D534 File Offset: 0x0019B734
 		public void Execute()
 		{
 			this.Simulate();
@@ -25,7 +25,7 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x060048F1 RID: 18673 RVA: 0x001621AC File Offset: 0x001603AC
+		// Token: 0x06004A3C RID: 19004 RVA: 0x0019D578 File Offset: 0x0019B778
 		private void Simulate()
 		{
 			for (int i = 0; i < this.data.posX.Length; i++)
@@ -46,14 +46,14 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x060048F2 RID: 18674 RVA: 0x001623FC File Offset: 0x001605FC
+		// Token: 0x06004A3D RID: 19005 RVA: 0x0019D7C8 File Offset: 0x0019B9C8
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		private static void dot4(ref float4 ax, ref float4 ay, ref float4 az, ref float4 bx, ref float4 by, ref float4 bz, ref float4 output)
 		{
 			output = ax * bx + ay * by + az * bz;
 		}
 
-		// Token: 0x060048F3 RID: 18675 RVA: 0x00162450 File Offset: 0x00160650
+		// Token: 0x06004A3E RID: 19006 RVA: 0x0019D81C File Offset: 0x0019BA1C
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		private static void length4(ref float4 xVals, ref float4 yVals, ref float4 zVals, ref float4 output)
 		{
@@ -63,7 +63,7 @@ namespace GorillaLocomotion.Gameplay
 			output = math.sqrt(x);
 		}
 
-		// Token: 0x060048F4 RID: 18676 RVA: 0x00162484 File Offset: 0x00160684
+		// Token: 0x06004A3F RID: 19007 RVA: 0x0019D850 File Offset: 0x0019BA50
 		private void ConstrainRoots()
 		{
 			int num = 0;
@@ -85,7 +85,7 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x060048F5 RID: 18677 RVA: 0x00162598 File Offset: 0x00160798
+		// Token: 0x06004A40 RID: 19008 RVA: 0x0019D964 File Offset: 0x0019BB64
 		private void ApplyConstraint()
 		{
 			this.ConstrainRoots();
@@ -139,7 +139,7 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x060048F6 RID: 18678 RVA: 0x00162934 File Offset: 0x00160B34
+		// Token: 0x06004A41 RID: 19009 RVA: 0x0019DD00 File Offset: 0x0019BF00
 		private void FinalPass()
 		{
 			this.ConstrainRoots();
@@ -179,34 +179,34 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x04004B98 RID: 19352
+		// Token: 0x04004C8E RID: 19598
 		[ReadOnly]
 		public int applyConstraintIterations;
 
-		// Token: 0x04004B99 RID: 19353
+		// Token: 0x04004C8F RID: 19599
 		[ReadOnly]
 		public int finalPassIterations;
 
-		// Token: 0x04004B9A RID: 19354
+		// Token: 0x04004C90 RID: 19600
 		[ReadOnly]
 		public float deltaTime;
 
-		// Token: 0x04004B9B RID: 19355
+		// Token: 0x04004C91 RID: 19601
 		[ReadOnly]
 		public float lastDeltaTime;
 
-		// Token: 0x04004B9C RID: 19356
+		// Token: 0x04004C92 RID: 19602
 		[ReadOnly]
 		public int ropeCount;
 
-		// Token: 0x04004B9D RID: 19357
+		// Token: 0x04004C93 RID: 19603
 		public VectorizedBurstRopeData data;
 
-		// Token: 0x04004B9E RID: 19358
+		// Token: 0x04004C94 RID: 19604
 		[ReadOnly]
 		public float gravity;
 
-		// Token: 0x04004B9F RID: 19359
+		// Token: 0x04004C95 RID: 19605
 		[ReadOnly]
 		public float nodeDistance;
 	}

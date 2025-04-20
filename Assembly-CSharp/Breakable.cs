@@ -3,16 +3,16 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x020004A9 RID: 1193
+// Token: 0x020004B5 RID: 1205
 public class Breakable : MonoBehaviour
 {
-	// Token: 0x06001CF6 RID: 7414 RVA: 0x0008D0EC File Offset: 0x0008B2EC
+	// Token: 0x06001D4A RID: 7498 RVA: 0x000440E1 File Offset: 0x000422E1
 	private void Awake()
 	{
 		this._breakSignal.OnSignal += this.BreakRPC;
 	}
 
-	// Token: 0x06001CF7 RID: 7415 RVA: 0x0008D108 File Offset: 0x0008B308
+	// Token: 0x06001D4B RID: 7499 RVA: 0x000E04A8 File Offset: 0x000DE6A8
 	private void BreakRPC(int owner, PhotonSignalInfo info)
 	{
 		VRRig vrrig = base.GetComponent<OwnerRig>();
@@ -27,7 +27,7 @@ public class Breakable : MonoBehaviour
 		this.OnBreak(true, false);
 	}
 
-	// Token: 0x06001CF8 RID: 7416 RVA: 0x0008D144 File Offset: 0x0008B344
+	// Token: 0x06001D4C RID: 7500 RVA: 0x000E04E4 File Offset: 0x000DE6E4
 	private void Setup()
 	{
 		if (this._collider == null)
@@ -53,31 +53,31 @@ public class Breakable : MonoBehaviour
 		this._renderers = this.rendererRoot.GetComponentsInChildren<Renderer>();
 	}
 
-	// Token: 0x06001CF9 RID: 7417 RVA: 0x0008D1EB File Offset: 0x0008B3EB
+	// Token: 0x06001D4D RID: 7501 RVA: 0x000440FA File Offset: 0x000422FA
 	private void OnCollisionEnter(Collision col)
 	{
 		this.OnBreak(true, true);
 	}
 
-	// Token: 0x06001CFA RID: 7418 RVA: 0x0008D1EB File Offset: 0x0008B3EB
+	// Token: 0x06001D4E RID: 7502 RVA: 0x000440FA File Offset: 0x000422FA
 	private void OnCollisionStay(Collision col)
 	{
 		this.OnBreak(true, true);
 	}
 
-	// Token: 0x06001CFB RID: 7419 RVA: 0x0008D1EB File Offset: 0x0008B3EB
+	// Token: 0x06001D4F RID: 7503 RVA: 0x000440FA File Offset: 0x000422FA
 	private void OnTriggerEnter(Collider col)
 	{
 		this.OnBreak(true, true);
 	}
 
-	// Token: 0x06001CFC RID: 7420 RVA: 0x0008D1EB File Offset: 0x0008B3EB
+	// Token: 0x06001D50 RID: 7504 RVA: 0x000440FA File Offset: 0x000422FA
 	private void OnTriggerStay(Collider col)
 	{
 		this.OnBreak(true, true);
 	}
 
-	// Token: 0x06001CFD RID: 7421 RVA: 0x0008D1F5 File Offset: 0x0008B3F5
+	// Token: 0x06001D51 RID: 7505 RVA: 0x00044104 File Offset: 0x00042304
 	private void OnEnable()
 	{
 		this._breakSignal.Enable();
@@ -85,7 +85,7 @@ public class Breakable : MonoBehaviour
 		this.OnSpawn(true);
 	}
 
-	// Token: 0x06001CFE RID: 7422 RVA: 0x0008D210 File Offset: 0x0008B410
+	// Token: 0x06001D52 RID: 7506 RVA: 0x0004411F File Offset: 0x0004231F
 	private void OnDisable()
 	{
 		this._breakSignal.Disable();
@@ -94,19 +94,19 @@ public class Breakable : MonoBehaviour
 		this.ShowRenderers(false);
 	}
 
-	// Token: 0x06001CFF RID: 7423 RVA: 0x0008D1EB File Offset: 0x0008B3EB
+	// Token: 0x06001D53 RID: 7507 RVA: 0x000440FA File Offset: 0x000422FA
 	public void Break()
 	{
 		this.OnBreak(true, true);
 	}
 
-	// Token: 0x06001D00 RID: 7424 RVA: 0x0008D232 File Offset: 0x0008B432
+	// Token: 0x06001D54 RID: 7508 RVA: 0x00044141 File Offset: 0x00042341
 	public void Reset()
 	{
 		this.OnReset(true);
 	}
 
-	// Token: 0x06001D01 RID: 7425 RVA: 0x0008D23C File Offset: 0x0008B43C
+	// Token: 0x06001D55 RID: 7509 RVA: 0x000E058C File Offset: 0x000DE78C
 	protected virtual void ShowRenderers(bool visible)
 	{
 		if (this._renderers.IsNullOrEmpty<Renderer>())
@@ -123,7 +123,7 @@ public class Breakable : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D02 RID: 7426 RVA: 0x0008D288 File Offset: 0x0008B488
+	// Token: 0x06001D56 RID: 7510 RVA: 0x000E05D8 File Offset: 0x000DE7D8
 	protected virtual void OnReset(bool callback = true)
 	{
 		if (this._breakEffect && this._breakEffect.isPlaying)
@@ -143,7 +143,7 @@ public class Breakable : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D03 RID: 7427 RVA: 0x0008D2DC File Offset: 0x0008B4DC
+	// Token: 0x06001D57 RID: 7511 RVA: 0x0004414A File Offset: 0x0004234A
 	protected virtual void OnSpawn(bool callback = true)
 	{
 		this.startTime = Time.time;
@@ -160,7 +160,7 @@ public class Breakable : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D04 RID: 7428 RVA: 0x0008D318 File Offset: 0x0008B518
+	// Token: 0x06001D58 RID: 7512 RVA: 0x000E062C File Offset: 0x000DE82C
 	protected virtual void OnBreak(bool callback = true, bool signal = true)
 	{
 		if (this._broken)
@@ -200,7 +200,7 @@ public class Breakable : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001D05 RID: 7429 RVA: 0x0008D3C4 File Offset: 0x0008B5C4
+	// Token: 0x06001D59 RID: 7513 RVA: 0x000E06D8 File Offset: 0x000DE8D8
 	private void UpdatePhysMasks()
 	{
 		int physicsMask = (int)this._physicsMask;
@@ -216,55 +216,55 @@ public class Breakable : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001FE4 RID: 8164
+	// Token: 0x04002033 RID: 8243
 	[SerializeField]
 	private Collider _collider;
 
-	// Token: 0x04001FE5 RID: 8165
+	// Token: 0x04002034 RID: 8244
 	[SerializeField]
 	private Rigidbody _rigidbody;
 
-	// Token: 0x04001FE6 RID: 8166
+	// Token: 0x04002035 RID: 8245
 	[SerializeField]
 	private GameObject rendererRoot;
 
-	// Token: 0x04001FE7 RID: 8167
+	// Token: 0x04002036 RID: 8246
 	[SerializeField]
 	private Renderer[] _renderers = new Renderer[0];
 
-	// Token: 0x04001FE8 RID: 8168
+	// Token: 0x04002037 RID: 8247
 	[Space]
 	[SerializeField]
 	private ParticleSystem _breakEffect;
 
-	// Token: 0x04001FE9 RID: 8169
+	// Token: 0x04002038 RID: 8248
 	[SerializeField]
 	private UnityLayerMask _physicsMask = UnityLayerMask.GorillaHand;
 
-	// Token: 0x04001FEA RID: 8170
+	// Token: 0x04002039 RID: 8249
 	public UnityEvent<Breakable> onSpawn;
 
-	// Token: 0x04001FEB RID: 8171
+	// Token: 0x0400203A RID: 8250
 	public UnityEvent<Breakable> onBreak;
 
-	// Token: 0x04001FEC RID: 8172
+	// Token: 0x0400203B RID: 8251
 	public UnityEvent<Breakable> onReset;
 
-	// Token: 0x04001FED RID: 8173
+	// Token: 0x0400203C RID: 8252
 	public float canBreakDelay = 1f;
 
-	// Token: 0x04001FEE RID: 8174
+	// Token: 0x0400203D RID: 8253
 	[SerializeField]
 	private PhotonSignal<int> _breakSignal = "_breakSignal";
 
-	// Token: 0x04001FEF RID: 8175
+	// Token: 0x0400203E RID: 8254
 	[Space]
 	[NonSerialized]
 	private bool _broken;
 
-	// Token: 0x04001FF0 RID: 8176
+	// Token: 0x0400203F RID: 8255
 	private float startTime;
 
-	// Token: 0x04001FF1 RID: 8177
+	// Token: 0x04002040 RID: 8256
 	private float endTime;
 }

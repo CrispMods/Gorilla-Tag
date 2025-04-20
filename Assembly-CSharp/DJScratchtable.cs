@@ -3,16 +3,16 @@ using GorillaExtensions;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000151 RID: 337
+// Token: 0x0200015B RID: 347
 public class DJScratchtable : MonoBehaviour
 {
-	// Token: 0x06000895 RID: 2197 RVA: 0x0002EE9B File Offset: 0x0002D09B
+	// Token: 0x060008D9 RID: 2265 RVA: 0x0003650A File Offset: 0x0003470A
 	public void SetPlaying(bool playing)
 	{
 		this.isPlaying = playing;
 	}
 
-	// Token: 0x06000896 RID: 2198 RVA: 0x0002EEA4 File Offset: 0x0002D0A4
+	// Token: 0x060008DA RID: 2266 RVA: 0x0008FBA8 File Offset: 0x0008DDA8
 	private void OnTriggerStay(Collider collider)
 	{
 		if (!base.enabled)
@@ -66,7 +66,7 @@ public class DJScratchtable : MonoBehaviour
 		this.isTouching = true;
 	}
 
-	// Token: 0x06000897 RID: 2199 RVA: 0x0002F0A8 File Offset: 0x0002D2A8
+	// Token: 0x060008DB RID: 2267 RVA: 0x0008FDAC File Offset: 0x0008DFAC
 	private void OnTriggerExit(Collider collider)
 	{
 		if (!base.enabled)
@@ -85,7 +85,7 @@ public class DJScratchtable : MonoBehaviour
 		this.isTouching = false;
 	}
 
-	// Token: 0x06000898 RID: 2200 RVA: 0x0002F0F4 File Offset: 0x0002D2F4
+	// Token: 0x060008DC RID: 2268 RVA: 0x0008FDF8 File Offset: 0x0008DFF8
 	public void SelectTrack(int track)
 	{
 		this.lastSelectedTrack = track;
@@ -115,7 +115,7 @@ public class DJScratchtable : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000899 RID: 2201 RVA: 0x0002F194 File Offset: 0x0002D394
+	// Token: 0x060008DD RID: 2269 RVA: 0x0008FE98 File Offset: 0x0008E098
 	public void PauseTrack()
 	{
 		for (int i = 0; i < this.tracks.Length; i++)
@@ -125,70 +125,70 @@ public class DJScratchtable : MonoBehaviour
 		this.pausedUntilTimestamp = Time.time + 1f;
 	}
 
-	// Token: 0x0600089A RID: 2202 RVA: 0x0002F1D2 File Offset: 0x0002D3D2
+	// Token: 0x060008DE RID: 2270 RVA: 0x00036513 File Offset: 0x00034713
 	public void ResumeTrack()
 	{
 		this.SelectTrack(this.lastSelectedTrack);
 		this.pausedUntilTimestamp = 0f;
 	}
 
-	// Token: 0x04000A3B RID: 2619
+	// Token: 0x04000A7E RID: 2686
 	[SerializeField]
 	private bool isLeft;
 
-	// Token: 0x04000A3C RID: 2620
+	// Token: 0x04000A7F RID: 2687
 	[SerializeField]
 	private DJScratchSoundPlayer scratchPlayer;
 
-	// Token: 0x04000A3D RID: 2621
+	// Token: 0x04000A80 RID: 2688
 	[SerializeField]
 	private float scratchCooldown;
 
-	// Token: 0x04000A3E RID: 2622
+	// Token: 0x04000A81 RID: 2689
 	[SerializeField]
 	private float scratchMinAngle;
 
-	// Token: 0x04000A3F RID: 2623
+	// Token: 0x04000A82 RID: 2690
 	[SerializeField]
 	private AudioSource[] tracks;
 
-	// Token: 0x04000A40 RID: 2624
+	// Token: 0x04000A83 RID: 2691
 	[SerializeField]
 	private CosmeticFan turntableVisual;
 
-	// Token: 0x04000A41 RID: 2625
+	// Token: 0x04000A84 RID: 2692
 	[SerializeField]
 	private float trackDuration;
 
-	// Token: 0x04000A42 RID: 2626
+	// Token: 0x04000A85 RID: 2693
 	[SerializeField]
 	private float hapticStrength;
 
-	// Token: 0x04000A43 RID: 2627
+	// Token: 0x04000A86 RID: 2694
 	[SerializeField]
 	private float hapticDuration;
 
-	// Token: 0x04000A44 RID: 2628
+	// Token: 0x04000A87 RID: 2695
 	private int lastSelectedTrack;
 
-	// Token: 0x04000A45 RID: 2629
+	// Token: 0x04000A88 RID: 2696
 	private bool isPlaying;
 
-	// Token: 0x04000A46 RID: 2630
+	// Token: 0x04000A89 RID: 2697
 	private bool isTouching;
 
-	// Token: 0x04000A47 RID: 2631
+	// Token: 0x04000A8A RID: 2698
 	private Quaternion firstTouchRotation;
 
-	// Token: 0x04000A48 RID: 2632
+	// Token: 0x04000A8B RID: 2699
 	private float lastScratchSoundAngle;
 
-	// Token: 0x04000A49 RID: 2633
+	// Token: 0x04000A8C RID: 2700
 	private float cantForwardScratchUntilTimestamp;
 
-	// Token: 0x04000A4A RID: 2634
+	// Token: 0x04000A8D RID: 2701
 	private float cantBackScratchUntilTimestamp;
 
-	// Token: 0x04000A4B RID: 2635
+	// Token: 0x04000A8E RID: 2702
 	private float pausedUntilTimestamp;
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000178 RID: 376
+// Token: 0x02000183 RID: 387
 public class SpeedDrivenAnim : MonoBehaviour
 {
-	// Token: 0x0600096A RID: 2410 RVA: 0x000323D4 File Offset: 0x000305D4
+	// Token: 0x060009B6 RID: 2486 RVA: 0x00036DB4 File Offset: 0x00034FB4
 	private void Start()
 	{
 		this.velocityEstimator = base.GetComponent<GorillaVelocityEstimator>();
@@ -12,7 +12,7 @@ public class SpeedDrivenAnim : MonoBehaviour
 		this.keyHash = Animator.StringToHash(this.animKey);
 	}
 
-	// Token: 0x0600096B RID: 2411 RVA: 0x00032400 File Offset: 0x00030600
+	// Token: 0x060009B7 RID: 2487 RVA: 0x000927EC File Offset: 0x000909EC
 	private void Update()
 	{
 		float target = Mathf.InverseLerp(this.speed0, this.speed1, this.velocityEstimator.linearVelocity.magnitude);
@@ -20,31 +20,31 @@ public class SpeedDrivenAnim : MonoBehaviour
 		this.animator.SetFloat(this.keyHash, this.currentBlend);
 	}
 
-	// Token: 0x04000B5A RID: 2906
+	// Token: 0x04000BA0 RID: 2976
 	[SerializeField]
 	private float speed0;
 
-	// Token: 0x04000B5B RID: 2907
+	// Token: 0x04000BA1 RID: 2977
 	[SerializeField]
 	private float speed1 = 1f;
 
-	// Token: 0x04000B5C RID: 2908
+	// Token: 0x04000BA2 RID: 2978
 	[SerializeField]
 	private float maxChangePerSecond = 1f;
 
-	// Token: 0x04000B5D RID: 2909
+	// Token: 0x04000BA3 RID: 2979
 	[SerializeField]
 	private string animKey = "speed";
 
-	// Token: 0x04000B5E RID: 2910
+	// Token: 0x04000BA4 RID: 2980
 	private GorillaVelocityEstimator velocityEstimator;
 
-	// Token: 0x04000B5F RID: 2911
+	// Token: 0x04000BA5 RID: 2981
 	private Animator animator;
 
-	// Token: 0x04000B60 RID: 2912
+	// Token: 0x04000BA6 RID: 2982
 	private int keyHash;
 
-	// Token: 0x04000B61 RID: 2913
+	// Token: 0x04000BA7 RID: 2983
 	private float currentBlend;
 }

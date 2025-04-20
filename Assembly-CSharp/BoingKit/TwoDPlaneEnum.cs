@@ -2,14 +2,14 @@
 
 namespace BoingKit
 {
-	// Token: 0x02000CE4 RID: 3300
+	// Token: 0x02000D15 RID: 3349
 	public enum TwoDPlaneEnum
 	{
-		// Token: 0x040055A9 RID: 21929
+		// Token: 0x040056B5 RID: 22197
 		XY,
-		// Token: 0x040055AA RID: 21930
+		// Token: 0x040056B6 RID: 22198
 		XZ,
-		// Token: 0x040055AB RID: 21931
+		// Token: 0x040056B7 RID: 22199
 		YZ
 	}
 }

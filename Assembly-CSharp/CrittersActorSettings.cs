@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000036 RID: 54
+// Token: 0x02000039 RID: 57
 public class CrittersActorSettings : MonoBehaviour
 {
-	// Token: 0x0600010E RID: 270 RVA: 0x00007FDA File Offset: 0x000061DA
+	// Token: 0x06000120 RID: 288 RVA: 0x000310AA File Offset: 0x0002F2AA
 	public virtual void OnEnable()
 	{
 		this.UpdateActorSettings();
 	}
 
-	// Token: 0x0600010F RID: 271 RVA: 0x00007FE4 File Offset: 0x000061E4
+	// Token: 0x06000121 RID: 289 RVA: 0x0006D55C File Offset: 0x0006B75C
 	public virtual void UpdateActorSettings()
 	{
 		this.parentActor.usesRB = this.usesRB;
@@ -20,18 +20,18 @@ public class CrittersActorSettings : MonoBehaviour
 		this.parentActor.equipmentStoreTriggerCollider = this.equipmentStoreTriggerCollider;
 	}
 
-	// Token: 0x0400014B RID: 331
+	// Token: 0x04000154 RID: 340
 	public CrittersActor parentActor;
 
-	// Token: 0x0400014C RID: 332
+	// Token: 0x04000155 RID: 341
 	public bool usesRB;
 
-	// Token: 0x0400014D RID: 333
+	// Token: 0x04000156 RID: 342
 	public bool canBeStored;
 
-	// Token: 0x0400014E RID: 334
+	// Token: 0x04000157 RID: 343
 	public CapsuleCollider storeCollider;
 
-	// Token: 0x0400014F RID: 335
+	// Token: 0x04000158 RID: 344
 	public CapsuleCollider equipmentStoreTriggerCollider;
 }

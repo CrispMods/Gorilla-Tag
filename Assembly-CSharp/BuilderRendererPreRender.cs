@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004B0 RID: 1200
+// Token: 0x020004BD RID: 1213
 public class BuilderRendererPreRender : MonoBehaviour
 {
-	// Token: 0x06001D1C RID: 7452 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001D75 RID: 7541 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Awake()
 	{
 	}
 
-	// Token: 0x06001D1D RID: 7453 RVA: 0x0008DDC1 File Offset: 0x0008BFC1
+	// Token: 0x06001D76 RID: 7542 RVA: 0x0004427F File Offset: 0x0004247F
 	private void LateUpdate()
 	{
 		if (this.builderRenderer != null)
@@ -18,6 +18,6 @@ public class BuilderRendererPreRender : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400201E RID: 8222
+	// Token: 0x04002071 RID: 8305
 	public BuilderRenderer builderRenderer;
 }

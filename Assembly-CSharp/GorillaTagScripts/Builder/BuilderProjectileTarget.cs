@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts.Builder
 {
-	// Token: 0x02000A09 RID: 2569
+	// Token: 0x02000A36 RID: 2614
 	public class BuilderProjectileTarget : MonoBehaviour, IBuilderPieceFunctional
 	{
-		// Token: 0x0600405A RID: 16474 RVA: 0x00131AB8 File Offset: 0x0012FCB8
+		// Token: 0x0600419F RID: 16799 RVA: 0x00172588 File Offset: 0x00170788
 		private void Awake()
 		{
 			this.hitNotifier.OnProjectileHit += this.OnProjectileHit;
@@ -18,13 +18,13 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x0600405B RID: 16475 RVA: 0x00131B24 File Offset: 0x0012FD24
+		// Token: 0x060041A0 RID: 16800 RVA: 0x0005AE3C File Offset: 0x0005903C
 		private void OnDestroy()
 		{
 			this.hitNotifier.OnProjectileHit -= this.OnProjectileHit;
 		}
 
-		// Token: 0x0600405C RID: 16476 RVA: 0x00131B3D File Offset: 0x0012FD3D
+		// Token: 0x060041A1 RID: 16801 RVA: 0x0005AE55 File Offset: 0x00059055
 		private void OnDisable()
 		{
 			this.hitCount = 0;
@@ -34,7 +34,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x0600405D RID: 16477 RVA: 0x00131B70 File Offset: 0x0012FD70
+		// Token: 0x060041A2 RID: 16802 RVA: 0x001725F4 File Offset: 0x001707F4
 		private void OnProjectileHit(SlingshotProjectile projectile, Collision collision)
 		{
 			if (this.myPiece.state != BuilderPiece.State.AttachedAndPlaced)
@@ -51,7 +51,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x0600405E RID: 16478 RVA: 0x00131BD3 File Offset: 0x0012FDD3
+		// Token: 0x060041A3 RID: 16803 RVA: 0x0005AE87 File Offset: 0x00059087
 		public void OnStateChanged(byte newState, NetPlayer instigator, int timeStamp)
 		{
 			if (instigator == null)
@@ -71,7 +71,7 @@ namespace GorillaTagScripts.Builder
 			this.PlayHitEffects();
 		}
 
-		// Token: 0x0600405F RID: 16479 RVA: 0x00131C0C File Offset: 0x0012FE0C
+		// Token: 0x060041A4 RID: 16804 RVA: 0x00172658 File Offset: 0x00170858
 		public void OnStateRequest(byte newState, NetPlayer instigator, int timeStamp)
 		{
 			if (!NetworkSystem.Instance.IsMasterClient)
@@ -95,13 +95,13 @@ namespace GorillaTagScripts.Builder
 			BuilderTableNetworking.instance.FunctionalPieceStateChangeMaster(this.myPiece.pieceId, (byte)this.hitCount, instigator.GetPlayerRef(), timeStamp);
 		}
 
-		// Token: 0x06004060 RID: 16480 RVA: 0x00131C7A File Offset: 0x0012FE7A
+		// Token: 0x060041A5 RID: 16805 RVA: 0x0005AEBE File Offset: 0x000590BE
 		public bool IsStateValid(byte state)
 		{
 			return state <= 11;
 		}
 
-		// Token: 0x06004061 RID: 16481 RVA: 0x00131C84 File Offset: 0x0012FE84
+		// Token: 0x060041A6 RID: 16806 RVA: 0x001726C8 File Offset: 0x001708C8
 		private void PlayHitEffects()
 		{
 			if (this.hitSoundbank != null)
@@ -118,57 +118,57 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004062 RID: 16482 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x060041A7 RID: 16807 RVA: 0x00030607 File Offset: 0x0002E807
 		public void FunctionalPieceUpdate()
 		{
 		}
 
-		// Token: 0x06004063 RID: 16483 RVA: 0x00131D00 File Offset: 0x0012FF00
+		// Token: 0x060041A8 RID: 16808 RVA: 0x0005AEC8 File Offset: 0x000590C8
 		public float GetInteractionDistace()
 		{
 			return 20f;
 		}
 
-		// Token: 0x04004175 RID: 16757
+		// Token: 0x0400426F RID: 17007
 		[SerializeField]
 		private BuilderPiece myPiece;
 
-		// Token: 0x04004176 RID: 16758
+		// Token: 0x04004270 RID: 17008
 		[SerializeField]
 		private SlingshotProjectileHitNotifier hitNotifier;
 
-		// Token: 0x04004177 RID: 16759
+		// Token: 0x04004271 RID: 17009
 		[SerializeField]
 		protected float hitCooldown = 2f;
 
-		// Token: 0x04004178 RID: 16760
+		// Token: 0x04004272 RID: 17010
 		[Tooltip("Optional Sounds to play on hit")]
 		[SerializeField]
 		protected SoundBankPlayer hitSoundbank;
 
-		// Token: 0x04004179 RID: 16761
+		// Token: 0x04004273 RID: 17011
 		[Tooltip("Optional Sounds to play on hit")]
 		[SerializeField]
 		protected Animation hitAnimation;
 
-		// Token: 0x0400417A RID: 16762
+		// Token: 0x04004274 RID: 17012
 		[SerializeField]
 		protected List<Collider> colliders;
 
-		// Token: 0x0400417B RID: 16763
+		// Token: 0x04004275 RID: 17013
 		[SerializeField]
 		private TMP_Text scoreText;
 
-		// Token: 0x0400417C RID: 16764
+		// Token: 0x04004276 RID: 17014
 		private double lastHitTime;
 
-		// Token: 0x0400417D RID: 16765
+		// Token: 0x04004277 RID: 17015
 		private int hitCount;
 
-		// Token: 0x0400417E RID: 16766
+		// Token: 0x04004278 RID: 17016
 		private const byte MAX_SCORE = 10;
 
-		// Token: 0x0400417F RID: 16767
+		// Token: 0x04004279 RID: 17017
 		private const byte HIT = 11;
 	}
 }

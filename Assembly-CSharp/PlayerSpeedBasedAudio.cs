@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200013E RID: 318
+// Token: 0x02000148 RID: 328
 public class PlayerSpeedBasedAudio : MonoBehaviour
 {
-	// Token: 0x06000834 RID: 2100 RVA: 0x0002D08B File Offset: 0x0002B28B
+	// Token: 0x06000878 RID: 2168 RVA: 0x00035F7E File Offset: 0x0003417E
 	private void Start()
 	{
 		this.fadeRate = 1f / this.fadeTime;
@@ -12,7 +12,7 @@ public class PlayerSpeedBasedAudio : MonoBehaviour
 		this.localPlayerVelocityEstimator.TryResolve<GorillaVelocityEstimator>(out this.velocityEstimator);
 	}
 
-	// Token: 0x06000835 RID: 2101 RVA: 0x0002D0C4 File Offset: 0x0002B2C4
+	// Token: 0x06000879 RID: 2169 RVA: 0x0008E328 File Offset: 0x0008C528
 	private void Update()
 	{
 		this.currentFadeLevel = Mathf.MoveTowards(this.currentFadeLevel, Mathf.InverseLerp(this.minVolumeSpeed, this.fullVolumeSpeed, this.velocityEstimator.linearVelocity.magnitude), this.fadeRate * Time.deltaTime);
@@ -24,35 +24,35 @@ public class PlayerSpeedBasedAudio : MonoBehaviour
 		this.audioSource.volume = this.baseVolume * this.currentFadeLevel;
 	}
 
-	// Token: 0x0400099B RID: 2459
+	// Token: 0x040009DE RID: 2526
 	[SerializeField]
 	private float minVolumeSpeed;
 
-	// Token: 0x0400099C RID: 2460
+	// Token: 0x040009DF RID: 2527
 	[SerializeField]
 	private float fullVolumeSpeed;
 
-	// Token: 0x0400099D RID: 2461
+	// Token: 0x040009E0 RID: 2528
 	[SerializeField]
 	private float fadeTime;
 
-	// Token: 0x0400099E RID: 2462
+	// Token: 0x040009E1 RID: 2529
 	[SerializeField]
 	private AudioSource audioSource;
 
-	// Token: 0x0400099F RID: 2463
+	// Token: 0x040009E2 RID: 2530
 	[SerializeField]
 	private XSceneRef localPlayerVelocityEstimator;
 
-	// Token: 0x040009A0 RID: 2464
+	// Token: 0x040009E3 RID: 2531
 	private GorillaVelocityEstimator velocityEstimator;
 
-	// Token: 0x040009A1 RID: 2465
+	// Token: 0x040009E4 RID: 2532
 	private float baseVolume;
 
-	// Token: 0x040009A2 RID: 2466
+	// Token: 0x040009E5 RID: 2533
 	private float fadeRate;
 
-	// Token: 0x040009A3 RID: 2467
+	// Token: 0x040009E6 RID: 2534
 	private float currentFadeLevel;
 }

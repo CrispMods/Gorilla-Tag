@@ -2,31 +2,31 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-// Token: 0x02000828 RID: 2088
+// Token: 0x02000842 RID: 2114
 public static class ArrayUtils
 {
-	// Token: 0x0600330C RID: 13068 RVA: 0x000F4246 File Offset: 0x000F2446
+	// Token: 0x060033C7 RID: 13255 RVA: 0x000520D7 File Offset: 0x000502D7
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int BinarySearch<T>(this T[] array, T value) where T : IComparable<T>
 	{
 		return Array.BinarySearch<T>(array, 0, array.Length, value);
 	}
 
-	// Token: 0x0600330D RID: 13069 RVA: 0x000F4253 File Offset: 0x000F2453
+	// Token: 0x060033C8 RID: 13256 RVA: 0x000520E4 File Offset: 0x000502E4
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool IsNullOrEmpty<T>(this T[] array)
 	{
 		return array == null || array.Length == 0;
 	}
 
-	// Token: 0x0600330E RID: 13070 RVA: 0x000F425F File Offset: 0x000F245F
+	// Token: 0x060033C9 RID: 13257 RVA: 0x000520F0 File Offset: 0x000502F0
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool IsNullOrEmpty<T>(this List<T> list)
 	{
 		return list == null || list.Count == 0;
 	}
 
-	// Token: 0x0600330F RID: 13071 RVA: 0x000F4270 File Offset: 0x000F2470
+	// Token: 0x060033CA RID: 13258 RVA: 0x0013C0B4 File Offset: 0x0013A2B4
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void Swap<T>(this T[] array, int from, int to)
 	{
@@ -36,7 +36,7 @@ public static class ArrayUtils
 		array[from] = t2;
 	}
 
-	// Token: 0x06003310 RID: 13072 RVA: 0x000F42A8 File Offset: 0x000F24A8
+	// Token: 0x060033CB RID: 13259 RVA: 0x0013C0EC File Offset: 0x0013A2EC
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void Swap<T>(this List<T> list, int from, int to)
 	{
@@ -46,7 +46,7 @@ public static class ArrayUtils
 		list[from] = value2;
 	}
 
-	// Token: 0x06003311 RID: 13073 RVA: 0x000F42E4 File Offset: 0x000F24E4
+	// Token: 0x060033CC RID: 13260 RVA: 0x0013C128 File Offset: 0x0013A328
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static T[] Clone<T>(T[] source)
 	{
@@ -66,7 +66,7 @@ public static class ArrayUtils
 		return array;
 	}
 
-	// Token: 0x06003312 RID: 13074 RVA: 0x000F4326 File Offset: 0x000F2526
+	// Token: 0x060033CD RID: 13261 RVA: 0x00052100 File Offset: 0x00050300
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static List<T> Clone<T>(List<T> source)
 	{
@@ -81,7 +81,7 @@ public static class ArrayUtils
 		return new List<T>(source);
 	}
 
-	// Token: 0x06003313 RID: 13075 RVA: 0x000F4344 File Offset: 0x000F2544
+	// Token: 0x060033CE RID: 13262 RVA: 0x0013C16C File Offset: 0x0013A36C
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int IndexOfRef<T>(this T[] array, T value) where T : class
 	{
@@ -99,7 +99,7 @@ public static class ArrayUtils
 		return -1;
 	}
 
-	// Token: 0x06003314 RID: 13076 RVA: 0x000F4380 File Offset: 0x000F2580
+	// Token: 0x060033CF RID: 13263 RVA: 0x0013C1A8 File Offset: 0x0013A3A8
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int IndexOfRef<T>(this List<T> list, T value) where T : class
 	{

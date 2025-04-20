@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace GorillaNetworking.Store
 {
-	// Token: 0x02000B03 RID: 2819
+	// Token: 0x02000B30 RID: 2864
 	public class StandTypeData
 	{
-		// Token: 0x06004682 RID: 18050 RVA: 0x0014F080 File Offset: 0x0014D280
+		// Token: 0x060047CB RID: 18379 RVA: 0x0018BC48 File Offset: 0x00189E48
 		public StandTypeData(string[] spawnData)
 		{
 			this.departmentID = spawnData[0];
@@ -32,35 +32,35 @@ namespace GorillaNetworking.Store
 			}));
 		}
 
-		// Token: 0x04004809 RID: 18441
+		// Token: 0x040048FE RID: 18686
 		public string departmentID = "";
 
-		// Token: 0x0400480A RID: 18442
+		// Token: 0x040048FF RID: 18687
 		public string displayID = "";
 
-		// Token: 0x0400480B RID: 18443
+		// Token: 0x04004900 RID: 18688
 		public string standID = "";
 
-		// Token: 0x0400480C RID: 18444
+		// Token: 0x04004901 RID: 18689
 		public string bustType = "";
 
-		// Token: 0x0400480D RID: 18445
+		// Token: 0x04004902 RID: 18690
 		public string playFabID = "";
 
-		// Token: 0x02000B04 RID: 2820
+		// Token: 0x02000B31 RID: 2865
 		public enum EStandDataID
 		{
-			// Token: 0x0400480F RID: 18447
+			// Token: 0x04004904 RID: 18692
 			departmentID,
-			// Token: 0x04004810 RID: 18448
+			// Token: 0x04004905 RID: 18693
 			displayID,
-			// Token: 0x04004811 RID: 18449
+			// Token: 0x04004906 RID: 18694
 			standID,
-			// Token: 0x04004812 RID: 18450
+			// Token: 0x04004907 RID: 18695
 			bustType,
-			// Token: 0x04004813 RID: 18451
+			// Token: 0x04004908 RID: 18696
 			playFabID,
-			// Token: 0x04004814 RID: 18452
+			// Token: 0x04004909 RID: 18697
 			Count
 		}
 	}

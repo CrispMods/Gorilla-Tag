@@ -3,28 +3,28 @@ using GorillaExtensions;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000062 RID: 98
+// Token: 0x02000068 RID: 104
 public class CrittersVoiceNoise : MonoBehaviour, IGorillaSliceableSimple
 {
-	// Token: 0x06000270 RID: 624 RVA: 0x0000F854 File Offset: 0x0000DA54
+	// Token: 0x0600029E RID: 670 RVA: 0x000320B1 File Offset: 0x000302B1
 	private void Start()
 	{
 		this.speaker = base.GetComponent<GorillaSpeakerLoudness>();
 	}
 
-	// Token: 0x06000271 RID: 625 RVA: 0x0000F862 File Offset: 0x0000DA62
+	// Token: 0x0600029F RID: 671 RVA: 0x000320BF File Offset: 0x000302BF
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.LateUpdate);
 	}
 
-	// Token: 0x06000272 RID: 626 RVA: 0x0000F86B File Offset: 0x0000DA6B
+	// Token: 0x060002A0 RID: 672 RVA: 0x000320C8 File Offset: 0x000302C8
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.LateUpdate);
 	}
 
-	// Token: 0x06000273 RID: 627 RVA: 0x0000F874 File Offset: 0x0000DA74
+	// Token: 0x060002A1 RID: 673 RVA: 0x0007460C File Offset: 0x0007280C
 	public void SliceUpdate()
 	{
 		float num = 0f;
@@ -43,33 +43,33 @@ public class CrittersVoiceNoise : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06000275 RID: 629 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x060002A3 RID: 675 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x040002E7 RID: 743
+	// Token: 0x04000319 RID: 793
 	[SerializeField]
 	private GorillaSpeakerLoudness speaker;
 
-	// Token: 0x040002E8 RID: 744
+	// Token: 0x0400031A RID: 794
 	[SerializeField]
 	private VRRig rig;
 
-	// Token: 0x040002E9 RID: 745
+	// Token: 0x0400031B RID: 795
 	[SerializeField]
 	private float minTriggerThreshold = 0.01f;
 
-	// Token: 0x040002EA RID: 746
+	// Token: 0x0400031C RID: 796
 	[SerializeField]
 	private float maxTriggerThreshold = 0.3f;
 
-	// Token: 0x040002EB RID: 747
+	// Token: 0x0400031D RID: 797
 	[SerializeField]
 	private float noiseVolumeMin = 1f;
 
-	// Token: 0x040002EC RID: 748
+	// Token: 0x0400031E RID: 798
 	[SerializeField]
 	private float noisVolumeMax = 9f;
 }

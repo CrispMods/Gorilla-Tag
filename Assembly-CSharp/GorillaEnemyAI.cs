@@ -5,12 +5,12 @@ using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.AI;
 
-// Token: 0x0200068A RID: 1674
+// Token: 0x02000654 RID: 1620
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Rigidbody))]
 public class GorillaEnemyAI : MonoBehaviourPun, IPunObservable, IInRoomCallbacks
 {
-	// Token: 0x060029A4 RID: 10660 RVA: 0x000CEA9C File Offset: 0x000CCC9C
+	// Token: 0x06002823 RID: 10275 RVA: 0x0010FD68 File Offset: 0x0010DF68
 	private void Start()
 	{
 		this.agent = base.GetComponent<NavMeshAgent>();
@@ -23,7 +23,7 @@ public class GorillaEnemyAI : MonoBehaviourPun, IPunObservable, IInRoomCallbacks
 		}
 	}
 
-	// Token: 0x060029A5 RID: 10661 RVA: 0x000CEAF4 File Offset: 0x000CCCF4
+	// Token: 0x06002824 RID: 10276 RVA: 0x0010FDC0 File Offset: 0x0010DFC0
 	void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.IsWriting)
@@ -36,7 +36,7 @@ public class GorillaEnemyAI : MonoBehaviourPun, IPunObservable, IInRoomCallbacks
 		this.targetRotation = (Vector3)stream.ReceiveNext();
 	}
 
-	// Token: 0x060029A6 RID: 10662 RVA: 0x000CEB58 File Offset: 0x000CCD58
+	// Token: 0x06002825 RID: 10277 RVA: 0x0010FE24 File Offset: 0x0010E024
 	private void Update()
 	{
 		if (PhotonNetwork.IsMasterClient)
@@ -54,10 +54,10 @@ public class GorillaEnemyAI : MonoBehaviourPun, IPunObservable, IInRoomCallbacks
 		base.transform.eulerAngles = Vector3.Lerp(base.transform.eulerAngles, this.targetRotation, this.lerpValue);
 	}
 
-	// Token: 0x060029A7 RID: 10663 RVA: 0x000CEC48 File Offset: 0x000CCE48
+	// Token: 0x06002826 RID: 10278 RVA: 0x0010FF14 File Offset: 0x0010E114
 	private void FindClosestPlayer()
 	{
-		VRRig[] array = Object.FindObjectsOfType<VRRig>();
+		VRRig[] array = UnityEngine.Object.FindObjectsOfType<VRRig>();
 		VRRig vrrig = null;
 		float num = 100000f;
 		foreach (VRRig vrrig2 in array)
@@ -72,7 +72,7 @@ public class GorillaEnemyAI : MonoBehaviourPun, IPunObservable, IInRoomCallbacks
 		this.playerTransform = vrrig.transform;
 	}
 
-	// Token: 0x060029A8 RID: 10664 RVA: 0x000CECB9 File Offset: 0x000CCEB9
+	// Token: 0x06002827 RID: 10279 RVA: 0x0004B560 File Offset: 0x00049760
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.layer == 19)
@@ -81,7 +81,7 @@ public class GorillaEnemyAI : MonoBehaviourPun, IPunObservable, IInRoomCallbacks
 		}
 	}
 
-	// Token: 0x060029A9 RID: 10665 RVA: 0x000CECD5 File Offset: 0x000CCED5
+	// Token: 0x06002828 RID: 10280 RVA: 0x0004B57C File Offset: 0x0004977C
 	void IInRoomCallbacks.OnMasterClientSwitched(Player newMasterClient)
 	{
 		if (PhotonNetwork.IsMasterClient)
@@ -91,41 +91,41 @@ public class GorillaEnemyAI : MonoBehaviourPun, IPunObservable, IInRoomCallbacks
 		}
 	}
 
-	// Token: 0x060029AA RID: 10666 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002829 RID: 10281 RVA: 0x00030607 File Offset: 0x0002E807
 	void IInRoomCallbacks.OnPlayerEnteredRoom(Player newPlayer)
 	{
 	}
 
-	// Token: 0x060029AB RID: 10667 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600282A RID: 10282 RVA: 0x00030607 File Offset: 0x0002E807
 	void IInRoomCallbacks.OnPlayerLeftRoom(Player otherPlayer)
 	{
 	}
 
-	// Token: 0x060029AC RID: 10668 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600282B RID: 10283 RVA: 0x00030607 File Offset: 0x0002E807
 	void IInRoomCallbacks.OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
 	{
 	}
 
-	// Token: 0x060029AD RID: 10669 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600282C RID: 10284 RVA: 0x00030607 File Offset: 0x0002E807
 	void IInRoomCallbacks.OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
 	{
 	}
 
-	// Token: 0x04002EF9 RID: 12025
+	// Token: 0x04002D69 RID: 11625
 	public Transform playerTransform;
 
-	// Token: 0x04002EFA RID: 12026
+	// Token: 0x04002D6A RID: 11626
 	private NavMeshAgent agent;
 
-	// Token: 0x04002EFB RID: 12027
+	// Token: 0x04002D6B RID: 11627
 	private Rigidbody r;
 
-	// Token: 0x04002EFC RID: 12028
+	// Token: 0x04002D6C RID: 11628
 	private Vector3 targetPosition;
 
-	// Token: 0x04002EFD RID: 12029
+	// Token: 0x04002D6D RID: 11629
 	private Vector3 targetRotation;
 
-	// Token: 0x04002EFE RID: 12030
+	// Token: 0x04002D6E RID: 11630
 	public float lerpValue;
 }

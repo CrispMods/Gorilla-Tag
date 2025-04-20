@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200085E RID: 2142
+// Token: 0x0200087A RID: 2170
 [Serializable]
 public class SinglePool
 {
-	// Token: 0x060033FE RID: 13310 RVA: 0x000F81C8 File Offset: 0x000F63C8
+	// Token: 0x060034CA RID: 13514 RVA: 0x0013F538 File Offset: 0x0013D738
 	private void PrivAllocPooledObjects()
 	{
 		int count = this.inactivePool.Count;
 		for (int i = count; i < count + this.initAmountToPool; i++)
 		{
-			GameObject gameObject = Object.Instantiate<GameObject>(this.objectToPool, this.gameObject.transform, true);
+			GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(this.objectToPool, this.gameObject.transform, true);
 			gameObject.name = this.objectToPool.name + "(PoolIndex=" + i.ToString() + ")";
 			gameObject.SetActive(false);
 			this.inactivePool.Push(gameObject);
@@ -21,7 +21,7 @@ public class SinglePool
 		}
 	}
 
-	// Token: 0x060033FF RID: 13311 RVA: 0x000F825A File Offset: 0x000F645A
+	// Token: 0x060034CB RID: 13515 RVA: 0x00052C8B File Offset: 0x00050E8B
 	public void Initialize(GameObject gameObject_)
 	{
 		this.gameObject = gameObject_;
@@ -31,7 +31,7 @@ public class SinglePool
 		this.PrivAllocPooledObjects();
 	}
 
-	// Token: 0x06003400 RID: 13312 RVA: 0x000F8298 File Offset: 0x000F6498
+	// Token: 0x060034CC RID: 13516 RVA: 0x0013F5CC File Offset: 0x0013D7CC
 	public GameObject Instantiate(bool setActive = true)
 	{
 		if (this.inactivePool.Count == 0)
@@ -46,7 +46,7 @@ public class SinglePool
 		return gameObject;
 	}
 
-	// Token: 0x06003401 RID: 13313 RVA: 0x000F8300 File Offset: 0x000F6500
+	// Token: 0x060034CD RID: 13517 RVA: 0x0013F634 File Offset: 0x0013D834
 	public void Destroy(GameObject obj)
 	{
 		int instanceID = obj.GetInstanceID();
@@ -65,45 +65,45 @@ public class SinglePool
 		this.activePool.Remove(instanceID);
 	}
 
-	// Token: 0x06003402 RID: 13314 RVA: 0x000F8386 File Offset: 0x000F6586
+	// Token: 0x060034CE RID: 13518 RVA: 0x00052CC7 File Offset: 0x00050EC7
 	public int PoolGUID()
 	{
 		return PoolUtils.GameObjHashCode(this.objectToPool);
 	}
 
-	// Token: 0x06003403 RID: 13315 RVA: 0x000F8393 File Offset: 0x000F6593
+	// Token: 0x060034CF RID: 13519 RVA: 0x00052CD4 File Offset: 0x00050ED4
 	public int GetTotalCount()
 	{
 		return this.pooledObjects.Count;
 	}
 
-	// Token: 0x06003404 RID: 13316 RVA: 0x000F83A0 File Offset: 0x000F65A0
+	// Token: 0x060034D0 RID: 13520 RVA: 0x00052CE1 File Offset: 0x00050EE1
 	public int GetActiveCount()
 	{
 		return this.activePool.Count;
 	}
 
-	// Token: 0x06003405 RID: 13317 RVA: 0x000F83AD File Offset: 0x000F65AD
+	// Token: 0x060034D1 RID: 13521 RVA: 0x00052CEE File Offset: 0x00050EEE
 	public int GetInactiveCount()
 	{
 		return this.inactivePool.Count;
 	}
 
-	// Token: 0x0400370F RID: 14095
+	// Token: 0x040037CF RID: 14287
 	public GameObject objectToPool;
 
-	// Token: 0x04003710 RID: 14096
+	// Token: 0x040037D0 RID: 14288
 	public int initAmountToPool = 32;
 
-	// Token: 0x04003711 RID: 14097
+	// Token: 0x040037D1 RID: 14289
 	private HashSet<int> pooledObjects;
 
-	// Token: 0x04003712 RID: 14098
+	// Token: 0x040037D2 RID: 14290
 	private Stack<GameObject> inactivePool;
 
-	// Token: 0x04003713 RID: 14099
+	// Token: 0x040037D3 RID: 14291
 	private Dictionary<int, GameObject> activePool;
 
-	// Token: 0x04003714 RID: 14100
+	// Token: 0x040037D4 RID: 14292
 	private GameObject gameObject;
 }

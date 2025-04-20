@@ -3,16 +3,16 @@ using GorillaExtensions;
 using GorillaLocomotion;
 using UnityEngine;
 
-// Token: 0x020005BD RID: 1469
+// Token: 0x020005CB RID: 1483
 public class FreeHoverboardHandle : HoldableObject
 {
-	// Token: 0x06002479 RID: 9337 RVA: 0x000B5BF8 File Offset: 0x000B3DF8
+	// Token: 0x060024DB RID: 9435 RVA: 0x00048FEE File Offset: 0x000471EE
 	private void Awake()
 	{
 		this.hasParentBoard = (this.parentFreeBoard != null);
 	}
 
-	// Token: 0x0600247A RID: 9338 RVA: 0x000B5C0C File Offset: 0x000B3E0C
+	// Token: 0x060024DC RID: 9436 RVA: 0x0010444C File Offset: 0x0010264C
 	public override void OnHover(InteractionPoint pointHovered, GameObject hoveringHand)
 	{
 		if (!GTPlayer.Instance.isHoverAllowed)
@@ -26,7 +26,7 @@ public class FreeHoverboardHandle : HoldableObject
 		this.noHapticsUntilFrame = Time.frameCount + 1;
 	}
 
-	// Token: 0x0600247B RID: 9339 RVA: 0x000B5C7C File Offset: 0x000B3E7C
+	// Token: 0x060024DD RID: 9437 RVA: 0x001044BC File Offset: 0x001026BC
 	public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 	{
 		if (!GTPlayer.Instance.isHoverAllowed)
@@ -48,40 +48,40 @@ public class FreeHoverboardHandle : HoldableObject
 		GTPlayer.Instance.GrabPersonalHoverboard(flag, pos2, rot2, VRRig.LocalRig.playerColor);
 	}
 
-	// Token: 0x0600247C RID: 9340 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x060024DE RID: 9438 RVA: 0x00030607 File Offset: 0x0002E807
 	public override void DropItemCleanup()
 	{
 	}
 
-	// Token: 0x0600247D RID: 9341 RVA: 0x00002628 File Offset: 0x00000828
+	// Token: 0x060024DF RID: 9439 RVA: 0x000306DC File Offset: 0x0002E8DC
 	public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 	{
 		throw new NotImplementedException();
 	}
 
-	// Token: 0x040028A0 RID: 10400
+	// Token: 0x040028FF RID: 10495
 	[SerializeField]
 	private FreeHoverboardInstance parentFreeBoard;
 
-	// Token: 0x040028A1 RID: 10401
+	// Token: 0x04002900 RID: 10496
 	private bool hasParentBoard;
 
-	// Token: 0x040028A2 RID: 10402
+	// Token: 0x04002901 RID: 10497
 	[SerializeField]
 	private Vector3 defaultHoldPosLeft;
 
-	// Token: 0x040028A3 RID: 10403
+	// Token: 0x04002902 RID: 10498
 	[SerializeField]
 	private Vector3 defaultHoldPosRight;
 
-	// Token: 0x040028A4 RID: 10404
+	// Token: 0x04002903 RID: 10499
 	[SerializeField]
 	private Quaternion defaultHoldAngleLeft;
 
-	// Token: 0x040028A5 RID: 10405
+	// Token: 0x04002904 RID: 10500
 	[SerializeField]
 	private Quaternion defaultHoldAngleRight;
 
-	// Token: 0x040028A6 RID: 10406
+	// Token: 0x04002905 RID: 10501
 	private int noHapticsUntilFrame = -1;
 }

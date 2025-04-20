@@ -3,12 +3,12 @@ using System.Runtime.CompilerServices;
 
 namespace Fusion.CodeGen
 {
-	// Token: 0x02000D21 RID: 3361
+	// Token: 0x02000D52 RID: 3410
 	[WeaverGenerated]
 	[PreserveInPlugin]
 	internal struct ReaderWriter@GorillaPaintbrawlManager__PaintbrawlStatus : IElementReaderWriter<GorillaPaintbrawlManager.PaintbrawlStatus>
 	{
-		// Token: 0x06005404 RID: 21508 RVA: 0x0019C660 File Offset: 0x0019A860
+		// Token: 0x06005566 RID: 21862 RVA: 0x00067605 File Offset: 0x00065805
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -17,7 +17,7 @@ namespace Fusion.CodeGen
 			return *(GorillaPaintbrawlManager.PaintbrawlStatus*)(data + index * 4);
 		}
 
-		// Token: 0x06005405 RID: 21509 RVA: 0x0019C1CC File Offset: 0x0019A3CC
+		// Token: 0x06005567 RID: 21863 RVA: 0x000673A8 File Offset: 0x000655A8
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -26,7 +26,7 @@ namespace Fusion.CodeGen
 			return ref *(GorillaPaintbrawlManager.PaintbrawlStatus*)(data + index * 4);
 		}
 
-		// Token: 0x06005406 RID: 21510 RVA: 0x0019C670 File Offset: 0x0019A870
+		// Token: 0x06005568 RID: 21864 RVA: 0x00067615 File Offset: 0x00065815
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -35,7 +35,7 @@ namespace Fusion.CodeGen
 			*(GorillaPaintbrawlManager.PaintbrawlStatus*)(data + index * 4) = val;
 		}
 
-		// Token: 0x06005407 RID: 21511 RVA: 0x000444E2 File Offset: 0x000426E2
+		// Token: 0x06005569 RID: 21865 RVA: 0x00039846 File Offset: 0x00037A46
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -44,7 +44,7 @@ namespace Fusion.CodeGen
 			return 1;
 		}
 
-		// Token: 0x06005408 RID: 21512 RVA: 0x0019C684 File Offset: 0x0019A884
+		// Token: 0x0600556A RID: 21866 RVA: 0x001D142C File Offset: 0x001CF62C
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[PreserveInPlugin]
 		[WeaverGenerated]
@@ -53,7 +53,7 @@ namespace Fusion.CodeGen
 			return val.GetHashCode();
 		}
 
-		// Token: 0x06005409 RID: 21513 RVA: 0x0019C6A0 File Offset: 0x0019A8A0
+		// Token: 0x0600556B RID: 21867 RVA: 0x001D1448 File Offset: 0x001CF648
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		[WeaverGenerated]
 		public static IElementReaderWriter<GorillaPaintbrawlManager.PaintbrawlStatus> GetInstance()
@@ -65,7 +65,7 @@ namespace Fusion.CodeGen
 			return ReaderWriter@GorillaPaintbrawlManager__PaintbrawlStatus.Instance;
 		}
 
-		// Token: 0x04005715 RID: 22293
+		// Token: 0x04005821 RID: 22561
 		[WeaverGenerated]
 		public static IElementReaderWriter<GorillaPaintbrawlManager.PaintbrawlStatus> Instance;
 	}

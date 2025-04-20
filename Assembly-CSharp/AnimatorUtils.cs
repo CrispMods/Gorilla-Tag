@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000826 RID: 2086
+// Token: 0x02000840 RID: 2112
 public static class AnimatorUtils
 {
-	// Token: 0x06003304 RID: 13060 RVA: 0x000F41FC File Offset: 0x000F23FC
+	// Token: 0x060033BF RID: 13247 RVA: 0x0005208D File Offset: 0x0005028D
 	public static void ResetToEntryState(this Animator a)
 	{
 		if (a == null)

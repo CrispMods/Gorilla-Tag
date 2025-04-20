@@ -1,28 +1,28 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000204 RID: 516
+// Token: 0x0200020F RID: 527
 public static class UnityLayerExtensions
 {
-	// Token: 0x06000C15 RID: 3093 RVA: 0x0003FF6A File Offset: 0x0003E16A
+	// Token: 0x06000C60 RID: 3168 RVA: 0x00038A1C File Offset: 0x00036C1C
 	public static int ToLayerMask(this UnityLayer self)
 	{
 		return 1 << (int)self;
 	}
 
-	// Token: 0x06000C16 RID: 3094 RVA: 0x0003FF72 File Offset: 0x0003E172
+	// Token: 0x06000C61 RID: 3169 RVA: 0x00038A24 File Offset: 0x00036C24
 	public static int ToLayerIndex(this UnityLayer self)
 	{
 		return (int)self;
 	}
 
-	// Token: 0x06000C17 RID: 3095 RVA: 0x0003FF75 File Offset: 0x0003E175
+	// Token: 0x06000C62 RID: 3170 RVA: 0x00038A27 File Offset: 0x00036C27
 	public static bool IsOnLayer(this GameObject obj, UnityLayer layer)
 	{
 		return obj.layer == (int)layer;
 	}
 
-	// Token: 0x06000C18 RID: 3096 RVA: 0x0003FF80 File Offset: 0x0003E180
+	// Token: 0x06000C63 RID: 3171 RVA: 0x00038A32 File Offset: 0x00036C32
 	public static void SetLayer(this GameObject obj, UnityLayer layer)
 	{
 		obj.layer = (int)layer;

@@ -6,54 +6,54 @@ using Fusion.CodeGen;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020001E1 RID: 481
+// Token: 0x020001EC RID: 492
 [NetworkBehaviourWeaved(2)]
 public class RandomTimedSeedManager : NetworkComponent, ITickSystemTick
 {
-	// Token: 0x1700011C RID: 284
-	// (get) Token: 0x06000B3E RID: 2878 RVA: 0x0003C94A File Offset: 0x0003AB4A
-	// (set) Token: 0x06000B3F RID: 2879 RVA: 0x0003C951 File Offset: 0x0003AB51
+	// Token: 0x17000123 RID: 291
+	// (get) Token: 0x06000B8A RID: 2954 RVA: 0x0003824D File Offset: 0x0003644D
+	// (set) Token: 0x06000B8B RID: 2955 RVA: 0x00038254 File Offset: 0x00036454
 	public static RandomTimedSeedManager instance { get; private set; }
 
-	// Token: 0x1700011D RID: 285
-	// (get) Token: 0x06000B40 RID: 2880 RVA: 0x0003C959 File Offset: 0x0003AB59
-	// (set) Token: 0x06000B41 RID: 2881 RVA: 0x0003C961 File Offset: 0x0003AB61
+	// Token: 0x17000124 RID: 292
+	// (get) Token: 0x06000B8C RID: 2956 RVA: 0x0003825C File Offset: 0x0003645C
+	// (set) Token: 0x06000B8D RID: 2957 RVA: 0x00038264 File Offset: 0x00036464
 	public int seed { get; private set; }
 
-	// Token: 0x1700011E RID: 286
-	// (get) Token: 0x06000B42 RID: 2882 RVA: 0x0003C96A File Offset: 0x0003AB6A
-	// (set) Token: 0x06000B43 RID: 2883 RVA: 0x0003C972 File Offset: 0x0003AB72
+	// Token: 0x17000125 RID: 293
+	// (get) Token: 0x06000B8E RID: 2958 RVA: 0x0003826D File Offset: 0x0003646D
+	// (set) Token: 0x06000B8F RID: 2959 RVA: 0x00038275 File Offset: 0x00036475
 	public float currentSyncTime { get; private set; }
 
-	// Token: 0x06000B44 RID: 2884 RVA: 0x0003C97B File Offset: 0x0003AB7B
+	// Token: 0x06000B90 RID: 2960 RVA: 0x0003827E File Offset: 0x0003647E
 	protected override void Awake()
 	{
 		base.Awake();
 		RandomTimedSeedManager.instance = this;
-		this.seed = Random.Range(-1000000, -1000000);
+		this.seed = UnityEngine.Random.Range(-1000000, -1000000);
 		this.idealSyncTime = 0f;
 		this.currentSyncTime = 0f;
 		TickSystem<object>.AddTickCallback(this);
 	}
 
-	// Token: 0x06000B45 RID: 2885 RVA: 0x0003C9BA File Offset: 0x0003ABBA
+	// Token: 0x06000B91 RID: 2961 RVA: 0x000382BD File Offset: 0x000364BD
 	public void AddCallbackOnSeedChanged(Action callback)
 	{
 		this.callbacksOnSeedChanged.Add(callback);
 	}
 
-	// Token: 0x06000B46 RID: 2886 RVA: 0x0003C9C8 File Offset: 0x0003ABC8
+	// Token: 0x06000B92 RID: 2962 RVA: 0x000382CB File Offset: 0x000364CB
 	public void RemoveCallbackOnSeedChanged(Action callback)
 	{
 		this.callbacksOnSeedChanged.Remove(callback);
 	}
 
-	// Token: 0x1700011F RID: 287
-	// (get) Token: 0x06000B47 RID: 2887 RVA: 0x0003C9D7 File Offset: 0x0003ABD7
-	// (set) Token: 0x06000B48 RID: 2888 RVA: 0x0003C9DF File Offset: 0x0003ABDF
+	// Token: 0x17000126 RID: 294
+	// (get) Token: 0x06000B93 RID: 2963 RVA: 0x000382DA File Offset: 0x000364DA
+	// (set) Token: 0x06000B94 RID: 2964 RVA: 0x000382E2 File Offset: 0x000364E2
 	bool ITickSystemTick.TickRunning { get; set; }
 
-	// Token: 0x06000B49 RID: 2889 RVA: 0x0003C9E8 File Offset: 0x0003ABE8
+	// Token: 0x06000B95 RID: 2965 RVA: 0x0009B8D0 File Offset: 0x00099AD0
 	void ITickSystemTick.Tick()
 	{
 		this.currentSyncTime += Time.deltaTime;
@@ -69,9 +69,9 @@ public class RandomTimedSeedManager : NetworkComponent, ITickSystemTick
 		}
 	}
 
-	// Token: 0x17000120 RID: 288
-	// (get) Token: 0x06000B4A RID: 2890 RVA: 0x0003CA73 File Offset: 0x0003AC73
-	// (set) Token: 0x06000B4B RID: 2891 RVA: 0x0003CA9D File Offset: 0x0003AC9D
+	// Token: 0x17000127 RID: 295
+	// (get) Token: 0x06000B96 RID: 2966 RVA: 0x000382EB File Offset: 0x000364EB
+	// (set) Token: 0x06000B97 RID: 2967 RVA: 0x00038315 File Offset: 0x00036515
 	[Networked]
 	[NetworkedWeaved(0, 2)]
 	private unsafe RandomTimedSeedManager.RandomTimedSeedManagerData Data
@@ -94,19 +94,19 @@ public class RandomTimedSeedManager : NetworkComponent, ITickSystemTick
 		}
 	}
 
-	// Token: 0x06000B4C RID: 2892 RVA: 0x0003CAC8 File Offset: 0x0003ACC8
+	// Token: 0x06000B98 RID: 2968 RVA: 0x00038340 File Offset: 0x00036540
 	public override void WriteDataFusion()
 	{
 		this.Data = new RandomTimedSeedManager.RandomTimedSeedManagerData(this.seed, this.currentSyncTime);
 	}
 
-	// Token: 0x06000B4D RID: 2893 RVA: 0x0003CAE4 File Offset: 0x0003ACE4
+	// Token: 0x06000B99 RID: 2969 RVA: 0x0009B95C File Offset: 0x00099B5C
 	public override void ReadDataFusion()
 	{
 		this.ReadDataShared(this.Data.seed, this.Data.currentSyncTime);
 	}
 
-	// Token: 0x06000B4E RID: 2894 RVA: 0x0003CB13 File Offset: 0x0003AD13
+	// Token: 0x06000B9A RID: 2970 RVA: 0x00038359 File Offset: 0x00036559
 	protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (info.Sender != PhotonNetwork.MasterClient)
@@ -117,7 +117,7 @@ public class RandomTimedSeedManager : NetworkComponent, ITickSystemTick
 		stream.SendNext(this.currentSyncTime);
 	}
 
-	// Token: 0x06000B4F RID: 2895 RVA: 0x0003CB48 File Offset: 0x0003AD48
+	// Token: 0x06000B9B RID: 2971 RVA: 0x0009B98C File Offset: 0x00099B8C
 	protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (info.Sender != PhotonNetwork.MasterClient)
@@ -129,7 +129,7 @@ public class RandomTimedSeedManager : NetworkComponent, ITickSystemTick
 		this.ReadDataShared(seedVal, testTime);
 	}
 
-	// Token: 0x06000B50 RID: 2896 RVA: 0x0003CB84 File Offset: 0x0003AD84
+	// Token: 0x06000B9C RID: 2972 RVA: 0x0009B9C8 File Offset: 0x00099BC8
 	private void ReadDataShared(int seedVal, float testTime)
 	{
 		this.seed = seedVal;
@@ -152,7 +152,7 @@ public class RandomTimedSeedManager : NetworkComponent, ITickSystemTick
 		}
 	}
 
-	// Token: 0x06000B52 RID: 2898 RVA: 0x0003CC5B File Offset: 0x0003AE5B
+	// Token: 0x06000B9E RID: 2974 RVA: 0x0003839E File Offset: 0x0003659E
 	[WeaverGenerated]
 	public override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -160,7 +160,7 @@ public class RandomTimedSeedManager : NetworkComponent, ITickSystemTick
 		this.Data = this._Data;
 	}
 
-	// Token: 0x06000B53 RID: 2899 RVA: 0x0003CC73 File Offset: 0x0003AE73
+	// Token: 0x06000B9F RID: 2975 RVA: 0x000383B6 File Offset: 0x000365B6
 	[WeaverGenerated]
 	public override void CopyStateToBackingFields()
 	{
@@ -168,38 +168,38 @@ public class RandomTimedSeedManager : NetworkComponent, ITickSystemTick
 		this._Data = this.Data;
 	}
 
-	// Token: 0x04000DA8 RID: 3496
+	// Token: 0x04000DEE RID: 3566
 	private List<Action> callbacksOnSeedChanged = new List<Action>();
 
-	// Token: 0x04000DAA RID: 3498
+	// Token: 0x04000DF0 RID: 3568
 	private float idealSyncTime;
 
-	// Token: 0x04000DAC RID: 3500
+	// Token: 0x04000DF2 RID: 3570
 	private int cachedSeed;
 
-	// Token: 0x04000DAD RID: 3501
+	// Token: 0x04000DF3 RID: 3571
 	private const int SeedMin = -1000000;
 
-	// Token: 0x04000DAE RID: 3502
+	// Token: 0x04000DF4 RID: 3572
 	private const int SeedMax = -1000000;
 
-	// Token: 0x04000DAF RID: 3503
+	// Token: 0x04000DF5 RID: 3573
 	private const float MaxSyncTime = 1E+09f;
 
-	// Token: 0x04000DB1 RID: 3505
+	// Token: 0x04000DF7 RID: 3575
 	[WeaverGenerated]
 	[DefaultForProperty("Data", 0, 2)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
 	private RandomTimedSeedManager.RandomTimedSeedManagerData _Data;
 
-	// Token: 0x020001E2 RID: 482
+	// Token: 0x020001ED RID: 493
 	[NetworkStructWeaved(2)]
 	[StructLayout(LayoutKind.Explicit, Size = 8)]
 	private struct RandomTimedSeedManagerData : INetworkStruct
 	{
-		// Token: 0x17000121 RID: 289
-		// (get) Token: 0x06000B54 RID: 2900 RVA: 0x0003CC87 File Offset: 0x0003AE87
-		// (set) Token: 0x06000B55 RID: 2901 RVA: 0x0003CC95 File Offset: 0x0003AE95
+		// Token: 0x17000128 RID: 296
+		// (get) Token: 0x06000BA0 RID: 2976 RVA: 0x000383CA File Offset: 0x000365CA
+		// (set) Token: 0x06000BA1 RID: 2977 RVA: 0x000383D8 File Offset: 0x000365D8
 		[Networked]
 		public unsafe int seed
 		{
@@ -213,9 +213,9 @@ public class RandomTimedSeedManager : NetworkComponent, ITickSystemTick
 			}
 		}
 
-		// Token: 0x17000122 RID: 290
-		// (get) Token: 0x06000B56 RID: 2902 RVA: 0x0003CCA4 File Offset: 0x0003AEA4
-		// (set) Token: 0x06000B57 RID: 2903 RVA: 0x0003CCB2 File Offset: 0x0003AEB2
+		// Token: 0x17000129 RID: 297
+		// (get) Token: 0x06000BA2 RID: 2978 RVA: 0x000383E7 File Offset: 0x000365E7
+		// (set) Token: 0x06000BA3 RID: 2979 RVA: 0x000383F5 File Offset: 0x000365F5
 		[Networked]
 		public unsafe float currentSyncTime
 		{
@@ -229,21 +229,21 @@ public class RandomTimedSeedManager : NetworkComponent, ITickSystemTick
 			}
 		}
 
-		// Token: 0x06000B58 RID: 2904 RVA: 0x0003CCC1 File Offset: 0x0003AEC1
+		// Token: 0x06000BA4 RID: 2980 RVA: 0x00038404 File Offset: 0x00036604
 		public RandomTimedSeedManagerData(int seed, float currentSyncTime)
 		{
 			this.seed = seed;
 			this.currentSyncTime = currentSyncTime;
 		}
 
-		// Token: 0x04000DB2 RID: 3506
+		// Token: 0x04000DF8 RID: 3576
 		[FixedBufferProperty(typeof(int), typeof(UnityValueSurrogate@ReaderWriter@System_Int32), 0, order = -2147483647)]
 		[WeaverGenerated]
 		[SerializeField]
 		[FieldOffset(0)]
 		private FixedStorage@1 _seed;
 
-		// Token: 0x04000DB3 RID: 3507
+		// Token: 0x04000DF9 RID: 3577
 		[FixedBufferProperty(typeof(float), typeof(UnityValueSurrogate@ReaderWriter@System_Single), 0, order = -2147483647)]
 		[WeaverGenerated]
 		[SerializeField]

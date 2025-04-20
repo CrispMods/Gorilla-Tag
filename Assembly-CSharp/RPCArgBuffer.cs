@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-// Token: 0x02000279 RID: 633
+// Token: 0x02000284 RID: 644
 public struct RPCArgBuffer<T> where T : struct
 {
-	// Token: 0x06000EDA RID: 3802 RVA: 0x0004B9F2 File Offset: 0x00049BF2
+	// Token: 0x06000F25 RID: 3877 RVA: 0x0003A9E7 File Offset: 0x00038BE7
 	public RPCArgBuffer(T argStruct)
 	{
 		this.DataLength = Marshal.SizeOf(typeof(T));
@@ -12,12 +12,12 @@ public struct RPCArgBuffer<T> where T : struct
 		this.Args = argStruct;
 	}
 
-	// Token: 0x04001196 RID: 4502
+	// Token: 0x040011DC RID: 4572
 	public T Args;
 
-	// Token: 0x04001197 RID: 4503
+	// Token: 0x040011DD RID: 4573
 	public byte[] Data;
 
-	// Token: 0x04001198 RID: 4504
+	// Token: 0x040011DE RID: 4574
 	public int DataLength;
 }

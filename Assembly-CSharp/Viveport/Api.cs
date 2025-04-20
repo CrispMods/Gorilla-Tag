@@ -11,10 +11,10 @@ using Viveport.Internal;
 
 namespace Viveport
 {
-	// Token: 0x02000905 RID: 2309
+	// Token: 0x02000922 RID: 2338
 	public class Api
 	{
-		// Token: 0x06003767 RID: 14183 RVA: 0x001053EC File Offset: 0x001035EC
+		// Token: 0x06003838 RID: 14392 RVA: 0x00149FFC File Offset: 0x001481FC
 		public static void GetLicense(Api.LicenseChecker checker, string appId, string appKey)
 		{
 			if (checker == null || string.IsNullOrEmpty(appId) || string.IsNullOrEmpty(appKey))
@@ -32,14 +32,14 @@ namespace Viveport
 			Api.GetLicense(new GetLicenseCallback(Api.GetLicenseHandler), Api._appId, Api._appKey);
 		}
 
-		// Token: 0x06003768 RID: 14184 RVA: 0x0010546D File Offset: 0x0010366D
+		// Token: 0x06003839 RID: 14393 RVA: 0x00055224 File Offset: 0x00053424
 		[MonoPInvokeCallback(typeof(StatusCallback))]
 		private static void InitIl2cppCallback(int errorCode)
 		{
 			Api.initIl2cppCallback(errorCode);
 		}
 
-		// Token: 0x06003769 RID: 14185 RVA: 0x0010547C File Offset: 0x0010367C
+		// Token: 0x0600383A RID: 14394 RVA: 0x0014A080 File Offset: 0x00148280
 		public static int Init(StatusCallback callback, string appId)
 		{
 			if (callback == null || string.IsNullOrEmpty(appId))
@@ -55,14 +55,14 @@ namespace Viveport
 			return Api.Init(new StatusCallback(Api.InitIl2cppCallback), appId);
 		}
 
-		// Token: 0x0600376A RID: 14186 RVA: 0x001054F3 File Offset: 0x001036F3
+		// Token: 0x0600383B RID: 14395 RVA: 0x00055231 File Offset: 0x00053431
 		[MonoPInvokeCallback(typeof(StatusCallback))]
 		private static void ShutdownIl2cppCallback(int errorCode)
 		{
 			Api.shutdownIl2cppCallback(errorCode);
 		}
 
-		// Token: 0x0600376B RID: 14187 RVA: 0x00105500 File Offset: 0x00103700
+		// Token: 0x0600383C RID: 14396 RVA: 0x0014A0F8 File Offset: 0x001482F8
 		public static int Shutdown(StatusCallback callback)
 		{
 			if (callback == null)
@@ -78,7 +78,7 @@ namespace Viveport
 			return Api.Shutdown(new StatusCallback(Api.ShutdownIl2cppCallback));
 		}
 
-		// Token: 0x0600376C RID: 14188 RVA: 0x00105570 File Offset: 0x00103770
+		// Token: 0x0600383D RID: 14397 RVA: 0x0014A168 File Offset: 0x00148368
 		public static string Version()
 		{
 			string text = "";
@@ -100,14 +100,14 @@ namespace Viveport
 			return "C# version: " + Api.VERSION + ", Native version: " + text;
 		}
 
-		// Token: 0x0600376D RID: 14189 RVA: 0x001055E4 File Offset: 0x001037E4
+		// Token: 0x0600383E RID: 14398 RVA: 0x0005523E File Offset: 0x0005343E
 		[MonoPInvokeCallback(typeof(QueryRuntimeModeCallback))]
 		private static void QueryRuntimeModeIl2cppCallback(int errorCode, int mode)
 		{
 			Api.queryRuntimeModeIl2cppCallback(errorCode, mode);
 		}
 
-		// Token: 0x0600376E RID: 14190 RVA: 0x001055F4 File Offset: 0x001037F4
+		// Token: 0x0600383F RID: 14399 RVA: 0x0014A1DC File Offset: 0x001483DC
 		public static void QueryRuntimeMode(QueryRuntimeModeCallback callback)
 		{
 			if (callback == null)
@@ -124,7 +124,7 @@ namespace Viveport
 			Api.QueryRuntimeMode(new QueryRuntimeModeCallback(Api.QueryRuntimeModeIl2cppCallback));
 		}
 
-		// Token: 0x0600376F RID: 14191 RVA: 0x00105664 File Offset: 0x00103864
+		// Token: 0x06003840 RID: 14400 RVA: 0x0014A24C File Offset: 0x0014844C
 		[MonoPInvokeCallback(typeof(GetLicenseCallback))]
 		private static void GetLicenseHandler([MarshalAs(UnmanagedType.LPStr)] string message, [MarshalAs(UnmanagedType.LPStr)] string signature)
 		{
@@ -218,7 +218,7 @@ namespace Viveport
 			}
 		}
 
-		// Token: 0x06003770 RID: 14192 RVA: 0x001058F0 File Offset: 0x00103AF0
+		// Token: 0x06003841 RID: 14401 RVA: 0x0014A4D8 File Offset: 0x001486D8
 		private static bool VerifyMessage(string appId, string appKey, string message, string signature)
 		{
 			try
@@ -236,46 +236,46 @@ namespace Viveport
 			return false;
 		}
 
-		// Token: 0x04003A52 RID: 14930
+		// Token: 0x04003B17 RID: 15127
 		internal static readonly List<GetLicenseCallback> InternalGetLicenseCallbacks = new List<GetLicenseCallback>();
 
-		// Token: 0x04003A53 RID: 14931
+		// Token: 0x04003B18 RID: 15128
 		internal static readonly List<StatusCallback> InternalStatusCallbacks = new List<StatusCallback>();
 
-		// Token: 0x04003A54 RID: 14932
+		// Token: 0x04003B19 RID: 15129
 		internal static readonly List<QueryRuntimeModeCallback> InternalQueryRunTimeCallbacks = new List<QueryRuntimeModeCallback>();
 
-		// Token: 0x04003A55 RID: 14933
+		// Token: 0x04003B1A RID: 15130
 		internal static readonly List<StatusCallback2> InternalStatusCallback2s = new List<StatusCallback2>();
 
-		// Token: 0x04003A56 RID: 14934
+		// Token: 0x04003B1B RID: 15131
 		internal static readonly List<Api.LicenseChecker> InternalLicenseCheckers = new List<Api.LicenseChecker>();
 
-		// Token: 0x04003A57 RID: 14935
+		// Token: 0x04003B1C RID: 15132
 		private static StatusCallback initIl2cppCallback;
 
-		// Token: 0x04003A58 RID: 14936
+		// Token: 0x04003B1D RID: 15133
 		private static StatusCallback shutdownIl2cppCallback;
 
-		// Token: 0x04003A59 RID: 14937
+		// Token: 0x04003B1E RID: 15134
 		private static QueryRuntimeModeCallback queryRuntimeModeIl2cppCallback;
 
-		// Token: 0x04003A5A RID: 14938
+		// Token: 0x04003B1F RID: 15135
 		private static readonly string VERSION = "1.7.2.30";
 
-		// Token: 0x04003A5B RID: 14939
+		// Token: 0x04003B20 RID: 15136
 		private static string _appId = "";
 
-		// Token: 0x04003A5C RID: 14940
+		// Token: 0x04003B21 RID: 15137
 		private static string _appKey = "";
 
-		// Token: 0x02000906 RID: 2310
+		// Token: 0x02000923 RID: 2339
 		public abstract class LicenseChecker
 		{
-			// Token: 0x06003773 RID: 14195
+			// Token: 0x06003844 RID: 14404
 			public abstract void OnSuccess(long issueTime, long expirationTime, int latestVersion, bool updateRequired);
 
-			// Token: 0x06003774 RID: 14196
+			// Token: 0x06003845 RID: 14405
 			public abstract void OnFailure(int errorCode, string errorMessage);
 		}
 	}

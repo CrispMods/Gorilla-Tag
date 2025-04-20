@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000A0 RID: 160
+// Token: 0x020000AA RID: 170
 public class MetroBlimp : MonoBehaviour
 {
-	// Token: 0x06000430 RID: 1072 RVA: 0x0001940C File Offset: 0x0001760C
+	// Token: 0x0600046C RID: 1132 RVA: 0x00033538 File Offset: 0x00031738
 	private void Awake()
 	{
 		this._startLocalHeight = base.transform.localPosition.y;
 	}
 
-	// Token: 0x06000431 RID: 1073 RVA: 0x00019424 File Offset: 0x00017624
+	// Token: 0x0600046D RID: 1133 RVA: 0x0007CF6C File Offset: 0x0007B16C
 	public void Tick()
 	{
 		bool flag = Mathf.Sin(Time.time * 2f) * 0.5f + 0.5f < 0.0001f;
@@ -50,13 +50,13 @@ public class MetroBlimp : MonoBehaviour
 		base.transform.localPosition = Vector3.Slerp(localPosition, vector, 0.5f);
 	}
 
-	// Token: 0x06000432 RID: 1074 RVA: 0x00019553 File Offset: 0x00017753
+	// Token: 0x0600046E RID: 1134 RVA: 0x00033550 File Offset: 0x00031750
 	private static bool IsPlayerHand(Collider c)
 	{
 		return c.gameObject.IsOnLayer(UnityLayer.GorillaHand);
 	}
 
-	// Token: 0x06000433 RID: 1075 RVA: 0x00019562 File Offset: 0x00017762
+	// Token: 0x0600046F RID: 1135 RVA: 0x0003355F File Offset: 0x0003175F
 	private void OnTriggerEnter(Collider other)
 	{
 		if (MetroBlimp.IsPlayerHand(other))
@@ -65,7 +65,7 @@ public class MetroBlimp : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000434 RID: 1076 RVA: 0x0001957E File Offset: 0x0001777E
+	// Token: 0x06000470 RID: 1136 RVA: 0x0003357B File Offset: 0x0003177B
 	private void OnTriggerExit(Collider other)
 	{
 		if (MetroBlimp.IsPlayerHand(other))
@@ -74,52 +74,52 @@ public class MetroBlimp : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040004D1 RID: 1233
+	// Token: 0x04000511 RID: 1297
 	public MetroSpotlight spotLightLeft;
 
-	// Token: 0x040004D2 RID: 1234
+	// Token: 0x04000512 RID: 1298
 	public MetroSpotlight spotLightRight;
 
-	// Token: 0x040004D3 RID: 1235
+	// Token: 0x04000513 RID: 1299
 	[Space]
 	public BoxCollider topCollider;
 
-	// Token: 0x040004D4 RID: 1236
+	// Token: 0x04000514 RID: 1300
 	public Material blimpMaterial;
 
-	// Token: 0x040004D5 RID: 1237
+	// Token: 0x04000515 RID: 1301
 	public Renderer blimpRenderer;
 
-	// Token: 0x040004D6 RID: 1238
+	// Token: 0x04000516 RID: 1302
 	[Space]
 	public float ascendSpeed = 1f;
 
-	// Token: 0x040004D7 RID: 1239
+	// Token: 0x04000517 RID: 1303
 	public float descendSpeed = 0.5f;
 
-	// Token: 0x040004D8 RID: 1240
+	// Token: 0x04000518 RID: 1304
 	public float descendOffset = -24.1f;
 
-	// Token: 0x040004D9 RID: 1241
+	// Token: 0x04000519 RID: 1305
 	public float descendReactionTime = 3f;
 
-	// Token: 0x040004DA RID: 1242
+	// Token: 0x0400051A RID: 1306
 	[Space]
 	[NonSerialized]
 	private float _startLocalHeight;
 
-	// Token: 0x040004DB RID: 1243
+	// Token: 0x0400051B RID: 1307
 	[NonSerialized]
 	private float _topStayTime;
 
-	// Token: 0x040004DC RID: 1244
+	// Token: 0x0400051C RID: 1308
 	[NonSerialized]
 	private float _numHandsOnBlimp;
 
-	// Token: 0x040004DD RID: 1245
+	// Token: 0x0400051D RID: 1309
 	[NonSerialized]
 	private bool _lowering;
 
-	// Token: 0x040004DE RID: 1246
+	// Token: 0x0400051E RID: 1310
 	private const string _INNER_GLOW = "_INNER_GLOW";
 }

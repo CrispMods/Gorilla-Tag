@@ -3,16 +3,16 @@ using System.Collections;
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x020003C9 RID: 969
+// Token: 0x020003D4 RID: 980
 [Obsolete("Replaced with bundlebutton")]
 public class EarlyAccessButton : GorillaPressableButton
 {
-	// Token: 0x0600174D RID: 5965 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600179A RID: 6042 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Awake()
 	{
 	}
 
-	// Token: 0x0600174E RID: 5966 RVA: 0x00071E84 File Offset: 0x00070084
+	// Token: 0x0600179B RID: 6043 RVA: 0x000C8F94 File Offset: 0x000C7194
 	public void Update()
 	{
 		if (NetworkSystem.Instance != null && NetworkSystem.Instance.WrongVersion)
@@ -24,7 +24,7 @@ public class EarlyAccessButton : GorillaPressableButton
 		}
 	}
 
-	// Token: 0x0600174F RID: 5967 RVA: 0x00071EDE File Offset: 0x000700DE
+	// Token: 0x0600179C RID: 6044 RVA: 0x0003FF8F File Offset: 0x0003E18F
 	public override void ButtonActivation()
 	{
 		base.ButtonActivation();
@@ -32,7 +32,7 @@ public class EarlyAccessButton : GorillaPressableButton
 		base.StartCoroutine(this.ButtonColorUpdate());
 	}
 
-	// Token: 0x06001750 RID: 5968 RVA: 0x00071EFF File Offset: 0x000700FF
+	// Token: 0x0600179D RID: 6045 RVA: 0x0003FFB0 File Offset: 0x0003E1B0
 	public void AlreadyOwn()
 	{
 		base.enabled = false;
@@ -41,7 +41,7 @@ public class EarlyAccessButton : GorillaPressableButton
 		this.myText.text = "YOU OWN THE BUNDLE ALREADY! THANK YOU!";
 	}
 
-	// Token: 0x06001751 RID: 5969 RVA: 0x00071F35 File Offset: 0x00070135
+	// Token: 0x0600179E RID: 6046 RVA: 0x0003FFE6 File Offset: 0x0003E1E6
 	private IEnumerator ButtonColorUpdate()
 	{
 		this.buttonRenderer.material = this.pressedMaterial;

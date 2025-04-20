@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000672 RID: 1650
+// Token: 0x02000651 RID: 1617
 public class GorillaTriggerColliderHandIndicator : MonoBehaviour
 {
-	// Token: 0x060028E6 RID: 10470 RVA: 0x000C8F50 File Offset: 0x000C7150
+	// Token: 0x06002811 RID: 10257 RVA: 0x0004B41F File Offset: 0x0004961F
 	private void Update()
 	{
 		this.currentVelocity = (base.transform.position - this.lastPosition) / Time.deltaTime;
 		this.lastPosition = base.transform.position;
 	}
 
-	// Token: 0x060028E7 RID: 10471 RVA: 0x000C8F89 File Offset: 0x000C7189
+	// Token: 0x06002812 RID: 10258 RVA: 0x0004B458 File Offset: 0x00049658
 	private void OnTriggerEnter(Collider other)
 	{
 		if (this.throwableController != null)
@@ -20,15 +20,15 @@ public class GorillaTriggerColliderHandIndicator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002DF4 RID: 11764
+	// Token: 0x04002D5A RID: 11610
 	public Vector3 currentVelocity;
 
-	// Token: 0x04002DF5 RID: 11765
+	// Token: 0x04002D5B RID: 11611
 	public Vector3 lastPosition = Vector3.zero;
 
-	// Token: 0x04002DF6 RID: 11766
+	// Token: 0x04002D5C RID: 11612
 	public bool isLeftHand;
 
-	// Token: 0x04002DF7 RID: 11767
+	// Token: 0x04002D5D RID: 11613
 	public GorillaThrowableController throwableController;
 }

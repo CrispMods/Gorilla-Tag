@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200037E RID: 894
+// Token: 0x02000389 RID: 905
 public class KiteDynamics : MonoBehaviour, ITetheredObjectBehavior
 {
-	// Token: 0x060014F6 RID: 5366 RVA: 0x00066960 File Offset: 0x00064B60
+	// Token: 0x06001542 RID: 5442 RVA: 0x000BF428 File Offset: 0x000BD628
 	private void Awake()
 	{
 		this.rb = base.GetComponent<Rigidbody>();
@@ -14,24 +14,24 @@ public class KiteDynamics : MonoBehaviour, ITetheredObjectBehavior
 		this.grabPtInitParent = this.grabPt.transform.parent;
 	}
 
-	// Token: 0x060014F7 RID: 5367 RVA: 0x000669BD File Offset: 0x00064BBD
+	// Token: 0x06001543 RID: 5443 RVA: 0x0003E5DA File Offset: 0x0003C7DA
 	private void Start()
 	{
 		this.airResistance = Mathf.Clamp(this.airResistance, 0f, 1f);
 		this.balloonCollider.enabled = false;
 	}
 
-	// Token: 0x060014F8 RID: 5368 RVA: 0x000669E8 File Offset: 0x00064BE8
+	// Token: 0x06001544 RID: 5444 RVA: 0x000BF488 File Offset: 0x000BD688
 	public void ReParent()
 	{
 		if (this.grabPt != null)
 		{
 			this.grabPt.transform.parent = this.grabPtInitParent.transform;
 		}
-		this.bouyancyActualHeight = Random.Range(this.bouyancyMinHeight, this.bouyancyMaxHeight);
+		this.bouyancyActualHeight = UnityEngine.Random.Range(this.bouyancyMinHeight, this.bouyancyMaxHeight);
 	}
 
-	// Token: 0x060014F9 RID: 5369 RVA: 0x00066A38 File Offset: 0x00064C38
+	// Token: 0x06001545 RID: 5445 RVA: 0x000BF4D8 File Offset: 0x000BD6D8
 	public void EnableDynamics(bool enable, bool collider, bool kinematic)
 	{
 		this.enableDynamics = enable;
@@ -50,7 +50,7 @@ public class KiteDynamics : MonoBehaviour, ITetheredObjectBehavior
 		}
 	}
 
-	// Token: 0x060014FA RID: 5370 RVA: 0x00066AA2 File Offset: 0x00064CA2
+	// Token: 0x06001546 RID: 5446 RVA: 0x0003E603 File Offset: 0x0003C803
 	public void EnableDistanceConstraints(bool enable, float scale = 1f)
 	{
 		this.rb.useGravity = !enable;
@@ -58,8 +58,8 @@ public class KiteDynamics : MonoBehaviour, ITetheredObjectBehavior
 		this.grabPtPosition = this.grabPt.position;
 	}
 
-	// Token: 0x17000255 RID: 597
-	// (get) Token: 0x060014FB RID: 5371 RVA: 0x00066ACB File Offset: 0x00064CCB
+	// Token: 0x1700025C RID: 604
+	// (get) Token: 0x06001547 RID: 5447 RVA: 0x0003E62C File Offset: 0x0003C82C
 	public bool ColliderEnabled
 	{
 		get
@@ -68,7 +68,7 @@ public class KiteDynamics : MonoBehaviour, ITetheredObjectBehavior
 		}
 	}
 
-	// Token: 0x060014FC RID: 5372 RVA: 0x00066AE8 File Offset: 0x00064CE8
+	// Token: 0x06001548 RID: 5448 RVA: 0x000BF544 File Offset: 0x000BD744
 	private void FixedUpdate()
 	{
 		if (this.rb.isKinematic || this.rb.useGravity)
@@ -87,25 +87,25 @@ public class KiteDynamics : MonoBehaviour, ITetheredObjectBehavior
 		}
 	}
 
-	// Token: 0x060014FD RID: 5373 RVA: 0x00002628 File Offset: 0x00000828
+	// Token: 0x06001549 RID: 5449 RVA: 0x000306DC File Offset: 0x0002E8DC
 	void ITetheredObjectBehavior.DbgClear()
 	{
 		throw new NotImplementedException();
 	}
 
-	// Token: 0x060014FE RID: 5374 RVA: 0x000644FF File Offset: 0x000626FF
+	// Token: 0x0600154A RID: 5450 RVA: 0x0003DFA6 File Offset: 0x0003C1A6
 	bool ITetheredObjectBehavior.IsEnabled()
 	{
 		return base.enabled;
 	}
 
-	// Token: 0x060014FF RID: 5375 RVA: 0x00066BC2 File Offset: 0x00064DC2
+	// Token: 0x0600154B RID: 5451 RVA: 0x0003E648 File Offset: 0x0003C848
 	void ITetheredObjectBehavior.TriggerEnter(Collider other, ref Vector3 force, ref Vector3 collisionPt, ref bool transferOwnership)
 	{
 		transferOwnership = false;
 	}
 
-	// Token: 0x06001500 RID: 5376 RVA: 0x00066BC8 File Offset: 0x00064DC8
+	// Token: 0x0600154C RID: 5452 RVA: 0x000BF620 File Offset: 0x000BD820
 	public bool ReturnStep()
 	{
 		this.rb.isKinematic = true;
@@ -113,61 +113,61 @@ public class KiteDynamics : MonoBehaviour, ITetheredObjectBehavior
 		return base.transform.position == this.grabPt.position;
 	}
 
-	// Token: 0x04001733 RID: 5939
+	// Token: 0x0400177B RID: 6011
 	private Rigidbody rb;
 
-	// Token: 0x04001734 RID: 5940
+	// Token: 0x0400177C RID: 6012
 	private Collider balloonCollider;
 
-	// Token: 0x04001735 RID: 5941
+	// Token: 0x0400177D RID: 6013
 	private Bounds bounds;
 
-	// Token: 0x04001736 RID: 5942
+	// Token: 0x0400177E RID: 6014
 	[SerializeField]
 	private float bouyancyMinHeight = 10f;
 
-	// Token: 0x04001737 RID: 5943
+	// Token: 0x0400177F RID: 6015
 	[SerializeField]
 	private float bouyancyMaxHeight = 20f;
 
-	// Token: 0x04001738 RID: 5944
+	// Token: 0x04001780 RID: 6016
 	private float bouyancyActualHeight = 20f;
 
-	// Token: 0x04001739 RID: 5945
+	// Token: 0x04001781 RID: 6017
 	[SerializeField]
 	private float airResistance = 0.01f;
 
-	// Token: 0x0400173A RID: 5946
+	// Token: 0x04001782 RID: 6018
 	public GameObject knot;
 
-	// Token: 0x0400173B RID: 5947
+	// Token: 0x04001783 RID: 6019
 	private Rigidbody knotRb;
 
-	// Token: 0x0400173C RID: 5948
+	// Token: 0x04001784 RID: 6020
 	public Transform grabPt;
 
-	// Token: 0x0400173D RID: 5949
+	// Token: 0x04001785 RID: 6021
 	private Transform grabPtInitParent;
 
-	// Token: 0x0400173E RID: 5950
+	// Token: 0x04001786 RID: 6022
 	[SerializeField]
 	private float maximumVelocity = 2f;
 
-	// Token: 0x0400173F RID: 5951
+	// Token: 0x04001787 RID: 6023
 	private bool enableDynamics;
 
-	// Token: 0x04001740 RID: 5952
+	// Token: 0x04001788 RID: 6024
 	[SerializeField]
 	private float balloonScale = 1f;
 
-	// Token: 0x04001741 RID: 5953
+	// Token: 0x04001789 RID: 6025
 	private Vector3 grabPtPosition;
 
-	// Token: 0x04001742 RID: 5954
+	// Token: 0x0400178A RID: 6026
 	[SerializeField]
 	private Quaternion ctrlRotation;
 
-	// Token: 0x04001743 RID: 5955
+	// Token: 0x0400178B RID: 6027
 	[SerializeField]
 	private float returnSpeed = 50f;
 }

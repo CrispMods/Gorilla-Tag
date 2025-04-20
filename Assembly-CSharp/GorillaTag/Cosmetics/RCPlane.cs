@@ -8,10 +8,10 @@ using UnityEngine.XR;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C24 RID: 3108
+	// Token: 0x02000C52 RID: 3154
 	public class RCPlane : RCVehicle
 	{
-		// Token: 0x06004D7F RID: 19839 RVA: 0x0017B0FC File Offset: 0x001792FC
+		// Token: 0x06004ED0 RID: 20176 RVA: 0x001B37EC File Offset: 0x001B19EC
 		protected override void Awake()
 		{
 			base.Awake();
@@ -21,7 +21,7 @@ namespace GorillaTag.Cosmetics
 			this.thrustAccel = this.thrustVelocityTarget / this.thrustAccelTime;
 		}
 
-		// Token: 0x06004D80 RID: 19840 RVA: 0x0017B17C File Offset: 0x0017937C
+		// Token: 0x06004ED1 RID: 20177 RVA: 0x001B386C File Offset: 0x001B1A6C
 		protected override void AuthorityBeginMobilization()
 		{
 			base.AuthorityBeginMobilization();
@@ -29,7 +29,7 @@ namespace GorillaTag.Cosmetics
 			this.rb.velocity = base.transform.forward * this.initialSpeed * x;
 		}
 
-		// Token: 0x06004D81 RID: 19841 RVA: 0x0017B1C8 File Offset: 0x001793C8
+		// Token: 0x06004ED2 RID: 20178 RVA: 0x001B38B8 File Offset: 0x001B1AB8
 		protected override void AuthorityUpdate(float dt)
 		{
 			base.AuthorityUpdate(dt);
@@ -56,7 +56,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D82 RID: 19842 RVA: 0x0017B36C File Offset: 0x0017956C
+		// Token: 0x06004ED3 RID: 20179 RVA: 0x001B3A5C File Offset: 0x001B1C5C
 		protected override void RemoteUpdate(float dt)
 		{
 			base.RemoteUpdate(dt);
@@ -68,7 +68,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D83 RID: 19843 RVA: 0x0017B408 File Offset: 0x00179608
+		// Token: 0x06004ED4 RID: 20180 RVA: 0x001B3AF8 File Offset: 0x001B1CF8
 		protected override void SharedUpdate(float dt)
 		{
 			base.SharedUpdate(dt);
@@ -125,7 +125,7 @@ namespace GorillaTag.Cosmetics
 			this.rightAileronUpper.localRotation = localRotation2;
 		}
 
-		// Token: 0x06004D84 RID: 19844 RVA: 0x0017B770 File Offset: 0x00179970
+		// Token: 0x06004ED5 RID: 20181 RVA: 0x001B3E60 File Offset: 0x001B2060
 		private void FixedUpdate()
 		{
 			if (!base.HasLocalAuthority || this.localState != RCVehicle.State.Mobilized)
@@ -185,7 +185,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D85 RID: 19845 RVA: 0x0017BB28 File Offset: 0x00179D28
+		// Token: 0x06004ED6 RID: 20182 RVA: 0x001B4218 File Offset: 0x001B2418
 		private void OnCollisionEnter(Collision collision)
 		{
 			if (base.HasLocalAuthority && this.localState == RCVehicle.State.Mobilized)
@@ -236,164 +236,164 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x04005058 RID: 20568
+		// Token: 0x0400514E RID: 20814
 		public Vector2 pitchVelocityTargetMinMax = new Vector2(-180f, 180f);
 
-		// Token: 0x04005059 RID: 20569
+		// Token: 0x0400514F RID: 20815
 		public Vector2 pitchVelocityRampTimeMinMax = new Vector2(-0.75f, 0.75f);
 
-		// Token: 0x0400505A RID: 20570
+		// Token: 0x04005150 RID: 20816
 		public float rollVelocityTarget = 180f;
 
-		// Token: 0x0400505B RID: 20571
+		// Token: 0x04005151 RID: 20817
 		public float rollVelocityRampTime = 0.75f;
 
-		// Token: 0x0400505C RID: 20572
+		// Token: 0x04005152 RID: 20818
 		public float thrustVelocityTarget = 15f;
 
-		// Token: 0x0400505D RID: 20573
+		// Token: 0x04005153 RID: 20819
 		public float thrustAccelTime = 2f;
 
-		// Token: 0x0400505E RID: 20574
+		// Token: 0x04005154 RID: 20820
 		[SerializeField]
 		private float pitchVelocityFollowRateAngle = 60f;
 
-		// Token: 0x0400505F RID: 20575
+		// Token: 0x04005155 RID: 20821
 		[SerializeField]
 		private float pitchVelocityFollowRateMagnitude = 5f;
 
-		// Token: 0x04005060 RID: 20576
+		// Token: 0x04005156 RID: 20822
 		[SerializeField]
 		private float maxDrag = 0.1f;
 
-		// Token: 0x04005061 RID: 20577
+		// Token: 0x04005157 RID: 20823
 		[SerializeField]
 		private Vector2 liftVsSpeedInput = new Vector2(0f, 4f);
 
-		// Token: 0x04005062 RID: 20578
+		// Token: 0x04005158 RID: 20824
 		[SerializeField]
 		private Vector2 liftVsSpeedOutput = new Vector2(0.5f, 1f);
 
-		// Token: 0x04005063 RID: 20579
+		// Token: 0x04005159 RID: 20825
 		[SerializeField]
 		private AnimationCurve liftVsAttackCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04005064 RID: 20580
+		// Token: 0x0400515A RID: 20826
 		[SerializeField]
 		private AnimationCurve dragVsAttackCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// Token: 0x04005065 RID: 20581
+		// Token: 0x0400515B RID: 20827
 		[SerializeField]
 		private Vector2 gravityCompensationRange = new Vector2(0.5f, 1f);
 
-		// Token: 0x04005066 RID: 20582
+		// Token: 0x0400515C RID: 20828
 		[SerializeField]
 		private List<Collider> nonCrashColliders = new List<Collider>();
 
-		// Token: 0x04005067 RID: 20583
+		// Token: 0x0400515D RID: 20829
 		[SerializeField]
 		private Transform propeller;
 
-		// Token: 0x04005068 RID: 20584
+		// Token: 0x0400515E RID: 20830
 		[SerializeField]
 		private Transform leftAileronUpper;
 
-		// Token: 0x04005069 RID: 20585
+		// Token: 0x0400515F RID: 20831
 		[SerializeField]
 		private Transform leftAileronLower;
 
-		// Token: 0x0400506A RID: 20586
+		// Token: 0x04005160 RID: 20832
 		[SerializeField]
 		private Transform rightAileronUpper;
 
-		// Token: 0x0400506B RID: 20587
+		// Token: 0x04005161 RID: 20833
 		[SerializeField]
 		private Transform rightAileronLower;
 
-		// Token: 0x0400506C RID: 20588
+		// Token: 0x04005162 RID: 20834
 		[SerializeField]
 		private AudioSource audioSource;
 
-		// Token: 0x0400506D RID: 20589
+		// Token: 0x04005163 RID: 20835
 		[SerializeField]
 		private AudioClip motorSound;
 
-		// Token: 0x0400506E RID: 20590
+		// Token: 0x04005164 RID: 20836
 		[SerializeField]
 		private AudioClip crashSound;
 
-		// Token: 0x0400506F RID: 20591
+		// Token: 0x04005165 RID: 20837
 		[SerializeField]
 		private Vector2 motorSoundVolumeMinMax = new Vector2(0.02f, 0.1f);
 
-		// Token: 0x04005070 RID: 20592
+		// Token: 0x04005166 RID: 20838
 		[SerializeField]
 		private float crashSoundVolume = 0.12f;
 
-		// Token: 0x04005071 RID: 20593
+		// Token: 0x04005167 RID: 20839
 		private float motorVolumeRampTime = 1f;
 
-		// Token: 0x04005072 RID: 20594
+		// Token: 0x04005168 RID: 20840
 		private float propellerAngle;
 
-		// Token: 0x04005073 RID: 20595
+		// Token: 0x04005169 RID: 20841
 		private float propellerSpinRate;
 
-		// Token: 0x04005074 RID: 20596
+		// Token: 0x0400516A RID: 20842
 		private const float propellerIdleAcc = 1f;
 
-		// Token: 0x04005075 RID: 20597
+		// Token: 0x0400516B RID: 20843
 		private const float propellerIdleSpinRate = 0.6f;
 
-		// Token: 0x04005076 RID: 20598
+		// Token: 0x0400516C RID: 20844
 		private const float propellerMaxAcc = 6.6666665f;
 
-		// Token: 0x04005077 RID: 20599
+		// Token: 0x0400516D RID: 20845
 		private const float propellerMaxSpinRate = 5f;
 
-		// Token: 0x04005078 RID: 20600
+		// Token: 0x0400516E RID: 20846
 		public float initialSpeed = 3f;
 
-		// Token: 0x04005079 RID: 20601
+		// Token: 0x0400516F RID: 20847
 		private float pitch;
 
-		// Token: 0x0400507A RID: 20602
+		// Token: 0x04005170 RID: 20848
 		private float pitchVel;
 
-		// Token: 0x0400507B RID: 20603
+		// Token: 0x04005171 RID: 20849
 		private Vector2 pitchAccelMinMax;
 
-		// Token: 0x0400507C RID: 20604
+		// Token: 0x04005172 RID: 20850
 		private float roll;
 
-		// Token: 0x0400507D RID: 20605
+		// Token: 0x04005173 RID: 20851
 		private float rollVel;
 
-		// Token: 0x0400507E RID: 20606
+		// Token: 0x04005174 RID: 20852
 		private float rollAccel;
 
-		// Token: 0x0400507F RID: 20607
+		// Token: 0x04005175 RID: 20853
 		private float thrustAccel;
 
-		// Token: 0x04005080 RID: 20608
+		// Token: 0x04005176 RID: 20854
 		private float motorLevel;
 
-		// Token: 0x04005081 RID: 20609
+		// Token: 0x04005177 RID: 20855
 		private float leftAileronLevel;
 
-		// Token: 0x04005082 RID: 20610
+		// Token: 0x04005178 RID: 20856
 		private float rightAileronLevel;
 
-		// Token: 0x04005083 RID: 20611
+		// Token: 0x04005179 RID: 20857
 		private Vector2 aileronAngularRange = new Vector2(-30f, 45f);
 
-		// Token: 0x04005084 RID: 20612
+		// Token: 0x0400517A RID: 20858
 		private float aileronAngularAcc = 120f;
 
-		// Token: 0x04005085 RID: 20613
+		// Token: 0x0400517B RID: 20859
 		private float leftAileronAngle;
 
-		// Token: 0x04005086 RID: 20614
+		// Token: 0x0400517C RID: 20860
 		private float rightAileronAngle;
 	}
 }

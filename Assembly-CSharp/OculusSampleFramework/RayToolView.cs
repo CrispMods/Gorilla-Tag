@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A62 RID: 2658
+	// Token: 0x02000A8F RID: 2703
 	public class RayToolView : MonoBehaviour, InteractableToolView
 	{
-		// Token: 0x170006CB RID: 1739
-		// (get) Token: 0x06004237 RID: 16951 RVA: 0x00138B6B File Offset: 0x00136D6B
-		// (set) Token: 0x06004238 RID: 16952 RVA: 0x00138B78 File Offset: 0x00136D78
+		// Token: 0x170006E7 RID: 1767
+		// (get) Token: 0x0600437C RID: 17276 RVA: 0x0005BFC5 File Offset: 0x0005A1C5
+		// (set) Token: 0x0600437D RID: 17277 RVA: 0x0005BFD2 File Offset: 0x0005A1D2
 		public bool EnableState
 		{
 			get
@@ -22,9 +22,9 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x170006CC RID: 1740
-		// (get) Token: 0x06004239 RID: 16953 RVA: 0x00138B97 File Offset: 0x00136D97
-		// (set) Token: 0x0600423A RID: 16954 RVA: 0x00138B9F File Offset: 0x00136D9F
+		// Token: 0x170006E8 RID: 1768
+		// (get) Token: 0x0600437E RID: 17278 RVA: 0x0005BFF1 File Offset: 0x0005A1F1
+		// (set) Token: 0x0600437F RID: 17279 RVA: 0x0005BFF9 File Offset: 0x0005A1F9
 		public bool ToolActivateState
 		{
 			get
@@ -38,7 +38,7 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x0600423B RID: 16955 RVA: 0x00138BCC File Offset: 0x00136DCC
+		// Token: 0x06004380 RID: 17280 RVA: 0x001783F0 File Offset: 0x001765F0
 		private void Awake()
 		{
 			this._lineRenderer.positionCount = 25;
@@ -55,12 +55,12 @@ namespace OculusSampleFramework
 			});
 		}
 
-		// Token: 0x170006CD RID: 1741
-		// (get) Token: 0x0600423C RID: 16956 RVA: 0x00138C8F File Offset: 0x00136E8F
-		// (set) Token: 0x0600423D RID: 16957 RVA: 0x00138C97 File Offset: 0x00136E97
+		// Token: 0x170006E9 RID: 1769
+		// (get) Token: 0x06004381 RID: 17281 RVA: 0x0005C023 File Offset: 0x0005A223
+		// (set) Token: 0x06004382 RID: 17282 RVA: 0x0005C02B File Offset: 0x0005A22B
 		public InteractableTool InteractableTool { get; set; }
 
-		// Token: 0x0600423E RID: 16958 RVA: 0x00138CA0 File Offset: 0x00136EA0
+		// Token: 0x06004383 RID: 17283 RVA: 0x0005C034 File Offset: 0x0005A234
 		public void SetFocusedInteractable(Interactable interactable)
 		{
 			if (interactable == null)
@@ -71,7 +71,7 @@ namespace OculusSampleFramework
 			this._focusedTransform = interactable.transform;
 		}
 
-		// Token: 0x0600423F RID: 16959 RVA: 0x00138CC0 File Offset: 0x00136EC0
+		// Token: 0x06004384 RID: 17284 RVA: 0x001784B4 File Offset: 0x001766B4
 		private void Update()
 		{
 			Vector3 position = this.InteractableTool.ToolTransform.position;
@@ -90,7 +90,7 @@ namespace OculusSampleFramework
 			this._targetTransform.position = vector;
 		}
 
-		// Token: 0x06004240 RID: 16960 RVA: 0x00138DB8 File Offset: 0x00136FB8
+		// Token: 0x06004385 RID: 17285 RVA: 0x001785AC File Offset: 0x001767AC
 		public static Vector3 GetPointOnBezierCurve(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t)
 		{
 			t = Mathf.Clamp01(t);
@@ -100,33 +100,33 @@ namespace OculusSampleFramework
 			return num * num2 * p0 + 3f * num2 * t * p1 + 3f * num * num3 * p2 + t * num3 * p3;
 		}
 
-		// Token: 0x04004338 RID: 17208
+		// Token: 0x04004432 RID: 17458
 		private const int NUM_RAY_LINE_POSITIONS = 25;
 
-		// Token: 0x04004339 RID: 17209
+		// Token: 0x04004433 RID: 17459
 		private const float DEFAULT_RAY_CAST_DISTANCE = 3f;
 
-		// Token: 0x0400433A RID: 17210
+		// Token: 0x04004434 RID: 17460
 		[SerializeField]
 		private Transform _targetTransform;
 
-		// Token: 0x0400433B RID: 17211
+		// Token: 0x04004435 RID: 17461
 		[SerializeField]
 		private LineRenderer _lineRenderer;
 
-		// Token: 0x0400433C RID: 17212
+		// Token: 0x04004436 RID: 17462
 		private bool _toolActivateState;
 
-		// Token: 0x0400433D RID: 17213
+		// Token: 0x04004437 RID: 17463
 		private Transform _focusedTransform;
 
-		// Token: 0x0400433E RID: 17214
+		// Token: 0x04004438 RID: 17464
 		private Vector3[] linePositions = new Vector3[25];
 
-		// Token: 0x0400433F RID: 17215
+		// Token: 0x04004439 RID: 17465
 		private Gradient _oldColorGradient;
 
-		// Token: 0x04004340 RID: 17216
+		// Token: 0x0400443A RID: 17466
 		private Gradient _highLightColorGradient;
 	}
 }

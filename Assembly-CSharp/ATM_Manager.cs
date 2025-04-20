@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using GorillaNetworking;
 using GorillaNetworking.Store;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-// Token: 0x0200041E RID: 1054
+// Token: 0x02000429 RID: 1065
 public class ATM_Manager : MonoBehaviour
 {
-	// Token: 0x170002DE RID: 734
-	// (get) Token: 0x06001A0B RID: 6667 RVA: 0x0007F959 File Offset: 0x0007DB59
-	// (set) Token: 0x06001A0C RID: 6668 RVA: 0x0007F961 File Offset: 0x0007DB61
+	// Token: 0x170002E5 RID: 741
+	// (get) Token: 0x06001A58 RID: 6744 RVA: 0x00041C64 File Offset: 0x0003FE64
+	// (set) Token: 0x06001A59 RID: 6745 RVA: 0x00041C6C File Offset: 0x0003FE6C
 	public string ValidatedCreatorCode { get; set; }
 
-	// Token: 0x170002DF RID: 735
-	// (get) Token: 0x06001A0D RID: 6669 RVA: 0x0007F96A File Offset: 0x0007DB6A
+	// Token: 0x170002E6 RID: 742
+	// (get) Token: 0x06001A5A RID: 6746 RVA: 0x00041C75 File Offset: 0x0003FE75
 	public ATM_Manager.ATMStages CurrentATMStage
 	{
 		get
@@ -25,30 +26,29 @@ public class ATM_Manager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A0E RID: 6670 RVA: 0x0007F974 File Offset: 0x0007DB74
+	// Token: 0x06001A5B RID: 6747 RVA: 0x000D4CFC File Offset: 0x000D2EFC
 	public void Awake()
 	{
 		if (ATM_Manager.instance)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 		}
 		else
 		{
 			ATM_Manager.instance = this;
 		}
-		ATM_UI[] array = this.atmUIs;
-		for (int i = 0; i < array.Length; i++)
+		foreach (ATM_UI atm_UI in this.atmUIs)
 		{
-			array[i].creatorCodeTitle.text = "CREATOR CODE: ";
+			atm_UI.creatorCodeTitle.text = "CREATOR CODE: ";
 		}
 		this.SwitchToStage(ATM_Manager.ATMStages.Unavailable);
 		this.smallDisplays = new List<CreatorCodeSmallDisplay>();
 	}
 
-	// Token: 0x06001A0F RID: 6671 RVA: 0x0007F9D8 File Offset: 0x0007DBD8
+	// Token: 0x06001A5C RID: 6748 RVA: 0x000D4D88 File Offset: 0x000D2F88
 	public void Start()
 	{
-		Debug.Log("ATM COUNT: " + this.atmUIs.Length.ToString());
+		Debug.Log("ATM COUNT: " + this.atmUIs.Count.ToString());
 		Debug.Log("SMALL DISPLAY COUNT: " + this.smallDisplays.Count.ToString());
 		GameEvents.OnGorrillaATMKeyButtonPressedEvent.AddListener(new UnityAction<GorillaATMKeyBindings>(this.PressButton));
 		this.currentCreatorCode = "";
@@ -79,22 +79,20 @@ public class ATM_Manager : MonoBehaviour
 				}
 			}
 		}
-		ATM_UI[] array = this.atmUIs;
-		for (int i = 0; i < array.Length; i++)
+		foreach (ATM_UI atm_UI in this.atmUIs)
 		{
-			array[i].creatorCodeField.text = this.currentCreatorCode;
+			atm_UI.creatorCodeField.text = this.currentCreatorCode;
 		}
 	}
 
-	// Token: 0x06001A10 RID: 6672 RVA: 0x0007FB6C File Offset: 0x0007DD6C
+	// Token: 0x06001A5D RID: 6749 RVA: 0x000D4F40 File Offset: 0x000D3140
 	public void PressButton(GorillaATMKeyBindings buttonPressed)
 	{
 		if (this.currentATMStage == ATM_Manager.ATMStages.Confirm && this.creatorCodeStatus != ATM_Manager.CreatorCodeStatus.Validating)
 		{
-			ATM_UI[] array = this.atmUIs;
-			for (int i = 0; i < array.Length; i++)
+			foreach (ATM_UI atm_UI in this.atmUIs)
 			{
-				array[i].creatorCodeTitle.text = "CREATOR CODE:";
+				atm_UI.creatorCodeTitle.text = "CREATOR CODE:";
 			}
 			if (buttonPressed == GorillaATMKeyBindings.delete)
 			{
@@ -128,21 +126,20 @@ public class ATM_Manager : MonoBehaviour
 				}
 				else
 				{
-					int i = (int)buttonPressed;
-					str2 = i.ToString();
+					int num = (int)buttonPressed;
+					str2 = num.ToString();
 				}
 				this.currentCreatorCode = str + str2;
 				this.creatorCodeStatus = ATM_Manager.CreatorCodeStatus.Unchecked;
 			}
-			array = this.atmUIs;
-			for (int i = 0; i < array.Length; i++)
+			foreach (ATM_UI atm_UI2 in this.atmUIs)
 			{
-				array[i].creatorCodeField.text = this.currentCreatorCode;
+				atm_UI2.creatorCodeField.text = this.currentCreatorCode;
 			}
 		}
 	}
 
-	// Token: 0x06001A11 RID: 6673 RVA: 0x0007FCE4 File Offset: 0x0007DEE4
+	// Token: 0x06001A5E RID: 6750 RVA: 0x000D50FC File Offset: 0x000D32FC
 	public void ProcessATMState(string currencyButton)
 	{
 		switch (this.currentATMStage)
@@ -266,14 +263,127 @@ public class ATM_Manager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A12 RID: 6674 RVA: 0x0007FF50 File Offset: 0x0007E150
+	// Token: 0x06001A5F RID: 6751 RVA: 0x00041C7D File Offset: 0x0003FE7D
+	public void AddATM(ATM_UI newATM)
+	{
+		this.atmUIs.Add(newATM);
+		this.SwitchToStage(this.currentATMStage);
+	}
+
+	// Token: 0x06001A60 RID: 6752 RVA: 0x00041C97 File Offset: 0x0003FE97
+	public void RemoveATM(ATM_UI atmToRemove)
+	{
+		this.atmUIs.Remove(atmToRemove);
+	}
+
+	// Token: 0x06001A61 RID: 6753 RVA: 0x000D5368 File Offset: 0x000D3568
+	public void SetTemporaryCreatorCode(string creatorCode, bool onlyIfEmpty = true, Action<bool> OnComplete = null)
+	{
+		if (onlyIfEmpty && (this.creatorCodeStatus != ATM_Manager.CreatorCodeStatus.Empty || !this.currentCreatorCode.IsNullOrEmpty()))
+		{
+			Action<bool> onComplete = OnComplete;
+			if (onComplete == null)
+			{
+				return;
+			}
+			onComplete(false);
+			return;
+		}
+		else
+		{
+			string pattern = "^[a-zA-Z0-9]+$";
+			if (creatorCode.Length <= 10 && Regex.IsMatch(creatorCode, pattern))
+			{
+				NexusManager.instance.VerifyCreatorCode(creatorCode, delegate(Member member)
+				{
+					if (this.currentATMStage > ATM_Manager.ATMStages.Confirm)
+					{
+						Action<bool> onComplete3 = OnComplete;
+						if (onComplete3 == null)
+						{
+							return;
+						}
+						onComplete3(false);
+						return;
+					}
+					else if (onlyIfEmpty && (this.creatorCodeStatus != ATM_Manager.CreatorCodeStatus.Empty || !this.currentCreatorCode.IsNullOrEmpty()))
+					{
+						Action<bool> onComplete4 = OnComplete;
+						if (onComplete4 == null)
+						{
+							return;
+						}
+						onComplete4(false);
+						return;
+					}
+					else
+					{
+						this.temporaryOverrideCode = creatorCode;
+						this.currentCreatorCode = creatorCode;
+						this.creatorCodeStatus = ATM_Manager.CreatorCodeStatus.Unchecked;
+						foreach (CreatorCodeSmallDisplay creatorCodeSmallDisplay in this.smallDisplays)
+						{
+							creatorCodeSmallDisplay.SetCode(this.currentCreatorCode);
+						}
+						foreach (ATM_UI atm_UI in this.atmUIs)
+						{
+							atm_UI.creatorCodeField.text = this.currentCreatorCode;
+						}
+						Action<bool> onComplete5 = OnComplete;
+						if (onComplete5 == null)
+						{
+							return;
+						}
+						onComplete5(true);
+						return;
+					}
+				}, delegate
+				{
+					Action<bool> onComplete3 = OnComplete;
+					if (onComplete3 == null)
+					{
+						return;
+					}
+					onComplete3(false);
+				});
+				return;
+			}
+			Action<bool> onComplete2 = OnComplete;
+			if (onComplete2 == null)
+			{
+				return;
+			}
+			onComplete2(false);
+			return;
+		}
+	}
+
+	// Token: 0x06001A62 RID: 6754 RVA: 0x000D5428 File Offset: 0x000D3628
+	public void ResetTemporaryCreatorCode()
+	{
+		if (this.creatorCodeStatus == ATM_Manager.CreatorCodeStatus.Unchecked && this.currentCreatorCode.Equals(this.temporaryOverrideCode))
+		{
+			this.currentCreatorCode = "";
+			this.creatorCodeStatus = ATM_Manager.CreatorCodeStatus.Empty;
+			foreach (CreatorCodeSmallDisplay creatorCodeSmallDisplay in this.smallDisplays)
+			{
+				creatorCodeSmallDisplay.SetCode("");
+			}
+			foreach (ATM_UI atm_UI in this.atmUIs)
+			{
+				atm_UI.creatorCodeField.text = this.currentCreatorCode;
+			}
+		}
+		this.temporaryOverrideCode = "";
+	}
+
+	// Token: 0x06001A63 RID: 6755 RVA: 0x000D5508 File Offset: 0x000D3708
 	private void ResetCreatorCode()
 	{
 		Debug.Log("Resetting creator code");
-		ATM_UI[] array = this.atmUIs;
-		for (int i = 0; i < array.Length; i++)
+		foreach (ATM_UI atm_UI in this.atmUIs)
 		{
-			array[i].creatorCodeTitle.text = "CREATOR CODE:";
+			atm_UI.creatorCodeTitle.text = "CREATOR CODE:";
 		}
 		foreach (CreatorCodeSmallDisplay creatorCodeSmallDisplay in this.smallDisplays)
 		{
@@ -285,20 +395,18 @@ public class ATM_Manager : MonoBehaviour
 		this.ValidatedCreatorCode = "";
 		PlayerPrefs.SetString("CreatorCode", "");
 		PlayerPrefs.Save();
-		array = this.atmUIs;
-		for (int i = 0; i < array.Length; i++)
+		foreach (ATM_UI atm_UI2 in this.atmUIs)
 		{
-			array[i].creatorCodeField.text = this.currentCreatorCode;
+			atm_UI2.creatorCodeField.text = this.currentCreatorCode;
 		}
 	}
 
-	// Token: 0x06001A13 RID: 6675 RVA: 0x0008003C File Offset: 0x0007E23C
+	// Token: 0x06001A64 RID: 6756 RVA: 0x00041CA6 File Offset: 0x0003FEA6
 	private IEnumerator CheckValidationCoroutine()
 	{
-		ATM_UI[] array = this.atmUIs;
-		for (int i = 0; i < array.Length; i++)
+		foreach (ATM_UI atm_UI in this.atmUIs)
 		{
-			array[i].creatorCodeTitle.text = "CREATOR CODE: VALIDATING";
+			atm_UI.creatorCodeTitle.text = "CREATOR CODE: VALIDATING";
 		}
 		this.VerifyCreatorCode();
 		while (this.creatorCodeStatus == ATM_Manager.CreatorCodeStatus.Validating)
@@ -307,10 +415,9 @@ public class ATM_Manager : MonoBehaviour
 		}
 		if (this.creatorCodeStatus == ATM_Manager.CreatorCodeStatus.Valid)
 		{
-			array = this.atmUIs;
-			for (int i = 0; i < array.Length; i++)
+			foreach (ATM_UI atm_UI2 in this.atmUIs)
 			{
-				array[i].creatorCodeTitle.text = "CREATOR CODE: VALID";
+				atm_UI2.creatorCodeTitle.text = "CREATOR CODE: VALID";
 			}
 			this.SwitchToStage(ATM_Manager.ATMStages.Purchasing);
 			CosmeticsController.instance.SteamPurchase();
@@ -318,14 +425,14 @@ public class ATM_Manager : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06001A14 RID: 6676 RVA: 0x0008004C File Offset: 0x0007E24C
+	// Token: 0x06001A65 RID: 6757 RVA: 0x000D5638 File Offset: 0x000D3838
 	public void SwitchToStage(ATM_Manager.ATMStages newStage)
 	{
 		foreach (ATM_UI atm_UI in this.atmUIs)
 		{
 			if (!atm_UI.atmText)
 			{
-				return;
+				break;
 			}
 			this.currentATMStage = newStage;
 			switch (newStage)
@@ -482,30 +589,29 @@ public class ATM_Manager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001A15 RID: 6677 RVA: 0x00080834 File Offset: 0x0007EA34
+	// Token: 0x06001A66 RID: 6758 RVA: 0x000D5E58 File Offset: 0x000D4058
 	public void SetATMText(string newText)
 	{
-		ATM_UI[] array = this.atmUIs;
-		for (int i = 0; i < array.Length; i++)
+		foreach (ATM_UI atm_UI in this.atmUIs)
 		{
-			array[i].atmText.text = newText;
+			atm_UI.atmText.text = newText;
 		}
 	}
 
-	// Token: 0x06001A16 RID: 6678 RVA: 0x00080864 File Offset: 0x0007EA64
+	// Token: 0x06001A67 RID: 6759 RVA: 0x00041CB5 File Offset: 0x0003FEB5
 	public void PressCurrencyPurchaseButton(string currencyPurchaseSize)
 	{
 		this.ProcessATMState(currencyPurchaseSize);
 	}
 
-	// Token: 0x06001A17 RID: 6679 RVA: 0x0008086D File Offset: 0x0007EA6D
+	// Token: 0x06001A68 RID: 6760 RVA: 0x00041CBE File Offset: 0x0003FEBE
 	public void VerifyCreatorCode()
 	{
 		this.creatorCodeStatus = ATM_Manager.CreatorCodeStatus.Validating;
 		NexusManager.instance.VerifyCreatorCode(this.currentCreatorCode, new Action<Member>(this.OnCreatorCodeSucess), new Action(this.OnCreatorCodeFailure));
 	}
 
-	// Token: 0x06001A18 RID: 6680 RVA: 0x000808A0 File Offset: 0x0007EAA0
+	// Token: 0x06001A69 RID: 6761 RVA: 0x000D5EB0 File Offset: 0x000D40B0
 	private void OnCreatorCodeSucess(Member member)
 	{
 		this.creatorCodeStatus = ATM_Manager.CreatorCodeStatus.Valid;
@@ -524,97 +630,102 @@ public class ATM_Manager : MonoBehaviour
 		Debug.Log("ATM CODE SUCCESS: " + this.supportedMember.name);
 	}
 
-	// Token: 0x06001A19 RID: 6681 RVA: 0x0008096C File Offset: 0x0007EB6C
+	// Token: 0x06001A6A RID: 6762 RVA: 0x000D5F7C File Offset: 0x000D417C
 	private void OnCreatorCodeFailure()
 	{
 		this.supportedMember = default(Member);
 		this.ResetCreatorCode();
-		ATM_UI[] array = this.atmUIs;
-		for (int i = 0; i < array.Length; i++)
+		foreach (ATM_UI atm_UI in this.atmUIs)
 		{
-			array[i].creatorCodeTitle.text = "CREATOR CODE: INVALID";
+			atm_UI.creatorCodeTitle.text = "CREATOR CODE: INVALID";
 		}
 		Debug.Log("ATM CODE FAILURE");
 	}
 
-	// Token: 0x06001A1A RID: 6682 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001A6B RID: 6763 RVA: 0x00030607 File Offset: 0x0002E807
 	public void LeaveSystemMenu()
 	{
 	}
 
-	// Token: 0x04001CD9 RID: 7385
+	// Token: 0x04001D22 RID: 7458
 	[OnEnterPlay_SetNull]
 	public static volatile ATM_Manager instance;
 
-	// Token: 0x04001CDA RID: 7386
-	public ATM_UI[] atmUIs;
+	// Token: 0x04001D23 RID: 7459
+	private const int MAX_CODE_LENGTH = 10;
 
-	// Token: 0x04001CDB RID: 7387
+	// Token: 0x04001D24 RID: 7460
+	public List<ATM_UI> atmUIs = new List<ATM_UI>();
+
+	// Token: 0x04001D25 RID: 7461
 	[HideInInspector]
 	public List<CreatorCodeSmallDisplay> smallDisplays;
 
-	// Token: 0x04001CDC RID: 7388
+	// Token: 0x04001D26 RID: 7462
 	private string currentCreatorCode;
 
-	// Token: 0x04001CDD RID: 7389
+	// Token: 0x04001D27 RID: 7463
 	private string codeFirstUsedTime;
 
-	// Token: 0x04001CDE RID: 7390
+	// Token: 0x04001D28 RID: 7464
 	private string initialCode;
 
-	// Token: 0x04001CE0 RID: 7392
+	// Token: 0x04001D29 RID: 7465
+	private string temporaryOverrideCode;
+
+	// Token: 0x04001D2B RID: 7467
 	private ATM_Manager.CreatorCodeStatus creatorCodeStatus;
 
-	// Token: 0x04001CE1 RID: 7393
+	// Token: 0x04001D2C RID: 7468
 	private ATM_Manager.ATMStages currentATMStage;
 
-	// Token: 0x04001CE2 RID: 7394
+	// Token: 0x04001D2D RID: 7469
 	public int numShinyRocksToBuy;
 
-	// Token: 0x04001CE3 RID: 7395
+	// Token: 0x04001D2E RID: 7470
 	public float shinyRocksCost;
 
-	// Token: 0x04001CE4 RID: 7396
+	// Token: 0x04001D2F RID: 7471
 	private Member supportedMember;
 
-	// Token: 0x04001CE5 RID: 7397
+	// Token: 0x04001D30 RID: 7472
 	public bool alreadyBegan;
 
-	// Token: 0x0200041F RID: 1055
+	// Token: 0x0200042A RID: 1066
 	public enum CreatorCodeStatus
 	{
-		// Token: 0x04001CE7 RID: 7399
+		// Token: 0x04001D32 RID: 7474
 		Empty,
-		// Token: 0x04001CE8 RID: 7400
+		// Token: 0x04001D33 RID: 7475
 		Unchecked,
-		// Token: 0x04001CE9 RID: 7401
+		// Token: 0x04001D34 RID: 7476
 		Validating,
-		// Token: 0x04001CEA RID: 7402
+		// Token: 0x04001D35 RID: 7477
 		Valid
 	}
 
-	// Token: 0x02000420 RID: 1056
+	// Token: 0x0200042B RID: 1067
 	public enum ATMStages
 	{
-		// Token: 0x04001CEC RID: 7404
+		// Token: 0x04001D37 RID: 7479
 		Unavailable,
-		// Token: 0x04001CED RID: 7405
+		// Token: 0x04001D38 RID: 7480
 		Begin,
-		// Token: 0x04001CEE RID: 7406
+		// Token: 0x04001D39 RID: 7481
 		Menu,
-		// Token: 0x04001CEF RID: 7407
+		// Token: 0x04001D3A RID: 7482
 		Balance,
-		// Token: 0x04001CF0 RID: 7408
+		// Token: 0x04001D3B RID: 7483
 		Choose,
-		// Token: 0x04001CF1 RID: 7409
+		// Token: 0x04001D3C RID: 7484
 		Confirm,
-		// Token: 0x04001CF2 RID: 7410
+		// Token: 0x04001D3D RID: 7485
 		Purchasing,
-		// Token: 0x04001CF3 RID: 7411
+		// Token: 0x04001D3E RID: 7486
 		Success,
-		// Token: 0x04001CF4 RID: 7412
+		// Token: 0x04001D3F RID: 7487
 		Failure,
-		// Token: 0x04001CF5 RID: 7413
+		// Token: 0x04001D40 RID: 7488
 		SafeAccount
 	}
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000324 RID: 804
+// Token: 0x0200032F RID: 815
 public class SelectivePassthroughExperience : MonoBehaviour
 {
-	// Token: 0x06001315 RID: 4885 RVA: 0x0005D088 File Offset: 0x0005B288
+	// Token: 0x06001361 RID: 4961 RVA: 0x000B6EDC File Offset: 0x000B50DC
 	private void Update()
 	{
 		Camera.main.depthTextureMode = DepthTextureMode.Depth;
@@ -25,9 +25,9 @@ public class SelectivePassthroughExperience : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001516 RID: 5398
+	// Token: 0x0400155E RID: 5470
 	public GameObject leftMaskObject;
 
-	// Token: 0x04001517 RID: 5399
+	// Token: 0x0400155F RID: 5471
 	public GameObject rightMaskObject;
 }

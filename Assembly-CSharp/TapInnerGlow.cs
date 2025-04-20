@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005E8 RID: 1512
+// Token: 0x020005F6 RID: 1526
 public class TapInnerGlow : MonoBehaviour
 {
-	// Token: 0x170003E2 RID: 994
-	// (get) Token: 0x06002594 RID: 9620 RVA: 0x000B9AF4 File Offset: 0x000B7CF4
+	// Token: 0x170003EA RID: 1002
+	// (get) Token: 0x060025F6 RID: 9718 RVA: 0x001076A0 File Offset: 0x001058A0
 	private Material targetMaterial
 	{
 		get
@@ -18,7 +18,7 @@ public class TapInnerGlow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002595 RID: 9621 RVA: 0x000B9B30 File Offset: 0x000B7D30
+	// Token: 0x060025F7 RID: 9719 RVA: 0x001076DC File Offset: 0x001058DC
 	public void Tap()
 	{
 		if (!this._renderer)
@@ -32,13 +32,13 @@ public class TapInnerGlow : MonoBehaviour
 		UberShader.InnerGlowSinePhaseShift.SetValue<float>(targetMaterial, time);
 	}
 
-	// Token: 0x040029CC RID: 10700
+	// Token: 0x04002A2B RID: 10795
 	public Renderer _renderer;
 
-	// Token: 0x040029CD RID: 10701
+	// Token: 0x04002A2C RID: 10796
 	public float tapLength = 1f;
 
-	// Token: 0x040029CE RID: 10702
+	// Token: 0x04002A2D RID: 10797
 	[Space]
 	private Material _instance;
 }

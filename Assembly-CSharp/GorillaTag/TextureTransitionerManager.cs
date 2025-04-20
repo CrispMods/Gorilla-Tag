@@ -4,32 +4,32 @@ using UnityEngine;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B98 RID: 2968
+	// Token: 0x02000BC5 RID: 3013
 	[ExecuteAlways]
 	public class TextureTransitionerManager : MonoBehaviour
 	{
-		// Token: 0x170007BD RID: 1981
-		// (get) Token: 0x06004ADD RID: 19165 RVA: 0x0016A542 File Offset: 0x00168742
-		// (set) Token: 0x06004ADE RID: 19166 RVA: 0x0016A549 File Offset: 0x00168749
+		// Token: 0x170007D9 RID: 2009
+		// (get) Token: 0x06004C28 RID: 19496 RVA: 0x000621CB File Offset: 0x000603CB
+		// (set) Token: 0x06004C29 RID: 19497 RVA: 0x000621D2 File Offset: 0x000603D2
 		public static TextureTransitionerManager instance { get; private set; }
 
-		// Token: 0x06004ADF RID: 19167 RVA: 0x0016A551 File Offset: 0x00168751
+		// Token: 0x06004C2A RID: 19498 RVA: 0x000621DA File Offset: 0x000603DA
 		protected void Awake()
 		{
 			if (TextureTransitionerManager.instance != null)
 			{
-				Object.Destroy(base.gameObject);
+				UnityEngine.Object.Destroy(base.gameObject);
 				return;
 			}
 			TextureTransitionerManager.instance = this;
 			if (Application.isPlaying)
 			{
-				Object.DontDestroyOnLoad(base.gameObject);
+				UnityEngine.Object.DontDestroyOnLoad(base.gameObject);
 			}
 			this.matPropBlock = new MaterialPropertyBlock();
 		}
 
-		// Token: 0x06004AE0 RID: 19168 RVA: 0x0016A590 File Offset: 0x00168790
+		// Token: 0x06004C2B RID: 19499 RVA: 0x001A3B88 File Offset: 0x001A1D88
 		protected void LateUpdate()
 		{
 			foreach (TextureTransitioner textureTransitioner in TextureTransitionerManager.components)
@@ -71,7 +71,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004AE1 RID: 19169 RVA: 0x0016A720 File Offset: 0x00168920
+		// Token: 0x06004C2C RID: 19500 RVA: 0x00062218 File Offset: 0x00060418
 		public static void EnsureInstanceIsAvailable()
 		{
 			if (TextureTransitionerManager.instance != null)
@@ -83,22 +83,22 @@ namespace GorillaTag
 			gameObject.name = "TextureTransitionerManager (Singleton)";
 		}
 
-		// Token: 0x06004AE2 RID: 19170 RVA: 0x0016A74A File Offset: 0x0016894A
+		// Token: 0x06004C2D RID: 19501 RVA: 0x00062242 File Offset: 0x00060442
 		public static void Register(TextureTransitioner component)
 		{
 			TextureTransitionerManager.components.Add(component);
 		}
 
-		// Token: 0x06004AE3 RID: 19171 RVA: 0x0016A757 File Offset: 0x00168957
+		// Token: 0x06004C2E RID: 19502 RVA: 0x0006224F File Offset: 0x0006044F
 		public static void Unregister(TextureTransitioner component)
 		{
 			TextureTransitionerManager.components.Remove(component);
 		}
 
-		// Token: 0x04004C5E RID: 19550
+		// Token: 0x04004D54 RID: 19796
 		public static readonly List<TextureTransitioner> components = new List<TextureTransitioner>(256);
 
-		// Token: 0x04004C5F RID: 19551
+		// Token: 0x04004D55 RID: 19797
 		private MaterialPropertyBlock matPropBlock;
 	}
 }

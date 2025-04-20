@@ -4,10 +4,10 @@ using UnityEngine.Events;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C5F RID: 3167
+	// Token: 0x02000C90 RID: 3216
 	public class WormInApple : MonoBehaviour
 	{
-		// Token: 0x06004EEC RID: 20204 RVA: 0x00183A0A File Offset: 0x00181C0A
+		// Token: 0x0600504C RID: 20556 RVA: 0x000647C2 File Offset: 0x000629C2
 		public void OnHandTap()
 		{
 			if (this.blendShapeCosmetic && this.blendShapeCosmetic.GetBlendValue() > 0.5f)
@@ -21,11 +21,11 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x040052AF RID: 21167
+		// Token: 0x040053BB RID: 21435
 		[SerializeField]
 		private UpdateBlendShapeCosmetic blendShapeCosmetic;
 
-		// Token: 0x040052B0 RID: 21168
+		// Token: 0x040053BC RID: 21436
 		public UnityEvent OnHandTapped;
 	}
 }

@@ -6,12 +6,12 @@ using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.Jobs;
 
-// Token: 0x02000695 RID: 1685
+// Token: 0x020006AA RID: 1706
 [DefaultExecutionOrder(0)]
 public class VRRigJobManager : MonoBehaviour
 {
-	// Token: 0x1700045B RID: 1115
-	// (get) Token: 0x060029E3 RID: 10723 RVA: 0x000D02CA File Offset: 0x000CE4CA
+	// Token: 0x17000468 RID: 1128
+	// (get) Token: 0x06002A79 RID: 10873 RVA: 0x0004CB26 File Offset: 0x0004AD26
 	public static VRRigJobManager Instance
 	{
 		get
@@ -20,7 +20,7 @@ public class VRRigJobManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060029E4 RID: 10724 RVA: 0x000D02D1 File Offset: 0x000CE4D1
+	// Token: 0x06002A7A RID: 10874 RVA: 0x0004CB2D File Offset: 0x0004AD2D
 	private void Awake()
 	{
 		VRRigJobManager._instance = this;
@@ -28,7 +28,7 @@ public class VRRigJobManager : MonoBehaviour
 		this.tAA = new TransformAccessArray(9, 2);
 	}
 
-	// Token: 0x060029E5 RID: 10725 RVA: 0x000D02F6 File Offset: 0x000CE4F6
+	// Token: 0x06002A7B RID: 10875 RVA: 0x0004CB52 File Offset: 0x0004AD52
 	private void OnDestroy()
 	{
 		this.jobHandle.Complete();
@@ -36,7 +36,7 @@ public class VRRigJobManager : MonoBehaviour
 		this.tAA.Dispose();
 	}
 
-	// Token: 0x060029E6 RID: 10726 RVA: 0x000D0319 File Offset: 0x000CE519
+	// Token: 0x06002A7C RID: 10876 RVA: 0x0004CB75 File Offset: 0x0004AD75
 	public void RegisterVRRig(VRRig rig)
 	{
 		this.rigList.Add(rig);
@@ -44,7 +44,7 @@ public class VRRigJobManager : MonoBehaviour
 		this.actualListSz++;
 	}
 
-	// Token: 0x060029E7 RID: 10727 RVA: 0x000D0348 File Offset: 0x000CE548
+	// Token: 0x06002A7D RID: 10877 RVA: 0x0011CBC4 File Offset: 0x0011ADC4
 	public void DeregisterVRRig(VRRig rig)
 	{
 		if (ApplicationQuittingState.IsQuitting)
@@ -63,7 +63,7 @@ public class VRRigJobManager : MonoBehaviour
 		this.actualListSz--;
 	}
 
-	// Token: 0x060029E8 RID: 10728 RVA: 0x000D03B4 File Offset: 0x000CE5B4
+	// Token: 0x06002A7E RID: 10878 RVA: 0x0011CC30 File Offset: 0x0011AE30
 	private void CopyInput()
 	{
 		for (int i = 0; i < this.actualListSz; i++)
@@ -77,7 +77,7 @@ public class VRRigJobManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060029E9 RID: 10729 RVA: 0x000D0434 File Offset: 0x000CE634
+	// Token: 0x06002A7F RID: 10879 RVA: 0x0011CCB0 File Offset: 0x0011AEB0
 	public void Update()
 	{
 		this.jobHandle.Complete();
@@ -93,46 +93,46 @@ public class VRRigJobManager : MonoBehaviour
 		this.jobHandle = jobData.Schedule(this.tAA, default(JobHandle));
 	}
 
-	// Token: 0x04002F5B RID: 12123
+	// Token: 0x04002FF8 RID: 12280
 	[OnEnterPlay_SetNull]
 	private static VRRigJobManager _instance;
 
-	// Token: 0x04002F5C RID: 12124
+	// Token: 0x04002FF9 RID: 12281
 	private const int MaxSize = 9;
 
-	// Token: 0x04002F5D RID: 12125
+	// Token: 0x04002FFA RID: 12282
 	private const int questJobThreads = 2;
 
-	// Token: 0x04002F5E RID: 12126
+	// Token: 0x04002FFB RID: 12283
 	private List<VRRig> rigList = new List<VRRig>(9);
 
-	// Token: 0x04002F5F RID: 12127
+	// Token: 0x04002FFC RID: 12284
 	private NativeArray<VRRigJobManager.VRRigTransformInput> cachedInput;
 
-	// Token: 0x04002F60 RID: 12128
+	// Token: 0x04002FFD RID: 12285
 	private TransformAccessArray tAA;
 
-	// Token: 0x04002F61 RID: 12129
+	// Token: 0x04002FFE RID: 12286
 	private int actualListSz;
 
-	// Token: 0x04002F62 RID: 12130
+	// Token: 0x04002FFF RID: 12287
 	private JobHandle jobHandle;
 
-	// Token: 0x02000696 RID: 1686
+	// Token: 0x020006AB RID: 1707
 	private struct VRRigTransformInput
 	{
-		// Token: 0x04002F63 RID: 12131
+		// Token: 0x04003000 RID: 12288
 		public Vector3 rigPosition;
 
-		// Token: 0x04002F64 RID: 12132
+		// Token: 0x04003001 RID: 12289
 		public Quaternion rigRotaton;
 	}
 
-	// Token: 0x02000697 RID: 1687
+	// Token: 0x020006AC RID: 1708
 	[BurstCompile]
 	private struct VRRigTransformJob : IJobParallelForTransform
 	{
-		// Token: 0x060029EB RID: 10731 RVA: 0x000D04C0 File Offset: 0x000CE6C0
+		// Token: 0x06002A81 RID: 10881 RVA: 0x0004CBB7 File Offset: 0x0004ADB7
 		public void Execute(int i, TransformAccess tA)
 		{
 			if (i < this.input.Length)
@@ -142,7 +142,7 @@ public class VRRigJobManager : MonoBehaviour
 			}
 		}
 
-		// Token: 0x04002F65 RID: 12133
+		// Token: 0x04003002 RID: 12290
 		[ReadOnly]
 		public NativeArray<VRRigJobManager.VRRigTransformInput> input;
 	}

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000849 RID: 2121
+// Token: 0x02000863 RID: 2147
 public class EnumFlagsAttribute : PropertyAttribute
 {
 }

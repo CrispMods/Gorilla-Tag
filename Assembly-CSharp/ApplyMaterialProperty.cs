@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x02000133 RID: 307
+// Token: 0x0200013D RID: 317
 public class ApplyMaterialProperty : MonoBehaviour
 {
-	// Token: 0x0600081F RID: 2079 RVA: 0x0002CB1D File Offset: 0x0002AD1D
+	// Token: 0x06000863 RID: 2147 RVA: 0x00035F02 File Offset: 0x00034102
 	private void Start()
 	{
 		if (this.applyOnStart)
@@ -15,7 +15,7 @@ public class ApplyMaterialProperty : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000820 RID: 2080 RVA: 0x0002CB30 File Offset: 0x0002AD30
+	// Token: 0x06000864 RID: 2148 RVA: 0x0008DE38 File Offset: 0x0008C038
 	public void Apply()
 	{
 		if (!this._renderer)
@@ -35,7 +35,7 @@ public class ApplyMaterialProperty : MonoBehaviour
 		this.ApplyMaterialPropertyBlock();
 	}
 
-	// Token: 0x06000821 RID: 2081 RVA: 0x0002CB72 File Offset: 0x0002AD72
+	// Token: 0x06000865 RID: 2149 RVA: 0x00035F12 File Offset: 0x00034112
 	public void SetColor(string propertyName, Color color)
 	{
 		ApplyMaterialProperty.CustomMaterialData orCreateData = this.GetOrCreateData(propertyName);
@@ -43,7 +43,7 @@ public class ApplyMaterialProperty : MonoBehaviour
 		orCreateData.color = color;
 	}
 
-	// Token: 0x06000822 RID: 2082 RVA: 0x0002CB88 File Offset: 0x0002AD88
+	// Token: 0x06000866 RID: 2150 RVA: 0x00035F28 File Offset: 0x00034128
 	public void SetFloat(string propertyName, float value)
 	{
 		ApplyMaterialProperty.CustomMaterialData orCreateData = this.GetOrCreateData(propertyName);
@@ -51,7 +51,7 @@ public class ApplyMaterialProperty : MonoBehaviour
 		orCreateData.@float = value;
 	}
 
-	// Token: 0x06000823 RID: 2083 RVA: 0x0002CBA0 File Offset: 0x0002ADA0
+	// Token: 0x06000867 RID: 2151 RVA: 0x0008DE7C File Offset: 0x0008C07C
 	private ApplyMaterialProperty.CustomMaterialData GetOrCreateData(string propertyName)
 	{
 		for (int i = 0; i < this.customData.Count; i++)
@@ -70,7 +70,7 @@ public class ApplyMaterialProperty : MonoBehaviour
 		return customMaterialData2;
 	}
 
-	// Token: 0x06000824 RID: 2084 RVA: 0x0002CBFC File Offset: 0x0002ADFC
+	// Token: 0x06000868 RID: 2152 RVA: 0x0008DED8 File Offset: 0x0008C0D8
 	private void ApplyMaterialInstance()
 	{
 		if (!this._instance)
@@ -110,7 +110,7 @@ public class ApplyMaterialProperty : MonoBehaviour
 		this._renderer.SetPropertyBlock(this._block);
 	}
 
-	// Token: 0x06000825 RID: 2085 RVA: 0x0002CD3C File Offset: 0x0002AF3C
+	// Token: 0x06000869 RID: 2153 RVA: 0x0008E018 File Offset: 0x0008C218
 	private void ApplyMaterialPropertyBlock()
 	{
 		if (this._block == null)
@@ -146,90 +146,90 @@ public class ApplyMaterialProperty : MonoBehaviour
 		this._renderer.SetPropertyBlock(this._block);
 	}
 
-	// Token: 0x04000977 RID: 2423
+	// Token: 0x040009BA RID: 2490
 	public ApplyMaterialProperty.ApplyMode mode;
 
-	// Token: 0x04000978 RID: 2424
+	// Token: 0x040009BB RID: 2491
 	[FormerlySerializedAs("materialToApplyBlock")]
 	public Material targetMaterial;
 
-	// Token: 0x04000979 RID: 2425
+	// Token: 0x040009BC RID: 2492
 	[SerializeField]
 	private MaterialInstance _instance;
 
-	// Token: 0x0400097A RID: 2426
+	// Token: 0x040009BD RID: 2493
 	[SerializeField]
 	private Renderer _renderer;
 
-	// Token: 0x0400097B RID: 2427
+	// Token: 0x040009BE RID: 2494
 	public List<ApplyMaterialProperty.CustomMaterialData> customData;
 
-	// Token: 0x0400097C RID: 2428
+	// Token: 0x040009BF RID: 2495
 	[SerializeField]
 	private bool applyOnStart;
 
-	// Token: 0x0400097D RID: 2429
+	// Token: 0x040009C0 RID: 2496
 	[NonSerialized]
 	private MaterialPropertyBlock _block;
 
-	// Token: 0x02000134 RID: 308
+	// Token: 0x0200013E RID: 318
 	public enum ApplyMode
 	{
-		// Token: 0x0400097F RID: 2431
+		// Token: 0x040009C2 RID: 2498
 		MaterialInstance,
-		// Token: 0x04000980 RID: 2432
+		// Token: 0x040009C3 RID: 2499
 		MaterialPropertyBlock
 	}
 
-	// Token: 0x02000135 RID: 309
+	// Token: 0x0200013F RID: 319
 	public enum SuportedTypes
 	{
-		// Token: 0x04000982 RID: 2434
+		// Token: 0x040009C5 RID: 2501
 		Color,
-		// Token: 0x04000983 RID: 2435
+		// Token: 0x040009C6 RID: 2502
 		Float,
-		// Token: 0x04000984 RID: 2436
+		// Token: 0x040009C7 RID: 2503
 		Vector2,
-		// Token: 0x04000985 RID: 2437
+		// Token: 0x040009C8 RID: 2504
 		Vector3,
-		// Token: 0x04000986 RID: 2438
+		// Token: 0x040009C9 RID: 2505
 		Vector4,
-		// Token: 0x04000987 RID: 2439
+		// Token: 0x040009CA RID: 2506
 		Texture2D
 	}
 
-	// Token: 0x02000136 RID: 310
+	// Token: 0x02000140 RID: 320
 	[Serializable]
 	public class CustomMaterialData
 	{
-		// Token: 0x06000827 RID: 2087 RVA: 0x0002CE74 File Offset: 0x0002B074
+		// Token: 0x0600086B RID: 2155 RVA: 0x0008E150 File Offset: 0x0008C350
 		public override int GetHashCode()
 		{
 			return new ValueTuple<string, ApplyMaterialProperty.SuportedTypes, Color, float, Vector2, Vector3, Vector4, ValueTuple<Texture2D>>(this.name, this.dataType, this.color, this.@float, this.vector2, this.vector3, this.vector4, new ValueTuple<Texture2D>(this.texture2D)).GetHashCode();
 		}
 
-		// Token: 0x04000988 RID: 2440
+		// Token: 0x040009CB RID: 2507
 		public string name;
 
-		// Token: 0x04000989 RID: 2441
+		// Token: 0x040009CC RID: 2508
 		public ApplyMaterialProperty.SuportedTypes dataType;
 
-		// Token: 0x0400098A RID: 2442
+		// Token: 0x040009CD RID: 2509
 		public Color color;
 
-		// Token: 0x0400098B RID: 2443
+		// Token: 0x040009CE RID: 2510
 		public float @float;
 
-		// Token: 0x0400098C RID: 2444
+		// Token: 0x040009CF RID: 2511
 		public Vector2 vector2;
 
-		// Token: 0x0400098D RID: 2445
+		// Token: 0x040009D0 RID: 2512
 		public Vector3 vector3;
 
-		// Token: 0x0400098E RID: 2446
+		// Token: 0x040009D1 RID: 2513
 		public Vector4 vector4;
 
-		// Token: 0x0400098F RID: 2447
+		// Token: 0x040009D2 RID: 2514
 		public Texture2D texture2D;
 	}
 }

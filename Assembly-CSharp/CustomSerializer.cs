@@ -3,22 +3,22 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 
-// Token: 0x02000256 RID: 598
+// Token: 0x02000261 RID: 609
 public static class CustomSerializer
 {
-	// Token: 0x06000DD1 RID: 3537 RVA: 0x000462A8 File Offset: 0x000444A8
+	// Token: 0x06000E1C RID: 3612 RVA: 0x0003A1E8 File Offset: 0x000383E8
 	public static byte[] ByteSerialize(this object obj)
 	{
 		return CustomSerializer.Serialize(obj);
 	}
 
-	// Token: 0x06000DD2 RID: 3538 RVA: 0x000462B0 File Offset: 0x000444B0
+	// Token: 0x06000E1D RID: 3613 RVA: 0x0003A1F0 File Offset: 0x000383F0
 	public static object ByteDeserialize(this byte[] bytes)
 	{
 		return CustomSerializer.Deserialize(bytes);
 	}
 
-	// Token: 0x06000DD3 RID: 3539 RVA: 0x000462B8 File Offset: 0x000444B8
+	// Token: 0x06000E1E RID: 3614 RVA: 0x000A3240 File Offset: 0x000A1440
 	public static byte[] Serialize(object obj)
 	{
 		byte[] result;
@@ -33,7 +33,7 @@ public static class CustomSerializer
 		return result;
 	}
 
-	// Token: 0x06000DD4 RID: 3540 RVA: 0x00046318 File Offset: 0x00044518
+	// Token: 0x06000E1F RID: 3615 RVA: 0x000A32A0 File Offset: 0x000A14A0
 	public static object Deserialize(byte[] data)
 	{
 		object result;
@@ -47,7 +47,7 @@ public static class CustomSerializer
 		return result;
 	}
 
-	// Token: 0x06000DD5 RID: 3541 RVA: 0x00046374 File Offset: 0x00044574
+	// Token: 0x06000E20 RID: 3616 RVA: 0x000A32FC File Offset: 0x000A14FC
 	private static void SerializeObject(BinaryWriter writer, object obj)
 	{
 		string text = obj as string;
@@ -144,7 +144,7 @@ public static class CustomSerializer
 		Debug.LogWarning("<color=blue>type not supported " + obj.GetType().ToString() + "</color>");
 	}
 
-	// Token: 0x06000DD6 RID: 3542 RVA: 0x000465B8 File Offset: 0x000447B8
+	// Token: 0x06000E21 RID: 3617 RVA: 0x000A3540 File Offset: 0x000A1740
 	private static void SerializeObjectArray(BinaryWriter writer, object[] objects)
 	{
 		writer.Write(objects.Length);
@@ -154,7 +154,7 @@ public static class CustomSerializer
 		}
 	}
 
-	// Token: 0x06000DD7 RID: 3543 RVA: 0x000465EC File Offset: 0x000447EC
+	// Token: 0x06000E22 RID: 3618 RVA: 0x000A3574 File Offset: 0x000A1774
 	private static void SerializeNetEventOptions(BinaryWriter writer, NetEventOptions options)
 	{
 		writer.Write((int)options.Reciever);
@@ -173,7 +173,7 @@ public static class CustomSerializer
 		writer.Write(options.Flags.WebhookFlags);
 	}
 
-	// Token: 0x06000DD8 RID: 3544 RVA: 0x00046658 File Offset: 0x00044858
+	// Token: 0x06000E23 RID: 3619 RVA: 0x000A35E0 File Offset: 0x000A17E0
 	private static object DeserializeObject(BinaryReader reader)
 	{
 		switch (reader.ReadByte())
@@ -227,7 +227,7 @@ public static class CustomSerializer
 		}
 	}
 
-	// Token: 0x06000DD9 RID: 3545 RVA: 0x0004678C File Offset: 0x0004498C
+	// Token: 0x06000E24 RID: 3620 RVA: 0x000A3714 File Offset: 0x000A1914
 	private static object[] DeserializeObjectArray(BinaryReader reader)
 	{
 		int num = reader.ReadInt32();
@@ -239,7 +239,7 @@ public static class CustomSerializer
 		return array;
 	}
 
-	// Token: 0x06000DDA RID: 3546 RVA: 0x000467C0 File Offset: 0x000449C0
+	// Token: 0x06000E25 RID: 3621 RVA: 0x000A3748 File Offset: 0x000A1948
 	private static NetEventOptions DeserializeNetEventOptions(BinaryReader reader)
 	{
 		int reciever = reader.ReadInt32();

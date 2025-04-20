@@ -3,23 +3,23 @@ using GorillaNetworking;
 using TMPro;
 using UnityEngine;
 
-// Token: 0x020001C4 RID: 452
+// Token: 0x020001CF RID: 463
 public class JoinTriggerUI : MonoBehaviour
 {
-	// Token: 0x06000A93 RID: 2707 RVA: 0x0003961F File Offset: 0x0003781F
+	// Token: 0x06000ADF RID: 2783 RVA: 0x00037A59 File Offset: 0x00035C59
 	private void Awake()
 	{
 		this.joinTriggerRef.TryResolve<GorillaNetworkJoinTrigger>(out this.joinTrigger);
 	}
 
-	// Token: 0x06000A94 RID: 2708 RVA: 0x00039633 File Offset: 0x00037833
+	// Token: 0x06000AE0 RID: 2784 RVA: 0x00037A6D File Offset: 0x00035C6D
 	private void Start()
 	{
 		this.didStart = true;
 		this.OnEnable();
 	}
 
-	// Token: 0x06000A95 RID: 2709 RVA: 0x00039642 File Offset: 0x00037842
+	// Token: 0x06000AE1 RID: 2785 RVA: 0x00037A7C File Offset: 0x00035C7C
 	private void OnEnable()
 	{
 		if (this.didStart)
@@ -28,13 +28,13 @@ public class JoinTriggerUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A96 RID: 2710 RVA: 0x00039658 File Offset: 0x00037858
+	// Token: 0x06000AE2 RID: 2786 RVA: 0x00037A92 File Offset: 0x00035C92
 	private void OnDisable()
 	{
 		this.joinTrigger.UnregisterUI(this);
 	}
 
-	// Token: 0x06000A97 RID: 2711 RVA: 0x00039668 File Offset: 0x00037868
+	// Token: 0x06000AE3 RID: 2787 RVA: 0x00098D94 File Offset: 0x00096F94
 	public void SetState(JoinTriggerVisualState state, Func<string> oldZone, Func<string> newZone, Func<string> oldGameMode, Func<string> newGameMode)
 	{
 		switch (state)
@@ -84,29 +84,29 @@ public class JoinTriggerUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000CE4 RID: 3300
+	// Token: 0x04000D2A RID: 3370
 	[SerializeField]
 	private XSceneRef joinTriggerRef;
 
-	// Token: 0x04000CE5 RID: 3301
+	// Token: 0x04000D2B RID: 3371
 	private GorillaNetworkJoinTrigger joinTrigger;
 
-	// Token: 0x04000CE6 RID: 3302
+	// Token: 0x04000D2C RID: 3372
 	[SerializeField]
 	private MeshRenderer milestoneRenderer;
 
-	// Token: 0x04000CE7 RID: 3303
+	// Token: 0x04000D2D RID: 3373
 	[SerializeField]
 	private MeshRenderer screenBGRenderer;
 
-	// Token: 0x04000CE8 RID: 3304
+	// Token: 0x04000D2E RID: 3374
 	[SerializeField]
 	private TextMeshPro screenText;
 
-	// Token: 0x04000CE9 RID: 3305
+	// Token: 0x04000D2F RID: 3375
 	[SerializeField]
 	private JoinTriggerUITemplate template;
 
-	// Token: 0x04000CEA RID: 3306
+	// Token: 0x04000D30 RID: 3376
 	private bool didStart;
 }

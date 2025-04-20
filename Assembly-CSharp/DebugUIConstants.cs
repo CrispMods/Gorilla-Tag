@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x02000455 RID: 1109
+// Token: 0x02000461 RID: 1121
 public static class DebugUIConstants
 {
-	// Token: 0x04001E3C RID: 7740
+	// Token: 0x04001E8B RID: 7819
 	public static readonly string[] PlayfabIDs = new string[]
 	{
 		"TestUser1",
@@ -13,7 +13,7 @@ public static class DebugUIConstants
 		"TestUser5"
 	};
 
-	// Token: 0x04001E3D RID: 7741
+	// Token: 0x04001E8C RID: 7820
 	public static readonly string[] RoomIDs = new string[]
 	{
 		"GETAAGT1",
@@ -23,7 +23,7 @@ public static class DebugUIConstants
 		"GETAAGT5"
 	};
 
-	// Token: 0x04001E3E RID: 7742
+	// Token: 0x04001E8D RID: 7821
 	public static readonly string[] GameModes = new string[]
 	{
 		"HUNT",
@@ -32,7 +32,7 @@ public static class DebugUIConstants
 		"INFECTION"
 	};
 
-	// Token: 0x04001E3F RID: 7743
+	// Token: 0x04001E8E RID: 7822
 	public static readonly string[] PlayerNames = new string[]
 	{
 		"GorillaUser1",

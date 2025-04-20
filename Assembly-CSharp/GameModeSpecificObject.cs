@@ -4,21 +4,21 @@ using System.Runtime.CompilerServices;
 using GorillaGameModes;
 using UnityEngine;
 
-// Token: 0x0200007F RID: 127
+// Token: 0x02000086 RID: 134
 public class GameModeSpecificObject : MonoBehaviour
 {
 	// Token: 0x14000007 RID: 7
-	// (add) Token: 0x06000342 RID: 834 RVA: 0x00014F74 File Offset: 0x00013174
-	// (remove) Token: 0x06000343 RID: 835 RVA: 0x00014FA8 File Offset: 0x000131A8
+	// (add) Token: 0x06000374 RID: 884 RVA: 0x00079398 File Offset: 0x00077598
+	// (remove) Token: 0x06000375 RID: 885 RVA: 0x000793CC File Offset: 0x000775CC
 	public static event GameModeSpecificObject.GameModeSpecificObjectDelegate OnAwake;
 
 	// Token: 0x14000008 RID: 8
-	// (add) Token: 0x06000344 RID: 836 RVA: 0x00014FDC File Offset: 0x000131DC
-	// (remove) Token: 0x06000345 RID: 837 RVA: 0x00015010 File Offset: 0x00013210
+	// (add) Token: 0x06000376 RID: 886 RVA: 0x00079400 File Offset: 0x00077600
+	// (remove) Token: 0x06000377 RID: 887 RVA: 0x00079434 File Offset: 0x00077634
 	public static event GameModeSpecificObject.GameModeSpecificObjectDelegate OnDestroyed;
 
-	// Token: 0x1700002F RID: 47
-	// (get) Token: 0x06000346 RID: 838 RVA: 0x00015043 File Offset: 0x00013243
+	// Token: 0x17000033 RID: 51
+	// (get) Token: 0x06000378 RID: 888 RVA: 0x00032A96 File Offset: 0x00030C96
 	public GameModeSpecificObject.ValidationMethod Validation
 	{
 		get
@@ -27,8 +27,8 @@ public class GameModeSpecificObject : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000030 RID: 48
-	// (get) Token: 0x06000347 RID: 839 RVA: 0x0001504B File Offset: 0x0001324B
+	// Token: 0x17000034 RID: 52
+	// (get) Token: 0x06000379 RID: 889 RVA: 0x00032A9E File Offset: 0x00030C9E
 	public List<GameModeType> GameModes
 	{
 		get
@@ -37,7 +37,7 @@ public class GameModeSpecificObject : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000348 RID: 840 RVA: 0x00015054 File Offset: 0x00013254
+	// Token: 0x0600037A RID: 890 RVA: 0x00079468 File Offset: 0x00077668
 	private void Awake()
 	{
 		GameModeSpecificObject.<Awake>d__15 <Awake>d__;
@@ -47,7 +47,7 @@ public class GameModeSpecificObject : MonoBehaviour
 		<Awake>d__.<>t__builder.Start<GameModeSpecificObject.<Awake>d__15>(ref <Awake>d__);
 	}
 
-	// Token: 0x06000349 RID: 841 RVA: 0x0001508B File Offset: 0x0001328B
+	// Token: 0x0600037B RID: 891 RVA: 0x00032AA6 File Offset: 0x00030CA6
 	private void OnDestroy()
 	{
 		if (GameModeSpecificObject.OnDestroyed != null)
@@ -56,7 +56,7 @@ public class GameModeSpecificObject : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600034A RID: 842 RVA: 0x0001509F File Offset: 0x0001329F
+	// Token: 0x0600037C RID: 892 RVA: 0x00032ABA File Offset: 0x00030CBA
 	public bool CheckValid(GameModeType gameMode)
 	{
 		if (this.validationMethod == GameModeSpecificObject.ValidationMethod.Exclusion)
@@ -66,28 +66,28 @@ public class GameModeSpecificObject : MonoBehaviour
 		return this.gameModes.Contains(gameMode);
 	}
 
-	// Token: 0x040003D0 RID: 976
+	// Token: 0x04000404 RID: 1028
 	[SerializeField]
 	private GameModeSpecificObject.ValidationMethod validationMethod;
 
-	// Token: 0x040003D1 RID: 977
+	// Token: 0x04000405 RID: 1029
 	[SerializeField]
 	private GameModeType[] _gameModes;
 
-	// Token: 0x040003D2 RID: 978
+	// Token: 0x04000406 RID: 1030
 	private List<GameModeType> gameModes;
 
-	// Token: 0x02000080 RID: 128
-	// (Invoke) Token: 0x0600034D RID: 845
+	// Token: 0x02000087 RID: 135
+	// (Invoke) Token: 0x0600037F RID: 895
 	public delegate void GameModeSpecificObjectDelegate(GameModeSpecificObject gameModeSpecificObject);
 
-	// Token: 0x02000081 RID: 129
+	// Token: 0x02000088 RID: 136
 	[Serializable]
 	public enum ValidationMethod
 	{
-		// Token: 0x040003D4 RID: 980
+		// Token: 0x04000408 RID: 1032
 		Inclusion,
-		// Token: 0x040003D5 RID: 981
+		// Token: 0x04000409 RID: 1033
 		Exclusion
 	}
 }

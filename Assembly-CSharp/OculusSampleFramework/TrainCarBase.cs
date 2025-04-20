@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A6F RID: 2671
+	// Token: 0x02000A9C RID: 2716
 	public abstract class TrainCarBase : MonoBehaviour
 	{
-		// Token: 0x170006DD RID: 1757
-		// (get) Token: 0x06004291 RID: 17041 RVA: 0x0013A021 File Offset: 0x00138221
-		// (set) Token: 0x06004292 RID: 17042 RVA: 0x0013A029 File Offset: 0x00138229
+		// Token: 0x170006F9 RID: 1785
+		// (get) Token: 0x060043D6 RID: 17366 RVA: 0x0005C382 File Offset: 0x0005A582
+		// (set) Token: 0x060043D7 RID: 17367 RVA: 0x0005C38A File Offset: 0x0005A58A
 		public float Distance { get; protected set; }
 
-		// Token: 0x170006DE RID: 1758
-		// (get) Token: 0x06004293 RID: 17043 RVA: 0x0013A032 File Offset: 0x00138232
-		// (set) Token: 0x06004294 RID: 17044 RVA: 0x0013A03A File Offset: 0x0013823A
+		// Token: 0x170006FA RID: 1786
+		// (get) Token: 0x060043D8 RID: 17368 RVA: 0x0005C393 File Offset: 0x0005A593
+		// (set) Token: 0x060043D9 RID: 17369 RVA: 0x0005C39B File Offset: 0x0005A59B
 		public float Scale
 		{
 			get
@@ -26,12 +26,12 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x06004295 RID: 17045 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x060043DA RID: 17370 RVA: 0x00030607 File Offset: 0x0002E807
 		protected virtual void Awake()
 		{
 		}
 
-		// Token: 0x06004296 RID: 17046 RVA: 0x0013A044 File Offset: 0x00138244
+		// Token: 0x060043DB RID: 17371 RVA: 0x001794E8 File Offset: 0x001776E8
 		public void UpdatePose(float distance, TrainCarBase train, Pose pose)
 		{
 			distance = (train._trainTrack.TrackLength + distance) % train._trainTrack.TrackLength;
@@ -44,7 +44,7 @@ namespace OculusSampleFramework
 			segment.UpdatePose(distanceIntoSegment, pose);
 		}
 
-		// Token: 0x06004297 RID: 17047 RVA: 0x0013A0A4 File Offset: 0x001382A4
+		// Token: 0x060043DC RID: 17372 RVA: 0x00179548 File Offset: 0x00177748
 		protected void UpdateCarPosition()
 		{
 			this.UpdatePose(this.Distance + this._frontWheels.transform.localPosition.z * this.scale, this, this._frontPose);
@@ -57,7 +57,7 @@ namespace OculusSampleFramework
 			this._rearWheels.transform.rotation = this._rearPose.Rotation;
 		}
 
-		// Token: 0x06004298 RID: 17048 RVA: 0x0013A1BC File Offset: 0x001383BC
+		// Token: 0x060043DD RID: 17373 RVA: 0x00179660 File Offset: 0x00177860
 		protected void RotateCarWheels()
 		{
 			float num = this.Distance / 0.027f % 6.2831855f;
@@ -68,41 +68,41 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x06004299 RID: 17049
+		// Token: 0x060043DE RID: 17374
 		public abstract void UpdatePosition();
 
-		// Token: 0x0400438D RID: 17293
+		// Token: 0x04004487 RID: 17543
 		private static Vector3 OFFSET = new Vector3(0f, 0.0195f, 0f);
 
-		// Token: 0x0400438E RID: 17294
+		// Token: 0x04004488 RID: 17544
 		private const float WHEEL_RADIUS = 0.027f;
 
-		// Token: 0x0400438F RID: 17295
+		// Token: 0x04004489 RID: 17545
 		private const float TWO_PI = 6.2831855f;
 
-		// Token: 0x04004390 RID: 17296
+		// Token: 0x0400448A RID: 17546
 		[SerializeField]
 		protected Transform _frontWheels;
 
-		// Token: 0x04004391 RID: 17297
+		// Token: 0x0400448B RID: 17547
 		[SerializeField]
 		protected Transform _rearWheels;
 
-		// Token: 0x04004392 RID: 17298
+		// Token: 0x0400448C RID: 17548
 		[SerializeField]
 		protected TrainTrack _trainTrack;
 
-		// Token: 0x04004393 RID: 17299
+		// Token: 0x0400448D RID: 17549
 		[SerializeField]
 		protected Transform[] _individualWheels;
 
-		// Token: 0x04004395 RID: 17301
+		// Token: 0x0400448F RID: 17551
 		protected float scale = 1f;
 
-		// Token: 0x04004396 RID: 17302
+		// Token: 0x04004490 RID: 17552
 		private Pose _frontPose = new Pose();
 
-		// Token: 0x04004397 RID: 17303
+		// Token: 0x04004491 RID: 17553
 		private Pose _rearPose = new Pose();
 	}
 }

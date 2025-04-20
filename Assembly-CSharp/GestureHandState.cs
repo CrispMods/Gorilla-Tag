@@ -1,17 +1,17 @@
 ﻿using System;
 
-// Token: 0x0200015B RID: 347
+// Token: 0x02000166 RID: 358
 [Flags]
 public enum GestureHandState : uint
 {
-	// Token: 0x04000A88 RID: 2696
+	// Token: 0x04000ACF RID: 2767
 	None = 0U,
-	// Token: 0x04000A89 RID: 2697
+	// Token: 0x04000AD0 RID: 2768
 	IsLeft = 1U,
-	// Token: 0x04000A8A RID: 2698
+	// Token: 0x04000AD1 RID: 2769
 	IsRight = 2U,
-	// Token: 0x04000A8B RID: 2699
+	// Token: 0x04000AD2 RID: 2770
 	Open = 4U,
-	// Token: 0x04000A8C RID: 2700
+	// Token: 0x04000AD3 RID: 2771
 	Closed = 8U
 }

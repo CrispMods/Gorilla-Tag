@@ -1,14 +1,14 @@
 ﻿using System;
 
-// Token: 0x02000546 RID: 1350
+// Token: 0x02000554 RID: 1364
 public class HandTapArgs : FXSArgs
 {
-	// Token: 0x040024B5 RID: 9397
+	// Token: 0x0400250D RID: 9485
 	public int soundIndex;
 
-	// Token: 0x040024B6 RID: 9398
+	// Token: 0x0400250E RID: 9486
 	public bool isLeftHand;
 
-	// Token: 0x040024B7 RID: 9399
+	// Token: 0x0400250F RID: 9487
 	public float tapVolume;
 }

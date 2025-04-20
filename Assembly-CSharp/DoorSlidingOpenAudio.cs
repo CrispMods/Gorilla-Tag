@@ -1,27 +1,27 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000A9 RID: 169
+// Token: 0x020000B3 RID: 179
 public class DoorSlidingOpenAudio : MonoBehaviour, IBuildValidation, ITickSystemTick
 {
-	// Token: 0x1700004E RID: 78
-	// (get) Token: 0x0600044D RID: 1101 RVA: 0x00019AFA File Offset: 0x00017CFA
-	// (set) Token: 0x0600044E RID: 1102 RVA: 0x00019B02 File Offset: 0x00017D02
+	// Token: 0x17000053 RID: 83
+	// (get) Token: 0x06000489 RID: 1161 RVA: 0x00033672 File Offset: 0x00031872
+	// (set) Token: 0x0600048A RID: 1162 RVA: 0x0003367A File Offset: 0x0003187A
 	bool ITickSystemTick.TickRunning { get; set; }
 
-	// Token: 0x0600044F RID: 1103 RVA: 0x00019B0B File Offset: 0x00017D0B
+	// Token: 0x0600048B RID: 1163 RVA: 0x00033683 File Offset: 0x00031883
 	private void OnEnable()
 	{
 		TickSystem<object>.AddCallbackTarget(this);
 	}
 
-	// Token: 0x06000450 RID: 1104 RVA: 0x00019B13 File Offset: 0x00017D13
+	// Token: 0x0600048C RID: 1164 RVA: 0x0003368B File Offset: 0x0003188B
 	private void OnDisable()
 	{
 		TickSystem<object>.RemoveCallbackTarget(this);
 	}
 
-	// Token: 0x06000451 RID: 1105 RVA: 0x00019B1C File Offset: 0x00017D1C
+	// Token: 0x0600048D RID: 1165 RVA: 0x0007D524 File Offset: 0x0007B724
 	public bool BuildValidationCheck()
 	{
 		if (this.button == null)
@@ -37,7 +37,7 @@ public class DoorSlidingOpenAudio : MonoBehaviour, IBuildValidation, ITickSystem
 		return true;
 	}
 
-	// Token: 0x06000452 RID: 1106 RVA: 0x00019B6C File Offset: 0x00017D6C
+	// Token: 0x0600048E RID: 1166 RVA: 0x0007D574 File Offset: 0x0007B774
 	void ITickSystemTick.Tick()
 	{
 		if (this.button.ghostLab.IsDoorMoving(this.button.forSingleDoor, this.button.buttonIndex))
@@ -56,9 +56,9 @@ public class DoorSlidingOpenAudio : MonoBehaviour, IBuildValidation, ITickSystem
 		}
 	}
 
-	// Token: 0x04000503 RID: 1283
+	// Token: 0x04000543 RID: 1347
 	public GhostLabButton button;
 
-	// Token: 0x04000504 RID: 1284
+	// Token: 0x04000544 RID: 1348
 	public AudioSource audioSource;
 }

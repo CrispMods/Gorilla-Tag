@@ -7,10 +7,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x020004E9 RID: 1257
+// Token: 0x020004F6 RID: 1270
 public class BuilderScanKiosk : MonoBehaviour
 {
-	// Token: 0x06001E7B RID: 7803 RVA: 0x0009962C File Offset: 0x0009782C
+	// Token: 0x06001ED4 RID: 7892 RVA: 0x000EBD10 File Offset: 0x000E9F10
 	private void Start()
 	{
 		if (this.saveButton != null)
@@ -37,7 +37,7 @@ public class BuilderScanKiosk : MonoBehaviour
 		this.LoadPlayerPrefs();
 	}
 
-	// Token: 0x06001E7C RID: 7804 RVA: 0x00099768 File Offset: 0x00097968
+	// Token: 0x06001ED5 RID: 7893 RVA: 0x000EBE4C File Offset: 0x000EA04C
 	private void OnDestroy()
 	{
 		if (this.saveButton != null)
@@ -63,7 +63,7 @@ public class BuilderScanKiosk : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E7D RID: 7805 RVA: 0x00099888 File Offset: 0x00097A88
+	// Token: 0x06001ED6 RID: 7894 RVA: 0x000EBF6C File Offset: 0x000EA16C
 	private void OnNoneButtonPressed()
 	{
 		if (this.targetTable == null)
@@ -82,7 +82,7 @@ public class BuilderScanKiosk : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E7E RID: 7806 RVA: 0x000998DC File Offset: 0x00097ADC
+	// Token: 0x06001ED7 RID: 7895 RVA: 0x000EBFC0 File Offset: 0x000EA1C0
 	private void OnScanButtonPressed(GorillaPressableButton button, bool isLeft)
 	{
 		if (this.targetTable == null)
@@ -114,7 +114,7 @@ public class BuilderScanKiosk : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E7F RID: 7807 RVA: 0x0009995C File Offset: 0x00097B5C
+	// Token: 0x06001ED8 RID: 7896 RVA: 0x000EC040 File Offset: 0x000EA240
 	private void LoadPlayerPrefs()
 	{
 		int @int = PlayerPrefs.GetInt(BuilderScanKiosk.playerPrefKey, -1);
@@ -122,14 +122,14 @@ public class BuilderScanKiosk : MonoBehaviour
 		this.UpdateUI();
 	}
 
-	// Token: 0x06001E80 RID: 7808 RVA: 0x00099987 File Offset: 0x00097B87
+	// Token: 0x06001ED9 RID: 7897 RVA: 0x00044E84 File Offset: 0x00043084
 	private void SavePlayerPrefs()
 	{
 		PlayerPrefs.SetInt(BuilderScanKiosk.playerPrefKey, this.targetTable.CurrentSaveSlot);
 		PlayerPrefs.Save();
 	}
 
-	// Token: 0x06001E81 RID: 7809 RVA: 0x000999A4 File Offset: 0x00097BA4
+	// Token: 0x06001EDA RID: 7898 RVA: 0x000EC06C File Offset: 0x000EA26C
 	private void ToggleSaveButton(bool enabled)
 	{
 		if (enabled)
@@ -142,7 +142,7 @@ public class BuilderScanKiosk : MonoBehaviour
 		this.saveButton.buttonRenderer.material = this.saveButton.pressedMaterial;
 	}
 
-	// Token: 0x06001E82 RID: 7810 RVA: 0x00099A04 File Offset: 0x00097C04
+	// Token: 0x06001EDB RID: 7899 RVA: 0x000EC0CC File Offset: 0x000EA2CC
 	private void Update()
 	{
 		if (this.isAnimating)
@@ -164,7 +164,7 @@ public class BuilderScanKiosk : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E83 RID: 7811 RVA: 0x00099A74 File Offset: 0x00097C74
+	// Token: 0x06001EDC RID: 7900 RVA: 0x000EC13C File Offset: 0x000EA33C
 	private void OnSavePressed()
 	{
 		if (this.targetTable == null || !this.isDirty || this.coolingDown)
@@ -205,7 +205,7 @@ public class BuilderScanKiosk : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E84 RID: 7812 RVA: 0x00099B88 File Offset: 0x00097D88
+	// Token: 0x06001EDD RID: 7901 RVA: 0x000EC250 File Offset: 0x000EA450
 	private string GetSavePath()
 	{
 		return string.Concat(new string[]
@@ -219,20 +219,20 @@ public class BuilderScanKiosk : MonoBehaviour
 		});
 	}
 
-	// Token: 0x06001E85 RID: 7813 RVA: 0x00099BE4 File Offset: 0x00097DE4
+	// Token: 0x06001EDE RID: 7902 RVA: 0x00044EA0 File Offset: 0x000430A0
 	private string GetSaveFolder()
 	{
 		return Application.persistentDataPath + Path.DirectorySeparatorChar.ToString() + BuilderScanKiosk.SAVE_FOLDER;
 	}
 
-	// Token: 0x06001E86 RID: 7814 RVA: 0x00099BFF File Offset: 0x00097DFF
+	// Token: 0x06001EDF RID: 7903 RVA: 0x00044EBB File Offset: 0x000430BB
 	private void OnSaveDirtyChanged(bool dirty)
 	{
 		this.isDirty = dirty;
 		this.UpdateUI();
 	}
 
-	// Token: 0x06001E87 RID: 7815 RVA: 0x00099C0E File Offset: 0x00097E0E
+	// Token: 0x06001EE0 RID: 7904 RVA: 0x00044ECA File Offset: 0x000430CA
 	private void OnSaveTimeUpdated()
 	{
 		this.scannerState = BuilderScanKiosk.ScannerState.IDLE;
@@ -240,7 +240,7 @@ public class BuilderScanKiosk : MonoBehaviour
 		this.UpdateUI();
 	}
 
-	// Token: 0x06001E88 RID: 7816 RVA: 0x00099C24 File Offset: 0x00097E24
+	// Token: 0x06001EE1 RID: 7905 RVA: 0x00044EE0 File Offset: 0x000430E0
 	private void OnSaveFail(string errorMsg)
 	{
 		this.scannerState = BuilderScanKiosk.ScannerState.IDLE;
@@ -249,7 +249,7 @@ public class BuilderScanKiosk : MonoBehaviour
 		this.UpdateUI();
 	}
 
-	// Token: 0x06001E89 RID: 7817 RVA: 0x00099C44 File Offset: 0x00097E44
+	// Token: 0x06001EE2 RID: 7906 RVA: 0x000EC2AC File Offset: 0x000EA4AC
 	private void UpdateUI()
 	{
 		this.screenText.text = this.GetTextForScreen();
@@ -267,7 +267,7 @@ public class BuilderScanKiosk : MonoBehaviour
 		this.saveButton.myTmpText.text = "UPDATE SCAN";
 	}
 
-	// Token: 0x06001E8A RID: 7818 RVA: 0x00099D4C File Offset: 0x00097F4C
+	// Token: 0x06001EE3 RID: 7907 RVA: 0x000EC3B4 File Offset: 0x000EA5B4
 	private string GetTextForScreen()
 	{
 		if (this.targetTable == null)
@@ -345,88 +345,88 @@ public class BuilderScanKiosk : MonoBehaviour
 		return stringBuilder.ToString();
 	}
 
-	// Token: 0x0400221E RID: 8734
+	// Token: 0x04002271 RID: 8817
 	[SerializeField]
 	private GorillaPressableButton saveButton;
 
-	// Token: 0x0400221F RID: 8735
+	// Token: 0x04002272 RID: 8818
 	[SerializeField]
 	private GorillaPressableButton noneButton;
 
-	// Token: 0x04002220 RID: 8736
+	// Token: 0x04002273 RID: 8819
 	[SerializeField]
 	private List<GorillaPressableButton> scanButtons;
 
-	// Token: 0x04002221 RID: 8737
+	// Token: 0x04002274 RID: 8820
 	[SerializeField]
 	private BuilderTable targetTable;
 
-	// Token: 0x04002222 RID: 8738
+	// Token: 0x04002275 RID: 8821
 	[SerializeField]
 	private float saveCooldownSeconds = 5f;
 
-	// Token: 0x04002223 RID: 8739
+	// Token: 0x04002276 RID: 8822
 	[SerializeField]
 	private TMP_Text screenText;
 
-	// Token: 0x04002224 RID: 8740
+	// Token: 0x04002277 RID: 8823
 	[SerializeField]
 	private SoundBankPlayer soundBank;
 
-	// Token: 0x04002225 RID: 8741
+	// Token: 0x04002278 RID: 8824
 	[SerializeField]
 	private Animation scanAnimation;
 
-	// Token: 0x04002226 RID: 8742
+	// Token: 0x04002279 RID: 8825
 	private MeshRenderer scanTriangle;
 
-	// Token: 0x04002227 RID: 8743
+	// Token: 0x0400227A RID: 8826
 	private bool isAnimating;
 
-	// Token: 0x04002228 RID: 8744
+	// Token: 0x0400227B RID: 8827
 	private static string playerPrefKey = "BuilderSaveSlot";
 
-	// Token: 0x04002229 RID: 8745
+	// Token: 0x0400227C RID: 8828
 	private static string SAVE_FOLDER = "MonkeBlocks";
 
-	// Token: 0x0400222A RID: 8746
+	// Token: 0x0400227D RID: 8829
 	private static string SAVE_FILE = "MyBuild";
 
-	// Token: 0x0400222B RID: 8747
+	// Token: 0x0400227E RID: 8830
 	public static int NUM_SAVE_SLOTS = 3;
 
-	// Token: 0x0400222C RID: 8748
+	// Token: 0x0400227F RID: 8831
 	private Texture2D buildCaptureTexture;
 
-	// Token: 0x0400222D RID: 8749
+	// Token: 0x04002280 RID: 8832
 	private bool isDirty;
 
-	// Token: 0x0400222E RID: 8750
+	// Token: 0x04002281 RID: 8833
 	private bool saveError;
 
-	// Token: 0x0400222F RID: 8751
+	// Token: 0x04002282 RID: 8834
 	private string errorMsg = string.Empty;
 
-	// Token: 0x04002230 RID: 8752
+	// Token: 0x04002283 RID: 8835
 	private bool coolingDown;
 
-	// Token: 0x04002231 RID: 8753
+	// Token: 0x04002284 RID: 8836
 	private double coolDownCompleteTime;
 
-	// Token: 0x04002232 RID: 8754
+	// Token: 0x04002285 RID: 8837
 	private double scanCompleteTime;
 
-	// Token: 0x04002233 RID: 8755
+	// Token: 0x04002286 RID: 8838
 	private BuilderScanKiosk.ScannerState scannerState;
 
-	// Token: 0x020004EA RID: 1258
+	// Token: 0x020004F7 RID: 1271
 	private enum ScannerState
 	{
-		// Token: 0x04002235 RID: 8757
+		// Token: 0x04002288 RID: 8840
 		IDLE,
-		// Token: 0x04002236 RID: 8758
+		// Token: 0x04002289 RID: 8841
 		CONFIRMATION,
-		// Token: 0x04002237 RID: 8759
+		// Token: 0x0400228A RID: 8842
 		SAVING
 	}
 }

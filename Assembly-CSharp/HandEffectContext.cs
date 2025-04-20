@@ -2,12 +2,12 @@
 using GorillaTagScripts;
 using UnityEngine;
 
-// Token: 0x020003B9 RID: 953
+// Token: 0x020003C4 RID: 964
 [Serializable]
 internal class HandEffectContext : IFXEffectContextObject
 {
-	// Token: 0x1700028B RID: 651
-	// (get) Token: 0x060016FB RID: 5883 RVA: 0x00070A5F File Offset: 0x0006EC5F
+	// Token: 0x17000292 RID: 658
+	// (get) Token: 0x06001748 RID: 5960 RVA: 0x0003FCE8 File Offset: 0x0003DEE8
 	public int[] PrefabPoolIds
 	{
 		get
@@ -16,8 +16,8 @@ internal class HandEffectContext : IFXEffectContextObject
 		}
 	}
 
-	// Token: 0x1700028C RID: 652
-	// (get) Token: 0x060016FC RID: 5884 RVA: 0x00070A67 File Offset: 0x0006EC67
+	// Token: 0x17000293 RID: 659
+	// (get) Token: 0x06001749 RID: 5961 RVA: 0x0003FCF0 File Offset: 0x0003DEF0
 	public Vector3 Positon
 	{
 		get
@@ -26,8 +26,8 @@ internal class HandEffectContext : IFXEffectContextObject
 		}
 	}
 
-	// Token: 0x1700028D RID: 653
-	// (get) Token: 0x060016FD RID: 5885 RVA: 0x00070A6F File Offset: 0x0006EC6F
+	// Token: 0x17000294 RID: 660
+	// (get) Token: 0x0600174A RID: 5962 RVA: 0x0003FCF8 File Offset: 0x0003DEF8
 	public Quaternion Rotation
 	{
 		get
@@ -36,8 +36,8 @@ internal class HandEffectContext : IFXEffectContextObject
 		}
 	}
 
-	// Token: 0x1700028E RID: 654
-	// (get) Token: 0x060016FE RID: 5886 RVA: 0x00070A77 File Offset: 0x0006EC77
+	// Token: 0x17000295 RID: 661
+	// (get) Token: 0x0600174B RID: 5963 RVA: 0x0003FD00 File Offset: 0x0003DF00
 	public AudioSource SoundSource
 	{
 		get
@@ -46,8 +46,8 @@ internal class HandEffectContext : IFXEffectContextObject
 		}
 	}
 
-	// Token: 0x1700028F RID: 655
-	// (get) Token: 0x060016FF RID: 5887 RVA: 0x00070A7F File Offset: 0x0006EC7F
+	// Token: 0x17000296 RID: 662
+	// (get) Token: 0x0600174C RID: 5964 RVA: 0x0003FD08 File Offset: 0x0003DF08
 	public AudioClip Sound
 	{
 		get
@@ -56,8 +56,8 @@ internal class HandEffectContext : IFXEffectContextObject
 		}
 	}
 
-	// Token: 0x17000290 RID: 656
-	// (get) Token: 0x06001700 RID: 5888 RVA: 0x00070A87 File Offset: 0x0006EC87
+	// Token: 0x17000297 RID: 663
+	// (get) Token: 0x0600174D RID: 5965 RVA: 0x0003FD10 File Offset: 0x0003DF10
 	public float Volume
 	{
 		get
@@ -66,7 +66,7 @@ internal class HandEffectContext : IFXEffectContextObject
 		}
 	}
 
-	// Token: 0x06001701 RID: 5889 RVA: 0x00070A90 File Offset: 0x0006EC90
+	// Token: 0x0600174E RID: 5966 RVA: 0x000C7E28 File Offset: 0x000C6028
 	public void OnPlayVisualFX(int fxID, GameObject fx)
 	{
 		FXModifier fxmodifier;
@@ -76,34 +76,34 @@ internal class HandEffectContext : IFXEffectContextObject
 		}
 	}
 
-	// Token: 0x06001702 RID: 5890 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600174F RID: 5967 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnPlaySoundFX(AudioSource audioSource)
 	{
 	}
 
-	// Token: 0x040019A8 RID: 6568
+	// Token: 0x040019F1 RID: 6641
 	internal int[] prefabHashes = new int[]
 	{
 		-1,
 		-1
 	};
 
-	// Token: 0x040019A9 RID: 6569
+	// Token: 0x040019F2 RID: 6642
 	internal Vector3 position;
 
-	// Token: 0x040019AA RID: 6570
+	// Token: 0x040019F3 RID: 6643
 	internal Quaternion rotation;
 
-	// Token: 0x040019AB RID: 6571
+	// Token: 0x040019F4 RID: 6644
 	[SerializeField]
 	internal AudioSource handSoundSource;
 
-	// Token: 0x040019AC RID: 6572
+	// Token: 0x040019F5 RID: 6645
 	internal AudioClip soundFX;
 
-	// Token: 0x040019AD RID: 6573
+	// Token: 0x040019F6 RID: 6646
 	internal float clipVolume;
 
-	// Token: 0x040019AE RID: 6574
+	// Token: 0x040019F7 RID: 6647
 	internal float handSpeed;
 }

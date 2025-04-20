@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000428 RID: 1064
+// Token: 0x02000434 RID: 1076
 public class CosmeticCategoryButton : CosmeticButton
 {
-	// Token: 0x06001A53 RID: 6739 RVA: 0x0008190A File Offset: 0x0007FB0A
+	// Token: 0x06001AA7 RID: 6823 RVA: 0x000420F6 File Offset: 0x000402F6
 	public void SetIcon(Sprite sprite)
 	{
 		this.equippedLeftIcon.enabled = false;
@@ -13,7 +13,7 @@ public class CosmeticCategoryButton : CosmeticButton
 		this.equippedIcon.sprite = sprite;
 	}
 
-	// Token: 0x06001A54 RID: 6740 RVA: 0x00081944 File Offset: 0x0007FB44
+	// Token: 0x06001AA8 RID: 6824 RVA: 0x000D6CF4 File Offset: 0x000D4EF4
 	public void SetDualIcon(Sprite leftSprite, Sprite rightSprite)
 	{
 		this.equippedLeftIcon.enabled = (leftSprite != null);
@@ -23,7 +23,7 @@ public class CosmeticCategoryButton : CosmeticButton
 		this.equippedRightIcon.sprite = rightSprite;
 	}
 
-	// Token: 0x06001A55 RID: 6741 RVA: 0x0008199C File Offset: 0x0007FB9C
+	// Token: 0x06001AA9 RID: 6825 RVA: 0x000D6D4C File Offset: 0x000D4F4C
 	public override void UpdatePosition()
 	{
 		base.UpdatePosition();
@@ -41,15 +41,15 @@ public class CosmeticCategoryButton : CosmeticButton
 		}
 	}
 
-	// Token: 0x04001D18 RID: 7448
+	// Token: 0x04001D67 RID: 7527
 	[SerializeField]
 	private SpriteRenderer equippedIcon;
 
-	// Token: 0x04001D19 RID: 7449
+	// Token: 0x04001D68 RID: 7528
 	[SerializeField]
 	private SpriteRenderer equippedLeftIcon;
 
-	// Token: 0x04001D1A RID: 7450
+	// Token: 0x04001D69 RID: 7529
 	[SerializeField]
 	private SpriteRenderer equippedRightIcon;
 }

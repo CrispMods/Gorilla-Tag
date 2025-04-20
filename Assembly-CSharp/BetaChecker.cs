@@ -2,10 +2,10 @@
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x020003BF RID: 959
+// Token: 0x020003CA RID: 970
 public class BetaChecker : MonoBehaviour
 {
-	// Token: 0x06001732 RID: 5938 RVA: 0x000717B7 File Offset: 0x0006F9B7
+	// Token: 0x0600177F RID: 6015 RVA: 0x0003FE7A File Offset: 0x0003E07A
 	private void Start()
 	{
 		if (PlayerPrefs.GetString("CheckedBox2") == "true")
@@ -15,7 +15,7 @@ public class BetaChecker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001733 RID: 5939 RVA: 0x000717E4 File Offset: 0x0006F9E4
+	// Token: 0x06001780 RID: 6016 RVA: 0x000C89E0 File Offset: 0x000C6BE0
 	private void Update()
 	{
 		if (!this.doNotEnable)
@@ -39,9 +39,9 @@ public class BetaChecker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040019E3 RID: 6627
+	// Token: 0x04001A2C RID: 6700
 	public GameObject[] objectsToEnable;
 
-	// Token: 0x040019E4 RID: 6628
+	// Token: 0x04001A2D RID: 6701
 	public bool doNotEnable;
 }

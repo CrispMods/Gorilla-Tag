@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020002D0 RID: 720
+// Token: 0x020002DB RID: 731
 public class TeleportAimHandlerLaser : TeleportAimHandler
 {
-	// Token: 0x06001170 RID: 4464 RVA: 0x00053598 File Offset: 0x00051798
+	// Token: 0x060011BC RID: 4540 RVA: 0x000AE6B0 File Offset: 0x000AC8B0
 	public override void GetPoints(List<Vector3> points)
 	{
 		Ray ray;
@@ -14,7 +14,7 @@ public class TeleportAimHandlerLaser : TeleportAimHandler
 		points.Add(ray.origin + ray.direction * this.Range);
 	}
 
-	// Token: 0x0400135A RID: 4954
+	// Token: 0x040013A2 RID: 5026
 	[Tooltip("Maximum range for aiming.")]
 	public float Range = 100f;
 }

@@ -3,44 +3,44 @@ using UnityEngine;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B92 RID: 2962
+	// Token: 0x02000BBF RID: 3007
 	[DefaultExecutionOrder(2000)]
 	public class StaticLodGroup : MonoBehaviour
 	{
-		// Token: 0x06004AC7 RID: 19143 RVA: 0x00169D4D File Offset: 0x00167F4D
+		// Token: 0x06004C12 RID: 19474 RVA: 0x0006205D File Offset: 0x0006025D
 		protected void Awake()
 		{
 			this.index = StaticLodManager.Register(this);
 		}
 
-		// Token: 0x06004AC8 RID: 19144 RVA: 0x00169D5B File Offset: 0x00167F5B
+		// Token: 0x06004C13 RID: 19475 RVA: 0x0006206B File Offset: 0x0006026B
 		protected void OnEnable()
 		{
 			StaticLodManager.SetEnabled(this.index, true);
 		}
 
-		// Token: 0x06004AC9 RID: 19145 RVA: 0x00169D69 File Offset: 0x00167F69
+		// Token: 0x06004C14 RID: 19476 RVA: 0x00062079 File Offset: 0x00060279
 		protected void OnDisable()
 		{
 			StaticLodManager.SetEnabled(this.index, false);
 		}
 
-		// Token: 0x06004ACA RID: 19146 RVA: 0x00169D77 File Offset: 0x00167F77
+		// Token: 0x06004C15 RID: 19477 RVA: 0x00062087 File Offset: 0x00060287
 		private void OnDestroy()
 		{
 			StaticLodManager.Unregister(this.index);
 		}
 
-		// Token: 0x04004C33 RID: 19507
+		// Token: 0x04004D29 RID: 19753
 		private int index;
 
-		// Token: 0x04004C34 RID: 19508
+		// Token: 0x04004D2A RID: 19754
 		public float collisionEnableDistance = 3f;
 
-		// Token: 0x04004C35 RID: 19509
+		// Token: 0x04004D2B RID: 19755
 		public float uiFadeDistanceMin = 1f;
 
-		// Token: 0x04004C36 RID: 19510
+		// Token: 0x04004D2C RID: 19756
 		public float uiFadeDistanceMax = 10f;
 	}
 }

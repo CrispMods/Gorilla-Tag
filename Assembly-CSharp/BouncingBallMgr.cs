@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000328 RID: 808
+// Token: 0x02000333 RID: 819
 public class BouncingBallMgr : MonoBehaviour
 {
-	// Token: 0x06001329 RID: 4905 RVA: 0x0005D494 File Offset: 0x0005B694
+	// Token: 0x06001375 RID: 4981 RVA: 0x000B71E0 File Offset: 0x000B53E0
 	private void Update()
 	{
 		if (!this.ballGrabbed && OVRInput.GetDown(this.actionBtn, OVRInput.Controller.Active))
 		{
-			this.currentBall = Object.Instantiate<GameObject>(this.ball, this.rightControllerPivot.transform.position, Quaternion.identity);
+			this.currentBall = UnityEngine.Object.Instantiate<GameObject>(this.ball, this.rightControllerPivot.transform.position, Quaternion.identity);
 			this.currentBall.transform.parent = this.rightControllerPivot.transform;
 			this.ballGrabbed = true;
 		}
@@ -24,25 +24,25 @@ public class BouncingBallMgr : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400152B RID: 5419
+	// Token: 0x04001573 RID: 5491
 	[SerializeField]
 	private Transform trackingspace;
 
-	// Token: 0x0400152C RID: 5420
+	// Token: 0x04001574 RID: 5492
 	[SerializeField]
 	private GameObject rightControllerPivot;
 
-	// Token: 0x0400152D RID: 5421
+	// Token: 0x04001575 RID: 5493
 	[SerializeField]
 	private OVRInput.RawButton actionBtn;
 
-	// Token: 0x0400152E RID: 5422
+	// Token: 0x04001576 RID: 5494
 	[SerializeField]
 	private GameObject ball;
 
-	// Token: 0x0400152F RID: 5423
+	// Token: 0x04001577 RID: 5495
 	private GameObject currentBall;
 
-	// Token: 0x04001530 RID: 5424
+	// Token: 0x04001578 RID: 5496
 	private bool ballGrabbed;
 }

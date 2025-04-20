@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008E2 RID: 2274
+// Token: 0x020008FE RID: 2302
 [RequireComponent(typeof(GorillaVelocityEstimator))]
 public class VelocityBasedActivator : MonoBehaviour
 {
-	// Token: 0x060036B6 RID: 14006 RVA: 0x0010313A File Offset: 0x0010133A
+	// Token: 0x0600377E RID: 14206 RVA: 0x00054A69 File Offset: 0x00052C69
 	private void Start()
 	{
 		this.velocityEstimator = base.GetComponent<GorillaVelocityEstimator>();
 	}
 
-	// Token: 0x060036B7 RID: 14007 RVA: 0x00103148 File Offset: 0x00101348
+	// Token: 0x0600377F RID: 14207 RVA: 0x001483EC File Offset: 0x001465EC
 	private void Update()
 	{
 		this.k += this.velocityEstimator.linearVelocity.sqrMagnitude;
@@ -26,7 +26,7 @@ public class VelocityBasedActivator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060036B8 RID: 14008 RVA: 0x001031D4 File Offset: 0x001013D4
+	// Token: 0x06003780 RID: 14208 RVA: 0x00148478 File Offset: 0x00146678
 	private void activate(bool v)
 	{
 		this.active = v;
@@ -36,7 +36,7 @@ public class VelocityBasedActivator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060036B9 RID: 14009 RVA: 0x00103209 File Offset: 0x00101409
+	// Token: 0x06003781 RID: 14209 RVA: 0x00054A77 File Offset: 0x00052C77
 	private void OnDisable()
 	{
 		if (this.active)
@@ -45,24 +45,24 @@ public class VelocityBasedActivator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04003996 RID: 14742
+	// Token: 0x04003A57 RID: 14935
 	[SerializeField]
 	private GameObject[] activationTargets;
 
-	// Token: 0x04003997 RID: 14743
+	// Token: 0x04003A58 RID: 14936
 	private GorillaVelocityEstimator velocityEstimator;
 
-	// Token: 0x04003998 RID: 14744
+	// Token: 0x04003A59 RID: 14937
 	private float k;
 
-	// Token: 0x04003999 RID: 14745
+	// Token: 0x04003A5A RID: 14938
 	private bool active;
 
-	// Token: 0x0400399A RID: 14746
+	// Token: 0x04003A5B RID: 14939
 	[SerializeField]
 	private float decay = 1f;
 
-	// Token: 0x0400399B RID: 14747
+	// Token: 0x04003A5C RID: 14940
 	[SerializeField]
 	private float threshold = 1f;
 }

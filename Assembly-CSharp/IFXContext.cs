@@ -1,12 +1,12 @@
 ﻿using System;
 
-// Token: 0x020007E4 RID: 2020
+// Token: 0x020007FE RID: 2046
 public interface IFXContext
 {
-	// Token: 0x17000521 RID: 1313
-	// (get) Token: 0x060031FF RID: 12799
+	// Token: 0x1700052F RID: 1327
+	// (get) Token: 0x060032B5 RID: 12981
 	FXSystemSettings settings { get; }
 
-	// Token: 0x06003200 RID: 12800
+	// Token: 0x060032B6 RID: 12982
 	void OnPlayFX();
 }

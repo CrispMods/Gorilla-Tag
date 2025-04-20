@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x020000C5 RID: 197
+// Token: 0x020000CF RID: 207
 public class GrowingSnowballThrowable : SnowballThrowable
 {
-	// Token: 0x17000061 RID: 97
-	// (get) Token: 0x06000512 RID: 1298 RVA: 0x0001DF12 File Offset: 0x0001C112
+	// Token: 0x17000066 RID: 102
+	// (get) Token: 0x0600054E RID: 1358 RVA: 0x00033F49 File Offset: 0x00032149
 	public int SizeLevel
 	{
 		get
@@ -16,8 +16,8 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x17000062 RID: 98
-	// (get) Token: 0x06000513 RID: 1299 RVA: 0x0001DF1A File Offset: 0x0001C11A
+	// Token: 0x17000067 RID: 103
+	// (get) Token: 0x0600054F RID: 1359 RVA: 0x00033F51 File Offset: 0x00032151
 	public int MaxSizeLevel
 	{
 		get
@@ -26,8 +26,8 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x17000063 RID: 99
-	// (get) Token: 0x06000514 RID: 1300 RVA: 0x0001DF30 File Offset: 0x0001C130
+	// Token: 0x17000068 RID: 104
+	// (get) Token: 0x06000550 RID: 1360 RVA: 0x00081064 File Offset: 0x0007F264
 	public float CurrentSnowballRadius
 	{
 		get
@@ -40,7 +40,7 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x06000515 RID: 1301 RVA: 0x0001DFB0 File Offset: 0x0001C1B0
+	// Token: 0x06000551 RID: 1361 RVA: 0x000810E4 File Offset: 0x0007F2E4
 	protected override void Awake()
 	{
 		base.Awake();
@@ -56,7 +56,7 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		VRRigCache.OnRigDeactivated += this.VRRigDeactivated;
 	}
 
-	// Token: 0x06000516 RID: 1302 RVA: 0x0001E014 File Offset: 0x0001C214
+	// Token: 0x06000552 RID: 1362 RVA: 0x00081148 File Offset: 0x0007F348
 	public override void OnEnable()
 	{
 		base.OnEnable();
@@ -70,20 +70,20 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		this.CreatePhotonEventsIfNull();
 	}
 
-	// Token: 0x06000517 RID: 1303 RVA: 0x0001E090 File Offset: 0x0001C290
+	// Token: 0x06000553 RID: 1363 RVA: 0x00033F66 File Offset: 0x00032166
 	public override void OnDisable()
 	{
 		base.OnDisable();
 		this.resetSizeOnNextEnable = true;
 	}
 
-	// Token: 0x06000518 RID: 1304 RVA: 0x0001E09F File Offset: 0x0001C29F
+	// Token: 0x06000554 RID: 1364 RVA: 0x00033F75 File Offset: 0x00032175
 	protected override void OnDestroy()
 	{
 		this.DestroyPhotonEvents();
 	}
 
-	// Token: 0x06000519 RID: 1305 RVA: 0x0001E0A8 File Offset: 0x0001C2A8
+	// Token: 0x06000555 RID: 1365 RVA: 0x000811C4 File Offset: 0x0007F3C4
 	private void VRRigActivated(RigContainer rigContainer)
 	{
 		this.targetRig = base.GetComponentInParent<VRRig>(true);
@@ -94,7 +94,7 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x0600051A RID: 1306 RVA: 0x0001E0FD File Offset: 0x0001C2FD
+	// Token: 0x06000556 RID: 1366 RVA: 0x00033F7D File Offset: 0x0003217D
 	private void VRRigDeactivated(RigContainer rigContainer)
 	{
 		if (rigContainer.Rig == this.targetRig)
@@ -103,7 +103,7 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x0600051B RID: 1307 RVA: 0x0001E118 File Offset: 0x0001C318
+	// Token: 0x06000557 RID: 1367 RVA: 0x0008121C File Offset: 0x0007F41C
 	private void StartedMultiplayerSession()
 	{
 		this.targetRig = base.GetComponentInParent<VRRig>(true);
@@ -115,7 +115,7 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x0600051C RID: 1308 RVA: 0x0001E168 File Offset: 0x0001C368
+	// Token: 0x06000558 RID: 1368 RVA: 0x0008126C File Offset: 0x0007F46C
 	private void CreatePhotonEventsIfNull()
 	{
 		if (this.targetRig == null)
@@ -145,7 +145,7 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x0600051D RID: 1309 RVA: 0x0001E33C File Offset: 0x0001C53C
+	// Token: 0x06000559 RID: 1369 RVA: 0x00081440 File Offset: 0x0007F640
 	private void DestroyPhotonEvents()
 	{
 		if (this.changeSizeEvent != null)
@@ -162,13 +162,13 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x0600051E RID: 1310 RVA: 0x0001E3C3 File Offset: 0x0001C5C3
+	// Token: 0x0600055A RID: 1370 RVA: 0x00033F98 File Offset: 0x00032198
 	public void IncreaseSize(int increase)
 	{
 		this.SetSizeLevelAuthority(this.sizeLevel + increase);
 	}
 
-	// Token: 0x0600051F RID: 1311 RVA: 0x0001E3D4 File Offset: 0x0001C5D4
+	// Token: 0x0600055B RID: 1371 RVA: 0x000814C8 File Offset: 0x0007F6C8
 	private void SetSizeLevelAuthority(int sizeLevel)
 	{
 		if (this.targetRig != null && this.targetRig.creator != null && this.targetRig.creator.IsLocal)
@@ -191,14 +191,14 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x06000520 RID: 1312 RVA: 0x0001E450 File Offset: 0x0001C650
+	// Token: 0x0600055C RID: 1372 RVA: 0x00081544 File Offset: 0x0007F744
 	private int GetValidSizeLevel(int inputSizeLevel)
 	{
 		int max = Mathf.Max(this.snowballSizeLevels.Count - 1, 0);
 		return Mathf.Clamp(inputSizeLevel, 0, max);
 	}
 
-	// Token: 0x06000521 RID: 1313 RVA: 0x0001E47C File Offset: 0x0001C67C
+	// Token: 0x0600055D RID: 1373 RVA: 0x00081570 File Offset: 0x0007F770
 	private void SetSizeLevelLocal(int sizeLevel)
 	{
 		int validSizeLevel = this.GetValidSizeLevel(sizeLevel);
@@ -209,7 +209,7 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x06000522 RID: 1314 RVA: 0x0001E4D0 File Offset: 0x0001C6D0
+	// Token: 0x0600055E RID: 1374 RVA: 0x000815C4 File Offset: 0x0007F7C4
 	private void ChangeSizeEventReceiver(int sender, int receiver, object[] args, PhotonMessageInfoWrapped info)
 	{
 		if (sender != receiver)
@@ -238,7 +238,7 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x06000523 RID: 1315 RVA: 0x0001E5A0 File Offset: 0x0001C7A0
+	// Token: 0x0600055F RID: 1375 RVA: 0x00081694 File Offset: 0x0007F894
 	private void SnowballThrowEventReceiver(int sender, int receiver, object[] args, PhotonMessageInfoWrapped info)
 	{
 		if (sender != receiver)
@@ -249,8 +249,12 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		{
 			return;
 		}
-		int num = (this.targetRig != null && this.targetRig.gameObject.activeInHierarchy && this.targetRig.netView != null && this.targetRig.netView.Owner != null) ? this.targetRig.netView.Owner.ActorNumber : -1;
-		if (info.senderID != num)
+		if (this.targetRig.IsNull() || !this.targetRig.gameObject.activeSelf)
+		{
+			return;
+		}
+		NetPlayer creator = this.targetRig.creator;
+		if (info.senderID != this.targetRig.creator.ActorNumber)
 		{
 			return;
 		}
@@ -259,18 +263,33 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		{
 			return;
 		}
-		Vector3 vector = (Vector3)args[0];
-		Vector3 velocity = this.targetRig.ClampVelocityRelativeToPlayerSafe((Vector3)args[1], 50f);
-		float x = this.snowballModelTransform.lossyScale.x;
-		float num2 = 10000f;
-		if (!vector.IsValid(num2) || !this.targetRig.IsPositionInRange(vector, 4f))
+		object obj = args[0];
+		if (obj is Vector3)
 		{
-			return;
+			Vector3 vector = (Vector3)obj;
+			obj = args[1];
+			if (obj is Vector3)
+			{
+				Vector3 inVel = (Vector3)obj;
+				obj = args[2];
+				if (obj is int)
+				{
+					int index = (int)obj;
+					Vector3 velocity = this.targetRig.ClampVelocityRelativeToPlayerSafe(inVel, 50f);
+					float x = this.snowballModelTransform.lossyScale.x;
+					float num = 10000f;
+					if (!vector.IsValid(num) || !this.targetRig.IsPositionInRange(vector, 4f))
+					{
+						return;
+					}
+					this.LaunchSnowballRemote(vector, velocity, x, index, info);
+					return;
+				}
+			}
 		}
-		this.LaunchSnowballLocal(vector, velocity, x);
 	}
 
-	// Token: 0x06000524 RID: 1316 RVA: 0x0001E6A8 File Offset: 0x0001C8A8
+	// Token: 0x06000560 RID: 1376 RVA: 0x000817B4 File Offset: 0x0007F9B4
 	protected override void LateUpdateLocal()
 	{
 		base.LateUpdateLocal();
@@ -311,7 +330,7 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x06000525 RID: 1317 RVA: 0x0001E896 File Offset: 0x0001CA96
+	// Token: 0x06000561 RID: 1377 RVA: 0x00033FA8 File Offset: 0x000321A8
 	protected override void OnSnowballRelease()
 	{
 		if (base.isActiveAndEnabled)
@@ -320,7 +339,7 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x06000526 RID: 1318 RVA: 0x0001E8A8 File Offset: 0x0001CAA8
+	// Token: 0x06000562 RID: 1378 RVA: 0x000819A4 File Offset: 0x0007FBA4
 	protected override void PerformSnowballThrowAuthority()
 	{
 		if (!(this.targetRig != null) || this.targetRig.creator == null || !this.targetRig.creator.IsLocal)
@@ -360,12 +379,60 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		{
 			position,
 			vector,
-			x
+			slingshotProjectile.myProjectileCount
 		});
 	}
 
-	// Token: 0x06000527 RID: 1319 RVA: 0x0001EA08 File Offset: 0x0001CC08
-	protected override SlingshotProjectile LaunchSnowballLocal(Vector3 location, Vector3 velocity, float scale)
+	// Token: 0x06000563 RID: 1379 RVA: 0x00033FB8 File Offset: 0x000321B8
+	protected virtual SlingshotProjectile LaunchSnowballLocal(Vector3 location, Vector3 velocity, float scale)
+	{
+		return this.LaunchSnowballLocal(location, velocity, scale, false, Color.white);
+	}
+
+	// Token: 0x06000564 RID: 1380 RVA: 0x00081B08 File Offset: 0x0007FD08
+	protected override SlingshotProjectile LaunchSnowballLocal(Vector3 location, Vector3 velocity, float scale, bool randomizeColour, Color colour)
+	{
+		SlingshotProjectile slingshotProjectile = this.SpawnGrowingSnowball(ref velocity, scale);
+		int projectileCount = ProjectileTracker.AddAndIncrementLocalProjectile(slingshotProjectile, velocity, location, scale);
+		slingshotProjectile.Launch(location, velocity, NetworkSystem.Instance.LocalPlayer, false, false, projectileCount, scale, randomizeColour, colour);
+		if (string.IsNullOrEmpty(this.throwEventName))
+		{
+			PlayerGameEvents.LaunchedProjectile(this.projectilePrefab.name);
+		}
+		else
+		{
+			PlayerGameEvents.LaunchedProjectile(this.throwEventName);
+		}
+		slingshotProjectile.OnImpact += this.OnProjectileImpact;
+		return slingshotProjectile;
+	}
+
+	// Token: 0x06000565 RID: 1381 RVA: 0x00033FC9 File Offset: 0x000321C9
+	protected virtual SlingshotProjectile LaunchSnowballRemote(Vector3 location, Vector3 velocity, float scale, int index, PhotonMessageInfoWrapped info)
+	{
+		return this.LaunchSnowballRemote(location, velocity, scale, index, false, Color.white, info);
+	}
+
+	// Token: 0x06000566 RID: 1382 RVA: 0x00081B80 File Offset: 0x0007FD80
+	protected virtual SlingshotProjectile LaunchSnowballRemote(Vector3 location, Vector3 velocity, float scale, int index, bool randomizeColour, Color colour, PhotonMessageInfoWrapped info)
+	{
+		SlingshotProjectile slingshotProjectile = this.SpawnGrowingSnowball(ref velocity, scale);
+		ProjectileTracker.AddRemotePlayerProjectile(this.targetRig.creator, slingshotProjectile, index, info.SentServerTime, velocity, location, scale);
+		slingshotProjectile.Launch(location, velocity, NetworkSystem.Instance.LocalPlayer, false, false, index, scale, randomizeColour, Color.white);
+		if (string.IsNullOrEmpty(this.throwEventName))
+		{
+			PlayerGameEvents.LaunchedProjectile(this.projectilePrefab.name);
+		}
+		else
+		{
+			PlayerGameEvents.LaunchedProjectile(this.throwEventName);
+		}
+		slingshotProjectile.OnImpact += this.OnProjectileImpact;
+		return slingshotProjectile;
+	}
+
+	// Token: 0x06000567 RID: 1383 RVA: 0x00081C10 File Offset: 0x0007FE10
+	private SlingshotProjectile SpawnGrowingSnowball(ref Vector3 velocity, float scale)
 	{
 		SlingshotProjectile component = ObjectPools.instance.Instantiate(this.randomModelSelection ? this.localModels[this.randModelIndex].projectilePrefab : this.projectilePrefab).GetComponent<SlingshotProjectile>();
 		if (this.snowballSizeLevels.Count > 0 && this.sizeLevel >= 0 && this.sizeLevel < this.snowballSizeLevels.Count)
@@ -383,20 +450,10 @@ public class GrowingSnowballThrowable : SnowballThrowable
 			component.impactSoundVolumeOverride = new float?(this.snowballSizeLevels[this.sizeLevel].impactSoundVolume);
 			component.impactSoundPitchOverride = new float?(this.snowballSizeLevels[this.sizeLevel].impactSoundPitch);
 		}
-		component.Launch(location, velocity, NetworkSystem.Instance.LocalPlayer, false, false, 0, scale, false, Color.white);
-		if (string.IsNullOrEmpty(this.throwEventName))
-		{
-			PlayerGameEvents.LaunchedProjectile(this.projectilePrefab.name);
-		}
-		else
-		{
-			PlayerGameEvents.LaunchedProjectile(this.throwEventName);
-		}
-		component.OnImpact += this.OnProjectileImpact;
 		return component;
 	}
 
-	// Token: 0x06000528 RID: 1320 RVA: 0x0001EBDC File Offset: 0x0001CDDC
+	// Token: 0x06000568 RID: 1384 RVA: 0x00081D94 File Offset: 0x0007FF94
 	public override void OnGrab(InteractionPoint pointGrabbed, GameObject grabbingHand)
 	{
 		if (!(this.targetRig != null) || this.targetRig.creator == null || !this.targetRig.creator.IsLocal)
@@ -416,102 +473,102 @@ public class GrowingSnowballThrowable : SnowballThrowable
 		}
 	}
 
-	// Token: 0x040005E6 RID: 1510
+	// Token: 0x04000626 RID: 1574
 	public Transform snowballModelParentTransform;
 
-	// Token: 0x040005E7 RID: 1511
+	// Token: 0x04000627 RID: 1575
 	public Transform snowballModelTransform;
 
-	// Token: 0x040005E8 RID: 1512
+	// Token: 0x04000628 RID: 1576
 	public Vector3 modelParentOffset = Vector3.zero;
 
-	// Token: 0x040005E9 RID: 1513
+	// Token: 0x04000629 RID: 1577
 	public Vector3 modelOffset = Vector3.zero;
 
-	// Token: 0x040005EA RID: 1514
+	// Token: 0x0400062A RID: 1578
 	public float modelRadius = 0.055f;
 
-	// Token: 0x040005EB RID: 1515
+	// Token: 0x0400062B RID: 1579
 	[Tooltip("Snowballs will combine into the larger snowball unless they are moving faster than this threshold.Then the faster moving snowball will go in to the more stationary hand")]
 	public float combineBasedOnSpeedThreshold = 0.5f;
 
-	// Token: 0x040005EC RID: 1516
+	// Token: 0x0400062C RID: 1580
 	public SoundBankPlayer sizeIncreaseSoundBankPlayer;
 
-	// Token: 0x040005ED RID: 1517
+	// Token: 0x0400062D RID: 1581
 	public List<GrowingSnowballThrowable.SizeParameters> snowballSizeLevels = new List<GrowingSnowballThrowable.SizeParameters>();
 
-	// Token: 0x040005EE RID: 1518
+	// Token: 0x0400062E RID: 1582
 	private int sizeLevel;
 
-	// Token: 0x040005EF RID: 1519
+	// Token: 0x0400062F RID: 1583
 	private bool resetSizeOnNextEnable;
 
-	// Token: 0x040005F0 RID: 1520
+	// Token: 0x04000630 RID: 1584
 	private PhotonEvent changeSizeEvent;
 
-	// Token: 0x040005F1 RID: 1521
+	// Token: 0x04000631 RID: 1585
 	private PhotonEvent snowballThrowEvent;
 
-	// Token: 0x040005F2 RID: 1522
+	// Token: 0x04000632 RID: 1586
 	private CallLimiter snowballThrowCallLimit = new CallLimiter(10, 2f, 0.5f);
 
-	// Token: 0x040005F3 RID: 1523
+	// Token: 0x04000633 RID: 1587
 	[HideInInspector]
 	public static bool debugDrawAOERange = false;
 
-	// Token: 0x040005F4 RID: 1524
+	// Token: 0x04000634 RID: 1588
 	[HideInInspector]
 	public static bool twoHandedSnowballGrowing = true;
 
-	// Token: 0x040005F5 RID: 1525
+	// Token: 0x04000635 RID: 1589
 	private Queue<GrowingSnowballThrowable.AOERangeDebugDraw> aoeRangeDebugDrawQueue = new Queue<GrowingSnowballThrowable.AOERangeDebugDraw>();
 
-	// Token: 0x040005F6 RID: 1526
+	// Token: 0x04000636 RID: 1590
 	private GrowingSnowballThrowable otherHandSnowball;
 
-	// Token: 0x040005F7 RID: 1527
+	// Token: 0x04000637 RID: 1591
 	private float debugDrawAOERangeTime = 1.5f;
 
-	// Token: 0x020000C6 RID: 198
+	// Token: 0x020000D0 RID: 208
 	[Serializable]
 	public struct SizeParameters
 	{
-		// Token: 0x040005F8 RID: 1528
+		// Token: 0x04000638 RID: 1592
 		public float snowballScale;
 
-		// Token: 0x040005F9 RID: 1529
+		// Token: 0x04000639 RID: 1593
 		public float impactEffectScale;
 
-		// Token: 0x040005FA RID: 1530
+		// Token: 0x0400063A RID: 1594
 		public float impactSoundVolume;
 
-		// Token: 0x040005FB RID: 1531
+		// Token: 0x0400063B RID: 1595
 		public float impactSoundPitch;
 
-		// Token: 0x040005FC RID: 1532
+		// Token: 0x0400063C RID: 1596
 		public float throwSpeedMultiplier;
 
-		// Token: 0x040005FD RID: 1533
+		// Token: 0x0400063D RID: 1597
 		public float gravityMultiplier;
 
-		// Token: 0x040005FE RID: 1534
+		// Token: 0x0400063E RID: 1598
 		public SlingshotProjectile.AOEKnockbackConfig aoeKnockbackConfig;
 	}
 
-	// Token: 0x020000C7 RID: 199
+	// Token: 0x020000D1 RID: 209
 	private struct AOERangeDebugDraw
 	{
-		// Token: 0x040005FF RID: 1535
+		// Token: 0x0400063F RID: 1599
 		public float impactTime;
 
-		// Token: 0x04000600 RID: 1536
+		// Token: 0x04000640 RID: 1600
 		public Vector3 position;
 
-		// Token: 0x04000601 RID: 1537
+		// Token: 0x04000641 RID: 1601
 		public float innerRadius;
 
-		// Token: 0x04000602 RID: 1538
+		// Token: 0x04000642 RID: 1602
 		public float outerRadius;
 	}
 }

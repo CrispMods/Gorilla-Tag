@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using GorillaTag;
 using UnityEngine;
 
-// Token: 0x020003A2 RID: 930
+// Token: 0x020003AD RID: 941
 public class WorldShareableItemManager : MonoBehaviour
 {
-	// Token: 0x060015BD RID: 5565 RVA: 0x0006968E File Offset: 0x0006788E
+	// Token: 0x06001609 RID: 5641 RVA: 0x0003EDB1 File Offset: 0x0003CFB1
 	protected void Awake()
 	{
 		if (WorldShareableItemManager.hasInstance && WorldShareableItemManager.instance != this)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 			return;
 		}
 		WorldShareableItemManager.SetInstance(this);
 	}
 
-	// Token: 0x060015BE RID: 5566 RVA: 0x000696B1 File Offset: 0x000678B1
+	// Token: 0x0600160A RID: 5642 RVA: 0x0003EDD4 File Offset: 0x0003CFD4
 	protected void OnDestroy()
 	{
 		if (WorldShareableItemManager.instance == this)
@@ -27,7 +27,7 @@ public class WorldShareableItemManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060015BF RID: 5567 RVA: 0x000696CC File Offset: 0x000678CC
+	// Token: 0x0600160B RID: 5643 RVA: 0x000C1974 File Offset: 0x000BFB74
 	protected void Update()
 	{
 		if (GTAppState.isQuitting)
@@ -43,7 +43,7 @@ public class WorldShareableItemManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060015C0 RID: 5568 RVA: 0x00069719 File Offset: 0x00067919
+	// Token: 0x0600160C RID: 5644 RVA: 0x0003EDEF File Offset: 0x0003CFEF
 	public static void CreateManager()
 	{
 		if (GTAppState.isQuitting)
@@ -53,7 +53,7 @@ public class WorldShareableItemManager : MonoBehaviour
 		WorldShareableItemManager.SetInstance(new GameObject("WorldShareableItemManager").AddComponent<WorldShareableItemManager>());
 	}
 
-	// Token: 0x060015C1 RID: 5569 RVA: 0x00069737 File Offset: 0x00067937
+	// Token: 0x0600160D RID: 5645 RVA: 0x0003EE0D File Offset: 0x0003D00D
 	private static void SetInstance(WorldShareableItemManager manager)
 	{
 		if (GTAppState.isQuitting)
@@ -64,11 +64,11 @@ public class WorldShareableItemManager : MonoBehaviour
 		WorldShareableItemManager.hasInstance = true;
 		if (Application.isPlaying)
 		{
-			Object.DontDestroyOnLoad(manager);
+			UnityEngine.Object.DontDestroyOnLoad(manager);
 		}
 	}
 
-	// Token: 0x060015C2 RID: 5570 RVA: 0x0006975A File Offset: 0x0006795A
+	// Token: 0x0600160E RID: 5646 RVA: 0x0003EE30 File Offset: 0x0003D030
 	public static void Register(WorldShareableItem worldShareableItem)
 	{
 		if (GTAppState.isQuitting)
@@ -85,7 +85,7 @@ public class WorldShareableItemManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060015C3 RID: 5571 RVA: 0x00069788 File Offset: 0x00067988
+	// Token: 0x0600160F RID: 5647 RVA: 0x0003EE5E File Offset: 0x0003D05E
 	public static void Unregister(WorldShareableItem worldShareableItem)
 	{
 		if (GTAppState.isQuitting)
@@ -102,12 +102,12 @@ public class WorldShareableItemManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040017F1 RID: 6129
+	// Token: 0x04001838 RID: 6200
 	public static WorldShareableItemManager instance;
 
-	// Token: 0x040017F2 RID: 6130
+	// Token: 0x04001839 RID: 6201
 	public static bool hasInstance = false;
 
-	// Token: 0x040017F3 RID: 6131
+	// Token: 0x0400183A RID: 6202
 	public static readonly List<WorldShareableItem> worldShareableItems = new List<WorldShareableItem>(1024);
 }

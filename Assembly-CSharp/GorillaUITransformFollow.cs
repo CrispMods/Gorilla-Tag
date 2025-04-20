@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005A6 RID: 1446
+// Token: 0x020005B4 RID: 1460
 public class GorillaUITransformFollow : MonoBehaviour
 {
-	// Token: 0x060023E4 RID: 9188 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002444 RID: 9284 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Start()
 	{
 	}
 
-	// Token: 0x060023E5 RID: 9189 RVA: 0x000B3088 File Offset: 0x000B1288
+	// Token: 0x06002445 RID: 9285 RVA: 0x00101FB8 File Offset: 0x001001B8
 	private void LateUpdate()
 	{
 		if (this.doesMove)
@@ -19,12 +19,12 @@ public class GorillaUITransformFollow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040027E3 RID: 10211
+	// Token: 0x0400283F RID: 10303
 	public Transform transformToFollow;
 
-	// Token: 0x040027E4 RID: 10212
+	// Token: 0x04002840 RID: 10304
 	public Vector3 offset;
 
-	// Token: 0x040027E5 RID: 10213
+	// Token: 0x04002841 RID: 10305
 	public bool doesMove;
 }

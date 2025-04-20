@@ -2,38 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020003D9 RID: 985
+// Token: 0x020003E4 RID: 996
 public class CosmeticAnchorManager : MonoBehaviour, IGorillaSliceableSimple
 {
-	// Token: 0x060017D0 RID: 6096 RVA: 0x00073F08 File Offset: 0x00072108
+	// Token: 0x0600181D RID: 6173 RVA: 0x00040593 File Offset: 0x0003E793
 	protected void Awake()
 	{
 		if (CosmeticAnchorManager.hasInstance && CosmeticAnchorManager.instance != this)
 		{
-			Object.Destroy(this);
+			UnityEngine.Object.Destroy(this);
 			return;
 		}
 		CosmeticAnchorManager.SetInstance(this);
 	}
 
-	// Token: 0x060017D1 RID: 6097 RVA: 0x00073F2B File Offset: 0x0007212B
+	// Token: 0x0600181E RID: 6174 RVA: 0x000405B6 File Offset: 0x0003E7B6
 	public static void CreateManager()
 	{
 		CosmeticAnchorManager.SetInstance(new GameObject("CosmeticAnchorManager").AddComponent<CosmeticAnchorManager>());
 	}
 
-	// Token: 0x060017D2 RID: 6098 RVA: 0x00073F41 File Offset: 0x00072141
+	// Token: 0x0600181F RID: 6175 RVA: 0x000405CC File Offset: 0x0003E7CC
 	private static void SetInstance(CosmeticAnchorManager manager)
 	{
 		CosmeticAnchorManager.instance = manager;
 		CosmeticAnchorManager.hasInstance = true;
 		if (Application.isPlaying)
 		{
-			Object.DontDestroyOnLoad(manager);
+			UnityEngine.Object.DontDestroyOnLoad(manager);
 		}
 	}
 
-	// Token: 0x060017D3 RID: 6099 RVA: 0x00073F5C File Offset: 0x0007215C
+	// Token: 0x06001820 RID: 6176 RVA: 0x000405E7 File Offset: 0x0003E7E7
 	public static void RegisterCosmeticAnchor(CosmeticAnchors cA)
 	{
 		if (!CosmeticAnchorManager.hasInstance)
@@ -46,7 +46,7 @@ public class CosmeticAnchorManager : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060017D4 RID: 6100 RVA: 0x00073F92 File Offset: 0x00072192
+	// Token: 0x06001821 RID: 6177 RVA: 0x0004061D File Offset: 0x0003E81D
 	public static void UnregisterCosmeticAnchor(CosmeticAnchors cA)
 	{
 		if (!CosmeticAnchorManager.hasInstance)
@@ -59,19 +59,19 @@ public class CosmeticAnchorManager : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060017D5 RID: 6101 RVA: 0x000158F9 File Offset: 0x00013AF9
+	// Token: 0x06001822 RID: 6178 RVA: 0x00032C89 File Offset: 0x00030E89
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x060017D6 RID: 6102 RVA: 0x00015902 File Offset: 0x00013B02
+	// Token: 0x06001823 RID: 6179 RVA: 0x00032C92 File Offset: 0x00030E92
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x060017D7 RID: 6103 RVA: 0x00073FCC File Offset: 0x000721CC
+	// Token: 0x06001824 RID: 6180 RVA: 0x000CAA10 File Offset: 0x000C8C10
 	public void SliceUpdate()
 	{
 		for (int i = 0; i < CosmeticAnchorManager.allAnchors.Count; i++)
@@ -80,18 +80,18 @@ public class CosmeticAnchorManager : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060017DA RID: 6106 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x06001827 RID: 6183 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x04001A69 RID: 6761
+	// Token: 0x04001AB2 RID: 6834
 	public static CosmeticAnchorManager instance;
 
-	// Token: 0x04001A6A RID: 6762
+	// Token: 0x04001AB3 RID: 6835
 	public static bool hasInstance = false;
 
-	// Token: 0x04001A6B RID: 6763
+	// Token: 0x04001AB4 RID: 6836
 	public static List<CosmeticAnchors> allAnchors = new List<CosmeticAnchors>();
 }

@@ -3,17 +3,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x02000106 RID: 262
+// Token: 0x02000110 RID: 272
 public class MonkeVoteOption : MonoBehaviour
 {
 	// Token: 0x14000011 RID: 17
-	// (add) Token: 0x06000705 RID: 1797 RVA: 0x000285C8 File Offset: 0x000267C8
-	// (remove) Token: 0x06000706 RID: 1798 RVA: 0x00028600 File Offset: 0x00026800
+	// (add) Token: 0x06000746 RID: 1862 RVA: 0x0008A420 File Offset: 0x00088620
+	// (remove) Token: 0x06000747 RID: 1863 RVA: 0x0008A458 File Offset: 0x00088658
 	public event Action<MonkeVoteOption, Collider> OnVote;
 
-	// Token: 0x170000AB RID: 171
-	// (get) Token: 0x06000707 RID: 1799 RVA: 0x00028635 File Offset: 0x00026835
-	// (set) Token: 0x06000708 RID: 1800 RVA: 0x00028640 File Offset: 0x00026840
+	// Token: 0x170000B0 RID: 176
+	// (get) Token: 0x06000748 RID: 1864 RVA: 0x00035338 File Offset: 0x00033538
+	// (set) Token: 0x06000749 RID: 1865 RVA: 0x0008A490 File Offset: 0x00088690
 	public string Text
 	{
 		get
@@ -28,9 +28,9 @@ public class MonkeVoteOption : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170000AC RID: 172
-	// (get) Token: 0x06000709 RID: 1801 RVA: 0x00028662 File Offset: 0x00026862
-	// (set) Token: 0x0600070A RID: 1802 RVA: 0x0002866C File Offset: 0x0002686C
+	// Token: 0x170000B1 RID: 177
+	// (get) Token: 0x0600074A RID: 1866 RVA: 0x00035340 File Offset: 0x00033540
+	// (set) Token: 0x0600074B RID: 1867 RVA: 0x0008A4B4 File Offset: 0x000886B4
 	public bool CanVote
 	{
 		get
@@ -45,13 +45,13 @@ public class MonkeVoteOption : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600070B RID: 1803 RVA: 0x0002868E File Offset: 0x0002688E
+	// Token: 0x0600074C RID: 1868 RVA: 0x00035348 File Offset: 0x00033548
 	private void Reset()
 	{
 		this.Configure();
 	}
 
-	// Token: 0x0600070C RID: 1804 RVA: 0x00028698 File Offset: 0x00026898
+	// Token: 0x0600074D RID: 1869 RVA: 0x0008A4D8 File Offset: 0x000886D8
 	private void Configure()
 	{
 		foreach (Collider collider in base.GetComponentsInChildren<Collider>())
@@ -68,7 +68,7 @@ public class MonkeVoteOption : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600070D RID: 1805 RVA: 0x000286E8 File Offset: 0x000268E8
+	// Token: 0x0600074E RID: 1870 RVA: 0x00035350 File Offset: 0x00033550
 	private void OnTriggerEnter(Collider other)
 	{
 		if (!this.IsValidVotingRock(other))
@@ -83,34 +83,34 @@ public class MonkeVoteOption : MonoBehaviour
 		onVote(this, other);
 	}
 
-	// Token: 0x0600070E RID: 1806 RVA: 0x00028708 File Offset: 0x00026908
+	// Token: 0x0600074F RID: 1871 RVA: 0x0008A528 File Offset: 0x00088728
 	private bool IsValidVotingRock(Collider other)
 	{
 		SlingshotProjectile component = other.GetComponent<SlingshotProjectile>();
 		return component && component.projectileOwner.IsLocal;
 	}
 
-	// Token: 0x0600070F RID: 1807 RVA: 0x00028731 File Offset: 0x00026931
+	// Token: 0x06000750 RID: 1872 RVA: 0x0003536E File Offset: 0x0003356E
 	public void ResetState()
 	{
 		this.OnVote = null;
 		this.ShowIndicators(false, false, true);
 	}
 
-	// Token: 0x06000710 RID: 1808 RVA: 0x00028743 File Offset: 0x00026943
+	// Token: 0x06000751 RID: 1873 RVA: 0x00035380 File Offset: 0x00033580
 	public void ShowIndicators(bool showVote, bool showPrediction, bool instant = true)
 	{
 		this._voteIndicator.SetVisible(showVote, instant);
 		this._guessIndicator.SetVisible(showPrediction, instant);
 	}
 
-	// Token: 0x06000711 RID: 1809 RVA: 0x0002875F File Offset: 0x0002695F
+	// Token: 0x06000752 RID: 1874 RVA: 0x0003539C File Offset: 0x0003359C
 	private void Vote()
 	{
 		this.SendVote(null);
 	}
 
-	// Token: 0x06000712 RID: 1810 RVA: 0x00028768 File Offset: 0x00026968
+	// Token: 0x06000753 RID: 1875 RVA: 0x000353A5 File Offset: 0x000335A5
 	private void SendVote(Collider other)
 	{
 		if (!this._canVote)
@@ -125,33 +125,33 @@ public class MonkeVoteOption : MonoBehaviour
 		onVote(this, other);
 	}
 
-	// Token: 0x06000713 RID: 1811 RVA: 0x00028785 File Offset: 0x00026985
+	// Token: 0x06000754 RID: 1876 RVA: 0x000353C2 File Offset: 0x000335C2
 	public void SetDynamicMeshesVisible(bool visible)
 	{
 		this._voteIndicator.SetVisible(visible, true);
 		this._guessIndicator.SetVisible(visible, true);
 	}
 
-	// Token: 0x04000865 RID: 2149
+	// Token: 0x040008A6 RID: 2214
 	[SerializeField]
 	private Collider _trigger;
 
-	// Token: 0x04000866 RID: 2150
+	// Token: 0x040008A7 RID: 2215
 	[SerializeField]
 	private TMP_Text _optionText;
 
-	// Token: 0x04000867 RID: 2151
+	// Token: 0x040008A8 RID: 2216
 	[SerializeField]
 	private VotingCard _voteIndicator;
 
-	// Token: 0x04000868 RID: 2152
+	// Token: 0x040008A9 RID: 2217
 	[FormerlySerializedAs("_predictionIndicator")]
 	[SerializeField]
 	private VotingCard _guessIndicator;
 
-	// Token: 0x0400086A RID: 2154
+	// Token: 0x040008AB RID: 2219
 	private string _text = string.Empty;
 
-	// Token: 0x0400086B RID: 2155
+	// Token: 0x040008AC RID: 2220
 	private bool _canVote;
 }

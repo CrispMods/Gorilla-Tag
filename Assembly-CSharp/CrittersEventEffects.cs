@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x02000044 RID: 68
+// Token: 0x02000049 RID: 73
 public class CrittersEventEffects : MonoBehaviour
 {
-	// Token: 0x06000152 RID: 338 RVA: 0x00008F6C File Offset: 0x0000716C
+	// Token: 0x0600016B RID: 363 RVA: 0x0006E3EC File Offset: 0x0006C5EC
 	private void Awake()
 	{
 		if (this.manager == null)
@@ -25,7 +25,7 @@ public class CrittersEventEffects : MonoBehaviour
 		this.manager.OnCritterEventReceived += this.HandleReceivedEvent;
 	}
 
-	// Token: 0x06000153 RID: 339 RVA: 0x00009004 File Offset: 0x00007204
+	// Token: 0x0600016C RID: 364 RVA: 0x0006E484 File Offset: 0x0006C684
 	private void HandleReceivedEvent(CrittersManager.CritterEvent eventType, int sourceActor, Vector3 position, Quaternion rotation)
 	{
 		GameObject prefab;
@@ -40,23 +40,23 @@ public class CrittersEventEffects : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400019F RID: 415
+	// Token: 0x040001C4 RID: 452
 	public CrittersManager manager;
 
-	// Token: 0x040001A0 RID: 416
+	// Token: 0x040001C5 RID: 453
 	public CrittersEventEffects.CrittersEventResponse[] eventEffects;
 
-	// Token: 0x040001A1 RID: 417
+	// Token: 0x040001C6 RID: 454
 	private Dictionary<CrittersManager.CritterEvent, GameObject> effectResponse;
 
-	// Token: 0x02000045 RID: 69
+	// Token: 0x0200004A RID: 74
 	[Serializable]
 	public class CrittersEventResponse
 	{
-		// Token: 0x040001A2 RID: 418
+		// Token: 0x040001C7 RID: 455
 		public CrittersManager.CritterEvent eventType;
 
-		// Token: 0x040001A3 RID: 419
+		// Token: 0x040001C8 RID: 456
 		public GameObject effect;
 	}
 }

@@ -1,19 +1,19 @@
 ﻿using System;
 using Photon.Pun;
 
-// Token: 0x020007CE RID: 1998
+// Token: 0x020007E6 RID: 2022
 [Serializable]
 public struct PhotonSignalInfo
 {
-	// Token: 0x06003134 RID: 12596 RVA: 0x000EDADC File Offset: 0x000EBCDC
+	// Token: 0x060031E6 RID: 12774 RVA: 0x00050FC7 File Offset: 0x0004F1C7
 	public PhotonSignalInfo(NetPlayer sender, int timestamp)
 	{
 		this.sender = sender;
 		this.timestamp = timestamp;
 	}
 
-	// Token: 0x17000510 RID: 1296
-	// (get) Token: 0x06003135 RID: 12597 RVA: 0x000EDAEC File Offset: 0x000EBCEC
+	// Token: 0x1700051E RID: 1310
+	// (get) Token: 0x060031E7 RID: 12775 RVA: 0x00050FD7 File Offset: 0x0004F1D7
 	public double sentServerTime
 	{
 		get
@@ -22,21 +22,21 @@ public struct PhotonSignalInfo
 		}
 	}
 
-	// Token: 0x06003136 RID: 12598 RVA: 0x000EDB00 File Offset: 0x000EBD00
+	// Token: 0x060031E8 RID: 12776 RVA: 0x00050FEB File Offset: 0x0004F1EB
 	public override string ToString()
 	{
 		return string.Format("[{0}: Sender = '{1}' sentTime = {2}]", "PhotonSignalInfo", this.sender.ActorNumber, this.sentServerTime);
 	}
 
-	// Token: 0x06003137 RID: 12599 RVA: 0x000EDB2C File Offset: 0x000EBD2C
+	// Token: 0x060031E9 RID: 12777 RVA: 0x00051017 File Offset: 0x0004F217
 	public static implicit operator PhotonMessageInfo(PhotonSignalInfo psi)
 	{
 		return new PhotonMessageInfo(psi.sender.GetPlayerRef(), psi.timestamp, null);
 	}
 
-	// Token: 0x04003538 RID: 13624
+	// Token: 0x040035E2 RID: 13794
 	public readonly int timestamp;
 
-	// Token: 0x04003539 RID: 13625
+	// Token: 0x040035E3 RID: 13795
 	public readonly NetPlayer sender;
 }

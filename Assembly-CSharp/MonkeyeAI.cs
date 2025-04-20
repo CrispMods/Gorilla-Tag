@@ -6,11 +6,11 @@ using Pathfinding;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// Token: 0x0200009A RID: 154
+// Token: 0x020000A4 RID: 164
 [RequireComponent(typeof(NetworkView))]
 public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 {
-	// Token: 0x060003E0 RID: 992 RVA: 0x000170E0 File Offset: 0x000152E0
+	// Token: 0x0600041C RID: 1052 RVA: 0x0007AF0C File Offset: 0x0007910C
 	private string UserIdFromRig(VRRig rig)
 	{
 		if (rig == null)
@@ -40,7 +40,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003E1 RID: 993 RVA: 0x00017168 File Offset: 0x00015368
+	// Token: 0x0600041D RID: 1053 RVA: 0x0007AF94 File Offset: 0x00079194
 	private VRRig GetRig(string userId)
 	{
 		if (userId == "")
@@ -69,7 +69,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		return null;
 	}
 
-	// Token: 0x060003E2 RID: 994 RVA: 0x0001722C File Offset: 0x0001542C
+	// Token: 0x0600041E RID: 1054 RVA: 0x0007B058 File Offset: 0x00079258
 	private float Distance2D(Vector3 a, Vector3 b)
 	{
 		Vector2 a2 = new Vector2(a.x, a.z);
@@ -77,20 +77,20 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		return Vector2.Distance(a2, b2);
 	}
 
-	// Token: 0x060003E3 RID: 995 RVA: 0x00017264 File Offset: 0x00015464
+	// Token: 0x0600041F RID: 1055 RVA: 0x0007B090 File Offset: 0x00079290
 	private Transform PickRandomPatrolPoint()
 	{
 		int num;
 		do
 		{
-			num = Random.Range(0, this.patrolPts.Count);
+			num = UnityEngine.Random.Range(0, this.patrolPts.Count);
 		}
 		while (num == this.patrolIdx);
 		this.patrolIdx = num;
 		return this.patrolPts[num];
 	}
 
-	// Token: 0x060003E4 RID: 996 RVA: 0x000172A4 File Offset: 0x000154A4
+	// Token: 0x06000420 RID: 1056 RVA: 0x0007B0D0 File Offset: 0x000792D0
 	private void PickNewPath(bool pathFinished = false)
 	{
 		if (this.calculatingPath)
@@ -141,7 +141,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		this.seeker.StartPath(base.transform.position, this.targetPosition, new OnPathDelegate(this.OnPathComplete));
 	}
 
-	// Token: 0x060003E5 RID: 997 RVA: 0x000173F4 File Offset: 0x000155F4
+	// Token: 0x06000421 RID: 1057 RVA: 0x0007B220 File Offset: 0x00079420
 	private void Awake()
 	{
 		this.lazerFx = base.GetComponent<Monkeye_LazerFX>();
@@ -174,13 +174,13 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		base.InvokeRepeating("AntiOverlapAssurance", 0.2f, 0.5f);
 	}
 
-	// Token: 0x060003E6 RID: 998 RVA: 0x0001758B File Offset: 0x0001578B
+	// Token: 0x06000422 RID: 1058 RVA: 0x00033269 File Offset: 0x00031469
 	private void Start()
 	{
 		NetworkSystem.Instance.RegisterSceneNetworkItem(base.gameObject);
 	}
 
-	// Token: 0x060003E7 RID: 999 RVA: 0x000175A0 File Offset: 0x000157A0
+	// Token: 0x06000423 RID: 1059 RVA: 0x0007B3B8 File Offset: 0x000795B8
 	private void OnPathComplete(Path path_)
 	{
 		this.path = path_;
@@ -194,7 +194,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		this.calculatingPath = false;
 	}
 
-	// Token: 0x060003E8 RID: 1000 RVA: 0x00017608 File Offset: 0x00015808
+	// Token: 0x06000424 RID: 1060 RVA: 0x0007B420 File Offset: 0x00079620
 	private void FollowPath()
 	{
 		if (this.path == null || this.currentWaypoint >= this.path.vectorPath.Count || this.currentWaypoint < 0)
@@ -235,7 +235,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		base.transform.rotation = Quaternion.LookRotation(forward);
 	}
 
-	// Token: 0x060003E9 RID: 1001 RVA: 0x000177EC File Offset: 0x000159EC
+	// Token: 0x06000425 RID: 1061 RVA: 0x0007B604 File Offset: 0x00079804
 	private bool PlayerNear(VRRig rig, float dist, out float playerDist)
 	{
 		if (rig == null)
@@ -247,7 +247,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		return playerDist < dist && Physics.RaycastNonAlloc(new Ray(base.transform.position, rig.transform.position - base.transform.position), this.rayResults, playerDist, this.layerMask) <= 0;
 	}
 
-	// Token: 0x060003EA RID: 1002 RVA: 0x0001787C File Offset: 0x00015A7C
+	// Token: 0x06000426 RID: 1062 RVA: 0x0007B694 File Offset: 0x00079894
 	private void Sleeping()
 	{
 		this.audioSource.volume = Mathf.Min(this.sleepLoopVolume, this.audioSource.volume + this.deltaTime / this.sleepDuration);
@@ -258,7 +258,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003EB RID: 1003 RVA: 0x000178DC File Offset: 0x00015ADC
+	// Token: 0x06000427 RID: 1063 RVA: 0x0007B6F4 File Offset: 0x000798F4
 	private bool ClosestPlayer(in Vector3 myPos, out VRRig outRig)
 	{
 		float num = float.MaxValue;
@@ -275,7 +275,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		return num != float.MaxValue;
 	}
 
-	// Token: 0x060003EC RID: 1004 RVA: 0x0001795C File Offset: 0x00015B5C
+	// Token: 0x06000428 RID: 1064 RVA: 0x0007B774 File Offset: 0x00079974
 	private bool CheckForChase()
 	{
 		foreach (VRRig vrrig in this.GetValidChoosableRigs())
@@ -292,7 +292,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		return false;
 	}
 
-	// Token: 0x060003ED RID: 1005 RVA: 0x000179DC File Offset: 0x00015BDC
+	// Token: 0x06000429 RID: 1065 RVA: 0x0003327B File Offset: 0x0003147B
 	public void SetChasePlayer(VRRig rig)
 	{
 		if (!this.GetValidChoosableRigs().Contains(rig))
@@ -305,7 +305,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		this.PickNewPath(false);
 	}
 
-	// Token: 0x060003EE RID: 1006 RVA: 0x00017A09 File Offset: 0x00015C09
+	// Token: 0x0600042A RID: 1066 RVA: 0x000332A8 File Offset: 0x000314A8
 	public void SetSleep()
 	{
 		if (this.replState.state == MonkeyeAI_ReplState.EStates.Patrolling || this.replState.state == MonkeyeAI_ReplState.EStates.Chasing)
@@ -314,7 +314,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003EF RID: 1007 RVA: 0x00017A30 File Offset: 0x00015C30
+	// Token: 0x0600042B RID: 1067 RVA: 0x0007B7F4 File Offset: 0x000799F4
 	private void Patrolling()
 	{
 		this.audioSource.volume = Mathf.Min(this.patrolLoopVolume, this.audioSource.volume + this.deltaTime / this.patrolLoopFadeInTime);
@@ -328,7 +328,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003F0 RID: 1008 RVA: 0x00017A98 File Offset: 0x00015C98
+	// Token: 0x0600042C RID: 1068 RVA: 0x0007B85C File Offset: 0x00079A5C
 	private void Chasing()
 	{
 		this.audioSource.volume = Mathf.Min(this.chaseLoopVolume, this.audioSource.volume + this.deltaTime / this.chaseLoopFadeInTime);
@@ -345,7 +345,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003F1 RID: 1009 RVA: 0x00017B24 File Offset: 0x00015D24
+	// Token: 0x0600042D RID: 1069 RVA: 0x0007B8E8 File Offset: 0x00079AE8
 	private void ReturnToSleepPt()
 	{
 		if (this.path == null)
@@ -363,7 +363,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003F2 RID: 1010 RVA: 0x00017B7C File Offset: 0x00015D7C
+	// Token: 0x0600042E RID: 1070 RVA: 0x0007B940 File Offset: 0x00079B40
 	private void UpdateClientState()
 	{
 		if (this.wasConnectedToRoom && !NetworkSystem.Instance.InRoom)
@@ -434,14 +434,14 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003F3 RID: 1011 RVA: 0x00017E21 File Offset: 0x00016021
+	// Token: 0x0600042F RID: 1071 RVA: 0x000332CD File Offset: 0x000314CD
 	private void SetDefaultState()
 	{
 		this.SetState(MonkeyeAI_ReplState.EStates.Sleeping);
 		this.SetDefaultAttackState();
 	}
 
-	// Token: 0x060003F4 RID: 1012 RVA: 0x00017E30 File Offset: 0x00016030
+	// Token: 0x06000430 RID: 1072 RVA: 0x0007BBE8 File Offset: 0x00079DE8
 	private void SetDefaultAttackState()
 	{
 		this.replState.floorEnabled = true;
@@ -453,14 +453,14 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		this.replState.alpha = 0f;
 	}
 
-	// Token: 0x060003F5 RID: 1013 RVA: 0x00017EA7 File Offset: 0x000160A7
+	// Token: 0x06000431 RID: 1073 RVA: 0x000332DC File Offset: 0x000314DC
 	private void ExitAttackState()
 	{
 		this.SetDefaultAttackState();
 		this.SetState(MonkeyeAI_ReplState.EStates.Patrolling);
 	}
 
-	// Token: 0x060003F6 RID: 1014 RVA: 0x00017EB8 File Offset: 0x000160B8
+	// Token: 0x06000432 RID: 1074 RVA: 0x0007BC60 File Offset: 0x00079E60
 	private void BeginAttack()
 	{
 		this.path = null;
@@ -477,7 +477,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003F7 RID: 1015 RVA: 0x00017F34 File Offset: 0x00016134
+	// Token: 0x06000433 RID: 1075 RVA: 0x0007BCDC File Offset: 0x00079EDC
 	private void OpenFloor()
 	{
 		this.replState.alpha = Mathf.Lerp(0f, 1f, 1f - Mathf.Clamp01(this.replState.timer / this.openFloorTime));
@@ -489,7 +489,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003F8 RID: 1016 RVA: 0x00017FAE File Offset: 0x000161AE
+	// Token: 0x06000434 RID: 1076 RVA: 0x000332EB File Offset: 0x000314EB
 	private void DropPlayer()
 	{
 		if (this.replState.timer <= 0f)
@@ -500,7 +500,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003F9 RID: 1017 RVA: 0x00017FE6 File Offset: 0x000161E6
+	// Token: 0x06000435 RID: 1077 RVA: 0x00033323 File Offset: 0x00031523
 	private void CloseFloor()
 	{
 		if (this.replState.timer <= 0f)
@@ -509,7 +509,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003FA RID: 1018 RVA: 0x00018000 File Offset: 0x00016200
+	// Token: 0x06000436 RID: 1078 RVA: 0x0007BD58 File Offset: 0x00079F58
 	private void ValidateChasingRig()
 	{
 		if (this.targetRig == null)
@@ -533,7 +533,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003FB RID: 1019 RVA: 0x00018088 File Offset: 0x00016288
+	// Token: 0x06000437 RID: 1079 RVA: 0x0007BDE0 File Offset: 0x00079FE0
 	public void SetState(MonkeyeAI_ReplState.EStates state_)
 	{
 		if (this.replState.IsMine)
@@ -593,7 +593,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003FC RID: 1020 RVA: 0x00018258 File Offset: 0x00016458
+	// Token: 0x06000438 RID: 1080 RVA: 0x0007BFB0 File Offset: 0x0007A1B0
 	public void SetClientState(MonkeyeAI_ReplState.EStates state_)
 	{
 		this.animController.SetInteger(MonkeyeAI.animStateID, (int)this.replState.state);
@@ -655,7 +655,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003FD RID: 1021 RVA: 0x000184F5 File Offset: 0x000166F5
+	// Token: 0x06000439 RID: 1081 RVA: 0x0003333D File Offset: 0x0003153D
 	private void setEyeColor(Color c)
 	{
 		if (c.a != 0f)
@@ -665,7 +665,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x060003FE RID: 1022 RVA: 0x0001852C File Offset: 0x0001672C
+	// Token: 0x0600043A RID: 1082 RVA: 0x0007C250 File Offset: 0x0007A450
 	public List<VRRig> GetValidChoosableRigs()
 	{
 		this.validRigs.Clear();
@@ -679,7 +679,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		return this.validRigs;
 	}
 
-	// Token: 0x060003FF RID: 1023 RVA: 0x000185B8 File Offset: 0x000167B8
+	// Token: 0x0600043B RID: 1083 RVA: 0x0007C2DC File Offset: 0x0007A4DC
 	public void SliceUpdate()
 	{
 		this.wasConnectedToRoom = NetworkSystem.Instance.InRoom;
@@ -761,19 +761,19 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06000400 RID: 1024 RVA: 0x000158F9 File Offset: 0x00013AF9
+	// Token: 0x0600043C RID: 1084 RVA: 0x00032C89 File Offset: 0x00030E89
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x06000401 RID: 1025 RVA: 0x00015902 File Offset: 0x00013B02
+	// Token: 0x0600043D RID: 1085 RVA: 0x00032C92 File Offset: 0x00030E92
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x06000402 RID: 1026 RVA: 0x000187A4 File Offset: 0x000169A4
+	// Token: 0x0600043E RID: 1086 RVA: 0x0007C4C8 File Offset: 0x0007A6C8
 	private void AntiOverlapAssurance()
 	{
 		try
@@ -809,7 +809,7 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06000403 RID: 1027 RVA: 0x000188CC File Offset: 0x00016ACC
+	// Token: 0x0600043F RID: 1087 RVA: 0x0007C5F0 File Offset: 0x0007A7F0
 	private void SetTargetPlayer([CanBeNull] VRRig rig)
 	{
 		if (rig == null)
@@ -825,229 +825,229 @@ public class MonkeyeAI : MonoBehaviour, IGorillaSliceableSimple
 		this.targetRig = rig;
 	}
 
-	// Token: 0x06000406 RID: 1030 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x06000442 RID: 1090 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x0400045E RID: 1118
+	// Token: 0x0400049E RID: 1182
 	public List<Transform> patrolPts;
 
-	// Token: 0x0400045F RID: 1119
+	// Token: 0x0400049F RID: 1183
 	public Transform sleepPt;
 
-	// Token: 0x04000460 RID: 1120
+	// Token: 0x040004A0 RID: 1184
 	private int patrolIdx = -1;
 
-	// Token: 0x04000461 RID: 1121
+	// Token: 0x040004A1 RID: 1185
 	private int patrolCount;
 
-	// Token: 0x04000462 RID: 1122
+	// Token: 0x040004A2 RID: 1186
 	private Vector3 targetPosition;
 
-	// Token: 0x04000463 RID: 1123
+	// Token: 0x040004A3 RID: 1187
 	private MaterialPropertyBlock portalMatPropBlock;
 
-	// Token: 0x04000464 RID: 1124
+	// Token: 0x040004A4 RID: 1188
 	private MaterialPropertyBlock monkEyeMatPropBlock;
 
-	// Token: 0x04000465 RID: 1125
+	// Token: 0x040004A5 RID: 1189
 	private Renderer renderer;
 
-	// Token: 0x04000466 RID: 1126
+	// Token: 0x040004A6 RID: 1190
 	private AIDestinationSetter aiDest;
 
-	// Token: 0x04000467 RID: 1127
+	// Token: 0x040004A7 RID: 1191
 	private AIPath aiPath;
 
-	// Token: 0x04000468 RID: 1128
+	// Token: 0x040004A8 RID: 1192
 	private AILerp aiLerp;
 
-	// Token: 0x04000469 RID: 1129
+	// Token: 0x040004A9 RID: 1193
 	private Seeker seeker;
 
-	// Token: 0x0400046A RID: 1130
+	// Token: 0x040004AA RID: 1194
 	private Path path;
 
-	// Token: 0x0400046B RID: 1131
+	// Token: 0x040004AB RID: 1195
 	private int currentWaypoint;
 
-	// Token: 0x0400046C RID: 1132
+	// Token: 0x040004AC RID: 1196
 	private bool calculatingPath;
 
-	// Token: 0x0400046D RID: 1133
+	// Token: 0x040004AD RID: 1197
 	private Monkeye_LazerFX lazerFx;
 
-	// Token: 0x0400046E RID: 1134
+	// Token: 0x040004AE RID: 1198
 	private Animator animController;
 
-	// Token: 0x0400046F RID: 1135
+	// Token: 0x040004AF RID: 1199
 	private RaycastHit[] rayResults = new RaycastHit[1];
 
-	// Token: 0x04000470 RID: 1136
+	// Token: 0x040004B0 RID: 1200
 	private LayerMask layerMask;
 
-	// Token: 0x04000471 RID: 1137
+	// Token: 0x040004B1 RID: 1201
 	private bool wasConnectedToRoom;
 
-	// Token: 0x04000472 RID: 1138
+	// Token: 0x040004B2 RID: 1202
 	public SkinnedMeshRenderer skinnedMeshRenderer;
 
-	// Token: 0x04000473 RID: 1139
+	// Token: 0x040004B3 RID: 1203
 	public MazePlayerCollection playerCollection;
 
-	// Token: 0x04000474 RID: 1140
+	// Token: 0x040004B4 RID: 1204
 	public PlayerCollection playersInRoomCollection;
 
-	// Token: 0x04000475 RID: 1141
+	// Token: 0x040004B5 RID: 1205
 	private List<VRRig> validRigs = new List<VRRig>();
 
-	// Token: 0x04000476 RID: 1142
+	// Token: 0x040004B6 RID: 1206
 	public GameObject portalFx;
 
-	// Token: 0x04000477 RID: 1143
+	// Token: 0x040004B7 RID: 1207
 	public Transform[] eyeBones;
 
-	// Token: 0x04000478 RID: 1144
+	// Token: 0x040004B8 RID: 1208
 	public float speed = 0.1f;
 
-	// Token: 0x04000479 RID: 1145
+	// Token: 0x040004B9 RID: 1209
 	public float rotationSpeed = 1f;
 
-	// Token: 0x0400047A RID: 1146
+	// Token: 0x040004BA RID: 1210
 	public float wakeDistance = 1f;
 
-	// Token: 0x0400047B RID: 1147
+	// Token: 0x040004BB RID: 1211
 	public float chaseDistance = 3f;
 
-	// Token: 0x0400047C RID: 1148
+	// Token: 0x040004BC RID: 1212
 	public float sleepDuration = 3f;
 
-	// Token: 0x0400047D RID: 1149
+	// Token: 0x040004BD RID: 1213
 	public float attackDistance = 0.1f;
 
-	// Token: 0x0400047E RID: 1150
+	// Token: 0x040004BE RID: 1214
 	public float beginAttackTime = 1f;
 
-	// Token: 0x0400047F RID: 1151
+	// Token: 0x040004BF RID: 1215
 	public float openFloorTime = 3f;
 
-	// Token: 0x04000480 RID: 1152
+	// Token: 0x040004C0 RID: 1216
 	public float dropPlayerTime = 1f;
 
-	// Token: 0x04000481 RID: 1153
+	// Token: 0x040004C1 RID: 1217
 	public float closeFloorTime = 1f;
 
-	// Token: 0x04000482 RID: 1154
+	// Token: 0x040004C2 RID: 1218
 	public Color portalColor;
 
-	// Token: 0x04000483 RID: 1155
+	// Token: 0x040004C3 RID: 1219
 	public Color gorillaPortalColor;
 
-	// Token: 0x04000484 RID: 1156
+	// Token: 0x040004C4 RID: 1220
 	public Color monkEyeColor;
 
-	// Token: 0x04000485 RID: 1157
+	// Token: 0x040004C5 RID: 1221
 	public Color monkEyeEyeColorNormal;
 
-	// Token: 0x04000486 RID: 1158
+	// Token: 0x040004C6 RID: 1222
 	public Color monkEyeEyeColorAttacking;
 
-	// Token: 0x04000487 RID: 1159
+	// Token: 0x040004C7 RID: 1223
 	public int maxPatrols = 4;
 
-	// Token: 0x04000488 RID: 1160
+	// Token: 0x040004C8 RID: 1224
 	private VRRig targetRig;
 
-	// Token: 0x04000489 RID: 1161
+	// Token: 0x040004C9 RID: 1225
 	private float deltaTime;
 
-	// Token: 0x0400048A RID: 1162
+	// Token: 0x040004CA RID: 1226
 	private float lastTime;
 
-	// Token: 0x0400048B RID: 1163
+	// Token: 0x040004CB RID: 1227
 	public MonkeyeAI_ReplState replState;
 
-	// Token: 0x0400048C RID: 1164
+	// Token: 0x040004CC RID: 1228
 	private MonkeyeAI_ReplState.EStates previousState;
 
-	// Token: 0x0400048D RID: 1165
+	// Token: 0x040004CD RID: 1229
 	private RequestableOwnershipGuard replStateRequestableOwnershipGaurd;
 
-	// Token: 0x0400048E RID: 1166
+	// Token: 0x040004CE RID: 1230
 	private RequestableOwnershipGuard myRequestableOwnershipGaurd;
 
-	// Token: 0x0400048F RID: 1167
+	// Token: 0x040004CF RID: 1231
 	private int layerBase;
 
-	// Token: 0x04000490 RID: 1168
+	// Token: 0x040004D0 RID: 1232
 	private int layerForward = 1;
 
-	// Token: 0x04000491 RID: 1169
+	// Token: 0x040004D1 RID: 1233
 	private int layerLeft = 2;
 
-	// Token: 0x04000492 RID: 1170
+	// Token: 0x040004D2 RID: 1234
 	private int layerRight = 3;
 
-	// Token: 0x04000493 RID: 1171
+	// Token: 0x040004D3 RID: 1235
 	private static readonly int EmissionColorShaderProp = Shader.PropertyToID("_EmissionColor");
 
-	// Token: 0x04000494 RID: 1172
+	// Token: 0x040004D4 RID: 1236
 	private static readonly int ColorShaderProp = Shader.PropertyToID("_BaseColor");
 
-	// Token: 0x04000495 RID: 1173
+	// Token: 0x040004D5 RID: 1237
 	private static readonly int EyeColorShaderProp = Shader.PropertyToID("_GChannelColor");
 
-	// Token: 0x04000496 RID: 1174
+	// Token: 0x040004D6 RID: 1238
 	private static readonly int tintColorShaderProp = Shader.PropertyToID("_TintColor");
 
-	// Token: 0x04000497 RID: 1175
+	// Token: 0x040004D7 RID: 1239
 	private static readonly int animStateID = Animator.StringToHash("state");
 
-	// Token: 0x04000498 RID: 1176
+	// Token: 0x040004D8 RID: 1240
 	private Vector3 prevPosition;
 
-	// Token: 0x04000499 RID: 1177
+	// Token: 0x040004D9 RID: 1241
 	private Vector3 velocity;
 
-	// Token: 0x0400049A RID: 1178
+	// Token: 0x040004DA RID: 1242
 	public AudioSource audioSource;
 
-	// Token: 0x0400049B RID: 1179
+	// Token: 0x040004DB RID: 1243
 	public AudioClip sleepLoopSound;
 
-	// Token: 0x0400049C RID: 1180
+	// Token: 0x040004DC RID: 1244
 	public float sleepLoopVolume = 0.5f;
 
-	// Token: 0x0400049D RID: 1181
+	// Token: 0x040004DD RID: 1245
 	[FormerlySerializedAs("moveLoopSound")]
 	public AudioClip patrolLoopSound;
 
-	// Token: 0x0400049E RID: 1182
+	// Token: 0x040004DE RID: 1246
 	public float patrolLoopVolume = 0.5f;
 
-	// Token: 0x0400049F RID: 1183
+	// Token: 0x040004DF RID: 1247
 	public float patrolLoopFadeInTime = 1f;
 
-	// Token: 0x040004A0 RID: 1184
+	// Token: 0x040004E0 RID: 1248
 	public AudioClip chaseLoopSound;
 
-	// Token: 0x040004A1 RID: 1185
+	// Token: 0x040004E1 RID: 1249
 	public float chaseLoopVolume = 0.5f;
 
-	// Token: 0x040004A2 RID: 1186
+	// Token: 0x040004E2 RID: 1250
 	public float chaseLoopFadeInTime = 0.05f;
 
-	// Token: 0x040004A3 RID: 1187
+	// Token: 0x040004E3 RID: 1251
 	public AudioClip attackSound;
 
-	// Token: 0x040004A4 RID: 1188
+	// Token: 0x040004E4 RID: 1252
 	public float attackVolume = 0.5f;
 
-	// Token: 0x040004A5 RID: 1189
+	// Token: 0x040004E5 RID: 1253
 	public float overlapRadius;
 
-	// Token: 0x040004A6 RID: 1190
+	// Token: 0x040004E6 RID: 1254
 	private bool lockedOn;
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000319 RID: 793
+// Token: 0x02000324 RID: 804
 public class OverlayPassthrough : MonoBehaviour
 {
-	// Token: 0x060012D9 RID: 4825 RVA: 0x0005C248 File Offset: 0x0005A448
+	// Token: 0x06001325 RID: 4901 RVA: 0x000B62F0 File Offset: 0x000B44F0
 	private void Start()
 	{
 		GameObject gameObject = GameObject.Find("OVRCameraRig");
@@ -20,7 +20,7 @@ public class OverlayPassthrough : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060012DA RID: 4826 RVA: 0x0005C298 File Offset: 0x0005A498
+	// Token: 0x06001326 RID: 4902 RVA: 0x000B6340 File Offset: 0x000B4540
 	private void Update()
 	{
 		if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
@@ -31,6 +31,6 @@ public class OverlayPassthrough : MonoBehaviour
 		this.passthroughLayer.textureOpacity = x * 0.5f + 0.5f;
 	}
 
-	// Token: 0x040014DA RID: 5338
+	// Token: 0x04001522 RID: 5410
 	private OVRPassthroughLayer passthroughLayer;
 }

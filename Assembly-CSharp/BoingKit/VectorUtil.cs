@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace BoingKit
 {
-	// Token: 0x02000CF2 RID: 3314
+	// Token: 0x02000D23 RID: 3363
 	public class VectorUtil
 	{
-		// Token: 0x0600539D RID: 21405 RVA: 0x0019B8B8 File Offset: 0x00199AB8
+		// Token: 0x060054FF RID: 21759 RVA: 0x001D0A84 File Offset: 0x001CEC84
 		public static Vector3 Rotate2D(Vector3 v, float angle)
 		{
 			Vector3 result = v;
@@ -17,7 +17,7 @@ namespace BoingKit
 			return result;
 		}
 
-		// Token: 0x0600539E RID: 21406 RVA: 0x0019B906 File Offset: 0x00199B06
+		// Token: 0x06005500 RID: 21760 RVA: 0x00067215 File Offset: 0x00065415
 		public static Vector4 NormalizeSafe(Vector4 v, Vector4 fallback)
 		{
 			if (v.sqrMagnitude <= MathUtil.Epsilon)
@@ -27,7 +27,7 @@ namespace BoingKit
 			return v.normalized;
 		}
 
-		// Token: 0x0600539F RID: 21407 RVA: 0x0019B91F File Offset: 0x00199B1F
+		// Token: 0x06005501 RID: 21761 RVA: 0x0006722E File Offset: 0x0006542E
 		public static Vector3 FindOrthogonal(Vector3 v)
 		{
 			if (v.x >= MathUtil.Sqrt3Inv)
@@ -37,14 +37,14 @@ namespace BoingKit
 			return new Vector3(0f, v.z, -v.y);
 		}
 
-		// Token: 0x060053A0 RID: 21408 RVA: 0x0019B95D File Offset: 0x00199B5D
+		// Token: 0x06005502 RID: 21762 RVA: 0x0006726C File Offset: 0x0006546C
 		public static void FormOrthogonalBasis(Vector3 v, out Vector3 a, out Vector3 b)
 		{
 			a = VectorUtil.FindOrthogonal(v);
 			b = Vector3.Cross(a, v);
 		}
 
-		// Token: 0x060053A1 RID: 21409 RVA: 0x0019B980 File Offset: 0x00199B80
+		// Token: 0x06005503 RID: 21763 RVA: 0x001D0AD4 File Offset: 0x001CECD4
 		public static Vector3 Slerp(Vector3 a, Vector3 b, float t)
 		{
 			float num = Vector3.Dot(a, b);
@@ -61,7 +61,7 @@ namespace BoingKit
 			return (Mathf.Sin((1f - t) * num2) * a + Mathf.Sin(t * num2) * b) / Mathf.Sin(num2);
 		}
 
-		// Token: 0x060053A2 RID: 21410 RVA: 0x0019BA04 File Offset: 0x00199C04
+		// Token: 0x06005504 RID: 21764 RVA: 0x001D0B58 File Offset: 0x001CED58
 		public static Vector3 GetClosestPointOnSegment(Vector3 p, Vector3 segA, Vector3 segB)
 		{
 			Vector3 a = segB - segA;
@@ -73,7 +73,7 @@ namespace BoingKit
 			return segA + d * a;
 		}
 
-		// Token: 0x060053A3 RID: 21411 RVA: 0x0019BA68 File Offset: 0x00199C68
+		// Token: 0x06005505 RID: 21765 RVA: 0x001D0BBC File Offset: 0x001CEDBC
 		public static Vector3 TriLerp(ref Vector3 v000, ref Vector3 v001, ref Vector3 v010, ref Vector3 v011, ref Vector3 v100, ref Vector3 v101, ref Vector3 v110, ref Vector3 v111, float tx, float ty, float tz)
 		{
 			Vector3 a = Vector3.Lerp(v000, v001, tx);
@@ -85,7 +85,7 @@ namespace BoingKit
 			return Vector3.Lerp(a3, b3, tz);
 		}
 
-		// Token: 0x060053A4 RID: 21412 RVA: 0x0019BAE4 File Offset: 0x00199CE4
+		// Token: 0x06005506 RID: 21766 RVA: 0x001D0C38 File Offset: 0x001CEE38
 		public static Vector3 TriLerp(ref Vector3 v000, ref Vector3 v001, ref Vector3 v010, ref Vector3 v011, ref Vector3 v100, ref Vector3 v101, ref Vector3 v110, ref Vector3 v111, bool lerpX, bool lerpY, bool lerpZ, float tx, float ty, float tz)
 		{
 			Vector3 vector = lerpX ? Vector3.Lerp(v000, v001, tx) : v000;
@@ -101,7 +101,7 @@ namespace BoingKit
 			return Vector3.Lerp(vector3, b3, tz);
 		}
 
-		// Token: 0x060053A5 RID: 21413 RVA: 0x0019BBB0 File Offset: 0x00199DB0
+		// Token: 0x06005507 RID: 21767 RVA: 0x001D0D04 File Offset: 0x001CEF04
 		public static Vector3 TriLerp(ref Vector3 min, ref Vector3 max, bool lerpX, bool lerpY, bool lerpZ, float tx, float ty, float tz)
 		{
 			Vector3 vector = lerpX ? Vector3.Lerp(new Vector3(min.x, min.y, min.z), new Vector3(max.x, min.y, min.z), tx) : new Vector3(min.x, min.y, min.z);
@@ -117,7 +117,7 @@ namespace BoingKit
 			return Vector3.Lerp(vector3, b3, tz);
 		}
 
-		// Token: 0x060053A6 RID: 21414 RVA: 0x0019BD3C File Offset: 0x00199F3C
+		// Token: 0x06005508 RID: 21768 RVA: 0x001D0E90 File Offset: 0x001CF090
 		public static Vector4 TriLerp(ref Vector4 v000, ref Vector4 v001, ref Vector4 v010, ref Vector4 v011, ref Vector4 v100, ref Vector4 v101, ref Vector4 v110, ref Vector4 v111, bool lerpX, bool lerpY, bool lerpZ, float tx, float ty, float tz)
 		{
 			Vector4 vector = lerpX ? Vector4.Lerp(v000, v001, tx) : v000;
@@ -133,7 +133,7 @@ namespace BoingKit
 			return Vector4.Lerp(vector3, b3, tz);
 		}
 
-		// Token: 0x060053A7 RID: 21415 RVA: 0x0019BE08 File Offset: 0x0019A008
+		// Token: 0x06005509 RID: 21769 RVA: 0x001D0F5C File Offset: 0x001CF15C
 		public static Vector4 TriLerp(ref Vector4 min, ref Vector4 max, bool lerpX, bool lerpY, bool lerpZ, float tx, float ty, float tz)
 		{
 			Vector4 vector = lerpX ? Vector4.Lerp(new Vector4(min.x, min.y, min.z), new Vector4(max.x, min.y, min.z), tx) : new Vector4(min.x, min.y, min.z);
@@ -149,7 +149,7 @@ namespace BoingKit
 			return Vector4.Lerp(vector3, b3, tz);
 		}
 
-		// Token: 0x060053A8 RID: 21416 RVA: 0x0019BF94 File Offset: 0x0019A194
+		// Token: 0x0600550A RID: 21770 RVA: 0x001D10E8 File Offset: 0x001CF2E8
 		public static Vector3 ClampLength(Vector3 v, float minLen, float maxLen)
 		{
 			float sqrMagnitude = v.sqrMagnitude;
@@ -161,43 +161,43 @@ namespace BoingKit
 			return v * (Mathf.Clamp(num, minLen, maxLen) / num);
 		}
 
-		// Token: 0x060053A9 RID: 21417 RVA: 0x0019BFCA File Offset: 0x0019A1CA
+		// Token: 0x0600550B RID: 21771 RVA: 0x0006728C File Offset: 0x0006548C
 		public static float MinComponent(Vector3 v)
 		{
 			return Mathf.Min(v.x, Mathf.Min(v.y, v.z));
 		}
 
-		// Token: 0x060053AA RID: 21418 RVA: 0x0019BFE8 File Offset: 0x0019A1E8
+		// Token: 0x0600550C RID: 21772 RVA: 0x000672AA File Offset: 0x000654AA
 		public static float MaxComponent(Vector3 v)
 		{
 			return Mathf.Max(v.x, Mathf.Max(v.y, v.z));
 		}
 
-		// Token: 0x060053AB RID: 21419 RVA: 0x0019C006 File Offset: 0x0019A206
+		// Token: 0x0600550D RID: 21773 RVA: 0x000672C8 File Offset: 0x000654C8
 		public static Vector3 ComponentWiseAbs(Vector3 v)
 		{
 			return new Vector3(Mathf.Abs(v.x), Mathf.Abs(v.y), Mathf.Abs(v.z));
 		}
 
-		// Token: 0x060053AC RID: 21420 RVA: 0x0019C02E File Offset: 0x0019A22E
+		// Token: 0x0600550E RID: 21774 RVA: 0x000672F0 File Offset: 0x000654F0
 		public static Vector3 ComponentWiseMult(Vector3 a, Vector3 b)
 		{
 			return Vector3.Scale(a, b);
 		}
 
-		// Token: 0x060053AD RID: 21421 RVA: 0x0019C037 File Offset: 0x0019A237
+		// Token: 0x0600550F RID: 21775 RVA: 0x000672F9 File Offset: 0x000654F9
 		public static Vector3 ComponentWiseDiv(Vector3 num, Vector3 den)
 		{
 			return new Vector3(num.x / den.x, num.y / den.y, num.z / den.z);
 		}
 
-		// Token: 0x060053AE RID: 21422 RVA: 0x0019C065 File Offset: 0x0019A265
+		// Token: 0x06005510 RID: 21776 RVA: 0x00067327 File Offset: 0x00065527
 		public static Vector3 ComponentWiseDivSafe(Vector3 num, Vector3 den)
 		{
 			return new Vector3(num.x * MathUtil.InvSafe(den.x), num.y * MathUtil.InvSafe(den.y), num.z * MathUtil.InvSafe(den.z));
 		}
 
-		// Token: 0x060053AF RID: 21423 RVA: 0x0019C0A4 File Offset: 0x0019A2A4
+		// Token: 0x06005511 RID: 21777 RVA: 0x001D1120 File Offset: 0x001CF320
 		public static Vector3 ClampBend(Vector3 vector, Vector3 reference, float maxBendAngle)
 		{
 			float sqrMagnitude = vector.sqrMagnitude;
@@ -222,10 +222,10 @@ namespace BoingKit
 			return QuaternionUtil.AxisAngle(axis, maxBendAngle) * reference * (Mathf.Sqrt(sqrMagnitude) / Mathf.Sqrt(sqrMagnitude2));
 		}
 
-		// Token: 0x040055DB RID: 21979
+		// Token: 0x040056E7 RID: 22247
 		public static readonly Vector3 Min = new Vector3(float.MinValue, float.MinValue, float.MinValue);
 
-		// Token: 0x040055DC RID: 21980
+		// Token: 0x040056E8 RID: 22248
 		public static readonly Vector3 Max = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
 	}
 }

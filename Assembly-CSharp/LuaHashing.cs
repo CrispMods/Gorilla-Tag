@@ -1,10 +1,10 @@
 ﻿using System;
 using Unity.Burst;
 
-// Token: 0x02000768 RID: 1896
+// Token: 0x0200077F RID: 1919
 public static class LuaHashing
 {
-	// Token: 0x06002E79 RID: 11897 RVA: 0x000E1B74 File Offset: 0x000DFD74
+	// Token: 0x06002F16 RID: 12054 RVA: 0x0012B7F8 File Offset: 0x001299F8
 	[BurstCompile]
 	public unsafe static int ByteHash(byte* bytes, int len)
 	{
@@ -22,7 +22,7 @@ public static class LuaHashing
 		return num + num2 * 1648465312;
 	}
 
-	// Token: 0x06002E7A RID: 11898 RVA: 0x000E1BBC File Offset: 0x000DFDBC
+	// Token: 0x06002F17 RID: 12055 RVA: 0x0012B840 File Offset: 0x00129A40
 	[BurstCompile]
 	public unsafe static int ByteHash(byte* bytes)
 	{
@@ -43,7 +43,7 @@ public static class LuaHashing
 		return num + num2 * 1648465312;
 	}
 
-	// Token: 0x06002E7B RID: 11899 RVA: 0x000E1C08 File Offset: 0x000DFE08
+	// Token: 0x06002F18 RID: 12056 RVA: 0x0012B88C File Offset: 0x00129A8C
 	public static int ByteHash(string bytes)
 	{
 		int length = bytes.Length;
@@ -61,7 +61,7 @@ public static class LuaHashing
 		return num + num2 * 1648465312;
 	}
 
-	// Token: 0x06002E7C RID: 11900 RVA: 0x000E1C60 File Offset: 0x000DFE60
+	// Token: 0x06002F19 RID: 12057 RVA: 0x0012B8E4 File Offset: 0x00129AE4
 	[BurstCompile]
 	public static int ByteHash(byte[] bytes)
 	{
@@ -80,9 +80,9 @@ public static class LuaHashing
 		return num2 + num3 * 1648465312;
 	}
 
-	// Token: 0x040032DC RID: 13020
+	// Token: 0x0400337B RID: 13179
 	private const int k_enhancer = 1648465312;
 
-	// Token: 0x040032DD RID: 13021
+	// Token: 0x0400337C RID: 13180
 	private const int k_Seed = 352654597;
 }

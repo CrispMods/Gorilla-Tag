@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GorillaTag
 {
-	// Token: 0x02000B99 RID: 2969
+	// Token: 0x02000BC6 RID: 3014
 	[CreateAssetMenu(fileName = "WatchableGameObjectSO", menuName = "ScriptableObjects/WatchableGameObjectSO")]
 	public class WatchableGameObjectSO : WatchableGenericSO<GameObject>
 	{

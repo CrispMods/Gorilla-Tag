@@ -5,7 +5,7 @@ using UnityEngine;
 // Token: 0x02000018 RID: 24
 public class ImplosionExplosionMain : MonoBehaviour
 {
-	// Token: 0x06000057 RID: 87 RVA: 0x000033E4 File Offset: 0x000015E4
+	// Token: 0x06000057 RID: 87 RVA: 0x00068794 File Offset: 0x00066994
 	public void Start()
 	{
 		this.m_aaInstancedDiamondMatrix = new Matrix4x4[(this.NumDiamonds + ImplosionExplosionMain.kNumInstancedBushesPerDrawCall - 1) / ImplosionExplosionMain.kNumInstancedBushesPerDrawCall][];
@@ -15,14 +15,14 @@ public class ImplosionExplosionMain : MonoBehaviour
 		}
 		for (int j = 0; j < this.NumDiamonds; j++)
 		{
-			float d = Random.Range(0.1f, 0.4f);
-			Vector3 pos = new Vector3(Random.Range(-3.5f, 3.5f), Random.Range(0.5f, 7f), Random.Range(-3.5f, 3.5f));
-			Quaternion q = Quaternion.Euler(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f));
+			float d = UnityEngine.Random.Range(0.1f, 0.4f);
+			Vector3 pos = new Vector3(UnityEngine.Random.Range(-3.5f, 3.5f), UnityEngine.Random.Range(0.5f, 7f), UnityEngine.Random.Range(-3.5f, 3.5f));
+			Quaternion q = Quaternion.Euler(UnityEngine.Random.Range(0f, 360f), UnityEngine.Random.Range(0f, 360f), UnityEngine.Random.Range(0f, 360f));
 			this.m_aaInstancedDiamondMatrix[j / ImplosionExplosionMain.kNumInstancedBushesPerDrawCall][j % ImplosionExplosionMain.kNumInstancedBushesPerDrawCall].SetTRS(pos, q, d * Vector3.one);
 		}
 	}
 
-	// Token: 0x06000058 RID: 88 RVA: 0x000034F4 File Offset: 0x000016F4
+	// Token: 0x06000058 RID: 88 RVA: 0x000688A4 File Offset: 0x00066AA4
 	public void Update()
 	{
 		Mesh sharedMesh = this.Diamond.GetComponent<MeshFilter>().sharedMesh;

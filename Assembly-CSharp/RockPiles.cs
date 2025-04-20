@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000109 RID: 265
+// Token: 0x02000113 RID: 275
 public class RockPiles : MonoBehaviour
 {
-	// Token: 0x06000723 RID: 1827 RVA: 0x00028A34 File Offset: 0x00026C34
+	// Token: 0x06000764 RID: 1892 RVA: 0x0008A738 File Offset: 0x00088938
 	public void Show(int visiblePercentage)
 	{
 		if (visiblePercentage <= 0)
@@ -26,7 +26,7 @@ public class RockPiles : MonoBehaviour
 		this.ShowRock(rockToShow);
 	}
 
-	// Token: 0x06000724 RID: 1828 RVA: 0x00028A94 File Offset: 0x00026C94
+	// Token: 0x06000765 RID: 1893 RVA: 0x0008A798 File Offset: 0x00088998
 	private void ShowRock(int rockToShow)
 	{
 		for (int i = 0; i < this._rocks.Length; i++)
@@ -35,18 +35,18 @@ public class RockPiles : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400087E RID: 2174
+	// Token: 0x040008BF RID: 2239
 	[SerializeField]
 	private RockPiles.RockPile[] _rocks;
 
-	// Token: 0x0200010A RID: 266
+	// Token: 0x02000114 RID: 276
 	[Serializable]
 	public struct RockPile
 	{
-		// Token: 0x0400087F RID: 2175
+		// Token: 0x040008C0 RID: 2240
 		public GameObject visual;
 
-		// Token: 0x04000880 RID: 2176
+		// Token: 0x040008C1 RID: 2241
 		public int threshold;
 	}
 }

@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace GorillaLocomotion.Gameplay
 {
-	// Token: 0x02000B50 RID: 2896
+	// Token: 0x02000B7D RID: 2941
 	public struct BurstRopeNode
 	{
-		// Token: 0x04004B06 RID: 19206
+		// Token: 0x04004BFC RID: 19452
 		public Vector3 lastPos;
 
-		// Token: 0x04004B07 RID: 19207
+		// Token: 0x04004BFD RID: 19453
 		public Vector3 curPos;
 	}
 }

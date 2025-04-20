@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200087A RID: 2170
+// Token: 0x02000896 RID: 2198
 public class Line : MonoBehaviour
 {
-	// Token: 0x04003752 RID: 14162
+	// Token: 0x04003812 RID: 14354
 	public Vector3 p0;
 
-	// Token: 0x04003753 RID: 14163
+	// Token: 0x04003813 RID: 14355
 	public Vector3 p1;
 }

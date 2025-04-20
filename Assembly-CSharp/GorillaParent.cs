@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x0200058B RID: 1419
+// Token: 0x02000599 RID: 1433
 public class GorillaParent : MonoBehaviour
 {
-	// Token: 0x0600230F RID: 8975 RVA: 0x000ADD84 File Offset: 0x000ABF84
+	// Token: 0x0600236F RID: 9071 RVA: 0x00047E72 File Offset: 0x00046072
 	public void Awake()
 	{
 		if (GorillaParent.instance == null)
@@ -17,12 +17,12 @@ public class GorillaParent : MonoBehaviour
 		}
 		if (GorillaParent.instance != this)
 		{
-			Object.Destroy(base.gameObject);
+			UnityEngine.Object.Destroy(base.gameObject);
 			return;
 		}
 	}
 
-	// Token: 0x06002310 RID: 8976 RVA: 0x000ADDBF File Offset: 0x000ABFBF
+	// Token: 0x06002370 RID: 9072 RVA: 0x00047EAD File Offset: 0x000460AD
 	protected void OnDestroy()
 	{
 		if (GorillaParent.instance == this)
@@ -32,7 +32,7 @@ public class GorillaParent : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002311 RID: 8977 RVA: 0x000ADDDE File Offset: 0x000ABFDE
+	// Token: 0x06002371 RID: 9073 RVA: 0x00047ECC File Offset: 0x000460CC
 	public void LateUpdate()
 	{
 		if (RoomSystem.JoinedRoom && GorillaTagger.Instance.myVRRig.IsNull())
@@ -41,7 +41,7 @@ public class GorillaParent : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002312 RID: 8978 RVA: 0x000ADE02 File Offset: 0x000AC002
+	// Token: 0x06002372 RID: 9074 RVA: 0x00047EF0 File Offset: 0x000460F0
 	public static void ReplicatedClientReady()
 	{
 		GorillaParent.replicatedClientReady = true;
@@ -53,7 +53,7 @@ public class GorillaParent : MonoBehaviour
 		action();
 	}
 
-	// Token: 0x06002313 RID: 8979 RVA: 0x000ADE19 File Offset: 0x000AC019
+	// Token: 0x06002373 RID: 9075 RVA: 0x00047F07 File Offset: 0x00046107
 	public static void OnReplicatedClientReady(Action action)
 	{
 		if (GorillaParent.replicatedClientReady)
@@ -64,35 +64,35 @@ public class GorillaParent : MonoBehaviour
 		GorillaParent.onReplicatedClientReady = (Action)Delegate.Combine(GorillaParent.onReplicatedClientReady, action);
 	}
 
-	// Token: 0x0400269F RID: 9887
+	// Token: 0x040026FA RID: 9978
 	public GameObject tagUI;
 
-	// Token: 0x040026A0 RID: 9888
+	// Token: 0x040026FB RID: 9979
 	public GameObject playerParent;
 
-	// Token: 0x040026A1 RID: 9889
+	// Token: 0x040026FC RID: 9980
 	public GameObject vrrigParent;
 
-	// Token: 0x040026A2 RID: 9890
+	// Token: 0x040026FD RID: 9981
 	[OnEnterPlay_SetNull]
 	public static volatile GorillaParent instance;
 
-	// Token: 0x040026A3 RID: 9891
+	// Token: 0x040026FE RID: 9982
 	[OnEnterPlay_Set(false)]
 	public static bool hasInstance;
 
-	// Token: 0x040026A4 RID: 9892
+	// Token: 0x040026FF RID: 9983
 	public List<VRRig> vrrigs;
 
-	// Token: 0x040026A5 RID: 9893
+	// Token: 0x04002700 RID: 9984
 	public Dictionary<NetPlayer, VRRig> vrrigDict = new Dictionary<NetPlayer, VRRig>();
 
-	// Token: 0x040026A6 RID: 9894
+	// Token: 0x04002701 RID: 9985
 	private int i;
 
-	// Token: 0x040026A7 RID: 9895
+	// Token: 0x04002702 RID: 9986
 	private static bool replicatedClientReady;
 
-	// Token: 0x040026A8 RID: 9896
+	// Token: 0x04002703 RID: 9987
 	private static Action onReplicatedClientReady;
 }

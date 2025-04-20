@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000857 RID: 2135
+// Token: 0x02000871 RID: 2161
 public class LookAtTransform : MonoBehaviour
 {
-	// Token: 0x060033D1 RID: 13265 RVA: 0x000F6E77 File Offset: 0x000F5077
+	// Token: 0x0600348C RID: 13452 RVA: 0x00052998 File Offset: 0x00050B98
 	private void Update()
 	{
 		base.transform.rotation = Quaternion.LookRotation(this.lookAt.position - base.transform.position);
 	}
 
-	// Token: 0x04003705 RID: 14085
+	// Token: 0x040037C1 RID: 14273
 	[SerializeField]
 	private Transform lookAt;
 }

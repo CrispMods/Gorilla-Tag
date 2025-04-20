@@ -5,21 +5,21 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR;
 
-// Token: 0x0200023A RID: 570
+// Token: 0x02000245 RID: 581
 public class LckDirectGrabbable : MonoBehaviour, IGorillaGrabable
 {
-	// Token: 0x14000025 RID: 37
-	// (add) Token: 0x06000D13 RID: 3347 RVA: 0x000441B4 File Offset: 0x000423B4
-	// (remove) Token: 0x06000D14 RID: 3348 RVA: 0x000441EC File Offset: 0x000423EC
+	// Token: 0x14000026 RID: 38
+	// (add) Token: 0x06000D5E RID: 3422 RVA: 0x000A1B80 File Offset: 0x0009FD80
+	// (remove) Token: 0x06000D5F RID: 3423 RVA: 0x000A1BB8 File Offset: 0x0009FDB8
 	public event Action onGrabbed;
 
-	// Token: 0x14000026 RID: 38
-	// (add) Token: 0x06000D15 RID: 3349 RVA: 0x00044224 File Offset: 0x00042424
-	// (remove) Token: 0x06000D16 RID: 3350 RVA: 0x0004425C File Offset: 0x0004245C
+	// Token: 0x14000027 RID: 39
+	// (add) Token: 0x06000D60 RID: 3424 RVA: 0x000A1BF0 File Offset: 0x0009FDF0
+	// (remove) Token: 0x06000D61 RID: 3425 RVA: 0x000A1C28 File Offset: 0x0009FE28
 	public event Action onReleased;
 
-	// Token: 0x1700014B RID: 331
-	// (get) Token: 0x06000D17 RID: 3351 RVA: 0x00044291 File Offset: 0x00042491
+	// Token: 0x17000152 RID: 338
+	// (get) Token: 0x06000D62 RID: 3426 RVA: 0x000397AB File Offset: 0x000379AB
 	public GorillaGrabber grabber
 	{
 		get
@@ -28,8 +28,8 @@ public class LckDirectGrabbable : MonoBehaviour, IGorillaGrabable
 		}
 	}
 
-	// Token: 0x1700014C RID: 332
-	// (get) Token: 0x06000D18 RID: 3352 RVA: 0x00044299 File Offset: 0x00042499
+	// Token: 0x17000153 RID: 339
+	// (get) Token: 0x06000D63 RID: 3427 RVA: 0x000397B3 File Offset: 0x000379B3
 	public bool isGrabbed
 	{
 		get
@@ -38,7 +38,7 @@ public class LckDirectGrabbable : MonoBehaviour, IGorillaGrabable
 		}
 	}
 
-	// Token: 0x06000D19 RID: 3353 RVA: 0x000442A7 File Offset: 0x000424A7
+	// Token: 0x06000D64 RID: 3428 RVA: 0x000397C1 File Offset: 0x000379C1
 	public Vector3 GetLocalGrabbedPosition(GorillaGrabber grabber)
 	{
 		if (grabber == null)
@@ -48,13 +48,13 @@ public class LckDirectGrabbable : MonoBehaviour, IGorillaGrabable
 		return base.transform.InverseTransformPoint(grabber.transform.position);
 	}
 
-	// Token: 0x06000D1A RID: 3354 RVA: 0x000442CE File Offset: 0x000424CE
+	// Token: 0x06000D65 RID: 3429 RVA: 0x000397E8 File Offset: 0x000379E8
 	public bool CanBeGrabbed(GorillaGrabber grabber)
 	{
 		return this._grabber == null || grabber == this._grabber;
 	}
 
-	// Token: 0x06000D1B RID: 3355 RVA: 0x000442EC File Offset: 0x000424EC
+	// Token: 0x06000D66 RID: 3430 RVA: 0x000A1C60 File Offset: 0x0009FE60
 	public void OnGrabbed(GorillaGrabber grabber, out Transform grabbedTransform, out Vector3 localGrabbedPosition)
 	{
 		if (!base.isActiveAndEnabled)
@@ -96,7 +96,7 @@ public class LckDirectGrabbable : MonoBehaviour, IGorillaGrabable
 		onTabletGrabbed.Invoke();
 	}
 
-	// Token: 0x06000D1C RID: 3356 RVA: 0x000443EC File Offset: 0x000425EC
+	// Token: 0x06000D67 RID: 3431 RVA: 0x000A1D60 File Offset: 0x0009FF60
 	public void OnGrabReleased(GorillaGrabber grabber)
 	{
 		this.target.transform.SetParent(this._originalTargetParent, true);
@@ -115,13 +115,13 @@ public class LckDirectGrabbable : MonoBehaviour, IGorillaGrabable
 		onTabletReleased.Invoke();
 	}
 
-	// Token: 0x06000D1D RID: 3357 RVA: 0x0004443E File Offset: 0x0004263E
+	// Token: 0x06000D68 RID: 3432 RVA: 0x00039806 File Offset: 0x00037A06
 	public void ForceGrab(GorillaGrabber grabber)
 	{
 		grabber.Inject(base.transform, this.GetLocalGrabbedPosition(grabber));
 	}
 
-	// Token: 0x06000D1E RID: 3358 RVA: 0x00044453 File Offset: 0x00042653
+	// Token: 0x06000D69 RID: 3433 RVA: 0x0003981B File Offset: 0x00037A1B
 	public void ForceRelease()
 	{
 		if (this._grabber == null)
@@ -131,7 +131,7 @@ public class LckDirectGrabbable : MonoBehaviour, IGorillaGrabable
 		this._grabber.Inject(null, Vector3.zero);
 	}
 
-	// Token: 0x06000D1F RID: 3359 RVA: 0x00044478 File Offset: 0x00042678
+	// Token: 0x06000D6A RID: 3434 RVA: 0x000A1DB4 File Offset: 0x0009FFB4
 	private bool IsSlingshotHeldInHand(out bool leftHand, out bool rightHand)
 	{
 		VRRig rig = VRRigCache.Instance.localRig.Rig;
@@ -146,41 +146,41 @@ public class LckDirectGrabbable : MonoBehaviour, IGorillaGrabable
 		return rig.projectileWeapon.InHand();
 	}
 
-	// Token: 0x06000D20 RID: 3360 RVA: 0x000444D9 File Offset: 0x000426D9
+	// Token: 0x06000D6B RID: 3435 RVA: 0x0003983D File Offset: 0x00037A3D
 	public void SetOriginalTargetParent(Transform parent)
 	{
 		this._originalTargetParent = parent;
 	}
 
-	// Token: 0x06000D21 RID: 3361 RVA: 0x000444E2 File Offset: 0x000426E2
+	// Token: 0x06000D6C RID: 3436 RVA: 0x00039846 File Offset: 0x00037A46
 	public bool MomentaryGrabOnly()
 	{
 		return true;
 	}
 
-	// Token: 0x06000D23 RID: 3363 RVA: 0x0001227B File Offset: 0x0001047B
+	// Token: 0x06000D6E RID: 3438 RVA: 0x0003261E File Offset: 0x0003081E
 	string IGorillaGrabable.get_name()
 	{
 		return base.name;
 	}
 
-	// Token: 0x04001066 RID: 4198
+	// Token: 0x040010AC RID: 4268
 	public UnityEvent OnTabletGrabbed = new UnityEvent();
 
-	// Token: 0x04001067 RID: 4199
+	// Token: 0x040010AD RID: 4269
 	public UnityEvent OnTabletReleased = new UnityEvent();
 
-	// Token: 0x04001068 RID: 4200
+	// Token: 0x040010AE RID: 4270
 	[SerializeField]
 	private Transform _originalTargetParent;
 
-	// Token: 0x04001069 RID: 4201
+	// Token: 0x040010AF RID: 4271
 	public Transform target;
 
-	// Token: 0x0400106A RID: 4202
+	// Token: 0x040010B0 RID: 4272
 	[SerializeField]
 	private bool _precise;
 
-	// Token: 0x0400106B RID: 4203
+	// Token: 0x040010B1 RID: 4273
 	private GorillaGrabber _grabber;
 }

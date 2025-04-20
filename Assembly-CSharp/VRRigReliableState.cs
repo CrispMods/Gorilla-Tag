@@ -6,11 +6,11 @@ using GorillaTagScripts;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x020003BC RID: 956
+// Token: 0x020003C7 RID: 967
 public class VRRigReliableState : MonoBehaviour, IWrappedSerializable, INetworkStruct
 {
-	// Token: 0x1700029A RID: 666
-	// (get) Token: 0x06001717 RID: 5911 RVA: 0x00070BA2 File Offset: 0x0006EDA2
+	// Token: 0x170002A1 RID: 673
+	// (get) Token: 0x06001764 RID: 5988 RVA: 0x0003FDEC File Offset: 0x0003DFEC
 	public bool HasBracelet
 	{
 		get
@@ -19,37 +19,37 @@ public class VRRigReliableState : MonoBehaviour, IWrappedSerializable, INetworkS
 		}
 	}
 
-	// Token: 0x1700029B RID: 667
-	// (get) Token: 0x06001718 RID: 5912 RVA: 0x00070BB2 File Offset: 0x0006EDB2
-	// (set) Token: 0x06001719 RID: 5913 RVA: 0x00070BBA File Offset: 0x0006EDBA
+	// Token: 0x170002A2 RID: 674
+	// (get) Token: 0x06001765 RID: 5989 RVA: 0x0003FDFC File Offset: 0x0003DFFC
+	// (set) Token: 0x06001766 RID: 5990 RVA: 0x0003FE04 File Offset: 0x0003E004
 	public bool isDirty { get; private set; } = true;
 
-	// Token: 0x0600171A RID: 5914 RVA: 0x00070BC4 File Offset: 0x0006EDC4
+	// Token: 0x06001767 RID: 5991 RVA: 0x000C7E5C File Offset: 0x000C605C
 	private void Awake()
 	{
 		VRRig.newPlayerJoined = (Action)Delegate.Combine(VRRig.newPlayerJoined, new Action(this.SetIsDirty));
 		RoomSystem.JoinedRoomEvent = (Action)Delegate.Combine(RoomSystem.JoinedRoomEvent, new Action(this.SetIsDirty));
 	}
 
-	// Token: 0x0600171B RID: 5915 RVA: 0x00070C11 File Offset: 0x0006EE11
+	// Token: 0x06001768 RID: 5992 RVA: 0x0003FE0D File Offset: 0x0003E00D
 	private void OnDestroy()
 	{
 		VRRig.newPlayerJoined = (Action)Delegate.Remove(VRRig.newPlayerJoined, new Action(this.SetIsDirty));
 	}
 
-	// Token: 0x0600171C RID: 5916 RVA: 0x00070C33 File Offset: 0x0006EE33
+	// Token: 0x06001769 RID: 5993 RVA: 0x0003FE2F File Offset: 0x0003E02F
 	public void SetIsDirty()
 	{
 		this.isDirty = true;
 	}
 
-	// Token: 0x0600171D RID: 5917 RVA: 0x00070C3C File Offset: 0x0006EE3C
+	// Token: 0x0600176A RID: 5994 RVA: 0x0003FE38 File Offset: 0x0003E038
 	public void SetIsNotDirty()
 	{
 		this.isDirty = false;
 	}
 
-	// Token: 0x0600171E RID: 5918 RVA: 0x00070C48 File Offset: 0x0006EE48
+	// Token: 0x0600176B RID: 5995 RVA: 0x000C7EAC File Offset: 0x000C60AC
 	public void SharedStart(bool isOfflineVRRig_, BodyDockPositions bDock_)
 	{
 		this.isOfflineVRRig = isOfflineVRRig_;
@@ -64,7 +64,7 @@ public class VRRigReliableState : MonoBehaviour, IWrappedSerializable, INetworkS
 		this.transferableDockPositions = new BodyDockPositions.DropPositions[5];
 	}
 
-	// Token: 0x0600171F RID: 5919 RVA: 0x00070CB0 File Offset: 0x0006EEB0
+	// Token: 0x0600176C RID: 5996 RVA: 0x000C7F14 File Offset: 0x000C6114
 	void IWrappedSerializable.OnSerializeRead(object newData)
 	{
 		this.Data = (ReliableStateData)newData;
@@ -122,7 +122,7 @@ public class VRRigReliableState : MonoBehaviour, IWrappedSerializable, INetworkS
 		this.bDock.myRig.UpdateFriendshipBracelet();
 	}
 
-	// Token: 0x06001720 RID: 5920 RVA: 0x00070E8C File Offset: 0x0006F08C
+	// Token: 0x0600176D RID: 5997 RVA: 0x000C80F0 File Offset: 0x000C62F0
 	object IWrappedSerializable.OnSerializeWrite()
 	{
 		this.isDirty = false;
@@ -158,7 +158,7 @@ public class VRRigReliableState : MonoBehaviour, IWrappedSerializable, INetworkS
 		return reliableStateData;
 	}
 
-	// Token: 0x06001721 RID: 5921 RVA: 0x00070FA4 File Offset: 0x0006F1A4
+	// Token: 0x0600176E RID: 5998 RVA: 0x000C8208 File Offset: 0x000C6408
 	void IWrappedSerializable.OnSerializeWrite(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (!this.isDirty)
@@ -195,7 +195,7 @@ public class VRRigReliableState : MonoBehaviour, IWrappedSerializable, INetworkS
 		}
 	}
 
-	// Token: 0x06001722 RID: 5922 RVA: 0x000710F8 File Offset: 0x0006F2F8
+	// Token: 0x0600176F RID: 5999 RVA: 0x000C835C File Offset: 0x000C655C
 	void IWrappedSerializable.OnSerializeRead(PhotonStream stream, PhotonMessageInfo info)
 	{
 		long num = (long)stream.ReceiveNext();
@@ -264,7 +264,7 @@ public class VRRigReliableState : MonoBehaviour, IWrappedSerializable, INetworkS
 		this.bDock.myRig.EnableBuilderResizeWatch(this.isBuilderWatchEnabled);
 	}
 
-	// Token: 0x06001723 RID: 5923 RVA: 0x00071368 File Offset: 0x0006F568
+	// Token: 0x06001770 RID: 6000 RVA: 0x000C85CC File Offset: 0x000C67CC
 	private long GetHeader()
 	{
 		long num = 0L;
@@ -309,7 +309,7 @@ public class VRRigReliableState : MonoBehaviour, IWrappedSerializable, INetworkS
 		return num | (long)((long)((ulong)this.rThrowableProjectileColor.b) << 56);
 	}
 
-	// Token: 0x06001724 RID: 5924 RVA: 0x000714B0 File Offset: 0x0006F6B0
+	// Token: 0x06001771 RID: 6001 RVA: 0x000C8714 File Offset: 0x000C6914
 	private void SetHeader(long header, out int numBeadsToRead)
 	{
 		this.isMicEnabled = ((header & 32L) != 0L);
@@ -323,7 +323,7 @@ public class VRRigReliableState : MonoBehaviour, IWrappedSerializable, INetworkS
 		this.rThrowableProjectileColor.b = (byte)(header >> 56);
 	}
 
-	// Token: 0x06001725 RID: 5925 RVA: 0x00071548 File Offset: 0x0006F748
+	// Token: 0x06001772 RID: 6002 RVA: 0x000C87AC File Offset: 0x000C69AC
 	private List<long> GetTransferrableStates(long header)
 	{
 		List<long> list = new List<long>();
@@ -341,7 +341,7 @@ public class VRRigReliableState : MonoBehaviour, IWrappedSerializable, INetworkS
 		return list;
 	}
 
-	// Token: 0x06001726 RID: 5926 RVA: 0x000715C4 File Offset: 0x0006F7C4
+	// Token: 0x06001773 RID: 6003 RVA: 0x000C8828 File Offset: 0x000C6A28
 	private static long PackBeadColors(List<Color> beadColors, int fromIndex)
 	{
 		long num = 0L;
@@ -356,7 +356,7 @@ public class VRRigReliableState : MonoBehaviour, IWrappedSerializable, INetworkS
 		return num;
 	}
 
-	// Token: 0x06001727 RID: 5927 RVA: 0x00071610 File Offset: 0x0006F810
+	// Token: 0x06001774 RID: 6004 RVA: 0x000C8874 File Offset: 0x000C6A74
 	private static void UnpackBeadColors(long packed, int startIndex, int endIndex, List<Color> beadColorsResult)
 	{
 		int num = Mathf.Min(startIndex + 6, endIndex);
@@ -369,118 +369,118 @@ public class VRRigReliableState : MonoBehaviour, IWrappedSerializable, INetworkS
 		}
 	}
 
-	// Token: 0x040019BA RID: 6586
+	// Token: 0x04001A03 RID: 6659
 	[NonSerialized]
 	public int[] activeTransferrableObjectIndex;
 
-	// Token: 0x040019BB RID: 6587
+	// Token: 0x04001A04 RID: 6660
 	[NonSerialized]
 	public TransferrableObject.PositionState[] transferrablePosStates;
 
-	// Token: 0x040019BC RID: 6588
+	// Token: 0x04001A05 RID: 6661
 	[NonSerialized]
 	public TransferrableObject.ItemStates[] transferrableItemStates;
 
-	// Token: 0x040019BD RID: 6589
+	// Token: 0x04001A06 RID: 6662
 	[NonSerialized]
 	public BodyDockPositions.DropPositions[] transferableDockPositions;
 
-	// Token: 0x040019BE RID: 6590
+	// Token: 0x04001A07 RID: 6663
 	[NonSerialized]
 	public int wearablesPackedStates;
 
-	// Token: 0x040019BF RID: 6591
+	// Token: 0x04001A08 RID: 6664
 	[NonSerialized]
 	public int lThrowableProjectileIndex = -1;
 
-	// Token: 0x040019C0 RID: 6592
+	// Token: 0x04001A09 RID: 6665
 	[NonSerialized]
 	public int rThrowableProjectileIndex = -1;
 
-	// Token: 0x040019C1 RID: 6593
+	// Token: 0x04001A0A RID: 6666
 	[NonSerialized]
 	public Color32 lThrowableProjectileColor = Color.white;
 
-	// Token: 0x040019C2 RID: 6594
+	// Token: 0x04001A0B RID: 6667
 	[NonSerialized]
 	public Color32 rThrowableProjectileColor = Color.white;
 
-	// Token: 0x040019C3 RID: 6595
+	// Token: 0x04001A0C RID: 6668
 	[NonSerialized]
 	public int randomThrowableIndex;
 
-	// Token: 0x040019C4 RID: 6596
+	// Token: 0x04001A0D RID: 6669
 	[NonSerialized]
 	public bool isMicEnabled;
 
-	// Token: 0x040019C5 RID: 6597
+	// Token: 0x04001A0E RID: 6670
 	private bool isOfflineVRRig;
 
-	// Token: 0x040019C6 RID: 6598
+	// Token: 0x04001A0F RID: 6671
 	private BodyDockPositions bDock;
 
-	// Token: 0x040019C7 RID: 6599
+	// Token: 0x04001A10 RID: 6672
 	[NonSerialized]
 	public int sizeLayerMask = 1;
 
-	// Token: 0x040019C8 RID: 6600
+	// Token: 0x04001A11 RID: 6673
 	private const long IS_MIC_ENABLED_BIT = 32L;
 
-	// Token: 0x040019C9 RID: 6601
+	// Token: 0x04001A12 RID: 6674
 	private const long BRACELET_LEFTHAND_BIT = 64L;
 
-	// Token: 0x040019CA RID: 6602
+	// Token: 0x04001A13 RID: 6675
 	private const long BUILDER_WATCH_ENABLED_BIT = 128L;
 
-	// Token: 0x040019CB RID: 6603
+	// Token: 0x04001A14 RID: 6676
 	private const int BRACELET_NUM_BEADS_SHIFT = 12;
 
-	// Token: 0x040019CC RID: 6604
+	// Token: 0x04001A15 RID: 6677
 	private const int LPROJECTILECOLOR_R_SHIFT = 16;
 
-	// Token: 0x040019CD RID: 6605
+	// Token: 0x04001A16 RID: 6678
 	private const int LPROJECTILECOLOR_G_SHIFT = 24;
 
-	// Token: 0x040019CE RID: 6606
+	// Token: 0x04001A17 RID: 6679
 	private const int LPROJECTILECOLOR_B_SHIFT = 32;
 
-	// Token: 0x040019CF RID: 6607
+	// Token: 0x04001A18 RID: 6680
 	private const int RPROJECTILECOLOR_R_SHIFT = 40;
 
-	// Token: 0x040019D0 RID: 6608
+	// Token: 0x04001A19 RID: 6681
 	private const int RPROJECTILECOLOR_G_SHIFT = 48;
 
-	// Token: 0x040019D1 RID: 6609
+	// Token: 0x04001A1A RID: 6682
 	private const int RPROJECTILECOLOR_B_SHIFT = 56;
 
-	// Token: 0x040019D2 RID: 6610
+	// Token: 0x04001A1B RID: 6683
 	private const int POS_STATES_SHIFT = 32;
 
-	// Token: 0x040019D3 RID: 6611
+	// Token: 0x04001A1C RID: 6684
 	private const int ITEM_STATES_SHIFT = 40;
 
-	// Token: 0x040019D4 RID: 6612
+	// Token: 0x04001A1D RID: 6685
 	private const int DOCK_POSITIONS_SHIFT = 48;
 
-	// Token: 0x040019D5 RID: 6613
+	// Token: 0x04001A1E RID: 6686
 	private const int BRACELET_SELF_INDEX_SHIFT = 60;
 
-	// Token: 0x040019D6 RID: 6614
+	// Token: 0x04001A1F RID: 6687
 	[NonSerialized]
 	public bool isBraceletLeftHanded;
 
-	// Token: 0x040019D7 RID: 6615
+	// Token: 0x04001A20 RID: 6688
 	[NonSerialized]
 	public int braceletSelfIndex;
 
-	// Token: 0x040019D8 RID: 6616
+	// Token: 0x04001A21 RID: 6689
 	[NonSerialized]
 	public List<Color> braceletBeadColors = new List<Color>(10);
 
-	// Token: 0x040019D9 RID: 6617
+	// Token: 0x04001A22 RID: 6690
 	[NonSerialized]
 	public bool isBuilderWatchEnabled;
 
-	// Token: 0x040019DB RID: 6619
+	// Token: 0x04001A24 RID: 6692
 	private ReliableStateData Data;
 }

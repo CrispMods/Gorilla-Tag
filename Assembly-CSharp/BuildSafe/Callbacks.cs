@@ -3,20 +3,20 @@ using System.Diagnostics;
 
 namespace BuildSafe
 {
-	// Token: 0x02000A21 RID: 2593
+	// Token: 0x02000A4E RID: 2638
 	public static class Callbacks
 	{
-		// Token: 0x02000A22 RID: 2594
+		// Token: 0x02000A4F RID: 2639
 		[Conditional("UNITY_EDITOR")]
 		public class DidReloadScripts : Attribute
 		{
-			// Token: 0x060040F8 RID: 16632 RVA: 0x00134D3D File Offset: 0x00132F3D
+			// Token: 0x0600423D RID: 16957 RVA: 0x0005B554 File Offset: 0x00059754
 			public DidReloadScripts(bool activeOnly = false)
 			{
 				this.activeOnly = activeOnly;
 			}
 
-			// Token: 0x04004248 RID: 16968
+			// Token: 0x04004342 RID: 17218
 			public bool activeOnly;
 		}
 	}

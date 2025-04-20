@@ -5,13 +5,13 @@ using UnityEngine;
 // Token: 0x0200001B RID: 27
 public class LiquidMain : MonoBehaviour
 {
-	// Token: 0x06000064 RID: 100 RVA: 0x00003778 File Offset: 0x00001978
+	// Token: 0x06000064 RID: 100 RVA: 0x00068AC8 File Offset: 0x00066CC8
 	private void ResetEffector(GameObject obj)
 	{
-		obj.transform.position = new Vector3(Random.Range(-0.3f, 0.3f), -100f, Random.Range(-0.3f, 0.3f)) * LiquidMain.kPlaneMeshCellSize * (float)LiquidMain.kPlaneMeshResolution;
+		obj.transform.position = new Vector3(UnityEngine.Random.Range(-0.3f, 0.3f), -100f, UnityEngine.Random.Range(-0.3f, 0.3f)) * LiquidMain.kPlaneMeshCellSize * (float)LiquidMain.kPlaneMeshResolution;
 	}
 
-	// Token: 0x06000065 RID: 101 RVA: 0x000037D0 File Offset: 0x000019D0
+	// Token: 0x06000065 RID: 101 RVA: 0x00068B20 File Offset: 0x00066D20
 	public void Start()
 	{
 		this.m_planeMesh = new Mesh();
@@ -59,7 +59,7 @@ public class LiquidMain : MonoBehaviour
 		BoingEffector[] array = new BoingEffector[LiquidMain.kNumMovingEffectors];
 		for (int l = 0; l < LiquidMain.kNumMovingEffectors; l++)
 		{
-			GameObject gameObject = Object.Instantiate<GameObject>(this.Effector);
+			GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(this.Effector);
 			this.m_aMovingEffector[l] = gameObject;
 			this.ResetEffector(gameObject);
 			this.m_aMovingEffectorPhase[l] = -MathUtil.HalfPi + (float)l / (float)LiquidMain.kNumMovingEffectors * MathUtil.Pi;
@@ -68,7 +68,7 @@ public class LiquidMain : MonoBehaviour
 		this.ReactorField.Effectors = array;
 	}
 
-	// Token: 0x06000066 RID: 102 RVA: 0x00003ABC File Offset: 0x00001CBC
+	// Token: 0x06000066 RID: 102 RVA: 0x00068E0C File Offset: 0x0006700C
 	public void Update()
 	{
 		this.ReactorField.UpdateShaderConstants(this.PlaneMaterial, 1f, 1f);

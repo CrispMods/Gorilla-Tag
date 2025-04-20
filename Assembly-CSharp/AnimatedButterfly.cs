@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x020000E2 RID: 226
+// Token: 0x020000EC RID: 236
 public struct AnimatedButterfly
 {
-	// Token: 0x060005CF RID: 1487 RVA: 0x00022708 File Offset: 0x00020908
+	// Token: 0x06000610 RID: 1552 RVA: 0x00085038 File Offset: 0x00083238
 	public void UpdateVisual(float syncTime, ButterflySwarmManager manager)
 	{
 		if (this.destinationCache == null)
@@ -39,7 +39,7 @@ public struct AnimatedButterfly
 				this.material.SetFloat(AnimatedButterfly._VertexFlapPhaseOffset, 0f);
 				this.wasPerched = false;
 			}
-			this.velocity += Random.insideUnitSphere * manager.BeeJitterStrength * Time.deltaTime;
+			this.velocity += UnityEngine.Random.insideUnitSphere * manager.BeeJitterStrength * Time.deltaTime;
 			Vector3 vector3 = this.oldPosition + this.velocity * Time.deltaTime;
 			if ((vector3 - vector).IsLongerThan(manager.BeeMaxJitterRadius))
 			{
@@ -68,7 +68,7 @@ public struct AnimatedButterfly
 		this.oldPosition = this.visual.transform.position;
 	}
 
-	// Token: 0x060005D0 RID: 1488 RVA: 0x00022A74 File Offset: 0x00020C74
+	// Token: 0x06000611 RID: 1553 RVA: 0x000853A4 File Offset: 0x000835A4
 	public void GetPositionAndDestinationAtTime(float syncTime, out Vector3 idealPosition, out Vector3 destination)
 	{
 		if (syncTime > this.destinationB.syncEndTime || syncTime < this.destinationA.syncTime || this.destinationA.destination == null || this.destinationB.destination == null)
@@ -102,28 +102,28 @@ public struct AnimatedButterfly
 		idealPosition = Vector3.Lerp(this.destinationA.destination.transform.position, destination, t);
 	}
 
-	// Token: 0x060005D1 RID: 1489 RVA: 0x00022BBF File Offset: 0x00020DBF
+	// Token: 0x06000612 RID: 1554 RVA: 0x00034864 File Offset: 0x00032A64
 	public void InitVisual(MeshRenderer prefab, ButterflySwarmManager manager)
 	{
-		this.visual = Object.Instantiate<MeshRenderer>(prefab, manager.transform);
+		this.visual = UnityEngine.Object.Instantiate<MeshRenderer>(prefab, manager.transform);
 		this.material = this.visual.material;
 		this.material.SetFloat(AnimatedButterfly._VertexFlapPhaseOffset, 0f);
 	}
 
-	// Token: 0x060005D2 RID: 1490 RVA: 0x00022BFE File Offset: 0x00020DFE
+	// Token: 0x06000613 RID: 1555 RVA: 0x000348A3 File Offset: 0x00032AA3
 	public void SetColor(Color color)
 	{
 		this.material.SetColor(AnimatedButterfly._BaseColor, color);
 	}
 
-	// Token: 0x060005D3 RID: 1491 RVA: 0x00022C16 File Offset: 0x00020E16
+	// Token: 0x06000614 RID: 1556 RVA: 0x000348BB File Offset: 0x00032ABB
 	public void SetFlapSpeed(float flapSpeed)
 	{
 		this.material.SetFloat(AnimatedButterfly._VertexFlapSpeed, flapSpeed);
 		this.baseFlapSpeed = flapSpeed;
 	}
 
-	// Token: 0x060005D4 RID: 1492 RVA: 0x00022C38 File Offset: 0x00020E38
+	// Token: 0x06000615 RID: 1557 RVA: 0x000854F0 File Offset: 0x000836F0
 	public void InitRoute(List<GameObject> route, List<float> holdTimes, ButterflySwarmManager manager)
 	{
 		this.speed = manager.BeeSpeed;
@@ -163,64 +163,64 @@ public struct AnimatedButterfly
 		this.loopDuration = num + (route[0].transform.position - route[route.Count - 1].transform.position).magnitude * manager.BeeSpeed + holdTimes[0];
 	}
 
-	// Token: 0x040006F6 RID: 1782
+	// Token: 0x04000737 RID: 1847
 	private List<AnimatedButterfly.TimedDestination> destinationCache;
 
-	// Token: 0x040006F7 RID: 1783
+	// Token: 0x04000738 RID: 1848
 	private AnimatedButterfly.TimedDestination destinationA;
 
-	// Token: 0x040006F8 RID: 1784
+	// Token: 0x04000739 RID: 1849
 	private AnimatedButterfly.TimedDestination destinationB;
 
-	// Token: 0x040006F9 RID: 1785
+	// Token: 0x0400073A RID: 1850
 	private float loopDuration;
 
-	// Token: 0x040006FA RID: 1786
+	// Token: 0x0400073B RID: 1851
 	private Vector3 oldPosition;
 
-	// Token: 0x040006FB RID: 1787
+	// Token: 0x0400073C RID: 1852
 	private Vector3 velocity;
 
-	// Token: 0x040006FC RID: 1788
+	// Token: 0x0400073D RID: 1853
 	public MeshRenderer visual;
 
-	// Token: 0x040006FD RID: 1789
+	// Token: 0x0400073E RID: 1854
 	private Material material;
 
-	// Token: 0x040006FE RID: 1790
+	// Token: 0x0400073F RID: 1855
 	private float speed;
 
-	// Token: 0x040006FF RID: 1791
+	// Token: 0x04000740 RID: 1856
 	private float maxTravelTime;
 
-	// Token: 0x04000700 RID: 1792
+	// Token: 0x04000741 RID: 1857
 	private Quaternion travellingLocalRotation;
 
-	// Token: 0x04000701 RID: 1793
+	// Token: 0x04000742 RID: 1858
 	private float baseFlapSpeed;
 
-	// Token: 0x04000702 RID: 1794
+	// Token: 0x04000743 RID: 1859
 	private bool wasPerched;
 
-	// Token: 0x04000703 RID: 1795
+	// Token: 0x04000744 RID: 1860
 	private static ShaderHashId _BaseColor = "_BaseColor";
 
-	// Token: 0x04000704 RID: 1796
+	// Token: 0x04000745 RID: 1861
 	private static ShaderHashId _VertexFlapPhaseOffset = "_VertexFlapPhaseOffset";
 
-	// Token: 0x04000705 RID: 1797
+	// Token: 0x04000746 RID: 1862
 	private static ShaderHashId _VertexFlapSpeed = "_VertexFlapSpeed";
 
-	// Token: 0x020000E3 RID: 227
+	// Token: 0x020000ED RID: 237
 	private struct TimedDestination
 	{
-		// Token: 0x04000706 RID: 1798
+		// Token: 0x04000747 RID: 1863
 		public float syncTime;
 
-		// Token: 0x04000707 RID: 1799
+		// Token: 0x04000748 RID: 1864
 		public float syncEndTime;
 
-		// Token: 0x04000708 RID: 1800
+		// Token: 0x04000749 RID: 1865
 		public GameObject destination;
 	}
 }

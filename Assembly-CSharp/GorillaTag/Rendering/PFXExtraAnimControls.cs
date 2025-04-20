@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace GorillaTag.Rendering
 {
-	// Token: 0x02000C09 RID: 3081
+	// Token: 0x02000C37 RID: 3127
 	public class PFXExtraAnimControls : MonoBehaviour
 	{
-		// Token: 0x06004D07 RID: 19719 RVA: 0x00176940 File Offset: 0x00174B40
+		// Token: 0x06004E53 RID: 20051 RVA: 0x001AECA8 File Offset: 0x001ACEA8
 		protected void Awake()
 		{
 			this.emissionModules = new ParticleSystem.EmissionModule[this.particleSystems.Length];
@@ -26,7 +26,7 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x06004D08 RID: 19720 RVA: 0x00176A20 File Offset: 0x00174C20
+		// Token: 0x06004E54 RID: 20052 RVA: 0x001AED88 File Offset: 0x001ACF88
 		protected void LateUpdate()
 		{
 			for (int i = 0; i < this.emissionModules.Length; i++)
@@ -41,23 +41,23 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x04004F4E RID: 20302
+		// Token: 0x04005044 RID: 20548
 		public float emitRateMult = 1f;
 
-		// Token: 0x04004F4F RID: 20303
+		// Token: 0x04005045 RID: 20549
 		public float emitBurstProbabilityMult = 1f;
 
-		// Token: 0x04004F50 RID: 20304
+		// Token: 0x04005046 RID: 20550
 		[SerializeField]
 		private ParticleSystem[] particleSystems;
 
-		// Token: 0x04004F51 RID: 20305
+		// Token: 0x04005047 RID: 20551
 		private ParticleSystem.EmissionModule[] emissionModules;
 
-		// Token: 0x04004F52 RID: 20306
+		// Token: 0x04005048 RID: 20552
 		private ParticleSystem.Burst[][] cachedEmitBursts;
 
-		// Token: 0x04004F53 RID: 20307
+		// Token: 0x04005049 RID: 20553
 		private ParticleSystem.Burst[][] adjustedEmitBursts;
 	}
 }

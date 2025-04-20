@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000232 RID: 562
+// Token: 0x0200023D RID: 573
 public class ReplaceGOLayers : MonoBehaviour
 {
-	// Token: 0x04001035 RID: 4149
+	// Token: 0x0400107B RID: 4219
 	public int fromLayer;
 
-	// Token: 0x04001036 RID: 4150
+	// Token: 0x0400107C RID: 4220
 	public int toLayer;
 
-	// Token: 0x04001037 RID: 4151
+	// Token: 0x0400107D RID: 4221
 	public GameObject target;
 }

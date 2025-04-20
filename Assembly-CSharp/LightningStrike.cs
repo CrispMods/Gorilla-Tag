@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008B8 RID: 2232
+// Token: 0x020008D4 RID: 2260
 [RequireComponent(typeof(ParticleSystem))]
 [RequireComponent(typeof(AudioSource))]
 public class LightningStrike : MonoBehaviour
 {
-	// Token: 0x060035FA RID: 13818 RVA: 0x000FF868 File Offset: 0x000FDA68
+	// Token: 0x060036C2 RID: 14018 RVA: 0x00145388 File Offset: 0x00143588
 	private void Initialize()
 	{
 		this.ps = base.GetComponent<ParticleSystem>();
@@ -19,7 +19,7 @@ public class LightningStrike : MonoBehaviour
 		this.audioSource.playOnAwake = true;
 	}
 
-	// Token: 0x060035FB RID: 13819 RVA: 0x000FF8E4 File Offset: 0x000FDAE4
+	// Token: 0x060036C3 RID: 14019 RVA: 0x00145404 File Offset: 0x00143604
 	public void Play(Vector3 p1, Vector3 p2, float beamWidthMultiplier, float audioVolume)
 	{
 		if (this.ps == null)
@@ -37,21 +37,21 @@ public class LightningStrike : MonoBehaviour
 		base.gameObject.SetActive(true);
 	}
 
-	// Token: 0x04003821 RID: 14369
+	// Token: 0x040038E2 RID: 14562
 	private static SRand rand = new SRand("LightningStrike");
 
-	// Token: 0x04003822 RID: 14370
+	// Token: 0x040038E3 RID: 14563
 	private ParticleSystem ps;
 
-	// Token: 0x04003823 RID: 14371
+	// Token: 0x040038E4 RID: 14564
 	private ParticleSystem.MainModule psMain;
 
-	// Token: 0x04003824 RID: 14372
+	// Token: 0x040038E5 RID: 14565
 	private ParticleSystem.ShapeModule psShape;
 
-	// Token: 0x04003825 RID: 14373
+	// Token: 0x040038E6 RID: 14566
 	private ParticleSystem.TrailModule psTrails;
 
-	// Token: 0x04003826 RID: 14374
+	// Token: 0x040038E7 RID: 14567
 	private AudioSource audioSource;
 }

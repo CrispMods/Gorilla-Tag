@@ -2,16 +2,16 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-// Token: 0x0200039D RID: 925
+// Token: 0x020003A8 RID: 936
 public class WorldTargetItem
 {
-	// Token: 0x06001588 RID: 5512 RVA: 0x00068FD7 File Offset: 0x000671D7
+	// Token: 0x060015D4 RID: 5588 RVA: 0x0003EB5A File Offset: 0x0003CD5A
 	public bool IsValid()
 	{
 		return this.itemIdx != -1 && this.owner != null;
 	}
 
-	// Token: 0x06001589 RID: 5513 RVA: 0x00068FF0 File Offset: 0x000671F0
+	// Token: 0x060015D5 RID: 5589 RVA: 0x000C1518 File Offset: 0x000BF718
 	[CanBeNull]
 	public static WorldTargetItem GenerateTargetFromPlayerAndID(NetPlayer owner, int itemIdx)
 	{
@@ -25,13 +25,13 @@ public class WorldTargetItem
 		return new WorldTargetItem(owner, itemIdx, component);
 	}
 
-	// Token: 0x0600158A RID: 5514 RVA: 0x00069038 File Offset: 0x00067238
+	// Token: 0x060015D6 RID: 5590 RVA: 0x0003EB70 File Offset: 0x0003CD70
 	public static WorldTargetItem GenerateTargetFromWorldSharableItem(NetPlayer owner, int itemIdx, Transform transform)
 	{
 		return new WorldTargetItem(owner, itemIdx, transform);
 	}
 
-	// Token: 0x0600158B RID: 5515 RVA: 0x00069042 File Offset: 0x00067242
+	// Token: 0x060015D7 RID: 5591 RVA: 0x0003EB7A File Offset: 0x0003CD7A
 	private WorldTargetItem(NetPlayer owner, int itemIdx, Transform transform)
 	{
 		this.owner = owner;
@@ -40,21 +40,21 @@ public class WorldTargetItem
 		this.transferrableObject = transform.GetComponent<TransferrableObject>();
 	}
 
-	// Token: 0x0600158C RID: 5516 RVA: 0x0006906B File Offset: 0x0006726B
+	// Token: 0x060015D8 RID: 5592 RVA: 0x0003EBA3 File Offset: 0x0003CDA3
 	public override string ToString()
 	{
 		return string.Format("Id: {0} ({1})", this.itemIdx, this.owner);
 	}
 
-	// Token: 0x040017DF RID: 6111
+	// Token: 0x04001826 RID: 6182
 	public readonly NetPlayer owner;
 
-	// Token: 0x040017E0 RID: 6112
+	// Token: 0x04001827 RID: 6183
 	public readonly int itemIdx;
 
-	// Token: 0x040017E1 RID: 6113
+	// Token: 0x04001828 RID: 6184
 	public readonly Transform targetObject;
 
-	// Token: 0x040017E2 RID: 6114
+	// Token: 0x04001829 RID: 6185
 	public readonly TransferrableObject transferrableObject;
 }

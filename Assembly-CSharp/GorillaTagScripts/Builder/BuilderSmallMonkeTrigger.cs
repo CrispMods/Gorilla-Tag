@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace GorillaTagScripts.Builder
 {
-	// Token: 0x02000A0B RID: 2571
+	// Token: 0x02000A38 RID: 2616
 	public class BuilderSmallMonkeTrigger : MonoBehaviour
 	{
-		// Token: 0x1700066C RID: 1644
-		// (get) Token: 0x06004068 RID: 16488 RVA: 0x00131EB2 File Offset: 0x001300B2
+		// Token: 0x17000688 RID: 1672
+		// (get) Token: 0x060041AD RID: 16813 RVA: 0x0005AF16 File Offset: 0x00059116
 		public int overlapCount
 		{
 			get
@@ -18,8 +18,8 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x1700066D RID: 1645
-		// (get) Token: 0x06004069 RID: 16489 RVA: 0x00131EBF File Offset: 0x001300BF
+		// Token: 0x17000689 RID: 1673
+		// (get) Token: 0x060041AE RID: 16814 RVA: 0x0005AF23 File Offset: 0x00059123
 		public bool TriggeredThisFrame
 		{
 			get
@@ -28,17 +28,17 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x14000074 RID: 116
-		// (add) Token: 0x0600406A RID: 16490 RVA: 0x00131ED0 File Offset: 0x001300D0
-		// (remove) Token: 0x0600406B RID: 16491 RVA: 0x00131F08 File Offset: 0x00130108
+		// Token: 0x14000078 RID: 120
+		// (add) Token: 0x060041AF RID: 16815 RVA: 0x001728A8 File Offset: 0x00170AA8
+		// (remove) Token: 0x060041B0 RID: 16816 RVA: 0x001728E0 File Offset: 0x00170AE0
 		public event Action onTriggerFirstEntered;
 
-		// Token: 0x14000075 RID: 117
-		// (add) Token: 0x0600406C RID: 16492 RVA: 0x00131F40 File Offset: 0x00130140
-		// (remove) Token: 0x0600406D RID: 16493 RVA: 0x00131F78 File Offset: 0x00130178
+		// Token: 0x14000079 RID: 121
+		// (add) Token: 0x060041B1 RID: 16817 RVA: 0x00172918 File Offset: 0x00170B18
+		// (remove) Token: 0x060041B2 RID: 16818 RVA: 0x00172950 File Offset: 0x00170B50
 		public event Action onTriggerLastExited;
 
-		// Token: 0x0600406E RID: 16494 RVA: 0x00131FB0 File Offset: 0x001301B0
+		// Token: 0x060041B3 RID: 16819 RVA: 0x00172988 File Offset: 0x00170B88
 		public void ValidateOverlappingColliders()
 		{
 			for (int i = this.overlappingColliders.Count - 1; i >= 0; i--)
@@ -69,7 +69,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x0600406F RID: 16495 RVA: 0x001320CC File Offset: 0x001302CC
+		// Token: 0x060041B4 RID: 16820 RVA: 0x00172AA4 File Offset: 0x00170CA4
 		private void OnTriggerEnter(Collider other)
 		{
 			if (other.attachedRigidbody == null)
@@ -106,7 +106,7 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x06004070 RID: 16496 RVA: 0x0013218C File Offset: 0x0013038C
+		// Token: 0x060041B5 RID: 16821 RVA: 0x0005AF32 File Offset: 0x00059132
 		private void OnTriggerExit(Collider other)
 		{
 			if (this.overlappingColliders.Remove(other) && this.overlappingColliders.Count == 0)
@@ -120,10 +120,10 @@ namespace GorillaTagScripts.Builder
 			}
 		}
 
-		// Token: 0x04004187 RID: 16775
+		// Token: 0x04004281 RID: 17025
 		private int lastTriggeredFrame = -1;
 
-		// Token: 0x04004188 RID: 16776
+		// Token: 0x04004282 RID: 17026
 		private List<Collider> overlappingColliders = new List<Collider>(20);
 	}
 }

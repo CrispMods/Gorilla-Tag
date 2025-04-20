@@ -1,36 +1,36 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020007E7 RID: 2023
+// Token: 0x02000801 RID: 2049
 public interface IFXEffectContextObject
 {
-	// Token: 0x17000523 RID: 1315
-	// (get) Token: 0x06003204 RID: 12804
+	// Token: 0x17000531 RID: 1329
+	// (get) Token: 0x060032BA RID: 12986
 	int[] PrefabPoolIds { get; }
 
-	// Token: 0x17000524 RID: 1316
-	// (get) Token: 0x06003205 RID: 12805
+	// Token: 0x17000532 RID: 1330
+	// (get) Token: 0x060032BB RID: 12987
 	Vector3 Positon { get; }
 
-	// Token: 0x17000525 RID: 1317
-	// (get) Token: 0x06003206 RID: 12806
+	// Token: 0x17000533 RID: 1331
+	// (get) Token: 0x060032BC RID: 12988
 	Quaternion Rotation { get; }
 
-	// Token: 0x17000526 RID: 1318
-	// (get) Token: 0x06003207 RID: 12807
+	// Token: 0x17000534 RID: 1332
+	// (get) Token: 0x060032BD RID: 12989
 	AudioSource SoundSource { get; }
 
-	// Token: 0x17000527 RID: 1319
-	// (get) Token: 0x06003208 RID: 12808
+	// Token: 0x17000535 RID: 1333
+	// (get) Token: 0x060032BE RID: 12990
 	AudioClip Sound { get; }
 
-	// Token: 0x17000528 RID: 1320
-	// (get) Token: 0x06003209 RID: 12809
+	// Token: 0x17000536 RID: 1334
+	// (get) Token: 0x060032BF RID: 12991
 	float Volume { get; }
 
-	// Token: 0x0600320A RID: 12810
+	// Token: 0x060032C0 RID: 12992
 	void OnPlayVisualFX(int effectID, GameObject effect);
 
-	// Token: 0x0600320B RID: 12811
+	// Token: 0x060032C1 RID: 12993
 	void OnPlaySoundFX(AudioSource audioSource);
 }

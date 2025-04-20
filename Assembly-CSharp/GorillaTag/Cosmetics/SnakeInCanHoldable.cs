@@ -6,17 +6,17 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C57 RID: 3159
+	// Token: 0x02000C88 RID: 3208
 	public class SnakeInCanHoldable : TransferrableObject
 	{
-		// Token: 0x06004EBB RID: 20155 RVA: 0x00182936 File Offset: 0x00180B36
+		// Token: 0x0600501B RID: 20507 RVA: 0x00064553 File Offset: 0x00062753
 		protected override void Awake()
 		{
 			base.Awake();
 			this.topRigPosition = this.topRigObject.transform.position;
 		}
 
-		// Token: 0x06004EBC RID: 20156 RVA: 0x00182954 File Offset: 0x00180B54
+		// Token: 0x0600501C RID: 20508 RVA: 0x001BAB18 File Offset: 0x001B8D18
 		internal override void OnEnable()
 		{
 			base.OnEnable();
@@ -40,7 +40,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004EBD RID: 20157 RVA: 0x00182A4C File Offset: 0x00180C4C
+		// Token: 0x0600501D RID: 20509 RVA: 0x001BAC10 File Offset: 0x001B8E10
 		internal override void OnDisable()
 		{
 			base.OnDisable();
@@ -52,7 +52,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004EBE RID: 20158 RVA: 0x00182AA4 File Offset: 0x00180CA4
+		// Token: 0x0600501E RID: 20510 RVA: 0x001BAC68 File Offset: 0x001B8E68
 		public override bool OnRelease(DropZone zoneReleased, GameObject releasingHand)
 		{
 			if (!base.OnRelease(zoneReleased, releasingHand))
@@ -74,7 +74,7 @@ namespace GorillaTag.Cosmetics
 			return true;
 		}
 
-		// Token: 0x06004EBF RID: 20159 RVA: 0x00182B2C File Offset: 0x00180D2C
+		// Token: 0x0600501F RID: 20511 RVA: 0x001BACF0 File Offset: 0x001B8EF0
 		private void OnEnableObject(int sender, int target, object[] arg, PhotonMessageInfoWrapped info)
 		{
 			if (info.senderID != this.ownerRig.creator.ActorNumber)
@@ -98,7 +98,7 @@ namespace GorillaTag.Cosmetics
 			this.EnableObjectLocal(enable);
 		}
 
-		// Token: 0x06004EC0 RID: 20160 RVA: 0x00182B98 File Offset: 0x00180D98
+		// Token: 0x06005020 RID: 20512 RVA: 0x001BAD5C File Offset: 0x001B8F5C
 		private void EnableObjectLocal(bool enable)
 		{
 			this.disableObjectBeforeTrigger.SetActive(enable);
@@ -118,7 +118,7 @@ namespace GorillaTag.Cosmetics
 			this.topRigObject.transform.position = this.topRigPosition;
 		}
 
-		// Token: 0x06004EC1 RID: 20161 RVA: 0x00182C10 File Offset: 0x00180E10
+		// Token: 0x06005021 RID: 20513 RVA: 0x00064571 File Offset: 0x00062771
 		private IEnumerator SmoothTransition()
 		{
 			while (Vector3.Distance(this.topRigObject.transform.position, this.stretchedPoint.position) > 0.01f)
@@ -130,42 +130,42 @@ namespace GorillaTag.Cosmetics
 			yield break;
 		}
 
-		// Token: 0x06004EC2 RID: 20162 RVA: 0x00182C1F File Offset: 0x00180E1F
+		// Token: 0x06005022 RID: 20514 RVA: 0x00064580 File Offset: 0x00062780
 		public void OnButtonPressed()
 		{
 			this.EnableObjectLocal(true);
 		}
 
-		// Token: 0x04005262 RID: 21090
+		// Token: 0x0400536E RID: 21358
 		[SerializeField]
 		private float jumpSpeed;
 
-		// Token: 0x04005263 RID: 21091
+		// Token: 0x0400536F RID: 21359
 		[SerializeField]
 		private Transform stretchedPoint;
 
-		// Token: 0x04005264 RID: 21092
+		// Token: 0x04005370 RID: 21360
 		[SerializeField]
 		private Transform compressedPoint;
 
-		// Token: 0x04005265 RID: 21093
+		// Token: 0x04005371 RID: 21361
 		[SerializeField]
 		private GameObject topRigObject;
 
-		// Token: 0x04005266 RID: 21094
+		// Token: 0x04005372 RID: 21362
 		[SerializeField]
 		private GameObject disableObjectBeforeTrigger;
 
-		// Token: 0x04005267 RID: 21095
+		// Token: 0x04005373 RID: 21363
 		private CallLimiter snakeInCanCallLimiter = new CallLimiter(10, 2f, 0.5f);
 
-		// Token: 0x04005268 RID: 21096
+		// Token: 0x04005374 RID: 21364
 		private Vector3 topRigPosition;
 
-		// Token: 0x04005269 RID: 21097
+		// Token: 0x04005375 RID: 21365
 		private Vector3 originalTopRigPosition;
 
-		// Token: 0x0400526A RID: 21098
+		// Token: 0x04005376 RID: 21366
 		private RubberDuckEvents _events;
 	}
 }

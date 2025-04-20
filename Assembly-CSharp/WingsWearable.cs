@@ -1,29 +1,29 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000CF RID: 207
+// Token: 0x020000D9 RID: 217
 public class WingsWearable : MonoBehaviour, IGorillaSliceableSimple
 {
-	// Token: 0x06000563 RID: 1379 RVA: 0x0002001F File Offset: 0x0001E21F
+	// Token: 0x060005A4 RID: 1444 RVA: 0x00034200 File Offset: 0x00032400
 	private void Awake()
 	{
 		this.xform = this.animator.transform;
 	}
 
-	// Token: 0x06000564 RID: 1380 RVA: 0x00020032 File Offset: 0x0001E232
+	// Token: 0x060005A5 RID: 1445 RVA: 0x00034213 File Offset: 0x00032413
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 		this.oldPos = this.xform.localPosition;
 	}
 
-	// Token: 0x06000565 RID: 1381 RVA: 0x00015902 File Offset: 0x00013B02
+	// Token: 0x060005A6 RID: 1446 RVA: 0x00032C92 File Offset: 0x00030E92
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x06000566 RID: 1382 RVA: 0x0002004C File Offset: 0x0001E24C
+	// Token: 0x060005A7 RID: 1447 RVA: 0x00082FBC File Offset: 0x000811BC
 	public void SliceUpdate()
 	{
 		Vector3 position = this.xform.position;
@@ -33,26 +33,26 @@ public class WingsWearable : MonoBehaviour, IGorillaSliceableSimple
 		this.oldPos = position;
 	}
 
-	// Token: 0x06000568 RID: 1384 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x060005A9 RID: 1449 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x04000642 RID: 1602
+	// Token: 0x04000683 RID: 1667
 	[Tooltip("This animator must have a parameter called 'FlapSpeed'")]
 	public Animator animator;
 
-	// Token: 0x04000643 RID: 1603
+	// Token: 0x04000684 RID: 1668
 	[Tooltip("X axis is move speed, Y axis is flap speed")]
 	public AnimationCurve flapSpeedCurve;
 
-	// Token: 0x04000644 RID: 1604
+	// Token: 0x04000685 RID: 1669
 	private Transform xform;
 
-	// Token: 0x04000645 RID: 1605
+	// Token: 0x04000686 RID: 1670
 	private Vector3 oldPos;
 
-	// Token: 0x04000646 RID: 1606
+	// Token: 0x04000687 RID: 1671
 	private readonly int flapSpeedParamID = Animator.StringToHash("FlapSpeed");
 }

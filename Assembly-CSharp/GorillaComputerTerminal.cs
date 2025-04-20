@@ -6,10 +6,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x0200065D RID: 1629
+// Token: 0x0200063C RID: 1596
 public class GorillaComputerTerminal : MonoBehaviour, IBuildValidation
 {
-	// Token: 0x0600285F RID: 10335 RVA: 0x000C6874 File Offset: 0x000C4A74
+	// Token: 0x0600278A RID: 10122 RVA: 0x0010D880 File Offset: 0x0010BA80
 	public bool BuildValidationCheck()
 	{
 		if (this.myScreenText == null || this.myFunctionText == null || this.monitorMesh == null)
@@ -23,7 +23,7 @@ public class GorillaComputerTerminal : MonoBehaviour, IBuildValidation
 		return true;
 	}
 
-	// Token: 0x06002860 RID: 10336 RVA: 0x000C68D2 File Offset: 0x000C4AD2
+	// Token: 0x0600278B RID: 10123 RVA: 0x0004AEE2 File Offset: 0x000490E2
 	private void OnEnable()
 	{
 		if (GorillaComputer.instance == null)
@@ -34,7 +34,7 @@ public class GorillaComputerTerminal : MonoBehaviour, IBuildValidation
 		this.Init();
 	}
 
-	// Token: 0x06002861 RID: 10337 RVA: 0x000C68F8 File Offset: 0x000C4AF8
+	// Token: 0x0600278C RID: 10124 RVA: 0x0010D8E0 File Offset: 0x0010BAE0
 	private void Init()
 	{
 		GameEvents.ScreenTextChangedEvent.AddListener(new UnityAction<string>(this.OnScreenTextChanged));
@@ -48,7 +48,7 @@ public class GorillaComputerTerminal : MonoBehaviour, IBuildValidation
 		}
 	}
 
-	// Token: 0x06002862 RID: 10338 RVA: 0x000C69B0 File Offset: 0x000C4BB0
+	// Token: 0x0600278D RID: 10125 RVA: 0x0010D998 File Offset: 0x0010BB98
 	private void OnDisable()
 	{
 		GameEvents.ScreenTextChangedEvent.RemoveListener(new UnityAction<string>(this.OnScreenTextChanged));
@@ -56,25 +56,25 @@ public class GorillaComputerTerminal : MonoBehaviour, IBuildValidation
 		GameEvents.ScreenTextMaterialsEvent.RemoveListener(new UnityAction<Material[]>(this.OnMaterialsChanged));
 	}
 
-	// Token: 0x06002863 RID: 10339 RVA: 0x000C69FF File Offset: 0x000C4BFF
+	// Token: 0x0600278E RID: 10126 RVA: 0x0004AF07 File Offset: 0x00049107
 	public void OnScreenTextChanged(string text)
 	{
 		this.myScreenText.text = text;
 	}
 
-	// Token: 0x06002864 RID: 10340 RVA: 0x000C6A0D File Offset: 0x000C4C0D
+	// Token: 0x0600278F RID: 10127 RVA: 0x0004AF15 File Offset: 0x00049115
 	public void OnFunctionTextChanged(string text)
 	{
 		this.myFunctionText.text = text;
 	}
 
-	// Token: 0x06002865 RID: 10341 RVA: 0x000C6A1B File Offset: 0x000C4C1B
+	// Token: 0x06002790 RID: 10128 RVA: 0x0004AF23 File Offset: 0x00049123
 	private void OnMaterialsChanged(Material[] materials)
 	{
 		this.monitorMesh.materials = materials;
 	}
 
-	// Token: 0x06002867 RID: 10343 RVA: 0x000C6A29 File Offset: 0x000C4C29
+	// Token: 0x06002792 RID: 10130 RVA: 0x0004AF31 File Offset: 0x00049131
 	[CompilerGenerated]
 	private IEnumerator <OnEnable>g__OnEnable_Local|4_0()
 	{
@@ -84,12 +84,12 @@ public class GorillaComputerTerminal : MonoBehaviour, IBuildValidation
 		yield break;
 	}
 
-	// Token: 0x04002D3C RID: 11580
+	// Token: 0x04002CA2 RID: 11426
 	public TextMeshPro myScreenText;
 
-	// Token: 0x04002D3D RID: 11581
+	// Token: 0x04002CA3 RID: 11427
 	public TextMeshPro myFunctionText;
 
-	// Token: 0x04002D3E RID: 11582
+	// Token: 0x04002CA4 RID: 11428
 	public MeshRenderer monitorMesh;
 }

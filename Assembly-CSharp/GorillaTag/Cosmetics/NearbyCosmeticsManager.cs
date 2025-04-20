@@ -6,11 +6,11 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C49 RID: 3145
+	// Token: 0x02000C7A RID: 3194
 	public class NearbyCosmeticsManager : MonoBehaviour, ITickSystemTick
 	{
-		// Token: 0x1700081D RID: 2077
-		// (get) Token: 0x06004E74 RID: 20084 RVA: 0x00181895 File Offset: 0x0017FA95
+		// Token: 0x1700083B RID: 2107
+		// (get) Token: 0x06004FD4 RID: 20436 RVA: 0x000641F7 File Offset: 0x000623F7
 		public static NearbyCosmeticsManager Instance
 		{
 			get
@@ -19,35 +19,35 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x1700081E RID: 2078
-		// (get) Token: 0x06004E75 RID: 20085 RVA: 0x0018189C File Offset: 0x0017FA9C
-		// (set) Token: 0x06004E76 RID: 20086 RVA: 0x001818A4 File Offset: 0x0017FAA4
+		// Token: 0x1700083C RID: 2108
+		// (get) Token: 0x06004FD5 RID: 20437 RVA: 0x000641FE File Offset: 0x000623FE
+		// (set) Token: 0x06004FD6 RID: 20438 RVA: 0x00064206 File Offset: 0x00062406
 		public bool TickRunning { get; set; }
 
-		// Token: 0x06004E77 RID: 20087 RVA: 0x001818AD File Offset: 0x0017FAAD
+		// Token: 0x06004FD7 RID: 20439 RVA: 0x0006420F File Offset: 0x0006240F
 		private void Awake()
 		{
 			if (NearbyCosmeticsManager._instance != null && NearbyCosmeticsManager._instance != this)
 			{
-				Object.Destroy(base.gameObject);
+				UnityEngine.Object.Destroy(base.gameObject);
 				return;
 			}
 			NearbyCosmeticsManager._instance = this;
 		}
 
-		// Token: 0x06004E78 RID: 20088 RVA: 0x00019B0B File Offset: 0x00017D0B
+		// Token: 0x06004FD8 RID: 20440 RVA: 0x00033683 File Offset: 0x00031883
 		private void OnEnable()
 		{
 			TickSystem<object>.AddCallbackTarget(this);
 		}
 
-		// Token: 0x06004E79 RID: 20089 RVA: 0x00019B13 File Offset: 0x00017D13
+		// Token: 0x06004FD9 RID: 20441 RVA: 0x0003368B File Offset: 0x0003188B
 		private void OnDisable()
 		{
 			TickSystem<object>.RemoveCallbackTarget(this);
 		}
 
-		// Token: 0x06004E7A RID: 20090 RVA: 0x001818DB File Offset: 0x0017FADB
+		// Token: 0x06004FDA RID: 20442 RVA: 0x0006423D File Offset: 0x0006243D
 		private void OnDestroy()
 		{
 			if (NearbyCosmeticsManager._instance == this)
@@ -56,19 +56,19 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E7B RID: 20091 RVA: 0x001818F0 File Offset: 0x0017FAF0
+		// Token: 0x06004FDB RID: 20443 RVA: 0x00064252 File Offset: 0x00062452
 		public void Register(NearbyCosmeticsEffect cosmetic)
 		{
 			this.cosmetics.Add(cosmetic);
 		}
 
-		// Token: 0x06004E7C RID: 20092 RVA: 0x001818FE File Offset: 0x0017FAFE
+		// Token: 0x06004FDC RID: 20444 RVA: 0x00064260 File Offset: 0x00062460
 		public void Unregister(NearbyCosmeticsEffect cosmetic)
 		{
 			this.cosmetics.Remove(cosmetic);
 		}
 
-		// Token: 0x06004E7D RID: 20093 RVA: 0x00181910 File Offset: 0x0017FB10
+		// Token: 0x06004FDD RID: 20445 RVA: 0x001B9DD0 File Offset: 0x001B7FD0
 		public void Tick()
 		{
 			if (this.cosmetics.Count == 0)
@@ -86,7 +86,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E7E RID: 20094 RVA: 0x0018199C File Offset: 0x0017FB9C
+		// Token: 0x06004FDE RID: 20446 RVA: 0x001B9E5C File Offset: 0x001B805C
 		private void CheckProximity()
 		{
 			for (int i = 0; i < this.cosmetics.Count; i++)
@@ -106,7 +106,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004E7F RID: 20095 RVA: 0x00181A94 File Offset: 0x0017FC94
+		// Token: 0x06004FDF RID: 20447 RVA: 0x001B9F54 File Offset: 0x001B8154
 		private void BreakTheBound()
 		{
 			for (int i = 0; i < this.cosmetics.Count; i++)
@@ -132,18 +132,18 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x04005203 RID: 20995
+		// Token: 0x0400530F RID: 21263
 		[SerializeField]
 		private float proximityThreshold = 0.1f;
 
-		// Token: 0x04005204 RID: 20996
+		// Token: 0x04005310 RID: 21264
 		[SerializeField]
 		private bool debug;
 
-		// Token: 0x04005205 RID: 20997
+		// Token: 0x04005311 RID: 21265
 		private List<NearbyCosmeticsEffect> cosmetics = new List<NearbyCosmeticsEffect>();
 
-		// Token: 0x04005206 RID: 20998
+		// Token: 0x04005312 RID: 21266
 		private static NearbyCosmeticsManager _instance;
 	}
 }

@@ -4,18 +4,18 @@ using UnityEngine;
 
 namespace MTAssets.EasyMeshCombiner
 {
-	// Token: 0x02000B18 RID: 2840
+	// Token: 0x02000B45 RID: 2885
 	[AddComponentMenu("")]
 	public class MTAssetsMathematics : MonoBehaviour
 	{
-		// Token: 0x060046F8 RID: 18168 RVA: 0x00150CA8 File Offset: 0x0014EEA8
+		// Token: 0x06004841 RID: 18497 RVA: 0x0018D488 File Offset: 0x0018B688
 		public static List<T> RandomizeThisList<T>(List<T> list)
 		{
 			int count = list.Count;
 			int num = count - 1;
 			for (int i = 0; i < num; i++)
 			{
-				int index = Random.Range(i, count);
+				int index = UnityEngine.Random.Range(i, count);
 				T value = list[i];
 				list[i] = list[index];
 				list[index] = value;
@@ -23,7 +23,7 @@ namespace MTAssets.EasyMeshCombiner
 			return list;
 		}
 
-		// Token: 0x060046F9 RID: 18169 RVA: 0x00150CF5 File Offset: 0x0014EEF5
+		// Token: 0x06004842 RID: 18498 RVA: 0x0005F020 File Offset: 0x0005D220
 		public static Vector3 GetHalfPositionBetweenTwoPoints(Vector3 pointA, Vector3 pointB)
 		{
 			return Vector3.Lerp(pointA, pointB, 0.5f);

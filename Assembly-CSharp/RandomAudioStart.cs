@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000419 RID: 1049
+// Token: 0x02000424 RID: 1060
 public class RandomAudioStart : MonoBehaviour, IBuildValidation
 {
-	// Token: 0x060019EE RID: 6638 RVA: 0x0007F659 File Offset: 0x0007D859
+	// Token: 0x06001A3B RID: 6715 RVA: 0x00041B02 File Offset: 0x0003FD02
 	public bool BuildValidationCheck()
 	{
 		if (this.audioSource == null)
@@ -15,19 +15,19 @@ public class RandomAudioStart : MonoBehaviour, IBuildValidation
 		return true;
 	}
 
-	// Token: 0x060019EF RID: 6639 RVA: 0x0007F67C File Offset: 0x0007D87C
+	// Token: 0x06001A3C RID: 6716 RVA: 0x00041B25 File Offset: 0x0003FD25
 	private void OnEnable()
 	{
-		this.audioSource.time = Random.value * this.audioSource.clip.length;
+		this.audioSource.time = UnityEngine.Random.value * this.audioSource.clip.length;
 	}
 
-	// Token: 0x060019F0 RID: 6640 RVA: 0x0007F69F File Offset: 0x0007D89F
+	// Token: 0x06001A3D RID: 6717 RVA: 0x00041B48 File Offset: 0x0003FD48
 	[ContextMenu("Assign Audio Source")]
 	public void AssignAudioSource()
 	{
 		this.audioSource = base.GetComponent<AudioSource>();
 	}
 
-	// Token: 0x04001CCC RID: 7372
+	// Token: 0x04001D15 RID: 7445
 	public AudioSource audioSource;
 }

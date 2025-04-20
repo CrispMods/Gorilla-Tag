@@ -6,15 +6,15 @@ using UnityEngine;
 
 namespace GorillaNetworking.Store
 {
-	// Token: 0x02000B0B RID: 2827
+	// Token: 0x02000B38 RID: 2872
 	public class StoreUpdateEvent
 	{
-		// Token: 0x060046A7 RID: 18087 RVA: 0x00002050 File Offset: 0x00000250
+		// Token: 0x060047F0 RID: 18416 RVA: 0x00030490 File Offset: 0x0002E690
 		public StoreUpdateEvent()
 		{
 		}
 
-		// Token: 0x060046A8 RID: 18088 RVA: 0x0014F7AC File Offset: 0x0014D9AC
+		// Token: 0x060047F1 RID: 18417 RVA: 0x0005ED60 File Offset: 0x0005CF60
 		public StoreUpdateEvent(string pedestalID, string itemName, DateTime startTimeUTC, DateTime endTimeUTC)
 		{
 			this.PedestalID = pedestalID;
@@ -23,25 +23,25 @@ namespace GorillaNetworking.Store
 			this.EndTimeUTC = endTimeUTC;
 		}
 
-		// Token: 0x060046A9 RID: 18089 RVA: 0x0014F7D1 File Offset: 0x0014D9D1
+		// Token: 0x060047F2 RID: 18418 RVA: 0x0005ED85 File Offset: 0x0005CF85
 		public static string SerializeAsJSon(StoreUpdateEvent storeEvent)
 		{
 			return JsonUtility.ToJson(storeEvent);
 		}
 
-		// Token: 0x060046AA RID: 18090 RVA: 0x0014F7D9 File Offset: 0x0014D9D9
+		// Token: 0x060047F3 RID: 18419 RVA: 0x0005ED8D File Offset: 0x0005CF8D
 		public static string SerializeArrayAsJSon(StoreUpdateEvent[] storeEvents)
 		{
 			return JsonConvert.SerializeObject(storeEvents);
 		}
 
-		// Token: 0x060046AB RID: 18091 RVA: 0x0014F7E1 File Offset: 0x0014D9E1
+		// Token: 0x060047F4 RID: 18420 RVA: 0x0005ED95 File Offset: 0x0005CF95
 		public static StoreUpdateEvent DeserializeFromJSon(string json)
 		{
 			return JsonUtility.FromJson<StoreUpdateEvent>(json);
 		}
 
-		// Token: 0x060046AC RID: 18092 RVA: 0x0014F7E9 File Offset: 0x0014D9E9
+		// Token: 0x060047F5 RID: 18421 RVA: 0x0005ED9D File Offset: 0x0005CF9D
 		public static StoreUpdateEvent[] DeserializeFromJSonArray(string json)
 		{
 			List<StoreUpdateEvent> list = JsonMapper.ToObject<List<StoreUpdateEvent>>(json);
@@ -49,7 +49,7 @@ namespace GorillaNetworking.Store
 			return list.ToArray();
 		}
 
-		// Token: 0x060046AD RID: 18093 RVA: 0x0014F81B File Offset: 0x0014DA1B
+		// Token: 0x060047F6 RID: 18422 RVA: 0x0005EDCF File Offset: 0x0005CFCF
 		public static List<StoreUpdateEvent> DeserializeFromJSonList(string json)
 		{
 			List<StoreUpdateEvent> list = JsonMapper.ToObject<List<StoreUpdateEvent>>(json);
@@ -57,16 +57,16 @@ namespace GorillaNetworking.Store
 			return list;
 		}
 
-		// Token: 0x04004837 RID: 18487
+		// Token: 0x0400492C RID: 18732
 		public string PedestalID;
 
-		// Token: 0x04004838 RID: 18488
+		// Token: 0x0400492D RID: 18733
 		public string ItemName;
 
-		// Token: 0x04004839 RID: 18489
+		// Token: 0x0400492E RID: 18734
 		public DateTime StartTimeUTC;
 
-		// Token: 0x0400483A RID: 18490
+		// Token: 0x0400492F RID: 18735
 		public DateTime EndTimeUTC;
 	}
 }

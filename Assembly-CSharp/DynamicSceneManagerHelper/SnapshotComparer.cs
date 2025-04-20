@@ -5,25 +5,25 @@ using UnityEngine;
 
 namespace DynamicSceneManagerHelper
 {
-	// Token: 0x02000A37 RID: 2615
+	// Token: 0x02000A64 RID: 2660
 	internal class SnapshotComparer
 	{
-		// Token: 0x1700068B RID: 1675
-		// (get) Token: 0x06004140 RID: 16704 RVA: 0x001350E7 File Offset: 0x001332E7
+		// Token: 0x170006A7 RID: 1703
+		// (get) Token: 0x06004285 RID: 17029 RVA: 0x0005B730 File Offset: 0x00059930
 		public SceneSnapshot BaseSnapshot { get; }
 
-		// Token: 0x1700068C RID: 1676
-		// (get) Token: 0x06004141 RID: 16705 RVA: 0x001350EF File Offset: 0x001332EF
+		// Token: 0x170006A8 RID: 1704
+		// (get) Token: 0x06004286 RID: 17030 RVA: 0x0005B738 File Offset: 0x00059938
 		public SceneSnapshot NewSnapshot { get; }
 
-		// Token: 0x06004142 RID: 16706 RVA: 0x001350F7 File Offset: 0x001332F7
+		// Token: 0x06004287 RID: 17031 RVA: 0x0005B740 File Offset: 0x00059940
 		public SnapshotComparer(SceneSnapshot baseSnapshot, SceneSnapshot newSnapshot)
 		{
 			this.BaseSnapshot = baseSnapshot;
 			this.NewSnapshot = newSnapshot;
 		}
 
-		// Token: 0x06004143 RID: 16707 RVA: 0x00135110 File Offset: 0x00133310
+		// Token: 0x06004288 RID: 17032 RVA: 0x00175204 File Offset: 0x00173404
 		public List<ValueTuple<OVRAnchor, SnapshotComparer.ChangeType>> Compare()
 		{
 			List<ValueTuple<OVRAnchor, SnapshotComparer.ChangeType>> list = new List<ValueTuple<OVRAnchor, SnapshotComparer.ChangeType>>();
@@ -46,7 +46,7 @@ namespace DynamicSceneManagerHelper
 			return list;
 		}
 
-		// Token: 0x06004144 RID: 16708 RVA: 0x001351F8 File Offset: 0x001333F8
+		// Token: 0x06004289 RID: 17033 RVA: 0x001752EC File Offset: 0x001734EC
 		private void CheckRoomChanges(List<ValueTuple<OVRAnchor, SnapshotComparer.ChangeType>> changes)
 		{
 			for (int i = 0; i < changes.Count; i++)
@@ -75,7 +75,7 @@ namespace DynamicSceneManagerHelper
 			}
 		}
 
-		// Token: 0x06004145 RID: 16709 RVA: 0x00135314 File Offset: 0x00133514
+		// Token: 0x0600428A RID: 17034 RVA: 0x00175408 File Offset: 0x00173608
 		private void CheckBoundsChanges(List<ValueTuple<OVRAnchor, SnapshotComparer.ChangeType>> changes)
 		{
 			using (Dictionary<OVRAnchor, SceneSnapshot.Data>.KeyCollection.Enumerator enumerator = this.BaseSnapshot.Anchors.Keys.GetEnumerator())
@@ -99,13 +99,13 @@ namespace DynamicSceneManagerHelper
 			}
 		}
 
-		// Token: 0x06004146 RID: 16710 RVA: 0x00135428 File Offset: 0x00133628
+		// Token: 0x0600428B RID: 17035 RVA: 0x0005B756 File Offset: 0x00059956
 		private bool Has2DBounds(SceneSnapshot.Data data1, SceneSnapshot.Data data2)
 		{
 			return data1.Rect != null && data2.Rect != null;
 		}
 
-		// Token: 0x06004147 RID: 16711 RVA: 0x00135444 File Offset: 0x00133644
+		// Token: 0x0600428C RID: 17036 RVA: 0x0017551C File Offset: 0x0017371C
 		private bool Are2DBoundsDifferent(SceneSnapshot.Data data1, SceneSnapshot.Data data2)
 		{
 			Vector2? vector = (data1.Rect != null) ? new Vector2?(data1.Rect.GetValueOrDefault().min) : null;
@@ -117,13 +117,13 @@ namespace DynamicSceneManagerHelper
 			return true;
 		}
 
-		// Token: 0x06004148 RID: 16712 RVA: 0x0013556E File Offset: 0x0013376E
+		// Token: 0x0600428D RID: 17037 RVA: 0x0005B772 File Offset: 0x00059972
 		private bool Has3DBounds(SceneSnapshot.Data data1, SceneSnapshot.Data data2)
 		{
 			return data1.Bounds != null && data2.Bounds != null;
 		}
 
-		// Token: 0x06004149 RID: 16713 RVA: 0x0013558C File Offset: 0x0013378C
+		// Token: 0x0600428E RID: 17038 RVA: 0x00175648 File Offset: 0x00173848
 		private bool Are3DBoundsDifferent(SceneSnapshot.Data data1, SceneSnapshot.Data data2)
 		{
 			Vector3? vector = (data1.Bounds != null) ? new Vector3?(data1.Bounds.GetValueOrDefault().min) : null;
@@ -135,16 +135,16 @@ namespace DynamicSceneManagerHelper
 			return true;
 		}
 
-		// Token: 0x02000A38 RID: 2616
+		// Token: 0x02000A65 RID: 2661
 		public enum ChangeType
 		{
-			// Token: 0x04004269 RID: 17001
+			// Token: 0x04004363 RID: 17251
 			New,
-			// Token: 0x0400426A RID: 17002
+			// Token: 0x04004364 RID: 17252
 			Missing,
-			// Token: 0x0400426B RID: 17003
+			// Token: 0x04004365 RID: 17253
 			ChangedId,
-			// Token: 0x0400426C RID: 17004
+			// Token: 0x04004366 RID: 17254
 			ChangedBounds
 		}
 	}

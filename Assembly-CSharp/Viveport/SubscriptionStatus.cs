@@ -3,45 +3,45 @@ using System.Collections.Generic;
 
 namespace Viveport
 {
-	// Token: 0x02000902 RID: 2306
+	// Token: 0x0200091F RID: 2335
 	public class SubscriptionStatus
 	{
-		// Token: 0x170005B1 RID: 1457
-		// (get) Token: 0x06003762 RID: 14178 RVA: 0x001053AE File Offset: 0x001035AE
-		// (set) Token: 0x06003763 RID: 14179 RVA: 0x001053B6 File Offset: 0x001035B6
+		// Token: 0x170005C4 RID: 1476
+		// (get) Token: 0x06003833 RID: 14387 RVA: 0x000551E8 File Offset: 0x000533E8
+		// (set) Token: 0x06003834 RID: 14388 RVA: 0x000551F0 File Offset: 0x000533F0
 		public List<SubscriptionStatus.Platform> Platforms { get; set; }
 
-		// Token: 0x170005B2 RID: 1458
-		// (get) Token: 0x06003764 RID: 14180 RVA: 0x001053BF File Offset: 0x001035BF
-		// (set) Token: 0x06003765 RID: 14181 RVA: 0x001053C7 File Offset: 0x001035C7
+		// Token: 0x170005C5 RID: 1477
+		// (get) Token: 0x06003835 RID: 14389 RVA: 0x000551F9 File Offset: 0x000533F9
+		// (set) Token: 0x06003836 RID: 14390 RVA: 0x00055201 File Offset: 0x00053401
 		public SubscriptionStatus.TransactionType Type { get; set; }
 
-		// Token: 0x06003766 RID: 14182 RVA: 0x001053D0 File Offset: 0x001035D0
+		// Token: 0x06003837 RID: 14391 RVA: 0x0005520A File Offset: 0x0005340A
 		public SubscriptionStatus()
 		{
 			this.Platforms = new List<SubscriptionStatus.Platform>();
 			this.Type = SubscriptionStatus.TransactionType.Unknown;
 		}
 
-		// Token: 0x02000903 RID: 2307
+		// Token: 0x02000920 RID: 2336
 		public enum Platform
 		{
-			// Token: 0x04003A4B RID: 14923
+			// Token: 0x04003B10 RID: 15120
 			Windows,
-			// Token: 0x04003A4C RID: 14924
+			// Token: 0x04003B11 RID: 15121
 			Android
 		}
 
-		// Token: 0x02000904 RID: 2308
+		// Token: 0x02000921 RID: 2337
 		public enum TransactionType
 		{
-			// Token: 0x04003A4E RID: 14926
+			// Token: 0x04003B13 RID: 15123
 			Unknown,
-			// Token: 0x04003A4F RID: 14927
+			// Token: 0x04003B14 RID: 15124
 			Paid,
-			// Token: 0x04003A50 RID: 14928
+			// Token: 0x04003B15 RID: 15125
 			Redeem,
-			// Token: 0x04003A51 RID: 14929
+			// Token: 0x04003B16 RID: 15126
 			FreeTrial
 		}
 	}

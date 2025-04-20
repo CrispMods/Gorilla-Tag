@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000361 RID: 865
+// Token: 0x0200036C RID: 876
 public class StylusTip : MonoBehaviour
 {
-	// Token: 0x06001416 RID: 5142 RVA: 0x00062608 File Offset: 0x00060808
+	// Token: 0x06001462 RID: 5218 RVA: 0x000BBB64 File Offset: 0x000B9D64
 	private void Awake()
 	{
 		this.m_controller = ((this.m_handedness == OVRInput.Handedness.LeftHanded) ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch);
@@ -12,14 +12,14 @@ public class StylusTip : MonoBehaviour
 		this.m_breadCrumbs = new GameObject[60];
 		for (int i = 0; i < this.m_breadCrumbs.Length; i++)
 		{
-			GameObject gameObject = Object.Instantiate<GameObject>(this.m_breadCrumbPf, this.m_breadCrumbContainer.transform);
+			GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(this.m_breadCrumbPf, this.m_breadCrumbContainer.transform);
 			gameObject.name = string.Format("BreadCrumb ({0})", i);
 			gameObject.SetActive(false);
 			this.m_breadCrumbs[i] = gameObject;
 		}
 	}
 
-	// Token: 0x06001417 RID: 5143 RVA: 0x000626A8 File Offset: 0x000608A8
+	// Token: 0x06001463 RID: 5219 RVA: 0x000BBC04 File Offset: 0x000B9E04
 	private void Update()
 	{
 		Pose pose = new Pose(OVRInput.GetLocalControllerPosition(this.m_controller), OVRInput.GetLocalControllerRotation(this.m_controller));
@@ -48,7 +48,7 @@ public class StylusTip : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001418 RID: 5144 RVA: 0x00062838 File Offset: 0x00060A38
+	// Token: 0x06001464 RID: 5220 RVA: 0x000BBD94 File Offset: 0x000B9F94
 	private static Pose GetT_Device_StylusTip(OVRInput.Controller controller)
 	{
 		Pose identity = Pose.identity;
@@ -65,41 +65,41 @@ public class StylusTip : MonoBehaviour
 		return identity;
 	}
 
-	// Token: 0x04001633 RID: 5683
+	// Token: 0x0400167B RID: 5755
 	private const int MaxBreadCrumbs = 60;
 
-	// Token: 0x04001634 RID: 5684
+	// Token: 0x0400167C RID: 5756
 	private const float BreadCrumbMinSize = 0.005f;
 
-	// Token: 0x04001635 RID: 5685
+	// Token: 0x0400167D RID: 5757
 	private const float BreadCrumbMaxSize = 0.02f;
 
-	// Token: 0x04001636 RID: 5686
+	// Token: 0x0400167E RID: 5758
 	[Header("External")]
 	[SerializeField]
 	private Transform m_trackingSpace;
 
-	// Token: 0x04001637 RID: 5687
+	// Token: 0x0400167F RID: 5759
 	[Header("Settings")]
 	[SerializeField]
 	private OVRInput.Handedness m_handedness = OVRInput.Handedness.LeftHanded;
 
-	// Token: 0x04001638 RID: 5688
+	// Token: 0x04001680 RID: 5760
 	[SerializeField]
 	private GameObject m_breadCrumbPf;
 
-	// Token: 0x04001639 RID: 5689
+	// Token: 0x04001681 RID: 5761
 	private GameObject m_breadCrumbContainer;
 
-	// Token: 0x0400163A RID: 5690
+	// Token: 0x04001682 RID: 5762
 	private GameObject[] m_breadCrumbs;
 
-	// Token: 0x0400163B RID: 5691
+	// Token: 0x04001683 RID: 5763
 	private int m_breadCrumbIndexPrev = -1;
 
-	// Token: 0x0400163C RID: 5692
+	// Token: 0x04001684 RID: 5764
 	private int m_breadCrumbIndexCurr;
 
-	// Token: 0x0400163D RID: 5693
+	// Token: 0x04001685 RID: 5765
 	private OVRInput.Controller m_controller;
 }

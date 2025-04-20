@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200014A RID: 330
+// Token: 0x02000154 RID: 340
 public class Crossbow : ProjectileWeapon
 {
-	// Token: 0x06000867 RID: 2151 RVA: 0x0002E2C8 File Offset: 0x0002C4C8
+	// Token: 0x060008AB RID: 2219 RVA: 0x0008F2A0 File Offset: 0x0008D4A0
 	protected override void Awake()
 	{
 		base.Awake();
@@ -16,7 +16,7 @@ public class Crossbow : ProjectileWeapon
 		this.SetReloadFraction(0f);
 	}
 
-	// Token: 0x06000868 RID: 2152 RVA: 0x0002E310 File Offset: 0x0002C510
+	// Token: 0x060008AC RID: 2220 RVA: 0x0008F2E8 File Offset: 0x0008D4E8
 	public void SetReloadFraction(float newFraction)
 	{
 		this.loadFraction = Mathf.Clamp01(newFraction);
@@ -33,7 +33,7 @@ public class Crossbow : ProjectileWeapon
 		}
 	}
 
-	// Token: 0x06000869 RID: 2153 RVA: 0x0002E3A8 File Offset: 0x0002C5A8
+	// Token: 0x060008AD RID: 2221 RVA: 0x0008F380 File Offset: 0x0008D580
 	private void OnCrank(float degrees)
 	{
 		if (this.loadFraction == 1f)
@@ -58,19 +58,19 @@ public class Crossbow : ProjectileWeapon
 		}
 	}
 
-	// Token: 0x0600086A RID: 2154 RVA: 0x0002E464 File Offset: 0x0002C664
+	// Token: 0x060008AE RID: 2222 RVA: 0x00036241 File Offset: 0x00034441
 	protected override Vector3 GetLaunchPosition()
 	{
 		return this.launchPosition.position;
 	}
 
-	// Token: 0x0600086B RID: 2155 RVA: 0x0002E471 File Offset: 0x0002C671
+	// Token: 0x060008AF RID: 2223 RVA: 0x0003624E File Offset: 0x0003444E
 	protected override Vector3 GetLaunchVelocity()
 	{
 		return this.launchPosition.forward * this.launchSpeed * base.myRig.scaleFactor;
 	}
 
-	// Token: 0x0600086C RID: 2156 RVA: 0x0002E49C File Offset: 0x0002C69C
+	// Token: 0x060008B0 RID: 2224 RVA: 0x0008F43C File Offset: 0x0008D63C
 	protected override void LateUpdateLocal()
 	{
 		base.LateUpdateLocal();
@@ -107,7 +107,7 @@ public class Crossbow : ProjectileWeapon
 		}
 	}
 
-	// Token: 0x0600086D RID: 2157 RVA: 0x0002E58C File Offset: 0x0002C78C
+	// Token: 0x060008B1 RID: 2225 RVA: 0x0008F52C File Offset: 0x0008D72C
 	protected override void LateUpdateReplicated()
 	{
 		base.LateUpdateReplicated();
@@ -126,7 +126,7 @@ public class Crossbow : ProjectileWeapon
 		}
 	}
 
-	// Token: 0x0600086E RID: 2158 RVA: 0x0002E5E4 File Offset: 0x0002C7E4
+	// Token: 0x060008B2 RID: 2226 RVA: 0x00036276 File Offset: 0x00034476
 	protected override void LateUpdateShared()
 	{
 		base.LateUpdateShared();
@@ -136,64 +136,64 @@ public class Crossbow : ProjectileWeapon
 		}
 	}
 
-	// Token: 0x04000A00 RID: 2560
+	// Token: 0x04000A43 RID: 2627
 	[SerializeField]
 	private Transform launchPosition;
 
-	// Token: 0x04000A01 RID: 2561
+	// Token: 0x04000A44 RID: 2628
 	[SerializeField]
 	private float launchSpeed;
 
-	// Token: 0x04000A02 RID: 2562
+	// Token: 0x04000A45 RID: 2629
 	[SerializeField]
 	private Animator animator;
 
-	// Token: 0x04000A03 RID: 2563
+	// Token: 0x04000A46 RID: 2630
 	[SerializeField]
 	private float crankTotalDegreesToReload;
 
-	// Token: 0x04000A04 RID: 2564
+	// Token: 0x04000A47 RID: 2631
 	[SerializeField]
 	private TransferrableObjectHoldablePart_Crank[] cranks;
 
-	// Token: 0x04000A05 RID: 2565
+	// Token: 0x04000A48 RID: 2632
 	[SerializeField]
 	private MeshRenderer dummyProjectile;
 
-	// Token: 0x04000A06 RID: 2566
+	// Token: 0x04000A49 RID: 2633
 	[SerializeField]
 	private AudioSource reloadAudio;
 
-	// Token: 0x04000A07 RID: 2567
+	// Token: 0x04000A4A RID: 2634
 	[SerializeField]
 	private AudioClip reloadComplete_audioClip;
 
-	// Token: 0x04000A08 RID: 2568
+	// Token: 0x04000A4B RID: 2635
 	[SerializeField]
 	private float crankSoundContinueDuration = 0.1f;
 
-	// Token: 0x04000A09 RID: 2569
+	// Token: 0x04000A4C RID: 2636
 	[SerializeField]
 	private float crankSoundDegreesThreshold = 0.1f;
 
-	// Token: 0x04000A0A RID: 2570
+	// Token: 0x04000A4D RID: 2637
 	private AnimHashId FireHashID = "Fire";
 
-	// Token: 0x04000A0B RID: 2571
+	// Token: 0x04000A4E RID: 2638
 	private AnimHashId ReloadFractionHashID = "ReloadFraction";
 
-	// Token: 0x04000A0C RID: 2572
+	// Token: 0x04000A4F RID: 2639
 	private float totalCrankDegrees;
 
-	// Token: 0x04000A0D RID: 2573
+	// Token: 0x04000A50 RID: 2640
 	private float loadFraction;
 
-	// Token: 0x04000A0E RID: 2574
+	// Token: 0x04000A51 RID: 2641
 	private float playingCrankSoundUntilTimestamp;
 
-	// Token: 0x04000A0F RID: 2575
+	// Token: 0x04000A52 RID: 2642
 	private float crankSoundDegrees;
 
-	// Token: 0x04000A10 RID: 2576
+	// Token: 0x04000A53 RID: 2643
 	private bool wasPressingTrigger;
 }

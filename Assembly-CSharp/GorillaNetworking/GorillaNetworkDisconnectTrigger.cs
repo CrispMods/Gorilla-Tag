@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000AB7 RID: 2743
+	// Token: 0x02000AE4 RID: 2788
 	public class GorillaNetworkDisconnectTrigger : GorillaTriggerBox
 	{
-		// Token: 0x060044E5 RID: 17637 RVA: 0x00147604 File Offset: 0x00145804
+		// Token: 0x0600462A RID: 17962 RVA: 0x001850C4 File Offset: 0x001832C4
 		public override void OnBoxTriggered()
 		{
 			base.OnBoxTriggered();
@@ -24,7 +24,7 @@ namespace GorillaNetworking
 			{
 				if (this.componentTypeToRemove != "" && this.componentTarget.GetComponent(this.componentTypeToRemove) != null)
 				{
-					Object.Destroy(this.componentTarget.GetComponent(this.componentTypeToRemove));
+					UnityEngine.Object.Destroy(this.componentTarget.GetComponent(this.componentTypeToRemove));
 				}
 				PhotonNetwork.Disconnect();
 				SkinnedMeshRenderer[] array2 = this.photonNetworkController.offlineVRRig;
@@ -36,22 +36,22 @@ namespace GorillaNetworking
 			}
 		}
 
-		// Token: 0x0400465C RID: 18012
+		// Token: 0x04004753 RID: 18259
 		public PhotonNetworkController photonNetworkController;
 
-		// Token: 0x0400465D RID: 18013
+		// Token: 0x04004754 RID: 18260
 		public GameObject offlineVRRig;
 
-		// Token: 0x0400465E RID: 18014
+		// Token: 0x04004755 RID: 18261
 		public GameObject makeSureThisIsEnabled;
 
-		// Token: 0x0400465F RID: 18015
+		// Token: 0x04004756 RID: 18262
 		public GameObject[] makeSureTheseAreEnabled;
 
-		// Token: 0x04004660 RID: 18016
+		// Token: 0x04004757 RID: 18263
 		public string componentTypeToRemove;
 
-		// Token: 0x04004661 RID: 18017
+		// Token: 0x04004758 RID: 18264
 		public GameObject componentTarget;
 	}
 }

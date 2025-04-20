@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000BE RID: 190
+// Token: 0x020000C8 RID: 200
 public class SpiderDangler : MonoBehaviour
 {
-	// Token: 0x060004EF RID: 1263 RVA: 0x0001D584 File Offset: 0x0001B784
+	// Token: 0x0600052B RID: 1323 RVA: 0x0008088C File Offset: 0x0007EA8C
 	protected void Awake()
 	{
 		this.lineRenderer = base.GetComponent<LineRenderer>();
@@ -19,13 +19,13 @@ public class SpiderDangler : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004F0 RID: 1264 RVA: 0x0001D60B File Offset: 0x0001B80B
+	// Token: 0x0600052C RID: 1324 RVA: 0x00033D91 File Offset: 0x00031F91
 	protected void FixedUpdate()
 	{
 		this.Simulate();
 	}
 
-	// Token: 0x060004F1 RID: 1265 RVA: 0x0001D614 File Offset: 0x0001B814
+	// Token: 0x0600052D RID: 1325 RVA: 0x00080914 File Offset: 0x0007EB14
 	protected void LateUpdate()
 	{
 		this.DrawRope();
@@ -38,7 +38,7 @@ public class SpiderDangler : MonoBehaviour
 		this.endTransform.Rotate(Vector3.up, vector.x + vector.y + vector.z + vector.w);
 	}
 
-	// Token: 0x060004F2 RID: 1266 RVA: 0x0001D718 File Offset: 0x0001B918
+	// Token: 0x0600052E RID: 1326 RVA: 0x00080A18 File Offset: 0x0007EC18
 	private void Simulate()
 	{
 		this.ropeSegLenScaled = this.ropeSegLen * base.transform.lossyScale.x;
@@ -60,7 +60,7 @@ public class SpiderDangler : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004F3 RID: 1267 RVA: 0x0001D820 File Offset: 0x0001BA20
+	// Token: 0x0600052F RID: 1327 RVA: 0x00080B20 File Offset: 0x0007ED20
 	private void ApplyConstraint()
 	{
 		this.ropeSegs[0].pos = base.transform.position;
@@ -71,7 +71,7 @@ public class SpiderDangler : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004F4 RID: 1268 RVA: 0x0001D8A8 File Offset: 0x0001BAA8
+	// Token: 0x06000530 RID: 1328 RVA: 0x00080BA8 File Offset: 0x0007EDA8
 	private void ApplyConstraintSegment(ref SpiderDangler.RopeSegment segA, ref SpiderDangler.RopeSegment segB, float dampenA, float dampenB)
 	{
 		float d = (segA.pos - segB.pos).magnitude - this.ropeSegLenScaled;
@@ -80,7 +80,7 @@ public class SpiderDangler : MonoBehaviour
 		segB.pos += a * dampenB;
 	}
 
-	// Token: 0x060004F5 RID: 1269 RVA: 0x0001D934 File Offset: 0x0001BB34
+	// Token: 0x06000531 RID: 1329 RVA: 0x00080C34 File Offset: 0x0007EE34
 	private void DrawRope()
 	{
 		Vector3[] array = new Vector3[6];
@@ -92,50 +92,50 @@ public class SpiderDangler : MonoBehaviour
 		this.lineRenderer.SetPositions(array);
 	}
 
-	// Token: 0x040005C1 RID: 1473
+	// Token: 0x04000601 RID: 1537
 	public Transform endTransform;
 
-	// Token: 0x040005C2 RID: 1474
+	// Token: 0x04000602 RID: 1538
 	public Vector4 spinSpeeds = new Vector4(0.1f, 0.2f, 0.3f, 0.4f);
 
-	// Token: 0x040005C3 RID: 1475
+	// Token: 0x04000603 RID: 1539
 	public Vector4 spinScales = new Vector4(180f, 90f, 120f, 180f);
 
-	// Token: 0x040005C4 RID: 1476
+	// Token: 0x04000604 RID: 1540
 	private LineRenderer lineRenderer;
 
-	// Token: 0x040005C5 RID: 1477
+	// Token: 0x04000605 RID: 1541
 	private SpiderDangler.RopeSegment[] ropeSegs;
 
-	// Token: 0x040005C6 RID: 1478
+	// Token: 0x04000606 RID: 1542
 	private float ropeSegLen;
 
-	// Token: 0x040005C7 RID: 1479
+	// Token: 0x04000607 RID: 1543
 	private float ropeSegLenScaled;
 
-	// Token: 0x040005C8 RID: 1480
+	// Token: 0x04000608 RID: 1544
 	private const int kSegmentCount = 6;
 
-	// Token: 0x040005C9 RID: 1481
+	// Token: 0x04000609 RID: 1545
 	private const float kVelocityDamper = 0.95f;
 
-	// Token: 0x040005CA RID: 1482
+	// Token: 0x0400060A RID: 1546
 	private const int kConstraintCalculationIterations = 8;
 
-	// Token: 0x020000BF RID: 191
+	// Token: 0x020000C9 RID: 201
 	public struct RopeSegment
 	{
-		// Token: 0x060004F7 RID: 1271 RVA: 0x0001D9D9 File Offset: 0x0001BBD9
+		// Token: 0x06000533 RID: 1331 RVA: 0x00033D99 File Offset: 0x00031F99
 		public RopeSegment(Vector3 pos)
 		{
 			this.pos = pos;
 			this.posOld = pos;
 		}
 
-		// Token: 0x040005CB RID: 1483
+		// Token: 0x0400060B RID: 1547
 		public Vector3 pos;
 
-		// Token: 0x040005CC RID: 1484
+		// Token: 0x0400060C RID: 1548
 		public Vector3 posOld;
 	}
 }

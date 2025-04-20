@@ -5,20 +5,20 @@ using GorillaTag.CosmeticSystem;
 using TMPro;
 using UnityEngine;
 
-// Token: 0x02000122 RID: 290
+// Token: 0x0200012C RID: 300
 public class RotatingQuestBadge : MonoBehaviour, ISpawnable
 {
-	// Token: 0x170000BC RID: 188
-	// (get) Token: 0x060007CB RID: 1995 RVA: 0x0002B1AF File Offset: 0x000293AF
-	// (set) Token: 0x060007CC RID: 1996 RVA: 0x0002B1B7 File Offset: 0x000293B7
+	// Token: 0x170000C1 RID: 193
+	// (get) Token: 0x0600080F RID: 2063 RVA: 0x00035AC6 File Offset: 0x00033CC6
+	// (set) Token: 0x06000810 RID: 2064 RVA: 0x00035ACE File Offset: 0x00033CCE
 	public bool IsSpawned { get; set; }
 
-	// Token: 0x170000BD RID: 189
-	// (get) Token: 0x060007CD RID: 1997 RVA: 0x0002B1C0 File Offset: 0x000293C0
-	// (set) Token: 0x060007CE RID: 1998 RVA: 0x0002B1C8 File Offset: 0x000293C8
+	// Token: 0x170000C2 RID: 194
+	// (get) Token: 0x06000811 RID: 2065 RVA: 0x00035AD7 File Offset: 0x00033CD7
+	// (set) Token: 0x06000812 RID: 2066 RVA: 0x00035ADF File Offset: 0x00033CDF
 	ECosmeticSelectSide ISpawnable.CosmeticSelectedSide { get; set; }
 
-	// Token: 0x060007CF RID: 1999 RVA: 0x0002B1D4 File Offset: 0x000293D4
+	// Token: 0x06000813 RID: 2067 RVA: 0x0008C900 File Offset: 0x0008AB00
 	public void OnSpawn(VRRig rig)
 	{
 		if (this.forWardrobe && !this.myRig)
@@ -31,12 +31,12 @@ public class RotatingQuestBadge : MonoBehaviour, ISpawnable
 		this.OnProgressScoreChanged(this.myRig.GetCurrentQuestScore());
 	}
 
-	// Token: 0x060007D0 RID: 2000 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06000814 RID: 2068 RVA: 0x00030607 File Offset: 0x0002E807
 	public void OnDespawn()
 	{
 	}
 
-	// Token: 0x060007D1 RID: 2001 RVA: 0x0002B22D File Offset: 0x0002942D
+	// Token: 0x06000815 RID: 2069 RVA: 0x00035AE8 File Offset: 0x00033CE8
 	private void OnEnable()
 	{
 		if (this.forWardrobe)
@@ -49,7 +49,7 @@ public class RotatingQuestBadge : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x060007D2 RID: 2002 RVA: 0x0002B253 File Offset: 0x00029453
+	// Token: 0x06000816 RID: 2070 RVA: 0x00035B0E File Offset: 0x00033D0E
 	private void OnDisable()
 	{
 		if (this.forWardrobe && this.myRig)
@@ -59,7 +59,7 @@ public class RotatingQuestBadge : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x060007D3 RID: 2003 RVA: 0x0002B288 File Offset: 0x00029488
+	// Token: 0x06000817 RID: 2071 RVA: 0x00035B43 File Offset: 0x00033D43
 	private IEnumerator DoFindRig()
 	{
 		WaitForSeconds intervalWait = new WaitForSeconds(0.1f);
@@ -70,7 +70,7 @@ public class RotatingQuestBadge : MonoBehaviour, ISpawnable
 		yield break;
 	}
 
-	// Token: 0x060007D4 RID: 2004 RVA: 0x0002B298 File Offset: 0x00029498
+	// Token: 0x06000818 RID: 2072 RVA: 0x0008C95C File Offset: 0x0008AB5C
 	private bool TryGetRig()
 	{
 		GorillaTagger instance = GorillaTagger.Instance;
@@ -84,7 +84,7 @@ public class RotatingQuestBadge : MonoBehaviour, ISpawnable
 		return false;
 	}
 
-	// Token: 0x060007D5 RID: 2005 RVA: 0x0002B2F4 File Offset: 0x000294F4
+	// Token: 0x06000819 RID: 2073 RVA: 0x00035B52 File Offset: 0x00033D52
 	private void OnProgressScoreChanged(int score)
 	{
 		score = Mathf.Clamp(score, 0, 99999);
@@ -92,7 +92,7 @@ public class RotatingQuestBadge : MonoBehaviour, ISpawnable
 		this.UpdateBadge(score);
 	}
 
-	// Token: 0x060007D6 RID: 2006 RVA: 0x0002B320 File Offset: 0x00029520
+	// Token: 0x0600081A RID: 2074 RVA: 0x0008C9B8 File Offset: 0x0008ABB8
 	private void UpdateBadge(int score)
 	{
 		int num = -1;
@@ -108,7 +108,7 @@ public class RotatingQuestBadge : MonoBehaviour, ISpawnable
 		this.SetBadgeLevel(badgeLevel);
 	}
 
-	// Token: 0x060007D7 RID: 2007 RVA: 0x0002B388 File Offset: 0x00029588
+	// Token: 0x0600081B RID: 2075 RVA: 0x0008CA20 File Offset: 0x0008AC20
 	private void SetBadgeLevel(int level)
 	{
 		level = Mathf.Clamp(level, 0, this.badgeLevels.Length - 1);
@@ -118,30 +118,30 @@ public class RotatingQuestBadge : MonoBehaviour, ISpawnable
 		}
 	}
 
-	// Token: 0x04000923 RID: 2339
+	// Token: 0x04000965 RID: 2405
 	[SerializeField]
 	private TextMeshPro displayField;
 
-	// Token: 0x04000924 RID: 2340
+	// Token: 0x04000966 RID: 2406
 	[SerializeField]
 	private bool forWardrobe;
 
-	// Token: 0x04000925 RID: 2341
+	// Token: 0x04000967 RID: 2407
 	[SerializeField]
 	private VRRig myRig;
 
-	// Token: 0x04000926 RID: 2342
+	// Token: 0x04000968 RID: 2408
 	[SerializeField]
 	private RotatingQuestBadge.BadgeLevel[] badgeLevels;
 
-	// Token: 0x02000123 RID: 291
+	// Token: 0x0200012D RID: 301
 	[Serializable]
 	public struct BadgeLevel
 	{
-		// Token: 0x04000929 RID: 2345
+		// Token: 0x0400096B RID: 2411
 		public GameObject badge;
 
-		// Token: 0x0400092A RID: 2346
+		// Token: 0x0400096C RID: 2412
 		public int requiredPoints;
 	}
 }

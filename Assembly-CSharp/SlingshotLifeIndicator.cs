@@ -3,38 +3,38 @@ using GorillaTag;
 using GorillaTag.CosmeticSystem;
 using UnityEngine;
 
-// Token: 0x02000386 RID: 902
+// Token: 0x02000391 RID: 913
 public class SlingshotLifeIndicator : MonoBehaviour, IGorillaSliceableSimple, ISpawnable
 {
-	// Token: 0x17000256 RID: 598
-	// (get) Token: 0x0600151F RID: 5407 RVA: 0x00067684 File Offset: 0x00065884
-	// (set) Token: 0x06001520 RID: 5408 RVA: 0x0006768C File Offset: 0x0006588C
+	// Token: 0x1700025D RID: 605
+	// (get) Token: 0x0600156B RID: 5483 RVA: 0x0003E7F6 File Offset: 0x0003C9F6
+	// (set) Token: 0x0600156C RID: 5484 RVA: 0x0003E7FE File Offset: 0x0003C9FE
 	bool ISpawnable.IsSpawned { get; set; }
 
-	// Token: 0x17000257 RID: 599
-	// (get) Token: 0x06001521 RID: 5409 RVA: 0x00067695 File Offset: 0x00065895
-	// (set) Token: 0x06001522 RID: 5410 RVA: 0x0006769D File Offset: 0x0006589D
+	// Token: 0x1700025E RID: 606
+	// (get) Token: 0x0600156D RID: 5485 RVA: 0x0003E807 File Offset: 0x0003CA07
+	// (set) Token: 0x0600156E RID: 5486 RVA: 0x0003E80F File Offset: 0x0003CA0F
 	ECosmeticSelectSide ISpawnable.CosmeticSelectedSide { get; set; }
 
-	// Token: 0x06001523 RID: 5411 RVA: 0x000676A6 File Offset: 0x000658A6
+	// Token: 0x0600156F RID: 5487 RVA: 0x0003E818 File Offset: 0x0003CA18
 	void ISpawnable.OnSpawn(VRRig rig)
 	{
 		this.myRig = rig;
 	}
 
-	// Token: 0x06001524 RID: 5412 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001570 RID: 5488 RVA: 0x00030607 File Offset: 0x0002E807
 	void ISpawnable.OnDespawn()
 	{
 	}
 
-	// Token: 0x06001525 RID: 5413 RVA: 0x000676AF File Offset: 0x000658AF
+	// Token: 0x06001571 RID: 5489 RVA: 0x0003E821 File Offset: 0x0003CA21
 	public void OnEnable()
 	{
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.LateUpdate);
 		RoomSystem.LeftRoomEvent = (Action)Delegate.Combine(RoomSystem.LeftRoomEvent, new Action(this.OnLeftRoom));
 	}
 
-	// Token: 0x06001526 RID: 5414 RVA: 0x000676D8 File Offset: 0x000658D8
+	// Token: 0x06001572 RID: 5490 RVA: 0x0003E84A File Offset: 0x0003CA4A
 	public void OnDisable()
 	{
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.LateUpdate);
@@ -42,7 +42,7 @@ public class SlingshotLifeIndicator : MonoBehaviour, IGorillaSliceableSimple, IS
 		RoomSystem.LeftRoomEvent = (Action)Delegate.Remove(RoomSystem.LeftRoomEvent, new Action(this.OnLeftRoom));
 	}
 
-	// Token: 0x06001527 RID: 5415 RVA: 0x00067707 File Offset: 0x00065907
+	// Token: 0x06001573 RID: 5491 RVA: 0x0003E879 File Offset: 0x0003CA79
 	private void SetActive(GameObject obj, bool active)
 	{
 		if (!obj.activeSelf && active)
@@ -55,7 +55,7 @@ public class SlingshotLifeIndicator : MonoBehaviour, IGorillaSliceableSimple, IS
 		}
 	}
 
-	// Token: 0x06001528 RID: 5416 RVA: 0x00067730 File Offset: 0x00065930
+	// Token: 0x06001574 RID: 5492 RVA: 0x000BFF34 File Offset: 0x000BE134
 	public void SliceUpdate()
 	{
 		if (!NetworkSystem.Instance.InRoom || (this.checkedBattle && !this.inBattle))
@@ -100,13 +100,13 @@ public class SlingshotLifeIndicator : MonoBehaviour, IGorillaSliceableSimple, IS
 		this.SetActive(this.indicator3, playerLives >= 3);
 	}
 
-	// Token: 0x06001529 RID: 5417 RVA: 0x00067865 File Offset: 0x00065A65
+	// Token: 0x06001575 RID: 5493 RVA: 0x0003E8A1 File Offset: 0x0003CAA1
 	public void OnLeftRoom()
 	{
 		this.Reset();
 	}
 
-	// Token: 0x0600152A RID: 5418 RVA: 0x0006786D File Offset: 0x00065A6D
+	// Token: 0x06001576 RID: 5494 RVA: 0x0003E8A9 File Offset: 0x0003CAA9
 	public void Reset()
 	{
 		this.bMgr = null;
@@ -114,30 +114,30 @@ public class SlingshotLifeIndicator : MonoBehaviour, IGorillaSliceableSimple, IS
 		this.checkedBattle = false;
 	}
 
-	// Token: 0x0600152C RID: 5420 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x06001578 RID: 5496 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x04001775 RID: 6005
+	// Token: 0x040017BD RID: 6077
 	private VRRig myRig;
 
-	// Token: 0x04001776 RID: 6006
+	// Token: 0x040017BE RID: 6078
 	public GorillaPaintbrawlManager bMgr;
 
-	// Token: 0x04001777 RID: 6007
+	// Token: 0x040017BF RID: 6079
 	public bool checkedBattle;
 
-	// Token: 0x04001778 RID: 6008
+	// Token: 0x040017C0 RID: 6080
 	public bool inBattle;
 
-	// Token: 0x04001779 RID: 6009
+	// Token: 0x040017C1 RID: 6081
 	public GameObject indicator1;
 
-	// Token: 0x0400177A RID: 6010
+	// Token: 0x040017C2 RID: 6082
 	public GameObject indicator2;
 
-	// Token: 0x0400177B RID: 6011
+	// Token: 0x040017C3 RID: 6083
 	public GameObject indicator3;
 }

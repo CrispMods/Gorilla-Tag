@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000484 RID: 1156
+// Token: 0x02000490 RID: 1168
 public class AddCollidersToParticleSystemTriggers : MonoBehaviour
 {
-	// Token: 0x06001BF8 RID: 7160 RVA: 0x00088278 File Offset: 0x00086478
+	// Token: 0x06001C4C RID: 7244 RVA: 0x000DBF28 File Offset: 0x000DA128
 	private void Update()
 	{
 		this.count = 0;
@@ -30,15 +30,15 @@ public class AddCollidersToParticleSystemTriggers : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001F04 RID: 7940
+	// Token: 0x04001F53 RID: 8019
 	public Collider[] collidersToAdd;
 
-	// Token: 0x04001F05 RID: 7941
+	// Token: 0x04001F54 RID: 8020
 	public ParticleSystem particleSystemToUpdate;
 
-	// Token: 0x04001F06 RID: 7942
+	// Token: 0x04001F55 RID: 8021
 	private int count;
 
-	// Token: 0x04001F07 RID: 7943
+	// Token: 0x04001F56 RID: 8022
 	private int index;
 }

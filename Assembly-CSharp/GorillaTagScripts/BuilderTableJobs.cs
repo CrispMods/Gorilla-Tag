@@ -3,10 +3,10 @@ using Unity.Collections;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009A2 RID: 2466
+	// Token: 0x020009C8 RID: 2504
 	public class BuilderTableJobs
 	{
-		// Token: 0x06003CEB RID: 15595 RVA: 0x0011EDE4 File Offset: 0x0011CFE4
+		// Token: 0x06003E03 RID: 15875 RVA: 0x0016121C File Offset: 0x0015F41C
 		public static void BuildTestPieceListForJob(BuilderPiece testPiece, NativeList<BuilderPieceData> testPieceList, NativeList<BuilderGridPlaneData> testGridPlaneList)
 		{
 			if (testPiece == null)
@@ -29,7 +29,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003CEC RID: 15596 RVA: 0x0011EE6C File Offset: 0x0011D06C
+		// Token: 0x06003E04 RID: 15876 RVA: 0x001612A4 File Offset: 0x0015F4A4
 		public static void BuildTestPieceListForJob(BuilderPiece testPiece, NativeList<BuilderGridPlaneData> testGridPlaneList)
 		{
 			if (testPiece == null)

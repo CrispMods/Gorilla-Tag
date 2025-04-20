@@ -2,16 +2,16 @@
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x0200040F RID: 1039
+// Token: 0x0200041A RID: 1050
 public class YorickLook : MonoBehaviour
 {
-	// Token: 0x060019BD RID: 6589 RVA: 0x0007ED05 File Offset: 0x0007CF05
+	// Token: 0x06001A0A RID: 6666 RVA: 0x000418D8 File Offset: 0x0003FAD8
 	private void Awake()
 	{
 		this.overlapRigs = new VRRig[(int)PhotonNetworkController.Instance.GetRoomSize(null)];
 	}
 
-	// Token: 0x060019BE RID: 6590 RVA: 0x0007ED20 File Offset: 0x0007CF20
+	// Token: 0x06001A0B RID: 6667 RVA: 0x000D442C File Offset: 0x000D262C
 	private void LateUpdate()
 	{
 		if (NetworkSystem.Instance.InRoom)
@@ -65,27 +65,27 @@ public class YorickLook : MonoBehaviour
 		this.rightEye.rotation = Quaternion.LookRotation(forward2);
 	}
 
-	// Token: 0x04001CA7 RID: 7335
+	// Token: 0x04001CF0 RID: 7408
 	public Transform leftEye;
 
-	// Token: 0x04001CA8 RID: 7336
+	// Token: 0x04001CF1 RID: 7409
 	public Transform rightEye;
 
-	// Token: 0x04001CA9 RID: 7337
+	// Token: 0x04001CF2 RID: 7410
 	public Transform lookTarget;
 
-	// Token: 0x04001CAA RID: 7338
+	// Token: 0x04001CF3 RID: 7411
 	public float lookRadius = 0.5f;
 
-	// Token: 0x04001CAB RID: 7339
+	// Token: 0x04001CF4 RID: 7412
 	public VRRig[] rigs = new VRRig[10];
 
-	// Token: 0x04001CAC RID: 7340
+	// Token: 0x04001CF5 RID: 7413
 	public VRRig[] overlapRigs;
 
-	// Token: 0x04001CAD RID: 7341
+	// Token: 0x04001CF6 RID: 7414
 	public float rotSpeed = 1f;
 
-	// Token: 0x04001CAE RID: 7342
+	// Token: 0x04001CF7 RID: 7415
 	public float lookAtAngleDegrees = 60f;
 }

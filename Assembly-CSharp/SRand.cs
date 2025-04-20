@@ -3,39 +3,39 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-// Token: 0x020006D1 RID: 1745
+// Token: 0x020006E6 RID: 1766
 [Serializable]
 public struct SRand
 {
-	// Token: 0x06002B35 RID: 11061 RVA: 0x000D5BC3 File Offset: 0x000D3DC3
+	// Token: 0x06002BCB RID: 11211 RVA: 0x0004DA94 File Offset: 0x0004BC94
 	public SRand(int seed)
 	{
 		this._seed = (uint)seed;
 		this._state = this._seed;
 	}
 
-	// Token: 0x06002B36 RID: 11062 RVA: 0x000D5BC3 File Offset: 0x000D3DC3
+	// Token: 0x06002BCC RID: 11212 RVA: 0x0004DA94 File Offset: 0x0004BC94
 	public SRand(uint seed)
 	{
 		this._seed = seed;
 		this._state = this._seed;
 	}
 
-	// Token: 0x06002B37 RID: 11063 RVA: 0x000D5BD8 File Offset: 0x000D3DD8
+	// Token: 0x06002BCD RID: 11213 RVA: 0x0004DAA9 File Offset: 0x0004BCA9
 	public SRand(long seed)
 	{
 		this._seed = (uint)StaticHash.Compute(seed);
 		this._state = this._seed;
 	}
 
-	// Token: 0x06002B38 RID: 11064 RVA: 0x000D5BF2 File Offset: 0x000D3DF2
+	// Token: 0x06002BCE RID: 11214 RVA: 0x0004DAC3 File Offset: 0x0004BCC3
 	public SRand(DateTime seed)
 	{
 		this._seed = (uint)StaticHash.Compute(seed);
 		this._state = this._seed;
 	}
 
-	// Token: 0x06002B39 RID: 11065 RVA: 0x000D5C0C File Offset: 0x000D3E0C
+	// Token: 0x06002BCF RID: 11215 RVA: 0x0004DADD File Offset: 0x0004BCDD
 	public SRand(string seed)
 	{
 		if (string.IsNullOrEmpty(seed))
@@ -46,7 +46,7 @@ public struct SRand
 		this._state = this._seed;
 	}
 
-	// Token: 0x06002B3A RID: 11066 RVA: 0x000D5C3E File Offset: 0x000D3E3E
+	// Token: 0x06002BD0 RID: 11216 RVA: 0x0004DB0F File Offset: 0x0004BD0F
 	public SRand(byte[] seed)
 	{
 		if (seed == null || seed.Length == 0)
@@ -57,13 +57,13 @@ public struct SRand
 		this._state = this._seed;
 	}
 
-	// Token: 0x06002B3B RID: 11067 RVA: 0x000D5C6F File Offset: 0x000D3E6F
+	// Token: 0x06002BD1 RID: 11217 RVA: 0x0004DB40 File Offset: 0x0004BD40
 	public double NextDouble()
 	{
 		return this.NextState() % 268435457U / 268435456.0;
 	}
 
-	// Token: 0x06002B3C RID: 11068 RVA: 0x000D5C89 File Offset: 0x000D3E89
+	// Token: 0x06002BD2 RID: 11218 RVA: 0x0004DB5A File Offset: 0x0004BD5A
 	public double NextDouble(double max)
 	{
 		if (max < 0.0)
@@ -73,7 +73,7 @@ public struct SRand
 		return this.NextDouble() * max;
 	}
 
-	// Token: 0x06002B3D RID: 11069 RVA: 0x000D5CAC File Offset: 0x000D3EAC
+	// Token: 0x06002BD3 RID: 11219 RVA: 0x0012155C File Offset: 0x0011F75C
 	public double NextDouble(double min, double max)
 	{
 		double num = max - min;
@@ -85,43 +85,43 @@ public struct SRand
 		return min + num2;
 	}
 
-	// Token: 0x06002B3E RID: 11070 RVA: 0x000D5CD7 File Offset: 0x000D3ED7
+	// Token: 0x06002BD4 RID: 11220 RVA: 0x0004DB7A File Offset: 0x0004BD7A
 	public float NextFloat()
 	{
 		return (float)this.NextDouble();
 	}
 
-	// Token: 0x06002B3F RID: 11071 RVA: 0x000D5CE0 File Offset: 0x000D3EE0
+	// Token: 0x06002BD5 RID: 11221 RVA: 0x0004DB83 File Offset: 0x0004BD83
 	public float NextFloat(float max)
 	{
 		return (float)this.NextDouble((double)max);
 	}
 
-	// Token: 0x06002B40 RID: 11072 RVA: 0x000D5CEB File Offset: 0x000D3EEB
+	// Token: 0x06002BD6 RID: 11222 RVA: 0x0004DB8E File Offset: 0x0004BD8E
 	public float NextFloat(float min, float max)
 	{
 		return (float)this.NextDouble((double)min, (double)max);
 	}
 
-	// Token: 0x06002B41 RID: 11073 RVA: 0x000D5CF8 File Offset: 0x000D3EF8
+	// Token: 0x06002BD7 RID: 11223 RVA: 0x0004DB9B File Offset: 0x0004BD9B
 	public bool NextBool()
 	{
 		return this.NextState() % 2U == 1U;
 	}
 
-	// Token: 0x06002B42 RID: 11074 RVA: 0x000D5D05 File Offset: 0x000D3F05
+	// Token: 0x06002BD8 RID: 11224 RVA: 0x0004DBA8 File Offset: 0x0004BDA8
 	public uint NextUInt()
 	{
 		return this.NextState();
 	}
 
-	// Token: 0x06002B43 RID: 11075 RVA: 0x000D5D05 File Offset: 0x000D3F05
+	// Token: 0x06002BD9 RID: 11225 RVA: 0x0004DBA8 File Offset: 0x0004BDA8
 	public int NextInt()
 	{
 		return (int)this.NextState();
 	}
 
-	// Token: 0x06002B44 RID: 11076 RVA: 0x000D5D0D File Offset: 0x000D3F0D
+	// Token: 0x06002BDA RID: 11226 RVA: 0x0004DBB0 File Offset: 0x0004BDB0
 	public int NextInt(int max)
 	{
 		if (max <= 0)
@@ -131,7 +131,7 @@ public struct SRand
 		return (int)((ulong)this.NextState() % (ulong)((long)max));
 	}
 
-	// Token: 0x06002B45 RID: 11077 RVA: 0x000D5D20 File Offset: 0x000D3F20
+	// Token: 0x06002BDB RID: 11227 RVA: 0x00121588 File Offset: 0x0011F788
 	public int NextInt(int min, int max)
 	{
 		int num = max - min;
@@ -142,7 +142,7 @@ public struct SRand
 		return min + this.NextInt(num);
 	}
 
-	// Token: 0x06002B46 RID: 11078 RVA: 0x000D5D40 File Offset: 0x000D3F40
+	// Token: 0x06002BDC RID: 11228 RVA: 0x001215A8 File Offset: 0x0011F7A8
 	public int NextIntWithExclusion(int min, int max, int exclude)
 	{
 		int num = max - min - 1;
@@ -158,7 +158,7 @@ public struct SRand
 		return num2 - 1;
 	}
 
-	// Token: 0x06002B47 RID: 11079 RVA: 0x000D5D70 File Offset: 0x000D3F70
+	// Token: 0x06002BDD RID: 11229 RVA: 0x001215D8 File Offset: 0x0011F7D8
 	public int NextIntWithExclusion2(int min, int max, int exclude, int exclude2)
 	{
 		if (exclude == exclude2)
@@ -194,7 +194,7 @@ public struct SRand
 		return num2;
 	}
 
-	// Token: 0x06002B48 RID: 11080 RVA: 0x000D5DD8 File Offset: 0x000D3FD8
+	// Token: 0x06002BDE RID: 11230 RVA: 0x00121640 File Offset: 0x0011F840
 	public Color32 NextColor32()
 	{
 		byte r = (byte)this.NextInt(256);
@@ -203,7 +203,7 @@ public struct SRand
 		return new Color32(r, g, b, byte.MaxValue);
 	}
 
-	// Token: 0x06002B49 RID: 11081 RVA: 0x000D5E18 File Offset: 0x000D4018
+	// Token: 0x06002BDF RID: 11231 RVA: 0x00121680 File Offset: 0x0011F880
 	public Color NextColor()
 	{
 		float r = this.NextFloat();
@@ -212,7 +212,7 @@ public struct SRand
 		return new Color(r, g, b, 1f);
 	}
 
-	// Token: 0x06002B4A RID: 11082 RVA: 0x000D5E48 File Offset: 0x000D4048
+	// Token: 0x06002BE0 RID: 11232 RVA: 0x001216B0 File Offset: 0x0011F8B0
 	public void Shuffle<T>(T[] array)
 	{
 		int i = array.Length;
@@ -228,7 +228,7 @@ public struct SRand
 		}
 	}
 
-	// Token: 0x06002B4B RID: 11083 RVA: 0x000D5E98 File Offset: 0x000D4098
+	// Token: 0x06002BE1 RID: 11233 RVA: 0x00121700 File Offset: 0x0011F900
 	public void Shuffle<T>(List<T> list)
 	{
 		int i = list.Count;
@@ -244,41 +244,41 @@ public struct SRand
 		}
 	}
 
-	// Token: 0x06002B4C RID: 11084 RVA: 0x000D5EF0 File Offset: 0x000D40F0
+	// Token: 0x06002BE2 RID: 11234 RVA: 0x0004DBC3 File Offset: 0x0004BDC3
 	public void Reset()
 	{
 		this._state = this._seed;
 	}
 
-	// Token: 0x06002B4D RID: 11085 RVA: 0x000D5BC3 File Offset: 0x000D3DC3
+	// Token: 0x06002BE3 RID: 11235 RVA: 0x0004DA94 File Offset: 0x0004BC94
 	public void Reset(int seed)
 	{
 		this._seed = (uint)seed;
 		this._state = this._seed;
 	}
 
-	// Token: 0x06002B4E RID: 11086 RVA: 0x000D5BC3 File Offset: 0x000D3DC3
+	// Token: 0x06002BE4 RID: 11236 RVA: 0x0004DA94 File Offset: 0x0004BC94
 	public void Reset(uint seed)
 	{
 		this._seed = seed;
 		this._state = this._seed;
 	}
 
-	// Token: 0x06002B4F RID: 11087 RVA: 0x000D5BD8 File Offset: 0x000D3DD8
+	// Token: 0x06002BE5 RID: 11237 RVA: 0x0004DAA9 File Offset: 0x0004BCA9
 	public void Reset(long seed)
 	{
 		this._seed = (uint)StaticHash.Compute(seed);
 		this._state = this._seed;
 	}
 
-	// Token: 0x06002B50 RID: 11088 RVA: 0x000D5BF2 File Offset: 0x000D3DF2
+	// Token: 0x06002BE6 RID: 11238 RVA: 0x0004DAC3 File Offset: 0x0004BCC3
 	public void Reset(DateTime seed)
 	{
 		this._seed = (uint)StaticHash.Compute(seed);
 		this._state = this._seed;
 	}
 
-	// Token: 0x06002B51 RID: 11089 RVA: 0x000D5C0C File Offset: 0x000D3E0C
+	// Token: 0x06002BE7 RID: 11239 RVA: 0x0004DADD File Offset: 0x0004BCDD
 	public void Reset(string seed)
 	{
 		if (string.IsNullOrEmpty(seed))
@@ -289,7 +289,7 @@ public struct SRand
 		this._state = this._seed;
 	}
 
-	// Token: 0x06002B52 RID: 11090 RVA: 0x000D5C3E File Offset: 0x000D3E3E
+	// Token: 0x06002BE8 RID: 11240 RVA: 0x0004DB0F File Offset: 0x0004BD0F
 	public void Reset(byte[] seed)
 	{
 		if (seed == null || seed.Length == 0)
@@ -300,14 +300,14 @@ public struct SRand
 		this._state = this._seed;
 	}
 
-	// Token: 0x06002B53 RID: 11091 RVA: 0x000D5F00 File Offset: 0x000D4100
+	// Token: 0x06002BE9 RID: 11241 RVA: 0x00121758 File Offset: 0x0011F958
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private uint NextState()
 	{
 		return this._state = this.Mix(this._state + 184402071U);
 	}
 
-	// Token: 0x06002B54 RID: 11092 RVA: 0x000D5F28 File Offset: 0x000D4128
+	// Token: 0x06002BEA RID: 11242 RVA: 0x0004DBD1 File Offset: 0x0004BDD1
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	private uint Mix(uint x)
 	{
@@ -317,13 +317,13 @@ public struct SRand
 		return x;
 	}
 
-	// Token: 0x06002B55 RID: 11093 RVA: 0x000D5F4F File Offset: 0x000D414F
+	// Token: 0x06002BEB RID: 11243 RVA: 0x0004DBF8 File Offset: 0x0004BDF8
 	public override int GetHashCode()
 	{
 		return StaticHash.Compute((int)this._seed, (int)this._state);
 	}
 
-	// Token: 0x06002B56 RID: 11094 RVA: 0x000D5F64 File Offset: 0x000D4164
+	// Token: 0x06002BEC RID: 11244 RVA: 0x00121780 File Offset: 0x0011F980
 	public override string ToString()
 	{
 		return string.Format("{0} {{ {1}: {2:X8} {3}: {4:X8} }}", new object[]
@@ -336,59 +336,59 @@ public struct SRand
 		});
 	}
 
-	// Token: 0x06002B57 RID: 11095 RVA: 0x000D5FB5 File Offset: 0x000D41B5
+	// Token: 0x06002BED RID: 11245 RVA: 0x0004DC0B File Offset: 0x0004BE0B
 	public static SRand New()
 	{
 		return new SRand(DateTime.UtcNow);
 	}
 
-	// Token: 0x06002B58 RID: 11096 RVA: 0x000D5FC1 File Offset: 0x000D41C1
+	// Token: 0x06002BEE RID: 11246 RVA: 0x0004DC17 File Offset: 0x0004BE17
 	public static explicit operator SRand(int seed)
 	{
 		return new SRand(seed);
 	}
 
-	// Token: 0x06002B59 RID: 11097 RVA: 0x000D5FC9 File Offset: 0x000D41C9
+	// Token: 0x06002BEF RID: 11247 RVA: 0x0004DC1F File Offset: 0x0004BE1F
 	public static explicit operator SRand(uint seed)
 	{
 		return new SRand(seed);
 	}
 
-	// Token: 0x06002B5A RID: 11098 RVA: 0x000D5FD1 File Offset: 0x000D41D1
+	// Token: 0x06002BF0 RID: 11248 RVA: 0x0004DC27 File Offset: 0x0004BE27
 	public static explicit operator SRand(long seed)
 	{
 		return new SRand(seed);
 	}
 
-	// Token: 0x06002B5B RID: 11099 RVA: 0x000D5FD9 File Offset: 0x000D41D9
+	// Token: 0x06002BF1 RID: 11249 RVA: 0x0004DC2F File Offset: 0x0004BE2F
 	public static explicit operator SRand(string seed)
 	{
 		return new SRand(seed);
 	}
 
-	// Token: 0x06002B5C RID: 11100 RVA: 0x000D5FE1 File Offset: 0x000D41E1
+	// Token: 0x06002BF2 RID: 11250 RVA: 0x0004DC37 File Offset: 0x0004BE37
 	public static explicit operator SRand(byte[] seed)
 	{
 		return new SRand(seed);
 	}
 
-	// Token: 0x06002B5D RID: 11101 RVA: 0x000D5FE9 File Offset: 0x000D41E9
+	// Token: 0x06002BF3 RID: 11251 RVA: 0x0004DC3F File Offset: 0x0004BE3F
 	public static explicit operator SRand(DateTime seed)
 	{
 		return new SRand(seed);
 	}
 
-	// Token: 0x040030AB RID: 12459
+	// Token: 0x04003148 RID: 12616
 	private const uint MAX_PLUS_ONE = 268435457U;
 
-	// Token: 0x040030AC RID: 12460
+	// Token: 0x04003149 RID: 12617
 	private const double MAX_AS_DOUBLE = 268435456.0;
 
-	// Token: 0x040030AD RID: 12461
+	// Token: 0x0400314A RID: 12618
 	[SerializeField]
 	private uint _seed;
 
-	// Token: 0x040030AE RID: 12462
+	// Token: 0x0400314B RID: 12619
 	[SerializeField]
 	private uint _state;
 }

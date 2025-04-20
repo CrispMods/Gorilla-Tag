@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001C1 RID: 449
+// Token: 0x020001CC RID: 460
 public class HoldableLeftHandReference : MonoBehaviour
 {
 }

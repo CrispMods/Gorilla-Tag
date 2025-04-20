@@ -3,21 +3,21 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 
-// Token: 0x020005AD RID: 1453
+// Token: 0x020005BB RID: 1467
 public class GTSignalListener : MonoBehaviour
 {
-	// Token: 0x170003AD RID: 941
-	// (get) Token: 0x0600240C RID: 9228 RVA: 0x000B3773 File Offset: 0x000B1973
-	// (set) Token: 0x0600240D RID: 9229 RVA: 0x000B377B File Offset: 0x000B197B
+	// Token: 0x170003B5 RID: 949
+	// (get) Token: 0x0600246C RID: 9324 RVA: 0x00048B10 File Offset: 0x00046D10
+	// (set) Token: 0x0600246D RID: 9325 RVA: 0x00048B18 File Offset: 0x00046D18
 	public int rigActorID { get; private set; } = -1;
 
-	// Token: 0x0600240E RID: 9230 RVA: 0x000B3784 File Offset: 0x000B1984
+	// Token: 0x0600246E RID: 9326 RVA: 0x00048B21 File Offset: 0x00046D21
 	private void Awake()
 	{
 		this.OnListenerAwake();
 	}
 
-	// Token: 0x0600240F RID: 9231 RVA: 0x000B378C File Offset: 0x000B198C
+	// Token: 0x0600246F RID: 9327 RVA: 0x00048B29 File Offset: 0x00046D29
 	private void OnEnable()
 	{
 		this.RefreshActorID();
@@ -25,14 +25,14 @@ public class GTSignalListener : MonoBehaviour
 		GTSignalRelay.Register(this);
 	}
 
-	// Token: 0x06002410 RID: 9232 RVA: 0x000B37A0 File Offset: 0x000B19A0
+	// Token: 0x06002470 RID: 9328 RVA: 0x00048B3D File Offset: 0x00046D3D
 	private void OnDisable()
 	{
 		GTSignalRelay.Unregister(this);
 		this.OnListenerDisable();
 	}
 
-	// Token: 0x06002411 RID: 9233 RVA: 0x000B37AE File Offset: 0x000B19AE
+	// Token: 0x06002471 RID: 9329 RVA: 0x00048B4B File Offset: 0x00046D4B
 	private void RefreshActorID()
 	{
 		this.rig = base.GetComponentInParent<VRRig>(true);
@@ -49,61 +49,61 @@ public class GTSignalListener : MonoBehaviour
 		this.rigActorID = rigActorID;
 	}
 
-	// Token: 0x06002412 RID: 9234 RVA: 0x000B37EB File Offset: 0x000B19EB
+	// Token: 0x06002472 RID: 9330 RVA: 0x00048B88 File Offset: 0x00046D88
 	public virtual bool IsReady()
 	{
 		return this._callLimits.CheckCallTime(Time.time);
 	}
 
-	// Token: 0x06002413 RID: 9235 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002473 RID: 9331 RVA: 0x00030607 File Offset: 0x0002E807
 	protected virtual void OnListenerAwake()
 	{
 	}
 
-	// Token: 0x06002414 RID: 9236 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002474 RID: 9332 RVA: 0x00030607 File Offset: 0x0002E807
 	protected virtual void OnListenerEnable()
 	{
 	}
 
-	// Token: 0x06002415 RID: 9237 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002475 RID: 9333 RVA: 0x00030607 File Offset: 0x0002E807
 	protected virtual void OnListenerDisable()
 	{
 	}
 
-	// Token: 0x06002416 RID: 9238 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06002476 RID: 9334 RVA: 0x00030607 File Offset: 0x0002E807
 	public virtual void HandleSignalReceived(int sender, object[] args)
 	{
 	}
 
-	// Token: 0x040027FA RID: 10234
+	// Token: 0x04002856 RID: 10326
 	[Space]
 	public GTSignalID signal;
 
-	// Token: 0x040027FB RID: 10235
+	// Token: 0x04002857 RID: 10327
 	[Space]
 	public VRRig rig;
 
-	// Token: 0x040027FD RID: 10237
+	// Token: 0x04002859 RID: 10329
 	[Space]
 	public bool deafen;
 
-	// Token: 0x040027FE RID: 10238
+	// Token: 0x0400285A RID: 10330
 	[FormerlySerializedAs("listenToRigOnly")]
 	public bool listenToSelfOnly;
 
-	// Token: 0x040027FF RID: 10239
+	// Token: 0x0400285B RID: 10331
 	public bool ignoreSelf;
 
-	// Token: 0x04002800 RID: 10240
+	// Token: 0x0400285C RID: 10332
 	[Space]
 	public bool callUnityEvent = true;
 
-	// Token: 0x04002801 RID: 10241
+	// Token: 0x0400285D RID: 10333
 	[Space]
 	[SerializeField]
 	private CallLimiter _callLimits = new CallLimiter(10, 0.25f, 0.5f);
 
-	// Token: 0x04002802 RID: 10242
+	// Token: 0x0400285E RID: 10334
 	[Space]
 	public UnityEvent onSignalReceived;
 }

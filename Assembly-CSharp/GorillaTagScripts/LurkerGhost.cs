@@ -11,11 +11,11 @@ using UnityEngine.Events;
 
 namespace GorillaTagScripts
 {
-	// Token: 0x020009C7 RID: 2503
+	// Token: 0x020009ED RID: 2541
 	[NetworkBehaviourWeaved(6)]
 	public class LurkerGhost : NetworkComponent
 	{
-		// Token: 0x06003E58 RID: 15960 RVA: 0x001273E2 File Offset: 0x001255E2
+		// Token: 0x06003F70 RID: 16240 RVA: 0x00059665 File Offset: 0x00057865
 		protected override void Awake()
 		{
 			base.Awake();
@@ -25,7 +25,7 @@ namespace GorillaTagScripts
 			this.targetVRRig = null;
 		}
 
-		// Token: 0x06003E59 RID: 15961 RVA: 0x0012740A File Offset: 0x0012560A
+		// Token: 0x06003F71 RID: 16241 RVA: 0x0005968D File Offset: 0x0005788D
 		protected override void Start()
 		{
 			base.Start();
@@ -34,14 +34,14 @@ namespace GorillaTagScripts
 			this.ChangeState(LurkerGhost.ghostState.patrol);
 		}
 
-		// Token: 0x06003E5A RID: 15962 RVA: 0x00127430 File Offset: 0x00125630
+		// Token: 0x06003F72 RID: 16242 RVA: 0x000596B3 File Offset: 0x000578B3
 		private void LateUpdate()
 		{
 			this.UpdateState();
 			this.UpdateGhostVisibility();
 		}
 
-		// Token: 0x06003E5B RID: 15963 RVA: 0x00127440 File Offset: 0x00125640
+		// Token: 0x06003F73 RID: 16243 RVA: 0x00168810 File Offset: 0x00166A10
 		private void PickNextWaypoint()
 		{
 			if (this.waypoints.Count == 0 || this.lastWaypointRegion == null || !this.lastWaypointRegion.IsLocalPlayerInZone())
@@ -63,13 +63,13 @@ namespace GorillaTagScripts
 					this.waypoints.Add(item);
 				}
 			}
-			int index = Random.Range(0, this.waypoints.Count);
+			int index = UnityEngine.Random.Range(0, this.waypoints.Count);
 			this.currentWaypoint = this.waypoints[index];
 			this.targetRotation = Quaternion.LookRotation(this.currentWaypoint.position - base.transform.position);
 			this.waypoints.RemoveAt(index);
 		}
 
-		// Token: 0x06003E5C RID: 15964 RVA: 0x00127560 File Offset: 0x00125760
+		// Token: 0x06003F74 RID: 16244 RVA: 0x00168930 File Offset: 0x00166B30
 		private void Patrol()
 		{
 			Transform transform = this.currentWaypoint;
@@ -80,7 +80,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E5D RID: 15965 RVA: 0x001275D8 File Offset: 0x001257D8
+		// Token: 0x06003F75 RID: 16245 RVA: 0x001689A8 File Offset: 0x00166BA8
 		private void PlaySound(AudioClip clip, bool loop)
 		{
 			if (this.audioSource && this.audioSource.isPlaying)
@@ -95,7 +95,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E5E RID: 15966 RVA: 0x00127644 File Offset: 0x00125844
+		// Token: 0x06003F76 RID: 16246 RVA: 0x00168A14 File Offset: 0x00166C14
 		private bool PickPlayer(float maxDistance)
 		{
 			if (base.IsMine)
@@ -113,7 +113,7 @@ namespace GorillaTagScripts
 				this.targetVRRig = null;
 				if (this.possibleTargets.Count > 0)
 				{
-					int index = Random.Range(0, this.possibleTargets.Count);
+					int index = UnityEngine.Random.Range(0, this.possibleTargets.Count);
 					this.PickPlayer(this.possibleTargets[index]);
 				}
 			}
@@ -126,7 +126,7 @@ namespace GorillaTagScripts
 			return this.targetPlayer != null && this.targetTransform != null;
 		}
 
-		// Token: 0x06003E5F RID: 15967 RVA: 0x00127774 File Offset: 0x00125974
+		// Token: 0x06003F77 RID: 16247 RVA: 0x00168B44 File Offset: 0x00166D44
 		private void PickPlayer(NetPlayer player)
 		{
 			int num = GorillaParent.instance.vrrigs.FindIndex((VRRig x) => x.creator != null && x.creator == player);
@@ -138,7 +138,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E60 RID: 15968 RVA: 0x0012781C File Offset: 0x00125A1C
+		// Token: 0x06003F78 RID: 16248 RVA: 0x00168BEC File Offset: 0x00166DEC
 		private void SeekPlayer()
 		{
 			if (this.targetTransform == null)
@@ -152,14 +152,14 @@ namespace GorillaTagScripts
 			base.transform.rotation = Quaternion.RotateTowards(base.transform.rotation, this.targetRotation, 720f * Time.deltaTime);
 		}
 
-		// Token: 0x06003E61 RID: 15969 RVA: 0x001278F0 File Offset: 0x00125AF0
+		// Token: 0x06003F79 RID: 16249 RVA: 0x00168CC0 File Offset: 0x00166EC0
 		private void ChargeAtPlayer()
 		{
 			base.transform.position = Vector3.MoveTowards(base.transform.position, this.targetPosition, this.chargeSpeed * Time.deltaTime);
 			base.transform.rotation = Quaternion.RotateTowards(base.transform.rotation, this.targetRotation, 720f * Time.deltaTime);
 		}
 
-		// Token: 0x06003E62 RID: 15970 RVA: 0x00127958 File Offset: 0x00125B58
+		// Token: 0x06003F7A RID: 16250 RVA: 0x00168D28 File Offset: 0x00166F28
 		private void UpdateGhostVisibility()
 		{
 			switch (this.currentState)
@@ -194,7 +194,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E63 RID: 15971 RVA: 0x00127A7C File Offset: 0x00125C7C
+		// Token: 0x06003F7B RID: 16251 RVA: 0x00168E4C File Offset: 0x0016704C
 		private void HauntObjects()
 		{
 			Collider[] array = new Collider[20];
@@ -212,7 +212,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E64 RID: 15972 RVA: 0x00127AE0 File Offset: 0x00125CE0
+		// Token: 0x06003F7C RID: 16252 RVA: 0x00168EB0 File Offset: 0x001670B0
 		private void ChangeState(LurkerGhost.ghostState newState)
 		{
 			this.currentState = newState;
@@ -222,7 +222,7 @@ namespace GorillaTagScripts
 			case LurkerGhost.ghostState.patrol:
 				this.PlaySound(this.patrolAudio, true);
 				this.passingPlayer = null;
-				this.cooldownTimeRemaining = Random.Range(this.cooldownDuration, this.maxCooldownDuration);
+				this.cooldownTimeRemaining = UnityEngine.Random.Range(this.cooldownDuration, this.maxCooldownDuration);
 				this.currentRepeatHuntTimes = 0;
 				break;
 			case LurkerGhost.ghostState.charge:
@@ -253,14 +253,14 @@ namespace GorillaTagScripts
 			this.UpdateGhostVisibility();
 		}
 
-		// Token: 0x06003E65 RID: 15973 RVA: 0x00127C5E File Offset: 0x00125E5E
+		// Token: 0x06003F7D RID: 16253 RVA: 0x000596C1 File Offset: 0x000578C1
 		private void OnDestroy()
 		{
 			NetworkBehaviourUtils.InternalOnDestroy(this);
 			Shader.SetGlobalFloat(this._BlackAndWhite, 0f);
 		}
 
-		// Token: 0x06003E66 RID: 15974 RVA: 0x00127C7C File Offset: 0x00125E7C
+		// Token: 0x06003F7E RID: 16254 RVA: 0x00169030 File Offset: 0x00167230
 		private void UpdateState()
 		{
 			switch (this.currentState)
@@ -338,9 +338,9 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x1700064F RID: 1615
-		// (get) Token: 0x06003E67 RID: 15975 RVA: 0x00127F89 File Offset: 0x00126189
-		// (set) Token: 0x06003E68 RID: 15976 RVA: 0x00127FB3 File Offset: 0x001261B3
+		// Token: 0x17000667 RID: 1639
+		// (get) Token: 0x06003F7F RID: 16255 RVA: 0x000596DE File Offset: 0x000578DE
+		// (set) Token: 0x06003F80 RID: 16256 RVA: 0x00059708 File Offset: 0x00057908
 		[Networked]
 		[NetworkedWeaved(0, 6)]
 		private unsafe LurkerGhost.LurkerGhostData Data
@@ -363,19 +363,19 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E69 RID: 15977 RVA: 0x00127FDE File Offset: 0x001261DE
+		// Token: 0x06003F81 RID: 16257 RVA: 0x00059733 File Offset: 0x00057933
 		public override void WriteDataFusion()
 		{
 			this.Data = new LurkerGhost.LurkerGhostData(this.currentState, this.currentIndex, this.targetPlayer.ActorNumber, this.targetPosition);
 		}
 
-		// Token: 0x06003E6A RID: 15978 RVA: 0x00128008 File Offset: 0x00126208
+		// Token: 0x06003F82 RID: 16258 RVA: 0x00169340 File Offset: 0x00167540
 		public override void ReadDataFusion()
 		{
 			this.ReadDataShared(this.Data.CurrentState, this.Data.CurrentIndex, this.Data.TargetActor, this.Data.TargetPos);
 		}
 
-		// Token: 0x06003E6B RID: 15979 RVA: 0x00128054 File Offset: 0x00126254
+		// Token: 0x06003F83 RID: 16259 RVA: 0x0016938C File Offset: 0x0016758C
 		protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 		{
 			if (info.Sender != PhotonNetwork.MasterClient)
@@ -395,7 +395,7 @@ namespace GorillaTagScripts
 			stream.SendNext(this.targetPosition);
 		}
 
-		// Token: 0x06003E6C RID: 15980 RVA: 0x001280D0 File Offset: 0x001262D0
+		// Token: 0x06003F84 RID: 16260 RVA: 0x00169408 File Offset: 0x00167608
 		protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 		{
 			if (info.Sender != PhotonNetwork.MasterClient)
@@ -409,7 +409,7 @@ namespace GorillaTagScripts
 			this.ReadDataShared(state, index, targetActorNumber, targetPos);
 		}
 
-		// Token: 0x06003E6D RID: 15981 RVA: 0x00128128 File Offset: 0x00126328
+		// Token: 0x06003F85 RID: 16261 RVA: 0x00169460 File Offset: 0x00167660
 		private void ReadDataShared(LurkerGhost.ghostState state, int index, int targetActorNumber, Vector3 targetPos)
 		{
 			LurkerGhost.ghostState ghostState = this.currentState;
@@ -441,7 +441,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E6E RID: 15982 RVA: 0x00128209 File Offset: 0x00126409
+		// Token: 0x06003F86 RID: 16262 RVA: 0x0005975D File Offset: 0x0005795D
 		public override void OnOwnerChange(Player newOwner, Player previousOwner)
 		{
 			base.OnOwnerChange(newOwner, previousOwner);
@@ -451,7 +451,7 @@ namespace GorillaTagScripts
 			}
 		}
 
-		// Token: 0x06003E70 RID: 15984 RVA: 0x0012832C File Offset: 0x0012652C
+		// Token: 0x06003F88 RID: 16264 RVA: 0x0005977B File Offset: 0x0005797B
 		[WeaverGenerated]
 		public override void CopyBackingFieldsToState(bool A_1)
 		{
@@ -459,7 +459,7 @@ namespace GorillaTagScripts
 			this.Data = this._Data;
 		}
 
-		// Token: 0x06003E71 RID: 15985 RVA: 0x00128344 File Offset: 0x00126544
+		// Token: 0x06003F89 RID: 16265 RVA: 0x00059793 File Offset: 0x00057993
 		[WeaverGenerated]
 		public override void CopyStateToBackingFields()
 		{
@@ -467,224 +467,224 @@ namespace GorillaTagScripts
 			this._Data = this.Data;
 		}
 
-		// Token: 0x04003F87 RID: 16263
+		// Token: 0x04004061 RID: 16481
 		public float patrolSpeed = 3f;
 
-		// Token: 0x04003F88 RID: 16264
+		// Token: 0x04004062 RID: 16482
 		public float seekSpeed = 6f;
 
-		// Token: 0x04003F89 RID: 16265
+		// Token: 0x04004063 RID: 16483
 		public float chargeSpeed = 6f;
 
-		// Token: 0x04003F8A RID: 16266
+		// Token: 0x04004064 RID: 16484
 		[Tooltip("Cooldown until the next time the ghost needs to hunt a new player")]
 		public float cooldownDuration = 10f;
 
-		// Token: 0x04003F8B RID: 16267
+		// Token: 0x04004065 RID: 16485
 		[Tooltip("Max Cooldown (randomized)")]
 		public float maxCooldownDuration = 10f;
 
-		// Token: 0x04003F8C RID: 16268
+		// Token: 0x04004066 RID: 16486
 		[Tooltip("How long the possession effects should last")]
 		public float PossessionDuration = 15f;
 
-		// Token: 0x04003F8D RID: 16269
+		// Token: 0x04004067 RID: 16487
 		[Tooltip("Hunted objects within this radius will get triggered ")]
 		public float sphereColliderRadius = 2f;
 
-		// Token: 0x04003F8E RID: 16270
+		// Token: 0x04004068 RID: 16488
 		[Tooltip("Maximum distance to the possible player to get hunted")]
 		public float maxHuntDistance = 20f;
 
-		// Token: 0x04003F8F RID: 16271
+		// Token: 0x04004069 RID: 16489
 		[Tooltip("Minimum distance from the player to start the possession effects")]
 		public float minCatchDistance = 2f;
 
-		// Token: 0x04003F90 RID: 16272
+		// Token: 0x0400406A RID: 16490
 		[Tooltip("Maximum distance to the possible player to get repeat hunted")]
 		public float maxRepeatHuntDistance = 5f;
 
-		// Token: 0x04003F91 RID: 16273
+		// Token: 0x0400406B RID: 16491
 		[Tooltip("Maximum times the lurker can haunt a nearby player before going back on cooldown")]
 		public int maxRepeatHuntTimes = 3;
 
-		// Token: 0x04003F92 RID: 16274
+		// Token: 0x0400406C RID: 16492
 		[Tooltip("Time in seconds before a haunted player can pass the lurker to another player by tagging")]
 		public float tagCoolDown = 2f;
 
-		// Token: 0x04003F93 RID: 16275
+		// Token: 0x0400406D RID: 16493
 		[Tooltip("UP & DOWN, IN & OUT")]
 		public Vector3 SpookyMagicNumbers = new Vector3(1f, 1f, 1f);
 
-		// Token: 0x04003F94 RID: 16276
+		// Token: 0x0400406E RID: 16494
 		[Tooltip("SPIN, SPIN, SPIN, SPIN")]
 		public Vector4 HauntedMagicNumbers = new Vector4(1f, 2f, 3f, 1f);
 
-		// Token: 0x04003F95 RID: 16277
+		// Token: 0x0400406F RID: 16495
 		[Tooltip("Haptic vibration when haunted by the ghost")]
 		public float hapticStrength = 1f;
 
-		// Token: 0x04003F96 RID: 16278
+		// Token: 0x04004070 RID: 16496
 		public float hapticDuration = 1.5f;
 
-		// Token: 0x04003F97 RID: 16279
+		// Token: 0x04004071 RID: 16497
 		public GameObject waypointsContainer;
 
-		// Token: 0x04003F98 RID: 16280
+		// Token: 0x04004072 RID: 16498
 		private ZoneBasedObject[] waypointRegions;
 
-		// Token: 0x04003F99 RID: 16281
+		// Token: 0x04004073 RID: 16499
 		private ZoneBasedObject lastWaypointRegion;
 
-		// Token: 0x04003F9A RID: 16282
+		// Token: 0x04004074 RID: 16500
 		private List<Transform> waypoints = new List<Transform>();
 
-		// Token: 0x04003F9B RID: 16283
+		// Token: 0x04004075 RID: 16501
 		private Transform currentWaypoint;
 
-		// Token: 0x04003F9C RID: 16284
+		// Token: 0x04004076 RID: 16502
 		public Material visibleMaterial;
 
-		// Token: 0x04003F9D RID: 16285
+		// Token: 0x04004077 RID: 16503
 		public Material scryableMaterial;
 
-		// Token: 0x04003F9E RID: 16286
+		// Token: 0x04004078 RID: 16504
 		public Material visibleMaterialBones;
 
-		// Token: 0x04003F9F RID: 16287
+		// Token: 0x04004079 RID: 16505
 		public Material scryableMaterialBones;
 
-		// Token: 0x04003FA0 RID: 16288
+		// Token: 0x0400407A RID: 16506
 		public MeshRenderer meshRenderer;
 
-		// Token: 0x04003FA1 RID: 16289
+		// Token: 0x0400407B RID: 16507
 		public MeshRenderer bonesMeshRenderer;
 
-		// Token: 0x04003FA2 RID: 16290
+		// Token: 0x0400407C RID: 16508
 		[SerializeField]
 		private AudioSource audioSource;
 
-		// Token: 0x04003FA3 RID: 16291
+		// Token: 0x0400407D RID: 16509
 		public AudioClip patrolAudio;
 
-		// Token: 0x04003FA4 RID: 16292
+		// Token: 0x0400407E RID: 16510
 		public AudioClip huntAudio;
 
-		// Token: 0x04003FA5 RID: 16293
+		// Token: 0x0400407F RID: 16511
 		public AudioClip possessedAudio;
 
-		// Token: 0x04003FA6 RID: 16294
+		// Token: 0x04004080 RID: 16512
 		public ThrowableSetDressing scryingGlass;
 
-		// Token: 0x04003FA7 RID: 16295
+		// Token: 0x04004081 RID: 16513
 		public float scryingAngerAngle;
 
-		// Token: 0x04003FA8 RID: 16296
+		// Token: 0x04004082 RID: 16514
 		public float scryingAngerDelay;
 
-		// Token: 0x04003FA9 RID: 16297
+		// Token: 0x04004083 RID: 16515
 		public float seekAheadDistance;
 
-		// Token: 0x04003FAA RID: 16298
+		// Token: 0x04004084 RID: 16516
 		public float seekCloseEnoughDistance;
 
-		// Token: 0x04003FAB RID: 16299
+		// Token: 0x04004085 RID: 16517
 		private float scryingAngerAfterTimestamp;
 
-		// Token: 0x04003FAC RID: 16300
+		// Token: 0x04004086 RID: 16518
 		private int currentRepeatHuntTimes;
 
-		// Token: 0x04003FAD RID: 16301
+		// Token: 0x04004087 RID: 16519
 		public UnityAction<GameObject> TriggerHauntedObjects;
 
-		// Token: 0x04003FAE RID: 16302
+		// Token: 0x04004088 RID: 16520
 		private int currentIndex;
 
-		// Token: 0x04003FAF RID: 16303
+		// Token: 0x04004089 RID: 16521
 		private LurkerGhost.ghostState currentState;
 
-		// Token: 0x04003FB0 RID: 16304
+		// Token: 0x0400408A RID: 16522
 		private float cooldownTimeRemaining;
 
-		// Token: 0x04003FB1 RID: 16305
+		// Token: 0x0400408B RID: 16523
 		private List<NetPlayer> possibleTargets;
 
-		// Token: 0x04003FB2 RID: 16306
+		// Token: 0x0400408C RID: 16524
 		private NetPlayer targetPlayer;
 
-		// Token: 0x04003FB3 RID: 16307
+		// Token: 0x0400408D RID: 16525
 		private Transform targetTransform;
 
-		// Token: 0x04003FB4 RID: 16308
+		// Token: 0x0400408E RID: 16526
 		private float huntedPassedTime;
 
-		// Token: 0x04003FB5 RID: 16309
+		// Token: 0x0400408F RID: 16527
 		private Vector3 targetPosition;
 
-		// Token: 0x04003FB6 RID: 16310
+		// Token: 0x04004090 RID: 16528
 		private Quaternion targetRotation;
 
-		// Token: 0x04003FB7 RID: 16311
+		// Token: 0x04004091 RID: 16529
 		private VRRig targetVRRig;
 
-		// Token: 0x04003FB8 RID: 16312
+		// Token: 0x04004092 RID: 16530
 		private ShaderHashId _BlackAndWhite = "_BlackAndWhite";
 
-		// Token: 0x04003FB9 RID: 16313
+		// Token: 0x04004093 RID: 16531
 		private VRRig lastHauntedVRRig;
 
-		// Token: 0x04003FBA RID: 16314
+		// Token: 0x04004094 RID: 16532
 		private float nextTagTime;
 
-		// Token: 0x04003FBB RID: 16315
+		// Token: 0x04004095 RID: 16533
 		private NetPlayer passingPlayer;
 
-		// Token: 0x04003FBC RID: 16316
+		// Token: 0x04004096 RID: 16534
 		[SerializeField]
 		private bool hauntNeighbors = true;
 
-		// Token: 0x04003FBD RID: 16317
+		// Token: 0x04004097 RID: 16535
 		[WeaverGenerated]
 		[DefaultForProperty("Data", 0, 6)]
 		[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
 		private LurkerGhost.LurkerGhostData _Data;
 
-		// Token: 0x020009C8 RID: 2504
+		// Token: 0x020009EE RID: 2542
 		private enum ghostState
 		{
-			// Token: 0x04003FBF RID: 16319
+			// Token: 0x04004099 RID: 16537
 			patrol,
-			// Token: 0x04003FC0 RID: 16320
+			// Token: 0x0400409A RID: 16538
 			seek,
-			// Token: 0x04003FC1 RID: 16321
+			// Token: 0x0400409B RID: 16539
 			charge,
-			// Token: 0x04003FC2 RID: 16322
+			// Token: 0x0400409C RID: 16540
 			possess
 		}
 
-		// Token: 0x020009C9 RID: 2505
+		// Token: 0x020009EF RID: 2543
 		[NetworkStructWeaved(6)]
 		[StructLayout(LayoutKind.Explicit, Size = 24)]
 		private struct LurkerGhostData : INetworkStruct
 		{
-			// Token: 0x17000650 RID: 1616
-			// (get) Token: 0x06003E72 RID: 15986 RVA: 0x00128358 File Offset: 0x00126558
-			// (set) Token: 0x06003E73 RID: 15987 RVA: 0x00128360 File Offset: 0x00126560
+			// Token: 0x17000668 RID: 1640
+			// (get) Token: 0x06003F8A RID: 16266 RVA: 0x000597A7 File Offset: 0x000579A7
+			// (set) Token: 0x06003F8B RID: 16267 RVA: 0x000597AF File Offset: 0x000579AF
 			public LurkerGhost.ghostState CurrentState { readonly get; set; }
 
-			// Token: 0x17000651 RID: 1617
-			// (get) Token: 0x06003E74 RID: 15988 RVA: 0x00128369 File Offset: 0x00126569
-			// (set) Token: 0x06003E75 RID: 15989 RVA: 0x00128371 File Offset: 0x00126571
+			// Token: 0x17000669 RID: 1641
+			// (get) Token: 0x06003F8C RID: 16268 RVA: 0x000597B8 File Offset: 0x000579B8
+			// (set) Token: 0x06003F8D RID: 16269 RVA: 0x000597C0 File Offset: 0x000579C0
 			public int CurrentIndex { readonly get; set; }
 
-			// Token: 0x17000652 RID: 1618
-			// (get) Token: 0x06003E76 RID: 15990 RVA: 0x0012837A File Offset: 0x0012657A
-			// (set) Token: 0x06003E77 RID: 15991 RVA: 0x00128382 File Offset: 0x00126582
+			// Token: 0x1700066A RID: 1642
+			// (get) Token: 0x06003F8E RID: 16270 RVA: 0x000597C9 File Offset: 0x000579C9
+			// (set) Token: 0x06003F8F RID: 16271 RVA: 0x000597D1 File Offset: 0x000579D1
 			public int TargetActor { readonly get; set; }
 
-			// Token: 0x17000653 RID: 1619
-			// (get) Token: 0x06003E78 RID: 15992 RVA: 0x0012838B File Offset: 0x0012658B
-			// (set) Token: 0x06003E79 RID: 15993 RVA: 0x0012839D File Offset: 0x0012659D
+			// Token: 0x1700066B RID: 1643
+			// (get) Token: 0x06003F90 RID: 16272 RVA: 0x000597DA File Offset: 0x000579DA
+			// (set) Token: 0x06003F91 RID: 16273 RVA: 0x000597EC File Offset: 0x000579EC
 			[Networked]
 			public unsafe Vector3 TargetPos
 			{
@@ -698,7 +698,7 @@ namespace GorillaTagScripts
 				}
 			}
 
-			// Token: 0x06003E7A RID: 15994 RVA: 0x001283B0 File Offset: 0x001265B0
+			// Token: 0x06003F92 RID: 16274 RVA: 0x000597FF File Offset: 0x000579FF
 			public LurkerGhostData(LurkerGhost.ghostState state, int index, int actor, Vector3 pos)
 			{
 				this.CurrentState = state;
@@ -707,7 +707,7 @@ namespace GorillaTagScripts
 				this.TargetPos = pos;
 			}
 
-			// Token: 0x04003FC6 RID: 16326
+			// Token: 0x040040A0 RID: 16544
 			[FixedBufferProperty(typeof(Vector3), typeof(UnityValueSurrogate@ReaderWriter@UnityEngine_Vector3), 0, order = -2147483647)]
 			[WeaverGenerated]
 			[SerializeField]

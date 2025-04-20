@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004C1 RID: 1217
+// Token: 0x020004CE RID: 1230
 public class BuilderEnv : MonoBehaviour
 {
-	// Token: 0x06001D88 RID: 7560 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001DE1 RID: 7649 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Start()
 	{
 	}
 
-	// Token: 0x06001D89 RID: 7561 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06001DE2 RID: 7650 RVA: 0x00030607 File Offset: 0x0002E807
 	private void Update()
 	{
 	}

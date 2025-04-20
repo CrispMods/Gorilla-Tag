@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000067 RID: 103
+// Token: 0x0200006D RID: 109
 public class DebugTestGrabber : MonoBehaviour
 {
-	// Token: 0x06000291 RID: 657 RVA: 0x00010CE4 File Offset: 0x0000EEE4
+	// Token: 0x060002BF RID: 703 RVA: 0x000321C6 File Offset: 0x000303C6
 	private void Awake()
 	{
 		if (this.grabber == null)
@@ -13,7 +13,7 @@ public class DebugTestGrabber : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000292 RID: 658 RVA: 0x00010D00 File Offset: 0x0000EF00
+	// Token: 0x060002C0 RID: 704 RVA: 0x00075990 File Offset: 0x00073B90
 	private void LateUpdate()
 	{
 		if (this.transformToFollow != null)
@@ -44,7 +44,7 @@ public class DebugTestGrabber : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000293 RID: 659 RVA: 0x00010DD4 File Offset: 0x0000EFD4
+	// Token: 0x060002C1 RID: 705 RVA: 0x00075A64 File Offset: 0x00073C64
 	private void DoGrab()
 	{
 		this.grabber.grabbing = true;
@@ -73,7 +73,7 @@ public class DebugTestGrabber : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000294 RID: 660 RVA: 0x00010EB8 File Offset: 0x0000F0B8
+	// Token: 0x060002C2 RID: 706 RVA: 0x00075B48 File Offset: 0x00073D48
 	private void DoRelease()
 	{
 		this.grabber.grabbing = false;
@@ -92,42 +92,42 @@ public class DebugTestGrabber : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400033E RID: 830
+	// Token: 0x04000370 RID: 880
 	public bool isGrabbing;
 
-	// Token: 0x0400033F RID: 831
+	// Token: 0x04000371 RID: 881
 	public bool setIsGrabbing;
 
-	// Token: 0x04000340 RID: 832
+	// Token: 0x04000372 RID: 882
 	public bool setRelease;
 
-	// Token: 0x04000341 RID: 833
+	// Token: 0x04000373 RID: 883
 	public Collider[] colliders = new Collider[50];
 
-	// Token: 0x04000342 RID: 834
+	// Token: 0x04000374 RID: 884
 	public bool isLeft;
 
-	// Token: 0x04000343 RID: 835
+	// Token: 0x04000375 RID: 885
 	public float grabRadius = 0.05f;
 
-	// Token: 0x04000344 RID: 836
+	// Token: 0x04000376 RID: 886
 	public Transform transformToFollow;
 
-	// Token: 0x04000345 RID: 837
+	// Token: 0x04000377 RID: 887
 	public GorillaVelocityEstimator estimator;
 
-	// Token: 0x04000346 RID: 838
+	// Token: 0x04000378 RID: 888
 	public CrittersGrabber grabber;
 
-	// Token: 0x04000347 RID: 839
+	// Token: 0x04000379 RID: 889
 	public CrittersActorGrabber otherHand;
 
-	// Token: 0x04000348 RID: 840
+	// Token: 0x0400037A RID: 890
 	private bool isHandGrabbingDisabled;
 
-	// Token: 0x04000349 RID: 841
+	// Token: 0x0400037B RID: 891
 	private float grabDuration = 0.3f;
 
-	// Token: 0x0400034A RID: 842
+	// Token: 0x0400037C RID: 892
 	private float remainingGrabDuration;
 }

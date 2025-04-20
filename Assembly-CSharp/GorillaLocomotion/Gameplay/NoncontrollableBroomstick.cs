@@ -7,10 +7,10 @@ using UnityEngine.Splines;
 
 namespace GorillaLocomotion.Gameplay
 {
-	// Token: 0x02000B5A RID: 2906
+	// Token: 0x02000B87 RID: 2951
 	public class NoncontrollableBroomstick : MonoBehaviour, IGorillaGrabable
 	{
-		// Token: 0x060048A6 RID: 18598 RVA: 0x00160418 File Offset: 0x0015E618
+		// Token: 0x060049F1 RID: 18929 RVA: 0x0019BAE8 File Offset: 0x00199CE8
 		private void Start()
 		{
 			this.smoothRotationTrackingRateExp = Mathf.Exp(this.smoothRotationTrackingRate);
@@ -23,7 +23,7 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x060048A7 RID: 18599 RVA: 0x001604A8 File Offset: 0x0015E6A8
+		// Token: 0x060049F2 RID: 18930 RVA: 0x0019BB78 File Offset: 0x00199D78
 		protected virtual void FixedUpdate()
 		{
 			if (PhotonNetwork.InRoom)
@@ -63,81 +63,81 @@ namespace GorillaLocomotion.Gameplay
 			}
 		}
 
-		// Token: 0x060048A8 RID: 18600 RVA: 0x000444E2 File Offset: 0x000426E2
+		// Token: 0x060049F3 RID: 18931 RVA: 0x00039846 File Offset: 0x00037A46
 		bool IGorillaGrabable.CanBeGrabbed(GorillaGrabber grabber)
 		{
 			return true;
 		}
 
-		// Token: 0x060048A9 RID: 18601 RVA: 0x001605F1 File Offset: 0x0015E7F1
+		// Token: 0x060049F4 RID: 18932 RVA: 0x000601EF File Offset: 0x0005E3EF
 		void IGorillaGrabable.OnGrabbed(GorillaGrabber g, out Transform grabbedObject, out Vector3 grabbedLocalPosition)
 		{
 			grabbedObject = base.transform;
 			grabbedLocalPosition = base.transform.InverseTransformPoint(g.transform.position);
 		}
 
-		// Token: 0x060048AA RID: 18602 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x060049F5 RID: 18933 RVA: 0x00030607 File Offset: 0x0002E807
 		void IGorillaGrabable.OnGrabReleased(GorillaGrabber g)
 		{
 		}
 
-		// Token: 0x060048AB RID: 18603 RVA: 0x00160617 File Offset: 0x0015E817
+		// Token: 0x060049F6 RID: 18934 RVA: 0x00060215 File Offset: 0x0005E415
 		private void OnDestroy()
 		{
 			this.nativeSpline.Dispose();
 		}
 
-		// Token: 0x060048AC RID: 18604 RVA: 0x00160624 File Offset: 0x0015E824
+		// Token: 0x060049F7 RID: 18935 RVA: 0x00060222 File Offset: 0x0005E422
 		public bool MomentaryGrabOnly()
 		{
 			return this.momentaryGrabOnly;
 		}
 
-		// Token: 0x060048AE RID: 18606 RVA: 0x0001227B File Offset: 0x0001047B
+		// Token: 0x060049F9 RID: 18937 RVA: 0x0003261E File Offset: 0x0003081E
 		string IGorillaGrabable.get_name()
 		{
 			return base.name;
 		}
 
-		// Token: 0x04004B4B RID: 19275
+		// Token: 0x04004C41 RID: 19521
 		public SplineContainer unitySpline;
 
-		// Token: 0x04004B4C RID: 19276
+		// Token: 0x04004C42 RID: 19522
 		public BezierSpline spline;
 
-		// Token: 0x04004B4D RID: 19277
+		// Token: 0x04004C43 RID: 19523
 		public float duration = 30f;
 
-		// Token: 0x04004B4E RID: 19278
+		// Token: 0x04004C44 RID: 19524
 		public float smoothRotationTrackingRate = 0.5f;
 
-		// Token: 0x04004B4F RID: 19279
+		// Token: 0x04004C45 RID: 19525
 		public bool lookForward = true;
 
-		// Token: 0x04004B50 RID: 19280
+		// Token: 0x04004C46 RID: 19526
 		[SerializeField]
 		private float SplineProgressOffet;
 
-		// Token: 0x04004B51 RID: 19281
+		// Token: 0x04004C47 RID: 19527
 		private float progress;
 
-		// Token: 0x04004B52 RID: 19282
+		// Token: 0x04004C48 RID: 19528
 		private float smoothRotationTrackingRateExp;
 
-		// Token: 0x04004B53 RID: 19283
+		// Token: 0x04004C49 RID: 19529
 		[SerializeField]
 		private bool constantVelocity;
 
-		// Token: 0x04004B54 RID: 19284
+		// Token: 0x04004C4A RID: 19530
 		private float progressPerFixedUpdate;
 
-		// Token: 0x04004B55 RID: 19285
+		// Token: 0x04004C4B RID: 19531
 		private double secondsToCycles;
 
-		// Token: 0x04004B56 RID: 19286
+		// Token: 0x04004C4C RID: 19532
 		private NativeSpline nativeSpline;
 
-		// Token: 0x04004B57 RID: 19287
+		// Token: 0x04004C4D RID: 19533
 		[SerializeField]
 		private bool momentaryGrabOnly = true;
 	}

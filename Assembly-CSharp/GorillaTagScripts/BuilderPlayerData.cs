@@ -2,13 +2,13 @@
 
 namespace GorillaTagScripts
 {
-	// Token: 0x0200099E RID: 2462
+	// Token: 0x020009C4 RID: 2500
 	public struct BuilderPlayerData
 	{
-		// Token: 0x04003E31 RID: 15921
+		// Token: 0x04003F0B RID: 16139
 		public int playerActorNumber;
 
-		// Token: 0x04003E32 RID: 15922
+		// Token: 0x04003F0C RID: 16140
 		public float scale;
 	}
 }

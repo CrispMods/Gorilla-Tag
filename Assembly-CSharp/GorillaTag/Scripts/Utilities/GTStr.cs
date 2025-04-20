@@ -4,10 +4,10 @@ using System.Text;
 
 namespace GorillaTag.Scripts.Utilities
 {
-	// Token: 0x02000BBF RID: 3007
+	// Token: 0x02000BED RID: 3053
 	public static class GTStr
 	{
-		// Token: 0x06004BF8 RID: 19448 RVA: 0x001718CC File Offset: 0x0016FACC
+		// Token: 0x06004D44 RID: 19780 RVA: 0x001AA434 File Offset: 0x001A8634
 		public static void Bullet(StringBuilder builder, IList<string> strings, string bulletStr = "- ")
 		{
 			for (int i = 0; i < strings.Count; i++)
@@ -16,7 +16,7 @@ namespace GorillaTag.Scripts.Utilities
 			}
 		}
 
-		// Token: 0x06004BF9 RID: 19449 RVA: 0x00171908 File Offset: 0x0016FB08
+		// Token: 0x06004D45 RID: 19781 RVA: 0x001AA470 File Offset: 0x001A8670
 		public static string Bullet(IList<string> strings, string bulletStr = "- ")
 		{
 			if (strings == null || strings.Count == 0)

@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200064D RID: 1613
+// Token: 0x0200062C RID: 1580
 public class TransformFollow : MonoBehaviour
 {
-	// Token: 0x06002801 RID: 10241 RVA: 0x000C3F53 File Offset: 0x000C2153
+	// Token: 0x0600272C RID: 10028 RVA: 0x0004AC23 File Offset: 0x00048E23
 	private void Awake()
 	{
 		this.prevPos = base.transform.position;
 	}
 
-	// Token: 0x06002802 RID: 10242 RVA: 0x000C3F68 File Offset: 0x000C2168
+	// Token: 0x0600272D RID: 10029 RVA: 0x0010B21C File Offset: 0x0010941C
 	private void LateUpdate()
 	{
 		this.prevPos = base.transform.position;
@@ -18,12 +18,12 @@ public class TransformFollow : MonoBehaviour
 		base.transform.position = this.transformToFollow.position + this.transformToFollow.rotation * this.offset;
 	}
 
-	// Token: 0x04002BE9 RID: 11241
+	// Token: 0x04002B4F RID: 11087
 	public Transform transformToFollow;
 
-	// Token: 0x04002BEA RID: 11242
+	// Token: 0x04002B50 RID: 11088
 	public Vector3 offset;
 
-	// Token: 0x04002BEB RID: 11243
+	// Token: 0x04002B51 RID: 11089
 	public Vector3 prevPos;
 }

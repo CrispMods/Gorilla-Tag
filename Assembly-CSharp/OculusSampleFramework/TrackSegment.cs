@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace OculusSampleFramework
 {
-	// Token: 0x02000A6A RID: 2666
+	// Token: 0x02000A97 RID: 2711
 	public class TrackSegment : MonoBehaviour
 	{
-		// Token: 0x170006D3 RID: 1747
-		// (get) Token: 0x0600426A RID: 17002 RVA: 0x0013947B File Offset: 0x0013767B
-		// (set) Token: 0x0600426B RID: 17003 RVA: 0x00139483 File Offset: 0x00137683
+		// Token: 0x170006EF RID: 1775
+		// (get) Token: 0x060043AF RID: 17327 RVA: 0x0005C1F5 File Offset: 0x0005A3F5
+		// (set) Token: 0x060043B0 RID: 17328 RVA: 0x0005C1FD File Offset: 0x0005A3FD
 		public float StartDistance { get; set; }
 
-		// Token: 0x170006D4 RID: 1748
-		// (get) Token: 0x0600426C RID: 17004 RVA: 0x0013948C File Offset: 0x0013768C
-		// (set) Token: 0x0600426D RID: 17005 RVA: 0x00139494 File Offset: 0x00137694
+		// Token: 0x170006F0 RID: 1776
+		// (get) Token: 0x060043B1 RID: 17329 RVA: 0x0005C206 File Offset: 0x0005A406
+		// (set) Token: 0x060043B2 RID: 17330 RVA: 0x0005C20E File Offset: 0x0005A40E
 		public float GridSize
 		{
 			get
@@ -26,9 +26,9 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x170006D5 RID: 1749
-		// (get) Token: 0x0600426E RID: 17006 RVA: 0x0013949D File Offset: 0x0013769D
-		// (set) Token: 0x0600426F RID: 17007 RVA: 0x001394A5 File Offset: 0x001376A5
+		// Token: 0x170006F1 RID: 1777
+		// (get) Token: 0x060043B3 RID: 17331 RVA: 0x0005C217 File Offset: 0x0005A417
+		// (set) Token: 0x060043B4 RID: 17332 RVA: 0x0005C21F File Offset: 0x0005A41F
 		public int SubDivCount
 		{
 			get
@@ -41,8 +41,8 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x170006D6 RID: 1750
-		// (get) Token: 0x06004270 RID: 17008 RVA: 0x001394AE File Offset: 0x001376AE
+		// Token: 0x170006F2 RID: 1778
+		// (get) Token: 0x060043B5 RID: 17333 RVA: 0x0005C228 File Offset: 0x0005A428
 		public TrackSegment.SegmentType Type
 		{
 			get
@@ -51,8 +51,8 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x170006D7 RID: 1751
-		// (get) Token: 0x06004271 RID: 17009 RVA: 0x001394B6 File Offset: 0x001376B6
+		// Token: 0x170006F3 RID: 1779
+		// (get) Token: 0x060043B6 RID: 17334 RVA: 0x0005C230 File Offset: 0x0005A430
 		public Pose EndPose
 		{
 			get
@@ -62,8 +62,8 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x170006D8 RID: 1752
-		// (get) Token: 0x06004272 RID: 17010 RVA: 0x001394D0 File Offset: 0x001376D0
+		// Token: 0x170006F4 RID: 1780
+		// (get) Token: 0x060043B7 RID: 17335 RVA: 0x0005C24A File Offset: 0x0005A44A
 		public float Radius
 		{
 			get
@@ -72,15 +72,15 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x06004273 RID: 17011 RVA: 0x001394DE File Offset: 0x001376DE
+		// Token: 0x060043B8 RID: 17336 RVA: 0x0005C258 File Offset: 0x0005A458
 		public float setGridSize(float size)
 		{
 			this.GridSize = size;
 			return this.GridSize / 0.8f;
 		}
 
-		// Token: 0x170006D9 RID: 1753
-		// (get) Token: 0x06004274 RID: 17012 RVA: 0x001394F4 File Offset: 0x001376F4
+		// Token: 0x170006F5 RID: 1781
+		// (get) Token: 0x060043B9 RID: 17337 RVA: 0x00178AD4 File Offset: 0x00176CD4
 		public float SegmentLength
 		{
 			get
@@ -98,12 +98,12 @@ namespace OculusSampleFramework
 			}
 		}
 
-		// Token: 0x06004275 RID: 17013 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x060043BA RID: 17338 RVA: 0x00030607 File Offset: 0x0002E807
 		private void Awake()
 		{
 		}
 
-		// Token: 0x06004276 RID: 17014 RVA: 0x0013952C File Offset: 0x0013772C
+		// Token: 0x060043BB RID: 17339 RVA: 0x00178B0C File Offset: 0x00176D0C
 		public void UpdatePose(float distanceIntoSegment, Pose pose)
 		{
 			if (this.Type == TrackSegment.SegmentType.Straight)
@@ -135,18 +135,18 @@ namespace OculusSampleFramework
 			pose.Rotation = Quaternion.identity;
 		}
 
-		// Token: 0x06004277 RID: 17015 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x060043BC RID: 17340 RVA: 0x00030607 File Offset: 0x0002E807
 		private void Update()
 		{
 		}
 
-		// Token: 0x06004278 RID: 17016 RVA: 0x001396B8 File Offset: 0x001378B8
+		// Token: 0x060043BD RID: 17341 RVA: 0x0005C26D File Offset: 0x0005A46D
 		private void OnDisable()
 		{
-			Object.Destroy(this._mesh);
+			UnityEngine.Object.Destroy(this._mesh);
 		}
 
-		// Token: 0x06004279 RID: 17017 RVA: 0x001396C8 File Offset: 0x001378C8
+		// Token: 0x060043BE RID: 17342 RVA: 0x00178C98 File Offset: 0x00176E98
 		private void DrawDebugLines()
 		{
 			for (int i = 1; i < this.SubDivCount + 1; i++)
@@ -164,7 +164,7 @@ namespace OculusSampleFramework
 			Debug.DrawLine(base.transform.position - 0.5f * this.GridSize * base.transform.right + this.GridSize * base.transform.forward, base.transform.position + 0.5f * this.GridSize * base.transform.right + this.GridSize * base.transform.forward, Color.yellow);
 		}
 
-		// Token: 0x0600427A RID: 17018 RVA: 0x001399D0 File Offset: 0x00137BD0
+		// Token: 0x060043BF RID: 17343 RVA: 0x00178FA0 File Offset: 0x001771A0
 		public void RegenerateTrackAndMesh()
 		{
 			if (base.transform.childCount > 0 && !this._mesh)
@@ -173,75 +173,75 @@ namespace OculusSampleFramework
 			}
 			if (this._mesh)
 			{
-				Object.DestroyImmediate(this._mesh);
+				UnityEngine.Object.DestroyImmediate(this._mesh);
 			}
 			if (this._segmentType == TrackSegment.SegmentType.LeftTurn)
 			{
-				this._mesh = Object.Instantiate<GameObject>(this._leftTurn.gameObject);
+				this._mesh = UnityEngine.Object.Instantiate<GameObject>(this._leftTurn.gameObject);
 			}
 			else if (this._segmentType == TrackSegment.SegmentType.RightTurn)
 			{
-				this._mesh = Object.Instantiate<GameObject>(this._rightTurn.gameObject);
+				this._mesh = UnityEngine.Object.Instantiate<GameObject>(this._rightTurn.gameObject);
 			}
 			else
 			{
-				this._mesh = Object.Instantiate<GameObject>(this._straight.gameObject);
+				this._mesh = UnityEngine.Object.Instantiate<GameObject>(this._straight.gameObject);
 			}
 			this._mesh.transform.SetParent(base.transform, false);
 			this._mesh.transform.position += this.GridSize / 2f * base.transform.forward;
 			this._mesh.transform.localScale = new Vector3(this.GridSize / 0.8f, this.GridSize / 0.8f, this.GridSize / 0.8f);
 		}
 
-		// Token: 0x04004363 RID: 17251
+		// Token: 0x0400445D RID: 17501
 		[SerializeField]
 		private TrackSegment.SegmentType _segmentType;
 
-		// Token: 0x04004364 RID: 17252
+		// Token: 0x0400445E RID: 17502
 		[SerializeField]
 		private MeshFilter _straight;
 
-		// Token: 0x04004365 RID: 17253
+		// Token: 0x0400445F RID: 17503
 		[SerializeField]
 		private MeshFilter _leftTurn;
 
-		// Token: 0x04004366 RID: 17254
+		// Token: 0x04004460 RID: 17504
 		[SerializeField]
 		private MeshFilter _rightTurn;
 
-		// Token: 0x04004367 RID: 17255
+		// Token: 0x04004461 RID: 17505
 		private float _gridSize = 0.8f;
 
-		// Token: 0x04004368 RID: 17256
+		// Token: 0x04004462 RID: 17506
 		private int _subDivCount = 20;
 
-		// Token: 0x04004369 RID: 17257
+		// Token: 0x04004463 RID: 17507
 		private const float _originalGridSize = 0.8f;
 
-		// Token: 0x0400436A RID: 17258
+		// Token: 0x04004464 RID: 17508
 		private const float _trackWidth = 0.15f;
 
-		// Token: 0x0400436B RID: 17259
+		// Token: 0x04004465 RID: 17509
 		private GameObject _mesh;
 
-		// Token: 0x0400436D RID: 17261
+		// Token: 0x04004467 RID: 17511
 		private Pose _p1 = new Pose();
 
-		// Token: 0x0400436E RID: 17262
+		// Token: 0x04004468 RID: 17512
 		private Pose _p2 = new Pose();
 
-		// Token: 0x0400436F RID: 17263
+		// Token: 0x04004469 RID: 17513
 		private Pose _endPose = new Pose();
 
-		// Token: 0x02000A6B RID: 2667
+		// Token: 0x02000A98 RID: 2712
 		public enum SegmentType
 		{
-			// Token: 0x04004371 RID: 17265
+			// Token: 0x0400446B RID: 17515
 			Straight,
-			// Token: 0x04004372 RID: 17266
+			// Token: 0x0400446C RID: 17516
 			LeftTurn,
-			// Token: 0x04004373 RID: 17267
+			// Token: 0x0400446D RID: 17517
 			RightTurn,
-			// Token: 0x04004374 RID: 17268
+			// Token: 0x0400446E RID: 17518
 			Switch
 		}
 	}

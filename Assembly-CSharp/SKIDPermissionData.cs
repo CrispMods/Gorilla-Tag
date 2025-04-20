@@ -1,11 +1,11 @@
 ﻿using System;
 using KID.Model;
 
-// Token: 0x02000705 RID: 1797
+// Token: 0x0200071A RID: 1818
 public struct SKIDPermissionData
 {
-	// Token: 0x170004B4 RID: 1204
-	// (get) Token: 0x06002C9A RID: 11418 RVA: 0x000DC54E File Offset: 0x000DA74E
+	// Token: 0x170004C1 RID: 1217
+	// (get) Token: 0x06002D30 RID: 11568 RVA: 0x0004EB9C File Offset: 0x0004CD9C
 	public string PermissionName
 	{
 		get
@@ -14,8 +14,8 @@ public struct SKIDPermissionData
 		}
 	}
 
-	// Token: 0x170004B5 RID: 1205
-	// (get) Token: 0x06002C9B RID: 11419 RVA: 0x000DC556 File Offset: 0x000DA756
+	// Token: 0x170004C2 RID: 1218
+	// (get) Token: 0x06002D31 RID: 11569 RVA: 0x0004EBA4 File Offset: 0x0004CDA4
 	public bool PermissionEnabled
 	{
 		get
@@ -24,8 +24,8 @@ public struct SKIDPermissionData
 		}
 	}
 
-	// Token: 0x170004B6 RID: 1206
-	// (get) Token: 0x06002C9C RID: 11420 RVA: 0x000DC55E File Offset: 0x000DA75E
+	// Token: 0x170004C3 RID: 1219
+	// (get) Token: 0x06002D32 RID: 11570 RVA: 0x0004EBAC File Offset: 0x0004CDAC
 	public Permission PermissionData
 	{
 		get
@@ -34,7 +34,7 @@ public struct SKIDPermissionData
 		}
 	}
 
-	// Token: 0x06002C9D RID: 11421 RVA: 0x000DC566 File Offset: 0x000DA766
+	// Token: 0x06002D33 RID: 11571 RVA: 0x0004EBB4 File Offset: 0x0004CDB4
 	public SKIDPermissionData(Permission perm, bool enabled, string name)
 	{
 		this._kidPermission = perm;
@@ -42,30 +42,30 @@ public struct SKIDPermissionData
 		this._permissionName = name;
 	}
 
-	// Token: 0x06002C9E RID: 11422 RVA: 0x000DC57D File Offset: 0x000DA77D
+	// Token: 0x06002D34 RID: 11572 RVA: 0x0004EBCB File Offset: 0x0004CDCB
 	public void SetPermission(bool isEnabled)
 	{
 		this._permissionEnabled = isEnabled;
 	}
 
-	// Token: 0x06002C9F RID: 11423 RVA: 0x000DC586 File Offset: 0x000DA786
+	// Token: 0x06002D35 RID: 11573 RVA: 0x0004EBD4 File Offset: 0x0004CDD4
 	public static bool operator ==(SKIDPermissionData data, Permission rhs)
 	{
 		return data._kidPermission == rhs;
 	}
 
-	// Token: 0x06002CA0 RID: 11424 RVA: 0x000DC591 File Offset: 0x000DA791
+	// Token: 0x06002D36 RID: 11574 RVA: 0x0004EBDF File Offset: 0x0004CDDF
 	public static bool operator !=(SKIDPermissionData data, Permission rhs)
 	{
 		return data._kidPermission != rhs;
 	}
 
-	// Token: 0x040031EE RID: 12782
+	// Token: 0x0400328B RID: 12939
 	private string _permissionName;
 
-	// Token: 0x040031EF RID: 12783
+	// Token: 0x0400328C RID: 12940
 	private Permission _kidPermission;
 
-	// Token: 0x040031F0 RID: 12784
+	// Token: 0x0400328D RID: 12941
 	private bool _permissionEnabled;
 }

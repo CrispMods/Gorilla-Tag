@@ -3,16 +3,16 @@ using UnityEngine;
 
 namespace GorillaNetworking.Store
 {
-	// Token: 0x02000B06 RID: 2822
+	// Token: 0x02000B33 RID: 2867
 	public class StoreDisplay : MonoBehaviour
 	{
-		// Token: 0x06004685 RID: 18053 RVA: 0x0014F1E7 File Offset: 0x0014D3E7
+		// Token: 0x060047CE RID: 18382 RVA: 0x0005EC52 File Offset: 0x0005CE52
 		private void GetAllDynamicCosmeticStands()
 		{
 			this.Stands = base.GetComponentsInChildren<DynamicCosmeticStand>();
 		}
 
-		// Token: 0x06004686 RID: 18054 RVA: 0x0014F1F8 File Offset: 0x0014D3F8
+		// Token: 0x060047CF RID: 18383 RVA: 0x0018BD9C File Offset: 0x00189F9C
 		private void SetDisplayNameForAllStands()
 		{
 			DynamicCosmeticStand[] componentsInChildren = base.GetComponentsInChildren<DynamicCosmeticStand>();
@@ -22,10 +22,10 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x04004817 RID: 18455
+		// Token: 0x0400490C RID: 18700
 		public string displayName = "";
 
-		// Token: 0x04004818 RID: 18456
+		// Token: 0x0400490D RID: 18701
 		public DynamicCosmeticStand[] Stands;
 	}
 }

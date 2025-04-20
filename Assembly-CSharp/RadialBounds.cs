@@ -2,12 +2,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x02000629 RID: 1577
+// Token: 0x02000608 RID: 1544
 public class RadialBounds : MonoBehaviour
 {
-	// Token: 0x17000419 RID: 1049
-	// (get) Token: 0x06002741 RID: 10049 RVA: 0x000C0C30 File Offset: 0x000BEE30
-	// (set) Token: 0x06002742 RID: 10050 RVA: 0x000C0C38 File Offset: 0x000BEE38
+	// Token: 0x170003F7 RID: 1015
+	// (get) Token: 0x0600266C RID: 9836 RVA: 0x0004A31B File Offset: 0x0004851B
+	// (set) Token: 0x0600266D RID: 9837 RVA: 0x0004A323 File Offset: 0x00048523
 	public Vector3 localCenter
 	{
 		get
@@ -20,9 +20,9 @@ public class RadialBounds : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700041A RID: 1050
-	// (get) Token: 0x06002743 RID: 10051 RVA: 0x000C0C41 File Offset: 0x000BEE41
-	// (set) Token: 0x06002744 RID: 10052 RVA: 0x000C0C49 File Offset: 0x000BEE49
+	// Token: 0x170003F8 RID: 1016
+	// (get) Token: 0x0600266E RID: 9838 RVA: 0x0004A32C File Offset: 0x0004852C
+	// (set) Token: 0x0600266F RID: 9839 RVA: 0x0004A334 File Offset: 0x00048534
 	public float localRadius
 	{
 		get
@@ -35,8 +35,8 @@ public class RadialBounds : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700041B RID: 1051
-	// (get) Token: 0x06002745 RID: 10053 RVA: 0x000C0C52 File Offset: 0x000BEE52
+	// Token: 0x170003F9 RID: 1017
+	// (get) Token: 0x06002670 RID: 9840 RVA: 0x0004A33D File Offset: 0x0004853D
 	public Vector3 center
 	{
 		get
@@ -45,8 +45,8 @@ public class RadialBounds : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700041C RID: 1052
-	// (get) Token: 0x06002746 RID: 10054 RVA: 0x000C0C65 File Offset: 0x000BEE65
+	// Token: 0x170003FA RID: 1018
+	// (get) Token: 0x06002671 RID: 9841 RVA: 0x0004A350 File Offset: 0x00048550
 	public float radius
 	{
 		get
@@ -55,21 +55,21 @@ public class RadialBounds : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002B04 RID: 11012
+	// Token: 0x04002A6A RID: 10858
 	[SerializeField]
 	private Vector3 _localCenter;
 
-	// Token: 0x04002B05 RID: 11013
+	// Token: 0x04002A6B RID: 10859
 	[SerializeField]
 	private float _localRadius = 1f;
 
-	// Token: 0x04002B06 RID: 11014
+	// Token: 0x04002A6C RID: 10860
 	[Space]
 	public UnityEvent<RadialBounds> onOverlapEnter;
 
-	// Token: 0x04002B07 RID: 11015
+	// Token: 0x04002A6D RID: 10861
 	public UnityEvent<RadialBounds> onOverlapExit;
 
-	// Token: 0x04002B08 RID: 11016
+	// Token: 0x04002A6E RID: 10862
 	public UnityEvent<RadialBounds, float> onOverlapStay;
 }

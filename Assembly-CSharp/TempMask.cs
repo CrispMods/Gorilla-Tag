@@ -3,33 +3,33 @@ using System.Collections;
 using GorillaNetworking;
 using UnityEngine;
 
-// Token: 0x020000A6 RID: 166
+// Token: 0x020000B0 RID: 176
 public class TempMask : MonoBehaviour
 {
-	// Token: 0x0600043F RID: 1087 RVA: 0x000198B8 File Offset: 0x00017AB8
+	// Token: 0x0600047B RID: 1147 RVA: 0x0007D32C File Offset: 0x0007B52C
 	private void Awake()
 	{
 		this.dayOn = new DateTime(this.year, this.month, this.day);
 		this.myRig = base.GetComponentInParent<VRRig>();
 		if (this.myRig != null && this.myRig.netView.IsMine && !this.myRig.isOfflineVRRig)
 		{
-			Object.Destroy(base.gameObject);
+			UnityEngine.Object.Destroy(base.gameObject);
 		}
 	}
 
-	// Token: 0x06000440 RID: 1088 RVA: 0x00019926 File Offset: 0x00017B26
+	// Token: 0x0600047C RID: 1148 RVA: 0x00033627 File Offset: 0x00031827
 	private void OnEnable()
 	{
 		base.StartCoroutine(this.MaskOnDuringDate());
 	}
 
-	// Token: 0x06000441 RID: 1089 RVA: 0x00019935 File Offset: 0x00017B35
+	// Token: 0x0600047D RID: 1149 RVA: 0x00033636 File Offset: 0x00031836
 	private void OnDisable()
 	{
 		base.StopAllCoroutines();
 	}
 
-	// Token: 0x06000442 RID: 1090 RVA: 0x0001993D File Offset: 0x00017B3D
+	// Token: 0x0600047E RID: 1150 RVA: 0x0003363E File Offset: 0x0003183E
 	private IEnumerator MaskOnDuringDate()
 	{
 		for (;;)
@@ -54,24 +54,24 @@ public class TempMask : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x040004F4 RID: 1268
+	// Token: 0x04000534 RID: 1332
 	public int year;
 
-	// Token: 0x040004F5 RID: 1269
+	// Token: 0x04000535 RID: 1333
 	public int month;
 
-	// Token: 0x040004F6 RID: 1270
+	// Token: 0x04000536 RID: 1334
 	public int day;
 
-	// Token: 0x040004F7 RID: 1271
+	// Token: 0x04000537 RID: 1335
 	public DateTime dayOn;
 
-	// Token: 0x040004F8 RID: 1272
+	// Token: 0x04000538 RID: 1336
 	public MeshRenderer myRenderer;
 
-	// Token: 0x040004F9 RID: 1273
+	// Token: 0x04000539 RID: 1337
 	private DateTime myDate;
 
-	// Token: 0x040004FA RID: 1274
+	// Token: 0x0400053A RID: 1338
 	private VRRig myRig;
 }

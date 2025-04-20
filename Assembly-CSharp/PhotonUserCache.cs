@@ -3,70 +3,70 @@ using System.Collections.Generic;
 using ExitGames.Client.Photon;
 using Photon.Realtime;
 
-// Token: 0x020007AE RID: 1966
+// Token: 0x020007C6 RID: 1990
 public class PhotonUserCache : IInRoomCallbacks, IMatchmakingCallbacks
 {
-	// Token: 0x06003073 RID: 12403 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003125 RID: 12581 RVA: 0x00030607 File Offset: 0x0002E807
 	void IInRoomCallbacks.OnPlayerEnteredRoom(Player newPlayer)
 	{
 	}
 
-	// Token: 0x06003074 RID: 12404 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003126 RID: 12582 RVA: 0x00030607 File Offset: 0x0002E807
 	void IMatchmakingCallbacks.OnJoinedRoom()
 	{
 	}
 
-	// Token: 0x06003075 RID: 12405 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003127 RID: 12583 RVA: 0x00030607 File Offset: 0x0002E807
 	void IMatchmakingCallbacks.OnLeftRoom()
 	{
 	}
 
-	// Token: 0x06003076 RID: 12406 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003128 RID: 12584 RVA: 0x00030607 File Offset: 0x0002E807
 	void IInRoomCallbacks.OnPlayerLeftRoom(Player player)
 	{
 	}
 
-	// Token: 0x06003077 RID: 12407 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003129 RID: 12585 RVA: 0x00030607 File Offset: 0x0002E807
 	void IMatchmakingCallbacks.OnCreateRoomFailed(short returnCode, string message)
 	{
 	}
 
-	// Token: 0x06003078 RID: 12408 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600312A RID: 12586 RVA: 0x00030607 File Offset: 0x0002E807
 	void IMatchmakingCallbacks.OnJoinRoomFailed(short returnCode, string message)
 	{
 	}
 
-	// Token: 0x06003079 RID: 12409 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600312B RID: 12587 RVA: 0x00030607 File Offset: 0x0002E807
 	void IMatchmakingCallbacks.OnCreatedRoom()
 	{
 	}
 
-	// Token: 0x0600307A RID: 12410 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600312C RID: 12588 RVA: 0x00030607 File Offset: 0x0002E807
 	void IMatchmakingCallbacks.OnPreLeavingRoom()
 	{
 	}
 
-	// Token: 0x0600307B RID: 12411 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600312D RID: 12589 RVA: 0x00030607 File Offset: 0x0002E807
 	void IMatchmakingCallbacks.OnJoinRandomFailed(short returnCode, string message)
 	{
 	}
 
-	// Token: 0x0600307C RID: 12412 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600312E RID: 12590 RVA: 0x00030607 File Offset: 0x0002E807
 	void IMatchmakingCallbacks.OnFriendListUpdate(List<FriendInfo> friendList)
 	{
 	}
 
-	// Token: 0x0600307D RID: 12413 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600312F RID: 12591 RVA: 0x00030607 File Offset: 0x0002E807
 	void IInRoomCallbacks.OnRoomPropertiesUpdate(Hashtable changedProperties)
 	{
 	}
 
-	// Token: 0x0600307E RID: 12414 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003130 RID: 12592 RVA: 0x00030607 File Offset: 0x0002E807
 	void IInRoomCallbacks.OnPlayerPropertiesUpdate(Player player, Hashtable changedProperties)
 	{
 	}
 
-	// Token: 0x0600307F RID: 12415 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x06003131 RID: 12593 RVA: 0x00030607 File Offset: 0x0002E807
 	void IInRoomCallbacks.OnMasterClientSwitched(Player newMasterClient)
 	{
 	}

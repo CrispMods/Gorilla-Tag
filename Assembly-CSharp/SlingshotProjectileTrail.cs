@@ -2,16 +2,16 @@
 using GorillaExtensions;
 using UnityEngine;
 
-// Token: 0x02000390 RID: 912
+// Token: 0x0200039B RID: 923
 public class SlingshotProjectileTrail : MonoBehaviour
 {
-	// Token: 0x0600156C RID: 5484 RVA: 0x000686C4 File Offset: 0x000668C4
+	// Token: 0x060015B8 RID: 5560 RVA: 0x0003EABC File Offset: 0x0003CCBC
 	private void Awake()
 	{
 		this.initialWidthMultiplier = this.trailRenderer.widthMultiplier;
 	}
 
-	// Token: 0x0600156D RID: 5485 RVA: 0x000686D8 File Offset: 0x000668D8
+	// Token: 0x060015B9 RID: 5561 RVA: 0x000C0CB0 File Offset: 0x000BEEB0
 	public void AttachTrail(GameObject obj, bool blueTeam, bool redTeam)
 	{
 		this.followObject = obj;
@@ -37,7 +37,7 @@ public class SlingshotProjectileTrail : MonoBehaviour
 		this.timeToDie = -1f;
 	}
 
-	// Token: 0x0600156E RID: 5486 RVA: 0x000687A0 File Offset: 0x000669A0
+	// Token: 0x060015BA RID: 5562 RVA: 0x000C0D78 File Offset: 0x000BEF78
 	protected void LateUpdate()
 	{
 		if (this.followObject.IsNull())
@@ -57,7 +57,7 @@ public class SlingshotProjectileTrail : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600156F RID: 5487 RVA: 0x0006885C File Offset: 0x00066A5C
+	// Token: 0x060015BB RID: 5563 RVA: 0x000C0E34 File Offset: 0x000BF034
 	public void SetColor(Color color)
 	{
 		TrailRenderer trailRenderer = this.trailRenderer;
@@ -65,30 +65,30 @@ public class SlingshotProjectileTrail : MonoBehaviour
 		trailRenderer.startColor = color;
 	}
 
-	// Token: 0x040017B0 RID: 6064
+	// Token: 0x040017F7 RID: 6135
 	public TrailRenderer trailRenderer;
 
-	// Token: 0x040017B1 RID: 6065
+	// Token: 0x040017F8 RID: 6136
 	public Color defaultColor = Color.white;
 
-	// Token: 0x040017B2 RID: 6066
+	// Token: 0x040017F9 RID: 6137
 	public Color orangeColor = new Color(1f, 0.5f, 0f, 1f);
 
-	// Token: 0x040017B3 RID: 6067
+	// Token: 0x040017FA RID: 6138
 	public Color blueColor = new Color(0f, 0.72f, 1f, 1f);
 
-	// Token: 0x040017B4 RID: 6068
+	// Token: 0x040017FB RID: 6139
 	private GameObject followObject;
 
-	// Token: 0x040017B5 RID: 6069
+	// Token: 0x040017FC RID: 6140
 	private Transform followXform;
 
-	// Token: 0x040017B6 RID: 6070
+	// Token: 0x040017FD RID: 6141
 	private float timeToDie = -1f;
 
-	// Token: 0x040017B7 RID: 6071
+	// Token: 0x040017FE RID: 6142
 	private float initialScale;
 
-	// Token: 0x040017B8 RID: 6072
+	// Token: 0x040017FF RID: 6143
 	private float initialWidthMultiplier;
 }

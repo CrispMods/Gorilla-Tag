@@ -1,22 +1,22 @@
 ﻿using System;
 
-// Token: 0x0200059A RID: 1434
+// Token: 0x020005A8 RID: 1448
 public enum GTShopEventType
 {
-	// Token: 0x04002789 RID: 10121
+	// Token: 0x040027E5 RID: 10213
 	item_select,
-	// Token: 0x0400278A RID: 10122
+	// Token: 0x040027E6 RID: 10214
 	item_try_on,
-	// Token: 0x0400278B RID: 10123
+	// Token: 0x040027E7 RID: 10215
 	cart_item_add,
-	// Token: 0x0400278C RID: 10124
+	// Token: 0x040027E8 RID: 10216
 	cart_item_remove,
-	// Token: 0x0400278D RID: 10125
+	// Token: 0x040027E9 RID: 10217
 	checkout_start,
-	// Token: 0x0400278E RID: 10126
+	// Token: 0x040027EA RID: 10218
 	checkout_cancel,
-	// Token: 0x0400278F RID: 10127
+	// Token: 0x040027EB RID: 10219
 	register_visit,
-	// Token: 0x04002790 RID: 10128
+	// Token: 0x040027EC RID: 10220
 	external_item_claim
 }

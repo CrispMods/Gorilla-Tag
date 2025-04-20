@@ -6,37 +6,37 @@ using UnityEngine.XR;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C36 RID: 3126
+	// Token: 0x02000C67 RID: 3175
 	public class ControllerButtonEvent : MonoBehaviour, ISpawnable
 	{
-		// Token: 0x17000813 RID: 2067
-		// (get) Token: 0x06004E13 RID: 19987 RVA: 0x0017F126 File Offset: 0x0017D326
-		// (set) Token: 0x06004E14 RID: 19988 RVA: 0x0017F12E File Offset: 0x0017D32E
+		// Token: 0x17000831 RID: 2097
+		// (get) Token: 0x06004F73 RID: 20339 RVA: 0x00063DF0 File Offset: 0x00061FF0
+		// (set) Token: 0x06004F74 RID: 20340 RVA: 0x00063DF8 File Offset: 0x00061FF8
 		public bool IsSpawned { get; set; }
 
-		// Token: 0x17000814 RID: 2068
-		// (get) Token: 0x06004E15 RID: 19989 RVA: 0x0017F137 File Offset: 0x0017D337
-		// (set) Token: 0x06004E16 RID: 19990 RVA: 0x0017F13F File Offset: 0x0017D33F
+		// Token: 0x17000832 RID: 2098
+		// (get) Token: 0x06004F75 RID: 20341 RVA: 0x00063E01 File Offset: 0x00062001
+		// (set) Token: 0x06004F76 RID: 20342 RVA: 0x00063E09 File Offset: 0x00062009
 		public ECosmeticSelectSide CosmeticSelectedSide { get; set; }
 
-		// Token: 0x06004E17 RID: 19991 RVA: 0x0017F148 File Offset: 0x0017D348
+		// Token: 0x06004F77 RID: 20343 RVA: 0x00063E12 File Offset: 0x00062012
 		public void OnSpawn(VRRig rig)
 		{
 			this.myRig = rig;
 		}
 
-		// Token: 0x06004E18 RID: 19992 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004F78 RID: 20344 RVA: 0x00030607 File Offset: 0x0002E807
 		public void OnDespawn()
 		{
 		}
 
-		// Token: 0x06004E19 RID: 19993 RVA: 0x0017F151 File Offset: 0x0017D351
+		// Token: 0x06004F79 RID: 20345 RVA: 0x00063E1B File Offset: 0x0006201B
 		private bool IsMyItem()
 		{
 			return this.myRig != null && this.myRig.isOfflineVRRig;
 		}
 
-		// Token: 0x06004E1A RID: 19994 RVA: 0x0017F16E File Offset: 0x0017D36E
+		// Token: 0x06004F7A RID: 20346 RVA: 0x00063E38 File Offset: 0x00062038
 		private void Awake()
 		{
 			this.triggerLastValue = 0f;
@@ -46,7 +46,7 @@ namespace GorillaTag.Cosmetics
 			this.frameCounter = 0;
 		}
 
-		// Token: 0x06004E1B RID: 19995 RVA: 0x0017F19C File Offset: 0x0017D39C
+		// Token: 0x06004F7B RID: 20347 RVA: 0x001B7A6C File Offset: 0x001B5C6C
 		public void LateUpdate()
 		{
 			if (!this.IsMyItem())
@@ -205,71 +205,71 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x0400513A RID: 20794
+		// Token: 0x04005246 RID: 21062
 		[SerializeField]
 		private float gripValue = 0.75f;
 
-		// Token: 0x0400513B RID: 20795
+		// Token: 0x04005247 RID: 21063
 		[SerializeField]
 		private float gripReleaseValue = 0.01f;
 
-		// Token: 0x0400513C RID: 20796
+		// Token: 0x04005248 RID: 21064
 		[SerializeField]
 		private float triggerValue = 0.75f;
 
-		// Token: 0x0400513D RID: 20797
+		// Token: 0x04005249 RID: 21065
 		[SerializeField]
 		private float triggerReleaseValue = 0.01f;
 
-		// Token: 0x0400513E RID: 20798
+		// Token: 0x0400524A RID: 21066
 		[SerializeField]
 		private ControllerButtonEvent.ButtonType buttonType;
 
-		// Token: 0x0400513F RID: 20799
+		// Token: 0x0400524B RID: 21067
 		[Tooltip("How many frames should pass to trigger a press stayed button")]
 		[SerializeField]
 		private int frameInterval = 20;
 
-		// Token: 0x04005140 RID: 20800
+		// Token: 0x0400524C RID: 21068
 		public UnityEvent<bool, float> onButtonPressed;
 
-		// Token: 0x04005141 RID: 20801
+		// Token: 0x0400524D RID: 21069
 		public UnityEvent<bool, float> onButtonReleased;
 
-		// Token: 0x04005142 RID: 20802
+		// Token: 0x0400524E RID: 21070
 		public UnityEvent<bool, float> onButtonPressStayed;
 
-		// Token: 0x04005143 RID: 20803
+		// Token: 0x0400524F RID: 21071
 		private float triggerLastValue;
 
-		// Token: 0x04005144 RID: 20804
+		// Token: 0x04005250 RID: 21072
 		private float gripLastValue;
 
-		// Token: 0x04005145 RID: 20805
+		// Token: 0x04005251 RID: 21073
 		private bool primaryLastValue;
 
-		// Token: 0x04005146 RID: 20806
+		// Token: 0x04005252 RID: 21074
 		private bool secondaryLastValue;
 
-		// Token: 0x04005147 RID: 20807
+		// Token: 0x04005253 RID: 21075
 		private int frameCounter;
 
-		// Token: 0x04005148 RID: 20808
+		// Token: 0x04005254 RID: 21076
 		private bool inLeftHand;
 
-		// Token: 0x04005149 RID: 20809
+		// Token: 0x04005255 RID: 21077
 		private VRRig myRig;
 
-		// Token: 0x02000C37 RID: 3127
+		// Token: 0x02000C68 RID: 3176
 		private enum ButtonType
 		{
-			// Token: 0x0400514D RID: 20813
+			// Token: 0x04005259 RID: 21081
 			trigger,
-			// Token: 0x0400514E RID: 20814
+			// Token: 0x0400525A RID: 21082
 			primary,
-			// Token: 0x0400514F RID: 20815
+			// Token: 0x0400525B RID: 21083
 			secondary,
-			// Token: 0x04005150 RID: 20816
+			// Token: 0x0400525C RID: 21084
 			grip
 		}
 	}

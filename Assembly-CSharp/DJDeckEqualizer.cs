@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200014E RID: 334
+// Token: 0x02000158 RID: 344
 public class DJDeckEqualizer : MonoBehaviour
 {
-	// Token: 0x06000886 RID: 2182 RVA: 0x0002EB05 File Offset: 0x0002CD05
+	// Token: 0x060008CA RID: 2250 RVA: 0x00036420 File Offset: 0x00034620
 	private void Start()
 	{
 		this.inputColorHash = this.inputColorProperty;
 		this.material = this.display.material;
 	}
 
-	// Token: 0x06000887 RID: 2183 RVA: 0x0002EB2C File Offset: 0x0002CD2C
+	// Token: 0x060008CB RID: 2251 RVA: 0x0008F8FC File Offset: 0x0008DAFC
 	private void Update()
 	{
 		Color value = default(Color);
@@ -39,33 +39,33 @@ public class DJDeckEqualizer : MonoBehaviour
 		this.material.SetColor(this.inputColorHash, value);
 	}
 
-	// Token: 0x04000A24 RID: 2596
+	// Token: 0x04000A67 RID: 2663
 	[SerializeField]
 	private MeshRenderer display;
 
-	// Token: 0x04000A25 RID: 2597
+	// Token: 0x04000A68 RID: 2664
 	[SerializeField]
 	private AnimationCurve[] redTrackCurves;
 
-	// Token: 0x04000A26 RID: 2598
+	// Token: 0x04000A69 RID: 2665
 	[SerializeField]
 	private AnimationCurve[] greenTrackCurves;
 
-	// Token: 0x04000A27 RID: 2599
+	// Token: 0x04000A6A RID: 2666
 	[SerializeField]
 	private AudioSource[] redTracks;
 
-	// Token: 0x04000A28 RID: 2600
+	// Token: 0x04000A6B RID: 2667
 	[SerializeField]
 	private AudioSource[] greenTracks;
 
-	// Token: 0x04000A29 RID: 2601
+	// Token: 0x04000A6C RID: 2668
 	private Material material;
 
-	// Token: 0x04000A2A RID: 2602
+	// Token: 0x04000A6D RID: 2669
 	[SerializeField]
 	private string inputColorProperty;
 
-	// Token: 0x04000A2B RID: 2603
+	// Token: 0x04000A6E RID: 2670
 	private ShaderHashId inputColorHash;
 }

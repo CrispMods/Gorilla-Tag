@@ -1,29 +1,29 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008E0 RID: 2272
+// Token: 0x020008FC RID: 2300
 public class MaterialMapping : ScriptableObject
 {
-	// Token: 0x060036B2 RID: 14002 RVA: 0x000023F4 File Offset: 0x000005F4
+	// Token: 0x0600377A RID: 14202 RVA: 0x00030607 File Offset: 0x0002E807
 	public void CleanUpData()
 	{
 	}
 
-	// Token: 0x0400398C RID: 14732
+	// Token: 0x04003A4D RID: 14925
 	private static string path = "Assets/UberShaderConversion/MaterialMap.asset";
 
-	// Token: 0x0400398D RID: 14733
+	// Token: 0x04003A4E RID: 14926
 	public static string materialDirectory = "Assets/UberShaderConversion/Materials/";
 
-	// Token: 0x0400398E RID: 14734
+	// Token: 0x04003A4F RID: 14927
 	private static MaterialMapping instance;
 
-	// Token: 0x0400398F RID: 14735
+	// Token: 0x04003A50 RID: 14928
 	public ShaderGroup[] map;
 
-	// Token: 0x04003990 RID: 14736
+	// Token: 0x04003A51 RID: 14929
 	public Material mirrorMat;
 
-	// Token: 0x04003991 RID: 14737
+	// Token: 0x04003A52 RID: 14930
 	public RenderTexture mirrorTexture;
 }

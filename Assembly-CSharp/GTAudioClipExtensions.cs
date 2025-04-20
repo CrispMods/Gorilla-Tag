@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001A3 RID: 419
+// Token: 0x020001AE RID: 430
 public static class GTAudioClipExtensions
 {
-	// Token: 0x060009F9 RID: 2553 RVA: 0x000373D0 File Offset: 0x000355D0
+	// Token: 0x06000A45 RID: 2629 RVA: 0x0009724C File Offset: 0x0009544C
 	public static float GetPeakMagnitude(this AudioClip audioClip)
 	{
 		if (audioClip == null)
@@ -21,7 +21,7 @@ public static class GTAudioClipExtensions
 		return num;
 	}
 
-	// Token: 0x060009FA RID: 2554 RVA: 0x0003742C File Offset: 0x0003562C
+	// Token: 0x06000A46 RID: 2630 RVA: 0x000972A8 File Offset: 0x000954A8
 	public static float GetRMSMagnitude(this AudioClip audioClip)
 	{
 		if (audioClip == null)

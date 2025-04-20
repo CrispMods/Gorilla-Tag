@@ -6,7 +6,7 @@ using UnityEngine;
 // Token: 0x02000028 RID: 40
 public class ColliderOffsetOverride : MonoBehaviour
 {
-	// Token: 0x0600008E RID: 142 RVA: 0x00004C9C File Offset: 0x00002E9C
+	// Token: 0x0600008E RID: 142 RVA: 0x00069EA8 File Offset: 0x000680A8
 	private void Awake()
 	{
 		if (this.autoSearch)
@@ -22,7 +22,7 @@ public class ColliderOffsetOverride : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600008F RID: 143 RVA: 0x00004D14 File Offset: 0x00002F14
+	// Token: 0x0600008F RID: 143 RVA: 0x00069F20 File Offset: 0x00068120
 	public void FindColliders()
 	{
 		foreach (Collider item in base.gameObject.GetComponents<Collider>().ToList<Collider>())
@@ -34,7 +34,7 @@ public class ColliderOffsetOverride : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000090 RID: 144 RVA: 0x00004D84 File Offset: 0x00002F84
+	// Token: 0x06000090 RID: 144 RVA: 0x00069F90 File Offset: 0x00068190
 	public void FindCollidersRecursively()
 	{
 		foreach (Collider item in base.gameObject.GetComponentsInChildren<Collider>().ToList<Collider>())
@@ -46,13 +46,13 @@ public class ColliderOffsetOverride : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000091 RID: 145 RVA: 0x00004DF4 File Offset: 0x00002FF4
+	// Token: 0x06000091 RID: 145 RVA: 0x00030A37 File Offset: 0x0002EC37
 	private void AutoDisabled()
 	{
 		this.autoSearch = true;
 	}
 
-	// Token: 0x06000092 RID: 146 RVA: 0x00004DFD File Offset: 0x00002FFD
+	// Token: 0x06000092 RID: 146 RVA: 0x00030A40 File Offset: 0x0002EC40
 	private void AutoEnabled()
 	{
 		this.autoSearch = false;

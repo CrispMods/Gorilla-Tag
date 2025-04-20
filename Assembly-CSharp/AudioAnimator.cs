@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200013C RID: 316
+// Token: 0x02000146 RID: 326
 public class AudioAnimator : MonoBehaviour
 {
-	// Token: 0x0600082F RID: 2095 RVA: 0x0002CEEE File Offset: 0x0002B0EE
+	// Token: 0x06000873 RID: 2163 RVA: 0x00035F63 File Offset: 0x00034163
 	private void Start()
 	{
 		if (!this.didInitBaseVolume)
@@ -13,7 +13,7 @@ public class AudioAnimator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000830 RID: 2096 RVA: 0x0002CF00 File Offset: 0x0002B100
+	// Token: 0x06000874 RID: 2164 RVA: 0x0008E1A8 File Offset: 0x0008C3A8
 	private void InitBaseVolume()
 	{
 		for (int i = 0; i < this.targets.Length; i++)
@@ -23,13 +23,13 @@ public class AudioAnimator : MonoBehaviour
 		this.didInitBaseVolume = true;
 	}
 
-	// Token: 0x06000831 RID: 2097 RVA: 0x0002CF4E File Offset: 0x0002B14E
+	// Token: 0x06000875 RID: 2165 RVA: 0x00035F73 File Offset: 0x00034173
 	public void UpdateValue(float value, bool ignoreSmoothing = false)
 	{
 		this.UpdatePitchAndVolume(value, value, ignoreSmoothing);
 	}
 
-	// Token: 0x06000832 RID: 2098 RVA: 0x0002CF5C File Offset: 0x0002B15C
+	// Token: 0x06000876 RID: 2166 RVA: 0x0008E1F8 File Offset: 0x0008C3F8
 	public void UpdatePitchAndVolume(float pitchValue, float volumeValue, bool ignoreSmoothing = false)
 	{
 		if (!this.didInitBaseVolume)
@@ -60,34 +60,34 @@ public class AudioAnimator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000993 RID: 2451
+	// Token: 0x040009D6 RID: 2518
 	private bool didInitBaseVolume;
 
-	// Token: 0x04000994 RID: 2452
+	// Token: 0x040009D7 RID: 2519
 	[SerializeField]
 	private AudioAnimator.AudioTarget[] targets;
 
-	// Token: 0x0200013D RID: 317
+	// Token: 0x02000147 RID: 327
 	[Serializable]
 	private struct AudioTarget
 	{
-		// Token: 0x04000995 RID: 2453
+		// Token: 0x040009D8 RID: 2520
 		public AudioSource audioSource;
 
-		// Token: 0x04000996 RID: 2454
+		// Token: 0x040009D9 RID: 2521
 		public AnimationCurve pitchCurve;
 
-		// Token: 0x04000997 RID: 2455
+		// Token: 0x040009DA RID: 2522
 		public AnimationCurve volumeCurve;
 
-		// Token: 0x04000998 RID: 2456
+		// Token: 0x040009DB RID: 2523
 		[NonSerialized]
 		public float baseVolume;
 
-		// Token: 0x04000999 RID: 2457
+		// Token: 0x040009DC RID: 2524
 		public float riseSmoothing;
 
-		// Token: 0x0400099A RID: 2458
+		// Token: 0x040009DD RID: 2525
 		public float lowerSmoothing;
 	}
 }

@@ -2,34 +2,34 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-// Token: 0x02000181 RID: 385
+// Token: 0x0200018C RID: 396
 public static class CosmeticsLegacyV1Info
 {
-	// Token: 0x0600099E RID: 2462 RVA: 0x00033128 File Offset: 0x00031328
+	// Token: 0x060009EA RID: 2538 RVA: 0x00093308 File Offset: 0x00091508
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool TryGetPlayFabId(string unityItemId, string unityDisplayName, string unityOverrideDisplayName, out string playFabId)
 	{
 		return CosmeticsLegacyV1Info.k_v1DisplayNames_to_playFabIds.TryGetValue(unityItemId, out playFabId) || CosmeticsLegacyV1Info.k_v1DisplayNames_to_playFabIds.TryGetValue(unityDisplayName, out playFabId) || CosmeticsLegacyV1Info.k_v1DisplayNames_to_playFabIds.TryGetValue(unityOverrideDisplayName, out playFabId) || CosmeticsLegacyV1Info.k_special.TryGetValue(unityItemId, out playFabId) || CosmeticsLegacyV1Info.k_special.TryGetValue(unityDisplayName, out playFabId) || CosmeticsLegacyV1Info.k_special.TryGetValue(unityOverrideDisplayName, out playFabId) || CosmeticsLegacyV1Info.k_packs.TryGetValue(unityItemId, out playFabId) || CosmeticsLegacyV1Info.k_packs.TryGetValue(unityDisplayName, out playFabId) || CosmeticsLegacyV1Info.k_packs.TryGetValue(unityOverrideDisplayName, out playFabId) || CosmeticsLegacyV1Info.k_oldPacks.TryGetValue(unityItemId, out playFabId) || CosmeticsLegacyV1Info.k_oldPacks.TryGetValue(unityDisplayName, out playFabId) || CosmeticsLegacyV1Info.k_oldPacks.TryGetValue(unityOverrideDisplayName, out playFabId) || CosmeticsLegacyV1Info.k_unused.TryGetValue(unityItemId, out playFabId) || CosmeticsLegacyV1Info.k_unused.TryGetValue(unityDisplayName, out playFabId) || CosmeticsLegacyV1Info.k_unused.TryGetValue(unityOverrideDisplayName, out playFabId);
 	}
 
-	// Token: 0x0600099F RID: 2463 RVA: 0x0003321C File Offset: 0x0003141C
+	// Token: 0x060009EB RID: 2539 RVA: 0x000933FC File Offset: 0x000915FC
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool TryGetPlayFabId(string unityItemId, out string playFabId, bool logErrors = false)
 	{
 		return CosmeticsLegacyV1Info.k_v1DisplayNames_to_playFabIds.TryGetValue(unityItemId, out playFabId) || CosmeticsLegacyV1Info.k_special.TryGetValue(unityItemId, out playFabId) || CosmeticsLegacyV1Info.k_packs.TryGetValue(unityItemId, out playFabId) || CosmeticsLegacyV1Info.k_oldPacks.TryGetValue(unityItemId, out playFabId) || CosmeticsLegacyV1Info.k_unused.TryGetValue(unityItemId, out playFabId);
 	}
 
-	// Token: 0x060009A0 RID: 2464 RVA: 0x00033272 File Offset: 0x00031472
+	// Token: 0x060009EC RID: 2540 RVA: 0x00036FE9 File Offset: 0x000351E9
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool TryGetBodyDockAllObjectsIndexes(string playFabId, out int[] bdAllIndexes)
 	{
 		return CosmeticsLegacyV1Info._k_playFabId_to_bodyDockPositions_allObjects_indexes.TryGetValue(playFabId, out bdAllIndexes);
 	}
 
-	// Token: 0x04000BA0 RID: 2976
+	// Token: 0x04000BE6 RID: 3046
 	public const int k_bodyDockPositions_allObjects_length = 224;
 
-	// Token: 0x04000BA1 RID: 2977
+	// Token: 0x04000BE7 RID: 3047
 	private static readonly Dictionary<string, string> k_special = new Dictionary<string, string>
 	{
 		{
@@ -38,7 +38,7 @@ public static class CosmeticsLegacyV1Info
 		}
 	};
 
-	// Token: 0x04000BA2 RID: 2978
+	// Token: 0x04000BE8 RID: 3048
 	private static readonly Dictionary<string, string> k_packs = new Dictionary<string, string>
 	{
 		{
@@ -155,7 +155,7 @@ public static class CosmeticsLegacyV1Info
 		}
 	};
 
-	// Token: 0x04000BA3 RID: 2979
+	// Token: 0x04000BE9 RID: 3049
 	private static readonly Dictionary<string, string> k_oldPacks = new Dictionary<string, string>
 	{
 		{
@@ -212,7 +212,7 @@ public static class CosmeticsLegacyV1Info
 		}
 	};
 
-	// Token: 0x04000BA4 RID: 2980
+	// Token: 0x04000BEA RID: 3050
 	private static readonly Dictionary<string, string> k_unused = new Dictionary<string, string>
 	{
 		{
@@ -225,7 +225,7 @@ public static class CosmeticsLegacyV1Info
 		}
 	};
 
-	// Token: 0x04000BA5 RID: 2981
+	// Token: 0x04000BEB RID: 3051
 	private static readonly Dictionary<string, string> k_v1DisplayNames_to_playFabIds = new Dictionary<string, string>
 	{
 		{
@@ -1082,7 +1082,7 @@ public static class CosmeticsLegacyV1Info
 		}
 	};
 
-	// Token: 0x04000BA6 RID: 2982
+	// Token: 0x04000BEC RID: 3052
 	private static readonly Dictionary<string, int[]> _k_playFabId_to_bodyDockPositions_allObjects_indexes = new Dictionary<string, int[]>
 	{
 		{

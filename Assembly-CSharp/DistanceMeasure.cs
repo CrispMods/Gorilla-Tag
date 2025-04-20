@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006A8 RID: 1704
+// Token: 0x020006BD RID: 1725
 public class DistanceMeasure : MonoBehaviour
 {
-	// Token: 0x06002A52 RID: 10834 RVA: 0x000D332F File Offset: 0x000D152F
+	// Token: 0x06002AE8 RID: 10984 RVA: 0x0004CEAC File Offset: 0x0004B0AC
 	private void Awake()
 	{
 		if (this.from == null)
@@ -17,9 +17,9 @@ public class DistanceMeasure : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002FCF RID: 12239
+	// Token: 0x0400306C RID: 12396
 	public Transform from;
 
-	// Token: 0x04002FD0 RID: 12240
+	// Token: 0x0400306D RID: 12397
 	public Transform to;
 }

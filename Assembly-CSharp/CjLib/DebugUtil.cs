@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace CjLib
 {
-	// Token: 0x02000C96 RID: 3222
+	// Token: 0x02000CC7 RID: 3271
 	public class DebugUtil
 	{
-		// Token: 0x0600511E RID: 20766 RVA: 0x0018969C File Offset: 0x0018789C
+		// Token: 0x06005280 RID: 21120 RVA: 0x001C0260 File Offset: 0x001BE460
 		private static Material GetMaterial(DebugUtil.Style style, bool depthTest, bool capShiftScale)
 		{
 			int num = 0;
@@ -53,7 +53,7 @@ namespace CjLib
 			return material;
 		}
 
-		// Token: 0x0600511F RID: 20767 RVA: 0x00189755 File Offset: 0x00187955
+		// Token: 0x06005281 RID: 21121 RVA: 0x00065971 File Offset: 0x00063B71
 		private static MaterialPropertyBlock GetMaterialPropertyBlock()
 		{
 			if (DebugUtil.s_materialProperties == null)
@@ -63,7 +63,7 @@ namespace CjLib
 			return DebugUtil.s_materialProperties;
 		}
 
-		// Token: 0x06005120 RID: 20768 RVA: 0x00189770 File Offset: 0x00187970
+		// Token: 0x06005282 RID: 21122 RVA: 0x001C031C File Offset: 0x001BE51C
 		public static void DrawLine(Vector3 v0, Vector3 v1, Color color, bool depthTest = true)
 		{
 			Mesh mesh = PrimitiveMeshFactory.Line(v0, v1);
@@ -79,7 +79,7 @@ namespace CjLib
 			Graphics.DrawMesh(mesh, Vector3.zero, Quaternion.identity, material, 0, null, 0, materialPropertyBlock, false, false, false);
 		}
 
-		// Token: 0x06005121 RID: 20769 RVA: 0x001897F8 File Offset: 0x001879F8
+		// Token: 0x06005283 RID: 21123 RVA: 0x001C03A4 File Offset: 0x001BE5A4
 		public static void DrawLines(Vector3[] aVert, Color color, bool depthTest = true)
 		{
 			Mesh mesh = PrimitiveMeshFactory.Lines(aVert);
@@ -95,7 +95,7 @@ namespace CjLib
 			Graphics.DrawMesh(mesh, Vector3.zero, Quaternion.identity, material, 0, null, 0, materialPropertyBlock, false, false, false);
 		}
 
-		// Token: 0x06005122 RID: 20770 RVA: 0x00189880 File Offset: 0x00187A80
+		// Token: 0x06005284 RID: 21124 RVA: 0x001C042C File Offset: 0x001BE62C
 		public static void DrawLineStrip(Vector3[] aVert, Color color, bool depthTest = true)
 		{
 			Mesh mesh = PrimitiveMeshFactory.LineStrip(aVert);
@@ -111,7 +111,7 @@ namespace CjLib
 			Graphics.DrawMesh(mesh, Vector3.zero, Quaternion.identity, material, 0, null, 0, materialPropertyBlock, false, false, false);
 		}
 
-		// Token: 0x06005123 RID: 20771 RVA: 0x00189908 File Offset: 0x00187B08
+		// Token: 0x06005285 RID: 21125 RVA: 0x001C04B4 File Offset: 0x001BE6B4
 		public static void DrawArc(Vector3 center, Vector3 from, Vector3 normal, float angle, float radius, int numSegments, Color color, bool depthTest = true)
 		{
 			if (numSegments <= 0)
@@ -133,7 +133,7 @@ namespace CjLib
 			DebugUtil.DrawLineStrip(array, color, depthTest);
 		}
 
-		// Token: 0x06005124 RID: 20772 RVA: 0x00189994 File Offset: 0x00187B94
+		// Token: 0x06005286 RID: 21126 RVA: 0x001C0540 File Offset: 0x001BE740
 		public static void DrawLocator(Vector3 position, Vector3 right, Vector3 up, Vector3 forward, Color rightColor, Color upColor, Color forwardColor, float size = 0.5f)
 		{
 			DebugUtil.DrawLine(position, position + right * size, rightColor, true);
@@ -141,13 +141,13 @@ namespace CjLib
 			DebugUtil.DrawLine(position, position + forward * size, forwardColor, true);
 		}
 
-		// Token: 0x06005125 RID: 20773 RVA: 0x001899E6 File Offset: 0x00187BE6
+		// Token: 0x06005287 RID: 21127 RVA: 0x0006598B File Offset: 0x00063B8B
 		public static void DrawLocator(Vector3 position, Vector3 right, Vector3 up, Vector3 forward, float size = 0.5f)
 		{
 			DebugUtil.DrawLocator(position, right, up, forward, Color.red, Color.green, Color.blue, size);
 		}
 
-		// Token: 0x06005126 RID: 20774 RVA: 0x00189A04 File Offset: 0x00187C04
+		// Token: 0x06005288 RID: 21128 RVA: 0x001C0594 File Offset: 0x001BE794
 		public static void DrawLocator(Vector3 position, Quaternion rotation, Color rightColor, Color upColor, Color forwardColor, float size = 0.5f)
 		{
 			Vector3 right = rotation * Vector3.right;
@@ -156,13 +156,13 @@ namespace CjLib
 			DebugUtil.DrawLocator(position, right, up, forward, rightColor, upColor, forwardColor, size);
 		}
 
-		// Token: 0x06005127 RID: 20775 RVA: 0x00189A44 File Offset: 0x00187C44
+		// Token: 0x06005289 RID: 21129 RVA: 0x000659A7 File Offset: 0x00063BA7
 		public static void DrawLocator(Vector3 position, Quaternion rotation, float size = 0.5f)
 		{
 			DebugUtil.DrawLocator(position, rotation, Color.red, Color.green, Color.blue, size);
 		}
 
-		// Token: 0x06005128 RID: 20776 RVA: 0x00189A60 File Offset: 0x00187C60
+		// Token: 0x0600528A RID: 21130 RVA: 0x001C05D4 File Offset: 0x001BE7D4
 		public static void DrawBox(Vector3 center, Quaternion rotation, Vector3 dimensions, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			if (dimensions.x < MathUtil.Epsilon || dimensions.y < MathUtil.Epsilon || dimensions.z < MathUtil.Epsilon)
@@ -195,7 +195,7 @@ namespace CjLib
 			Graphics.DrawMesh(mesh, center, rotation, material, 0, null, 0, materialPropertyBlock, false, false, false);
 		}
 
-		// Token: 0x06005129 RID: 20777 RVA: 0x00189B40 File Offset: 0x00187D40
+		// Token: 0x0600528B RID: 21131 RVA: 0x001C06B4 File Offset: 0x001BE8B4
 		public static void DrawRect(Vector3 center, Quaternion rotation, Vector2 dimensions, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			if (dimensions.x < MathUtil.Epsilon || dimensions.y < MathUtil.Epsilon)
@@ -228,14 +228,14 @@ namespace CjLib
 			Graphics.DrawMesh(mesh, center, rotation, material, 0, null, 0, materialPropertyBlock, false, false, false);
 		}
 
-		// Token: 0x0600512A RID: 20778 RVA: 0x00189C14 File Offset: 0x00187E14
+		// Token: 0x0600528C RID: 21132 RVA: 0x001C0788 File Offset: 0x001BE988
 		public static void DrawRect2D(Vector3 center, float rotationDeg, Vector2 dimensions, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			Quaternion rotation = Quaternion.AngleAxis(rotationDeg, Vector3.forward) * Quaternion.AngleAxis(90f, Vector3.right);
 			DebugUtil.DrawRect(center, rotation, dimensions, color, depthTest, style);
 		}
 
-		// Token: 0x0600512B RID: 20779 RVA: 0x00189C50 File Offset: 0x00187E50
+		// Token: 0x0600528D RID: 21133 RVA: 0x001C07C4 File Offset: 0x001BE9C4
 		public static void DrawCircle(Vector3 center, Quaternion rotation, float radius, int numSegments, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			if (radius < MathUtil.Epsilon)
@@ -268,20 +268,20 @@ namespace CjLib
 			Graphics.DrawMesh(mesh, center, rotation, material, 0, null, 0, materialPropertyBlock, false, false, false);
 		}
 
-		// Token: 0x0600512C RID: 20780 RVA: 0x00189D08 File Offset: 0x00187F08
+		// Token: 0x0600528E RID: 21134 RVA: 0x001C087C File Offset: 0x001BEA7C
 		public static void DrawCircle(Vector3 center, Vector3 normal, float radius, int numSegments, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			Quaternion rotation = Quaternion.LookRotation(Vector3.Normalize(Vector3.Cross((Mathf.Abs(Vector3.Dot(normal, Vector3.up)) < 0.5f) ? Vector3.up : Vector3.forward, normal)), normal);
 			DebugUtil.DrawCircle(center, rotation, radius, numSegments, color, depthTest, style);
 		}
 
-		// Token: 0x0600512D RID: 20781 RVA: 0x00189D59 File Offset: 0x00187F59
+		// Token: 0x0600528F RID: 21135 RVA: 0x000659C0 File Offset: 0x00063BC0
 		public static void DrawCircle2D(Vector3 center, float radius, int numSegments, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			DebugUtil.DrawCircle(center, Vector3.forward, radius, numSegments, color, depthTest, style);
 		}
 
-		// Token: 0x0600512E RID: 20782 RVA: 0x00189D70 File Offset: 0x00187F70
+		// Token: 0x06005290 RID: 21136 RVA: 0x001C08D0 File Offset: 0x001BEAD0
 		public static void DrawCylinder(Vector3 center, Quaternion rotation, float height, float radius, int numSegments, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			if (height < MathUtil.Epsilon || radius < MathUtil.Epsilon)
@@ -316,7 +316,7 @@ namespace CjLib
 			Graphics.DrawMesh(mesh, center, rotation, material, 0, null, 0, materialPropertyBlock, false, false, false);
 		}
 
-		// Token: 0x0600512F RID: 20783 RVA: 0x00189E38 File Offset: 0x00188038
+		// Token: 0x06005291 RID: 21137 RVA: 0x001C0998 File Offset: 0x001BEB98
 		public static void DrawCylinder(Vector3 point0, Vector3 point1, float radius, int numSegments, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			Vector3 vector = point1 - point0;
@@ -331,7 +331,7 @@ namespace CjLib
 			DebugUtil.DrawCylinder(center, rotation, magnitude, radius, numSegments, color, depthTest, style);
 		}
 
-		// Token: 0x06005130 RID: 20784 RVA: 0x00189EC0 File Offset: 0x001880C0
+		// Token: 0x06005292 RID: 21138 RVA: 0x001C0A20 File Offset: 0x001BEC20
 		public static void DrawSphere(Vector3 center, Quaternion rotation, float radius, int latSegments, int longSegments, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			if (radius < MathUtil.Epsilon)
@@ -366,13 +366,13 @@ namespace CjLib
 			Graphics.DrawMesh(mesh, center, rotation, material, 0, null, 0, materialPropertyBlock, false, false, false);
 		}
 
-		// Token: 0x06005131 RID: 20785 RVA: 0x00189F86 File Offset: 0x00188186
+		// Token: 0x06005293 RID: 21139 RVA: 0x000659D4 File Offset: 0x00063BD4
 		public static void DrawSphere(Vector3 center, float radius, int latSegments, int longSegments, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			DebugUtil.DrawSphere(center, Quaternion.identity, radius, latSegments, longSegments, color, depthTest, style);
 		}
 
-		// Token: 0x06005132 RID: 20786 RVA: 0x00189F9C File Offset: 0x0018819C
+		// Token: 0x06005294 RID: 21140 RVA: 0x001C0AE8 File Offset: 0x001BECE8
 		public static void DrawSphereTripleCircles(Vector3 center, Quaternion rotation, float radius, int numSegments, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			Vector3 normal = rotation * Vector3.right;
@@ -383,13 +383,13 @@ namespace CjLib
 			DebugUtil.DrawCircle(center, normal3, radius, numSegments, color, depthTest, style);
 		}
 
-		// Token: 0x06005133 RID: 20787 RVA: 0x00189FFA File Offset: 0x001881FA
+		// Token: 0x06005295 RID: 21141 RVA: 0x000659EA File Offset: 0x00063BEA
 		public static void DrawSphereTripleCircles(Vector3 center, float radius, int numSegments, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			DebugUtil.DrawSphereTripleCircles(center, Quaternion.identity, radius, numSegments, color, depthTest, style);
 		}
 
-		// Token: 0x06005134 RID: 20788 RVA: 0x0018A010 File Offset: 0x00188210
+		// Token: 0x06005296 RID: 21142 RVA: 0x001C0B48 File Offset: 0x001BED48
 		public static void DrawCapsule(Vector3 center, Quaternion rotation, float height, float radius, int latSegmentsPerCap, int longSegmentsPerCap, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			if (height < MathUtil.Epsilon || radius < MathUtil.Epsilon)
@@ -424,7 +424,7 @@ namespace CjLib
 			Graphics.DrawMesh(mesh, center, rotation, material, 0, null, 0, materialPropertyBlock, false, false, false);
 		}
 
-		// Token: 0x06005135 RID: 20789 RVA: 0x0018A0EC File Offset: 0x001882EC
+		// Token: 0x06005297 RID: 21143 RVA: 0x001C0C24 File Offset: 0x001BEE24
 		public static void DrawCapsule(Vector3 point0, Vector3 point1, float radius, int latSegmentsPerCap, int longSegmentsPerCap, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			Vector3 vector = point1 - point0;
@@ -439,7 +439,7 @@ namespace CjLib
 			DebugUtil.DrawCapsule(center, rotation, magnitude, radius, latSegmentsPerCap, longSegmentsPerCap, color, depthTest, style);
 		}
 
-		// Token: 0x06005136 RID: 20790 RVA: 0x0018A178 File Offset: 0x00188378
+		// Token: 0x06005298 RID: 21144 RVA: 0x001C0CB0 File Offset: 0x001BEEB0
 		public static void DrawCapsule2D(Vector3 center, float rotationDeg, float height, float radius, int capSegments, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			if (height < MathUtil.Epsilon || radius < MathUtil.Epsilon)
@@ -472,7 +472,7 @@ namespace CjLib
 			Graphics.DrawMesh(mesh, center, Quaternion.AngleAxis(rotationDeg, Vector3.forward), material, 0, null, 0, materialPropertyBlock, false, false, false);
 		}
 
-		// Token: 0x06005137 RID: 20791 RVA: 0x0018A240 File Offset: 0x00188440
+		// Token: 0x06005299 RID: 21145 RVA: 0x001C0D78 File Offset: 0x001BEF78
 		public static void DrawCone(Vector3 baseCenter, Quaternion rotation, float height, float radius, int numSegments, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			if (height < MathUtil.Epsilon || radius < MathUtil.Epsilon)
@@ -507,7 +507,7 @@ namespace CjLib
 			Graphics.DrawMesh(mesh, baseCenter, rotation, material, 0, null, 0, materialPropertyBlock, false, false, false);
 		}
 
-		// Token: 0x06005138 RID: 20792 RVA: 0x0018A30C File Offset: 0x0018850C
+		// Token: 0x0600529A RID: 21146 RVA: 0x001C0E44 File Offset: 0x001BF044
 		public static void DrawCone(Vector3 baseCenter, Vector3 top, float radius, int numSegments, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			Vector3 vector = top - baseCenter;
@@ -521,7 +521,7 @@ namespace CjLib
 			DebugUtil.DrawCone(baseCenter, rotation, magnitude, radius, numSegments, color, depthTest, style);
 		}
 
-		// Token: 0x06005139 RID: 20793 RVA: 0x0018A380 File Offset: 0x00188580
+		// Token: 0x0600529B RID: 21147 RVA: 0x001C0EB8 File Offset: 0x001BF0B8
 		public static void DrawArrow(Vector3 from, Vector3 to, float coneRadius, float coneHeight, int numSegments, float stemThickness, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			Vector3 vector = to - from;
@@ -549,40 +549,40 @@ namespace CjLib
 			}
 		}
 
-		// Token: 0x0600513A RID: 20794 RVA: 0x0018A454 File Offset: 0x00188654
+		// Token: 0x0600529C RID: 21148 RVA: 0x001C0F8C File Offset: 0x001BF18C
 		public static void DrawArrow(Vector3 from, Vector3 to, float size, Color color, bool depthTest = true, DebugUtil.Style style = DebugUtil.Style.Wireframe)
 		{
 			DebugUtil.DrawArrow(from, to, 0.5f * size, size, 8, 0f, color, depthTest, style);
 		}
 
-		// Token: 0x0400537D RID: 21373
+		// Token: 0x04005489 RID: 21641
 		private static float s_wireframeZBias = 0.0001f;
 
-		// Token: 0x0400537E RID: 21374
+		// Token: 0x0400548A RID: 21642
 		private const int kNormalFlag = 1;
 
-		// Token: 0x0400537F RID: 21375
+		// Token: 0x0400548B RID: 21643
 		private const int kCapShiftScaleFlag = 2;
 
-		// Token: 0x04005380 RID: 21376
+		// Token: 0x0400548C RID: 21644
 		private const int kDepthTestFlag = 4;
 
-		// Token: 0x04005381 RID: 21377
+		// Token: 0x0400548D RID: 21645
 		private static Dictionary<int, Material> s_materialPool;
 
-		// Token: 0x04005382 RID: 21378
+		// Token: 0x0400548E RID: 21646
 		private static MaterialPropertyBlock s_materialProperties;
 
-		// Token: 0x02000C97 RID: 3223
+		// Token: 0x02000CC8 RID: 3272
 		public enum Style
 		{
-			// Token: 0x04005384 RID: 21380
+			// Token: 0x04005490 RID: 21648
 			Wireframe,
-			// Token: 0x04005385 RID: 21381
+			// Token: 0x04005491 RID: 21649
 			SolidColor,
-			// Token: 0x04005386 RID: 21382
+			// Token: 0x04005492 RID: 21650
 			FlatShaded,
-			// Token: 0x04005387 RID: 21383
+			// Token: 0x04005493 RID: 21651
 			SmoothShaded
 		}
 	}

@@ -3,15 +3,15 @@ using Photon.Realtime;
 
 namespace GorillaTag
 {
-	// Token: 0x02000BB2 RID: 2994
+	// Token: 0x02000BDE RID: 3038
 	internal class ReportMuteTimer : TickSystemTimerAbstract, ObjectPoolEvents
 	{
-		// Token: 0x170007D7 RID: 2007
-		// (get) Token: 0x06004BB7 RID: 19383 RVA: 0x00170E11 File Offset: 0x0016F011
-		// (set) Token: 0x06004BB8 RID: 19384 RVA: 0x00170E19 File Offset: 0x0016F019
+		// Token: 0x170007F3 RID: 2035
+		// (get) Token: 0x06004CF7 RID: 19703 RVA: 0x0006286C File Offset: 0x00060A6C
+		// (set) Token: 0x06004CF8 RID: 19704 RVA: 0x00062874 File Offset: 0x00060A74
 		public int Muted { get; set; }
 
-		// Token: 0x06004BB9 RID: 19385 RVA: 0x00170E24 File Offset: 0x0016F024
+		// Token: 0x06004CF9 RID: 19705 RVA: 0x001A9BE8 File Offset: 0x001A7DE8
 		public override void OnTimedEvent()
 		{
 			if (!NetworkSystem.Instance.InRoom)
@@ -29,7 +29,7 @@ namespace GorillaTag
 			this.Stop();
 		}
 
-		// Token: 0x06004BBA RID: 19386 RVA: 0x00170EE6 File Offset: 0x0016F0E6
+		// Token: 0x06004CFA RID: 19706 RVA: 0x0006287D File Offset: 0x00060A7D
 		public void SetReportData(string id, string name, int muted)
 		{
 			this.Muted = muted;
@@ -37,12 +37,12 @@ namespace GorillaTag
 			this.m_nickName = name;
 		}
 
-		// Token: 0x06004BBB RID: 19387 RVA: 0x000023F4 File Offset: 0x000005F4
+		// Token: 0x06004CFB RID: 19707 RVA: 0x00030607 File Offset: 0x0002E807
 		void ObjectPoolEvents.OnTaken()
 		{
 		}
 
-		// Token: 0x06004BBC RID: 19388 RVA: 0x00170EFD File Offset: 0x0016F0FD
+		// Token: 0x06004CFC RID: 19708 RVA: 0x00062894 File Offset: 0x00060A94
 		void ObjectPoolEvents.OnReturned()
 		{
 			if (base.Running)
@@ -54,7 +54,7 @@ namespace GorillaTag
 			this.Muted = 0;
 		}
 
-		// Token: 0x04004D93 RID: 19859
+		// Token: 0x04004E86 RID: 20102
 		private static readonly NetEventOptions netEventOptions = new NetEventOptions
 		{
 			Flags = new WebFlags(1),
@@ -64,16 +64,16 @@ namespace GorillaTag
 			}
 		};
 
-		// Token: 0x04004D94 RID: 19860
+		// Token: 0x04004E87 RID: 20103
 		private static readonly object[] content = new object[6];
 
-		// Token: 0x04004D95 RID: 19861
+		// Token: 0x04004E88 RID: 20104
 		private const byte evCode = 51;
 
-		// Token: 0x04004D97 RID: 19863
+		// Token: 0x04004E8A RID: 20106
 		private string m_playerID;
 
-		// Token: 0x04004D98 RID: 19864
+		// Token: 0x04004E8B RID: 20107
 		private string m_nickName;
 	}
 }

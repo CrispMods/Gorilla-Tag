@@ -7,10 +7,10 @@ using UnityEngine.Serialization;
 
 namespace GorillaTag
 {
-	// Token: 0x02000BAF RID: 2991
+	// Token: 0x02000BDB RID: 3035
 	public class VolcanoEffects : BaseGuidedRefTargetMono
 	{
-		// Token: 0x06004B9F RID: 19359 RVA: 0x00170338 File Offset: 0x0016E538
+		// Token: 0x06004CDF RID: 19679 RVA: 0x001A9234 File Offset: 0x001A7434
 		protected override void Awake()
 		{
 			base.Awake();
@@ -61,7 +61,7 @@ namespace GorillaTag
 			this.UpdateDrainedState(0f);
 		}
 
-		// Token: 0x06004BA0 RID: 19360 RVA: 0x001705C8 File Offset: 0x0016E7C8
+		// Token: 0x06004CE0 RID: 19680 RVA: 0x001A94C4 File Offset: 0x001A76C4
 		public void OnVolcanoBellyEmpty()
 		{
 			if (!this.hasForestSpeakerAudioSrc)
@@ -76,7 +76,7 @@ namespace GorillaTag
 			this.forestSpeakerAudioSrc.GTPlayOneShot(this.warnVolcanoBellyEmptied, 1f);
 		}
 
-		// Token: 0x06004BA1 RID: 19361 RVA: 0x00170620 File Offset: 0x0016E820
+		// Token: 0x06004CE1 RID: 19681 RVA: 0x001A951C File Offset: 0x001A771C
 		public void OnStoneAccepted(double activationProgress)
 		{
 			if (!this.hasVolcanoAudioSrc)
@@ -92,7 +92,7 @@ namespace GorillaTag
 			this.volcanoAudioSource.GTPlayOneShot(this.volcanoAcceptStone, 1f);
 		}
 
-		// Token: 0x06004BA2 RID: 19362 RVA: 0x00170680 File Offset: 0x0016E880
+		// Token: 0x06004CE2 RID: 19682 RVA: 0x001A957C File Offset: 0x001A777C
 		private void InitState(VolcanoEffects.LavaStateFX fx)
 		{
 			fx.startSoundExists = (fx.startSound != null);
@@ -111,7 +111,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004BA3 RID: 19363 RVA: 0x00170728 File Offset: 0x0016E928
+		// Token: 0x06004CE3 RID: 19683 RVA: 0x001A9624 File Offset: 0x001A7824
 		private void SetLavaAudioEnabled(bool toEnable)
 		{
 			AudioSource[] array = this.lavaSurfaceAudioSrcs;
@@ -121,7 +121,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004BA4 RID: 19364 RVA: 0x00170758 File Offset: 0x0016E958
+		// Token: 0x06004CE4 RID: 19684 RVA: 0x001A9654 File Offset: 0x001A7854
 		private void SetLavaAudioEnabled(bool toEnable, float volume)
 		{
 			foreach (AudioSource audioSource in this.lavaSurfaceAudioSrcs)
@@ -131,7 +131,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004BA5 RID: 19365 RVA: 0x00170790 File Offset: 0x0016E990
+		// Token: 0x06004CE5 RID: 19685 RVA: 0x001A968C File Offset: 0x001A788C
 		private void ResetState()
 		{
 			if (this.currentStateFX == null)
@@ -158,7 +158,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004BA6 RID: 19366 RVA: 0x0017084C File Offset: 0x0016EA4C
+		// Token: 0x06004CE6 RID: 19686 RVA: 0x001A9748 File Offset: 0x001A7948
 		private void UpdateState(float time, float timeRemaining, float progress)
 		{
 			if (this.currentStateFX == null)
@@ -208,7 +208,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004BA7 RID: 19367 RVA: 0x00170B21 File Offset: 0x0016ED21
+		// Token: 0x06004CE7 RID: 19687 RVA: 0x00062741 File Offset: 0x00060941
 		public void SetDrainedState()
 		{
 			this.ResetState();
@@ -216,14 +216,14 @@ namespace GorillaTag
 			this.currentStateFX = this.drainedStateFX;
 		}
 
-		// Token: 0x06004BA8 RID: 19368 RVA: 0x00170B3C File Offset: 0x0016ED3C
+		// Token: 0x06004CE8 RID: 19688 RVA: 0x0006275C File Offset: 0x0006095C
 		public void UpdateDrainedState(float time)
 		{
 			this.ResetState();
 			this.UpdateState(time, float.MaxValue, float.MinValue);
 		}
 
-		// Token: 0x06004BA9 RID: 19369 RVA: 0x00170B55 File Offset: 0x0016ED55
+		// Token: 0x06004CE9 RID: 19689 RVA: 0x00062775 File Offset: 0x00060975
 		public void SetEruptingState()
 		{
 			this.ResetState();
@@ -231,13 +231,13 @@ namespace GorillaTag
 			this.currentStateFX = this.eruptingStateFX;
 		}
 
-		// Token: 0x06004BAA RID: 19370 RVA: 0x00170B75 File Offset: 0x0016ED75
+		// Token: 0x06004CEA RID: 19690 RVA: 0x00062795 File Offset: 0x00060995
 		public void UpdateEruptingState(float time, float timeRemaining, float progress)
 		{
 			this.UpdateState(time, timeRemaining, progress);
 		}
 
-		// Token: 0x06004BAB RID: 19371 RVA: 0x00170B80 File Offset: 0x0016ED80
+		// Token: 0x06004CEB RID: 19691 RVA: 0x000627A0 File Offset: 0x000609A0
 		public void SetRisingState()
 		{
 			this.ResetState();
@@ -245,7 +245,7 @@ namespace GorillaTag
 			this.currentStateFX = this.risingStateFX;
 		}
 
-		// Token: 0x06004BAC RID: 19372 RVA: 0x00170BA0 File Offset: 0x0016EDA0
+		// Token: 0x06004CEC RID: 19692 RVA: 0x001A9A20 File Offset: 0x001A7C20
 		public void UpdateRisingState(float time, float timeRemaining, float progress)
 		{
 			this.UpdateState(time, timeRemaining, progress);
@@ -256,7 +256,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004BAD RID: 19373 RVA: 0x00170BE8 File Offset: 0x0016EDE8
+		// Token: 0x06004CED RID: 19693 RVA: 0x000627C0 File Offset: 0x000609C0
 		public void SetFullState()
 		{
 			this.ResetState();
@@ -264,13 +264,13 @@ namespace GorillaTag
 			this.currentStateFX = this.fullStateFX;
 		}
 
-		// Token: 0x06004BAE RID: 19374 RVA: 0x00170B75 File Offset: 0x0016ED75
+		// Token: 0x06004CEE RID: 19694 RVA: 0x00062795 File Offset: 0x00060995
 		public void UpdateFullState(float time, float timeRemaining, float progress)
 		{
 			this.UpdateState(time, timeRemaining, progress);
 		}
 
-		// Token: 0x06004BAF RID: 19375 RVA: 0x00170C08 File Offset: 0x0016EE08
+		// Token: 0x06004CEF RID: 19695 RVA: 0x000627E0 File Offset: 0x000609E0
 		public void SetDrainingState()
 		{
 			this.ResetState();
@@ -278,7 +278,7 @@ namespace GorillaTag
 			this.currentStateFX = this.drainingStateFX;
 		}
 
-		// Token: 0x06004BB0 RID: 19376 RVA: 0x00170C28 File Offset: 0x0016EE28
+		// Token: 0x06004CF0 RID: 19696 RVA: 0x001A9A68 File Offset: 0x001A7C68
 		public void UpdateDrainingState(float time, float timeRemaining, float progress)
 		{
 			this.UpdateState(time, timeRemaining, progress);
@@ -289,7 +289,7 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004BB1 RID: 19377 RVA: 0x00170C6C File Offset: 0x0016EE6C
+		// Token: 0x06004CF1 RID: 19697 RVA: 0x001A9AAC File Offset: 0x001A7CAC
 		private void SetParticleEmissionRateAndBurst(float multiplier, ParticleSystem.EmissionModule[] emissionModules, float[] defaultRateMultipliers, ParticleSystem.Burst[][] defaultEmitBursts, ParticleSystem.Burst[][] adjustedEmitBursts)
 		{
 			for (int i = 0; i < emissionModules.Length; i++)
@@ -304,8 +304,8 @@ namespace GorillaTag
 			}
 		}
 
-		// Token: 0x06004BB2 RID: 19378 RVA: 0x00170CEC File Offset: 0x0016EEEC
-		private bool RemoveNullsFromArray<T>(ref T[] array) where T : Object
+		// Token: 0x06004CF2 RID: 19698 RVA: 0x001A9B2C File Offset: 0x001A7D2C
+		private bool RemoveNullsFromArray<T>(ref T[] array) where T : UnityEngine.Object
 		{
 			List<T> list = new List<T>(array.Length);
 			foreach (T t in array)
@@ -320,7 +320,7 @@ namespace GorillaTag
 			return num != array.Length;
 		}
 
-		// Token: 0x06004BB3 RID: 19379 RVA: 0x00170D46 File Offset: 0x0016EF46
+		// Token: 0x06004CF3 RID: 19699 RVA: 0x00062800 File Offset: 0x00060A00
 		private void LogNullsFoundInArray(string nameOfArray)
 		{
 			Debug.LogError(string.Concat(new string[]
@@ -333,201 +333,201 @@ namespace GorillaTag
 			}), this);
 		}
 
-		// Token: 0x04004D5B RID: 19803
+		// Token: 0x04004E4E RID: 20046
 		[Tooltip("Only one VolcanoEffects should change shader globals in the scene (lava color, lava light) at a time.")]
 		[SerializeField]
 		private bool applyShaderGlobals = true;
 
-		// Token: 0x04004D5C RID: 19804
+		// Token: 0x04004E4F RID: 20047
 		[Tooltip("Game trigger notification sounds will play through this.")]
 		[SerializeField]
 		private AudioSource forestSpeakerAudioSrc;
 
-		// Token: 0x04004D5D RID: 19805
+		// Token: 0x04004E50 RID: 20048
 		[Tooltip("The accumulator value of rocks being thrown into the volcano has been reset.")]
 		[SerializeField]
 		private AudioClip warnVolcanoBellyEmptied;
 
-		// Token: 0x04004D5E RID: 19806
+		// Token: 0x04004E51 RID: 20049
 		[Tooltip("Accept stone sounds will play through here.")]
 		[SerializeField]
 		private AudioSource volcanoAudioSource;
 
-		// Token: 0x04004D5F RID: 19807
+		// Token: 0x04004E52 RID: 20050
 		[Tooltip("volcano ate rock but needs more.")]
 		[SerializeField]
 		private AudioClip volcanoAcceptStone;
 
-		// Token: 0x04004D60 RID: 19808
+		// Token: 0x04004E53 RID: 20051
 		[Tooltip("volcano ate last needed rock.")]
 		[SerializeField]
 		private AudioClip volcanoAcceptLastStone;
 
-		// Token: 0x04004D61 RID: 19809
+		// Token: 0x04004E54 RID: 20052
 		[Tooltip("This will be faded in while lava is rising.")]
 		[SerializeField]
 		private AudioSource[] lavaSurfaceAudioSrcs;
 
-		// Token: 0x04004D62 RID: 19810
+		// Token: 0x04004E55 RID: 20053
 		[Tooltip("Emission will be adjusted for these particles during eruption.")]
 		[SerializeField]
 		private ParticleSystem[] lavaSpewParticleSystems;
 
-		// Token: 0x04004D63 RID: 19811
+		// Token: 0x04004E56 RID: 20054
 		[Tooltip("Smoke emits during all states but it's intensity and color will change when erupting/idling.")]
 		[SerializeField]
 		private ParticleSystem[] smokeParticleSystems;
 
-		// Token: 0x04004D64 RID: 19812
+		// Token: 0x04004E57 RID: 20055
 		[SerializeField]
 		private VolcanoEffects.LavaStateFX drainedStateFX;
 
-		// Token: 0x04004D65 RID: 19813
+		// Token: 0x04004E58 RID: 20056
 		[SerializeField]
 		private VolcanoEffects.LavaStateFX eruptingStateFX;
 
-		// Token: 0x04004D66 RID: 19814
+		// Token: 0x04004E59 RID: 20057
 		[SerializeField]
 		private VolcanoEffects.LavaStateFX risingStateFX;
 
-		// Token: 0x04004D67 RID: 19815
+		// Token: 0x04004E5A RID: 20058
 		[SerializeField]
 		private VolcanoEffects.LavaStateFX fullStateFX;
 
-		// Token: 0x04004D68 RID: 19816
+		// Token: 0x04004E5B RID: 20059
 		[SerializeField]
 		private VolcanoEffects.LavaStateFX drainingStateFX;
 
-		// Token: 0x04004D69 RID: 19817
+		// Token: 0x04004E5C RID: 20060
 		private VolcanoEffects.LavaStateFX currentStateFX;
 
-		// Token: 0x04004D6A RID: 19818
+		// Token: 0x04004E5D RID: 20061
 		private ParticleSystem.EmissionModule[] lavaSpewEmissionModules;
 
-		// Token: 0x04004D6B RID: 19819
+		// Token: 0x04004E5E RID: 20062
 		private float[] lavaSpewEmissionDefaultRateMultipliers;
 
-		// Token: 0x04004D6C RID: 19820
+		// Token: 0x04004E5F RID: 20063
 		private ParticleSystem.Burst[][] lavaSpewDefaultEmitBursts;
 
-		// Token: 0x04004D6D RID: 19821
+		// Token: 0x04004E60 RID: 20064
 		private ParticleSystem.Burst[][] lavaSpewAdjustedEmitBursts;
 
-		// Token: 0x04004D6E RID: 19822
+		// Token: 0x04004E61 RID: 20065
 		private ParticleSystem.MainModule[] smokeMainModules;
 
-		// Token: 0x04004D6F RID: 19823
+		// Token: 0x04004E62 RID: 20066
 		private ParticleSystem.EmissionModule[] smokeEmissionModules;
 
-		// Token: 0x04004D70 RID: 19824
+		// Token: 0x04004E63 RID: 20067
 		private float[] smokeEmissionDefaultRateMultipliers;
 
-		// Token: 0x04004D71 RID: 19825
+		// Token: 0x04004E64 RID: 20068
 		private int shaderProp_ZoneLiquidLightColor = Shader.PropertyToID("_ZoneLiquidLightColor");
 
-		// Token: 0x04004D72 RID: 19826
+		// Token: 0x04004E65 RID: 20069
 		private int shaderProp_ZoneLiquidLightDistScale = Shader.PropertyToID("_ZoneLiquidLightDistScale");
 
-		// Token: 0x04004D73 RID: 19827
+		// Token: 0x04004E66 RID: 20070
 		private float timeVolcanoBellyWasLastEmpty;
 
-		// Token: 0x04004D74 RID: 19828
+		// Token: 0x04004E67 RID: 20071
 		private bool hasVolcanoAudioSrc;
 
-		// Token: 0x04004D75 RID: 19829
+		// Token: 0x04004E68 RID: 20072
 		private bool hasForestSpeakerAudioSrc;
 
-		// Token: 0x02000BB0 RID: 2992
+		// Token: 0x02000BDC RID: 3036
 		[Serializable]
 		public class LavaStateFX
 		{
-			// Token: 0x04004D76 RID: 19830
+			// Token: 0x04004E69 RID: 20073
 			public AudioClip startSound;
 
-			// Token: 0x04004D77 RID: 19831
+			// Token: 0x04004E6A RID: 20074
 			public AudioSource startSoundAudioSrc;
 
-			// Token: 0x04004D78 RID: 19832
+			// Token: 0x04004E6B RID: 20075
 			[Tooltip("Multiplied by the AudioSource's volume.")]
 			public float startSoundVol = 1f;
 
-			// Token: 0x04004D79 RID: 19833
+			// Token: 0x04004E6C RID: 20076
 			[FormerlySerializedAs("startSoundPad")]
 			public float startSoundDelay;
 
-			// Token: 0x04004D7A RID: 19834
+			// Token: 0x04004E6D RID: 20077
 			public AudioClip endSound;
 
-			// Token: 0x04004D7B RID: 19835
+			// Token: 0x04004E6E RID: 20078
 			public AudioSource endSoundAudioSrc;
 
-			// Token: 0x04004D7C RID: 19836
+			// Token: 0x04004E6F RID: 20079
 			[Tooltip("Multiplied by the AudioSource's volume.")]
 			public float endSoundVol = 1f;
 
-			// Token: 0x04004D7D RID: 19837
+			// Token: 0x04004E70 RID: 20080
 			[Tooltip("How much time should there be between the end of the clip playing and the end of the state.")]
 			public float endSoundPadTime;
 
-			// Token: 0x04004D7E RID: 19838
+			// Token: 0x04004E71 RID: 20081
 			public AudioSource loop1AudioSrc;
 
-			// Token: 0x04004D7F RID: 19839
+			// Token: 0x04004E72 RID: 20082
 			public AnimationCurve loop1VolAnim;
 
-			// Token: 0x04004D80 RID: 19840
+			// Token: 0x04004E73 RID: 20083
 			public AudioSource loop2AudioSrc;
 
-			// Token: 0x04004D81 RID: 19841
+			// Token: 0x04004E74 RID: 20084
 			public AnimationCurve loop2VolAnim;
 
-			// Token: 0x04004D82 RID: 19842
+			// Token: 0x04004E75 RID: 20085
 			public AnimationCurve lavaSpewEmissionAnim;
 
-			// Token: 0x04004D83 RID: 19843
+			// Token: 0x04004E76 RID: 20086
 			public AnimationCurve smokeEmissionAnim;
 
-			// Token: 0x04004D84 RID: 19844
+			// Token: 0x04004E77 RID: 20087
 			public Gradient smokeStartColorAnim;
 
-			// Token: 0x04004D85 RID: 19845
+			// Token: 0x04004E78 RID: 20088
 			public Gradient lavaLightColor;
 
-			// Token: 0x04004D86 RID: 19846
+			// Token: 0x04004E79 RID: 20089
 			public AnimationCurve lavaLightIntensityAnim = AnimationCurve.Constant(0f, 1f, 60f);
 
-			// Token: 0x04004D87 RID: 19847
+			// Token: 0x04004E7A RID: 20090
 			public AnimationCurve lavaLightAttenuationAnim = AnimationCurve.Constant(0f, 1f, 0.1f);
 
-			// Token: 0x04004D88 RID: 19848
+			// Token: 0x04004E7B RID: 20091
 			[NonSerialized]
 			public bool startSoundExists;
 
-			// Token: 0x04004D89 RID: 19849
+			// Token: 0x04004E7C RID: 20092
 			[NonSerialized]
 			public bool startSoundPlayed;
 
-			// Token: 0x04004D8A RID: 19850
+			// Token: 0x04004E7D RID: 20093
 			[NonSerialized]
 			public bool endSoundExists;
 
-			// Token: 0x04004D8B RID: 19851
+			// Token: 0x04004E7E RID: 20094
 			[NonSerialized]
 			public bool endSoundPlayed;
 
-			// Token: 0x04004D8C RID: 19852
+			// Token: 0x04004E7F RID: 20095
 			[NonSerialized]
 			public bool loop1Exists;
 
-			// Token: 0x04004D8D RID: 19853
+			// Token: 0x04004E80 RID: 20096
 			[NonSerialized]
 			public float loop1DefaultVolume;
 
-			// Token: 0x04004D8E RID: 19854
+			// Token: 0x04004E81 RID: 20097
 			[NonSerialized]
 			public bool loop2Exists;
 
-			// Token: 0x04004D8F RID: 19855
+			// Token: 0x04004E82 RID: 20098
 			[NonSerialized]
 			public float loop2DefaultVolume;
 		}

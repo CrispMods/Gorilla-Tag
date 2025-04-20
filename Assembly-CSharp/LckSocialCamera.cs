@@ -7,12 +7,12 @@ using Liv.Lck.GorillaTag;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x0200023D RID: 573
+// Token: 0x02000248 RID: 584
 [NetworkBehaviourWeaved(1)]
 public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 {
-	// Token: 0x1700014D RID: 333
-	// (get) Token: 0x06000D28 RID: 3368 RVA: 0x00044621 File Offset: 0x00042821
+	// Token: 0x17000154 RID: 340
+	// (get) Token: 0x06000D73 RID: 3443 RVA: 0x00039877 File Offset: 0x00037A77
 	[Networked]
 	[NetworkedWeaved(0, 1)]
 	private unsafe ref LckSocialCamera.CameraData _networkedData
@@ -27,9 +27,9 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x1700014E RID: 334
-	// (get) Token: 0x06000D29 RID: 3369 RVA: 0x00044646 File Offset: 0x00042846
-	// (set) Token: 0x06000D2A RID: 3370 RVA: 0x00044654 File Offset: 0x00042854
+	// Token: 0x17000155 RID: 341
+	// (get) Token: 0x06000D74 RID: 3444 RVA: 0x0003989C File Offset: 0x00037A9C
+	// (set) Token: 0x06000D75 RID: 3445 RVA: 0x000A1F28 File Offset: 0x000A0128
 	private LckSocialCamera.CameraState currentState
 	{
 		get
@@ -50,13 +50,13 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06000D2B RID: 3371 RVA: 0x000446B0 File Offset: 0x000428B0
+	// Token: 0x06000D76 RID: 3446 RVA: 0x000398A9 File Offset: 0x00037AA9
 	private static bool GetFlag(LckSocialCamera.CameraState cameraState, LckSocialCamera.CameraState flag)
 	{
 		return (cameraState & flag) == flag;
 	}
 
-	// Token: 0x06000D2C RID: 3372 RVA: 0x000446B8 File Offset: 0x000428B8
+	// Token: 0x06000D77 RID: 3447 RVA: 0x000398B1 File Offset: 0x00037AB1
 	private static LckSocialCamera.CameraState SetFlag(LckSocialCamera.CameraState cameraState, LckSocialCamera.CameraState flag, bool value)
 	{
 		if (value)
@@ -70,9 +70,9 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		return cameraState;
 	}
 
-	// Token: 0x1700014F RID: 335
-	// (get) Token: 0x06000D2D RID: 3373 RVA: 0x000446CB File Offset: 0x000428CB
-	// (set) Token: 0x06000D2E RID: 3374 RVA: 0x000446D9 File Offset: 0x000428D9
+	// Token: 0x17000156 RID: 342
+	// (get) Token: 0x06000D78 RID: 3448 RVA: 0x000398C4 File Offset: 0x00037AC4
+	// (set) Token: 0x06000D79 RID: 3449 RVA: 0x000398D2 File Offset: 0x00037AD2
 	public bool visible
 	{
 		get
@@ -85,9 +85,9 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x17000150 RID: 336
-	// (get) Token: 0x06000D2F RID: 3375 RVA: 0x000446EE File Offset: 0x000428EE
-	// (set) Token: 0x06000D30 RID: 3376 RVA: 0x000446FC File Offset: 0x000428FC
+	// Token: 0x17000157 RID: 343
+	// (get) Token: 0x06000D7A RID: 3450 RVA: 0x000398E7 File Offset: 0x00037AE7
+	// (set) Token: 0x06000D7B RID: 3451 RVA: 0x000398F5 File Offset: 0x00037AF5
 	public bool recording
 	{
 		get
@@ -100,25 +100,25 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06000D31 RID: 3377 RVA: 0x00044711 File Offset: 0x00042911
+	// Token: 0x06000D7C RID: 3452 RVA: 0x0003990A File Offset: 0x00037B0A
 	public unsafe override void WriteDataFusion()
 	{
 		*this._networkedData = new LckSocialCamera.CameraData(this._localData.currentState);
 	}
 
-	// Token: 0x06000D32 RID: 3378 RVA: 0x0004472E File Offset: 0x0004292E
+	// Token: 0x06000D7D RID: 3453 RVA: 0x00039927 File Offset: 0x00037B27
 	public override void ReadDataFusion()
 	{
 		this.ReadDataShared(this._networkedData.currentState);
 	}
 
-	// Token: 0x06000D33 RID: 3379 RVA: 0x00044741 File Offset: 0x00042941
+	// Token: 0x06000D7E RID: 3454 RVA: 0x0003993A File Offset: 0x00037B3A
 	protected override void WriteDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		stream.SendNext(this.currentState);
 	}
 
-	// Token: 0x06000D34 RID: 3380 RVA: 0x00044754 File Offset: 0x00042954
+	// Token: 0x06000D7F RID: 3455 RVA: 0x000A1F84 File Offset: 0x000A0184
 	protected override void ReadDataPUN(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (info.Sender != info.photonView.Owner)
@@ -129,7 +129,7 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		this.ReadDataShared(newState);
 	}
 
-	// Token: 0x06000D35 RID: 3381 RVA: 0x00044788 File Offset: 0x00042988
+	// Token: 0x06000D80 RID: 3456 RVA: 0x000A1FB8 File Offset: 0x000A01B8
 	protected override void Start()
 	{
 		base.Start();
@@ -147,7 +147,7 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06000D36 RID: 3382 RVA: 0x000447EC File Offset: 0x000429EC
+	// Token: 0x06000D81 RID: 3457 RVA: 0x0003994D File Offset: 0x00037B4D
 	public override void OnPhotonInstantiate(PhotonMessageInfo info)
 	{
 		base.OnPhotonInstantiate(info);
@@ -157,7 +157,7 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06000D37 RID: 3383 RVA: 0x00044808 File Offset: 0x00042A08
+	// Token: 0x06000D82 RID: 3458 RVA: 0x000A201C File Offset: 0x000A021C
 	private void StoreRigReference()
 	{
 		RigContainer rigContainer;
@@ -167,7 +167,7 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06000D38 RID: 3384 RVA: 0x00044838 File Offset: 0x00042A38
+	// Token: 0x06000D83 RID: 3459 RVA: 0x000A204C File Offset: 0x000A024C
 	public void SliceUpdate()
 	{
 		if (this._vrrig == null)
@@ -185,7 +185,7 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		}
 	}
 
-	// Token: 0x06000D39 RID: 3385 RVA: 0x00044893 File Offset: 0x00042A93
+	// Token: 0x06000D84 RID: 3460 RVA: 0x00039969 File Offset: 0x00037B69
 	public new void OnEnable()
 	{
 		NetworkBehaviourUtils.InternalOnEnable(this);
@@ -193,7 +193,7 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		GorillaSlicerSimpleManager.RegisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x06000D3A RID: 3386 RVA: 0x000448A8 File Offset: 0x00042AA8
+	// Token: 0x06000D85 RID: 3461 RVA: 0x0003997E File Offset: 0x00037B7E
 	public new void OnDisable()
 	{
 		NetworkBehaviourUtils.InternalOnDisable(this);
@@ -201,25 +201,25 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		GorillaSlicerSimpleManager.UnregisterSliceable(this, GorillaSlicerSimpleManager.UpdateStep.Update);
 	}
 
-	// Token: 0x06000D3B RID: 3387 RVA: 0x000448BD File Offset: 0x00042ABD
+	// Token: 0x06000D86 RID: 3462 RVA: 0x00039993 File Offset: 0x00037B93
 	private void OnManagerSpawned(LckSocialCameraManager manager)
 	{
 		manager.SetLckSocialCamera(this);
 	}
 
-	// Token: 0x06000D3C RID: 3388 RVA: 0x000448C6 File Offset: 0x00042AC6
+	// Token: 0x06000D87 RID: 3463 RVA: 0x0003999C File Offset: 0x00037B9C
 	private void ReadDataShared(LckSocialCamera.CameraState newState)
 	{
 		this.currentState = newState;
 	}
 
-	// Token: 0x06000D3E RID: 3390 RVA: 0x0000F974 File Offset: 0x0000DB74
+	// Token: 0x06000D89 RID: 3465 RVA: 0x00032105 File Offset: 0x00030305
 	bool IGorillaSliceableSimple.get_isActiveAndEnabled()
 	{
 		return base.isActiveAndEnabled;
 	}
 
-	// Token: 0x06000D3F RID: 3391 RVA: 0x000448CF File Offset: 0x00042ACF
+	// Token: 0x06000D8A RID: 3466 RVA: 0x000399A5 File Offset: 0x00037BA5
 	[WeaverGenerated]
 	public unsafe override void CopyBackingFieldsToState(bool A_1)
 	{
@@ -227,7 +227,7 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		*this._networkedData = this.__networkedData;
 	}
 
-	// Token: 0x06000D40 RID: 3392 RVA: 0x000448EC File Offset: 0x00042AEC
+	// Token: 0x06000D8B RID: 3467 RVA: 0x000399C2 File Offset: 0x00037BC2
 	[WeaverGenerated]
 	public unsafe override void CopyStateToBackingFields()
 	{
@@ -235,62 +235,62 @@ public class LckSocialCamera : NetworkComponent, IGorillaSliceableSimple
 		this.__networkedData = *this._networkedData;
 	}
 
-	// Token: 0x04001072 RID: 4210
+	// Token: 0x040010B8 RID: 4280
 	[SerializeField]
 	private Transform _scaleTransform;
 
-	// Token: 0x04001073 RID: 4211
+	// Token: 0x040010B9 RID: 4281
 	[SerializeField]
 	public CoconutCamera CoconutCamera;
 
-	// Token: 0x04001074 RID: 4212
+	// Token: 0x040010BA RID: 4282
 	[SerializeField]
 	private List<GameObject> _visualObjects;
 
-	// Token: 0x04001075 RID: 4213
+	// Token: 0x040010BB RID: 4283
 	[SerializeField]
 	private VRRig _vrrig;
 
-	// Token: 0x04001076 RID: 4214
+	// Token: 0x040010BC RID: 4284
 	private LckSocialCamera.CameraDataLocal _localData;
 
-	// Token: 0x04001077 RID: 4215
+	// Token: 0x040010BD RID: 4285
 	[WeaverGenerated]
 	[DefaultForProperty("_networkedData", 0, 1)]
 	[DrawIf("IsEditorWritable", true, CompareOperator.Equal, DrawIfMode.ReadOnly)]
 	private LckSocialCamera.CameraData __networkedData;
 
-	// Token: 0x0200023E RID: 574
+	// Token: 0x02000249 RID: 585
 	private enum CameraState
 	{
-		// Token: 0x04001079 RID: 4217
+		// Token: 0x040010BF RID: 4287
 		Empty,
-		// Token: 0x0400107A RID: 4218
+		// Token: 0x040010C0 RID: 4288
 		Visible,
-		// Token: 0x0400107B RID: 4219
+		// Token: 0x040010C1 RID: 4289
 		Recording
 	}
 
-	// Token: 0x0200023F RID: 575
+	// Token: 0x0200024A RID: 586
 	[NetworkStructWeaved(1)]
 	[StructLayout(LayoutKind.Explicit, Size = 4)]
 	private struct CameraData : INetworkStruct
 	{
-		// Token: 0x06000D41 RID: 3393 RVA: 0x00044905 File Offset: 0x00042B05
+		// Token: 0x06000D8C RID: 3468 RVA: 0x000399DB File Offset: 0x00037BDB
 		public CameraData(LckSocialCamera.CameraState currentState)
 		{
 			this.currentState = currentState;
 		}
 
-		// Token: 0x0400107C RID: 4220
+		// Token: 0x040010C2 RID: 4290
 		[FieldOffset(0)]
 		public LckSocialCamera.CameraState currentState;
 	}
 
-	// Token: 0x02000240 RID: 576
+	// Token: 0x0200024B RID: 587
 	private struct CameraDataLocal
 	{
-		// Token: 0x0400107D RID: 4221
+		// Token: 0x040010C3 RID: 4291
 		public LckSocialCamera.CameraState currentState;
 	}
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x02000563 RID: 1379
+// Token: 0x02000571 RID: 1393
 public class GorillaHandRight : GorillaHandNode
 {
 }

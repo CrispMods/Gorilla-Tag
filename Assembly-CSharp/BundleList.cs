@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x020003C5 RID: 965
+// Token: 0x020003D0 RID: 976
 internal class BundleList
 {
-	// Token: 0x06001741 RID: 5953 RVA: 0x00071ADC File Offset: 0x0006FCDC
+	// Token: 0x0600178E RID: 6030 RVA: 0x000C8C68 File Offset: 0x000C6E68
 	public void FromJson(string jsonString)
 	{
 		this.data = JSonHelper.FromJson<BundleData>(jsonString);
@@ -35,7 +35,7 @@ internal class BundleList
 		this.data[this.activeBundleIdx].isActive = true;
 	}
 
-	// Token: 0x06001742 RID: 5954 RVA: 0x00071C7C File Offset: 0x0006FE7C
+	// Token: 0x0600178F RID: 6031 RVA: 0x000C8E08 File Offset: 0x000C7008
 	public bool HasSku(string skuName, out int idx)
 	{
 		if (this.data == null)
@@ -55,15 +55,15 @@ internal class BundleList
 		return false;
 	}
 
-	// Token: 0x06001743 RID: 5955 RVA: 0x00071CCB File Offset: 0x0006FECB
+	// Token: 0x06001790 RID: 6032 RVA: 0x0003FF14 File Offset: 0x0003E114
 	public BundleData ActiveBundle()
 	{
 		return this.data[this.activeBundleIdx];
 	}
 
-	// Token: 0x040019F5 RID: 6645
+	// Token: 0x04001A3E RID: 6718
 	private int activeBundleIdx;
 
-	// Token: 0x040019F6 RID: 6646
+	// Token: 0x04001A3F RID: 6719
 	public BundleData[] data;
 }

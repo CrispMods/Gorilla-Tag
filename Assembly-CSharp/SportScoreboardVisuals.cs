@@ -2,24 +2,24 @@
 using GorillaTag.Sports;
 using UnityEngine;
 
-// Token: 0x0200063A RID: 1594
+// Token: 0x02000619 RID: 1561
 public class SportScoreboardVisuals : MonoBehaviour
 {
-	// Token: 0x0600279A RID: 10138 RVA: 0x000C1C30 File Offset: 0x000BFE30
+	// Token: 0x060026C5 RID: 9925 RVA: 0x0004A76B File Offset: 0x0004896B
 	private void Awake()
 	{
 		SportScoreboard.Instance.RegisterTeamVisual(this.TeamIndex, this);
 	}
 
-	// Token: 0x04002B66 RID: 11110
+	// Token: 0x04002ACC RID: 10956
 	[SerializeField]
 	public MaterialUVOffsetListSetter score1s;
 
-	// Token: 0x04002B67 RID: 11111
+	// Token: 0x04002ACD RID: 10957
 	[SerializeField]
 	public MaterialUVOffsetListSetter score10s;
 
-	// Token: 0x04002B68 RID: 11112
+	// Token: 0x04002ACE RID: 10958
 	[SerializeField]
 	private int TeamIndex;
 }

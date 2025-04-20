@@ -2,13 +2,13 @@
 
 namespace GorillaNetworking
 {
-	// Token: 0x02000ABA RID: 2746
+	// Token: 0x02000AE7 RID: 2791
 	public class ReturnCurrentVersionRequest
 	{
-		// Token: 0x0400467A RID: 18042
+		// Token: 0x04004771 RID: 18289
 		public string CurrentVersion;
 
-		// Token: 0x0400467B RID: 18043
+		// Token: 0x04004772 RID: 18290
 		public int? UpdatedSynchTest;
 	}
 }

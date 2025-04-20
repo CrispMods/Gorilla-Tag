@@ -4,17 +4,17 @@ using Viveport.Internal;
 
 namespace Viveport
 {
-	// Token: 0x0200090F RID: 2319
+	// Token: 0x0200092C RID: 2348
 	public class ArcadeLeaderboard
 	{
-		// Token: 0x06003796 RID: 14230 RVA: 0x00105F41 File Offset: 0x00104141
+		// Token: 0x06003867 RID: 14439 RVA: 0x00055344 File Offset: 0x00053544
 		[MonoPInvokeCallback(typeof(StatusCallback))]
 		private static void IsReadyIl2cppCallback(int errorCode)
 		{
 			ArcadeLeaderboard.isReadyIl2cppCallback(errorCode);
 		}
 
-		// Token: 0x06003797 RID: 14231 RVA: 0x00105F50 File Offset: 0x00104150
+		// Token: 0x06003868 RID: 14440 RVA: 0x0014AA30 File Offset: 0x00148C30
 		public static void IsReady(StatusCallback callback)
 		{
 			if (callback == null)
@@ -31,14 +31,14 @@ namespace Viveport
 			ArcadeLeaderboard.IsReady(new StatusCallback(ArcadeLeaderboard.IsReadyIl2cppCallback));
 		}
 
-		// Token: 0x06003798 RID: 14232 RVA: 0x00105FBD File Offset: 0x001041BD
+		// Token: 0x06003869 RID: 14441 RVA: 0x00055351 File Offset: 0x00053551
 		[MonoPInvokeCallback(typeof(StatusCallback))]
 		private static void DownloadLeaderboardScoresIl2cppCallback(int errorCode)
 		{
 			ArcadeLeaderboard.downloadLeaderboardScoresIl2cppCallback(errorCode);
 		}
 
-		// Token: 0x06003799 RID: 14233 RVA: 0x00105FCC File Offset: 0x001041CC
+		// Token: 0x0600386A RID: 14442 RVA: 0x0014AAA0 File Offset: 0x00148CA0
 		public static void DownloadLeaderboardScores(StatusCallback callback, string pchLeaderboardName, ArcadeLeaderboard.LeaderboardTimeRange eLeaderboardDataTimeRange, int nCount)
 		{
 			if (callback == null)
@@ -56,14 +56,14 @@ namespace Viveport
 			ArcadeLeaderboard.DownloadLeaderboardScores(new StatusCallback(ArcadeLeaderboard.DownloadLeaderboardScoresIl2cppCallback), pchLeaderboardName, (ELeaderboardDataTimeRange)eLeaderboardDataTimeRange, nCount);
 		}
 
-		// Token: 0x0600379A RID: 14234 RVA: 0x00106042 File Offset: 0x00104242
+		// Token: 0x0600386B RID: 14443 RVA: 0x0005535E File Offset: 0x0005355E
 		[MonoPInvokeCallback(typeof(StatusCallback))]
 		private static void UploadLeaderboardScoreIl2cppCallback(int errorCode)
 		{
 			ArcadeLeaderboard.uploadLeaderboardScoreIl2cppCallback(errorCode);
 		}
 
-		// Token: 0x0600379B RID: 14235 RVA: 0x00106050 File Offset: 0x00104250
+		// Token: 0x0600386C RID: 14444 RVA: 0x0014AB18 File Offset: 0x00148D18
 		public static void UploadLeaderboardScore(StatusCallback callback, string pchLeaderboardName, string pchUserName, int nScore)
 		{
 			if (callback == null)
@@ -80,7 +80,7 @@ namespace Viveport
 			ArcadeLeaderboard.UploadLeaderboardScore(new StatusCallback(ArcadeLeaderboard.UploadLeaderboardScoreIl2cppCallback), pchLeaderboardName, pchUserName, nScore);
 		}
 
-		// Token: 0x0600379C RID: 14236 RVA: 0x001060C4 File Offset: 0x001042C4
+		// Token: 0x0600386D RID: 14445 RVA: 0x0014AB8C File Offset: 0x00148D8C
 		public static Leaderboard GetLeaderboardScore(int index)
 		{
 			LeaderboardEntry_t leaderboardEntry_t;
@@ -103,7 +103,7 @@ namespace Viveport
 			};
 		}
 
-		// Token: 0x0600379D RID: 14237 RVA: 0x00106130 File Offset: 0x00104330
+		// Token: 0x0600386E RID: 14446 RVA: 0x0005536B File Offset: 0x0005356B
 		public static int GetLeaderboardScoreCount()
 		{
 			if (IntPtr.Size == 8)
@@ -113,7 +113,7 @@ namespace Viveport
 			return ArcadeLeaderboard.GetLeaderboardScoreCount();
 		}
 
-		// Token: 0x0600379E RID: 14238 RVA: 0x00106145 File Offset: 0x00104345
+		// Token: 0x0600386F RID: 14447 RVA: 0x00055380 File Offset: 0x00053580
 		public static int GetLeaderboardUserRank()
 		{
 			if (IntPtr.Size == 8)
@@ -123,7 +123,7 @@ namespace Viveport
 			return ArcadeLeaderboard.GetLeaderboardUserRank();
 		}
 
-		// Token: 0x0600379F RID: 14239 RVA: 0x0010615A File Offset: 0x0010435A
+		// Token: 0x06003870 RID: 14448 RVA: 0x00055395 File Offset: 0x00053595
 		public static int GetLeaderboardUserScore()
 		{
 			if (IntPtr.Size == 8)
@@ -133,19 +133,19 @@ namespace Viveport
 			return ArcadeLeaderboard.GetLeaderboardUserScore();
 		}
 
-		// Token: 0x04003A81 RID: 14977
+		// Token: 0x04003B46 RID: 15174
 		private static StatusCallback isReadyIl2cppCallback;
 
-		// Token: 0x04003A82 RID: 14978
+		// Token: 0x04003B47 RID: 15175
 		private static StatusCallback downloadLeaderboardScoresIl2cppCallback;
 
-		// Token: 0x04003A83 RID: 14979
+		// Token: 0x04003B48 RID: 15176
 		private static StatusCallback uploadLeaderboardScoreIl2cppCallback;
 
-		// Token: 0x02000910 RID: 2320
+		// Token: 0x0200092D RID: 2349
 		public enum LeaderboardTimeRange
 		{
-			// Token: 0x04003A85 RID: 14981
+			// Token: 0x04003B4A RID: 15178
 			AllTime
 		}
 	}

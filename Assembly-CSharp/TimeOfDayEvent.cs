@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008AF RID: 2223
+// Token: 0x020008CB RID: 2251
 public class TimeOfDayEvent : TimeEvent
 {
-	// Token: 0x1700057F RID: 1407
-	// (get) Token: 0x060035CE RID: 13774 RVA: 0x000FF099 File Offset: 0x000FD299
+	// Token: 0x17000590 RID: 1424
+	// (get) Token: 0x06003696 RID: 13974 RVA: 0x00053FFE File Offset: 0x000521FE
 	public float currentTime
 	{
 		get
@@ -14,9 +14,9 @@ public class TimeOfDayEvent : TimeEvent
 		}
 	}
 
-	// Token: 0x17000580 RID: 1408
-	// (get) Token: 0x060035CF RID: 13775 RVA: 0x000FF0A1 File Offset: 0x000FD2A1
-	// (set) Token: 0x060035D0 RID: 13776 RVA: 0x000FF0A9 File Offset: 0x000FD2A9
+	// Token: 0x17000591 RID: 1425
+	// (get) Token: 0x06003697 RID: 13975 RVA: 0x00054006 File Offset: 0x00052206
+	// (set) Token: 0x06003698 RID: 13976 RVA: 0x0005400E File Offset: 0x0005220E
 	public float timeStart
 	{
 		get
@@ -29,9 +29,9 @@ public class TimeOfDayEvent : TimeEvent
 		}
 	}
 
-	// Token: 0x17000581 RID: 1409
-	// (get) Token: 0x060035D1 RID: 13777 RVA: 0x000FF0B7 File Offset: 0x000FD2B7
-	// (set) Token: 0x060035D2 RID: 13778 RVA: 0x000FF0BF File Offset: 0x000FD2BF
+	// Token: 0x17000592 RID: 1426
+	// (get) Token: 0x06003699 RID: 13977 RVA: 0x0005401C File Offset: 0x0005221C
+	// (set) Token: 0x0600369A RID: 13978 RVA: 0x00054024 File Offset: 0x00052224
 	public float timeEnd
 	{
 		get
@@ -44,8 +44,8 @@ public class TimeOfDayEvent : TimeEvent
 		}
 	}
 
-	// Token: 0x17000582 RID: 1410
-	// (get) Token: 0x060035D3 RID: 13779 RVA: 0x000FF0CD File Offset: 0x000FD2CD
+	// Token: 0x17000593 RID: 1427
+	// (get) Token: 0x0600369B RID: 13979 RVA: 0x00054032 File Offset: 0x00052232
 	public bool isOngoing
 	{
 		get
@@ -54,7 +54,7 @@ public class TimeOfDayEvent : TimeEvent
 		}
 	}
 
-	// Token: 0x060035D4 RID: 13780 RVA: 0x000FF0D8 File Offset: 0x000FD2D8
+	// Token: 0x0600369C RID: 13980 RVA: 0x00144DE8 File Offset: 0x00142FE8
 	private void Start()
 	{
 		if (!this._dayNightManager)
@@ -72,7 +72,7 @@ public class TimeOfDayEvent : TimeEvent
 		this._totalSecondsInRange = Math.Floor(this._totalSecondsInRange);
 	}
 
-	// Token: 0x060035D5 RID: 13781 RVA: 0x000FF15A File Offset: 0x000FD35A
+	// Token: 0x0600369D RID: 13981 RVA: 0x0005403A File Offset: 0x0005223A
 	private void Update()
 	{
 		this._elapsed += Time.deltaTime;
@@ -84,7 +84,7 @@ public class TimeOfDayEvent : TimeEvent
 		this.UpdateTime();
 	}
 
-	// Token: 0x060035D6 RID: 13782 RVA: 0x000FF190 File Offset: 0x000FD390
+	// Token: 0x0600369E RID: 13982 RVA: 0x00144E6C File Offset: 0x0014306C
 	private void UpdateTime()
 	{
 		this._currentSeconds = ((ITimeOfDaySystem)this._dayNightManager).currentTimeInSeconds;
@@ -101,40 +101,40 @@ public class TimeOfDayEvent : TimeEvent
 		}
 	}
 
-	// Token: 0x060035D7 RID: 13783 RVA: 0x000FF227 File Offset: 0x000FD427
+	// Token: 0x0600369F RID: 13983 RVA: 0x0005406D File Offset: 0x0005226D
 	public static implicit operator bool(TimeOfDayEvent ev)
 	{
 		return ev && ev.isOngoing;
 	}
 
-	// Token: 0x04003802 RID: 14338
+	// Token: 0x040038C3 RID: 14531
 	[SerializeField]
 	[Range(0f, 1f)]
 	private float _timeStart;
 
-	// Token: 0x04003803 RID: 14339
+	// Token: 0x040038C4 RID: 14532
 	[SerializeField]
 	[Range(0f, 1f)]
 	private float _timeEnd = 1f;
 
-	// Token: 0x04003804 RID: 14340
+	// Token: 0x040038C5 RID: 14533
 	[SerializeField]
 	private float _currentTime = -1f;
 
-	// Token: 0x04003805 RID: 14341
+	// Token: 0x040038C6 RID: 14534
 	[Space]
 	[SerializeField]
 	private double _currentSeconds = -1.0;
 
-	// Token: 0x04003806 RID: 14342
+	// Token: 0x040038C7 RID: 14535
 	[SerializeField]
 	private double _totalSecondsInRange = -1.0;
 
-	// Token: 0x04003807 RID: 14343
+	// Token: 0x040038C8 RID: 14536
 	[NonSerialized]
 	private float _elapsed = -1f;
 
-	// Token: 0x04003808 RID: 14344
+	// Token: 0x040038C9 RID: 14537
 	[SerializeField]
 	private BetterDayNightManager _dayNightManager;
 }

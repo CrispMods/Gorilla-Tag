@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000131 RID: 305
+// Token: 0x0200013B RID: 315
 public class SimpleTeleporter : MonoBehaviour
 {
 }

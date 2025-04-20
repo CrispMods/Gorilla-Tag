@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000D5 RID: 213
+// Token: 0x020000DF RID: 223
 public class FeatherDusterHoldable : MonoBehaviour
 {
-	// Token: 0x0600057D RID: 1405 RVA: 0x000206E7 File Offset: 0x0001E8E7
+	// Token: 0x060005BE RID: 1470 RVA: 0x000343D0 File Offset: 0x000325D0
 	protected void Awake()
 	{
 		this.timeSinceLastSound = this.soundCooldown;
@@ -12,14 +12,14 @@ public class FeatherDusterHoldable : MonoBehaviour
 		this.initialRateOverTime = this.emissionModule.rateOverTimeMultiplier;
 	}
 
-	// Token: 0x0600057E RID: 1406 RVA: 0x00020717 File Offset: 0x0001E917
+	// Token: 0x060005BF RID: 1471 RVA: 0x00034400 File Offset: 0x00032600
 	protected void OnEnable()
 	{
 		this.lastWorldPos = base.transform.position;
 		this.emissionModule.rateOverTimeMultiplier = 0f;
 	}
 
-	// Token: 0x0600057F RID: 1407 RVA: 0x0002073C File Offset: 0x0001E93C
+	// Token: 0x060005C0 RID: 1472 RVA: 0x000834B4 File Offset: 0x000816B4
 	protected void Update()
 	{
 		this.timeSinceLastSound += Time.deltaTime;
@@ -39,37 +39,37 @@ public class FeatherDusterHoldable : MonoBehaviour
 		this.lastWorldPos = position;
 	}
 
-	// Token: 0x0400066C RID: 1644
+	// Token: 0x040006AD RID: 1709
 	public LayerMask collisionLayer;
 
-	// Token: 0x0400066D RID: 1645
+	// Token: 0x040006AE RID: 1710
 	public float overlapSphereRadius = 0.08f;
 
-	// Token: 0x0400066E RID: 1646
+	// Token: 0x040006AF RID: 1711
 	[Tooltip("Collision is not tested until this speed requirement is met.")]
 	private float collideMinSpeed = 1f;
 
-	// Token: 0x0400066F RID: 1647
+	// Token: 0x040006B0 RID: 1712
 	public ParticleSystem particleFx;
 
-	// Token: 0x04000670 RID: 1648
+	// Token: 0x040006B1 RID: 1713
 	public SoundBankPlayer soundBankPlayer;
 
-	// Token: 0x04000671 RID: 1649
+	// Token: 0x040006B2 RID: 1714
 	private float soundCooldown = 0.8f;
 
-	// Token: 0x04000672 RID: 1650
+	// Token: 0x040006B3 RID: 1715
 	private ParticleSystem.EmissionModule emissionModule;
 
-	// Token: 0x04000673 RID: 1651
+	// Token: 0x040006B4 RID: 1716
 	private float initialRateOverTime;
 
-	// Token: 0x04000674 RID: 1652
+	// Token: 0x040006B5 RID: 1717
 	private float timeSinceLastSound;
 
-	// Token: 0x04000675 RID: 1653
+	// Token: 0x040006B6 RID: 1718
 	private Vector3 lastWorldPos;
 
-	// Token: 0x04000676 RID: 1654
+	// Token: 0x040006B7 RID: 1719
 	private Collider[] colliderResult = new Collider[1];
 }

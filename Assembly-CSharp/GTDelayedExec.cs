@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020007F3 RID: 2035
+// Token: 0x0200080D RID: 2061
 public class GTDelayedExec : ITickSystemTick
 {
-	// Token: 0x1700052B RID: 1323
-	// (get) Token: 0x06003226 RID: 12838 RVA: 0x000F0C8E File Offset: 0x000EEE8E
-	// (set) Token: 0x06003227 RID: 12839 RVA: 0x000F0C95 File Offset: 0x000EEE95
+	// Token: 0x17000539 RID: 1337
+	// (get) Token: 0x060032DC RID: 13020 RVA: 0x00051943 File Offset: 0x0004FB43
+	// (set) Token: 0x060032DD RID: 13021 RVA: 0x0005194A File Offset: 0x0004FB4A
 	public static GTDelayedExec instance { get; private set; }
 
-	// Token: 0x1700052C RID: 1324
-	// (get) Token: 0x06003228 RID: 12840 RVA: 0x000F0C9D File Offset: 0x000EEE9D
-	// (set) Token: 0x06003229 RID: 12841 RVA: 0x000F0CA5 File Offset: 0x000EEEA5
+	// Token: 0x1700053A RID: 1338
+	// (get) Token: 0x060032DE RID: 13022 RVA: 0x00051952 File Offset: 0x0004FB52
+	// (set) Token: 0x060032DF RID: 13023 RVA: 0x0005195A File Offset: 0x0004FB5A
 	public int listenerCount { get; private set; }
 
-	// Token: 0x0600322A RID: 12842 RVA: 0x000F0CAE File Offset: 0x000EEEAE
+	// Token: 0x060032E0 RID: 13024 RVA: 0x00051963 File Offset: 0x0004FB63
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
 	private static void InitializeAfterAssemblies()
 	{
@@ -22,7 +22,7 @@ public class GTDelayedExec : ITickSystemTick
 		TickSystem<object>.AddTickCallback(GTDelayedExec.instance);
 	}
 
-	// Token: 0x0600322B RID: 12843 RVA: 0x000F0CC4 File Offset: 0x000EEEC4
+	// Token: 0x060032E1 RID: 13025 RVA: 0x00138F4C File Offset: 0x0013714C
 	internal static void Add(IDelayedExecListener listener, float delay, int contextId)
 	{
 		if (GTDelayedExec.instance.listenerCount >= 1024)
@@ -37,12 +37,12 @@ public class GTDelayedExec : ITickSystemTick
 		instance.listenerCount = listenerCount + 1;
 	}
 
-	// Token: 0x1700052D RID: 1325
-	// (get) Token: 0x0600322C RID: 12844 RVA: 0x000F0D33 File Offset: 0x000EEF33
-	// (set) Token: 0x0600322D RID: 12845 RVA: 0x000F0D3B File Offset: 0x000EEF3B
+	// Token: 0x1700053B RID: 1339
+	// (get) Token: 0x060032E2 RID: 13026 RVA: 0x00051979 File Offset: 0x0004FB79
+	// (set) Token: 0x060032E3 RID: 13027 RVA: 0x00051981 File Offset: 0x0004FB81
 	bool ITickSystemTick.TickRunning { get; set; }
 
-	// Token: 0x0600322E RID: 12846 RVA: 0x000F0D44 File Offset: 0x000EEF44
+	// Token: 0x060032E4 RID: 13028 RVA: 0x00138FBC File Offset: 0x001371BC
 	void ITickSystemTick.Tick()
 	{
 		for (int i = 0; i < this.listenerCount; i++)
@@ -66,29 +66,29 @@ public class GTDelayedExec : ITickSystemTick
 		}
 	}
 
-	// Token: 0x040035AD RID: 13741
+	// Token: 0x04003668 RID: 13928
 	public const int kMaxListeners = 1024;
 
-	// Token: 0x040035AF RID: 13743
+	// Token: 0x0400366A RID: 13930
 	private static readonly float[] _listenerDelays = new float[1024];
 
-	// Token: 0x040035B0 RID: 13744
+	// Token: 0x0400366B RID: 13931
 	private static readonly GTDelayedExec.Listener[] _listeners = new GTDelayedExec.Listener[1024];
 
-	// Token: 0x020007F4 RID: 2036
+	// Token: 0x0200080E RID: 2062
 	private struct Listener
 	{
-		// Token: 0x06003231 RID: 12849 RVA: 0x000F0E18 File Offset: 0x000EF018
+		// Token: 0x060032E7 RID: 13031 RVA: 0x000519AA File Offset: 0x0004FBAA
 		public Listener(IDelayedExecListener listener, int contextId)
 		{
 			this.listener = listener;
 			this.contextId = contextId;
 		}
 
-		// Token: 0x040035B2 RID: 13746
+		// Token: 0x0400366D RID: 13933
 		public readonly IDelayedExecListener listener;
 
-		// Token: 0x040035B3 RID: 13747
+		// Token: 0x0400366E RID: 13934
 		public readonly int contextId;
 	}
 }

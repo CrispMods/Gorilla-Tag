@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C20 RID: 3104
+	// Token: 0x02000C4E RID: 3150
 	public class RCCosmeticNetworkSync : MonoBehaviourPun, IPunObservable, IPunInstantiateMagicCallback
 	{
-		// Token: 0x06004D66 RID: 19814 RVA: 0x00179DB0 File Offset: 0x00177FB0
+		// Token: 0x06004EB7 RID: 20151 RVA: 0x001B2658 File Offset: 0x001B0858
 		public void OnPhotonInstantiate(PhotonMessageInfo info)
 		{
 			if (info.Sender == null)
@@ -49,7 +49,7 @@ namespace GorillaTag.Cosmetics
 			this.DestroyThis();
 		}
 
-		// Token: 0x06004D67 RID: 19815 RVA: 0x00179EE0 File Offset: 0x001780E0
+		// Token: 0x06004EB8 RID: 20152 RVA: 0x001B2788 File Offset: 0x001B0988
 		public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 		{
 			if (info.Sender != base.photonView.Owner)
@@ -84,7 +84,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D68 RID: 19816 RVA: 0x0017A094 File Offset: 0x00178294
+		// Token: 0x06004EB9 RID: 20153 RVA: 0x001B293C File Offset: 0x001B0B3C
 		[PunRPC]
 		public void HitRCVehicleRPC(Vector3 hitVelocity, bool isProjectile, PhotonMessageInfo info)
 		{
@@ -101,7 +101,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004D69 RID: 19817 RVA: 0x0017A118 File Offset: 0x00178318
+		// Token: 0x06004EBA RID: 20154 RVA: 0x0006375A File Offset: 0x0006195A
 		private void DestroyThis()
 		{
 			if (base.photonView.IsMine)
@@ -112,31 +112,31 @@ namespace GorillaTag.Cosmetics
 			base.gameObject.SetActive(false);
 		}
 
-		// Token: 0x04005011 RID: 20497
+		// Token: 0x04005107 RID: 20743
 		public RCCosmeticNetworkSync.SyncedState syncedState;
 
-		// Token: 0x04005012 RID: 20498
+		// Token: 0x04005108 RID: 20744
 		private RCRemoteHoldable rcRemote;
 
-		// Token: 0x02000C21 RID: 3105
+		// Token: 0x02000C4F RID: 3151
 		public struct SyncedState
 		{
-			// Token: 0x04005013 RID: 20499
+			// Token: 0x04005109 RID: 20745
 			public byte state;
 
-			// Token: 0x04005014 RID: 20500
+			// Token: 0x0400510A RID: 20746
 			public Vector3 position;
 
-			// Token: 0x04005015 RID: 20501
+			// Token: 0x0400510B RID: 20747
 			public Quaternion rotation;
 
-			// Token: 0x04005016 RID: 20502
+			// Token: 0x0400510C RID: 20748
 			public byte dataA;
 
-			// Token: 0x04005017 RID: 20503
+			// Token: 0x0400510D RID: 20749
 			public byte dataB;
 
-			// Token: 0x04005018 RID: 20504
+			// Token: 0x0400510E RID: 20750
 			public byte dataC;
 		}
 	}

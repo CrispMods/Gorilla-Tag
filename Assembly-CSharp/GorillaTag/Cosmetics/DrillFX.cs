@@ -4,10 +4,10 @@ using UnityEngine.Serialization;
 
 namespace GorillaTag.Cosmetics
 {
-	// Token: 0x02000C30 RID: 3120
+	// Token: 0x02000C61 RID: 3169
 	public class DrillFX : MonoBehaviour
 	{
-		// Token: 0x06004DED RID: 19949 RVA: 0x0017E130 File Offset: 0x0017C330
+		// Token: 0x06004F4D RID: 20301 RVA: 0x001B6BE4 File Offset: 0x001B4DE4
 		protected void Awake()
 		{
 			if (!DrillFX.appIsQuittingHandlerIsSubscribed)
@@ -33,7 +33,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DEE RID: 19950 RVA: 0x0017E20C File Offset: 0x0017C40C
+		// Token: 0x06004F4E RID: 20302 RVA: 0x001B6CC0 File Offset: 0x001B4EC0
 		protected void OnEnable()
 		{
 			if (DrillFX.appIsQuitting)
@@ -53,7 +53,7 @@ namespace GorillaTag.Cosmetics
 			this.ValidateLineCastPositions();
 		}
 
-		// Token: 0x06004DEF RID: 19951 RVA: 0x0017E270 File Offset: 0x0017C470
+		// Token: 0x06004F4F RID: 20303 RVA: 0x001B6D24 File Offset: 0x001B4F24
 		protected void OnDisable()
 		{
 			if (DrillFX.appIsQuitting)
@@ -71,7 +71,7 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DF0 RID: 19952 RVA: 0x0017E2C0 File Offset: 0x0017C4C0
+		// Token: 0x06004F50 RID: 20304 RVA: 0x001B6D74 File Offset: 0x001B4F74
 		protected void LateUpdate()
 		{
 			if (DrillFX.appIsQuitting)
@@ -95,13 +95,13 @@ namespace GorillaTag.Cosmetics
 			}
 		}
 
-		// Token: 0x06004DF1 RID: 19953 RVA: 0x0017E3D6 File Offset: 0x0017C5D6
+		// Token: 0x06004F51 RID: 20305 RVA: 0x00063C7D File Offset: 0x00061E7D
 		private static void HandleApplicationQuitting()
 		{
 			DrillFX.appIsQuitting = true;
 		}
 
-		// Token: 0x06004DF2 RID: 19954 RVA: 0x0017E3E0 File Offset: 0x0017C5E0
+		// Token: 0x06004F52 RID: 20306 RVA: 0x001B6E8C File Offset: 0x001B508C
 		private bool ValidateLineCastPositions()
 		{
 			this.maxDepth = Vector3.Distance(this.lineCastStart, this.lineCastEnd);
@@ -117,76 +117,76 @@ namespace GorillaTag.Cosmetics
 			return false;
 		}
 
-		// Token: 0x040050ED RID: 20717
+		// Token: 0x040051F9 RID: 20985
 		[SerializeField]
 		private ParticleSystem fx;
 
-		// Token: 0x040050EE RID: 20718
+		// Token: 0x040051FA RID: 20986
 		[SerializeField]
 		private AnimationCurve fxEmissionCurve;
 
-		// Token: 0x040050EF RID: 20719
+		// Token: 0x040051FB RID: 20987
 		[SerializeField]
 		private float fxMinRadiusScale = 0.01f;
 
-		// Token: 0x040050F0 RID: 20720
+		// Token: 0x040051FC RID: 20988
 		[Tooltip("Right click menu has custom menu items. Anything starting with \"- \" is custom.")]
 		[SerializeField]
 		private AudioSource loopAudio;
 
-		// Token: 0x040050F1 RID: 20721
+		// Token: 0x040051FD RID: 20989
 		[SerializeField]
 		private AnimationCurve loopAudioVolumeCurve;
 
-		// Token: 0x040050F2 RID: 20722
+		// Token: 0x040051FE RID: 20990
 		[Tooltip("Higher value makes it reach the target volume faster.")]
 		[SerializeField]
 		private float loopAudioVolumeTransitionSpeed = 3f;
 
-		// Token: 0x040050F3 RID: 20723
+		// Token: 0x040051FF RID: 20991
 		[FormerlySerializedAs("layerMask")]
 		[Tooltip("The collision layers the line cast should intersect with")]
 		[SerializeField]
 		private LayerMask lineCastLayerMask;
 
-		// Token: 0x040050F4 RID: 20724
+		// Token: 0x04005200 RID: 20992
 		[Tooltip("The position in local space that the line cast starts.")]
 		[SerializeField]
 		private Vector3 lineCastStart = Vector3.zero;
 
-		// Token: 0x040050F5 RID: 20725
+		// Token: 0x04005201 RID: 20993
 		[Tooltip("The position in local space that the line cast ends.")]
 		[SerializeField]
 		private Vector3 lineCastEnd = Vector3.forward;
 
-		// Token: 0x040050F6 RID: 20726
+		// Token: 0x04005202 RID: 20994
 		private static bool appIsQuitting;
 
-		// Token: 0x040050F7 RID: 20727
+		// Token: 0x04005203 RID: 20995
 		private static bool appIsQuittingHandlerIsSubscribed;
 
-		// Token: 0x040050F8 RID: 20728
+		// Token: 0x04005204 RID: 20996
 		private float maxDepth;
 
-		// Token: 0x040050F9 RID: 20729
+		// Token: 0x04005205 RID: 20997
 		private bool hasFX;
 
-		// Token: 0x040050FA RID: 20730
+		// Token: 0x04005206 RID: 20998
 		private ParticleSystem.EmissionModule fxEmissionModule;
 
-		// Token: 0x040050FB RID: 20731
+		// Token: 0x04005207 RID: 20999
 		private float fxEmissionMaxRate;
 
-		// Token: 0x040050FC RID: 20732
+		// Token: 0x04005208 RID: 21000
 		private ParticleSystem.ShapeModule fxShapeModule;
 
-		// Token: 0x040050FD RID: 20733
+		// Token: 0x04005209 RID: 21001
 		private float fxShapeMaxRadius;
 
-		// Token: 0x040050FE RID: 20734
+		// Token: 0x0400520A RID: 21002
 		private bool hasAudio;
 
-		// Token: 0x040050FF RID: 20735
+		// Token: 0x0400520B RID: 21003
 		private float audioMaxVolume;
 	}
 }

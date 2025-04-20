@@ -3,10 +3,10 @@ using System.Collections;
 using GorillaTag;
 using UnityEngine;
 
-// Token: 0x0200037A RID: 890
+// Token: 0x02000385 RID: 901
 public class HitTargetScoreDisplay : MonoBehaviour
 {
-	// Token: 0x060014D1 RID: 5329 RVA: 0x00066030 File Offset: 0x00064230
+	// Token: 0x0600151D RID: 5405 RVA: 0x000BEC00 File Offset: 0x000BCE00
 	protected void Awake()
 	{
 		this.rotateTimeTotal = 180f / (float)this.rotateSpeed;
@@ -21,13 +21,13 @@ public class HitTargetScoreDisplay : MonoBehaviour
 		this.hundredsRend.SetPropertyBlock(this.matPropBlock);
 	}
 
-	// Token: 0x060014D2 RID: 5330 RVA: 0x000660D7 File Offset: 0x000642D7
+	// Token: 0x0600151E RID: 5406 RVA: 0x0003E4D0 File Offset: 0x0003C6D0
 	private void OnDestroy()
 	{
 		this.networkedScore.RemoveCallback(new Action<int>(this.OnScoreChanged));
 	}
 
-	// Token: 0x060014D3 RID: 5331 RVA: 0x000660F0 File Offset: 0x000642F0
+	// Token: 0x0600151F RID: 5407 RVA: 0x000BECA8 File Offset: 0x000BCEA8
 	private void ResetRotation()
 	{
 		Quaternion rotation = base.transform.rotation;
@@ -36,7 +36,7 @@ public class HitTargetScoreDisplay : MonoBehaviour
 		this.hundredsCard.rotation = rotation;
 	}
 
-	// Token: 0x060014D4 RID: 5332 RVA: 0x0006612D File Offset: 0x0006432D
+	// Token: 0x06001520 RID: 5408 RVA: 0x0003E4E9 File Offset: 0x0003C6E9
 	private IEnumerator RotatingCo()
 	{
 		float timeElapsedSinceHit = 0f;
@@ -92,7 +92,7 @@ public class HitTargetScoreDisplay : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060014D5 RID: 5333 RVA: 0x0006613C File Offset: 0x0006433C
+	// Token: 0x06001521 RID: 5409 RVA: 0x0003E4F8 File Offset: 0x0003C6F8
 	private void OnScoreChanged(int newScore)
 	{
 		if (newScore == this.currentScore)
@@ -107,29 +107,29 @@ public class HitTargetScoreDisplay : MonoBehaviour
 		this.currentRotationCoroutine = base.StartCoroutine(this.RotatingCo());
 	}
 
-	// Token: 0x0400170C RID: 5900
+	// Token: 0x04001754 RID: 5972
 	[SerializeField]
 	private WatchableIntSO networkedScore;
 
-	// Token: 0x0400170D RID: 5901
+	// Token: 0x04001755 RID: 5973
 	private int currentScore;
 
-	// Token: 0x0400170E RID: 5902
+	// Token: 0x04001756 RID: 5974
 	private int tensOld;
 
-	// Token: 0x0400170F RID: 5903
+	// Token: 0x04001757 RID: 5975
 	private int hundredsOld;
 
-	// Token: 0x04001710 RID: 5904
+	// Token: 0x04001758 RID: 5976
 	private float rotateTimeTotal;
 
-	// Token: 0x04001711 RID: 5905
+	// Token: 0x04001759 RID: 5977
 	private int shaderPropID_MainTex_ST = Shader.PropertyToID("_BaseMap_ST");
 
-	// Token: 0x04001712 RID: 5906
+	// Token: 0x0400175A RID: 5978
 	private MaterialPropertyBlock matPropBlock;
 
-	// Token: 0x04001713 RID: 5907
+	// Token: 0x0400175B RID: 5979
 	private readonly Vector4[] numberSheet = new Vector4[]
 	{
 		new Vector4(1f, 1f, 0.8f, -0.5f),
@@ -144,27 +144,27 @@ public class HitTargetScoreDisplay : MonoBehaviour
 		new Vector4(1f, 1f, 0.6f, -0.5f)
 	};
 
-	// Token: 0x04001714 RID: 5908
+	// Token: 0x0400175C RID: 5980
 	public int rotateSpeed = 180;
 
-	// Token: 0x04001715 RID: 5909
+	// Token: 0x0400175D RID: 5981
 	public Transform singlesCard;
 
-	// Token: 0x04001716 RID: 5910
+	// Token: 0x0400175E RID: 5982
 	public Transform tensCard;
 
-	// Token: 0x04001717 RID: 5911
+	// Token: 0x0400175F RID: 5983
 	public Transform hundredsCard;
 
-	// Token: 0x04001718 RID: 5912
+	// Token: 0x04001760 RID: 5984
 	public Renderer singlesRend;
 
-	// Token: 0x04001719 RID: 5913
+	// Token: 0x04001761 RID: 5985
 	public Renderer tensRend;
 
-	// Token: 0x0400171A RID: 5914
+	// Token: 0x04001762 RID: 5986
 	public Renderer hundredsRend;
 
-	// Token: 0x0400171B RID: 5915
+	// Token: 0x04001763 RID: 5987
 	private Coroutine currentRotationCoroutine;
 }

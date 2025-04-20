@@ -9,31 +9,31 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 
-// Token: 0x0200077B RID: 1915
+// Token: 0x02000793 RID: 1939
 public class FriendBackendController : MonoBehaviour
 {
-	// Token: 0x14000055 RID: 85
-	// (add) Token: 0x06002EF9 RID: 12025 RVA: 0x000E3538 File Offset: 0x000E1738
-	// (remove) Token: 0x06002EFA RID: 12026 RVA: 0x000E3570 File Offset: 0x000E1770
+	// Token: 0x14000059 RID: 89
+	// (add) Token: 0x06002FAB RID: 12203 RVA: 0x0012D44C File Offset: 0x0012B64C
+	// (remove) Token: 0x06002FAC RID: 12204 RVA: 0x0012D484 File Offset: 0x0012B684
 	public event Action<bool> OnGetFriendsComplete;
 
-	// Token: 0x14000056 RID: 86
-	// (add) Token: 0x06002EFB RID: 12027 RVA: 0x000E35A8 File Offset: 0x000E17A8
-	// (remove) Token: 0x06002EFC RID: 12028 RVA: 0x000E35E0 File Offset: 0x000E17E0
+	// Token: 0x1400005A RID: 90
+	// (add) Token: 0x06002FAD RID: 12205 RVA: 0x0012D4BC File Offset: 0x0012B6BC
+	// (remove) Token: 0x06002FAE RID: 12206 RVA: 0x0012D4F4 File Offset: 0x0012B6F4
 	public event Action<bool> OnSetPrivacyStateComplete;
 
-	// Token: 0x14000057 RID: 87
-	// (add) Token: 0x06002EFD RID: 12029 RVA: 0x000E3618 File Offset: 0x000E1818
-	// (remove) Token: 0x06002EFE RID: 12030 RVA: 0x000E3650 File Offset: 0x000E1850
+	// Token: 0x1400005B RID: 91
+	// (add) Token: 0x06002FAF RID: 12207 RVA: 0x0012D52C File Offset: 0x0012B72C
+	// (remove) Token: 0x06002FB0 RID: 12208 RVA: 0x0012D564 File Offset: 0x0012B764
 	public event Action<NetPlayer, bool> OnAddFriendComplete;
 
-	// Token: 0x14000058 RID: 88
-	// (add) Token: 0x06002EFF RID: 12031 RVA: 0x000E3688 File Offset: 0x000E1888
-	// (remove) Token: 0x06002F00 RID: 12032 RVA: 0x000E36C0 File Offset: 0x000E18C0
+	// Token: 0x1400005C RID: 92
+	// (add) Token: 0x06002FB1 RID: 12209 RVA: 0x0012D59C File Offset: 0x0012B79C
+	// (remove) Token: 0x06002FB2 RID: 12210 RVA: 0x0012D5D4 File Offset: 0x0012B7D4
 	public event Action<FriendBackendController.Friend, bool> OnRemoveFriendComplete;
 
-	// Token: 0x170004C0 RID: 1216
-	// (get) Token: 0x06002F01 RID: 12033 RVA: 0x000E36F5 File Offset: 0x000E18F5
+	// Token: 0x170004CE RID: 1230
+	// (get) Token: 0x06002FB3 RID: 12211 RVA: 0x0004FBA4 File Offset: 0x0004DDA4
 	public List<FriendBackendController.Friend> FriendsList
 	{
 		get
@@ -42,8 +42,8 @@ public class FriendBackendController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170004C1 RID: 1217
-	// (get) Token: 0x06002F02 RID: 12034 RVA: 0x000E36FD File Offset: 0x000E18FD
+	// Token: 0x170004CF RID: 1231
+	// (get) Token: 0x06002FB4 RID: 12212 RVA: 0x0004FBAC File Offset: 0x0004DDAC
 	public FriendBackendController.PrivacyState MyPrivacyState
 	{
 		get
@@ -52,7 +52,7 @@ public class FriendBackendController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002F03 RID: 12035 RVA: 0x000E3705 File Offset: 0x000E1905
+	// Token: 0x06002FB5 RID: 12213 RVA: 0x0004FBB4 File Offset: 0x0004DDB4
 	public void GetFriends()
 	{
 		if (!this.getFriendsInProgress)
@@ -62,7 +62,7 @@ public class FriendBackendController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002F04 RID: 12036 RVA: 0x000E371C File Offset: 0x000E191C
+	// Token: 0x06002FB6 RID: 12214 RVA: 0x0004FBCB File Offset: 0x0004DDCB
 	public void SetPrivacyState(FriendBackendController.PrivacyState state)
 	{
 		if (!this.setPrivacyStateInProgress)
@@ -75,7 +75,7 @@ public class FriendBackendController : MonoBehaviour
 		this.setPrivacyStateQueue.Enqueue(state);
 	}
 
-	// Token: 0x06002F05 RID: 12037 RVA: 0x000E3748 File Offset: 0x000E1948
+	// Token: 0x06002FB7 RID: 12215 RVA: 0x0012D60C File Offset: 0x0012B80C
 	public void AddFriend(NetPlayer target)
 	{
 		if (target == null)
@@ -97,7 +97,7 @@ public class FriendBackendController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002F06 RID: 12038 RVA: 0x000E37B8 File Offset: 0x000E19B8
+	// Token: 0x06002FB8 RID: 12216 RVA: 0x0012D67C File Offset: 0x0012B87C
 	public void RemoveFriend(FriendBackendController.Friend target)
 	{
 		if (target == null)
@@ -119,7 +119,7 @@ public class FriendBackendController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002F07 RID: 12039 RVA: 0x000E382D File Offset: 0x000E1A2D
+	// Token: 0x06002FB9 RID: 12217 RVA: 0x0004FBF6 File Offset: 0x0004DDF6
 	private void Awake()
 	{
 		if (FriendBackendController.Instance == null)
@@ -127,10 +127,10 @@ public class FriendBackendController : MonoBehaviour
 			FriendBackendController.Instance = this;
 			return;
 		}
-		Object.Destroy(this);
+		UnityEngine.Object.Destroy(this);
 	}
 
-	// Token: 0x06002F08 RID: 12040 RVA: 0x000E3850 File Offset: 0x000E1A50
+	// Token: 0x06002FBA RID: 12218 RVA: 0x0012D6F4 File Offset: 0x0012B8F4
 	private void GetFriendsInternal()
 	{
 		base.StartCoroutine(this.SendGetFriendsRequest(new FriendBackendController.GetFriendsRequest
@@ -141,7 +141,7 @@ public class FriendBackendController : MonoBehaviour
 		}, new Action<FriendBackendController.GetFriendsResponse>(this.GetFriendsComplete)));
 	}
 
-	// Token: 0x06002F09 RID: 12041 RVA: 0x000E38AA File Offset: 0x000E1AAA
+	// Token: 0x06002FBB RID: 12219 RVA: 0x0004FC16 File Offset: 0x0004DE16
 	private IEnumerator SendGetFriendsRequest(FriendBackendController.GetFriendsRequest data, Action<FriendBackendController.GetFriendsResponse> callback)
 	{
 		UnityWebRequest request = new UnityWebRequest(PlayFabAuthenticatorSettings.FriendApiBaseUrl + "/api/GetFriendsV2", "POST");
@@ -191,7 +191,7 @@ public class FriendBackendController : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06002F0A RID: 12042 RVA: 0x000E38C8 File Offset: 0x000E1AC8
+	// Token: 0x06002FBC RID: 12220 RVA: 0x0012D750 File Offset: 0x0012B950
 	private void GetFriendsComplete([CanBeNull] FriendBackendController.GetFriendsResponse response)
 	{
 		this.getFriendsInProgress = false;
@@ -230,7 +230,7 @@ public class FriendBackendController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002F0B RID: 12043 RVA: 0x000E39A4 File Offset: 0x000E1BA4
+	// Token: 0x06002FBD RID: 12221 RVA: 0x0012D82C File Offset: 0x0012BA2C
 	private void SetPrivacyStateInternal()
 	{
 		base.StartCoroutine(this.SendSetPrivacyStateRequest(new FriendBackendController.SetPrivacyStateRequest
@@ -241,7 +241,7 @@ public class FriendBackendController : MonoBehaviour
 		}, new Action<FriendBackendController.SetPrivacyStateResponse>(this.SetPrivacyStateComplete)));
 	}
 
-	// Token: 0x06002F0C RID: 12044 RVA: 0x000E3A0A File Offset: 0x000E1C0A
+	// Token: 0x06002FBE RID: 12222 RVA: 0x0004FC33 File Offset: 0x0004DE33
 	private IEnumerator SendSetPrivacyStateRequest(FriendBackendController.SetPrivacyStateRequest data, Action<FriendBackendController.SetPrivacyStateResponse> callback)
 	{
 		UnityWebRequest request = new UnityWebRequest(PlayFabAuthenticatorSettings.FriendApiBaseUrl + "/api/SetPrivacyState", "POST");
@@ -291,7 +291,7 @@ public class FriendBackendController : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06002F0D RID: 12045 RVA: 0x000E3A28 File Offset: 0x000E1C28
+	// Token: 0x06002FBF RID: 12223 RVA: 0x0012D894 File Offset: 0x0012BA94
 	private void SetPrivacyStateComplete([CanBeNull] FriendBackendController.SetPrivacyStateResponse response)
 	{
 		this.setPrivacyStateInProgress = false;
@@ -319,7 +319,7 @@ public class FriendBackendController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002F0E RID: 12046 RVA: 0x000E3A90 File Offset: 0x000E1C90
+	// Token: 0x06002FC0 RID: 12224 RVA: 0x0012D8FC File Offset: 0x0012BAFC
 	private void AddFriendInternal()
 	{
 		base.StartCoroutine(this.SendAddFriendRequest(new FriendBackendController.FriendRequestRequest
@@ -333,7 +333,7 @@ public class FriendBackendController : MonoBehaviour
 		}, new Action<bool>(this.AddFriendComplete)));
 	}
 
-	// Token: 0x06002F0F RID: 12047 RVA: 0x000E3B1B File Offset: 0x000E1D1B
+	// Token: 0x06002FC1 RID: 12225 RVA: 0x0004FC50 File Offset: 0x0004DE50
 	private IEnumerator SendAddFriendRequest(FriendBackendController.FriendRequestRequest data, Action<bool> callback)
 	{
 		UnityWebRequest request = new UnityWebRequest(PlayFabAuthenticatorSettings.FriendApiBaseUrl + "/api/RequestFriend", "POST");
@@ -386,7 +386,7 @@ public class FriendBackendController : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06002F10 RID: 12048 RVA: 0x000E3B38 File Offset: 0x000E1D38
+	// Token: 0x06002FC2 RID: 12226 RVA: 0x0012D988 File Offset: 0x0012BB88
 	private void AddFriendComplete([CanBeNull] bool success)
 	{
 		if (success)
@@ -415,7 +415,7 @@ public class FriendBackendController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002F11 RID: 12049 RVA: 0x000E3BB8 File Offset: 0x000E1DB8
+	// Token: 0x06002FC3 RID: 12227 RVA: 0x0012DA08 File Offset: 0x0012BC08
 	private void RemoveFriendInternal()
 	{
 		base.StartCoroutine(this.SendRemoveFriendRequest(new FriendBackendController.RemoveFriendRequest
@@ -428,7 +428,7 @@ public class FriendBackendController : MonoBehaviour
 		}, new Action<bool>(this.RemoveFriendComplete)));
 	}
 
-	// Token: 0x06002F12 RID: 12050 RVA: 0x000E3C3D File Offset: 0x000E1E3D
+	// Token: 0x06002FC4 RID: 12228 RVA: 0x0004FC6D File Offset: 0x0004DE6D
 	private IEnumerator SendRemoveFriendRequest(FriendBackendController.RemoveFriendRequest data, Action<bool> callback)
 	{
 		UnityWebRequest request = new UnityWebRequest(PlayFabAuthenticatorSettings.FriendApiBaseUrl + "/api/RemoveFriend", "POST");
@@ -477,7 +477,7 @@ public class FriendBackendController : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06002F13 RID: 12051 RVA: 0x000E3C5C File Offset: 0x000E1E5C
+	// Token: 0x06002FC5 RID: 12229 RVA: 0x0012DA90 File Offset: 0x0012BC90
 	private void RemoveFriendComplete([CanBeNull] bool success)
 	{
 		if (success)
@@ -506,7 +506,7 @@ public class FriendBackendController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002F14 RID: 12052 RVA: 0x000E3CDC File Offset: 0x000E1EDC
+	// Token: 0x06002FC6 RID: 12230 RVA: 0x0012DB10 File Offset: 0x0012BD10
 	private void LogNetPlayersInRoom()
 	{
 		Debug.Log("Local Player PlayfabId: " + PlayFabAuthenticator.instance.GetPlayFabPlayerId());
@@ -525,7 +525,7 @@ public class FriendBackendController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002F15 RID: 12053 RVA: 0x000E3D74 File Offset: 0x000E1F74
+	// Token: 0x06002FC7 RID: 12231 RVA: 0x0012DBA8 File Offset: 0x0012BDA8
 	private void TestAddFriend()
 	{
 		this.OnAddFriendComplete -= this.TestAddFriendCompleteCallback;
@@ -538,7 +538,7 @@ public class FriendBackendController : MonoBehaviour
 		this.AddFriend(target);
 	}
 
-	// Token: 0x06002F16 RID: 12054 RVA: 0x000E3DDD File Offset: 0x000E1FDD
+	// Token: 0x06002FC8 RID: 12232 RVA: 0x0004FC8A File Offset: 0x0004DE8A
 	private void TestAddFriendCompleteCallback(NetPlayer player, bool success)
 	{
 		if (success)
@@ -549,7 +549,7 @@ public class FriendBackendController : MonoBehaviour
 		Debug.Log("FriendBackend: TestAddFriendCompleteCallback returned with success = false");
 	}
 
-	// Token: 0x06002F17 RID: 12055 RVA: 0x000E3DF8 File Offset: 0x000E1FF8
+	// Token: 0x06002FC9 RID: 12233 RVA: 0x0012DC14 File Offset: 0x0012BE14
 	private void TestRemoveFriend()
 	{
 		this.OnRemoveFriendComplete -= this.TestRemoveFriendCompleteCallback;
@@ -562,7 +562,7 @@ public class FriendBackendController : MonoBehaviour
 		this.RemoveFriend(target);
 	}
 
-	// Token: 0x06002F18 RID: 12056 RVA: 0x000E3E60 File Offset: 0x000E2060
+	// Token: 0x06002FCA RID: 12234 RVA: 0x0004FCA4 File Offset: 0x0004DEA4
 	private void TestRemoveFriendCompleteCallback(FriendBackendController.Friend friend, bool success)
 	{
 		if (success)
@@ -573,7 +573,7 @@ public class FriendBackendController : MonoBehaviour
 		Debug.Log("FriendBackend: TestRemoveFriendCompleteCallback returned with success = false");
 	}
 
-	// Token: 0x06002F19 RID: 12057 RVA: 0x000E3E7A File Offset: 0x000E207A
+	// Token: 0x06002FCB RID: 12235 RVA: 0x0004FCBE File Offset: 0x0004DEBE
 	private void TestGetFriends()
 	{
 		this.OnGetFriendsComplete -= this.TestGetFriendsCompleteCallback;
@@ -581,7 +581,7 @@ public class FriendBackendController : MonoBehaviour
 		this.GetFriends();
 	}
 
-	// Token: 0x06002F1A RID: 12058 RVA: 0x000E3EA8 File Offset: 0x000E20A8
+	// Token: 0x06002FCC RID: 12236 RVA: 0x0012DC7C File Offset: 0x0012BE7C
 	private void TestGetFriendsCompleteCallback(bool success)
 	{
 		if (success)
@@ -624,7 +624,7 @@ public class FriendBackendController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002F1B RID: 12059 RVA: 0x000E4005 File Offset: 0x000E2205
+	// Token: 0x06002FCD RID: 12237 RVA: 0x0004FCEA File Offset: 0x0004DEEA
 	private void TestSetPrivacyState()
 	{
 		this.OnSetPrivacyStateComplete -= this.TestSetPrivacyStateCompleteCallback;
@@ -632,7 +632,7 @@ public class FriendBackendController : MonoBehaviour
 		this.SetPrivacyState(this.privacyStateToSet);
 	}
 
-	// Token: 0x06002F1C RID: 12060 RVA: 0x000E4038 File Offset: 0x000E2238
+	// Token: 0x06002FCE RID: 12238 RVA: 0x0012DDDC File Offset: 0x0012BFDC
 	private void TestSetPrivacyStateCompleteCallback(bool success)
 	{
 		if (success)
@@ -643,371 +643,371 @@ public class FriendBackendController : MonoBehaviour
 		Debug.Log(string.Format("SetPrivacyState Failed: Status: {0} Error: {1}", this.lastPrivacyStateResponse.StatusCode, this.lastPrivacyStateResponse.Error));
 	}
 
-	// Token: 0x04003336 RID: 13110
+	// Token: 0x040033E0 RID: 13280
 	[OnEnterPlay_SetNull]
 	public static volatile FriendBackendController Instance;
 
-	// Token: 0x0400333B RID: 13115
+	// Token: 0x040033E5 RID: 13285
 	private int maxRetriesOnFail = 3;
 
-	// Token: 0x0400333C RID: 13116
+	// Token: 0x040033E6 RID: 13286
 	private int getFriendsRetryCount;
 
-	// Token: 0x0400333D RID: 13117
+	// Token: 0x040033E7 RID: 13287
 	private int setPrivacyStateRetryCount;
 
-	// Token: 0x0400333E RID: 13118
+	// Token: 0x040033E8 RID: 13288
 	private int addFriendRetryCount;
 
-	// Token: 0x0400333F RID: 13119
+	// Token: 0x040033E9 RID: 13289
 	private int removeFriendRetryCount;
 
-	// Token: 0x04003340 RID: 13120
+	// Token: 0x040033EA RID: 13290
 	private bool getFriendsInProgress;
 
-	// Token: 0x04003341 RID: 13121
+	// Token: 0x040033EB RID: 13291
 	private FriendBackendController.GetFriendsResponse lastGetFriendsResponse;
 
-	// Token: 0x04003342 RID: 13122
+	// Token: 0x040033EC RID: 13292
 	private List<FriendBackendController.Friend> lastFriendsList = new List<FriendBackendController.Friend>();
 
-	// Token: 0x04003343 RID: 13123
+	// Token: 0x040033ED RID: 13293
 	private bool setPrivacyStateInProgress;
 
-	// Token: 0x04003344 RID: 13124
+	// Token: 0x040033EE RID: 13294
 	private FriendBackendController.PrivacyState setPrivacyStateState;
 
-	// Token: 0x04003345 RID: 13125
+	// Token: 0x040033EF RID: 13295
 	private FriendBackendController.SetPrivacyStateResponse lastPrivacyStateResponse;
 
-	// Token: 0x04003346 RID: 13126
+	// Token: 0x040033F0 RID: 13296
 	private Queue<FriendBackendController.PrivacyState> setPrivacyStateQueue = new Queue<FriendBackendController.PrivacyState>();
 
-	// Token: 0x04003347 RID: 13127
+	// Token: 0x040033F1 RID: 13297
 	private FriendBackendController.PrivacyState lastPrivacyState;
 
-	// Token: 0x04003348 RID: 13128
+	// Token: 0x040033F2 RID: 13298
 	private bool addFriendInProgress;
 
-	// Token: 0x04003349 RID: 13129
+	// Token: 0x040033F3 RID: 13299
 	private int addFriendTargetIdHash;
 
-	// Token: 0x0400334A RID: 13130
+	// Token: 0x040033F4 RID: 13300
 	private NetPlayer addFriendTargetPlayer;
 
-	// Token: 0x0400334B RID: 13131
+	// Token: 0x040033F5 RID: 13301
 	private Queue<ValueTuple<int, NetPlayer>> addFriendRequestQueue = new Queue<ValueTuple<int, NetPlayer>>();
 
-	// Token: 0x0400334C RID: 13132
+	// Token: 0x040033F6 RID: 13302
 	private bool removeFriendInProgress;
 
-	// Token: 0x0400334D RID: 13133
+	// Token: 0x040033F7 RID: 13303
 	private int removeFriendTargetIdHash;
 
-	// Token: 0x0400334E RID: 13134
+	// Token: 0x040033F8 RID: 13304
 	private FriendBackendController.Friend removeFriendTarget;
 
-	// Token: 0x0400334F RID: 13135
+	// Token: 0x040033F9 RID: 13305
 	private Queue<ValueTuple<int, FriendBackendController.Friend>> removeFriendRequestQueue = new Queue<ValueTuple<int, FriendBackendController.Friend>>();
 
-	// Token: 0x04003350 RID: 13136
+	// Token: 0x040033FA RID: 13306
 	[SerializeField]
 	private int netPlayerIndexToAddFriend;
 
-	// Token: 0x04003351 RID: 13137
+	// Token: 0x040033FB RID: 13307
 	[SerializeField]
 	private int friendListIndexToRemoveFriend;
 
-	// Token: 0x04003352 RID: 13138
+	// Token: 0x040033FC RID: 13308
 	[SerializeField]
 	private FriendBackendController.PrivacyState privacyStateToSet;
 
-	// Token: 0x0200077C RID: 1916
+	// Token: 0x02000794 RID: 1940
 	public class Friend
 	{
-		// Token: 0x170004C2 RID: 1218
-		// (get) Token: 0x06002F1E RID: 12062 RVA: 0x000E40D8 File Offset: 0x000E22D8
-		// (set) Token: 0x06002F1F RID: 12063 RVA: 0x000E40E0 File Offset: 0x000E22E0
+		// Token: 0x170004D0 RID: 1232
+		// (get) Token: 0x06002FD0 RID: 12240 RVA: 0x0004FD57 File Offset: 0x0004DF57
+		// (set) Token: 0x06002FD1 RID: 12241 RVA: 0x0004FD5F File Offset: 0x0004DF5F
 		public FriendBackendController.FriendPresence Presence { get; set; }
 
-		// Token: 0x170004C3 RID: 1219
-		// (get) Token: 0x06002F20 RID: 12064 RVA: 0x000E40E9 File Offset: 0x000E22E9
-		// (set) Token: 0x06002F21 RID: 12065 RVA: 0x000E40F1 File Offset: 0x000E22F1
+		// Token: 0x170004D1 RID: 1233
+		// (get) Token: 0x06002FD2 RID: 12242 RVA: 0x0004FD68 File Offset: 0x0004DF68
+		// (set) Token: 0x06002FD3 RID: 12243 RVA: 0x0004FD70 File Offset: 0x0004DF70
 		public DateTime Created { get; set; }
 	}
 
-	// Token: 0x0200077D RID: 1917
+	// Token: 0x02000795 RID: 1941
 	public class FriendPresence
 	{
-		// Token: 0x170004C4 RID: 1220
-		// (get) Token: 0x06002F23 RID: 12067 RVA: 0x000E40FA File Offset: 0x000E22FA
-		// (set) Token: 0x06002F24 RID: 12068 RVA: 0x000E4102 File Offset: 0x000E2302
+		// Token: 0x170004D2 RID: 1234
+		// (get) Token: 0x06002FD5 RID: 12245 RVA: 0x0004FD79 File Offset: 0x0004DF79
+		// (set) Token: 0x06002FD6 RID: 12246 RVA: 0x0004FD81 File Offset: 0x0004DF81
 		public string FriendLinkId { get; set; }
 
-		// Token: 0x170004C5 RID: 1221
-		// (get) Token: 0x06002F25 RID: 12069 RVA: 0x000E410B File Offset: 0x000E230B
-		// (set) Token: 0x06002F26 RID: 12070 RVA: 0x000E4113 File Offset: 0x000E2313
+		// Token: 0x170004D3 RID: 1235
+		// (get) Token: 0x06002FD7 RID: 12247 RVA: 0x0004FD8A File Offset: 0x0004DF8A
+		// (set) Token: 0x06002FD8 RID: 12248 RVA: 0x0004FD92 File Offset: 0x0004DF92
 		public string UserName { get; set; }
 
-		// Token: 0x170004C6 RID: 1222
-		// (get) Token: 0x06002F27 RID: 12071 RVA: 0x000E411C File Offset: 0x000E231C
-		// (set) Token: 0x06002F28 RID: 12072 RVA: 0x000E4124 File Offset: 0x000E2324
+		// Token: 0x170004D4 RID: 1236
+		// (get) Token: 0x06002FD9 RID: 12249 RVA: 0x0004FD9B File Offset: 0x0004DF9B
+		// (set) Token: 0x06002FDA RID: 12250 RVA: 0x0004FDA3 File Offset: 0x0004DFA3
 		public string RoomId { get; set; }
 
-		// Token: 0x170004C7 RID: 1223
-		// (get) Token: 0x06002F29 RID: 12073 RVA: 0x000E412D File Offset: 0x000E232D
-		// (set) Token: 0x06002F2A RID: 12074 RVA: 0x000E4135 File Offset: 0x000E2335
+		// Token: 0x170004D5 RID: 1237
+		// (get) Token: 0x06002FDB RID: 12251 RVA: 0x0004FDAC File Offset: 0x0004DFAC
+		// (set) Token: 0x06002FDC RID: 12252 RVA: 0x0004FDB4 File Offset: 0x0004DFB4
 		public string Zone { get; set; }
 
-		// Token: 0x170004C8 RID: 1224
-		// (get) Token: 0x06002F2B RID: 12075 RVA: 0x000E413E File Offset: 0x000E233E
-		// (set) Token: 0x06002F2C RID: 12076 RVA: 0x000E4146 File Offset: 0x000E2346
+		// Token: 0x170004D6 RID: 1238
+		// (get) Token: 0x06002FDD RID: 12253 RVA: 0x0004FDBD File Offset: 0x0004DFBD
+		// (set) Token: 0x06002FDE RID: 12254 RVA: 0x0004FDC5 File Offset: 0x0004DFC5
 		public string Region { get; set; }
 
-		// Token: 0x170004C9 RID: 1225
-		// (get) Token: 0x06002F2D RID: 12077 RVA: 0x000E414F File Offset: 0x000E234F
-		// (set) Token: 0x06002F2E RID: 12078 RVA: 0x000E4157 File Offset: 0x000E2357
+		// Token: 0x170004D7 RID: 1239
+		// (get) Token: 0x06002FDF RID: 12255 RVA: 0x0004FDCE File Offset: 0x0004DFCE
+		// (set) Token: 0x06002FE0 RID: 12256 RVA: 0x0004FDD6 File Offset: 0x0004DFD6
 		public bool? IsPublic { get; set; }
 	}
 
-	// Token: 0x0200077E RID: 1918
+	// Token: 0x02000796 RID: 1942
 	public class FriendLink
 	{
-		// Token: 0x170004CA RID: 1226
-		// (get) Token: 0x06002F30 RID: 12080 RVA: 0x000E4160 File Offset: 0x000E2360
-		// (set) Token: 0x06002F31 RID: 12081 RVA: 0x000E4168 File Offset: 0x000E2368
+		// Token: 0x170004D8 RID: 1240
+		// (get) Token: 0x06002FE2 RID: 12258 RVA: 0x0004FDDF File Offset: 0x0004DFDF
+		// (set) Token: 0x06002FE3 RID: 12259 RVA: 0x0004FDE7 File Offset: 0x0004DFE7
 		public string my_playfab_id { get; set; }
 
-		// Token: 0x170004CB RID: 1227
-		// (get) Token: 0x06002F32 RID: 12082 RVA: 0x000E4171 File Offset: 0x000E2371
-		// (set) Token: 0x06002F33 RID: 12083 RVA: 0x000E4179 File Offset: 0x000E2379
+		// Token: 0x170004D9 RID: 1241
+		// (get) Token: 0x06002FE4 RID: 12260 RVA: 0x0004FDF0 File Offset: 0x0004DFF0
+		// (set) Token: 0x06002FE5 RID: 12261 RVA: 0x0004FDF8 File Offset: 0x0004DFF8
 		public string my_mothership_id { get; set; }
 
-		// Token: 0x170004CC RID: 1228
-		// (get) Token: 0x06002F34 RID: 12084 RVA: 0x000E4182 File Offset: 0x000E2382
-		// (set) Token: 0x06002F35 RID: 12085 RVA: 0x000E418A File Offset: 0x000E238A
+		// Token: 0x170004DA RID: 1242
+		// (get) Token: 0x06002FE6 RID: 12262 RVA: 0x0004FE01 File Offset: 0x0004E001
+		// (set) Token: 0x06002FE7 RID: 12263 RVA: 0x0004FE09 File Offset: 0x0004E009
 		public string my_friendlink_id { get; set; }
 
-		// Token: 0x170004CD RID: 1229
-		// (get) Token: 0x06002F36 RID: 12086 RVA: 0x000E4193 File Offset: 0x000E2393
-		// (set) Token: 0x06002F37 RID: 12087 RVA: 0x000E419B File Offset: 0x000E239B
+		// Token: 0x170004DB RID: 1243
+		// (get) Token: 0x06002FE8 RID: 12264 RVA: 0x0004FE12 File Offset: 0x0004E012
+		// (set) Token: 0x06002FE9 RID: 12265 RVA: 0x0004FE1A File Offset: 0x0004E01A
 		public string friend_playfab_id { get; set; }
 
-		// Token: 0x170004CE RID: 1230
-		// (get) Token: 0x06002F38 RID: 12088 RVA: 0x000E41A4 File Offset: 0x000E23A4
-		// (set) Token: 0x06002F39 RID: 12089 RVA: 0x000E41AC File Offset: 0x000E23AC
+		// Token: 0x170004DC RID: 1244
+		// (get) Token: 0x06002FEA RID: 12266 RVA: 0x0004FE23 File Offset: 0x0004E023
+		// (set) Token: 0x06002FEB RID: 12267 RVA: 0x0004FE2B File Offset: 0x0004E02B
 		public string friend_mothership_id { get; set; }
 
-		// Token: 0x170004CF RID: 1231
-		// (get) Token: 0x06002F3A RID: 12090 RVA: 0x000E41B5 File Offset: 0x000E23B5
-		// (set) Token: 0x06002F3B RID: 12091 RVA: 0x000E41BD File Offset: 0x000E23BD
+		// Token: 0x170004DD RID: 1245
+		// (get) Token: 0x06002FEC RID: 12268 RVA: 0x0004FE34 File Offset: 0x0004E034
+		// (set) Token: 0x06002FED RID: 12269 RVA: 0x0004FE3C File Offset: 0x0004E03C
 		public string friend_friendlink_id { get; set; }
 
-		// Token: 0x170004D0 RID: 1232
-		// (get) Token: 0x06002F3C RID: 12092 RVA: 0x000E41C6 File Offset: 0x000E23C6
-		// (set) Token: 0x06002F3D RID: 12093 RVA: 0x000E41CE File Offset: 0x000E23CE
+		// Token: 0x170004DE RID: 1246
+		// (get) Token: 0x06002FEE RID: 12270 RVA: 0x0004FE45 File Offset: 0x0004E045
+		// (set) Token: 0x06002FEF RID: 12271 RVA: 0x0004FE4D File Offset: 0x0004E04D
 		public DateTime created { get; set; }
 	}
 
-	// Token: 0x0200077F RID: 1919
+	// Token: 0x02000797 RID: 1943
 	[NullableContext(2)]
 	[Nullable(0)]
 	public class FriendIdResponse
 	{
-		// Token: 0x170004D1 RID: 1233
-		// (get) Token: 0x06002F3F RID: 12095 RVA: 0x000E41D7 File Offset: 0x000E23D7
-		// (set) Token: 0x06002F40 RID: 12096 RVA: 0x000E41DF File Offset: 0x000E23DF
+		// Token: 0x170004DF RID: 1247
+		// (get) Token: 0x06002FF1 RID: 12273 RVA: 0x0004FE56 File Offset: 0x0004E056
+		// (set) Token: 0x06002FF2 RID: 12274 RVA: 0x0004FE5E File Offset: 0x0004E05E
 		public string PlayFabId { get; set; }
 
-		// Token: 0x170004D2 RID: 1234
-		// (get) Token: 0x06002F41 RID: 12097 RVA: 0x000E41E8 File Offset: 0x000E23E8
-		// (set) Token: 0x06002F42 RID: 12098 RVA: 0x000E41F0 File Offset: 0x000E23F0
+		// Token: 0x170004E0 RID: 1248
+		// (get) Token: 0x06002FF3 RID: 12275 RVA: 0x0004FE67 File Offset: 0x0004E067
+		// (set) Token: 0x06002FF4 RID: 12276 RVA: 0x0004FE6F File Offset: 0x0004E06F
 		public string MothershipId { get; set; } = "";
 	}
 
-	// Token: 0x02000780 RID: 1920
+	// Token: 0x02000798 RID: 1944
 	public class FriendRequestRequest
 	{
-		// Token: 0x170004D3 RID: 1235
-		// (get) Token: 0x06002F44 RID: 12100 RVA: 0x000E420C File Offset: 0x000E240C
-		// (set) Token: 0x06002F45 RID: 12101 RVA: 0x000E4214 File Offset: 0x000E2414
+		// Token: 0x170004E1 RID: 1249
+		// (get) Token: 0x06002FF6 RID: 12278 RVA: 0x0004FE8B File Offset: 0x0004E08B
+		// (set) Token: 0x06002FF7 RID: 12279 RVA: 0x0004FE93 File Offset: 0x0004E093
 		public string PlayFabId { get; set; }
 
-		// Token: 0x170004D4 RID: 1236
-		// (get) Token: 0x06002F46 RID: 12102 RVA: 0x000E421D File Offset: 0x000E241D
-		// (set) Token: 0x06002F47 RID: 12103 RVA: 0x000E4225 File Offset: 0x000E2425
+		// Token: 0x170004E2 RID: 1250
+		// (get) Token: 0x06002FF8 RID: 12280 RVA: 0x0004FE9C File Offset: 0x0004E09C
+		// (set) Token: 0x06002FF9 RID: 12281 RVA: 0x0004FEA4 File Offset: 0x0004E0A4
 		public string MothershipId { get; set; } = "";
 
-		// Token: 0x170004D5 RID: 1237
-		// (get) Token: 0x06002F48 RID: 12104 RVA: 0x000E422E File Offset: 0x000E242E
-		// (set) Token: 0x06002F49 RID: 12105 RVA: 0x000E4236 File Offset: 0x000E2436
+		// Token: 0x170004E3 RID: 1251
+		// (get) Token: 0x06002FFA RID: 12282 RVA: 0x0004FEAD File Offset: 0x0004E0AD
+		// (set) Token: 0x06002FFB RID: 12283 RVA: 0x0004FEB5 File Offset: 0x0004E0B5
 		public string PlayFabTicket { get; set; }
 
-		// Token: 0x170004D6 RID: 1238
-		// (get) Token: 0x06002F4A RID: 12106 RVA: 0x000E423F File Offset: 0x000E243F
-		// (set) Token: 0x06002F4B RID: 12107 RVA: 0x000E4247 File Offset: 0x000E2447
+		// Token: 0x170004E4 RID: 1252
+		// (get) Token: 0x06002FFC RID: 12284 RVA: 0x0004FEBE File Offset: 0x0004E0BE
+		// (set) Token: 0x06002FFD RID: 12285 RVA: 0x0004FEC6 File Offset: 0x0004E0C6
 		public string MothershipToken { get; set; }
 
-		// Token: 0x170004D7 RID: 1239
-		// (get) Token: 0x06002F4C RID: 12108 RVA: 0x000E4250 File Offset: 0x000E2450
-		// (set) Token: 0x06002F4D RID: 12109 RVA: 0x000E4258 File Offset: 0x000E2458
+		// Token: 0x170004E5 RID: 1253
+		// (get) Token: 0x06002FFE RID: 12286 RVA: 0x0004FECF File Offset: 0x0004E0CF
+		// (set) Token: 0x06002FFF RID: 12287 RVA: 0x0004FED7 File Offset: 0x0004E0D7
 		public string MyFriendLinkId { get; set; }
 
-		// Token: 0x170004D8 RID: 1240
-		// (get) Token: 0x06002F4E RID: 12110 RVA: 0x000E4261 File Offset: 0x000E2461
-		// (set) Token: 0x06002F4F RID: 12111 RVA: 0x000E4269 File Offset: 0x000E2469
+		// Token: 0x170004E6 RID: 1254
+		// (get) Token: 0x06003000 RID: 12288 RVA: 0x0004FEE0 File Offset: 0x0004E0E0
+		// (set) Token: 0x06003001 RID: 12289 RVA: 0x0004FEE8 File Offset: 0x0004E0E8
 		public string FriendFriendLinkId { get; set; }
 	}
 
-	// Token: 0x02000781 RID: 1921
+	// Token: 0x02000799 RID: 1945
 	public class GetFriendsRequest
 	{
-		// Token: 0x170004D9 RID: 1241
-		// (get) Token: 0x06002F51 RID: 12113 RVA: 0x000E4285 File Offset: 0x000E2485
-		// (set) Token: 0x06002F52 RID: 12114 RVA: 0x000E428D File Offset: 0x000E248D
+		// Token: 0x170004E7 RID: 1255
+		// (get) Token: 0x06003003 RID: 12291 RVA: 0x0004FF04 File Offset: 0x0004E104
+		// (set) Token: 0x06003004 RID: 12292 RVA: 0x0004FF0C File Offset: 0x0004E10C
 		public string PlayFabId { get; set; }
 
-		// Token: 0x170004DA RID: 1242
-		// (get) Token: 0x06002F53 RID: 12115 RVA: 0x000E4296 File Offset: 0x000E2496
-		// (set) Token: 0x06002F54 RID: 12116 RVA: 0x000E429E File Offset: 0x000E249E
+		// Token: 0x170004E8 RID: 1256
+		// (get) Token: 0x06003005 RID: 12293 RVA: 0x0004FF15 File Offset: 0x0004E115
+		// (set) Token: 0x06003006 RID: 12294 RVA: 0x0004FF1D File Offset: 0x0004E11D
 		public string MothershipId { get; set; } = "";
 
-		// Token: 0x170004DB RID: 1243
-		// (get) Token: 0x06002F55 RID: 12117 RVA: 0x000E42A7 File Offset: 0x000E24A7
-		// (set) Token: 0x06002F56 RID: 12118 RVA: 0x000E42AF File Offset: 0x000E24AF
+		// Token: 0x170004E9 RID: 1257
+		// (get) Token: 0x06003007 RID: 12295 RVA: 0x0004FF26 File Offset: 0x0004E126
+		// (set) Token: 0x06003008 RID: 12296 RVA: 0x0004FF2E File Offset: 0x0004E12E
 		public string MothershipToken { get; set; }
 
-		// Token: 0x170004DC RID: 1244
-		// (get) Token: 0x06002F57 RID: 12119 RVA: 0x000E42B8 File Offset: 0x000E24B8
-		// (set) Token: 0x06002F58 RID: 12120 RVA: 0x000E42C0 File Offset: 0x000E24C0
+		// Token: 0x170004EA RID: 1258
+		// (get) Token: 0x06003009 RID: 12297 RVA: 0x0004FF37 File Offset: 0x0004E137
+		// (set) Token: 0x0600300A RID: 12298 RVA: 0x0004FF3F File Offset: 0x0004E13F
 		public string PlayFabTicket { get; set; }
 	}
 
-	// Token: 0x02000782 RID: 1922
+	// Token: 0x0200079A RID: 1946
 	public class GetFriendsResponse
 	{
-		// Token: 0x170004DD RID: 1245
-		// (get) Token: 0x06002F5A RID: 12122 RVA: 0x000E42DC File Offset: 0x000E24DC
-		// (set) Token: 0x06002F5B RID: 12123 RVA: 0x000E42E4 File Offset: 0x000E24E4
+		// Token: 0x170004EB RID: 1259
+		// (get) Token: 0x0600300C RID: 12300 RVA: 0x0004FF5B File Offset: 0x0004E15B
+		// (set) Token: 0x0600300D RID: 12301 RVA: 0x0004FF63 File Offset: 0x0004E163
 		[CanBeNull]
 		public FriendBackendController.GetFriendsResult Result { get; set; }
 
-		// Token: 0x170004DE RID: 1246
-		// (get) Token: 0x06002F5C RID: 12124 RVA: 0x000E42ED File Offset: 0x000E24ED
-		// (set) Token: 0x06002F5D RID: 12125 RVA: 0x000E42F5 File Offset: 0x000E24F5
+		// Token: 0x170004EC RID: 1260
+		// (get) Token: 0x0600300E RID: 12302 RVA: 0x0004FF6C File Offset: 0x0004E16C
+		// (set) Token: 0x0600300F RID: 12303 RVA: 0x0004FF74 File Offset: 0x0004E174
 		public int StatusCode { get; set; }
 
-		// Token: 0x170004DF RID: 1247
-		// (get) Token: 0x06002F5E RID: 12126 RVA: 0x000E42FE File Offset: 0x000E24FE
-		// (set) Token: 0x06002F5F RID: 12127 RVA: 0x000E4306 File Offset: 0x000E2506
+		// Token: 0x170004ED RID: 1261
+		// (get) Token: 0x06003010 RID: 12304 RVA: 0x0004FF7D File Offset: 0x0004E17D
+		// (set) Token: 0x06003011 RID: 12305 RVA: 0x0004FF85 File Offset: 0x0004E185
 		[Nullable(2)]
 		public string Error { [NullableContext(2)] get; [NullableContext(2)] set; }
 	}
 
-	// Token: 0x02000783 RID: 1923
+	// Token: 0x0200079B RID: 1947
 	public class GetFriendsResult
 	{
-		// Token: 0x170004E0 RID: 1248
-		// (get) Token: 0x06002F61 RID: 12129 RVA: 0x000E430F File Offset: 0x000E250F
-		// (set) Token: 0x06002F62 RID: 12130 RVA: 0x000E4317 File Offset: 0x000E2517
+		// Token: 0x170004EE RID: 1262
+		// (get) Token: 0x06003013 RID: 12307 RVA: 0x0004FF8E File Offset: 0x0004E18E
+		// (set) Token: 0x06003014 RID: 12308 RVA: 0x0004FF96 File Offset: 0x0004E196
 		public List<FriendBackendController.Friend> Friends { get; set; }
 
-		// Token: 0x170004E1 RID: 1249
-		// (get) Token: 0x06002F63 RID: 12131 RVA: 0x000E4320 File Offset: 0x000E2520
-		// (set) Token: 0x06002F64 RID: 12132 RVA: 0x000E4328 File Offset: 0x000E2528
+		// Token: 0x170004EF RID: 1263
+		// (get) Token: 0x06003015 RID: 12309 RVA: 0x0004FF9F File Offset: 0x0004E19F
+		// (set) Token: 0x06003016 RID: 12310 RVA: 0x0004FFA7 File Offset: 0x0004E1A7
 		public FriendBackendController.PrivacyState MyPrivacyState { get; set; }
 	}
 
-	// Token: 0x02000784 RID: 1924
+	// Token: 0x0200079C RID: 1948
 	public class SetPrivacyStateRequest
 	{
-		// Token: 0x170004E2 RID: 1250
-		// (get) Token: 0x06002F66 RID: 12134 RVA: 0x000E4331 File Offset: 0x000E2531
-		// (set) Token: 0x06002F67 RID: 12135 RVA: 0x000E4339 File Offset: 0x000E2539
+		// Token: 0x170004F0 RID: 1264
+		// (get) Token: 0x06003018 RID: 12312 RVA: 0x0004FFB0 File Offset: 0x0004E1B0
+		// (set) Token: 0x06003019 RID: 12313 RVA: 0x0004FFB8 File Offset: 0x0004E1B8
 		public string PlayFabId { get; set; }
 
-		// Token: 0x170004E3 RID: 1251
-		// (get) Token: 0x06002F68 RID: 12136 RVA: 0x000E4342 File Offset: 0x000E2542
-		// (set) Token: 0x06002F69 RID: 12137 RVA: 0x000E434A File Offset: 0x000E254A
+		// Token: 0x170004F1 RID: 1265
+		// (get) Token: 0x0600301A RID: 12314 RVA: 0x0004FFC1 File Offset: 0x0004E1C1
+		// (set) Token: 0x0600301B RID: 12315 RVA: 0x0004FFC9 File Offset: 0x0004E1C9
 		public string PlayFabTicket { get; set; }
 
-		// Token: 0x170004E4 RID: 1252
-		// (get) Token: 0x06002F6A RID: 12138 RVA: 0x000E4353 File Offset: 0x000E2553
-		// (set) Token: 0x06002F6B RID: 12139 RVA: 0x000E435B File Offset: 0x000E255B
+		// Token: 0x170004F2 RID: 1266
+		// (get) Token: 0x0600301C RID: 12316 RVA: 0x0004FFD2 File Offset: 0x0004E1D2
+		// (set) Token: 0x0600301D RID: 12317 RVA: 0x0004FFDA File Offset: 0x0004E1DA
 		public string PrivacyState { get; set; }
 	}
 
-	// Token: 0x02000785 RID: 1925
+	// Token: 0x0200079D RID: 1949
 	[NullableContext(2)]
 	[Nullable(0)]
 	public class SetPrivacyStateResponse
 	{
-		// Token: 0x170004E5 RID: 1253
-		// (get) Token: 0x06002F6D RID: 12141 RVA: 0x000E4364 File Offset: 0x000E2564
-		// (set) Token: 0x06002F6E RID: 12142 RVA: 0x000E436C File Offset: 0x000E256C
+		// Token: 0x170004F3 RID: 1267
+		// (get) Token: 0x0600301F RID: 12319 RVA: 0x0004FFE3 File Offset: 0x0004E1E3
+		// (set) Token: 0x06003020 RID: 12320 RVA: 0x0004FFEB File Offset: 0x0004E1EB
 		public int StatusCode { get; set; }
 
-		// Token: 0x170004E6 RID: 1254
-		// (get) Token: 0x06002F6F RID: 12143 RVA: 0x000E4375 File Offset: 0x000E2575
-		// (set) Token: 0x06002F70 RID: 12144 RVA: 0x000E437D File Offset: 0x000E257D
+		// Token: 0x170004F4 RID: 1268
+		// (get) Token: 0x06003021 RID: 12321 RVA: 0x0004FFF4 File Offset: 0x0004E1F4
+		// (set) Token: 0x06003022 RID: 12322 RVA: 0x0004FFFC File Offset: 0x0004E1FC
 		public string Error { get; set; }
 	}
 
-	// Token: 0x02000786 RID: 1926
+	// Token: 0x0200079E RID: 1950
 	public class RemoveFriendRequest
 	{
-		// Token: 0x170004E7 RID: 1255
-		// (get) Token: 0x06002F72 RID: 12146 RVA: 0x000E4386 File Offset: 0x000E2586
-		// (set) Token: 0x06002F73 RID: 12147 RVA: 0x000E438E File Offset: 0x000E258E
+		// Token: 0x170004F5 RID: 1269
+		// (get) Token: 0x06003024 RID: 12324 RVA: 0x00050005 File Offset: 0x0004E205
+		// (set) Token: 0x06003025 RID: 12325 RVA: 0x0005000D File Offset: 0x0004E20D
 		public string PlayFabId { get; set; }
 
-		// Token: 0x170004E8 RID: 1256
-		// (get) Token: 0x06002F74 RID: 12148 RVA: 0x000E4397 File Offset: 0x000E2597
-		// (set) Token: 0x06002F75 RID: 12149 RVA: 0x000E439F File Offset: 0x000E259F
+		// Token: 0x170004F6 RID: 1270
+		// (get) Token: 0x06003026 RID: 12326 RVA: 0x00050016 File Offset: 0x0004E216
+		// (set) Token: 0x06003027 RID: 12327 RVA: 0x0005001E File Offset: 0x0004E21E
 		public string MothershipId { get; set; } = "";
 
-		// Token: 0x170004E9 RID: 1257
-		// (get) Token: 0x06002F76 RID: 12150 RVA: 0x000E43A8 File Offset: 0x000E25A8
-		// (set) Token: 0x06002F77 RID: 12151 RVA: 0x000E43B0 File Offset: 0x000E25B0
+		// Token: 0x170004F7 RID: 1271
+		// (get) Token: 0x06003028 RID: 12328 RVA: 0x00050027 File Offset: 0x0004E227
+		// (set) Token: 0x06003029 RID: 12329 RVA: 0x0005002F File Offset: 0x0004E22F
 		public string PlayFabTicket { get; set; }
 
-		// Token: 0x170004EA RID: 1258
-		// (get) Token: 0x06002F78 RID: 12152 RVA: 0x000E43B9 File Offset: 0x000E25B9
-		// (set) Token: 0x06002F79 RID: 12153 RVA: 0x000E43C1 File Offset: 0x000E25C1
+		// Token: 0x170004F8 RID: 1272
+		// (get) Token: 0x0600302A RID: 12330 RVA: 0x00050038 File Offset: 0x0004E238
+		// (set) Token: 0x0600302B RID: 12331 RVA: 0x00050040 File Offset: 0x0004E240
 		public string MothershipToken { get; set; }
 
-		// Token: 0x170004EB RID: 1259
-		// (get) Token: 0x06002F7A RID: 12154 RVA: 0x000E43CA File Offset: 0x000E25CA
-		// (set) Token: 0x06002F7B RID: 12155 RVA: 0x000E43D2 File Offset: 0x000E25D2
+		// Token: 0x170004F9 RID: 1273
+		// (get) Token: 0x0600302C RID: 12332 RVA: 0x00050049 File Offset: 0x0004E249
+		// (set) Token: 0x0600302D RID: 12333 RVA: 0x00050051 File Offset: 0x0004E251
 		public string MyFriendLinkId { get; set; }
 
-		// Token: 0x170004EC RID: 1260
-		// (get) Token: 0x06002F7C RID: 12156 RVA: 0x000E43DB File Offset: 0x000E25DB
-		// (set) Token: 0x06002F7D RID: 12157 RVA: 0x000E43E3 File Offset: 0x000E25E3
+		// Token: 0x170004FA RID: 1274
+		// (get) Token: 0x0600302E RID: 12334 RVA: 0x0005005A File Offset: 0x0004E25A
+		// (set) Token: 0x0600302F RID: 12335 RVA: 0x00050062 File Offset: 0x0004E262
 		public string FriendFriendLinkId { get; set; }
 	}
 
-	// Token: 0x02000787 RID: 1927
+	// Token: 0x0200079F RID: 1951
 	public enum PendingRequestStatus
 	{
-		// Token: 0x0400337F RID: 13183
+		// Token: 0x04003429 RID: 13353
 		I_REQUESTED,
-		// Token: 0x04003380 RID: 13184
+		// Token: 0x0400342A RID: 13354
 		THEY_REQUESTED,
-		// Token: 0x04003381 RID: 13185
+		// Token: 0x0400342B RID: 13355
 		CONFIRMED,
-		// Token: 0x04003382 RID: 13186
+		// Token: 0x0400342C RID: 13356
 		NOT_FOUND
 	}
 
-	// Token: 0x02000788 RID: 1928
+	// Token: 0x020007A0 RID: 1952
 	public enum PrivacyState
 	{
-		// Token: 0x04003384 RID: 13188
+		// Token: 0x0400342E RID: 13358
 		VISIBLE,
-		// Token: 0x04003385 RID: 13189
+		// Token: 0x0400342F RID: 13359
 		PUBLIC_ONLY,
-		// Token: 0x04003386 RID: 13190
+		// Token: 0x04003430 RID: 13360
 		HIDDEN
 	}
 }

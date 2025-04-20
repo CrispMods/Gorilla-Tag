@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000068 RID: 104
+// Token: 0x0200006E RID: 110
 public class DelayedDestroyCrittersPooledObject : MonoBehaviour
 {
-	// Token: 0x06000296 RID: 662 RVA: 0x00010F8F File Offset: 0x0000F18F
+	// Token: 0x060002C4 RID: 708 RVA: 0x0003220D File Offset: 0x0003040D
 	protected void OnEnable()
 	{
 		if (ObjectPools.instance == null || !ObjectPools.instance.initialized)
@@ -14,7 +14,7 @@ public class DelayedDestroyCrittersPooledObject : MonoBehaviour
 		this.timeToDie = Time.time + this.destroyDelay;
 	}
 
-	// Token: 0x06000297 RID: 663 RVA: 0x00010FBD File Offset: 0x0000F1BD
+	// Token: 0x060002C5 RID: 709 RVA: 0x0003223B File Offset: 0x0003043B
 	protected void LateUpdate()
 	{
 		if (Time.time >= this.timeToDie)
@@ -23,9 +23,9 @@ public class DelayedDestroyCrittersPooledObject : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400034B RID: 843
+	// Token: 0x0400037D RID: 893
 	public float destroyDelay = 1f;
 
-	// Token: 0x0400034C RID: 844
+	// Token: 0x0400037E RID: 894
 	private float timeToDie = -1f;
 }

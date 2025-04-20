@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace GorillaTagScripts.UI.ModIO
 {
-	// Token: 0x020009D7 RID: 2519
+	// Token: 0x02000A00 RID: 2560
 	public class VirtualStumpTeleportingHUD : MonoBehaviour
 	{
-		// Token: 0x06003ECD RID: 16077 RVA: 0x00129EC8 File Offset: 0x001280C8
+		// Token: 0x06003FF9 RID: 16377 RVA: 0x0016B1BC File Offset: 0x001693BC
 		public void Initialize(bool isEntering)
 		{
 			this.isEnteringVirtualStump = isEntering;
@@ -21,7 +21,7 @@ namespace GorillaTagScripts.UI.ModIO
 			this.teleportingStatusText.gameObject.SetActive(true);
 		}
 
-		// Token: 0x06003ECE RID: 16078 RVA: 0x00129F24 File Offset: 0x00128124
+		// Token: 0x06003FFA RID: 16378 RVA: 0x0016B218 File Offset: 0x00169418
 		private void Update()
 		{
 			if (Time.time - this.lastTextUpdateTime > this.textUpdateInterval)
@@ -37,7 +37,7 @@ namespace GorillaTagScripts.UI.ModIO
 			}
 		}
 
-		// Token: 0x06003ECF RID: 16079 RVA: 0x00129FA3 File Offset: 0x001281A3
+		// Token: 0x06003FFB RID: 16379 RVA: 0x00059CC4 File Offset: 0x00057EC4
 		private void IncrementProgressDots()
 		{
 			this.numProgressDots++;
@@ -47,33 +47,33 @@ namespace GorillaTagScripts.UI.ModIO
 			}
 		}
 
-		// Token: 0x04004011 RID: 16401
+		// Token: 0x040040F5 RID: 16629
 		[SerializeField]
 		private string enteringVirtualStumpString = "Now Entering the Virtual Stump";
 
-		// Token: 0x04004012 RID: 16402
+		// Token: 0x040040F6 RID: 16630
 		[SerializeField]
 		private string leavingVirtualStumpString = "Now Leaving the Virtual Stump";
 
-		// Token: 0x04004013 RID: 16403
+		// Token: 0x040040F7 RID: 16631
 		[SerializeField]
 		private TMP_Text teleportingStatusText;
 
-		// Token: 0x04004014 RID: 16404
+		// Token: 0x040040F8 RID: 16632
 		[SerializeField]
 		private int maxNumProgressDots = 3;
 
-		// Token: 0x04004015 RID: 16405
+		// Token: 0x040040F9 RID: 16633
 		[SerializeField]
 		private float textUpdateInterval = 0.5f;
 
-		// Token: 0x04004016 RID: 16406
+		// Token: 0x040040FA RID: 16634
 		private float lastTextUpdateTime;
 
-		// Token: 0x04004017 RID: 16407
+		// Token: 0x040040FB RID: 16635
 		private int numProgressDots;
 
-		// Token: 0x04004018 RID: 16408
+		// Token: 0x040040FC RID: 16636
 		private bool isEnteringVirtualStump;
 	}
 }

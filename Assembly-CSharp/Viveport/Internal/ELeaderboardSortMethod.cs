@@ -2,14 +2,14 @@
 
 namespace Viveport.Internal
 {
-	// Token: 0x02000927 RID: 2343
+	// Token: 0x02000944 RID: 2372
 	internal enum ELeaderboardSortMethod
 	{
-		// Token: 0x04003AD3 RID: 15059
+		// Token: 0x04003B98 RID: 15256
 		k_ELeaderboardSortMethodNone,
-		// Token: 0x04003AD4 RID: 15060
+		// Token: 0x04003B99 RID: 15257
 		k_ELeaderboardSortMethodAscending,
-		// Token: 0x04003AD5 RID: 15061
+		// Token: 0x04003B9A RID: 15258
 		k_ELeaderboardSortMethodDescending
 	}
 }

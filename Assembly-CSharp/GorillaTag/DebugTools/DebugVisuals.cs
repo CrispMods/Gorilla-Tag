@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GorillaTag.DebugTools
 {
-	// Token: 0x02000BE6 RID: 3046
+	// Token: 0x02000C14 RID: 3092
 	public class DebugVisuals : MonoBehaviour
 	{
 	}

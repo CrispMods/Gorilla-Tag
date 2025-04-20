@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000BB RID: 187
+// Token: 0x020000C5 RID: 197
 public class BakeBlendShape : MonoBehaviour
 {
-	// Token: 0x060004DC RID: 1244 RVA: 0x0001D0CC File Offset: 0x0001B2CC
+	// Token: 0x06000518 RID: 1304 RVA: 0x00080490 File Offset: 0x0007E690
 	private void Update()
 	{
 		Mesh mesh = new Mesh();

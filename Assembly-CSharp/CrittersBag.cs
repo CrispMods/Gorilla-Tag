@@ -5,10 +5,10 @@ using GorillaExtensions;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x0200003C RID: 60
+// Token: 0x02000040 RID: 64
 public class CrittersBag : CrittersActor
 {
-	// Token: 0x06000124 RID: 292 RVA: 0x0000836B File Offset: 0x0000656B
+	// Token: 0x06000139 RID: 313 RVA: 0x00031187 File Offset: 0x0002F387
 	protected override void Awake()
 	{
 		base.Awake();
@@ -17,7 +17,7 @@ public class CrittersBag : CrittersActor
 		this.isAttachedToPlayer = false;
 	}
 
-	// Token: 0x06000125 RID: 293 RVA: 0x00008392 File Offset: 0x00006592
+	// Token: 0x0600013A RID: 314 RVA: 0x000311AE File Offset: 0x0002F3AE
 	public override void OnHover(bool isLeft)
 	{
 		if (this.isAttachedToPlayer)
@@ -28,7 +28,7 @@ public class CrittersBag : CrittersActor
 		base.OnHover(isLeft);
 	}
 
-	// Token: 0x06000126 RID: 294 RVA: 0x000083D0 File Offset: 0x000065D0
+	// Token: 0x0600013B RID: 315 RVA: 0x0006D8E8 File Offset: 0x0006BAE8
 	protected override void CleanupActor()
 	{
 		base.CleanupActor();
@@ -39,7 +39,7 @@ public class CrittersBag : CrittersActor
 		this.attachedColliders.Clear();
 	}
 
-	// Token: 0x06000127 RID: 295 RVA: 0x00008430 File Offset: 0x00006630
+	// Token: 0x0600013C RID: 316 RVA: 0x0006D948 File Offset: 0x0006BB48
 	protected override void GlobalGrabbedBy(CrittersActor grabbedBy)
 	{
 		base.GlobalGrabbedBy(grabbedBy);
@@ -60,17 +60,18 @@ public class CrittersBag : CrittersActor
 		if (this.attachedToLocalPlayer != flag)
 		{
 			bool flag2 = this.attachedToLocalPlayer || flag;
+			this.audioSrc.transform.localPosition = Vector3.zero;
 			this.audioSrc.GTPlayOneShot(this.attachedToLocalPlayer ? this.equipSound : this.unequipSound, flag2 ? 1f : 0.5f);
 		}
 	}
 
-	// Token: 0x06000128 RID: 296 RVA: 0x000084CE File Offset: 0x000066CE
+	// Token: 0x0600013D RID: 317 RVA: 0x000311EB File Offset: 0x0002F3EB
 	public override void GrabbedBy(CrittersActor grabbedBy, bool positionOverride = false, Quaternion localRotation = default(Quaternion), Vector3 localOffset = default(Vector3), bool disableGrabbing = false)
 	{
 		base.GrabbedBy(grabbedBy, positionOverride, localRotation, localOffset, disableGrabbing);
 	}
 
-	// Token: 0x06000129 RID: 297 RVA: 0x000084E0 File Offset: 0x000066E0
+	// Token: 0x0600013E RID: 318 RVA: 0x0006D9FC File Offset: 0x0006BBFC
 	public override void Released(bool keepWorldPosition, Quaternion rotation = default(Quaternion), Vector3 position = default(Vector3), Vector3 impulse = default(Vector3), Vector3 impulseRotation = default(Vector3))
 	{
 		if (this.parentActorId >= 0)
@@ -106,7 +107,7 @@ public class CrittersBag : CrittersActor
 		base.Released(keepWorldPosition, rotation, position, impulse, impulseRotation);
 	}
 
-	// Token: 0x0600012A RID: 298 RVA: 0x00008650 File Offset: 0x00006850
+	// Token: 0x0600013F RID: 319 RVA: 0x0006DB6C File Offset: 0x0006BD6C
 	public void AddStoredObjectCollider(CrittersActor actor)
 	{
 		if (this.attachedColliders.ContainsKey(actor.actorId))
@@ -120,62 +121,74 @@ public class CrittersBag : CrittersActor
 		{
 			this.attachedColliders.Add(actor.actorId, CrittersManager.DuplicateCapsuleCollider(base.transform, actor.storeCollider).gameObject);
 		}
+		this.audioSrc.transform.position = actor.transform.position;
 		this.audioSrc.GTPlayOneShot(this.attachSound, 1f);
 	}
 
-	// Token: 0x0600012B RID: 299 RVA: 0x000086F0 File Offset: 0x000068F0
+	// Token: 0x06000140 RID: 320 RVA: 0x0006DC28 File Offset: 0x0006BE28
 	public void RemoveStoredObjectCollider(CrittersActor actor, bool playSound = true)
 	{
 		GameObject obj;
 		if (this.attachedColliders.TryGetValue(actor.actorId, out obj))
 		{
-			Object.Destroy(obj);
+			UnityEngine.Object.Destroy(obj);
 			this.attachedColliders.Remove(actor.actorId);
 		}
 		if (playSound)
 		{
+			this.audioSrc.transform.position = actor.transform.position;
 			this.audioSrc.GTPlayOneShot(this.detachSound, 1f);
 		}
 	}
 
-	// Token: 0x04000161 RID: 353
+	// Token: 0x06000141 RID: 321 RVA: 0x000311FA File Offset: 0x0002F3FA
+	public bool IsActorValidStore(CrittersActor actor)
+	{
+		return this.blockAttachTypes == null || !this.blockAttachTypes.Contains(actor.crittersActorType);
+	}
+
+	// Token: 0x04000172 RID: 370
 	public AudioSource audioSrc;
 
-	// Token: 0x04000162 RID: 354
+	// Token: 0x04000173 RID: 371
 	public CrittersAttachPoint.AnchoredLocationTypes anchorLocation;
 
-	// Token: 0x04000163 RID: 355
+	// Token: 0x04000174 RID: 372
 	public Collider attachableCollider;
 
-	// Token: 0x04000164 RID: 356
+	// Token: 0x04000175 RID: 373
 	public BoxCollider dropCube;
 
-	// Token: 0x04000165 RID: 357
+	// Token: 0x04000176 RID: 374
 	private Collider[] overlapColliders;
 
-	// Token: 0x04000166 RID: 358
+	// Token: 0x04000177 RID: 375
 	public List<Collider> attachDisableColliders;
 
-	// Token: 0x04000167 RID: 359
+	// Token: 0x04000178 RID: 376
 	public Dictionary<int, GameObject> attachedColliders;
 
-	// Token: 0x04000168 RID: 360
+	// Token: 0x04000179 RID: 377
 	[Header("Child object attachment sounds")]
 	public AudioClip attachSound;
 
-	// Token: 0x04000169 RID: 361
+	// Token: 0x0400017A RID: 378
 	public AudioClip detachSound;
 
-	// Token: 0x0400016A RID: 362
+	// Token: 0x0400017B RID: 379
 	[Header("Monke equip sounds")]
 	public AudioClip equipSound;
 
-	// Token: 0x0400016B RID: 363
+	// Token: 0x0400017C RID: 380
 	public AudioClip unequipSound;
 
-	// Token: 0x0400016C RID: 364
+	// Token: 0x0400017D RID: 381
+	[Header("Attachment Blocking")]
+	public List<CrittersActor.CrittersActorType> blockAttachTypes;
+
+	// Token: 0x0400017E RID: 382
 	private bool isAttachedToPlayer;
 
-	// Token: 0x0400016D RID: 365
+	// Token: 0x0400017F RID: 383
 	private bool attachedToLocalPlayer;
 }

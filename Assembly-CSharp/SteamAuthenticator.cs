@@ -3,10 +3,10 @@ using System.Text;
 using Steamworks;
 using UnityEngine;
 
-// Token: 0x020007B3 RID: 1971
+// Token: 0x020007CB RID: 1995
 public class SteamAuthenticator : MonoBehaviour
 {
-	// Token: 0x0600308B RID: 12427 RVA: 0x000E9B50 File Offset: 0x000E7D50
+	// Token: 0x0600313D RID: 12605 RVA: 0x00132C9C File Offset: 0x00130E9C
 	public HAuthTicket GetAuthTicket(Action<string> successCallback, Action<EResult> failureCallback)
 	{
 		HAuthTicket ticketHandle = HAuthTicket.Invalid;
@@ -60,7 +60,7 @@ public class SteamAuthenticator : MonoBehaviour
 		return ticketHandle;
 	}
 
-	// Token: 0x0600308C RID: 12428 RVA: 0x000E9C04 File Offset: 0x000E7E04
+	// Token: 0x0600313E RID: 12606 RVA: 0x00132D50 File Offset: 0x00130F50
 	public HAuthTicket GetAuthTicketForWebApi(string authenticatorId, Action<string> successCallback, Action<EResult> failureCallback)
 	{
 		HAuthTicket ticketHandle = HAuthTicket.Invalid;

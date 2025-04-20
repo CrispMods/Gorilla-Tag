@@ -6,10 +6,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-// Token: 0x02000366 RID: 870
+// Token: 0x02000371 RID: 881
 public class UiSceneMenu : MonoBehaviour
 {
-	// Token: 0x0600142A RID: 5162 RVA: 0x00062DC8 File Offset: 0x00060FC8
+	// Token: 0x06001476 RID: 5238 RVA: 0x000BC228 File Offset: 0x000BA428
 	private void Awake()
 	{
 		this.m_activeScene = SceneManager.GetActiveScene();
@@ -20,7 +20,7 @@ public class UiSceneMenu : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600142B RID: 5163 RVA: 0x00062E00 File Offset: 0x00061000
+	// Token: 0x06001477 RID: 5239 RVA: 0x000BC260 File Offset: 0x000BA460
 	private void Update()
 	{
 		int sceneCountInBuildSettings = SceneManager.sceneCountInBuildSettings;
@@ -36,43 +36,43 @@ public class UiSceneMenu : MonoBehaviour
 		UiSceneMenu.s_lastThumbstickR = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.RTouch);
 	}
 
-	// Token: 0x0600142C RID: 5164 RVA: 0x00062E69 File Offset: 0x00061069
+	// Token: 0x06001478 RID: 5240 RVA: 0x0003DC99 File Offset: 0x0003BE99
 	private bool InputPrevScene()
 	{
 		return this.KeyboardPrevScene() || this.ThumbstickPrevScene(OVRInput.Controller.LTouch) || this.ThumbstickPrevScene(OVRInput.Controller.RTouch);
 	}
 
-	// Token: 0x0600142D RID: 5165 RVA: 0x00062E85 File Offset: 0x00061085
+	// Token: 0x06001479 RID: 5241 RVA: 0x0003DCB5 File Offset: 0x0003BEB5
 	private bool InputNextScene()
 	{
 		return this.KeyboardNextScene() || this.ThumbstickNextScene(OVRInput.Controller.LTouch) || this.ThumbstickNextScene(OVRInput.Controller.RTouch);
 	}
 
-	// Token: 0x0600142E RID: 5166 RVA: 0x00062EA1 File Offset: 0x000610A1
+	// Token: 0x0600147A RID: 5242 RVA: 0x0003DCD1 File Offset: 0x0003BED1
 	private bool KeyboardPrevScene()
 	{
 		return Input.GetKeyDown(KeyCode.UpArrow);
 	}
 
-	// Token: 0x0600142F RID: 5167 RVA: 0x00062EAD File Offset: 0x000610AD
+	// Token: 0x0600147B RID: 5243 RVA: 0x0003DCDD File Offset: 0x0003BEDD
 	private bool KeyboardNextScene()
 	{
 		return Input.GetKeyDown(KeyCode.DownArrow);
 	}
 
-	// Token: 0x06001430 RID: 5168 RVA: 0x00062EB9 File Offset: 0x000610B9
+	// Token: 0x0600147C RID: 5244 RVA: 0x0003DCE9 File Offset: 0x0003BEE9
 	private bool ThumbstickPrevScene(OVRInput.Controller controller)
 	{
 		return OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, controller).y >= 0.9f && this.GetLastThumbstickValue(controller).y < 0.9f;
 	}
 
-	// Token: 0x06001431 RID: 5169 RVA: 0x00062EE3 File Offset: 0x000610E3
+	// Token: 0x0600147D RID: 5245 RVA: 0x0003DD13 File Offset: 0x0003BF13
 	private bool ThumbstickNextScene(OVRInput.Controller controller)
 	{
 		return OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, controller).y <= -0.9f && this.GetLastThumbstickValue(controller).y > -0.9f;
 	}
 
-	// Token: 0x06001432 RID: 5170 RVA: 0x00062F0D File Offset: 0x0006110D
+	// Token: 0x0600147E RID: 5246 RVA: 0x0003DD3D File Offset: 0x0003BF3D
 	private Vector2 GetLastThumbstickValue(OVRInput.Controller controller)
 	{
 		if (controller != OVRInput.Controller.LTouch)
@@ -82,13 +82,13 @@ public class UiSceneMenu : MonoBehaviour
 		return UiSceneMenu.s_lastThumbstickL;
 	}
 
-	// Token: 0x06001433 RID: 5171 RVA: 0x00062F1E File Offset: 0x0006111E
+	// Token: 0x0600147F RID: 5247 RVA: 0x0003DD4E File Offset: 0x0003BF4E
 	private void ChangeScene(int nextScene)
 	{
 		SceneManager.LoadScene(nextScene);
 	}
 
-	// Token: 0x06001434 RID: 5172 RVA: 0x00062F28 File Offset: 0x00061128
+	// Token: 0x06001480 RID: 5248 RVA: 0x000BC2CC File Offset: 0x000BA4CC
 	private void CreateLabel(int sceneIndex, string scenePath)
 	{
 		string text = Path.GetFileNameWithoutExtension(scenePath);
@@ -97,26 +97,26 @@ public class UiSceneMenu : MonoBehaviour
 		{
 			text = "Open: " + text;
 		}
-		TextMeshProUGUI textMeshProUGUI = Object.Instantiate<TextMeshProUGUI>(this.m_labelPf);
+		TextMeshProUGUI textMeshProUGUI = UnityEngine.Object.Instantiate<TextMeshProUGUI>(this.m_labelPf);
 		textMeshProUGUI.SetText(string.Format("{0}. {1}", sceneIndex + 1, text), true);
 		textMeshProUGUI.transform.SetParent(this.m_layoutGroup.transform, false);
 	}
 
-	// Token: 0x0400165B RID: 5723
+	// Token: 0x040016A3 RID: 5795
 	[Header("Settings")]
 	[SerializeField]
 	private VerticalLayoutGroup m_layoutGroup;
 
-	// Token: 0x0400165C RID: 5724
+	// Token: 0x040016A4 RID: 5796
 	[SerializeField]
 	private TextMeshProUGUI m_labelPf;
 
-	// Token: 0x0400165D RID: 5725
+	// Token: 0x040016A5 RID: 5797
 	private static Vector2 s_lastThumbstickL;
 
-	// Token: 0x0400165E RID: 5726
+	// Token: 0x040016A6 RID: 5798
 	private static Vector2 s_lastThumbstickR;
 
-	// Token: 0x0400165F RID: 5727
+	// Token: 0x040016A7 RID: 5799
 	private Scene m_activeScene;
 }

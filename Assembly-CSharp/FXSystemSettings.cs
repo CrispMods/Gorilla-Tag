@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020007EE RID: 2030
+// Token: 0x02000808 RID: 2056
 [CreateAssetMenu(menuName = "ScriptableObjects/FXSystemSettings", order = 2)]
 public class FXSystemSettings : ScriptableObject
 {
-	// Token: 0x06003218 RID: 12824 RVA: 0x000F0840 File Offset: 0x000EEA40
+	// Token: 0x060032CE RID: 13006 RVA: 0x00138B48 File Offset: 0x00136D48
 	public void Awake()
 	{
 		int num = (this.callLimits != null) ? this.callLimits.Length : 0;
@@ -49,19 +49,19 @@ public class FXSystemSettings : ScriptableObject
 		}
 	}
 
-	// Token: 0x040035A1 RID: 13729
+	// Token: 0x0400365C RID: 13916
 	[SerializeField]
 	private LimiterType[] callLimits;
 
-	// Token: 0x040035A2 RID: 13730
+	// Token: 0x0400365D RID: 13917
 	[SerializeField]
 	private CooldownType[] CallLimitsCooldown;
 
-	// Token: 0x040035A3 RID: 13731
+	// Token: 0x0400365E RID: 13918
 	[NonSerialized]
 	public bool forLocalRig;
 
-	// Token: 0x040035A4 RID: 13732
+	// Token: 0x0400365F RID: 13919
 	[NonSerialized]
-	public CallLimitType<CallLimiter>[] callSettings = new CallLimitType<CallLimiter>[15];
+	public CallLimitType<CallLimiter>[] callSettings = new CallLimitType<CallLimiter>[20];
 }

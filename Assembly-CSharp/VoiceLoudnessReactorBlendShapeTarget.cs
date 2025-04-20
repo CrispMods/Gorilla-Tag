@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020008E5 RID: 2277
+// Token: 0x02000901 RID: 2305
 [Serializable]
 public class VoiceLoudnessReactorBlendShapeTarget
 {
-	// Token: 0x040039B1 RID: 14769
+	// Token: 0x04003A72 RID: 14962
 	public SkinnedMeshRenderer SkinnedMeshRenderer;
 
-	// Token: 0x040039B2 RID: 14770
+	// Token: 0x04003A73 RID: 14963
 	public int BlendShapeIndex;
 
-	// Token: 0x040039B3 RID: 14771
+	// Token: 0x04003A74 RID: 14964
 	public float minValue;
 
-	// Token: 0x040039B4 RID: 14772
+	// Token: 0x04003A75 RID: 14965
 	public float maxValue = 1f;
 
-	// Token: 0x040039B5 RID: 14773
+	// Token: 0x04003A76 RID: 14966
 	public bool UseSmoothedLoudness;
 }

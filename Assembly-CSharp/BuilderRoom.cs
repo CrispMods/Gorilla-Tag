@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020004E7 RID: 1255
+// Token: 0x020004F4 RID: 1268
 public class BuilderRoom : MonoBehaviour
 {
-	// Token: 0x04002215 RID: 8725
+	// Token: 0x04002268 RID: 8808
 	public List<GameObject> disableColliderRoots;
 
-	// Token: 0x04002216 RID: 8726
+	// Token: 0x04002269 RID: 8809
 	public List<GameObject> disableRenderRoots;
 
-	// Token: 0x04002217 RID: 8727
+	// Token: 0x0400226A RID: 8810
 	public List<GameObject> disableGameObjectsForScene;
 
-	// Token: 0x04002218 RID: 8728
+	// Token: 0x0400226B RID: 8811
 	public List<GameObject> disableObjectsForPersistent;
 
-	// Token: 0x04002219 RID: 8729
+	// Token: 0x0400226C RID: 8812
 	public List<MeshRenderer> disabledRenderersForPersistent;
 
-	// Token: 0x0400221A RID: 8730
+	// Token: 0x0400226D RID: 8813
 	public List<Collider> disabledCollidersForScene;
 }

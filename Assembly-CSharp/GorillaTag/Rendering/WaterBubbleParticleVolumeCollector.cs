@@ -8,10 +8,10 @@ using UnityEngine.SceneManagement;
 
 namespace GorillaTag.Rendering
 {
-	// Token: 0x02000C04 RID: 3076
+	// Token: 0x02000C32 RID: 3122
 	public class WaterBubbleParticleVolumeCollector : MonoBehaviour
 	{
-		// Token: 0x06004CF7 RID: 19703 RVA: 0x00176478 File Offset: 0x00174678
+		// Token: 0x06004E43 RID: 20035 RVA: 0x001AE7E0 File Offset: 0x001AC9E0
 		protected void Awake()
 		{
 			List<WaterVolume> componentsInHierarchy = SceneManager.GetActiveScene().GetComponentsInHierarchy(true, 64);
@@ -48,7 +48,7 @@ namespace GorillaTag.Rendering
 			this.SetEmissionState(false);
 		}
 
-		// Token: 0x06004CF8 RID: 19704 RVA: 0x00176618 File Offset: 0x00174818
+		// Token: 0x06004E44 RID: 20036 RVA: 0x001AE980 File Offset: 0x001ACB80
 		protected void LateUpdate()
 		{
 			bool headInWater = GTPlayer.Instance.HeadInWater;
@@ -63,7 +63,7 @@ namespace GorillaTag.Rendering
 			}
 		}
 
-		// Token: 0x06004CF9 RID: 19705 RVA: 0x00176658 File Offset: 0x00174858
+		// Token: 0x06004E45 RID: 20037 RVA: 0x001AE9C0 File Offset: 0x001ACBC0
 		private void SetEmissionState(bool setEnabled)
 		{
 			float rateOverTimeMultiplier = setEnabled ? 1f : 0f;
@@ -74,19 +74,19 @@ namespace GorillaTag.Rendering
 			this.emissionEnabled = setEnabled;
 		}
 
-		// Token: 0x04004F42 RID: 20290
+		// Token: 0x04005038 RID: 20536
 		public ParticleSystem[] particleSystems;
 
-		// Token: 0x04004F43 RID: 20291
+		// Token: 0x04005039 RID: 20537
 		private ParticleSystem.TriggerModule[] particleTriggerModules;
 
-		// Token: 0x04004F44 RID: 20292
+		// Token: 0x0400503A RID: 20538
 		private ParticleSystem.EmissionModule[] particleEmissionModules;
 
-		// Token: 0x04004F45 RID: 20293
+		// Token: 0x0400503B RID: 20539
 		private Collider[] bubbleableVolumeColliders;
 
-		// Token: 0x04004F46 RID: 20294
+		// Token: 0x0400503C RID: 20540
 		private bool emissionEnabled;
 	}
 }

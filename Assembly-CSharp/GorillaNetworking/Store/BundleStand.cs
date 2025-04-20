@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 namespace GorillaNetworking.Store
 {
-	// Token: 0x02000AF9 RID: 2809
+	// Token: 0x02000B26 RID: 2854
 	public class BundleStand : MonoBehaviour
 	{
-		// Token: 0x1700073C RID: 1852
-		// (get) Token: 0x06004639 RID: 17977 RVA: 0x0014D413 File Offset: 0x0014B613
+		// Token: 0x17000758 RID: 1880
+		// (get) Token: 0x06004781 RID: 18305 RVA: 0x0005E8EF File Offset: 0x0005CAEF
 		public string playfabBundleID
 		{
 			get
@@ -18,7 +18,7 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x0600463A RID: 17978 RVA: 0x0014D420 File Offset: 0x0014B620
+		// Token: 0x06004782 RID: 18306 RVA: 0x0018A2A0 File Offset: 0x001884A0
 		public void Awake()
 		{
 			this._bundlePurchaseButton.playfabID = this.playfabBundleID;
@@ -28,26 +28,26 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x0600463B RID: 17979 RVA: 0x0014D483 File Offset: 0x0014B683
+		// Token: 0x06004783 RID: 18307 RVA: 0x0005E8FC File Offset: 0x0005CAFC
 		public void InitializeEventListeners()
 		{
 			this.AlreadyOwnEvent.AddListener(new UnityAction(this._bundlePurchaseButton.AlreadyOwn));
 			this.ErrorHappenedEvent.AddListener(new UnityAction(this._bundlePurchaseButton.ErrorHappened));
 		}
 
-		// Token: 0x0600463C RID: 17980 RVA: 0x0014D4BD File Offset: 0x0014B6BD
+		// Token: 0x06004784 RID: 18308 RVA: 0x0005E936 File Offset: 0x0005CB36
 		public void NotifyAlreadyOwn()
 		{
 			this.AlreadyOwnEvent.Invoke();
 		}
 
-		// Token: 0x0600463D RID: 17981 RVA: 0x0014D4CA File Offset: 0x0014B6CA
+		// Token: 0x06004785 RID: 18309 RVA: 0x0005E943 File Offset: 0x0005CB43
 		public void ErrorHappened()
 		{
 			this.ErrorHappenedEvent.Invoke();
 		}
 
-		// Token: 0x0600463E RID: 17982 RVA: 0x0014D4D7 File Offset: 0x0014B6D7
+		// Token: 0x06004786 RID: 18310 RVA: 0x0005E950 File Offset: 0x0005CB50
 		public void UpdatePurchaseButtonText(string purchaseText)
 		{
 			if (this._bundlePurchaseButton != null)
@@ -56,7 +56,7 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x0600463F RID: 17983 RVA: 0x0014D4F3 File Offset: 0x0014B6F3
+		// Token: 0x06004787 RID: 18311 RVA: 0x0005E96C File Offset: 0x0005CB6C
 		public void UpdateDescriptionText(string descriptionText)
 		{
 			if (this._bundleDescriptionText != null)
@@ -65,26 +65,26 @@ namespace GorillaNetworking.Store
 			}
 		}
 
-		// Token: 0x040047C9 RID: 18377
+		// Token: 0x040048BE RID: 18622
 		public BundlePurchaseButton _bundlePurchaseButton;
 
-		// Token: 0x040047CA RID: 18378
+		// Token: 0x040048BF RID: 18623
 		[SerializeField]
 		public StoreBundleData _bundleDataReference;
 
-		// Token: 0x040047CB RID: 18379
+		// Token: 0x040048C0 RID: 18624
 		public GameObject[] EditorOnlyObjects;
 
-		// Token: 0x040047CC RID: 18380
+		// Token: 0x040048C1 RID: 18625
 		public Text _bundleDescriptionText;
 
-		// Token: 0x040047CD RID: 18381
+		// Token: 0x040048C2 RID: 18626
 		public Image _bundleIcon;
 
-		// Token: 0x040047CE RID: 18382
+		// Token: 0x040048C3 RID: 18627
 		public UnityEvent AlreadyOwnEvent;
 
-		// Token: 0x040047CF RID: 18383
+		// Token: 0x040048C4 RID: 18628
 		public UnityEvent ErrorHappenedEvent;
 	}
 }

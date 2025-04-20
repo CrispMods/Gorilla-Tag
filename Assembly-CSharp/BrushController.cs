@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x02000309 RID: 777
+// Token: 0x02000314 RID: 788
 public class BrushController : MonoBehaviour
 {
-	// Token: 0x06001283 RID: 4739 RVA: 0x00058E48 File Offset: 0x00057048
+	// Token: 0x060012CF RID: 4815 RVA: 0x000B30E0 File Offset: 0x000B12E0
 	private void Start()
 	{
 		this.brush.controllerHand = OVRInput.Controller.None;
@@ -25,13 +25,13 @@ public class BrushController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001284 RID: 4740 RVA: 0x00058F15 File Offset: 0x00057115
+	// Token: 0x060012D0 RID: 4816 RVA: 0x0003CE96 File Offset: 0x0003B096
 	private void Update()
 	{
 		this.backgroundSphere.transform.position = Camera.main.transform.position;
 	}
 
-	// Token: 0x06001285 RID: 4741 RVA: 0x00058F38 File Offset: 0x00057138
+	// Token: 0x060012D1 RID: 4817 RVA: 0x000B31B0 File Offset: 0x000B13B0
 	public void Grab(OVRInput.Controller grabHand)
 	{
 		this.brush.controllerHand = grabHand;
@@ -49,7 +49,7 @@ public class BrushController : MonoBehaviour
 		base.StartCoroutine(this.grabRoutine);
 	}
 
-	// Token: 0x06001286 RID: 4742 RVA: 0x00058FBC File Offset: 0x000571BC
+	// Token: 0x060012D2 RID: 4818 RVA: 0x000B3234 File Offset: 0x000B1434
 	public void Release()
 	{
 		this.brush.controllerHand = OVRInput.Controller.None;
@@ -66,7 +66,7 @@ public class BrushController : MonoBehaviour
 		base.StartCoroutine(this.releaseRoutine);
 	}
 
-	// Token: 0x06001287 RID: 4743 RVA: 0x00059046 File Offset: 0x00057246
+	// Token: 0x060012D3 RID: 4819 RVA: 0x0003CEB7 File Offset: 0x0003B0B7
 	private IEnumerator FadeCameraClearColor(Color newColor, float fadeTime)
 	{
 		float timer = 0f;
@@ -81,7 +81,7 @@ public class BrushController : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06001288 RID: 4744 RVA: 0x0005905C File Offset: 0x0005725C
+	// Token: 0x060012D4 RID: 4820 RVA: 0x0003CECD File Offset: 0x0003B0CD
 	private IEnumerator FadeSphere(Color newColor, float fadeTime, bool disableOnFinish = false)
 	{
 		float timer = 0f;
@@ -100,15 +100,15 @@ public class BrushController : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04001472 RID: 5234
+	// Token: 0x040014BA RID: 5306
 	public PassthroughBrush brush;
 
-	// Token: 0x04001473 RID: 5235
+	// Token: 0x040014BB RID: 5307
 	public MeshRenderer backgroundSphere;
 
-	// Token: 0x04001474 RID: 5236
+	// Token: 0x040014BC RID: 5308
 	private IEnumerator grabRoutine;
 
-	// Token: 0x04001475 RID: 5237
+	// Token: 0x040014BD RID: 5309
 	private IEnumerator releaseRoutine;
 }
